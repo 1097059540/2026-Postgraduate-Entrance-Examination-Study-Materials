@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核酸的物理化学性质和研究方法 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+        
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin: 15px 0;
+            text-align: center;
+            font-family: "KaiTi", "楷体", cursive;
+            font-size: 1.1em;
+        }
+        
+        .term {
+            background-color: #e3f2fd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #1976d2;
+            font-size: 1.1em;
+        }
+        
+        .term-english {
+            color: #666;
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .term-definition {
+            margin-top: 8px;
+        }
+        
+        .quiz-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .options {
+            margin: 10px 0;
+        }
+        
+        .option {
+            margin: 8px 0;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .option:hover {
+            background-color: #e8f4fd;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 20px 0;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result.correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .result.incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .thinking-question {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #6c757d;
+        }
+        
+        .thinking-question h4 {
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        
+        .answer {
+            background: white;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .image-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #6c757d;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #e9ecef;
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>核酸的物理化学性质和研究方法</h1>
+            <p>生物化学考研复习笔记 | 基于朱圣庚、徐长法《生物化学》第四版</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、核心知识体系</h2>
+                
+                <h3>1. 核酸的水解</h3>
+                <h4>1.1 酸性水解</h4>
+                <p>核酸在酸性条件下水解时，嘌呤碱基（腺嘌呤A和鸟嘌呤G）的糖苷键比嘧啶碱基（胞嘧啶C、胸腺嘧啶T、尿嘧啶U）的糖苷键更容易断裂。这是因为嘌呤环系统的电子云密度较高，质子化后更容易发生糖苷键的断裂。</p>
+                
+                <h4>1.2 碱性水解</h4>
+                <p>RNA在碱性条件下可以被完全水解，产生2'和3'核苷酸的混合物。这是因为RNA分子中2'羟基的存在使得磷酸二酯键在碱性条件下不稳定。而DNA由于缺乏2'羟基，在碱性条件下相对稳定，不易被水解。</p>
+                
+                <div class="highlight">
+                    <strong>重要提示：</strong>利用RNA和DNA对碱性水解敏感性的差异，可以选择性地去除RNA而保留DNA，这在核酸分离纯化中具有重要应用价值。
+                </div>
+                
+                <h4>1.3 酶解</h4>
+                <p>核酸酶可以特异性地水解核酸分子：</p>
+                <ul>
+                    <li><strong>DNA酶（DNase）：</strong>专一性水解DNA分子</li>
+                    <li><strong>RNA酶（RNase）：</strong>专一性水解RNA分子</li>
+                    <li><strong>限制性内切酶：</strong>识别特定的DNA序列并在特定位点切割</li>
+                </ul>
+                
+                <h3>2. 核酸的酸碱性质</h3>
+                <p>核酸分子具有两性电解质的性质，主要由以下基团贡献：</p>
+                <ul>
+                    <li><strong>酸性基团：</strong>磷酸基团（pKa约为1-2）</li>
+                    <li><strong>碱性基团：</strong>嘌呤和嘧啶碱基上的氨基和亚氨基</li>
+                </ul>
+                
+                <p>在生理pH条件下（pH 7.4），核酸分子带负电荷，这是由于磷酸基团完全电离而碱基基团大部分未质子化所致。</p>
+                
+                <h3>3. 核酸的紫外吸收</h3>
+                <h4>3.1 紫外吸收的分子基础</h4>
+                <p>核酸的紫外吸收主要来源于嘌呤和嘧啶碱基环上的共轭双键系统。这些芳香环化合物在240-290nm波长范围内有强烈的紫外吸收，最大吸收峰位于260nm附近。</p>
+                
+                <div class="formula">
+                    核酸最大吸收波长：λmax = 260nm<br>
+                    蛋白质最大吸收波长：λmax = 280nm
+                </div>
+                
+                <h4>3.2 增色效应（Hyperchromic Effect）</h4>
+                <p>当DNA双螺旋结构被破坏（变性）时，碱基从内侧暴露出来，碱基间的相互作用减弱，导致紫外吸收显著增加，这种现象称为增色效应。增色效应的幅度通常为30-40%。</p>
+                
+                <h4>3.3 核酸纯度的测定</h4>
+                <p>利用核酸和蛋白质在不同波长下的吸收差异，可以通过测定A₂₆₀/A₂₈₀比值来评估核酸样品的纯度：</p>
+                <ul>
+                    <li><strong>纯DNA：</strong>A₂₆₀/A₂₈₀ ≈ 1.8</li>
+                    <li><strong>纯RNA：</strong>A₂₆₀/A₂₈₀ ≈ 2.0</li>
+                    <li><strong>比值偏低：</strong>表明样品中含有蛋白质污染</li>
+                    <li><strong>比值偏高：</strong>表明样品中可能含有RNA或其他杂质</li>
+                </ul>
+                
+                <h3>4. 核酸的变性、复性和杂交</h3>
+                <h4>4.1 DNA变性（Denaturation）</h4>
+                <p>DNA变性是指双螺旋结构中的氢键断裂，两条互补链分离，形成无规则线团状构象的过程。变性只涉及次级键的断裂，不影响一级结构。</p>
+                
+                <p><strong>引起变性的因素：</strong></p>
+                <ul>
+                    <li>高温（最常用的变性方法）</li>
+                    <li>极端pH值（强酸或强碱）</li>
+                    <li>有机溶剂（甲醇、乙醇、甲酰胺等）</li>
+                    <li>变性剂（尿素、盐酸胍等）</li>
+                </ul>
+                
+                <p><strong>变性后的理化性质变化：</strong></p>
+                <ul>
+                    <li>溶液黏度降低</li>
+                    <li>增色效应（紫外吸收增加30-40%）</li>
+                    <li>旋光性改变</li>
+                    <li>浮力密度增加</li>
+                    <li>流动双折射消失</li>
+                </ul>
+                
+                <h4>4.2 熔解温度（Tm值）</h4>
+                <p>Tm值是指DNA热变性过程中，紫外吸收增加量达到最大增量50%时的温度，此时50%的双螺旋结构被破坏。</p>
+                
+                <div class="formula">
+                    Tm = 69.3 + 0.41(%G+C) + 16.6(lg[Na⁺])
+                </div>
+                
+                <p><strong>影响Tm值的因素：</strong></p>
+                <ul>
+                    <li><strong>G+C含量：</strong>G-C碱基对有3个氢键，A-T碱基对只有2个氢键，因此G+C含量越高，Tm值越高</li>
+                    <li><strong>离子强度：</strong>高离子强度可以屏蔽DNA链间的静电斥力，提高Tm值</li>
+                    <li><strong>DNA长度：</strong>较长的DNA分子具有更高的Tm值</li>
+                    <li><strong>pH值：</strong>极端pH会影响碱基的质子化状态，从而影响Tm值</li>
+                </ul>
+                
+                <h4>4.3 DNA复性（Renaturation）</h4>
+                <p>复性是变性DNA在适当条件下重新形成双螺旋结构的过程，也称为退火（Annealing）。</p>
+                
+                <p><strong>复性的最适条件：</strong></p>
+                <ul>
+                    <li><strong>温度：</strong>比Tm值低25°C左右</li>
+                    <li><strong>冷却速度：</strong>缓慢冷却（急速冷却会阻止复性）</li>
+                    <li><strong>离子强度：</strong>0.18-0.2 mol/L Na⁺</li>
+                    <li><strong>DNA浓度：</strong>适当的浓度有利于互补链的碰撞结合</li>
+                </ul>
+                
+                <h4>4.4 Cot值和复性动力学</h4>
+                <p>Cot值用于描述DNA复性的动力学特征，其中C₀为单链DNA的起始浓度，t为复性时间。</p>
+                
+                <div class="formula">
+                    Cot₁/₂ ∝ 基因组复杂性
+                </div>
+                
+                <p>基因组越复杂（非重复序列越多），达到50%复性所需的Cot₁/₂值越大。</p>
+                
+                <h4>4.5 分子杂交（Hybridization）</h4>
+                <p>分子杂交是指来自不同来源的核酸单链在适当条件下形成杂化双链的过程。这是现代分子生物学技术的重要基础。</p>
+                
+                <p><strong>杂交的类型：</strong></p>
+                <ul>
+                    <li><strong>DNA-DNA杂交：</strong>用于基因定位、基因组比较等</li>
+                    <li><strong>DNA-RNA杂交：</strong>用于基因表达分析</li>
+                    <li><strong>RNA-RNA杂交：</strong>用于RNA结构和功能研究</li>
+                </ul>
+                
+                <h3>5. 核酸的分离和纯化</h3>
+                <h4>5.1 细胞裂解和核酸释放</h4>
+                <p>核酸的分离首先需要破坏细胞壁和细胞膜，释放细胞内的核酸。常用方法包括：</p>
+                <ul>
+                    <li><strong>物理方法：</strong>超声波破碎、液氮研磨、高压均质等</li>
+                    <li><strong>化学方法：</strong>去垢剂（SDS）、蛋白酶K处理等</li>
+                    <li><strong>酶解方法：</strong>溶菌酶处理细菌细胞壁</li>
+                </ul>
+                
+                <h4>5.2 蛋白质的去除</h4>
+                <p>核酸提取过程中需要去除结合的蛋白质：</p>
+                <ul>
+                    <li><strong>苯酚-氯仿抽提：</strong>利用蛋白质在有机相中的溶解性</li>
+                    <li><strong>蛋白酶处理：</strong>蛋白酶K可以消化大部分蛋白质</li>
+                    <li><strong>盐析法：</strong>高盐浓度下沉淀蛋白质</li>
+                </ul>
+                
+                <h4>5.3 DNA和RNA的分离</h4>
+                <p>利用DNA和RNA的理化性质差异进行分离：</p>
+                <ul>
+                    <li><strong>碱性水解：</strong>NaOH处理可选择性水解RNA</li>
+                    <li><strong>RNase处理：</strong>特异性消化RNA</li>
+                    <li><strong>氯化锂沉淀：</strong>高浓度LiCl可选择性沉淀RNA</li>
+                </ul>
+                
+                <h4>5.4 核酸的纯化方法</h4>
+                <p><strong>色谱法：</strong></p>
+                <ul>
+                    <li><strong>离子交换色谱：</strong>利用核酸的负电荷特性</li>
+                    <li><strong>分子筛色谱：</strong>根据分子大小分离</li>
+                    <li><strong>反相色谱：</strong>利用疏水相互作用</li>
+                    <li><strong>亲和色谱：</strong>利用特异性结合</li>
+                </ul>
+                
+                <p><strong>电泳法：</strong></p>
+                <ul>
+                    <li><strong>琼脂糖凝胶电泳：</strong>分离较大的DNA片段（>100bp）</li>
+                    <li><strong>聚丙烯酰胺凝胶电泳：</strong>分离较小的DNA片段（<1000bp）</li>
+                    <li><strong>脉冲场凝胶电泳：</strong>分离超大DNA分子（>50kb）</li>
+                </ul>
+                
+                <h4>5.5 密度梯度离心</h4>
+                <ul>
+                    <li><strong>蔗糖密度梯度：</strong>根据沉降系数分离</li>
+                    <li><strong>氯化铯密度梯度：</strong>根据浮力密度分离，可区分不同类型的核酸</li>
+                </ul>
+                
+                <h3>6. 核酸序列测定</h3>
+                <h4>6.1 第一代测序技术</h4>
+                <p><strong>Sanger双脱氧链终止法（1977年）：</strong></p>
+                <p>这是目前应用最广泛的DNA测序方法，其基本原理是利用DNA聚合酶合成DNA时，如果加入缺乏3'-OH的双脱氧核苷三磷酸（ddNTP），就会导致链合成终止。</p>
+                
+                <p><strong>测序步骤：</strong></p>
+                <ol>
+                    <li><strong>模板准备：</strong>制备单链DNA模板</li>
+                    <li><strong>引物退火：</strong>特异性引物与模板结合</li>
+                    <li><strong>链延伸反应：</strong>在含有dNTP和少量ddNTP的体系中进行DNA合成</li>
+                    <li><strong>电泳分离：</strong>变性聚丙烯酰胺凝胶电泳分离不同长度的片段</li>
+                    <li><strong>序列读取：</strong>通过荧光检测或放射自显影读取序列</li>
+                </ol>
+                
+                <p><strong>Maxam-Gilbert化学法（1977年）：</strong></p>
+                <p>利用特异的化学试剂作用于不同碱基，然后用哌啶切断反应碱基的多核苷酸链。虽然准确性高，但操作复杂，现已较少使用。</p>
+                
+                <h4>6.2 第二代测序技术（高通量测序）</h4>
+                <p><strong>454测序法：</strong></p>
+                <ul>
+                    <li><strong>核心技术：</strong>焦磷酸测序法，边合成边测序</li>
+                    <li><strong>优点：</strong>读长较长（400-800bp），速度快</li>
+                    <li><strong>缺点：</strong>无法准确识别连续相同核苷酸</li>
+                </ul>
+                
+                <p><strong>Solexa测序法（Illumina）：</strong></p>
+                <ul>
+                    <li><strong>核心技术：</strong>桥式PCR扩增和可逆终止测序</li>
+                    <li><strong>优点：</strong>通量高，成本低，准确性高</li>
+                    <li><strong>缺点：</strong>读长较短（50-300bp）</li>
+                </ul>
+                
+                <p><strong>SOLiD测序法：</strong></p>
+                <ul>
+                    <li><strong>核心技术：</strong>连接酶测序和双碱基编码</li>
+                    <li><strong>优点：</strong>准确性极高，通量大</li>
+                    <li><strong>缺点：</strong>读长短，数据分析复杂</li>
+                </ul>
+                
+                <h4>6.3 第三代测序技术（单分子测序）</h4>
+                <p><strong>SMRT测序（PacBio）：</strong></p>
+                <ul>
+                    <li><strong>原理：</strong>单分子实时测序，利用零模波导孔技术</li>
+                    <li><strong>优点：</strong>读长极长（平均10-15kb），可检测碱基修饰</li>
+                    <li><strong>缺点：</strong>错误率相对较高，成本高</li>
+                </ul>
+                
+                <p><strong>Nanopore测序：</strong></p>
+                <ul>
+                    <li><strong>原理：</strong>DNA通过纳米孔时产生特征性电流信号</li>
+                    <li><strong>优点：</strong>读长无理论上限，便携性好</li>
+                    <li><strong>缺点：</strong>错误率较高，通量相对较低</li>
+                </ul>
+                
+                <h3>7. DNA微阵技术（DNA芯片）</h3>
+                <h4>7.1 基本原理</h4>
+                <p>DNA微阵技术是将大量已知序列的单链DNA片段按设计顺序固定在固体表面，形成微观阵列，用作探针与标记的靶核酸分子进行杂交检测。</p>
+                
+                <h4>7.2 制作方法</h4>
+                <ul>
+                    <li><strong>接触打印法：</strong>使用机械臂将DNA溶液点样到芯片表面</li>
+                    <li><strong>照相平版印刷法：</strong>利用光刻技术原位合成寡核苷酸</li>
+                    <li><strong>喷墨法：</strong>类似喷墨打印机的原理制作芯片</li>
+                </ul>
+                
+                <h4>7.3 主要应用</h4>
+                <ul>
+                    <li><strong>基因表达谱分析：</strong>检测不同条件下基因表达水平的变化</li>
+                    <li><strong>基因型检测：</strong>检测单核苷酸多态性（SNP）</li>
+                    <li><strong>基因突变检测：</strong>筛查疾病相关的基因突变</li>
+                    <li><strong>DNA重测序：</strong>验证已知序列的准确性</li>
+                </ul>
+                
+                <h3>8. 核酸的化学合成</h3>
+                <h4>8.1 固相亚磷酰胺法</h4>
+                <p>这是目前DNA自动合成仪普遍采用的方法，具有高效、快速的特点。</p>
+                
+                <p><strong>合成循环（四步反应）：</strong></p>
+                <ol>
+                    <li><strong>去保护：</strong>用三氯醋酸去除5'端的DMTr保护基</li>
+                    <li><strong>偶联反应：</strong>活化的亚磷酰胺单体与5'-OH发生偶联</li>
+                    <li><strong>加帽反应：</strong>用醋酐封闭未反应的5'-OH</li>
+                    <li><strong>氧化反应：</strong>用碘将三价磷氧化为五价磷</li>
+                </ol>
+                
+                <p><strong>合成特点：</strong></p>
+                <ul>
+                    <li>合成方向：3'→5'</li>
+                    <li>偶联效率：>99%</li>
+                    <li>合成长度：通常50-100个核苷酸</li>
+                    <li>纯化：需要去除保护基并进行HPLC纯化</li>
+                </ul>
+                
+                <div class="image-placeholder">
+                    [DNA合成循环示意图]
+                    <br>显示四步反应循环：去保护→偶联→加帽→氧化
+                </div>
+            </div>
+            
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>二、重要名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">变性（Denaturation）</div>
+                    <div class="term-english">DNA Denaturation</div>
+                    <div class="term-definition">指DNA双螺旋结构中的氢键断裂，两条互补链分离，形成无规则线团状构象的过程。变性只涉及次级键的断裂，不影响一级结构。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">复性（Renaturation）</div>
+                    <div class="term-english">DNA Renaturation / Annealing</div>
+                    <div class="term-definition">变性DNA在适当条件下重新形成双螺旋结构的过程。需要缓慢冷却和适当的离子强度。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">熔解温度（Tm值）</div>
+                    <div class="term-english">Melting Temperature, Tm</div>
+                    <div class="term-definition">DNA热变性过程中，紫外吸收增加量达到最大增量50%时的温度。Tm值与G+C含量成正比。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">增色效应</div>
+                    <div class="term-english">Hyperchromic Effect</div>
+                    <div class="term-definition">DNA变性时碱基暴露导致紫外吸收显著增加的现象，增幅通常为30-40%。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">Cot值</div>
+                    <div class="term-english">Cot Value</div>
+                    <div class="term-definition">用于描述DNA复性动力学的参数，C₀为单链DNA起始浓度，t为复性时间。Cot₁/₂与基因组复杂性成正比。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">分子杂交</div>
+                    <div class="term-english">Molecular Hybridization</div>
+                    <div class="term-definition">来自不同来源的核酸单链在适当条件下通过碱基配对形成杂化双链的过程。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">Sanger测序法</div>
+                    <div class="term-english">Sanger Sequencing / Chain Termination Method</div>
+                    <div class="term-definition">利用双脱氧核苷三磷酸（ddNTP）作为链终止剂的DNA测序方法，是第一代测序技术的代表。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">高通量测序</div>
+                    <div class="term-english">High-throughput Sequencing / Next-generation Sequencing, NGS</div>
+                    <div class="term-definition">第二代测序技术的总称，特点是通量高、成本低，包括454、Solexa、SOLiD等平台。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">单分子测序</div>
+                    <div class="term-english">Single Molecule Sequencing</div>
+                    <div class="term-definition">第三代测序技术，可以对单个DNA分子进行实时测序，读长长，包括SMRT和Nanopore技术。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">DNA微阵技术</div>
+                    <div class="term-english">DNA Microarray / DNA Chip</div>
+                    <div class="term-definition">将大量已知序列的DNA片段固定在固体表面形成阵列，用于基因表达分析和基因型检测的技术。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">固相合成法</div>
+                    <div class="term-english">Solid-phase Synthesis</div>
+                    <div class="term-definition">DNA化学合成的主要方法，将第一个核苷酸固定在不溶性载体上，逐步延伸合成目标序列。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">亚磷酰胺法</div>
+                    <div class="term-english">Phosphoramidite Method</div>
+                    <div class="term-definition">目前DNA自动合成仪普遍采用的化学合成方法，包括去保护、偶联、加帽、氧化四个步骤的循环。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">Southern印迹杂交</div>
+                    <div class="term-english">Southern Blotting</div>
+                    <div class="term-definition">将DNA转移到硝酸纤维素膜或尼龙膜上进行分子杂交的技术，用于DNA检测和分析。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">Northern印迹杂交</div>
+                    <div class="term-english">Northern Blotting</div>
+                    <div class="term-definition">将RNA转移到膜上进行分子杂交的技术，用于RNA检测和基因表达分析。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">脉冲场凝胶电泳</div>
+                    <div class="term-english">Pulsed Field Gel Electrophoresis, PFGE</div>
+                    <div class="term-definition">用于分离超大DNA分子（>50kb）的电泳技术，通过改变电场方向使大分子DNA能够在凝胶中迁移。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">密度梯度离心</div>
+                    <div class="term-english">Density Gradient Centrifugation</div>
+                    <div class="term-definition">利用不同密度的介质形成密度梯度，根据分子的浮力密度差异进行分离的技术。</div>
+                </div>
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>三、选择题测试</h2>
+                <div class="quiz-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div id="quizContainer"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quizResult" class="result"></div>
+                </div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>四、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试分析DNA变性和复性的分子机制，并阐述其在分子生物学技术中的应用价值。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>DNA变性的分子机制：</strong>DNA双螺旋结构的稳定性主要依赖于碱基间的氢键和碱基堆积力。当外界条件（如高温、极端pH、变性剂等）破坏这些相互作用时，氢键断裂，双链分离。变性过程是协同性的，在很窄的温度范围内完成，表现为典型的S型熔解曲线。变性后DNA分子从紧密的双螺旋结构变为松散的无规线团，导致黏度降低、紫外吸收增加（增色效应）等理化性质的改变。</li>
+                            <li><strong>DNA复性的分子机制：</strong>复性是变性的逆过程，需要适当的温度（通常比Tm低25°C）、离子强度和时间。复性包括成核和拉链化两个步骤：首先是互补序列的随机碰撞和初始配对（成核），然后是沿着分子逐步配对形成完整双螺旋（拉链化）。成核是限速步骤，因此DNA浓度对复性速度有重要影响。</li>
+                            <li><strong>在PCR技术中的应用：</strong>PCR的每个循环都包括变性、退火和延伸三个步骤。高温变性使模板DNA链分离，降温退火使引物与模板结合，适温延伸合成新链。这一过程的成功依赖于对DNA变性复性规律的精确控制。</li>
+                            <li><strong>在分子杂交技术中的应用：</strong>Southern、Northern杂交等技术都基于核酸的变性复性原理。通过控制杂交条件（温度、盐浓度等），可以实现特异性检测，广泛应用于基因定位、表达分析、突变检测等领域。</li>
+                            <li><strong>在基因克隆和测序中的应用：</strong>DNA文库的构建、载体与插入片段的连接、测序反应中的模板制备等都涉及DNA的变性复性过程。理解这些原理有助于优化实验条件，提高实验成功率。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较第一代、第二代和第三代DNA测序技术的原理、特点及应用前景。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>第一代测序技术（Sanger法）：</strong>基于链终止原理，使用ddNTP作为终止剂，通过毛细管电泳分离不同长度的片段。特点是准确性高（>99.9%），读长适中（500-1000bp），但通量低，成本高。目前仍是验证测序和小规模项目的金标准，在基因克隆、突变检测、引物设计验证等方面有重要应用。</li>
+                            <li><strong>第二代测序技术（高通量测序）：</strong>包括454（焦磷酸测序）、Illumina（可逆终止测序）、SOLiD（连接酶测序）等平台。共同特点是通量高、成本低、并行处理能力强，但读长相对较短（50-800bp）。革命性地推动了基因组学研究，使得全基因组测序、转录组测序、表观基因组学等大规模研究成为可能。在疾病基因发现、个性化医疗、农业育种等领域有广泛应用。</li>
+                            <li><strong>第三代测序技术（单分子测序）：</strong>以PacBio SMRT和Oxford Nanopore为代表，可以对单个DNA分子进行实时测序。最大优势是读长极长（可达数十kb甚至更长），能够跨越重复序列和结构变异区域，并可检测碱基修饰。虽然错误率相对较高，但在基因组组装、结构变异检测、全长转录本测序等方面具有独特优势。</li>
+                            <li><strong>技术发展趋势：</strong>未来测序技术将朝着更长读长、更高准确性、更低成本、更快速度的方向发展。第三代技术的错误率正在快速降低，第四代技术（如蛋白质纳米孔测序）也在研发中。不同代技术将在不同应用场景中发挥各自优势，形成互补格局。</li>
+                            <li><strong>应用前景展望：</strong>随着技术成熟和成本降低，测序将更广泛地应用于临床诊断、药物开发、精准医疗、生物技术等领域。长读长测序技术将解决复杂基因组区域的组装问题，实时测序技术将实现即时诊断，多组学整合分析将提供更全面的生物学信息。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 阐述核酸紫外吸收的分子基础，并分析其在核酸定量和纯度检测中的应用原理。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>紫外吸收的分子基础：</strong>核酸的紫外吸收主要来源于嘌呤（腺嘌呤、鸟嘌呤）和嘧啶（胞嘧啶、胸腺嘧啶、尿嘧啶）碱基环上的共轭双键系统。这些芳香环化合物具有π电子共轭体系，能够吸收特定波长的紫外光。当紫外光照射时，π电子从基态跃迁到激发态，产生特征性吸收峰。核酸的最大吸收波长在260nm附近，这是由于碱基的电子跃迁能级决定的。</li>
+                            <li><strong>增色效应的机制：</strong>在DNA双螺旋结构中，碱基位于分子内侧，相邻碱基间存在π-π堆积相互作用，这种相互作用会抑制紫外吸收。当DNA变性时，双螺旋结构解开，碱基暴露，堆积相互作用减弱，导致紫外吸收显著增加，这就是增色效应。增色效应的幅度通常为30-40%，是DNA变性的重要指标。</li>
+                            <li><strong>核酸定量的原理：</strong>根据Beer-Lambert定律，在一定浓度范围内，溶液的吸光度与溶质浓度成正比。通过测定260nm处的吸光度，可以计算核酸浓度。对于双链DNA，A₂₆₀=1.0相当于约50μg/mL；对于RNA，A₂₆₀=1.0相当于约40μg/mL。这种方法简便快速，是实验室常用的核酸定量方法。</li>
+                            <li><strong>纯度检测的原理：</strong>不同生物分子在紫外区有不同的吸收特征。蛋白质由于含有芳香族氨基酸（苯丙氨酸、酪氨酸、色氨酸），在280nm处有最大吸收。通过测定A₂₆₀/A₂₈₀比值，可以评估核酸样品的纯度。纯DNA的比值约为1.8，纯RNA约为2.0。比值偏低表明有蛋白质污染，比值偏高可能含有RNA或其他杂质。</li>
+                            <li><strong>实际应用中的注意事项：</strong>pH值、离子强度、温度等因素都会影响紫外吸收，因此需要在标准条件下测定。样品中的污染物（如苯酚、EDTA等）也会干扰测定结果。对于高精度要求的实验，还需要结合其他方法（如荧光定量、凝胶电泳等）进行验证。现代分光光度计还可以测定A₂₆₀/A₂₃₀比值来检测有机污染物的存在。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 分析影响DNA熔解温度（Tm值）的主要因素，并探讨其在分子生物学实验中的指导意义。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>碱基组成的影响：</strong>G-C碱基对之间有三个氢键，而A-T碱基对只有两个氢键，因此G+C含量越高，DNA双螺旋越稳定，Tm值越高。经验公式Tm=69.3+0.41(%G+C)很好地反映了这种关系。这一规律在引物设计、PCR条件优化、杂交实验等方面具有重要指导意义。例如，设计PCR引物时需要考虑引物的Tm值匹配，通常要求正向和反向引物的Tm值相差不超过5°C。</li>
+                            <li><strong>离子强度的影响：</strong>DNA分子带负电荷，链间存在静电斥力。高离子强度可以屏蔽这种斥力，稳定双螺旋结构，提高Tm值。Na⁺浓度的影响可用公式Tm=69.3+0.41(%G+C)+16.6(lg[Na⁺])表示。在实际实验中，通过调节缓冲液的离子强度可以控制杂交的严紧性，实现特异性检测。</li>
+                            <li><strong>DNA分子长度的影响：</strong>较长的DNA分子具有更多的碱基对，协同效应使得整体结构更稳定，Tm值更高。但这种影响主要体现在相对较短的分子中，对于长DNA分子，长度对Tm值的影响趋于平缓。这一特性在寡核苷酸探针设计中需要特别考虑，通常要求探针长度在18-25个核苷酸之间以获得适当的Tm值。</li>
+                            <li><strong>pH值的影响：</strong>极端pH会影响碱基的质子化状态，破坏氢键形成，降低Tm值。在碱性条件下，碱基去质子化会影响Watson-Crick配对；在酸性条件下，碱基质子化也会干扰正常配对。因此，核酸实验通常在中性或弱碱性条件下进行。</li>
+                            <li><strong>在分子生物学实验中的指导意义：</strong>①PCR实验：退火温度通常设定为引物Tm值减去5-10°C，以确保引物特异性结合；②杂交实验：杂交温度和洗涤温度的设定需要根据探针和靶序列的Tm值来确定，高严紧性条件可以提高特异性；③DNA变性实验：了解样品的Tm值有助于选择合适的变性条件；④引物和探针设计：需要计算Tm值以确保实验条件的合理性；⑤基因组分析：不同物种或基因组区域的G+C含量差异可以通过Tm值分析来研究。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>5. 论述现代DNA测序技术的发展对生命科学研究和医学诊断带来的革命性影响。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>基因组学研究的革命：</strong>从人类基因组计划耗时13年、花费30亿美元，到现在个人基因组测序只需几天、成本不到1000美元，测序技术的飞速发展彻底改变了基因组学研究。大规模基因组测序项目（如千人基因组计划、万人基因组计划）揭示了人类遗传变异的全貌，为理解疾病机制、药物反应、进化历史等提供了前所未有的数据基础。全基因组关联研究（GWAS）发现了数千个与疾病相关的遗传位点，推动了精准医学的发展。</li>
+                            <li><strong>转录组学和表观基因组学的兴起：</strong>RNA测序技术使得全转录组分析成为可能，不仅可以检测已知基因的表达水平，还能发现新的转录本、剪接变体、长非编码RNA等。单细胞RNA测序技术进一步揭示了细胞异质性和发育轨迹。表观基因组测序（如ChIP-seq、ATAC-seq、甲基化测序等）阐明了基因调控的分子机制，为理解疾病发生发展提供了新的视角。</li>
+                            <li><strong>精准医学的实现：</strong>测序技术使得个体化医疗成为现实。通过分析患者的基因组信息，可以预测疾病风险、选择最适合的治疗方案、避免药物不良反应。肿瘤基因组测序已成为癌症诊断和治疗的重要工具，指导靶向治疗和免疫治疗的选择。药物基因组学研究为个体化用药提供了科学依据。</li>
+                            <li><strong>感染性疾病诊断的变革：</strong>宏基因组测序技术可以在不培养病原体的情况下直接检测感染性疾病，大大缩短了诊断时间。在COVID-19疫情中，快速基因组测序为病毒溯源、变异监测、疫苗开发等提供了关键信息。抗生素耐药基因的检测有助于合理使用抗生素，减少耐药性的产生。</li>
+                            <li><strong>农业和环境科学的应用：</strong>作物基因组测序加速了分子育种进程，培育出抗病、抗逆、高产的新品种。环境宏基因组学揭示了微生物群落的结构和功能，为生态保护、污染治理、生物能源开发等提供了新思路。古DNA测序技术重建了物种进化历史，为保护生物学提供了重要信息。</li>
+                            <li><strong>未来发展前景：</strong>随着测序成本的进一步降低和技术的不断完善，测序将更广泛地应用于临床常规检测、健康管理、药物开发等领域。长读长测序技术将解决复杂基因组区域的分析难题，实时测序技术将实现床旁即时诊断，多组学整合分析将提供更全面的生物学信息。人工智能和大数据技术的结合将进一步提升数据分析和解释的能力，推动生命科学研究和医学诊断进入新的时代。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "DNA合成仪合成DNA片段时用的原料是（）",
+                options: ["4种dNTP", "4种NTP", "4种dNDP", "4种脱氧核苷的衍生物"],
+                correct: 3,
+                explanation: "核酸的紫外吸收主要来源于嘌呤和嘧啶碱基环上的共轭双键系统，这些芳香环化合物在260nm附近有最大吸收峰。"
+            },
+            {
+                question: "DNA变性时，下列哪种性质不发生改变？（）",
+                options: ["紫外吸收", "黏度", "浮力密度", "一级结构"],
+                correct: 3,
+                explanation: "DNA变性只破坏氢键等次级键，不影响共价键，因此一级结构（核苷酸序列）不发生改变。"
+            },
+            {
+                question: "DNA的Tm值主要取决于（）",
+                options: ["A+T含量", "G+C含量", "分子长度", "磷酸基团数量"],
+                correct: 1,
+                explanation: "G-C碱基对有3个氢键，A-T碱基对只有2个氢键，因此G+C含量越高，DNA越稳定，Tm值越高。"
+            },
+            {
+                question: "下列哪种方法不能用于DNA和RNA的分离？（）",
+                options: ["碱性水解", "RNase处理", "氯化锂沉淀", "苯酚抽提"],
+                correct: 3,
+                explanation: "苯酚抽提主要用于去除蛋白质，不能特异性分离DNA和RNA。其他三种方法都可以利用DNA和RNA的性质差异进行分离。"
+            },
+            {
+                question: "Sanger测序法的核心原理是（）",
+                options: ["化学降解", "链终止", "焦磷酸测序", "连接酶反应"],
+                correct: 1,
+                explanation: "Sanger测序法使用双脱氧核苷三磷酸（ddNTP）作为链终止剂，当ddNTP掺入时会终止DNA链的延伸。"
+            },
+            {
+                question: "第二代测序技术的主要特点是（）",
+                options: ["读长长", "通量高", "错误率高", "成本高"],
+                correct: 1,
+                explanation: "第二代测序技术（如Illumina、454等）的主要优势是通量高，可以并行处理大量样本，大大降低了测序成本。"
+            },
+            {
+                question: "DNA微阵技术主要用于（）",
+                options: ["DNA测序", "基因表达分析", "蛋白质检测", "细胞培养"],
+                correct: 1,
+                explanation: "DNA微阵（芯片）技术通过杂交检测，主要用于基因表达谱分析、基因型检测和突变筛查等。"
+            },
+            {
+                question: "核酸的增色效应是指（）",
+                options: ["变性时紫外吸收增加", "复性时紫外吸收增加", "pH改变时颜色变化", "温度升高时吸收峰移动"],
+                correct: 0,
+                explanation: "增色效应是指DNA变性时，碱基暴露导致紫外吸收显著增加的现象，增幅通常为30-40%。"
+            },
+            {
+                question: "Southern印迹杂交技术检测的是（）",
+                options: ["RNA", "DNA", "蛋白质", "多糖"],
+                correct: 1,
+                explanation: "Southern印迹杂交是将DNA转移到膜上进行分子杂交的技术，用于DNA的检测和分析。"
+            },
+            {
+                question: "脉冲场凝胶电泳主要用于分离（）",
+                options: ["小分子DNA", "RNA", "超大DNA分子", "蛋白质"],
+                correct: 2,
+                explanation: "脉冲场凝胶电泳通过改变电场方向，专门用于分离超大DNA分子（>50kb），普通电泳无法分离。"
+            },
+            {
+                question: "DNA化学合成的方向是（）",
+                options: ["5'→3'", "3'→5'", "双向同时进行", "随机方向"],
+                correct: 1,
+                explanation: "DNA化学合成采用固相亚磷酰胺法，合成方向是3'→5'，与天然DNA聚合酶的合成方向相反。"
+            },
+            {
+                question: "纯DNA样品的A₂₆₀/A₂₈₀比值约为（）",
+                options: ["1.0", "1.8", "2.0", "2.5"],
+                correct: 1,
+                explanation: "纯DNA的A₂₆₀/A₂₈₀比值约为1.8，纯RNA约为2.0。比值偏低表明有蛋白质污染。"
+            },
+            {
+                question: "第三代测序技术的主要优势是（）",
+                options: ["成本低", "通量高", "读长长", "错误率低"],
+                correct: 2,
+                explanation: "第三代测序技术（如PacBio、Nanopore）的主要优势是读长极长，可以跨越重复序列和结构变异区域。"
+            },
+            {
+                question: "Cot值主要用于描述（）",
+                options: ["DNA变性", "DNA复性动力学", "RNA稳定性", "蛋白质结合"],
+                correct: 1,
+                explanation: "Cot值（浓度×时间）用于描述DNA复性的动力学特征，Cot₁/₂与基因组复杂性成正比。"
+            },
+            {
+                question: "限制性内切酶主要用于（）",
+                options: ["RNA降解", "蛋白质水解", "DNA特异性切割", "脂质分解"],
+                correct: 2,
+                explanation: "限制性内切酶能够识别特定的DNA序列并在特定位点进行切割，是分子克隆的重要工具。"
+            },
+            {
+                question: "Northern印迹杂交检测的是（）",
+                options: ["DNA", "RNA", "蛋白质", "脂质"],
+                correct: 1,
+                explanation: "Northern印迹杂交是将RNA转移到膜上进行分子杂交的技术，用于RNA检测和基因表达分析。"
+            },
+            {
+                question: "DNA双螺旋结构的稳定性主要依赖于（）",
+                options: ["离子键", "氢键和碱基堆积力", "共价键", "范德华力"],
+                correct: 1,
+                explanation: "DNA双螺旋结构的稳定性主要依赖于碱基间的氢键和碱基堆积力，这些都是非共价相互作用。"
+            },
+            {
+                question: "密度梯度离心分离核酸的原理是（）",
+                options: ["分子大小", "电荷差异", "浮力密度差异", "溶解性差异"],
+                correct: 2,
+                explanation: "密度梯度离心利用不同核酸分子的浮力密度差异进行分离，如氯化铯梯度可以分离不同类型的核酸。"
+            },
+            {
+                question: "PCR技术中退火温度的设定主要依据（）",
+                options: ["模板DNA的长度", "引物的Tm值", "dNTP的浓度", "聚合酶的活性"],
+                correct: 1,
+                explanation: "PCR中退火温度通常设定为引物Tm值减去5-10°C，以确保引物能够特异性结合到模板上。"
+            },
+            {
+                question: "RNA相对于DNA更不稳定的主要原因是（）",
+                options: ["含有尿嘧啶", "是单链结构", "含有2'羟基", "分子较小"],
+                correct: 2,
+                explanation: "RNA分子中2'羟基的存在使得磷酸二酯键在碱性条件下不稳定，容易发生水解，这是RNA不稳定的主要原因。"
+            },
+            {
+                question: "基因芯片技术的核心原理是（）",
+                options: ["PCR扩增", "分子杂交", "酶切反应", "电泳分离"],
+                correct: 1,
+                explanation: "基因芯片技术基于分子杂交原理，通过标记的靶核酸与芯片上的探针杂交来检测基因表达或基因型。"
+            },
+            {
+                question: "DNA变性后复性的最适温度是（）",
+                options: ["等于Tm值", "高于Tm值", "比Tm值低25°C左右", "比Tm值低50°C左右"],
+                correct: 2,
+                explanation: "DNA复性的最适温度通常比Tm值低25°C左右，这样既能保证链的分离又能促进互补链的重新结合。"
+            },
+            {
+                question: "自动DNA测序仪检测DNA序列的原理是（）",
+                options: ["放射性同位素标记", "荧光标记", "酶联免疫", "化学发光"],
+                correct: 1,
+                explanation: "现代自动DNA测序仪使用荧光标记的ddNTP，通过激光激发和荧光检测来确定DNA序列。"
+            },
+            {
+                question: "影响DNA Tm值的因素不包括（）",
+                options: ["G+C含量", "离子强度", "pH值", "蛋白质含量"],
+                correct: 3,
+                explanation: "DNA的Tm值主要受G+C含量、离子强度、pH值、DNA长度等因素影响，蛋白质含量不直接影响Tm值。"
+            },
+            {
+                question: "单分子测序技术的代表是（）",
+                options: ["Sanger测序", "454测序", "PacBio SMRT", "Illumina测序"],
+                correct: 2,
+                explanation: "PacBio SMRT是第三代单分子测序技术的代表，可以对单个DNA分子进行实时测序，读长极长。"
+            },
+            {
+                question: "核酸分子在260nm处的吸收主要来自（）",
+                options: ["磷酸基团", "戊糖", "嘌呤和嘧啶碱基", "氢键"],
+                correct: 2,
+                explanation: "核酸在260nm处的紫外吸收主要来自嘌呤和嘧啶碱基环上的共轭双键系统。"
+            },
+            {
+                question: "DNA化学合成中加帽反应的目的是（）",
+                options: ["保护5'端", "封闭未反应的羟基", "促进偶联反应", "防止降解"],
+                correct: 1,
+                explanation: "加帽反应使用醋酐封闭未反应的5'-OH，防止在下一轮合成中产生缺失序列，提高合成产物的纯度。"
+            },
+            {
+                question: "高通量测序相对于传统测序的主要优势是（）",
+                options: ["读长更长", "准确性更高", "通量更高，成本更低", "操作更简单"],
+                correct: 2,
+                explanation: "高通量测序（第二代测序）的主要优势是可以并行处理大量样本，通量高，成本大幅降低。"
+            },
+            {
+                question: "分子杂交技术中严紧性主要由什么控制？（）",
+                options: ["DNA浓度", "温度和盐浓度", "pH值", "反应时间"],
+                correct: 1,
+                explanation: "分子杂交的严紧性主要通过温度和盐浓度来控制，高温低盐为高严紧性条件，可提高特异性。"
+            },
+            {
+                question: "Nanopore测序技术的原理是（）",
+                options: ["荧光检测", "电流信号检测", "质谱分析", "光学检测"],
+                correct: 1,
+                explanation: "Nanopore测序通过检测DNA分子通过纳米孔时产生的特征性电流信号变化来确定碱基序列。"
+            }
+         ];
+
+         // 随机选择15道题
+         function getRandomQuestions() {
+             const shuffled = questionBank.sort(() => 0.5 - Math.random());
+             return shuffled.slice(0, 15);
+         }
+
+         // 渲染题目
+         function renderQuestions() {
+             const selectedQuestions = getRandomQuestions();
+             const container = document.getElementById('quizContainer');
+             
+             selectedQuestions.forEach((q, index) => {
+                 const questionDiv = document.createElement('div');
+                 questionDiv.className = 'question';
+                 questionDiv.innerHTML = `
+                     <div class="question-text">${index + 1}. ${q.question}</div>
+                     <div class="options">
+                         ${q.options.map((option, i) => `
+                             <div class="option">
+                                 <input type="radio" name="q${index}" value="${i}">
+                                 ${String.fromCharCode(65 + i)}. ${option}
+                             </div>
+                         `).join('')}
+                     </div>
+                 `;
+                 container.appendChild(questionDiv);
+             });
+             
+             // 存储正确答案和解析
+             window.currentQuestions = selectedQuestions;
+         }
+
+         // 提交答案
+         function submitQuiz() {
+             const questions = window.currentQuestions;
+             let correct = 0;
+             const results = [];
+             
+             questions.forEach((q, index) => {
+                 const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                 const userAnswer = selected ? parseInt(selected.value) : -1;
+                 const isCorrect = userAnswer === q.correct;
+                 
+                 if (isCorrect) correct++;
+                 
+                 results.push({
+                     question: q.question,
+                     userAnswer: userAnswer,
+                     correctAnswer: q.correct,
+                     isCorrect: isCorrect,
+                     explanation: q.explanation,
+                     options: q.options
+                 });
+             });
+             
+             showResults(correct, questions.length, results);
+         }
+
+         // 显示结果
+         function showResults(correct, total, results) {
+             const percentage = Math.round((correct / total) * 100);
+             let resultHTML = `
+                 <div class="quiz-result">
+                     <h3>测试结果</h3>
+                     <p class="score">得分：${correct}/${total} (${percentage}%)</p>
+                     <div class="detailed-results">
+             `;
+             
+             results.forEach((result, index) => {
+                 const statusClass = result.isCorrect ? 'correct' : 'incorrect';
+                 const userAnswerText = result.userAnswer >= 0 ? 
+                     `${String.fromCharCode(65 + result.userAnswer)}. ${result.options[result.userAnswer]}` : 
+                     '未选择';
+                 const correctAnswerText = `${String.fromCharCode(65 + result.correctAnswer)}. ${result.options[result.correctAnswer]}`;
+                 
+                 resultHTML += `
+                     <div class="result-item ${statusClass}">
+                         <h4>${index + 1}. ${result.question}</h4>
+                         <p><strong>你的答案：</strong>${userAnswerText}</p>
+                         <p><strong>正确答案：</strong>${correctAnswerText}</p>
+                         <p><strong>解析：</strong>${result.explanation}</p>
+                     </div>
+                 `;
+             });
+             
+             resultHTML += `
+                     </div>
+                     <button onclick="location.reload()" class="btn">重新测试</button>
+                 </div>
+             `;
+             
+             document.getElementById('quizContainer').innerHTML = resultHTML;
+         }
+
+         // 页面加载时初始化
+         document.addEventListener('DOMContentLoaded', function() {
+             renderQuestions();
+         });
+     </script>
+
+     <!-- 深度思考题部分 -->
+     <section id="thinking-questions">
+         <h2>🤔 深度思考题</h2>
+         
+         <div class="thinking-question">
+             <h3>1. 比较分析DNA变性和复性过程的分子机制，并讨论影响这两个过程的主要因素。</h3>
+             <div class="answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>DNA变性的分子机制：</strong>
+                         DNA变性是指双链DNA分子在物理或化学因素作用下，氢键断裂，双螺旋结构解开，形成单链DNA的过程。主要涉及碱基间氢键的断裂和碱基堆积力的破坏。变性过程中，DNA分子的紫外吸收增加（增色效应），黏度下降，浮力密度增加，但一级结构（核苷酸序列）保持不变。
+                     </li>
+                     <li><strong>DNA复性的分子机制：</strong>
+                         DNA复性是变性DNA在适当条件下重新形成双螺旋结构的过程。包括成核阶段（互补链的初始结合）和拉链阶段（氢键的逐步形成）。复性过程遵循二级反应动力学，其速率与DNA浓度的平方成正比。
+                     </li>
+                     <li><strong>影响变性的主要因素：</strong>
+                         温度（主要因素）、pH值（极端pH破坏氢键）、离子强度（低盐浓度促进变性）、变性剂（如尿素、甲酰胺）、DNA的G+C含量（G+C含量高的DNA更稳定）。
+                     </li>
+                     <li><strong>影响复性的主要因素：</strong>
+                         温度（最适温度为Tm-25°C）、离子强度（适中的盐浓度有利于复性）、DNA浓度（浓度越高复性越快）、DNA片段长度（短片段复性更快）、序列复杂性（重复序列复性更快）。
+                     </li>
+                     <li><strong>生物学意义：</strong>
+                         DNA的变性和复性特性是许多分子生物学技术的基础，如PCR、分子杂交、DNA测序等。理解这些过程对于优化实验条件和开发新技术具有重要意义。
+                     </li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="thinking-question">
+             <h3>2. 详细阐述第一代、第二代和第三代DNA测序技术的原理、特点及应用，并分析各自的优缺点。</h3>
+             <div class="answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>第一代测序技术（Sanger测序）：</strong>
+                         原理基于链终止法，使用ddNTP作为链终止剂。特点是准确性高（99.9%），读长较长（800-1000bp），但通量低，成本高。主要应用于小规模测序项目、验证性测序和高精度要求的项目。优点是准确性极高，技术成熟；缺点是通量低，不适合大规模项目。
+                     </li>
+                     <li><strong>第二代测序技术（高通量测序）：</strong>
+                         包括454、Illumina、SOLiD等平台。原理基于边合成边测序或连接测序。特点是通量极高，成本大幅降低，但读长相对较短（50-300bp）。广泛应用于全基因组测序、转录组分析、表观遗传学研究等。优点是通量高、成本低；缺点是读长短，难以跨越重复序列。
+                     </li>
+                     <li><strong>第三代测序技术（单分子测序）：</strong>
+                         包括PacBio SMRT和Oxford Nanopore等。原理基于单分子实时测序。特点是读长极长（可达数万bp），可直接检测DNA修饰，但错误率相对较高。主要应用于基因组组装、结构变异检测、全长转录本分析等。优点是读长长，可检测修饰；缺点是错误率高，成本仍然较高。
+                     </li>
+                     <li><strong>技术发展趋势：</strong>
+                         各代技术互补发展，第二代技术用于大规模筛查，第三代技术用于精细结构分析，第一代技术用于验证。未来发展方向包括提高准确性、降低成本、实现便携化等。
+                     </li>
+                     <li><strong>选择策略：</strong>
+                         根据研究目的选择合适的测序技术：高通量筛查选择第二代，结构分析选择第三代，精确验证选择第一代。
+                     </li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="thinking-question">
+             <h3>3. 分析核酸分离纯化的各种方法，并讨论如何根据不同的研究目的选择合适的分离纯化策略。</h3>
+             <div class="answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>基于分子大小的分离方法：</strong>
+                         凝胶电泳是最常用的方法，琼脂糖凝胶适合分离大分子DNA，聚丙烯酰胺凝胶适合分离小分子DNA和RNA。脉冲场凝胶电泳专门用于分离超大DNA分子（>50kb）。超速离心可根据沉降系数分离不同大小的核酸分子。
+                     </li>
+                     <li><strong>基于密度差异的分离方法：</strong>
+                         氯化铯密度梯度离心可分离不同类型的核酸（DNA、RNA）和不同组成的DNA（如重同位素标记的DNA）。蔗糖密度梯度离心主要用于分离不同大小的核酸分子，条件温和，适合分离完整的大分子。
+                     </li>
+                     <li><strong>基于化学性质的分离方法：</strong>
+                         苯酚-氯仿抽提用于去除蛋白质，利用蛋白质在有机相中的溶解性。碱性条件下可选择性水解RNA，保留DNA。RNase处理可特异性降解RNA。氯化锂沉淀可选择性沉淀RNA。
+                     </li>
+                     <li><strong>色谱分离方法：</strong>
+                         离子交换色谱基于电荷差异分离，适合分离不同类型的核酸。分子筛色谱基于分子大小分离。反相色谱可分离修饰的核酸。亲和色谱可特异性纯化特定序列的核酸。
+                     </li>
+                     <li><strong>选择策略：</strong>
+                         根据研究目的选择：基因克隆需要高纯度完整DNA，选择温和的分离方法；PCR扩增对纯度要求不高，简单的裂解和沉淀即可；RNA研究需要防止RNase污染，选择快速有效的方法；结构研究需要保持天然构象，避免变性条件。
+                     </li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="thinking-question">
+             <h3>4. 论述分子杂交技术的原理及其在现代分子生物学研究中的应用，并分析影响杂交特异性的因素。</h3>
+             <div class="answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>分子杂交的基本原理：</strong>
+                         基于Watson-Crick碱基配对规则，互补的单链核酸分子在适当条件下可以形成稳定的双链结构。杂交过程包括变性、退火和检测三个步骤。杂交的稳定性主要由氢键和碱基堆积力维持。
+                     </li>
+                     <li><strong>主要应用技术：</strong>
+                         Southern印迹杂交用于DNA检测和基因定位；Northern印迹杂交用于RNA检测和基因表达分析；原位杂交用于染色体定位和组织表达分析；DNA微阵列技术用于大规模基因表达谱分析；FISH技术用于染色体和基因的可视化定位。
+                     </li>
+                     <li><strong>影响杂交特异性的因素：</strong>
+                         温度是最重要因素，高温提高特异性但降低敏感性；盐浓度影响DNA稳定性，低盐提高特异性；探针长度和序列同源性直接影响杂交效率；甲酰胺等添加剂可降低杂交温度；pH值影响碱基质子化状态。
+                     </li>
+                     <li><strong>严紧性控制：</strong>
+                         高严紧性条件（高温、低盐）提高特异性，适合检测完全匹配的序列；低严紧性条件（低温、高盐）提高敏感性，可检测部分匹配的序列。根据研究目的调整严紧性条件。
+                     </li>
+                     <li><strong>现代发展：</strong>
+                         从传统的放射性标记发展到荧光标记，从单一检测发展到高通量检测，从定性分析发展到定量分析。新技术如数字PCR、单细胞测序等进一步扩展了应用范围。
+                     </li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="thinking-question">
+             <h3>5. 结合核酸的物理化学性质，分析DNA在细胞内的存在状态及其生物学意义。</h3>
+             <div class="answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>DNA的超螺旋结构：</strong>
+                         细胞内DNA以超螺旋形式存在，包括正超螺旋和负超螺旋。负超螺旋占主导，有利于DNA的解链和转录。拓扑异构酶调节超螺旋度，维持DNA的功能状态。超螺旋结构影响基因表达和DNA复制。
+                     </li>
+                     <li><strong>DNA与蛋白质的相互作用：</strong>
+                         组蛋白与DNA结合形成核小体结构，是染色质的基本单位。非组蛋白如转录因子、DNA结合蛋白等调节基因表达。蛋白质结合改变DNA的局部结构和可及性，影响生物学功能。
+                     </li>
+                     <li><strong>DNA的甲基化修饰：</strong>
+                         胞嘧啶的甲基化是重要的表观遗传修饰，影响基因表达而不改变DNA序列。甲基化模式在细胞分化和发育过程中起关键作用。异常甲基化与多种疾病相关。
+                     </li>
+                     <li><strong>染色质的层次结构：</strong>
+                         从DNA双螺旋到核小体，再到30nm纤维，最终形成染色体。不同层次的结构调节基因的可及性和表达。异染色质和常染色质的转换调节基因活性。
+                     </li>
+                     <li><strong>生物学意义：</strong>
+                         DNA的物理化学性质决定了其在细胞内的存在形式和功能。理解这些性质有助于阐明基因调节机制，为疾病治疗和生物技术应用提供理论基础。DNA结构的动态变化是生命活动的重要基础。
+                     </li>
+                 </ol>
+             </div>
+         </div>
+     </section>
+
+     <footer>
+         <p>© 2024 核酸物理化学性质和研究方法复习笔记 | 专为考研学生设计</p>
+         <p>基于《生物化学》第四版（朱圣庚、徐长法主编）整理</p>
+     </footer>
+
+ </body>
+ </html>
+            {
+                question: "RNA和DNA彻底水解后的产物是（）",
+                options: ["戊糖不同，碱基不同", "戊糖相同，碱基不同", "戊糖不同，碱基相同", "戊糖相同，碱基相同"],
+                correct: 0,
+                explanation: "RNA含有核糖，DNA含有脱氧核糖（戊糖不同）；RNA含有U，DNA含有T（碱基不同）。因此彻底水解后戊糖和碱基都不同。"
+            },
+            {
+                question: "RNA用碱水解，产生（）",
+                options: ["2'和5'核苷酸混合物", "2'和3'核苷酸混合物", "3'和5'核苷酸混合物", "只有5'核苷酸"],
+                correct: 1,
+                explanation: "RNA在碱性条件下，由于2'羟基的存在，磷酸二酯键在2'和3'位置都可能断裂，产生2'和3'核苷酸的混合物。"
+            },
+            {
+                question: "核酸的紫外吸收是由哪一结构所产生的？（）",
+                options: ["嘌呤和嘧啶之间的氢键", "碱基和戊糖之间的糖苷键", "戊糖和磷酸之间的酯键", "嘌呤和嘧啶环上的共轭双键"],
+                correct: 3,

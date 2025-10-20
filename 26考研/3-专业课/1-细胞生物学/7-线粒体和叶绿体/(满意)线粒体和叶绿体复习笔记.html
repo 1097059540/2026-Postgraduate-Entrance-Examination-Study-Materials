@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线粒体和叶绿体 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+
+        .note {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #0c5460;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .english {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-options li {
+            background: #f8f9fa;
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .quiz-options li:hover {
+            background: #e3f2fd;
+        }
+
+        .quiz-options li.selected {
+            background: #bbdefb;
+            border-color: #2196f3;
+        }
+
+        .quiz-options li.correct {
+            background: #c8e6c9;
+            border-color: #4caf50;
+        }
+
+        .quiz-options li.incorrect {
+            background: #ffcdd2;
+            border-color: #f44336;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+
+        .thinking-section {
+            background-color: #fff8e1;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .thinking-question {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .answer {
+            background: #f1f8e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .glossary {
+            background-color: #f3e5f5;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .glossary-item {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .image-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            color: #6c757d;
+        }
+
+        .structure-diagram {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .pathway-box {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>线粒体和叶绿体</h1>
+            <p>细胞生物学考研复习笔记 | 半自主性细胞器的结构与功能</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、线粒体和叶绿体的基本特征</h2>
+                
+                <h3>1.1 半自主性特征</h3>
+                <div class="highlight">
+                    <p><strong>半自主性</strong>是指线粒体和叶绿体既具有一定的独立性，又依赖于细胞核的调控。</p>
+                </div>
+                
+                <h4>主要表现：</h4>
+                <ul>
+                    <li><strong>自主性表现：</strong>
+                        <ul>
+                            <li>拥有自己的DNA（mtDNA和cpDNA）</li>
+                            <li>具有独立的转录和翻译系统</li>
+                            <li>能够自主合成部分蛋白质</li>
+                            <li>通过分裂方式增殖</li>
+                        </ul>
+                    </li>
+                    <li><strong>非自主性表现：</strong>
+                        <ul>
+                            <li>大部分蛋白质由核基因编码</li>
+                            <li>依赖细胞质合成的蛋白质转运</li>
+                            <li>受核基因调控</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>1.2 动态特征</h3>
+                <div class="note">
+                    <p>线粒体和叶绿体都是动态的细胞器，能够进行运动、融合和分裂。</p>
+                </div>
+
+                <h4>运动特征：</h4>
+                <ul>
+                    <li><strong>线粒体运动：</strong>沿着微管网络进行定向运动，参与细胞内能量分布</li>
+                    <li><strong>叶绿体运动：</strong>
+                        <ul>
+                            <li>弱光下：聚集反应，向光面聚集以最大化光能吸收</li>
+                            <li>强光下：避光反应，移向侧壁以避免光损伤</li>
+                            <li>调控蛋白：Chup1（叶绿体异常定位蛋白1）</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>融合与分裂：</h4>
+                <div class="pathway-box">
+                    <h4>分子机制：</h4>
+                    <ul>
+                        <li><strong>融合蛋白：</strong>Mfn1、Mfn2（外膜融合），OPA1（内膜融合）</li>
+                        <li><strong>分裂蛋白：</strong>Drp1、Fis1、Arc5、FtsZ等</li>
+                        <li><strong>生物学意义：</strong>维持细胞器形态、分布能量、质量控制</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>二、线粒体的结构与功能</h2>
+                
+                <h3>2.1 线粒体的超微结构</h3>
+                <div class="structure-diagram">
+                    <h4>线粒体结构示意图</h4>
+                    <p>【外膜 → 膜间隙 → 内膜（嵴） → 基质】</p>
+                </div>
+
+                <h4>各部分结构特点：</h4>
+                <ul>
+                    <li><strong>外膜：</strong>
+                        <ul>
+                            <li>厚度：6-7nm</li>
+                            <li>特点：对大多数小分子物质具有通透性</li>
+                            <li>孔蛋白：VDAC（电压依赖性阴离子通道）</li>
+                            <li>功能：物质交换、信号传导</li>
+                        </ul>
+                    </li>
+                    <li><strong>膜间隙：</strong>
+                        <ul>
+                            <li>宽度：6-8nm</li>
+                            <li>重要酶：腺苷酸激酶（调节ADP/ATP比例）</li>
+                            <li>细胞色素c：电子传递链成分</li>
+                        </ul>
+                    </li>
+                    <li><strong>内膜：</strong>
+                        <ul>
+                            <li>特点：高度不通透，形成嵴结构</li>
+                            <li>重要复合体：ATP合酶、细胞色素氧化酶</li>
+                            <li>功能：氧化磷酸化、质子梯度建立</li>
+                        </ul>
+                    </li>
+                    <li><strong>基质：</strong>
+                        <ul>
+                            <li>含有：mtDNA、RNA、核糖体（70S）</li>
+                            <li>重要酶系：TCA循环酶、脂肪酸氧化酶</li>
+                            <li>功能：有机物氧化、ATP合成</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>2.2 氧化磷酸化</h3>
+                <div class="important">
+                    <p><strong>氧化磷酸化</strong>是线粒体的核心功能，通过电子传递链和ATP合酶实现ADP磷酸化生成ATP。</p>
+                </div>
+
+                <h4>ATP合酶结构与功能：</h4>
+                <ul>
+                    <li><strong>F₁部分：</strong>
+                        <ul>
+                            <li>位置：伸入基质</li>
+                            <li>组成：α₃β₃γδε亚基</li>
+                            <li>功能：ATP合成的催化部位</li>
+                        </ul>
+                    </li>
+                    <li><strong>F₀部分：</strong>
+                        <ul>
+                            <li>位置：嵌入内膜</li>
+                            <li>组成：abc亚基</li>
+                            <li>功能：质子通道</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="pathway-box">
+                    <h4>结合变化机制（Boyer假说）：</h4>
+                    <ol>
+                        <li><strong>开放构象（O）：</strong>低亲和力，产物释放</li>
+                        <li><strong>松散构象（L）：</strong>中等亲和力，底物结合</li>
+                        <li><strong>紧密构象（T）：</strong>高亲和力，ATP合成</li>
+                    </ol>
+                    <p>质子流驱动γ亚基旋转，引起β亚基构象循环变化，实现ATP合成。</p>
+                </div>
+
+                <h4>电子传递链：</h4>
+                <ul>
+                    <li><strong>复合体I：</strong>NADH-泛醌氧化还原酶，泵出4个H⁺</li>
+                    <li><strong>复合体II：</strong>琥珀酸-泛醌氧化还原酶，不泵质子</li>
+                    <li><strong>复合体III：</strong>细胞色素bc₁复合体，泵出4个H⁺</li>
+                    <li><strong>复合体IV：</strong>细胞色素c氧化酶，泵出2个H⁺</li>
+                </ul>
+
+                <h3>2.3 线粒体疾病</h3>
+                <div class="note">
+                    <p>线粒体疾病主要由mtDNA或核DNA突变引起，影响氧化磷酸化功能。</p>
+                </div>
+
+                <h4>常见疾病：</h4>
+                <ul>
+                    <li><strong>克山病：</strong>硒缺乏导致的心肌病</li>
+                    <li><strong>Leigh综合征：</strong>亚急性坏死性脑脊髓病</li>
+                    <li><strong>MELAS：</strong>线粒体脑肌病伴乳酸酸中毒和卒中样发作</li>
+                </ul>
+
+                <h4>mtDNA特点：</h4>
+                <ul>
+                    <li>突变频率高（比核DNA高10-20倍）</li>
+                    <li>母系遗传</li>
+                    <li>缺乏组蛋白保护</li>
+                    <li>DNA修复能力有限</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、叶绿体的结构与功能</h2>
+                
+                <h3>3.1 叶绿体的超微结构</h3>
+                <div class="structure-diagram">
+                    <h4>叶绿体结构示意图</h4>
+                    <p>【外膜 → 膜间隙 → 内膜 → 基质 → 类囊体系统（基粒、基质类囊体）】</p>
+                </div>
+
+                <h4>各部分结构特点：</h4>
+                <ul>
+                    <li><strong>叶绿体被膜：</strong>
+                        <ul>
+                            <li>外膜：通透性较高，含孔蛋白</li>
+                            <li>内膜：选择透过性，含转运蛋白</li>
+                            <li>膜间隙：宽度10-20nm</li>
+                        </ul>
+                    </li>
+                    <li><strong>类囊体系统：</strong>
+                        <ul>
+                            <li>基粒类囊体：垛叠排列，进行光反应</li>
+                            <li>基质类囊体：连接不同基粒</li>
+                            <li>类囊体腔：pH约5，与基质形成质子梯度</li>
+                        </ul>
+                    </li>
+                    <li><strong>基质：</strong>
+                        <ul>
+                            <li>Rubisco酶：CO₂固定的关键酶</li>
+                            <li>cpDNA、RNA、核糖体（70S）</li>
+                            <li>淀粉粒、脂滴、植物铁蛋白</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>3.2 光合作用</h3>
+                <div class="important">
+                    <p><strong>光合作用</strong>是叶绿体将光能转化为化学能的过程，包括光反应和暗反应两个阶段。</p>
+                </div>
+
+                <h4>光反应（类囊体膜）：</h4>
+                <div class="pathway-box">
+                    <h4>电子传递链：</h4>
+                    <p>H₂O → PSII → PQ → Cytb₆f → PC → PSI → Fd → NADP⁺</p>
+                    <ul>
+                        <li><strong>PSII：</strong>光系统II，吸收680nm光，分解水分子</li>
+                        <li><strong>PSI：</strong>光系统I，吸收700nm光，还原NADP⁺</li>
+                        <li><strong>ATP合成：</strong>质子梯度驱动ATP合酶工作</li>
+                    </ul>
+                </div>
+
+                <h4>暗反应（Calvin循环）：</h4>
+                <ol>
+                    <li><strong>羧化阶段：</strong>CO₂ + RuBP → 2×3-PGA（Rubisco催化）</li>
+                    <li><strong>还原阶段：</strong>3-PGA → G3P（消耗ATP和NADPH）</li>
+                    <li><strong>再生阶段：</strong>G3P → RuBP（消耗ATP）</li>
+                </ol>
+
+                <h4>C4途径：</h4>
+                <ul>
+                    <li><strong>初级产物：</strong>草酰乙酸（4碳化合物）</li>
+                    <li><strong>代表植物：</strong>玉米、甘蔗、高粱</li>
+                    <li><strong>特点：</strong>CO₂浓缩机制，提高光合效率</li>
+                    <li><strong>细胞类型：</strong>叶肉细胞和维管束鞘细胞分工</li>
+                </ul>
+
+                <h4>CAM途径：</h4>
+                <ul>
+                    <li><strong>全称：</strong>景天酸代谢（Crassulacean Acid Metabolism）</li>
+                    <li><strong>代表植物：</strong>仙人掌、凤梨等旱生植物</li>
+                    <li><strong>特点：</strong>时间分离，夜间固定CO₂，白天进行Calvin循环</li>
+                </ul>
+
+                <h3>3.3 叶绿体的分化与发育</h3>
+                <div class="note">
+                    <p>叶绿体由质体分化而来，这个过程受光照调控且具有可逆性。</p>
+                </div>
+
+                <h4>分化过程：</h4>
+                <ul>
+                    <li><strong>前质体 → 黄化质体 → 叶绿体</strong></li>
+                    <li><strong>去分化：</strong>叶绿体 → 有色体/白色体（可逆过程）</li>
+                    <li><strong>光调控：</strong>光敏色素调节叶绿素合成和类囊体形成</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、半自主性的分子基础</h2>
+                
+                <h3>4.1 遗传系统</h3>
+                <div class="comparison-table">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>特征</th>
+                                <th>mtDNA</th>
+                                <th>cpDNA</th>
+                                <th>核DNA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>大小</td>
+                                <td>16-100kb</td>
+                                <td>120-200kb</td>
+                                <td>3×10⁹bp</td>
+                            </tr>
+                            <tr>
+                                <td>形状</td>
+                                <td>环状双链</td>
+                                <td>环状双链</td>
+                                <td>线状双链</td>
+                            </tr>
+                            <tr>
+                                <td>基因数</td>
+                                <td>37个</td>
+                                <td>100-120个</td>
+                                <td>20000-25000个</td>
+                            </tr>
+                            <tr>
+                                <td>遗传方式</td>
+                                <td>母系遗传</td>
+                                <td>母系遗传</td>
+                                <td>双亲遗传</td>
+                            </tr>
+                            <tr>
+                                <td>核糖体</td>
+                                <td>70S</td>
+                                <td>70S</td>
+                                <td>80S</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>4.2 蛋白质转运</h3>
+                <div class="pathway-box">
+                    <h4>转运机制：</h4>
+                    <ul>
+                        <li><strong>信号肽：</strong>N端前导序列，指导蛋白质定位</li>
+                        <li><strong>转运复合体：</strong>
+                            <ul>
+                                <li>TOM复合体：外膜转运</li>
+                                <li>TIM复合体：内膜转运</li>
+                                <li>TOC/TIC复合体：叶绿体转运</li>
+                            </ul>
+                        </li>
+                        <li><strong>分子伴侣：</strong>Hsp60、Hsp70等协助蛋白质折叠</li>
+                    </ul>
+                </div>
+
+                <h3>4.3 内共生理论</h3>
+                <div class="highlight">
+                    <p><strong>内共生理论</strong>认为线粒体和叶绿体起源于被真核细胞内吞的原核生物。</p>
+                </div>
+
+                <h4>支持证据：</h4>
+                <ul>
+                    <li>具有双分子膜结构</li>
+                    <li>拥有环状DNA和70S核糖体</li>
+                    <li>通过分裂方式增殖</li>
+                    <li>基因序列与某些细菌相似</li>
+                    <li>基因转移到细胞核的证据</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库板块 -->
+            <div class="glossary">
+                <h2>五、重要名词解释</h2>
+                
+                <div class="glossary-item">
+                    <p><span class="term">半自主性</span> <span class="english">(Semi-autonomy)</span>：线粒体和叶绿体既具有独立的遗传系统和部分自主功能，又依赖于细胞核调控的特性。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">氧化磷酸化</span> <span class="english">(Oxidative Phosphorylation)</span>：通过电子传递链建立质子梯度，驱动ATP合酶合成ATP的过程。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">光合磷酸化</span> <span class="english">(Photophosphorylation)</span>：利用光能驱动电子传递，建立质子梯度合成ATP的过程。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">嵴</span> <span class="english">(Cristae)</span>：线粒体内膜向基质突出形成的褶皱结构，增大膜表面积，是氧化磷酸化的主要场所。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">基粒</span> <span class="english">(Granum, 复数Grana)</span>：叶绿体中类囊体垛叠形成的结构，是光反应的主要场所。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">Calvin循环</span> <span class="english">(Calvin Cycle)</span>：光合作用暗反应阶段，通过Rubisco酶固定CO₂并还原为有机物的循环过程。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">Rubisco酶</span> <span class="english">(Ribulose-1,5-bisphosphate Carboxylase/Oxygenase)</span>：催化CO₂固定的关键酶，是地球上含量最丰富的蛋白质。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">质子动力</span> <span class="english">(Proton Motive Force, PMF)</span>：跨膜质子梯度产生的电化学势能，驱动ATP合成。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">电子传递链</span> <span class="english">(Electron Transport Chain, ETC)</span>：由一系列电子载体组成的传递系统，实现电子传递和质子泵送。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">内共生理论</span> <span class="english">(Endosymbiotic Theory)</span>：认为线粒体和叶绿体起源于被真核细胞内吞的原核生物的理论。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">分子伴侣</span> <span class="english">(Molecular Chaperone)</span>：协助蛋白质正确折叠和转运的蛋白质，如Hsp60、Hsp70等。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">光系统</span> <span class="english">(Photosystem, PS)</span>：叶绿体类囊体膜上进行光能转换的蛋白质-色素复合体，包括PSI和PSII。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">C4途径</span> <span class="english">(C4 Pathway)</span>：某些植物的CO₂浓缩机制，初级产物为4碳化合物草酰乙酸。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">CAM途径</span> <span class="english">(Crassulacean Acid Metabolism)</span>：景天酸代谢，旱生植物的时间分离型CO₂固定机制。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <p><span class="term">线粒体疾病</span> <span class="english">(Mitochondrial Disease)</span>：由线粒体功能缺陷引起的遗传性疾病，多影响高耗能组织。</p>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="quiz-section">
+                <h2>六、选择题测试</h2>
+                <p>以下题目从30道题库中随机抽取15道，点击选项选择答案，完成后点击提交查看结果。</p>
+                
+                <div id="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="btn" id="submit-quiz" onclick="submitQuiz()" disabled>提交答案</button>
+                
+                <div id="quiz-result" class="result">
+                    <!-- 结果将显示在这里 -->
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="thinking-section">
+                <h2>七、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h3>1. 试述线粒体和叶绿体半自主性的分子基础及其生物学意义</h3>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>遗传系统的独立性：</strong>
+                                线粒体和叶绿体都拥有自己的环状双链DNA，编码部分必需的蛋白质、rRNA和tRNA。这些DNA分子在结构上类似于原核生物，支持内共生理论。它们具有独立的转录和翻译机制，使用70S核糖体进行蛋白质合成，这与细胞质中的80S核糖体不同。这种独立的遗传系统使它们能够快速响应局部的代谢需求。
+                            </li>
+                            <li><strong>蛋白质合成的双重来源：</strong>
+                                虽然线粒体和叶绿体能够合成部分蛋白质，但它们的大多数蛋白质（约99%）仍由核基因编码，在细胞质中合成后转运进入。这种分工合作体现了进化过程中基因从细胞器向细胞核的转移，既保持了一定的独立性，又实现了更精确的调控。核编码的蛋白质通过特定的信号肽和转运复合体（如TOM/TIM、TOC/TIC）进入细胞器。
+                            </li>
+                            <li><strong>分裂增殖的自主性：</strong>
+                                线粒体和叶绿体通过分裂方式增殖，而不是从头合成。分裂过程涉及多种蛋白质，如FtsZ、Drp1等，这些蛋白质调控细胞器的形态变化和分离。这种增殖方式确保了细胞器在细胞分裂时的传递，维持了细胞器的连续性。
+                            </li>
+                            <li><strong>生物学意义：</strong>
+                                半自主性使线粒体和叶绿体能够在保持基本功能独立性的同时，接受细胞核的统一调控。这种机制提高了细胞对环境变化的适应性，使能量代谢能够快速响应细胞需求。同时，基因的核质分工降低了突变风险，提高了遗传稳定性。这种进化策略既保留了原始内共生体的优势，又实现了与宿主细胞的完美整合。
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h3>2. 比较分析线粒体氧化磷酸化和叶绿体光合磷酸化的异同点</h3>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>相同点分析：</strong>
+                                两者都采用化学渗透机制进行ATP合成，即通过建立跨膜质子梯度驱动ATP合酶工作。都具有电子传递链系统，包含多种电子载体如细胞色素、铁硫蛋白等。ATP合酶的结构基本相似，都由F₁和F₀两部分组成，工作机制都遵循结合变化假说。两者都是细胞内主要的ATP生产方式，对维持细胞能量平衡至关重要。
+                            </li>
+                            <li><strong>能量来源的差异：</strong>
+                                氧化磷酸化利用有机物氧化释放的化学能，通过NADH和FADH₂的氧化为电子传递提供动力。而光合磷酸化直接利用光能激发叶绿素分子，产生高能电子启动电子传递。这种根本性差异决定了两个过程的环境依赖性：氧化磷酸化需要氧气作为最终电子受体，而光合磷酸化需要光照条件。
+                            </li>
+                            <li><strong>电子传递链的组织差异：</strong>
+                                线粒体电子传递链包含四个主要复合体（I-IV），电子从NADH或FADH₂传递到氧气，形成水。叶绿体则有两个光系统（PSI和PSII），电子从水分子传递到NADP⁺，同时产生氧气。线粒体的电子流是线性的，而叶绿体可以进行环式和非环式电子流，具有更大的调节灵活性。
+                            </li>
+                            <li><strong>产物和调节机制：</strong>
+                                氧化磷酸化主要产生ATP，同时消耗氧气产生水，是分解代谢过程。光合磷酸化不仅产生ATP，还生成NADPH，为暗反应提供还原力，属于合成代谢过程。在调节方面，氧化磷酸化主要受ADP/ATP比值调控，而光合磷酸化受光强、CO₂浓度等多种环境因子调节。两者的协调工作维持了细胞内能量和还原力的平衡。
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h3>3. 分析线粒体疾病的发病机制及其对细胞功能的影响</h3>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>遗传学基础：</strong>
+                                线粒体疾病主要由mtDNA突变或核DNA中编码线粒体蛋白的基因突变引起。mtDNA突变频率较高，原因包括缺乏组蛋白保护、DNA修复机制有限、活性氧损伤等。由于mtDNA呈母系遗传，疾病表现出明显的家族聚集性。核DNA突变则影响线粒体蛋白质的合成和转运，导致线粒体功能障碍。异质性现象使得同一个体内不同细胞的线粒体功能差异很大。
+                            </li>
+                            <li><strong>分子机制：</strong>
+                                突变导致电子传递链复合体功能缺陷，氧化磷酸化效率下降，ATP产生不足。同时，电子传递受阻会增加活性氧的产生，造成进一步的氧化损伤，形成恶性循环。线粒体膜电位下降影响蛋白质转运和离子平衡。钙离子稳态失调可能触发细胞凋亡程序。这些分子事件最终导致细胞能量代谢紊乱。
+                            </li>
+                            <li><strong>组织特异性影响：</strong>
+                                高耗能组织如心肌、骨骼肌、神经系统和肾脏最容易受到影响，因为这些组织对ATP的需求量大。心肌病变可导致心力衰竭，神经系统受损表现为癫痫、共济失调等症状。肌肉组织受累出现肌无力、运动不耐受。不同组织的线粒体密度和代谢特点决定了疾病的临床表现多样性。
+                            </li>
+                            <li><strong>细胞功能的系统性影响：</strong>
+                                ATP不足影响所有需要能量的细胞过程，包括主动转运、蛋白质合成、细胞分裂等。线粒体作为细胞内钙离子调节的重要场所，其功能障碍会影响细胞信号传导。活性氧增加导致氧化应激，损伤细胞膜、蛋白质和DNA。线粒体参与细胞凋亡调节，功能异常可能导致细胞死亡或凋亡抗性。这些影响最终表现为多系统、多器官的功能障碍。
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h3>4. 论述叶绿体中C3、C4和CAM三种CO₂固定途径的适应性意义</h3>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>C3途径的基础地位：</strong>
+                                C3途径（Calvin循环）是最基本和普遍的CO₂固定方式，存在于所有进行光合作用的生物中。Rubisco酶催化CO₂与RuBP结合形成两分子3-磷酸甘油酸（3-PGA），这是一个3碳化合物，因此称为C3途径。该途径在温和环境条件下效率较高，但存在光呼吸问题。当O₂浓度高、CO₂浓度低时，Rubisco酶会催化氧化反应，导致能量浪费，这在高温、干旱条件下尤为严重。
+                            </li>
+                            <li><strong>C4途径的进化优势：</strong>
+                                C4途径是对高温、强光环境的适应性进化。通过空间分离机制，叶肉细胞首先固定CO₂形成4碳化合物草酰乙酸，然后转运到维管束鞘细胞进行Calvin循环。这种CO₂浓缩机制有效抑制了光呼吸，提高了光合效率。C4植物如玉米、甘蔗在高温环境下具有明显优势，光合效率可比C3植物高30-50%。这种机制需要额外的ATP消耗，但在高光强条件下这种代价是值得的。
+                            </li>
+                            <li><strong>CAM途径的水分适应：</strong>
+                                CAM途径是对极端干旱环境的适应，通过时间分离机制解决水分保存问题。夜间气孔开放，CO₂被固定为苹果酸储存在液泡中；白天气孔关闭减少水分散失，苹果酸释放CO₂进行Calvin循环。这种策略使仙人掌等植物能在极端干旱环境中生存，水分利用效率比C3植物高3-5倍。虽然生长速度较慢，但在水分限制的环境中具有不可替代的优势。
+                            </li>
+                            <li><strong>生态适应性和进化意义：</strong>
+                                三种途径代表了植物对不同环境条件的适应性进化。C3途径适合温带湿润环境，C4途径适合热带高温环境，CAM途径适合干旱环境。这种多样性使植物能够占据地球上几乎所有的生态位。从进化角度看，C4和CAM途径都是在C3途径基础上的改进，体现了生物对环境压力的创新性响应。气候变化背景下，理解这些机制对于作物改良和生态系统管理具有重要意义。
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h3>5. 从内共生理论角度分析线粒体和叶绿体的起源及其支持证据</h3>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>内共生理论的核心观点：</strong>
+                                内共生理论由Lynn Margulis提出，认为真核细胞的线粒体和叶绿体起源于被原始真核细胞内吞的原核生物。线粒体可能起源于α-变形菌，叶绿体起源于蓝细菌。这种内共生关系经过长期进化，形成了现在的半自主性细胞器。理论强调这是一个渐进的过程，涉及基因转移、功能整合和相互依赖关系的建立。
+                            </li>
+                            <li><strong>形态学和结构证据：</strong>
+                                线粒体和叶绿体都具有双分子膜结构，外膜可能来源于宿主细胞的吞噬泡膜，内膜保留了原始细菌的细胞膜特征。它们的大小（1-10μm）与细菌相似，通过分裂方式增殖而非从头合成。电子显微镜观察显示，它们的内部结构与某些细菌高度相似，如叶绿体的类囊体结构类似于蓝细菌的光合膜系统。
+                            </li>
+                            <li><strong>分子生物学证据：</strong>
+                                线粒体和叶绿体的DNA都是环状双链分子，类似于细菌基因组。系统发育分析显示，线粒体基因与α-变形菌最为接近，叶绿体基因与蓝细菌关系密切。它们使用70S核糖体进行蛋白质合成，与原核生物相同。基因密码的某些差异反映了长期独立进化的结果。RNA聚合酶和转录因子也与细菌类似，而非真核生物。
+                            </li>
+                            <li><strong>基因转移和功能整合证据：</strong>
+                                大量原本属于细胞器的基因已转移到细胞核中，这一过程仍在继续。核基因组中发现了许多明显来源于细菌的基因序列，这些基因编码的蛋白质需要转运回细胞器发挥功能。转运系统的复杂性反映了长期协同进化的结果。某些植物中仍可观察到基因转移的中间状态，如基因在细胞器和细胞核中都有拷贝。这种基因重组和功能整合是内共生关系成功建立的关键证据。
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "线粒体内膜的主要功能是：",
+                options: ["A. 物质交换", "B. 氧化磷酸化", "C. 蛋白质合成", "D. 脂质合成"],
+                correct: 1,
+                explanation: "线粒体内膜是氧化磷酸化的主要场所，含有电子传递链复合体和ATP合酶。外膜主要负责物质交换，基质负责TCA循环和部分蛋白质合成。"
+            },
+            {
+                question: "ATP合酶的F₁部分位于：",
+                options: ["A. 线粒体外膜", "B. 膜间隙", "C. 线粒体内膜", "D. 线粒体基质"],
+                correct: 3,
+                explanation: "ATP合酶的F₁部分伸入线粒体基质，含有催化ATP合成的活性位点。F₀部分嵌入内膜，形成质子通道。"
+            },
+            {
+                question: "叶绿体中进行光反应的主要场所是：",
+                options: ["A. 外膜", "B. 基质", "C. 类囊体膜", "D. 内膜"],
+                correct: 2,
+                explanation: "类囊体膜含有光系统I和II、电子传递链和ATP合酶，是光反应的主要场所。基质是暗反应（Calvin循环）的场所。"
+            },
+            {
+                question: "C4植物的初级CO₂固定产物是：",
+                options: ["A. 3-磷酸甘油酸", "B. 草酰乙酸", "C. 苹果酸", "D. 柠檬酸"],
+                correct: 1,
+                explanation: "C4植物首先将CO₂固定为4碳化合物草酰乙酸，然后转化为苹果酸或天冬氨酸转运到维管束鞘细胞。"
+            },
+            {
+                question: "线粒体DNA的遗传方式是：",
+                options: ["A. 父系遗传", "B. 母系遗传", "C. 双亲遗传", "D. 随机遗传"],
+                correct: 1,
+                explanation: "线粒体DNA呈母系遗传，因为精子中的线粒体在受精过程中通常不进入卵细胞，或者即使进入也会被降解。"
+            },
+            {
+                question: "Rubisco酶的全称是：",
+                options: ["A. 核酮糖激酶", "B. 核酮糖-1,5-二磷酸羧化酶/加氧酶", "C. 磷酸烯醇式丙酮酸羧化酶", "D. 苹果酸脱氢酶"],
+                correct: 1,
+                explanation: "Rubisco酶全称为核酮糖-1,5-二磷酸羧化酶/加氧酶，既能催化CO₂固定，也能催化氧化反应（光呼吸）。"
+            },
+            {
+                question: "线粒体电子传递链中不泵质子的复合体是：",
+                options: ["A. 复合体I", "B. 复合体II", "C. 复合体III", "D. 复合体IV"],
+                correct: 1,
+                explanation: "复合体II（琥珀酸-泛醌氧化还原酶）不泵质子，只传递电子。复合体I、III、IV都具有质子泵功能。"
+            },
+            {
+                question: "叶绿体基粒的主要功能是：",
+                options: ["A. CO₂固定", "B. 光反应", "C. 淀粉合成", "D. 蛋白质合成"],
+                correct: 1,
+                explanation: "基粒是类囊体垛叠形成的结构，含有光系统和电子传递链，是光反应的主要场所。CO₂固定在基质中进行。"
+            },
+            {
+                question: "CAM植物的特点是：",
+                options: ["A. 空间分离CO₂固定", "B. 时间分离CO₂固定", "C. 不进行光呼吸", "D. 只在C4途径"],
+                correct: 1,
+                explanation: "CAM植物通过时间分离机制，夜间固定CO₂，白天进行Calvin循环，以适应干旱环境。"
+            },
+            {
+                question: "线粒体疾病的主要原因是：",
+                options: ["A. 核DNA突变", "B. mtDNA突变", "C. 蛋白质缺陷", "D. 以上都是"],
+                correct: 3,
+                explanation: "线粒体疾病可由mtDNA突变、核DNA中编码线粒体蛋白的基因突变，或蛋白质转运缺陷等多种原因引起。"
+            },
+            {
+                question: "叶绿体和线粒体的核糖体类型是：",
+                options: ["A. 80S", "B. 70S", "C. 60S", "D. 40S"],
+                correct: 1,
+                explanation: "叶绿体和线粒体都含有70S核糖体，与原核生物相同，这是内共生理论的重要证据之一。"
+            },
+            {
+                question: "光系统II的主要功能是：",
+                options: ["A. 还原NADP⁺", "B. 分解水分子", "C. 合成ATP", "D. 固定CO₂"],
+                correct: 1,
+                explanation: "光系统II的主要功能是分解水分子，释放电子、质子和氧气，为光合作用提供电子和质子。"
+            },
+            {
+                question: "线粒体基质中不含有：",
+                options: ["A. TCA循环酶", "B. mtDNA", "C. 细胞色素c", "D. 核糖体"],
+                correct: 2,
+                explanation: "细胞色素c位于膜间隙，是电子传递链的组成部分。基质含有TCA循环酶、mtDNA、核糖体等。"
+            },
+            {
+                question: "内共生理论认为线粒体起源于：",
+                options: ["A. 蓝细菌", "B. α-变形菌", "C. 古细菌", "D. 病毒"],
+                correct: 1,
+                explanation: "内共生理论认为线粒体起源于α-变形菌，叶绿体起源于蓝细菌。分子系统发育分析支持这一观点。"
+            },
+            {
+                question: "质子动力的组成包括：",
+                options: ["A. 只有化学梯度", "B. 只有电势梯度", "C. 化学梯度和电势梯度", "D. 只有浓度梯度"],
+                correct: 2,
+                explanation: "质子动力由化学梯度（pH差）和电势梯度（电荷差）组成，两者共同驱动ATP合酶工作。"
+            },
+            {
+                question: "叶绿体DNA的特点是：",
+                options: ["A. 线状双链", "B. 环状双链", "C. 单链", "D. 蛋白质结合"],
+                correct: 1,
+                explanation: "叶绿体DNA是环状双链分子，类似于细菌DNA，这是内共生理论的重要证据。"
+            },
+            {
+                question: "ATP合酶的工作机制是：",
+                options: ["A. 直接磷酸化", "B. 结合变化机制", "C. 载体转运", "D. 主动转运"],
+                correct: 1,
+                explanation: "ATP合酶通过结合变化机制工作，质子流驱动γ亚基旋转，引起β亚基构象变化，实现ATP合成。"
+            },
+            {
+                question: "光呼吸的主要危害是：",
+                options: ["A. 产生有毒物质", "B. 消耗ATP和还原力", "C. 破坏叶绿体", "D. 抑制光反应"],
+                correct: 1,
+                explanation: "光呼吸消耗ATP和还原力而不产生有用产物，降低光合效率，特别在高温低CO₂条件下更为严重。"
+            },
+            {
+                question: "线粒体外膜的通透性特点是：",
+                options: ["A. 完全不通透", "B. 选择性通透", "C. 对小分子通透", "D. 只对离子通透"],
+                correct: 2,
+                explanation: "线粒体外膜含有孔蛋白（如VDAC），对大多数小分子物质（分子量<5000Da）具有通透性。"
+            },
+            {
+                question: "叶绿体分化的调控因子是：",
+                options: ["A. 温度", "B. 光照", "C. 湿度", "D. CO₂浓度"],
+                correct: 1,
+                explanation: "光照是叶绿体分化的主要调控因子，光敏色素调节叶绿素合成和类囊体形成，黑暗中形成黄化质体。"
+            },
+            {
+                question: "电子传递链的最终电子受体是：",
+                options: ["A. NAD⁺", "B. FAD", "C. O₂", "D. CO₂"],
+                correct: 2,
+                explanation: "在线粒体电子传递链中，氧气是最终电子受体，被还原为水。这个过程发生在复合体IV。"
+            },
+            {
+                question: "类囊体腔的pH约为：",
+                options: ["A. 7.0", "B. 5.0", "C. 8.0", "D. 6.0"],
+                correct: 1,
+                explanation: "光反应过程中，质子被泵入类囊体腔，使其pH降至约5.0，与基质（pH约8.0）形成质子梯度。"
+            },
+            {
+                question: "线粒体分裂的关键蛋白是：",
+                options: ["A. Mfn1", "B. OPA1", "C. Drp1", "D. VDAC"],
+                correct: 2,
+                explanation: "Drp1是线粒体分裂的关键蛋白，从细胞质招募到线粒体外膜，形成收缩环促进分裂。Mfn1和OPA1参与融合。"
+            },
+            {
+                question: "C3、C4、CAM三种途径都具有的过程是：",
+                options: ["A. PEP羧化", "B. Calvin循环", "C. 苹果酸形成", "D. 夜间固碳"],
+                correct: 1,
+                explanation: "Calvin循环是所有光合作用植物共有的CO₂固定途径，C4和CAM只是在此基础上增加了CO₂浓缩机制。"
+            },
+            {
+                question: "线粒体基因组编码的产物主要是：",
+                options: ["A. 所有线粒体蛋白", "B. 电子传递链核心亚基", "C. 代谢酶", "D. 转运蛋白"],
+                correct: 1,
+                explanation: "mtDNA主要编码电子传递链和ATP合酶的核心亚基、rRNA和tRNA，这些是氧化磷酸化的关键组分。"
+            },
+            {
+                question: "叶绿体运动的调控蛋白是：",
+                options: ["A. Rubisco", "B. Chup1", "C. FtsZ", "D. Arc5"],
+                correct: 1,
+                explanation: "Chup1（叶绿体异常定位蛋白1）是调控叶绿体光定位运动的关键蛋白，与微丝结合调节叶绿体位置。"
+            },
+            {
+                question: "氧化磷酸化的P/O比值表示：",
+                options: ["A. 磷酸/氧气摩尔比", "B. 每消耗1个氧原子合成的ATP数", "C. 蛋白质/氧气比", "D. 磷脂/氧气比"],
+                correct: 1,
+                explanation: "P/O比值表示每消耗1个氧原子合成的ATP分子数，NADH约为2.5，FADH₂约为1.5。"
+            },
+            {
+                question: "内共生理论的主要证据不包括：",
+                options: ["A. 双分子膜结构", "B. 70S核糖体", "C. 线性DNA", "D. 二分裂增殖"],
+                correct: 2,
+                explanation: "线粒体和叶绿体含有环状DNA而非线性DNA，这与细菌相似。线性DNA是真核生物核基因组的特征。"
+            },
+            {
+                question: "景天酸代谢植物的适应环境是：",
+                options: ["A. 高温高湿", "B. 低温高湿", "C. 高温干旱", "D. 低温干旱"],
+                correct: 2,
+                explanation: "CAM植物主要适应高温干旱环境，通过夜间开放气孔固定CO₂，白天关闭气孔减少水分散失。"
+            },
+            {
+                question: "线粒体疾病的遗传特点是：",
+                options: ["A. 常染色体显性", "B. 常染色体隐性", "C. X连锁", "D. 母系遗传"],
+                correct: 3,
+                explanation: "由mtDNA突变引起的线粒体疾病呈母系遗传模式，因为mtDNA主要来自母亲的卵细胞。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+        let quizSubmitted = false;
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 从30道题中随机选择15道
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-question';
+                questionDiv.innerHTML = `
+                    <h4>${index + 1}. ${q.question}</h4>
+                    <ul class="quiz-options">
+                        ${q.options.map((option, optIndex) => 
+                            `<li onclick="selectAnswer(${index}, ${optIndex})" id="q${index}_opt${optIndex}">${option}</li>`
+                        ).join('')}
+                    </ul>
+                    <div class="explanation" id="explanation_${index}" style="display: none;">
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            document.getElementById('submit-quiz').disabled = false;
+            quizSubmitted = false;
+        }
+
+        function selectAnswer(questionIndex, optionIndex) {
+            if (quizSubmitted) return;
+            
+            // 清除该题的其他选项
+            for (let i = 0; i < 4; i++) {
+                const opt = document.getElementById(`q${questionIndex}_opt${i}`);
+                opt.classList.remove('selected');
+            }
+            
+            // 标记选中的选项
+            document.getElementById(`q${questionIndex}_opt${optionIndex}`).classList.add('selected');
+            userAnswers[questionIndex] = optionIndex;
+            
+            // 检查是否所有题目都已回答
+            const allAnswered = userAnswers.every(answer => answer !== -1);
+            document.getElementById('submit-quiz').disabled = !allAnswered;
+        }
+
+        function submitQuiz() {
+            if (quizSubmitted) return;
+            
+            let correctCount = 0;
+            
+            currentQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                
+                if (isCorrect) correctCount++;
+                
+                // 显示正确答案和用户答案
+                for (let i = 0; i < 4; i++) {
+                    const opt = document.getElementById(`q${index}_opt${i}`);
+                    opt.classList.remove('selected');
+                    
+                    if (i === q.correct) {
+                        opt.classList.add('correct');
+                    } else if (i === userAnswer && !isCorrect) {
+                        opt.classList.add('incorrect');
+                    }
+                }
+                
+                // 显示解析
+                document.getElementById(`explanation_${index}`).style.display = 'block';
+            });
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((correctCount / 15) * 100);
+            resultDiv.innerHTML = `
+                <h3>测试结果</h3>
+                <p><strong>正确率：${percentage}% (${correctCount}/15)</strong></p>
+                <p>${getScoreComment(percentage)}</p>
+            `;
+            resultDiv.style.display = 'block';
+            
+            document.getElementById('submit-quiz').disabled = true;
+            quizSubmitted = true;
+        }
+
+        function getScoreComment(percentage) {
+            if (percentage >= 90) return "优秀！您对线粒体和叶绿体的知识掌握得非常好！";
+            if (percentage >= 80) return "良好！大部分知识点掌握较好，继续加油！";
+            if (percentage >= 70) return "及格！基础知识基本掌握，需要进一步巩固。";
+            if (percentage >= 60) return "需要努力！建议重新复习相关知识点。";
+            return "需要加强学习！请仔细阅读笔记内容并多做练习。";
+        }
+    </script>
+
+</body>
+</html>

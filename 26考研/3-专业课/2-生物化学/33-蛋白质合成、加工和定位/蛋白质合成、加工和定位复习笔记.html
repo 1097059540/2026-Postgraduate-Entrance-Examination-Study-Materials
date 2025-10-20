@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛋白质合成、加工和定位 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.1em;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+        }
+
+        .term {
+            background-color: #e8f4fd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback-item {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .feedback-item.correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .feedback-item.incorrect {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .feedback-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feedback-answer {
+            margin: 5px 0;
+        }
+
+        .feedback-explanation {
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .thinking-question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .thinking-question h4 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+
+        .answer h5 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>蛋白质合成、加工和定位</h1>
+            <p>生物化学第33章 - 考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、遗传密码与蛋白质合成概述</h2>
+                
+                <h3>1.1 遗传密码的基本特征</h3>
+                <p>遗传密码是DNA和RNA中核苷酸序列携带遗传信息的密码规律，具有以下重要特征：</p>
+                <ul>
+                    <li><strong>三联体密码：</strong>每三个连续的核苷酸组成一个密码子，编码一个氨基酸</li>
+                    <li><strong>通用性：</strong>除少数例外，遗传密码在所有生物中基本相同</li>
+                    <li><strong>简并性：</strong>多个密码子可编码同一氨基酸，减少突变的有害影响</li>
+                    <li><strong>无重叠性：</strong>密码子之间不重叠，按顺序读取</li>
+                    <li><strong>无标点性：</strong>密码子连续排列，无间隔符号</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>重点：</strong>64个密码子中，61个编码氨基酸，3个为终止密码子（UAG、UAA、UGA）。起始密码子AUG既编码甲硫氨酸，又作为翻译起始信号。
+                </div>
+
+                <h3>1.2 RNA对遗传密码的解读机制</h3>
+                <ol>
+                    <li><strong>选择性转录：</strong>根据需要选择性转录特定基因</li>
+                    <li><strong>信息组合：</strong>通过RNA剪接重新组合外显子</li>
+                    <li><strong>差错消除：</strong>RNA编辑纠正转录错误</li>
+                    <li><strong>语言转换：</strong>tRNA将核酸语言转换为蛋白质语言</li>
+                    <li><strong>信息调节：</strong>通过各种调控机制精确控制表达</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>二、蛋白质合成相关的RNA和装置</h2>
+                
+                <h3>2.1 核糖体结构与功能</h3>
+                <p>核糖体是蛋白质合成的场所，由rRNA和蛋白质组成：</p>
+                <ul>
+                    <li><strong>原核生物：</strong>70S核糖体（30S小亚基 + 50S大亚基）</li>
+                    <li><strong>真核生物：</strong>80S核糖体（40S小亚基 + 60S大亚基）</li>
+                </ul>
+                
+                <p>核糖体具有三个重要位点：</p>
+                <ul>
+                    <li><strong>A位点（氨酰位点）：</strong>结合携带氨基酸的氨酰-tRNA</li>
+                    <li><strong>P位点（肽酰位点）：</strong>结合携带肽链的肽酰-tRNA</li>
+                    <li><strong>E位点（出口位点）：</strong>释放去酰化的tRNA</li>
+                </ul>
+
+                <h3>2.2 转移RNA（tRNA）的结构与功能</h3>
+                <p>tRNA是蛋白质合成中的关键分子，具有独特的三叶草结构：</p>
+                <ul>
+                    <li><strong>反密码子环：</strong>与mRNA密码子配对</li>
+                    <li><strong>氨基酸臂：</strong>3'端CCA序列结合氨基酸</li>
+                    <li><strong>D环和TψC环：</strong>参与tRNA的三级结构形成</li>
+                    <li><strong>可变环：</strong>不同tRNA的特征性区域</li>
+                </ul>
+
+                <div class="important">
+                    <strong>关键概念：</strong>氨酰-tRNA合成酶具有高度特异性，确保正确的氨基酸与对应的tRNA结合，这是翻译准确性的重要保障。
+                </div>
+
+                <h3>2.3 信使RNA（mRNA）的作用</h3>
+                <p>mRNA携带遗传信息，指导蛋白质合成：</p>
+                <ul>
+                    <li><strong>5'非翻译区（5'UTR）：</strong>含有调控序列</li>
+                    <li><strong>开放阅读框（ORF）：</strong>编码蛋白质的序列</li>
+                    <li><strong>3'非翻译区（3'UTR）：</strong>含有稳定性和调控元件</li>
+                    <li><strong>SD序列：</strong>原核生物中的核糖体结合位点</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、蛋白质合成的详细步骤</h2>
+                
+                <h3>3.1 氨酰-tRNA的合成</h3>
+                <p>氨酰-tRNA合成酶催化氨基酸与tRNA的结合，分两步进行：</p>
+                <ol>
+                    <li><strong>活化步骤：</strong>氨基酸 + ATP → 氨酰-AMP + PPi</li>
+                    <li><strong>转移步骤：</strong>氨酰-AMP + tRNA → 氨酰-tRNA + AMP</li>
+                </ol>
+                
+                <div class="highlight">
+                    <strong>校对机制：</strong>氨酰-tRNA合成酶具有3'→5'外切酶活性，能够移除错误结合的氨基酸，确保翻译的准确性。
+                </div>
+
+                <h3>3.2 翻译起始</h3>
+                <h4>原核生物翻译起始：</h4>
+                <ol>
+                    <li>IF-1、IF-2、IF-3结合30S亚基</li>
+                    <li>fMet-tRNA^fMet与IF-2·GTP复合物结合</li>
+                    <li>mRNA结合，SD序列与16S rRNA配对</li>
+                    <li>50S亚基结合，形成70S起始复合物</li>
+                    <li>GTP水解，起始因子释放</li>
+                </ol>
+
+                <h4>真核生物翻译起始：</h4>
+                <ol>
+                    <li>eIF4F识别5'帽子结构</li>
+                    <li>40S亚基扫描至起始密码子AUG</li>
+                    <li>Met-tRNA^iMet结合P位点</li>
+                    <li>60S亚基结合，形成80S起始复合物</li>
+                </ol>
+
+                <h3>3.3 翻译延伸</h3>
+                <p>延伸过程包括三个主要步骤：</p>
+                <ol>
+                    <li><strong>氨酰-tRNA结合：</strong>EF-Tu·GTP携带氨酰-tRNA进入A位点</li>
+                    <li><strong>肽键形成：</strong>肽酰转移酶催化肽键形成</li>
+                    <li><strong>移位：</strong>EF-G·GTP催化核糖体沿mRNA移动一个密码子</li>
+                </ol>
+
+                <div class="important">
+                    <strong>白喉毒素作用机制：</strong>白喉毒素通过ADP-核糖基化修饰EF-2，阻断蛋白质合成的延伸步骤，导致细胞死亡。
+                </div>
+
+                <h3>3.4 翻译终止</h3>
+                <p>当核糖体遇到终止密码子时：</p>
+                <ol>
+                    <li>释放因子（RF1、RF2或eRF1）识别终止密码子</li>
+                    <li>肽酰转移酶活性转变为水解酶活性</li>
+                    <li>多肽链从tRNA上释放</li>
+                    <li>核糖体亚基解离，循环利用</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>四、蛋白质折叠与翻译后加工</h2>
+                
+                <h3>4.1 蛋白质折叠机制</h3>
+                <p>新合成的多肽链必须正确折叠才能获得生物活性：</p>
+                <ul>
+                    <li><strong>自发折叠：</strong>小蛋白质可自发折叠成正确构象</li>
+                    <li><strong>分子伴侣辅助：</strong>大蛋白质需要分子伴侣协助折叠</li>
+                </ul>
+
+                <h4>重要的折叠辅助酶：</h4>
+                <ul>
+                    <li><strong>蛋白质二硫键异构酶（PDI）：</strong>催化二硫键的形成和重排</li>
+                    <li><strong>肽基脯氨酰异构酶（PPI）：</strong>催化脯氨酸残基的顺反异构</li>
+                </ul>
+
+                <h4>分子伴侣的分类：</h4>
+                <ul>
+                    <li><strong>Hsp70家族：</strong>协助蛋白质折叠和防止聚集</li>
+                    <li><strong>Hsp60家族（伴侣素）：</strong>提供折叠腔室</li>
+                    <li><strong>Hsp90家族：</strong>协助信号蛋白的成熟</li>
+                </ul>
+
+                <h3>4.2 翻译后修饰</h3>
+                <p>蛋白质合成后可发生多种修饰：</p>
+                <ul>
+                    <li><strong>磷酸化：</strong>调节蛋白质活性和定位</li>
+                    <li><strong>糖基化：</strong>影响蛋白质稳定性和识别</li>
+                    <li><strong>乙酰化：</strong>调节基因表达</li>
+                    <li><strong>甲基化：</strong>表观遗传调控</li>
+                    <li><strong>泛素化：</strong>标记蛋白质降解</li>
+                    <li><strong>脂质化：</strong>膜蛋白的锚定</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>五、蛋白质定位与转运</h2>
+                
+                <h3>5.1 信号序列与蛋白质定位</h3>
+                <p>蛋白质的最终定位由特定的信号序列决定：</p>
+                
+                <h4>信号肽的发现：</h4>
+                <p>Blobel和Dobberstein发现信号假说，解释了蛋白质如何被定向到特定的细胞区室。</p>
+
+                <h4>主要的定位信号：</h4>
+                <ul>
+                    <li><strong>信号肽：</strong>引导蛋白质进入内质网</li>
+                    <li><strong>核定位信号（NLS）：</strong>引导蛋白质进入细胞核</li>
+                    <li><strong>线粒体定位信号：</strong>引导蛋白质进入线粒体</li>
+                    <li><strong>叶绿体定位信号：</strong>引导蛋白质进入叶绿体</li>
+                    <li><strong>过氧化物酶体定位信号：</strong>PTS1和PTS2序列</li>
+                </ul>
+
+                <h3>5.2 内质网转运机制</h3>
+                <p>蛋白质进入内质网有两种方式：</p>
+                
+                <h4>共翻译转运：</h4>
+                <ol>
+                    <li>信号识别颗粒（SRP）识别信号肽</li>
+                    <li>翻译暂停，核糖体-SRP复合物形成</li>
+                    <li>SRP受体引导复合物到内质网膜</li>
+                    <li>Sec61转位子形成蛋白质通道</li>
+                    <li>信号肽酶切除信号肽</li>
+                </ol>
+
+                <h4>翻译后转运：</h4>
+                <p>某些蛋白质在胞质中合成完成后，通过Sec62/63复合物进入内质网。</p>
+
+                <h3>5.3 其他细胞器的蛋白质转运</h3>
+                
+                <h4>线粒体蛋白质转运：</h4>
+                <ul>
+                    <li><strong>TOM复合物：</strong>外膜转位酶</li>
+                    <li><strong>TIM复合物：</strong>内膜转位酶</li>
+                    <li><strong>前导肽：</strong>N端正电荷丰富的序列</li>
+                </ul>
+
+                <h4>核蛋白转运：</h4>
+                <ul>
+                    <li><strong>核孔复合物：</strong>核质交换的通道</li>
+                    <li><strong>输入蛋白（Importin）：</strong>识别NLS，介导核输入</li>
+                    <li><strong>输出蛋白（Exportin）：</strong>介导核输出</li>
+                    <li><strong>Ran-GTP梯度：</strong>提供转运的方向性</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>糖基化与蛋白质定位：</strong>N-连接糖基化发生在内质网，是蛋白质正确折叠和质量控制的重要标志。O-连接糖基化主要发生在高尔基体。
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>六、蛋白质合成的调控与抑制</h2>
+                
+                <h3>6.1 翻译水平的调控</h3>
+                <ul>
+                    <li><strong>起始因子磷酸化：</strong>eIF2α磷酸化抑制翻译起始</li>
+                    <li><strong>microRNA调控：</strong>结合mRNA 3'UTR抑制翻译</li>
+                    <li><strong>铁调节蛋白：</strong>调控铁代谢相关蛋白的翻译</li>
+                    <li><strong>核糖体开关：</strong>mRNA二级结构变化调控翻译</li>
+                </ul>
+
+                <h3>6.2 蛋白质合成抑制剂</h3>
+                
+                <h4>抗生素类抑制剂：</h4>
+                <ul>
+                    <li><strong>链霉素：</strong>结合30S亚基，引起密码子误读</li>
+                    <li><strong>氯霉素：</strong>抑制肽酰转移酶活性</li>
+                    <li><strong>红霉素：</strong>阻断肽链延伸</li>
+                    <li><strong>嘌呤霉素：</strong>模拟氨酰-tRNA，导致肽链提前终止</li>
+                </ul>
+
+                <h4>毒蛋白类抑制剂：</h4>
+                <ul>
+                    <li><strong>白喉毒素：</strong>ADP-核糖基化EF-2</li>
+                    <li><strong>蓖麻毒素：</strong>去嘌呤化60S亚基rRNA</li>
+                </ul>
+
+                <h3>6.3 翻译忠实性保障机制</h3>
+                <ol>
+                    <li><strong>氨酰-tRNA合成酶校对：</strong>确保正确的氨基酸-tRNA配对</li>
+                    <li><strong>核糖体校对：</strong>A位点的构象选择性</li>
+                    <li><strong>EF-Tu的GTP水解：</strong>提供校对的时间窗口</li>
+                    <li><strong>无义介导的mRNA降解：</strong>清除含有提前终止密码子的mRNA</li>
+                </ol>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">遗传密码（Genetic Code）</div>
+                    <div class="term-english">Genetic Code</div>
+                    <div class="term-definition">DNA和RNA中核苷酸序列携带遗传信息的密码规律，由三个连续核苷酸组成一个密码子，编码一个氨基酸或终止信号。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">密码子（Codon）</div>
+                    <div class="term-english">Codon</div>
+                    <div class="term-definition">mRNA上由三个连续核苷酸组成的编码单位，每个密码子对应一个特定的氨基酸或终止信号。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">反密码子（Anticodon）</div>
+                    <div class="term-english">Anticodon</div>
+                    <div class="term-definition">tRNA分子上与mRNA密码子互补配对的三核苷酸序列，决定tRNA携带的氨基酸种类。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">氨酰-tRNA合成酶（Aminoacyl-tRNA Synthetase）</div>
+                    <div class="term-english">Aminoacyl-tRNA Synthetase, AARS</div>
+                    <div class="term-definition">催化特定氨基酸与对应tRNA结合的酶，具有高度特异性，是翻译准确性的关键保障。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">核糖体（Ribosome）</div>
+                    <div class="term-english">Ribosome</div>
+                    <div class="term-definition">由rRNA和蛋白质组成的核糖核蛋白复合物，是蛋白质合成的场所，具有A、P、E三个功能位点。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号肽（Signal Peptide）</div>
+                    <div class="term-english">Signal Peptide</div>
+                    <div class="term-definition">位于蛋白质N端的短肽序列，引导新合成的蛋白质定位到内质网，通常含有疏水性氨基酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号识别颗粒（Signal Recognition Particle）</div>
+                    <div class="term-english">Signal Recognition Particle, SRP</div>
+                    <div class="term-definition">识别信号肽并引导核糖体到内质网膜的核糖核蛋白复合物，由6个蛋白质和一个7S RNA组成。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">分子伴侣（Molecular Chaperone）</div>
+                    <div class="term-english">Molecular Chaperone</div>
+                    <div class="term-definition">协助蛋白质正确折叠、防止错误折叠和聚集的蛋白质，主要包括Hsp70、Hsp60和Hsp90家族。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">翻译后修饰（Post-translational Modification）</div>
+                    <div class="term-english">Post-translational Modification, PTM</div>
+                    <div class="term-definition">蛋白质合成后发生的化学修饰，包括磷酸化、糖基化、乙酰化等，调节蛋白质的功能、定位和稳定性。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">核定位信号（Nuclear Localization Signal）</div>
+                    <div class="term-english">Nuclear Localization Signal, NLS</div>
+                    <div class="term-definition">引导蛋白质进入细胞核的氨基酸序列，通常富含碱性氨基酸如赖氨酸和精氨酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">肽酰转移酶（Peptidyl Transferase）</div>
+                    <div class="term-english">Peptidyl Transferase</div>
+                    <div class="term-definition">催化肽键形成的酶活性，位于核糖体大亚基的23S rRNA（原核）或28S rRNA（真核）中。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">延伸因子（Elongation Factor）</div>
+                    <div class="term-english">Elongation Factor, EF</div>
+                    <div class="term-definition">参与蛋白质合成延伸过程的蛋白质因子，包括EF-Tu、EF-G（原核）和eEF1A、eEF2（真核）。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">无义介导的mRNA降解（Nonsense-Mediated mRNA Decay）</div>
+                    <div class="term-english">Nonsense-Mediated mRNA Decay, NMD</div>
+                    <div class="term-definition">细胞质量控制机制，识别并降解含有提前终止密码子的mRNA，防止产生截短的有害蛋白质。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">内质网应激反应（ER Stress Response）</div>
+                    <div class="term-english">ER Stress Response, UPR</div>
+                    <div class="term-definition">当内质网中未折叠蛋白质积累时启动的细胞保护机制，包括减少蛋白质合成、增强折叠能力和清除错误蛋白质。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>选择题测试</h2>
+                <div class="quiz-container">
+                    <p><strong>说明：</strong>以下题目从30道题库中随机抽取15道，完成后点击提交查看结果和解析。</p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-feedback" class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述蛋白质合成过程中翻译忠实性的保障机制，并分析这些机制如何确保遗传信息的准确传递。</h4>
+                    <div class="answer">
+                        <h5>标准答案：</h5>
+                        <ol>
+                            <li><strong>氨酰-tRNA合成酶的双重筛选机制：</strong>首先通过活性位点的空间互补性选择正确的氨基酸，然后通过编辑位点的3'→5'外切酶活性移除错误结合的氨基酸。这种双重校对机制将氨基酸选择的错误率降低到10^-4以下。</li>
+                            <li><strong>核糖体的构象选择性校对：</strong>核糖体A位点具有构象选择性，只有正确配对的氨酰-tRNA才能诱导核糖体发生构象变化，促进GTP水解和氨酰-tRNA的稳定结合。错误的氨酰-tRNA会被快速释放。</li>
+                            <li><strong>EF-Tu介导的动力学校对：</strong>EF-Tu·GTP的水解为校对提供时间窗口。正确的密码子-反密码子配对稳定EF-Tu·氨酰-tRNA·核糖体复合物，促进GTP水解；错误配对则导致复合物不稳定，氨酰-tRNA在GTP水解前解离。</li>
+                            <li><strong>翻译后的质量控制：</strong>无义介导的mRNA降解（NMD）机制识别含有提前终止密码子的mRNA并将其降解，防止产生截短的蛋白质。内质网的未折叠蛋白反应（UPR）监控蛋白质折叠质量。</li>
+                            <li><strong>统计学意义：</strong>这些机制的协同作用使得蛋白质合成的总错误率控制在10^-4到10^-5之间，确保了遗传信息传递的高保真度，维持了细胞的正常生理功能。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较分析原核生物和真核生物在蛋白质合成起始阶段的异同点，并解释这些差异的生物学意义。</h4>
+                    <div class="answer">
+                        <h5>标准答案：</h5>
+                        <ol>
+                            <li><strong>相同点：</strong>都需要起始氨酰-tRNA（原核为fMet-tRNA^fMet，真核为Met-tRNA^iMet）、起始因子的参与、GTP的水解提供能量、核糖体大小亚基的组装等基本步骤。</li>
+                            <li><strong>主要差异：</strong>
+                                <ul>
+                                    <li>mRNA识别机制：原核生物通过SD序列与16S rRNA配对直接定位起始密码子；真核生物通过5'帽子结构识别，40S亚基扫描至第一个AUG</li>
+                                    <li>起始因子数量：原核生物有3个起始因子（IF1-3），真核生物有12个以上起始因子（eIF1-6）</li>
+                                    <li>起始氨基酸：原核生物使用甲酰甲硫氨酸，真核生物使用甲硫氨酸</li>
+                                    <li>调控复杂性：真核生物的起始调控更加复杂，涉及多种调控因子</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学意义：</strong>真核生物更复杂的起始机制反映了其基因表达调控的精细化需求，5'帽子结构和扫描机制确保了翻译的准确起始，多样化的起始因子为不同生理条件下的差异化调控提供了分子基础。</li>
+                            <li><strong>进化意义：</strong>这些差异体现了从原核到真核生物进化过程中基因表达调控系统的复杂化，适应了真核细胞更加复杂的生理需求和环境变化。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 详细阐述蛋白质信号序列介导的定位机制，并分析不同细胞器蛋白质转运的特点和调控机制。</h4>
+                    <div class="answer">
+                        <h5>标准答案：</h5>
+                        <ol>
+                            <li><strong>信号序列的基本特征：</strong>
+                                <ul>
+                                    <li>内质网信号肽：N端疏水性序列，被信号肽酶切除</li>
+                                    <li>线粒体前导肽：N端富含正电荷，形成两亲性α螺旋</li>
+                                    <li>核定位信号：富含碱性氨基酸的短序列，通常不被切除</li>
+                                    <li>叶绿体转运肽：N端序列，含有羟基氨基酸</li>
+                                </ul>
+                            </li>
+                            <li><strong>内质网转运机制：</strong>SRP识别信号肽→翻译暂停→SRP受体引导→Sec61转位子形成通道→共翻译转运→信号肽酶切除。该机制确保分泌蛋白和膜蛋白的正确定位。</li>
+                            <li><strong>线粒体转运特点：</strong>翻译后转运，需要ATP和膜电位驱动，通过TOM和TIM复合物，前导肽被基质加工肽酶切除。转运过程需要分子伴侣协助维持蛋白质的转运能力构象。</li>
+                            <li><strong>核转运的独特性：</strong>通过核孔复合物进行，依赖Ran-GTP梯度提供方向性，输入蛋白和输出蛋白介导双向转运，NLS和NES序列决定转运方向。</li>
+                            <li><strong>调控机制：</strong>信号序列的可变性、转运机器的调控、分子伴侣的参与、翻译后修饰的影响等多层次调控确保蛋白质的精确定位，维持细胞区室化的完整性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析蛋白质翻译后修饰的主要类型及其生物学功能，并举例说明这些修饰如何调控蛋白质的功能和细胞过程。</h4>
+                    <div class="answer">
+                        <h5>标准答案：</h5>
+                        <ol>
+                            <li><strong>磷酸化修饰：</strong>主要发生在丝氨酸、苏氨酸和酪氨酸残基上，由蛋白激酶催化，磷酸酶逆转。功能包括酶活性调控、蛋白质相互作用、细胞定位等。例如：糖原磷酸化酶的磷酸化激活糖原分解；p53的磷酸化调控细胞周期检查点。</li>
+                            <li><strong>糖基化修饰：</strong>包括N-连接糖基化（天冬酰胺）和O-连接糖基化（丝氨酸/苏氨酸）。功能包括蛋白质折叠、稳定性、细胞识别、免疫反应等。例如：抗体的糖基化影响其效应功能；病毒表面糖蛋白的糖基化影响宿主识别。</li>
+                            <li><strong>泛素化修饰：</strong>泛素通过E1-E2-E3酶级联反应结合到目标蛋白的赖氨酸残基。功能包括蛋白质降解、细胞定位、信号转导等。例如：多聚泛素链标记蛋白质进入蛋白酶体降解；单泛素化调控膜蛋白的内吞。</li>
+                            <li><strong>乙酰化修饰：</strong>主要发生在组蛋白和转录因子上，由乙酰转移酶催化，去乙酰化酶逆转。功能包括基因表达调控、蛋白质相互作用等。例如：组蛋白乙酰化促进转录激活；p53的乙酰化增强其转录活性。</li>
+                            <li><strong>甲基化修饰：</strong>主要发生在组蛋白的赖氨酸和精氨酸残基，参与表观遗传调控。例如：H3K4me3标记转录起始位点；H3K27me3参与基因沉默。</li>
+                            <li><strong>生物学意义：</strong>这些修饰构成了复杂的调控网络，实现了蛋白质功能的精细调控，是细胞信号转导、基因表达调控、细胞周期控制等重要生物过程的分子基础。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "遗传密码的基本特征不包括：",
+                options: ["A. 三联体密码", "B. 通用性", "C. 重叠性", "D. 简并性"],
+                correct: 2,
+                explanation: "遗传密码具有无重叠性特征，即密码子之间不重叠，按顺序读取。重叠性不是遗传密码的特征。"
+            },
+            {
+                question: "下列哪个密码子是起始密码子？",
+                options: ["A. UAG", "B. UAA", "C. AUG", "D. UGA"],
+                correct: 2,
+                explanation: "AUG是起始密码子，既编码甲硫氨酸，又作为翻译起始信号。UAG、UAA、UGA都是终止密码子。"
+            },
+            {
+                question: "原核生物核糖体的组成是：",
+                options: ["A. 60S + 40S", "B. 70S = 50S + 30S", "C. 80S = 60S + 40S", "D. 90S = 60S + 30S"],
+                correct: 1,
+                explanation: "原核生物核糖体为70S，由50S大亚基和30S小亚基组成。真核生物核糖体为80S，由60S大亚基和40S小亚基组成。"
+            },
+            {
+                question: "tRNA的哪个部位与氨基酸结合？",
+                options: ["A. 反密码子环", "B. D环", "C. 3'端CCA序列", "D. TψC环"],
+                correct: 2,
+                explanation: "tRNA的3'端CCA序列是氨基酸结合位点，氨基酸通过酯键与3'端腺苷酸的3'-OH结合。"
+            },
+            {
+                question: "氨酰-tRNA合成酶的功能是：",
+                options: ["A. 催化肽键形成", "B. 催化氨基酸与tRNA结合", "C. 催化tRNA修饰", "D. 催化mRNA剪接"],
+                correct: 1,
+                explanation: "氨酰-tRNA合成酶催化特定氨基酸与对应tRNA的结合，形成氨酰-tRNA，是翻译准确性的关键保障。"
+            },
+            {
+                question: "原核生物翻译起始时使用的氨基酸是：",
+                options: ["A. 甲硫氨酸", "B. 甲酰甲硫氨酸", "C. 丙氨酸", "D. 甘氨酸"],
+                correct: 1,
+                explanation: "原核生物翻译起始使用甲酰甲硫氨酸（fMet），真核生物使用甲硫氨酸（Met）。"
+            },
+            {
+                question: "SD序列的作用是：",
+                options: ["A. 终止翻译", "B. 核糖体结合位点", "C. 氨基酸编码", "D. mRNA剪接"],
+                correct: 1,
+                explanation: "SD序列（Shine-Dalgarno序列）是原核生物mRNA上的核糖体结合位点，与16S rRNA互补配对，定位翻译起始位点。"
+            },
+            {
+                question: "真核生物mRNA的5'端结构是：",
+                options: ["A. 磷酸基团", "B. 帽子结构", "C. 羟基", "D. 氨基"],
+                correct: 1,
+                explanation: "真核生物mRNA的5'端具有帽子结构（7-甲基鸟苷酸），参与翻译起始的识别和mRNA的稳定性。"
+            },
+            {
+                question: "核糖体的A位点功能是：",
+                options: ["A. 结合肽酰-tRNA", "B. 结合氨酰-tRNA", "C. 释放tRNA", "D. 结合mRNA"],
+                correct: 1,
+                explanation: "核糖体A位点（氨酰位点）结合携带氨基酸的氨酰-tRNA，P位点结合肽酰-tRNA，E位点释放去酰化的tRNA。"
+            },
+            {
+                question: "肽酰转移酶的作用是：",
+                options: ["A. 转运氨基酸", "B. 催化肽键形成", "C. 修饰tRNA", "D. 降解蛋白质"],
+                correct: 1,
+                explanation: "肽酰转移酶催化肽键的形成，将P位点的肽链转移到A位点的氨基酸上，该酶活性位于核糖体大亚基的rRNA中。"
+            },
+            {
+                question: "EF-Tu的功能是：",
+                options: ["A. 催化核糖体移位", "B. 携带氨酰-tRNA进入A位点", "C. 释放多肽链", "D. 起始翻译"],
+                correct: 1,
+                explanation: "EF-Tu（延伸因子Tu）与GTP结合，携带氨酰-tRNA进入核糖体A位点。EF-G催化核糖体移位。"
+            },
+            {
+                question: "白喉毒素的作用机制是：",
+                options: ["A. 抑制转录", "B. ADP-核糖基化EF-2", "C. 破坏核糖体", "D. 降解mRNA"],
+                correct: 1,
+                explanation: "白喉毒素通过ADP-核糖基化修饰EF-2（真核生物的EF-G），阻断蛋白质合成的延伸步骤。"
+            },
+            {
+                question: "终止密码子包括：",
+                options: ["A. AUG、UUG、GUG", "B. UAG、UAA、UGA", "C. AAG、AAA、AGA", "D. UUU、UUC、UUA"],
+                correct: 1,
+                explanation: "终止密码子包括UAG（琥珀）、UAA（赭石）、UGA（蛋白石），它们不编码氨基酸，而是终止翻译。"
+            },
+            {
+                question: "信号肽的主要特征是：",
+                options: ["A. 富含碱性氨基酸", "B. 富含疏水性氨基酸", "C. 富含酸性氨基酸", "D. 富含极性氨基酸"],
+                correct: 1,
+                explanation: "信号肽通常位于蛋白质N端，富含疏水性氨基酸，引导蛋白质进入内质网，随后被信号肽酶切除。"
+            },
+            {
+                question: "SRP的全称是：",
+                options: ["A. Signal Recognition Protein", "B. Signal Recognition Particle", "C. Signal Receptor Protein", "D. Signal Receptor Particle"],
+                correct: 1,
+                explanation: "SRP是Signal Recognition Particle（信号识别颗粒），识别信号肽并引导核糖体到内质网膜。"
+            },
+            {
+                question: "分子伴侣的主要功能是：",
+                options: ["A. 催化肽键形成", "B. 协助蛋白质折叠", "C. 降解蛋白质", "D. 修饰蛋白质"],
+                correct: 1,
+                explanation: "分子伴侣协助蛋白质正确折叠，防止错误折叠和聚集，主要包括Hsp70、Hsp60和Hsp90家族。"
+            },
+            {
+                question: "PDI酶的功能是：",
+                options: ["A. 催化磷酸化", "B. 催化二硫键形成和重排", "C. 催化糖基化", "D. 催化乙酰化"],
+                correct: 1,
+                explanation: "PDI（蛋白质二硫键异构酶）催化二硫键的形成和重排，是蛋白质正确折叠的重要辅助酶。"
+            },
+            {
+                question: "核定位信号（NLS）的特征是：",
+                options: ["A. 富含疏水氨基酸", "B. 富含碱性氨基酸", "C. 富含酸性氨基酸", "D. 富含芳香氨基酸"],
+                correct: 1,
+                explanation: "核定位信号（NLS）富含碱性氨基酸如赖氨酸和精氨酸，被输入蛋白识别，引导蛋白质进入细胞核。"
+            },
+            {
+                question: "线粒体蛋白质转运需要：",
+                options: ["A. 只需要ATP", "B. 只需要膜电位", "C. 需要ATP和膜电位", "D. 不需要能量"],
+                correct: 2,
+                explanation: "线粒体蛋白质转运需要ATP提供能量和膜电位驱动，通过TOM和TIM复合物完成转运过程。"
+            },
+            {
+                question: "核孔复合物的功能是：",
+                options: ["A. 蛋白质合成", "B. 核质交换", "C. DNA复制", "D. RNA剪接"],
+                correct: 1,
+                explanation: "核孔复合物是核膜上的大型蛋白质复合物，介导核质之间的物质交换，包括蛋白质和RNA的转运。"
+            },
+            {
+                question: "链霉素的作用机制是：",
+                options: ["A. 抑制转录", "B. 结合30S亚基引起误读", "C. 抑制DNA复制", "D. 破坏细胞膜"],
+                correct: 1,
+                explanation: "链霉素结合原核生物核糖体30S亚基，干扰密码子-反密码子的正确配对，引起翻译误读。"
+            },
+            {
+                question: "氯霉素的作用靶点是：",
+                options: ["A. 30S亚基", "B. 50S亚基的肽酰转移酶", "C. DNA聚合酶", "D. RNA聚合酶"],
+                correct: 1,
+                explanation: "氯霉素结合原核生物核糖体50S亚基，抑制肽酰转移酶活性，阻断肽键形成。"
+            },
+            {
+                question: "嘌呤霉素的作用机制是：",
+                options: ["A. 抑制起始", "B. 模拟氨酰-tRNA导致肽链提前终止", "C. 抑制延伸", "D. 抑制终止"],
+                correct: 1,
+                explanation: "嘌呤霉素结构类似氨酰-tRNA，能够进入A位点并与肽链结合，但随后解离，导致肽链提前终止。"
+            },
+            {
+                question: "糖基化修饰主要发生在：",
+                options: ["A. 细胞质", "B. 内质网和高尔基体", "C. 线粒体", "D. 细胞核"],
+                correct: 1,
+                explanation: "N-连接糖基化主要发生在内质网，O-连接糖基化主要发生在高尔基体，这些修饰对蛋白质功能和定位很重要。"
+            },
+            {
+                question: "泛素化修饰的主要功能是：",
+                options: ["A. 激活蛋白质", "B. 标记蛋白质降解", "C. 稳定蛋白质", "D. 运输蛋白质"],
+                correct: 1,
+                explanation: "泛素化修饰主要功能是标记蛋白质进入蛋白酶体降解途径，多聚泛素链是蛋白质降解的信号。"
+            },
+            {
+                question: "Ran-GTP梯度的作用是：",
+                options: ["A. 提供核转运的能量", "B. 提供核转运的方向性", "C. 激活核孔复合物", "D. 修饰转运蛋白"],
+                correct: 1,
+                explanation: "Ran-GTP在核内浓度高，在胞质中浓度低，这种梯度为核转运提供方向性，调控输入蛋白和输出蛋白的活性。"
+            },
+            {
+                question: "无义介导的mRNA降解（NMD）的作用是：",
+                options: ["A. 降解所有mRNA", "B. 降解含提前终止密码子的mRNA", "C. 降解未翻译的mRNA", "D. 降解病毒mRNA"],
+                correct: 1,
+                explanation: "NMD是细胞质量控制机制，特异性识别并降解含有提前终止密码子的mRNA，防止产生截短的有害蛋白质。"
+            },
+            {
+                question: "蛋白质二级结构的形成主要依靠：",
+                options: ["A. 二硫键", "B. 氢键", "C. 离子键", "D. 疏水相互作用"],
+                correct: 1,
+                explanation: "蛋白质二级结构（α螺旋、β折叠）的形成主要依靠主链原子间的氢键，这些氢键稳定了规则的二级结构。"
+            },
+            {
+                question: "真核生物翻译起始复合物的组成不包括：",
+                options: ["A. 40S亚基", "B. eIF4F", "C. Met-tRNA^iMet", "D. IF-2"],
+                correct: 3,
+                explanation: "IF-2是原核生物的起始因子，真核生物使用eIF2等起始因子。真核翻译起始需要40S亚基、eIF4F、Met-tRNA^iMet等。"
+            },
+            {
+                question: "内质网应激反应（UPR）的触发条件是：",
+                options: ["A. ATP耗竭", "B. 未折叠蛋白质积累", "C. DNA损伤", "D. 膜电位丧失"],
+                correct: 1,
+                explanation: "当内质网中未折叠或错误折叠的蛋白质积累时，触发UPR，包括减少蛋白质合成、增强折叠能力等保护机制。"
+            }
+        ];
+
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储正确答案
+            window.correctAnswers = selectedQuestions.map(q => q.correct);
+            window.explanations = selectedQuestions.map(q => q.explanation);
+            window.questions = selectedQuestions;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const feedbackContainer = document.getElementById('quiz-feedback');
+            const questions = document.querySelectorAll('.question');
+            let score = 0;
+            let feedbackHTML = '';
+            
+            questions.forEach((questionDiv, index) => {
+                const selectedOption = questionDiv.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selectedOption ? parseInt(selectedOption.value) : -1;
+                const correctAnswer = window.correctAnswers[index];
+                const isCorrect = userAnswer === correctAnswer;
+                
+                if (isCorrect) score++;
+                
+                feedbackHTML += `
+                    <div class="feedback-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="feedback-question">${index + 1}. ${window.questions[index].question}</div>
+                        <div class="feedback-answer">您的答案: ${userAnswer >= 0 ? window.questions[index].options[userAnswer] : '未选择'}</div>
+                        <div class="feedback-answer">正确答案: ${window.questions[index].options[correctAnswer]}</div>
+                        <div class="feedback-explanation">解析: ${window.explanations[index]}</div>
+                    </div>
+                `;
+            });
+            
+            feedbackContainer.innerHTML = `
+                <h3>测试结果：${score}/15 (${Math.round(score/15*100)}%)</h3>
+                ${feedbackHTML}
+            `;
+            feedbackContainer.classList.add('show');
+            
+            // 滚动到反馈区域
+            feedbackContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载时渲染题目
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

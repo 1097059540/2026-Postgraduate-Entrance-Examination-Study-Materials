@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>激素和信号传导复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.1em;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+        }
+
+        .glossary-term {
+            background: #e8f4f8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .glossary-term strong {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .quiz-container {
+            background: #f1f2f6;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .essay-question {
+            background: #fff;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .essay-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .answer {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 4px solid #28a745;
+        }
+
+        .answer h5 {
+            color: #28a745;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>激素和信号传导</h1>
+            <p>生物化学第14章 · 考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、激素概述</h2>
+                
+                <h3>1. 激素的定义与特点</h3>
+                <p>激素是由内分泌腺或内分泌细胞分泌的高效生物活性物质，在体内作为信使传递信息，对机体的代谢、生长、发育、繁殖、性别、性欲和性活动等起重要的调节作用。</p>
+                
+                <div class="highlight">
+                    <strong>激素的基本特征：</strong>
+                    <ul>
+                        <li><strong>高效性：</strong>激素在体内浓度极低（10⁻⁶～10⁻¹²mol/L），但能产生强烈的生物学效应</li>
+                        <li><strong>特异性：</strong>每种激素只对特定的靶器官或靶细胞起作用</li>
+                        <li><strong>信息性：</strong>激素是细胞间信息传递的化学信使</li>
+                        <li><strong>调节性：</strong>激素不提供能量，也不参与代谢过程，仅起调节作用</li>
+                    </ul>
+                </div>
+
+                <h3>2. 激素的化学分类</h3>
+                <h4>（1）肽类激素</h4>
+                <p>由氨基酸组成的多肽或蛋白质，如胰岛素、胰高血糖素、生长激素等。这类激素水溶性好，不能通过细胞膜，需要膜受体介导。</p>
+                
+                <h4>（2）氨基酸衍生物</h4>
+                <p>由酪氨酸衍生而来，包括甲状腺激素（T₃、T₄）和儿茶酚胺类（肾上腺素、去甲肾上腺素）。</p>
+                
+                <h4>（3）类固醇激素</h4>
+                <p>以胆固醇为前体合成，包括性激素（雌激素、雄激素、孕激素）、肾上腺皮质激素（糖皮质激素、盐皮质激素）等。脂溶性强，可通过细胞膜。</p>
+
+                <h3>3. 激素的检测方法</h3>
+                <ul>
+                    <li><strong>放射免疫分析法（RIA）：</strong>利用抗原-抗体反应的特异性和放射性同位素标记技术</li>
+                    <li><strong>酶联免疫吸附试验（ELISA）：</strong>基于酶标记的免疫分析方法</li>
+                    <li><strong>化学发光免疫分析法（CLIA）：</strong>结合化学发光技术的高灵敏度检测方法</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>二、信号转导机制</h2>
+                
+                <h3>1. 信号转导的基本概念</h3>
+                <p>信号转导是指细胞感受、传递和响应外界信息的过程。包括信号识别、信号转换、信号传递和信号终止四个基本步骤。</p>
+                
+                <div class="important">
+                    <strong>信号转导的六种基本机制：</strong>
+                    <ol>
+                        <li>G蛋白偶联受体（GPCR）</li>
+                        <li>受体酪氨酸激酶（RTK）</li>
+                        <li>受体鸟苷酸环化酶</li>
+                        <li>门控离子通道</li>
+                        <li>整合素</li>
+                        <li>核受体</li>
+                    </ol>
+                </div>
+
+                <h3>2. G蛋白偶联受体系统</h3>
+                <h4>（1）cAMP-PKA途径</h4>
+                <p>激素与GPCR结合 → 激活Gₛ蛋白 → 激活腺苷酸环化酶 → ATP转化为cAMP → 激活蛋白激酶A（PKA） → 磷酸化靶蛋白</p>
+                
+                <h4>（2）IP₃-DAG途径</h4>
+                <p>激素与GPCR结合 → 激活Gq蛋白 → 激活磷脂酶C → PIP₂分解为IP₃和DAG → IP₃释放Ca²⁺，DAG激活PKC</p>
+
+                <h3>3. 受体酪氨酸激酶系统</h3>
+                <p>胰岛素、表皮生长因子等与受体结合后，受体发生二聚化和自磷酸化，激活下游信号通路，如PI3K-Akt通路和MAPK通路。</p>
+
+                <h3>4. 类固醇激素的作用机制</h3>
+                <p>类固醇激素穿过细胞膜 → 与胞质或核内受体结合 → 激素-受体复合物进入细胞核 → 结合到DNA特定序列 → 调节基因转录 → 合成特异性蛋白质</p>
+            </div>
+
+            <div class="section">
+                <h2>三、重要激素及其功能</h2>
+                
+                <h3>1. 胰岛素</h3>
+                <p>由胰岛β细胞分泌的蛋白质激素，是唯一能降低血糖的激素。主要功能包括促进葡萄糖摄取、糖原合成、脂肪合成，抑制糖异生和脂肪分解。</p>
+                
+                <h3>2. 胰高血糖素</h3>
+                <p>由胰岛α细胞分泌，与胰岛素作用相反，主要促进肝糖原分解、糖异生，升高血糖水平。</p>
+                
+                <h3>3. 肾上腺素</h3>
+                <p>由肾上腺髓质分泌的儿茶酚胺类激素，在应激反应中起重要作用。促进糖原分解、脂肪分解，提高心率和血压。</p>
+                
+                <h3>4. 甲状腺激素</h3>
+                <p>包括T₃和T₄，调节基础代谢率、生长发育和神经系统功能。T₃的生物活性比T₄强3-4倍。</p>
+                
+                <h3>5. 生长激素</h3>
+                <p>由垂体前叶分泌，促进蛋白质合成、骨骼生长和细胞分裂，具有抗胰岛素作用。</p>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>四、名词解释库</h2>
+                
+                <div class="glossary-term">
+                    <strong>激素（Hormone）：</strong>由内分泌腺或内分泌细胞分泌的高效生物活性物质，在体内作为信使传递信息，调节机体的代谢、生长、发育等生理过程。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>第二信使（Second Messenger）：</strong>细胞内传递信号的小分子物质，如cAMP、cGMP、IP₃、DAG、Ca²⁺等，将细胞外信号转换为细胞内响应。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>G蛋白偶联受体（G Protein-Coupled Receptor, GPCR）：</strong>具有七次跨膜结构的受体蛋白，通过G蛋白介导信号转导，是最大的受体家族。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>蛋白激酶A（Protein Kinase A, PKA）：</strong>cAMP依赖性蛋白激酶，由调节亚基和催化亚基组成，在cAMP作用下激活，磷酸化多种靶蛋白。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>腺苷酸环化酶（Adenylyl Cyclase, AC）：</strong>位于细胞膜的酶，在Gₛ蛋白激活下催化ATP生成cAMP，是cAMP信号通路的关键酶。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>磷脂酶C（Phospholipase C, PLC）：</strong>催化PIP₂分解为IP₃和DAG的酶，是IP₃-DAG信号通路的关键酶。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>受体酪氨酸激酶（Receptor Tyrosine Kinase, RTK）：</strong>具有内在酪氨酸激酶活性的受体，如胰岛素受体、表皮生长因子受体等。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>类固醇激素（Steroid Hormone）：</strong>以胆固醇为前体合成的激素，包括性激素、肾上腺皮质激素等，脂溶性强，可通过细胞膜。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>胰岛素抵抗（Insulin Resistance）：</strong>机体对胰岛素的敏感性下降，需要更多胰岛素才能维持正常血糖水平的病理状态。
+                </div>
+                
+                <div class="glossary-term">
+                    <strong>负反馈调节（Negative Feedback）：</strong>激素分泌的自我调节机制，当激素浓度过高时抑制其进一步分泌，维持体内平衡。
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>五、选择题测试</h2>
+                <div class="quiz-container">
+                    <p><strong>说明：</strong>本测试从30道题库中随机抽取15道题，请选择最佳答案。</p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>六、深度思考题</h2>
+                
+                <div class="essay-question">
+                    <h4>1. 比较分析水溶性激素和脂溶性激素在作用机制上的异同点，并举例说明。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>相同点：</strong>都具有高效性、特异性和调节性；都需要与特异性受体结合才能发挥作用；都参与维持机体内环境稳态。</li>
+                            <li><strong>不同点：</strong>
+                                <ul>
+                                    <li><strong>受体位置：</strong>水溶性激素受体位于细胞膜表面（如胰岛素受体），脂溶性激素受体位于细胞质或细胞核内（如雌激素受体）</li>
+                                    <li><strong>作用机制：</strong>水溶性激素通过第二信使系统发挥作用，脂溶性激素直接调节基因转录</li>
+                                    <li><strong>作用速度：</strong>水溶性激素作用迅速（秒-分钟级），脂溶性激素作用较慢（小时级）</li>
+                                    <li><strong>作用持续时间：</strong>水溶性激素作用时间短，脂溶性激素作用时间长</li>
+                                </ul>
+                            </li>
+                            <li><strong>举例：</strong>胰岛素（水溶性）通过RTK-PI3K通路快速调节糖代谢；雌二醇（脂溶性）通过调节基因转录长期调节生殖系统发育。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="essay-question">
+                    <h4>2. 详细阐述cAMP-PKA信号转导通路的分子机制，并分析其在糖代谢调节中的作用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>信号转导机制：</strong>
+                                <ul>
+                                    <li>激素（如胰高血糖素）与GPCR结合，引起受体构象变化</li>
+                                    <li>激活的受体与Gₛ蛋白结合，促使GDP被GTP替换</li>
+                                    <li>Gₛ-GTP复合物激活腺苷酸环化酶</li>
+                                    <li>腺苷酸环化酶催化ATP生成cAMP</li>
+                                    <li>cAMP与PKA调节亚基结合，释放催化亚基</li>
+                                    <li>活化的PKA磷酸化多种靶蛋白</li>
+                                </ul>
+                            </li>
+                            <li><strong>糖代谢调节作用：</strong>
+                                <ul>
+                                    <li>磷酸化激活磷酸化酶激酶，进而激活糖原磷酸化酶，促进糖原分解</li>
+                                    <li>磷酸化抑制乙酰辅酶A羧化酶，抑制脂肪酸合成</li>
+                                    <li>磷酸化激活激素敏感性脂肪酶，促进脂肪分解</li>
+                                    <li>磷酸化CREB转录因子，激活糖异生关键酶基因转录</li>
+                                </ul>
+                            </li>
+                            <li><strong>调节意义：</strong>该通路实现了激素信号的放大和精确调节，是机体应对饥饿和应激状态的重要机制。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="essay-question">
+                    <h4>3. 分析胰岛素信号转导通路的分子机制，并讨论胰岛素抵抗的发生机制。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>胰岛素信号转导机制：</strong>
+                                <ul>
+                                    <li>胰岛素与受体α亚基结合，引起受体二聚化</li>
+                                    <li>受体β亚基发生自磷酸化，激活酪氨酸激酶活性</li>
+                                    <li>磷酸化的受体招募并磷酸化胰岛素受体底物（IRS）</li>
+                                    <li>IRS激活PI3K，产生PIP₃</li>
+                                    <li>PIP₃激活PDK1和Akt/PKB</li>
+                                    <li>Akt磷酸化多种下游靶点，调节糖脂代谢</li>
+                                </ul>
+                            </li>
+                            <li><strong>主要生物学效应：</strong>
+                                <ul>
+                                    <li>促进葡萄糖转运蛋白GLUT4转位到细胞膜</li>
+                                    <li>激活糖原合成酶，促进糖原合成</li>
+                                    <li>激活乙酰辅酶A羧化酶，促进脂肪酸合成</li>
+                                    <li>抑制糖异生关键酶的表达</li>
+                                </ul>
+                            </li>
+                            <li><strong>胰岛素抵抗机制：</strong>
+                                <ul>
+                                    <li>受体水平：受体数量减少或亲和力下降</li>
+                                    <li>受体后水平：IRS蛋白丝氨酸磷酸化增加，酪氨酸磷酸化减少</li>
+                                    <li>炎症因子：TNF-α等细胞因子干扰胰岛素信号</li>
+                                    <li>脂毒性：游离脂肪酸激活PKC，抑制胰岛素信号</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="essay-question">
+                    <h4>4. 论述类固醇激素受体的结构特点和作用机制，并分析其在基因表达调控中的作用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>受体结构特点：</strong>
+                                <ul>
+                                    <li>N端转录激活域：负责转录激活功能</li>
+                                    <li>DNA结合域：含有锌指结构，识别特定DNA序列</li>
+                                    <li>铰链区：连接DNA结合域和配体结合域</li>
+                                    <li>C端配体结合域：与激素结合，调节受体活性</li>
+                                </ul>
+                            </li>
+                            <li><strong>作用机制：</strong>
+                                <ul>
+                                    <li>激素穿过细胞膜，与胞质或核内受体结合</li>
+                                    <li>激素-受体复合物发生构象变化，暴露DNA结合域</li>
+                                    <li>复合物以同源二聚体形式结合到靶基因的激素反应元件（HRE）</li>
+                                    <li>招募转录共激活因子或共抑制因子</li>
+                                    <li>调节RNA聚合酶II的活性，影响基因转录</li>
+                                </ul>
+                            </li>
+                            <li><strong>基因表达调控：</strong>
+                                <ul>
+                                    <li>直接调节：结合到靶基因启动子区域的HRE</li>
+                                    <li>间接调节：调节转录因子的表达</li>
+                                    <li>表观遗传调节：影响组蛋白修饰和DNA甲基化</li>
+                                    <li>转录后调节：影响mRNA稳定性和翻译效率</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学意义：</strong>类固醇激素通过精确调节基因表达，控制细胞分化、代谢、免疫反应等重要生理过程。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="essay-question">
+                    <h4>5. 分析激素分泌的调节机制，并讨论反馈调节在维持内分泌平衡中的重要性。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>激素分泌调节机制：</strong>
+                                <ul>
+                                    <li>神经调节：下丘脑-垂体轴的神经内分泌调节</li>
+                                    <li>体液调节：其他激素或代谢产物的调节作用</li>
+                                    <li>自分泌调节：细胞分泌的激素作用于自身</li>
+                                    <li>旁分泌调节：激素作用于邻近细胞</li>
+                                </ul>
+                            </li>
+                            <li><strong>反馈调节类型：</strong>
+                                <ul>
+                                    <li>负反馈：最常见，如甲状腺激素对TSH的抑制</li>
+                                    <li>正反馈：较少见，如分娩时催产素的作用</li>
+                                    <li>短环反馈：垂体激素对下丘脑的反馈</li>
+                                    <li>长环反馈：靶腺激素对下丘脑-垂体的反馈</li>
+                                </ul>
+                            </li>
+                            <li><strong>调节的重要性：</strong>
+                                <ul>
+                                    <li>维持激素浓度在生理范围内</li>
+                                    <li>防止激素过度分泌造成的病理状态</li>
+                                    <li>实现激素分泌的精确时空调控</li>
+                                    <li>协调多个内分泌腺的功能</li>
+                                </ul>
+                            </li>
+                            <li><strong>临床意义：</strong>反馈调节异常是多种内分泌疾病的发病机制，如糖尿病、甲亢、库欣综合征等。理解反馈调节机制对疾病诊断和治疗具有重要指导意义。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "下列关于激素特点的描述，错误的是：",
+                options: ["A. 激素在体内浓度极低但效应强烈", "B. 激素具有高度的特异性", "C. 激素直接参与细胞的代谢过程", "D. 激素起信息传递作用"],
+                correct: 2,
+                explanation: "激素不直接参与细胞的代谢过程，而是起调节作用。激素是信息分子，通过与受体结合调节靶细胞的生理活动，但本身不参与具体的代谢反应。"
+            },
+            {
+                question: "含有环戊烷多氢菲结构的化合物是：",
+                options: ["A. 前列腺素", "B. 胆汁酸", "C. 维生素A", "D. 性激素"],
+                correct: 3,
+                explanation: "性激素属于类固醇激素，具有环戊烷多氢菲的基本结构。这是类固醇化合物的特征结构，包括胆固醇、性激素、肾上腺皮质激素等都具有这种结构。"
+            },
+            {
+                question: "腺苷酸环化酶位于：",
+                options: ["A. 线粒体", "B. 内质网膜", "C. 细胞核", "D. 质膜"],
+                correct: 3,
+                explanation: "腺苷酸环化酶是跨膜蛋白，位于细胞质膜上。它在G蛋白激活下催化ATP生成cAMP，是cAMP信号转导通路的关键酶。"
+            },
+            {
+                question: "cAMP通过激活哪个酶发挥作用？",
+                options: ["A. 蛋白激酶A", "B. 己糖激酶", "C. 脂肪酸合成酶", "D. 磷酸化酶b激酶"],
+                correct: 0,
+                explanation: "cAMP的主要作用是激活蛋白激酶A（PKA）。cAMP与PKA的调节亚基结合，释放催化亚基，激活的催化亚基磷酸化多种靶蛋白，发挥调节作用。"
+            },
+            {
+                question: "被称作第二信使的分子是：",
+                options: ["A. cDNA", "B. ACP", "C. cAMP", "D. AMP"],
+                correct: 2,
+                explanation: "cAMP是经典的第二信使分子。第二信使是细胞内传递信号的小分子物质，将细胞外的第一信使（激素）信号转换为细胞内响应。"
+            },
+            {
+                question: "不是第二信使的是：",
+                options: ["A. DAG", "B. IP₃", "C. Ca²⁺", "D. cAMP", "E. 乙酰胆碱"],
+                correct: 4,
+                explanation: "乙酰胆碱是神经递质，属于第一信使，不是第二信使。DAG、IP₃、Ca²⁺、cAMP都是重要的第二信使分子。"
+            },
+            {
+                question: "IP₃的作用是：",
+                options: ["A. 是多种肽类激素作用于膜受体后的第二信使", "B. 在细胞内供能", "C. 是肌醇的活化形式", "D. 直接激活PKC"],
+                correct: 0,
+                explanation: "IP₃（肌醇1,4,5-三磷酸）是重要的第二信使，由磷脂酶C催化PIP₂产生。IP₃的主要作用是打开内质网上的Ca²⁺通道，释放Ca²⁺。"
+            },
+            {
+                question: "激素按化学本质可以分为几类？",
+                options: ["A. 两类", "B. 三类", "C. 四类", "D. 五类"],
+                correct: 1,
+                explanation: "激素按化学本质分为三类：肽类激素、氨基酸衍生物和类固醇激素。这是激素分类的经典方法，基于其化学结构特点。"
+            },
+            {
+                question: "水溶性激素的受体通常在：",
+                options: ["A. 细胞膜上", "B. 细胞质中", "C. 细胞核中", "D. 线粒体中"],
+                correct: 0,
+                explanation: "水溶性激素不能穿过细胞膜，因此其受体位于细胞膜表面。而脂溶性激素可以穿过细胞膜，其受体位于细胞质或细胞核内。"
+            },
+            {
+                question: "肾上腺素对血糖水平的影响是：",
+                options: ["A. 降低", "B. 升高", "C. 无影响", "D. 先降低后升高"],
+                correct: 1,
+                explanation: "肾上腺素具有升血糖作用，通过激活糖原磷酸化酶促进糖原分解，同时激活糖异生，与胰高血糖素作用相似。"
+            },
+            {
+                question: "哺乳动物主要负责储存糖原的激素是：",
+                options: ["A. 胰岛素", "B. 胰高血糖素", "C. 肾上腺素", "D. 生长激素"],
+                correct: 0,
+                explanation: "胰岛素是唯一能促进糖原合成和储存的激素。它激活糖原合成酶，促进葡萄糖转化为糖原储存在肝脏和肌肉中。"
+            },
+            {
+                question: "生长因子的作用方式不包括：",
+                options: ["A. 内分泌", "B. 旁分泌", "C. 自分泌", "D. 神经分泌"],
+                correct: 3,
+                explanation: "生长因子主要有内分泌、旁分泌和自分泌三种作用方式。神经分泌主要指神经内分泌细胞的分泌方式，不是生长因子的典型作用方式。"
+            },
+            {
+                question: "在腺苷酸环化酶作用下，细胞内cAMP水平：",
+                options: ["A. 降低", "B. 增高", "C. 不变", "D. 先增高后降低"],
+                correct: 1,
+                explanation: "腺苷酸环化酶催化ATP生成cAMP，因此在其作用下细胞内cAMP水平增高。而磷酸二酯酶则催化cAMP水解，使其水平降低。"
+            },
+            {
+                question: "醛固酮的主要功能是：",
+                options: ["A. 保留钠，排除钾", "B. 保留钾，排除钠", "C. 同时保留钠和钾", "D. 同时排除钠和钾"],
+                correct: 0,
+                explanation: "醛固酮是盐皮质激素，主要功能是保留钠离子，排除钾离子，调节水盐代谢和血压。题目中的说法是错误的。"
+            },
+            {
+                question: "脂溶性激素的受体实际上是一种：",
+                options: ["A. 离子通道", "B. 转运蛋白", "C. 转录因子", "D. 酶蛋白"],
+                correct: 2,
+                explanation: "脂溶性激素受体本质上是转录因子，与激素结合后能够调节特定基因的转录，因此被称为反式作用因子。"
+            },
+            {
+                question: "胰岛素和表皮生长因子的受体都是：",
+                options: ["A. G蛋白偶联受体", "B. 离子通道受体", "C. 酪氨酸激酶受体", "D. 丝氨酸/苏氨酸激酶受体"],
+                correct: 2,
+                explanation: "胰岛素受体和表皮生长因子受体都属于受体酪氨酸激酶（RTK）家族，具有内在的酪氨酸激酶活性。"
+            },
+            {
+                question: "cAMP是蛋白激酶的：",
+                options: ["A. 竞争性抑制剂", "B. 非竞争性抑制剂", "C. 变构激活剂", "D. 共价修饰剂"],
+                correct: 2,
+                explanation: "cAMP是蛋白激酶A的变构激活剂，通过与调节亚基结合改变酶的构象，释放并激活催化亚基。"
+            },
+            {
+                question: "酪氨酸可以经过羟化作用产生：",
+                options: ["A. 肾上腺素", "B. 去甲肾上腺素", "C. 多巴胺", "D. 以上都是"],
+                correct: 3,
+                explanation: "酪氨酸经过一系列羟化和脱羧反应可以产生多巴胺、去甲肾上腺素和肾上腺素。这是儿茶酚胺类激素的生物合成途径。"
+            },
+            {
+                question: "cAMP是所有水溶性激素在胞内的第二信使，这种说法：",
+                options: ["A. 正确", "B. 错误", "C. 部分正确", "D. 无法判断"],
+                correct: 1,
+                explanation: "这种说法是错误的。不同的水溶性激素使用不同的第二信使系统，如cAMP、cGMP、IP₃/DAG、Ca²⁺等。cAMP只是其中一种第二信使。"
+            },
+            {
+                question: "甾类激素和非甾类激素作用模式的主要区别在于：",
+                options: ["A. 受体位置不同", "B. 作用速度不同", "C. 作用机制不同", "D. 以上都是"],
+                correct: 3,
+                explanation: "甾类激素和非甾类激素在受体位置、作用速度和作用机制等方面都存在显著差异。甾类激素通过核受体调节基因转录，非甾类激素通过膜受体和第二信使系统发挥作用。"
+            },
+            {
+                question: "催产素和加压素的相同点不包括：",
+                options: ["A. 都是八肽", "B. 都具有二硫键", "C. 都有种属特异性", "D. 都可人工合成"],
+                correct: 2,
+                explanation: "催产素具有种属特异性，而加压素无种属特异性。两者都是八肽，都具有二硫键形成的二十元环结构，都可以人工合成。"
+            },
+            {
+                question: "肾上腺皮质激素的作用机制属于：",
+                options: ["A. 膜受体-第二信使机制", "B. 核受体-基因转录机制", "C. 离子通道机制", "D. 酶联受体机制"],
+                correct: 1,
+                explanation: "肾上腺皮质激素属于类固醇激素，通过核受体调节基因转录发挥作用。激素进入细胞后与受体结合，形成的复合物作为转录因子调节特定基因的表达。"
+            },
+            {
+                question: "激素作用的信号传递途径不包括：",
+                options: ["A. 腺苷酸环化酶途径", "B. 钙及肌醇三磷酸途径", "C. 酪氨酸激酶途径", "D. 蛋白质合成途径"],
+                correct: 3,
+                explanation: "蛋白质合成途径不是激素信号传递的基本途径。激素作用的四种主要信号传递途径是：腺苷酸环化酶途径、钙及肌醇三磷酸途径、受体酪氨酸激酶途径和固醇类激素受体调节基因转录途径。"
+            },
+            {
+                question: "雌二醇发挥作用的主要机制是：",
+                options: ["A. 激活第二信使", "B. 调节基因转录", "C. 激活蛋白激酶", "D. 开放离子通道"],
+                correct: 1,
+                explanation: "雌二醇属于类固醇激素，主要通过调节基因转录发挥作用。它与细胞质中的受体结合后进入细胞核，与DNA特定序列结合，调节靶基因的转录。"
+            },
+            {
+                question: "蛋白激酶A的主要功能是：",
+                options: ["A. 催化ATP合成", "B. 磷酸化蛋白质", "C. 水解cAMP", "D. 激活腺苷酸环化酶"],
+                correct: 1,
+                explanation: "蛋白激酶A（PKA）是cAMP依赖性蛋白激酶，主要功能是磷酸化多种靶蛋白，通过蛋白质磷酸化调节酶活性和基因表达。"
+            },
+            {
+                question: "下列关于G蛋白的描述，错误的是：",
+                options: ["A. G蛋白是三聚体蛋白", "B. G蛋白具有GTP酶活性", "C. G蛋白直接与激素结合", "D. G蛋白介导信号转导"],
+                correct: 2,
+                explanation: "G蛋白不直接与激素结合，而是与被激素激活的GPCR结合。G蛋白是由α、β、γ三个亚基组成的三聚体蛋白，具有GTP酶活性，在信号转导中起关键作用。"
+            },
+            {
+                question: "磷脂酶C的作用产物包括：",
+                options: ["A. IP₃和DAG", "B. cAMP和cGMP", "C. ATP和ADP", "D. Ca²⁺和Mg²⁺"],
+                correct: 0,
+                explanation: "磷脂酶C催化PIP₂分解产生IP₃（肌醇1,4,5-三磷酸）和DAG（二酰甘油），这两者都是重要的第二信使分子。"
+            },
+            {
+                question: "胰岛素受体属于：",
+                options: ["A. G蛋白偶联受体", "B. 受体酪氨酸激酶", "C. 离子通道受体", "D. 核受体"],
+                correct: 1,
+                explanation: "胰岛素受体是典型的受体酪氨酸激酶（RTK），具有内在的酪氨酸激酶活性。胰岛素结合后引起受体二聚化和自磷酸化，激活下游信号通路。"
+            },
+            {
+                question: "下列哪种激素不能升高血糖？",
+                options: ["A. 胰高血糖素", "B. 肾上腺素", "C. 皮质醇", "D. 胰岛素"],
+                correct: 3,
+                explanation: "胰岛素是唯一能够降低血糖的激素。胰高血糖素、肾上腺素和皮质醇都具有升血糖作用，通过不同机制促进糖原分解和糖异生。"
+            },
+            {
+                question: "cGMP的主要作用是激活：",
+                options: ["A. 蛋白激酶A", "B. 蛋白激酶C", "C. 蛋白激酶G", "D. 钙调蛋白激酶"],
+                correct: 2,
+                explanation: "cGMP（环鸟苷酸）的主要作用是激活蛋白激酶G（PKG）。cGMP是由鸟苷酸环化酶催化GTP产生的第二信使，在血管舒张等过程中发挥重要作用。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            renderQuestions();
+        };
+
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <h4>${index + 1}. ${q.question}</h4>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            userAnswers = [];
+            let score = 0;
+            
+            selectedQuestions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                userAnswers.push(userAnswer);
+                
+                if (userAnswer === q.correct) {
+                    score++;
+                }
+            });
+            
+            displayResults(score);
+        }
+
+        function displayResults(score) {
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((score / 15) * 100);
+            
+            let resultHTML = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}/15 (${percentage}%)</strong></p>
+                <h4>详细解析：</h4>
+            `;
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const userOption = userAnswer >= 0 ? q.options[userAnswer] : '未选择';
+                const correctOption = q.options[q.correct];
+                
+                resultHTML += `
+                    <div style="margin: 15px 0; padding: 15px; border-radius: 5px; ${isCorrect ? 'background: #d4edda; border-left: 4px solid #28a745;' : 'background: #f8d7da; border-left: 4px solid #dc3545;'}">
+                        <p><strong>第${index + 1}题：</strong>${q.question}</p>
+                        <p><strong>你的答案：</strong>${userOption} ${isCorrect ? '✓' : '✗'}</p>
+                        <p><strong>正确答案：</strong>${correctOption}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

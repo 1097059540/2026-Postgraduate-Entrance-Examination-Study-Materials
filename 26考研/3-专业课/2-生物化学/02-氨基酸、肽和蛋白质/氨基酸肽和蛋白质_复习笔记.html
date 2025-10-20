@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>氨基酸、肽和蛋白质 - 复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .formula {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Consolas", monospace;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .term {
+            background-color: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        .quiz-container {
+            background-color: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            margin: 8px 0;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e8f4fd;
+        }
+
+        .option.selected {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .option.correct {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .option.incorrect {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .btn:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .result {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .explanation {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .thinking-question {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .answer h5 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        ol, ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        .image-placeholder {
+            background-color: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #6c757d;
+        }
+
+        .citation {
+            font-size: 0.9em;
+            color: #6c757d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>氨基酸、肽和蛋白质</h1>
+            <p>生物化学复习笔记 - 第二章</p>
+            <p>基于《生物化学》第四版（朱圣庚、徐长法主编）</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、α-氨基酸的结构与性质</h2>
+                
+                <h3>1.1 氨基酸的基本结构</h3>
+                <p>α-氨基酸是构成蛋白质的基本单位，具有共同的基本结构：</p>
+                <div class="formula">
+                    NH₂-CHR-COOH
+                </div>
+                <p>其中R基团（侧链）的不同决定了氨基酸的种类和性质。</p>
+
+                <div class="highlight">
+                    <strong>重要概念：</strong>除甘氨酸外，所有α-氨基酸的α-碳原子都是手性碳原子，具有旋光性。天然蛋白质中的氨基酸均为L-型构型。
+                </div>
+
+                <h3>1.2 氨基酸的分类</h3>
+                <p>根据侧链R基团的性质，20种标准氨基酸可分为：</p>
+                <ul>
+                    <li><strong>非极性氨基酸（疏水性）：</strong>甘氨酸、丙氨酸、缬氨酸、亮氨酸、异亮氨酸、苯丙氨酸、色氨酸、蛋氨酸、脯氨酸</li>
+                    <li><strong>极性不带电氨基酸：</strong>丝氨酸、苏氨酸、酪氨酸、半胱氨酸、天冬酰胺、谷氨酰胺</li>
+                    <li><strong>带正电氨基酸（碱性）：</strong>赖氨酸、精氨酸、组氨酸</li>
+                    <li><strong>带负电氨基酸（酸性）：</strong>天冬氨酸、谷氨酸</li>
+                </ul>
+
+                <h3>1.3 氨基酸的酸碱性质</h3>
+                <p>氨基酸分子同时含有氨基和羧基，具有两性电解质的性质：</p>
+                <ul>
+                    <li><strong>等电点（pI）：</strong>氨基酸净电荷为零时的pH值</li>
+                    <li><strong>两性离子：</strong>在等电点时，氨基酸以两性离子形式存在</li>
+                    <li><strong>缓冲作用：</strong>氨基酸在其pKa附近具有缓冲能力</li>
+                </ul>
+
+                <h3>1.4 氨基酸的化学反应</h3>
+                <ul>
+                    <li><strong>茚三酮反应：</strong>与茚三酮反应产生蓝紫色化合物，用于氨基酸的定性和定量分析</li>
+                    <li><strong>双缩脲反应：</strong>含有两个或以上肽键的化合物与Cu²⁺在碱性条件下产生紫色络合物</li>
+                    <li><strong>Edman降解：</strong>用于蛋白质N端氨基酸序列测定</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>二、肽的结构与性质</h2>
+                
+                <h3>2.1 肽键的形成</h3>
+                <p>肽键是氨基酸之间通过脱水缩合反应形成的共价键：</p>
+                <div class="formula">
+                    R₁-CO-NH-R₂
+                </div>
+                <p>肽键具有部分双键性质，限制了围绕C-N键的自由旋转。</p>
+
+                <div class="highlight">
+                    <strong>肽键特点：</strong>
+                    <ul>
+                        <li>键长介于单键和双键之间（1.32Å）</li>
+                        <li>具有平面性，ω角接近180°（反式）或0°（顺式）</li>
+                        <li>在脯氨酸残基前，顺式构象较常见</li>
+                    </ul>
+                </div>
+
+                <h3>2.2 肽的命名与分类</h3>
+                <ul>
+                    <li><strong>二肽：</strong>由两个氨基酸组成</li>
+                    <li><strong>三肽：</strong>由三个氨基酸组成</li>
+                    <li><strong>寡肽：</strong>由2-10个氨基酸组成</li>
+                    <li><strong>多肽：</strong>由10个以上氨基酸组成</li>
+                    <li><strong>蛋白质：</strong>通常由50个以上氨基酸组成的多肽链</li>
+                </ul>
+
+                <h3>2.3 重要的生物活性肽</h3>
+                <ul>
+                    <li><strong>谷胱甘肽（GSH）：</strong>三肽，具有抗氧化作用</li>
+                    <li><strong>胰岛素：</strong>由A链（21个氨基酸）和B链（30个氨基酸）组成</li>
+                    <li><strong>血管紧张素II：</strong>八肽激素，调节血压</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、蛋白质的结构层次</h2>
+                
+                <h3>3.1 蛋白质的一级结构</h3>
+                <p>蛋白质的一级结构是指多肽链中氨基酸的排列顺序，由共价键维持：</p>
+                <ul>
+                    <li><strong>肽键：</strong>连接氨基酸的主要共价键</li>
+                    <li><strong>二硫键：</strong>半胱氨酸残基间形成的共价键</li>
+                    <li><strong>N端和C端：</strong>多肽链的两端，分别具有自由的氨基和羧基</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>一级结构的重要性：</strong>一级结构决定了蛋白质的高级结构和生物功能。一级结构的改变可能导致蛋白质功能的丧失或改变。
+                </div>
+
+                <h3>3.2 蛋白质的二级结构</h3>
+                <p>二级结构是指多肽链局部区域的规则构象，主要由氢键维持：</p>
+                <ul>
+                    <li><strong>α-螺旋：</strong>右手螺旋，每圈3.6个氨基酸残基，螺距5.4Å</li>
+                    <li><strong>β-折叠片：</strong>伸展的多肽链通过氢键形成的片状结构</li>
+                    <li><strong>β-转角：</strong>连接α-螺旋和β-折叠片的转折区域</li>
+                    <li><strong>无规卷曲：</strong>没有规则二级结构的区域</li>
+                </ul>
+
+                <h3>3.3 蛋白质的三级结构</h3>
+                <p>三级结构是指整个多肽链的三维空间构象，由多种非共价相互作用维持：</p>
+                <ul>
+                    <li><strong>氢键：</strong>极性基团间的相互作用</li>
+                    <li><strong>离子键：</strong>带电基团间的静电相互作用</li>
+                    <li><strong>范德华力：</strong>原子间的弱相互作用</li>
+                    <li><strong>疏水相互作用：</strong>非极性基团聚集，排斥水分子</li>
+                </ul>
+
+                <h3>3.4 蛋白质的四级结构</h3>
+                <p>四级结构是指由两个或多个多肽链（亚基）组成的蛋白质的空间排列：</p>
+                <ul>
+                    <li><strong>同源四聚体：</strong>由相同亚基组成，如血红蛋白</li>
+                    <li><strong>异源多聚体：</strong>由不同亚基组成</li>
+                    <li><strong>亚基间相互作用：</strong>主要通过非共价键维持</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、蛋白质的理化性质</h2>
+                
+                <h3>4.1 蛋白质的分子大小</h3>
+                <ul>
+                    <li><strong>分子量范围：</strong>从几千到几百万道尔顿</li>
+                    <li><strong>测定方法：</strong>SDS-PAGE、质谱法、超离心法</li>
+                    <li><strong>分子量与功能：</strong>酶活性中心、结合位点的形成需要一定的分子量</li>
+                </ul>
+
+                <h3>4.2 蛋白质的溶解性</h3>
+                <ul>
+                    <li><strong>亲水蛋白质：</strong>表面多极性基团，易溶于水</li>
+                    <li><strong>疏水蛋白质：</strong>膜蛋白等，需要去垢剂溶解</li>
+                    <li><strong>盐析：</strong>高盐浓度下蛋白质沉淀</li>
+                </ul>
+
+                <h3>4.3 蛋白质的变性与复性</h3>
+                <div class="highlight">
+                    <strong>变性：</strong>蛋白质在物理或化学因素作用下，天然构象被破坏，生物活性丧失的过程。
+                </div>
+                <ul>
+                    <li><strong>变性因子：</strong>高温、极端pH、有机溶剂、重金属离子、尿素等</li>
+                    <li><strong>变性特征：</strong>溶解度改变、生物活性丧失、易被蛋白酶水解</li>
+                    <li><strong>复性：</strong>在适当条件下，变性蛋白质恢复天然构象和活性</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>五、蛋白质测序与合成</h2>
+                
+                <h3>5.1 蛋白质测序策略</h3>
+                <ol>
+                    <li><strong>蛋白质纯化：</strong>获得均一的蛋白质样品</li>
+                    <li><strong>一级结构分析：</strong>确定氨基酸组成和序列</li>
+                    <li><strong>二硫键定位：</strong>确定半胱氨酸残基间的连接</li>
+                    <li><strong>翻译后修饰分析：</strong>糖基化、磷酸化等修饰</li>
+                </ol>
+
+                <h3>5.2 测序方法</h3>
+                <ul>
+                    <li><strong>Edman降解法：</strong>从N端逐个切除氨基酸进行分析</li>
+                    <li><strong>质谱法：</strong>高精度、高通量的现代测序技术</li>
+                    <li><strong>化学裂解：</strong>CNBr裂解、胰蛋白酶消化等</li>
+                </ul>
+
+                <h3>5.3 肽与蛋白质的化学合成</h3>
+                <ul>
+                    <li><strong>固相合成法：</strong>Merrifield法，从C端开始合成</li>
+                    <li><strong>保护基团：</strong>Fmoc、Boc等保护氨基</li>
+                    <li><strong>偶联试剂：</strong>DCC、HBTU等活化羧基</li>
+                    <li><strong>应用：</strong>多肽药物、蛋白质工程</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>六、重要名词解释</h2>
+                
+                <div class="term">
+                    <div class="term-name">氨基酸</div>
+                    <div class="term-english">Amino Acid</div>
+                    <div class="term-definition">含有氨基和羧基的有机化合物，是构成蛋白质的基本单位。天然蛋白质中含有20种标准氨基酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">肽键</div>
+                    <div class="term-english">Peptide Bond</div>
+                    <div class="term-definition">氨基酸之间通过脱水缩合反应形成的酰胺键（-CO-NH-），连接氨基酸形成肽链的共价键。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">等电点</div>
+                    <div class="term-english">Isoelectric Point, pI</div>
+                    <div class="term-definition">氨基酸或蛋白质分子净电荷为零时的pH值，此时分子不向正极或负极移动。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">α-螺旋</div>
+                    <div class="term-english">Alpha Helix, α-helix</div>
+                    <div class="term-definition">蛋白质二级结构的一种，多肽链围绕中心轴呈右手螺旋状，每圈包含3.6个氨基酸残基。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">β-折叠片</div>
+                    <div class="term-english">Beta Sheet, β-sheet</div>
+                    <div class="term-definition">蛋白质二级结构的一种，由伸展的多肽链通过链间或链内氢键形成的片状结构。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">蛋白质变性</div>
+                    <div class="term-english">Protein Denaturation</div>
+                    <div class="term-definition">蛋白质在物理或化学因素作用下，天然空间构象被破坏，导致生物活性丧失的过程。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">二硫键</div>
+                    <div class="term-english">Disulfide Bond</div>
+                    <div class="term-definition">两个半胱氨酸残基的巯基（-SH）氧化形成的共价键（-S-S-），对蛋白质结构稳定性起重要作用。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">Edman降解</div>
+                    <div class="term-english">Edman Degradation</div>
+                    <div class="term-definition">一种蛋白质测序方法，使用苯异硫氰酸酯从多肽链N端逐个切除氨基酸进行分析。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">茚三酮反应</div>
+                    <div class="term-english">Ninhydrin Reaction</div>
+                    <div class="term-definition">氨基酸与茚三酮在加热条件下反应生成蓝紫色化合物的反应，用于氨基酸的定性和定量分析。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">双缩脲反应</div>
+                    <div class="term-english">Biuret Reaction</div>
+                    <div class="term-definition">含有两个或以上肽键的化合物与Cu²⁺在碱性条件下形成紫色络合物的反应，用于蛋白质定量。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>七、选择题测试</h2>
+                <div class="quiz-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div id="progressText">进度: 0/15</div>
+                    
+                    <div id="quizContainer"></div>
+                    
+                    <button class="btn" id="submitBtn" onclick="submitQuiz()" disabled>提交答案</button>
+                    <button class="btn" id="newQuizBtn" onclick="generateNewQuiz()" style="display:none;">重新测试</button>
+                    
+                    <div id="result" style="display:none;"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>八、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 分析蛋白质一级结构与高级结构的关系，并举例说明一级结构改变对蛋白质功能的影响。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>一级结构决定高级结构：</strong>蛋白质的一级结构（氨基酸序列）包含了形成特定三维结构所需的全部信息。氨基酸侧链的性质决定了分子内和分子间相互作用的类型和强度，从而决定了蛋白质的折叠方式和最终的空间构象。</li>
+                            <li><strong>结构与功能的关系：</strong>蛋白质的生物功能直接依赖于其特定的三维结构。活性位点的形成、底物结合、催化活性等都需要精确的空间排列。一级结构的改变会影响高级结构，进而影响功能。</li>
+                            <li><strong>经典实例分析：</strong>镰刀型细胞贫血症是由于β-血红蛋白第6位氨基酸从谷氨酸（Glu）突变为缬氨酸（Val）引起的。这个单一氨基酸的改变导致血红蛋白分子聚集，红细胞变形，引起严重的临床症状。</li>
+                            <li><strong>分子机制：</strong>谷氨酸是带负电的亲水性氨基酸，而缬氨酸是疏水性氨基酸。这种改变在血红蛋白表面产生了疏水斑块，导致去氧血红蛋白分子间发生疏水相互作用而聚集成纤维状结构。</li>
+                            <li><strong>进化意义：</strong>蛋白质序列的保守性反映了结构和功能的重要性。关键功能区域（如酶活性中心）的氨基酸序列在进化过程中高度保守，而非关键区域则允许较大的变异。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较α-螺旋和β-折叠片的结构特点，分析影响二级结构形成的因素。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>α-螺旋的结构特点：</strong>右手螺旋结构，每圈包含3.6个氨基酸残基，螺距为5.4Å。氢键形成在第n个残基的C=O与第n+4个残基的N-H之间，使结构稳定。φ角约为-60°，ψ角约为-45°。</li>
+                            <li><strong>β-折叠片的结构特点：</strong>多肽链呈伸展构象，通过链间或链内氢键形成片状结构。可分为平行和反平行两种类型。φ角约为-120°，ψ角约为+120°。侧链交替分布在片层的两侧。</li>
+                            <li><strong>氨基酸偏好性：</strong>不同氨基酸对二级结构有不同的偏好。丙氨酸、谷氨酸、亮氨酸等倾向于形成α-螺旋；缬氨酸、异亮氨酸、苯丙氨酸等倾向于形成β-折叠片；脯氨酸和甘氨酸是螺旋破坏者。</li>
+                            <li><strong>环境因素影响：</strong>pH值、离子强度、温度等环境因素会影响氨基酸侧链的电离状态和相互作用，从而影响二级结构的稳定性。极端条件可能导致二级结构的破坏。</li>
+                            <li><strong>生物学意义：</strong>α-螺旋常见于膜蛋白的跨膜区域和DNA结合蛋白中；β-折叠片常见于酶的活性中心和免疫球蛋白的结构域中。不同的二级结构适应不同的功能需求。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 论述蛋白质变性的机理、影响因素及其在生物技术中的应用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>变性的分子机理：</strong>蛋白质变性是指在外界因素作用下，维持蛋白质天然构象的非共价键（氢键、离子键、疏水相互作用、范德华力）被破坏，导致蛋白质失去天然的三维结构和生物活性。一级结构通常保持不变。</li>
+                            <li><strong>物理因素：</strong>高温破坏氢键和疏水相互作用；高压改变蛋白质体积和构象；紫外线和电离辐射引起化学键断裂；机械搅拌产生剪切力破坏蛋白质结构。</li>
+                            <li><strong>化学因素：</strong>极端pH破坏离子键和氢键；有机溶剂破坏疏水相互作用；变性剂（尿素、胍盐酸）与蛋白质形成氢键；重金属离子与巯基结合；去垢剂破坏疏水相互作用。</li>
+                            <li><strong>生物技术应用：</strong>蛋白质纯化中使用变性条件去除杂蛋白；SDS-PAGE中SDS变性蛋白质用于分子量测定；Western blot中变性抗原暴露抗原决定簇；重组蛋白表达中包涵体的溶解和复性。</li>
+                            <li><strong>复性与折叠：</strong>某些蛋白质在适当条件下可以复性，恢复天然结构和活性。这一过程需要分子伴侣的协助，并且受到蛋白质浓度、温度、pH、离子强度等因素的影响。复性技术在重组蛋白生产中具有重要应用价值。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析现代蛋白质测序技术的原理、优缺点及发展趋势。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>Edman降解法：</strong>经典的化学测序方法，使用苯异硫氰酸酯从N端逐个切除氨基酸。优点是准确性高，缺点是速度慢、通量低，只能测定N端50-100个氨基酸。目前主要用于验证和补充质谱数据。</li>
+                            <li><strong>质谱技术：</strong>现代蛋白质组学的核心技术，包括MALDI-TOF、ESI-MS/MS等。通过测定肽段的精确分子量和碎片离子谱图确定序列。优点是高通量、高精度、可检测翻译后修饰，缺点是需要复杂的样品预处理和数据分析。</li>
+                            <li><strong>串联质谱（MS/MS）：</strong>先电离肽段，再进行碰撞诱导解离（CID）产生碎片离子，通过分析碎片离子的质量和强度推断氨基酸序列。结合数据库搜索可实现高通量蛋白质鉴定。</li>
+                            <li><strong>新兴技术：</strong>单分子测序技术正在发展中，如纳米孔测序、单分子荧光技术等。这些技术有望实现实时、长读长的蛋白质测序，但目前仍面临准确性和成本等挑战。</li>
+                            <li><strong>发展趋势：</strong>向着更高通量、更高精度、更低成本的方向发展。结合人工智能和机器学习技术，提高数据分析的准确性和效率。多组学整合分析将成为未来蛋白质研究的重要方向。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 探讨氨基酸序列与蛋白质进化的关系，以及比较蛋白质组学在进化研究中的应用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>分子进化的基础：</strong>蛋白质序列的变化反映了基因突变的积累过程。同源蛋白质在不同物种中的序列差异可以用来推断进化关系和分化时间。分子钟假说认为蛋白质序列的变化速率相对恒定。</li>
+                            <li><strong>保守性与变异性：</strong>蛋白质的功能重要区域（如酶活性中心、结构域界面）在进化过程中高度保守，而非关键区域允许较大变异。这种选择压力的差异导致了蛋白质序列进化的不均匀性。</li>
+                            <li><strong>系统发育分析：</strong>通过比较同源蛋白质的序列差异，可以构建系统发育树，揭示物种间的进化关系。多基因分析比单基因分析更可靠，可以减少水平基因转移等因素的干扰。</li>
+                            <li><strong>功能进化：</strong>基因重复、域重排、外显子重组等机制导致新功能的产生。蛋白质家族的扩张和收缩反映了生物适应环境的过程。比较不同物种的蛋白质组可以揭示适应性进化的分子基础。</li>
+                            <li><strong>蛋白质组学应用：</strong>大规模蛋白质序列比较揭示了进化的普遍规律；蛋白质结构比较发现了进化过程中结构的保守性；翻译后修饰的比较研究揭示了调控机制的进化；蛋白质相互作用网络的比较分析揭示了细胞功能的进化。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="citation">
+                <p><strong>参考资料：</strong></p>
+                <p>1. 朱圣庚, 徐长法. 生物化学（第4版）. 高等教育出版社.</p>
+                <p>2. 丁明孝, 王喜忠, 张传茂, 陈建国. 细胞生物学（第5版）. 高等教育出版社.</p>
+                <p>3. 中国科学院大学硕士研究生入学考试《生物化学与分子生物学》考试大纲.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "下列氨基酸中，哪个不是标准的20种氨基酸？",
+                options: ["羟脯氨酸", "丙氨酸", "甘氨酸", "脯氨酸"],
+                correct: 0,
+                explanation: "羟脯氨酸是脯氨酸的羟基化修饰产物，不是标准的20种氨基酸之一。它主要存在于胶原蛋白中，是翻译后修饰的产物。"
+            },
+            {
+                question: "α-螺旋结构中，每一圈包含多少个氨基酸残基？",
+                options: ["3.6个", "3.0个", "4.0个", "2.5个"],
+                correct: 0,
+                explanation: "α-螺旋是蛋白质的重要二级结构，每一圈包含3.6个氨基酸残基，螺距为5.4Å，氢键形成在第n个残基的C=O与第n+4个残基的N-H之间。"
+            },
+            {
+                question: "肽键具有哪种特性？",
+                options: ["完全的单键性质", "部分双键性质", "完全的双键性质", "三键性质"],
+                correct: 1,
+                explanation: "肽键由于共振效应具有部分双键性质，键长约1.32Å，介于C-N单键和C=N双键之间，这限制了围绕肽键的自由旋转。"
+            },
+            {
+                question: "蛋白质的等电点是指：",
+                options: ["蛋白质带正电荷时的pH", "蛋白质带负电荷时的pH", "蛋白质净电荷为零时的pH", "蛋白质完全解离时的pH"],
+                correct: 2,
+                explanation: "等电点（pI）是蛋白质分子净电荷为零时的pH值。在等电点时，蛋白质以两性离子形式存在，不向正极或负极移动。"
+            },
+            {
+                question: "下列哪种氨基酸含有巯基（-SH）？",
+                options: ["丝氨酸", "半胱氨酸", "蛋氨酸", "苏氨酸"],
+                correct: 1,
+                explanation: "半胱氨酸含有巯基（-SH），两个半胱氨酸的巯基可以氧化形成二硫键，对蛋白质的结构稳定性起重要作用。"
+            },
+            {
+                question: "茚三酮反应主要用于：",
+                options: ["蛋白质定量", "氨基酸检测", "核酸检测", "脂质检测"],
+                correct: 1,
+                explanation: "茚三酮反应是氨基酸与茚三酮在加热条件下反应生成蓝紫色化合物，广泛用于氨基酸的定性和定量分析。"
+            },
+            {
+                question: "β-折叠片结构中，氢键主要形成在：",
+                options: ["同一肽链内相邻氨基酸之间", "不同肽链或同一肽链远距离氨基酸之间", "氨基酸侧链之间", "肽键内部"],
+                correct: 1,
+                explanation: "β-折叠片结构中，氢键形成在不同肽链之间或同一肽链中远距离的氨基酸残基之间，使多肽链呈伸展的片状结构。"
+            },
+            {
+                question: "蛋白质变性后，下列哪项通常不发生改变？",
+                options: ["一级结构", "二级结构", "三级结构", "生物活性"],
+                correct: 0,
+                explanation: "蛋白质变性主要是高级结构的破坏，一级结构（氨基酸序列）通常保持不变，但二级、三级结构被破坏，导致生物活性丧失。"
+            },
+            {
+                question: "下列哪种氨基酸在生理pH下带正电荷？",
+                options: ["天冬氨酸", "谷氨酸", "赖氨酸", "丙氨酸"],
+                correct: 2,
+                explanation: "赖氨酸是碱性氨基酸，其侧链含有氨基，pKa约为10.5，在生理pH（约7.4）下质子化带正电荷。"
+            },
+            {
+                question: "Edman降解法用于测定：",
+                options: ["蛋白质的C端序列", "蛋白质的N端序列", "蛋白质的分子量", "蛋白质的等电点"],
+                correct: 1,
+                explanation: "Edman降解法使用苯异硫氰酸酯从蛋白质或多肽的N端逐个切除氨基酸进行分析，是经典的N端测序方法。"
+            },
+            {
+                question: "双缩脲反应的原理是：",
+                options: ["氨基与茚三酮反应", "肽键与Cu²⁺形成络合物", "羧基与碱反应", "巯基氧化反应"],
+                correct: 1,
+                explanation: "双缩脲反应是含有两个或以上肽键的化合物与Cu²⁺在碱性条件下形成紫色络合物的反应，用于蛋白质的定量分析。"
+            },
+            {
+                question: "下列哪种相互作用不参与维持蛋白质的三级结构？",
+                options: ["氢键", "离子键", "疏水相互作用", "肽键"],
+                correct: 3,
+                explanation: "肽键是维持蛋白质一级结构的共价键，而三级结构主要由氢键、离子键、疏水相互作用、范德华力等非共价相互作用维持。"
+            },
+            {
+                question: "脯氨酸在蛋白质结构中的特殊作用是：",
+                options: ["稳定α-螺旋", "形成β-折叠片", "破坏规则二级结构", "形成二硫键"],
+                correct: 2,
+                explanation: "脯氨酸的侧链与主链氮原子形成五元环，限制了主链的构象自由度，常常破坏α-螺旋等规则二级结构，被称为'螺旋破坏者'。"
+            },
+            {
+                question: "蛋白质的四级结构是指：",
+                options: ["氨基酸序列", "局部规则构象", "整个多肽链的空间构象", "多个亚基的空间排列"],
+                correct: 3,
+                explanation: "蛋白质的四级结构是指由两个或多个多肽链（亚基）组成的蛋白质分子中各亚基的空间排列和相互关系。"
+            },
+            {
+                question: "甘氨酸在蛋白质结构中的特点是：",
+                options: ["侧链最大", "构象最灵活", "最疏水", "带电荷"],
+                correct: 1,
+                explanation: "甘氨酸的侧链是氢原子，是最小的氨基酸，没有立体阻碍，因此构象最灵活，常出现在蛋白质的转角区域。"
+            },
+            {
+                question: "蛋白质盐析的原理是：",
+                options: ["高盐浓度破坏蛋白质结构", "盐离子与蛋白质结合", "高盐浓度减少蛋白质水化层", "盐改变溶液pH"],
+                correct: 2,
+                explanation: "盐析是在高盐浓度下，盐离子与水分子结合，减少了蛋白质周围的水化层，降低了蛋白质的溶解度，导致蛋白质沉淀。"
+            },
+            {
+                question: "下列哪种氨基酸不能形成氢键？",
+                options: ["丝氨酸", "苏氨酸", "缬氨酸", "酪氨酸"],
+                correct: 2,
+                explanation: "缬氨酸是非极性氨基酸，侧链为异丙基，不含能形成氢键的基团（如-OH、-NH₂、-COOH等），因此不能形成氢键。"
+            },
+            {
+                question: "蛋白质的α-螺旋中，氢键形成在：",
+                options: ["第n个残基的CO与第n+1个残基的NH之间", "第n个残基的CO与第n+3个残基的NH之间", "第n个残基的CO与第n+4个残基的NH之间", "相邻氨基酸的侧链之间"],
+                correct: 2,
+                explanation: "在α-螺旋结构中，氢键形成在第n个氨基酸残基的羰基氧原子与第n+4个残基的酰胺氢原子之间，这种氢键模式稳定了螺旋结构。"
+            },
+            {
+                question: "下列关于肽键的描述，错误的是：",
+                options: ["具有平面性", "可以自由旋转", "键长约1.32Å", "具有部分双键性质"],
+                correct: 1,
+                explanation: "肽键由于共振效应具有部分双键性质，因此不能自由旋转。肽键具有平面性，键长约1.32Å，介于单键和双键之间。"
+            },
+            {
+                question: "蛋白质测序中，CNBr主要切割：",
+                options: ["蛋氨酸的C端", "蛋氨酸的N端", "半胱氨酸残基", "色氨酸残基"],
+                correct: 0,
+                explanation: "CNBr（溴化氰）是一种化学试剂，专一性地切割蛋氨酸残基的C端肽键，常用于蛋白质的化学裂解和测序。"
+            },
+            {
+                question: "下列哪种氨基酸的侧链含有苯环？",
+                options: ["酪氨酸", "组氨酸", "精氨酸", "天冬酰胺"],
+                correct: 0,
+                explanation: "酪氨酸的侧链含有苯环和羟基，是芳香族氨基酸。苯丙氨酸和色氨酸也含有苯环结构。"
+            },
+            {
+                question: "蛋白质复性的必要条件不包括：",
+                options: ["适当的温度", "合适的pH", "高浓度的变性剂", "适当的离子强度"],
+                correct: 2,
+                explanation: "蛋白质复性需要去除变性剂，在适当的温度、pH和离子强度条件下进行。高浓度的变性剂会阻止蛋白质复性。"
+            },
+            {
+                question: "胰岛素分子由几条多肽链组成？",
+                options: ["1条", "2条", "3条", "4条"],
+                correct: 1,
+                explanation: "胰岛素由A链（21个氨基酸）和B链（30个氨基酸）两条多肽链组成，通过二硫键连接形成具有生物活性的激素。"
+            },
+            {
+                question: "下列哪种技术不能用于蛋白质分子量测定？",
+                options: ["SDS-PAGE", "质谱法", "超离心法", "茚三酮反应"],
+                correct: 3,
+                explanation: "茚三酮反应用于氨基酸的定性和定量检测，不能测定蛋白质分子量。SDS-PAGE、质谱法和超离心法都可以用于蛋白质分子量的测定。"
+            },
+            {
+                question: "蛋白质的疏水相互作用主要发生在：",
+                options: ["蛋白质表面", "蛋白质内部", "蛋白质与水之间", "蛋白质与离子之间"],
+                correct: 1,
+                explanation: "疏水相互作用主要发生在蛋白质分子内部，疏水性氨基酸侧链聚集在一起，排斥水分子，这是维持蛋白质三级结构的重要力量。"
+            },
+            {
+                question: "下列哪种氨基酸在蛋白质中最少见？",
+                options: ["色氨酸", "甘氨酸", "丙氨酸", "亮氨酸"],
+                correct: 0,
+                explanation: "色氨酸是蛋白质中含量最少的氨基酸，约占总氨基酸的1%。它含有吲哚环，是芳香族氨基酸，具有强烈的紫外吸收。"
+            },
+            {
+                question: "蛋白质的二级结构主要由什么维持？",
+                options: ["离子键", "氢键", "疏水相互作用", "二硫键"],
+                correct: 1,
+                explanation: "蛋白质的二级结构（如α-螺旋、β-折叠片）主要由主链原子间形成的氢键维持，这些氢键赋予了多肽链规则的局部构象。"
+            },
+            {
+                question: "固相多肽合成法通常从哪一端开始合成？",
+                options: ["N端", "C端", "中间", "随机"],
+                correct: 1,
+                explanation: "固相多肽合成法（Merrifield法）通常从C端开始合成，将第一个氨基酸的C端固定在树脂上，然后逐步向N端方向延伸肽链。"
+            },
+            {
+                question: "下列哪种因素不会导致蛋白质变性？",
+                options: ["高温", "极端pH", "适量的盐", "有机溶剂"],
+                correct: 2,
+                explanation: "适量的盐通常不会导致蛋白质变性，反而可能有助于维持蛋白质的稳定性。高温、极端pH和有机溶剂都是常见的蛋白质变性因子。"
+            },
+            {
+                question: "蛋白质的一级结构信息包含在：",
+                options: ["氨基酸的种类", "氨基酸的数量", "氨基酸的排列顺序", "以上都是"],
+                correct: 3,
+                explanation: "蛋白质的一级结构包含氨基酸的种类、数量和排列顺序等完整信息，这些信息决定了蛋白质的高级结构和生物功能。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+        let quizSubmitted = false;
+
+        // 随机选择15道题
+        function generateNewQuiz() {
+            currentQuestions = [];
+            userAnswers = [];
+            quizSubmitted = false;
+            
+            // 随机选择15道题
+            const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            
+            renderQuiz();
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('submitBtn').style.display = 'inline-block';
+            document.getElementById('newQuizBtn').style.display = 'none';
+            document.getElementById('result').style.display = 'none';
+            updateProgress();
+        }
+
+        // 渲染题目
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <div class="option" onclick="selectOption(${index}, ${optIndex})" id="q${index}_opt${optIndex}">
+                            ${String.fromCharCode(65 + optIndex)}. ${option}
+                        </div>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 选择答案
+        function selectOption(questionIndex, optionIndex) {
+            if (quizSubmitted) return;
+            
+            // 清除该题的其他选项
+            for (let i = 0; i < 4; i++) {
+                const opt = document.getElementById(`q${questionIndex}_opt${i}`);
+                opt.classList.remove('selected');
+            }
+            
+            // 选中当前选项
+            document.getElementById(`q${questionIndex}_opt${optionIndex}`).classList.add('selected');
+            userAnswers[questionIndex] = optionIndex;
+            
+            updateProgress();
+        }
+
+        // 更新进度
+        function updateProgress() {
+            const answered = userAnswers.filter(a => a !== undefined).length;
+            const progress = (answered / 15) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `进度: ${answered}/15`;
+            
+            // 如果全部答完，启用提交按钮
+            document.getElementById('submitBtn').disabled = answered < 15;
+        }
+
+        // 提交测试
+        function submitQuiz() {
+            if (quizSubmitted) return;
+            
+            quizSubmitted = true;
+            let correct = 0;
+            
+            currentQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                
+                if (isCorrect) correct++;
+                
+                // 显示正确答案
+                for (let i = 0; i < 4; i++) {
+                    const opt = document.getElementById(`q${index}_opt${i}`);
+                    opt.onclick = null; // 禁用点击
+                    
+                    if (i === q.correct) {
+                        opt.classList.add('correct');
+                    } else if (i === userAnswer && !isCorrect) {
+                        opt.classList.add('incorrect');
+                    }
+                }
+                
+                // 添加解析
+                const questionDiv = document.querySelector(`#q${index}_opt0`).parentElement;
+                const explanationDiv = document.createElement('div');
+                explanationDiv.className = 'explanation';
+                explanationDiv.innerHTML = `<strong>解析：</strong>${q.explanation}`;
+                questionDiv.appendChild(explanationDiv);
+            });
+            
+            // 显示结果
+            const percentage = Math.round((correct / 15) * 100);
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h3>测试结果</h3>
+                <p>正确率：${percentage}% (${correct}/15)</p>
+                <p>评价：${getGrade(percentage)}</p>
+            `;
+            resultDiv.style.display = 'block';
+            
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('newQuizBtn').style.display = 'inline-block';
+        }
+
+        // 获取评价
+        function getGrade(percentage) {
+            if (percentage >= 90) return '优秀！掌握得很好！';
+            if (percentage >= 80) return '良好！继续保持！';
+            if (percentage >= 70) return '中等，还需要加强复习。';
+            if (percentage >= 60) return '及格，建议重点复习薄弱环节。';
+            return '需要系统复习，加强基础知识学习。';
+        }
+
+        // 页面加载时生成测试
+        window.onload = function() {
+            generateNewQuiz();
+        };
+    </script>
+</body>
+</html>

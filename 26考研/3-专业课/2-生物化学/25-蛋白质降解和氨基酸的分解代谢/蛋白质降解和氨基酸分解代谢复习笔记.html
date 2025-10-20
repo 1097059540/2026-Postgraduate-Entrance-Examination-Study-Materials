@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛋白质降解和氨基酸分解代谢 - 考研复习笔记</title>
+    <style>
+        /* 全局样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        /* 章节标题 */
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 段落和列表 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .note {
+            background-color: #d1ecf1;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* 名词解释样式 */
+        .glossary {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .glossary-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .definition {
+            margin-top: 5px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* 结果显示样式 */
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-questions {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .thinking-question {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>蛋白质降解和氨基酸分解代谢</h1>
+            <p>生物化学考研复习笔记 | 第25章</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <h2>一、蛋白质降解的两大体系</h2>
+            
+            <h3>1. 泛素-蛋白酶体系统（Ubiquitin-Proteasome System, UPS）</h3>
+            <p>泛素-蛋白酶体系统是真核细胞中<span class="highlight">选择性降解蛋白质的主要途径</span>，主要负责降解胞质和核内蛋白质。</p>
+            
+            <h4>（1）泛素化过程</h4>
+            <ul>
+                <li><strong>E1酶（泛素激活酶）</strong>：以ATP依赖的方式激活泛素</li>
+                <li><strong>E2酶（泛素结合酶）</strong>：将激活的泛素转移到E2酶上</li>
+                <li><strong>E3酶（泛素连接酶）</strong>：识别特定的靶蛋白，将泛素转移到靶蛋白的赖氨酸残基上</li>
+            </ul>
+            
+            <div class="note">
+                <strong>重要提示：</strong>蛋白质需要被多个泛素分子标记（形成多泛素链）才能被26S蛋白酶体识别和降解。
+            </div>
+            
+            <h4>（2）26S蛋白酶体结构</h4>
+            <ul>
+                <li><strong>20S催化核心</strong>：含有蛋白酶活性位点</li>
+                <li><strong>19S调节亚基</strong>：识别多泛素化蛋白质，具有ATP酶和去泛素化酶活性</li>
+            </ul>
+
+            <h3>2. 溶酶体蛋白质降解系统</h3>
+            <p>溶酶体系统主要负责降解<span class="highlight">细胞外蛋白质、膜蛋白和长寿命蛋白质</span>。</p>
+            
+            <h4>（1）自噬途径（Autophagy）</h4>
+            <ul>
+                <li><strong>巨自噬</strong>：形成自噬体包裹细胞质成分</li>
+                <li><strong>微自噬</strong>：溶酶体膜直接内陷包裹底物</li>
+                <li><strong>分子伴侣介导的自噬</strong>：特定蛋白质通过LAMP-2A受体进入溶酶体</li>
+            </ul>
+            
+            <h4>（2）内吞途径</h4>
+            <ul>
+                <li>受体介导的内吞作用</li>
+                <li>胞饮作用</li>
+                <li>吞噬作用</li>
+            </ul>
+
+            <h2>二、氨基酸分解代谢的基本过程</h2>
+            
+            <h3>1. 氨基酸脱氨基作用</h3>
+            <p>氨基酸分解代谢的第一步是<span class="important">脱除α-氨基</span>，主要通过以下方式进行：</p>
+            
+            <h4>（1）转氨作用（Transamination）</h4>
+            <p>这是氨基酸脱氨基的<span class="highlight">主要方式</span>，由转氨酶催化。</p>
+            <ul>
+                <li><strong>反应机制</strong>：氨基酸 + α-酮戊二酸 ⇌ α-酮酸 + 谷氨酸</li>
+                <li><strong>辅酶</strong>：磷酸吡哆醛（PLP，维生素B6的活性形式）</li>
+                <li><strong>重要转氨酶</strong>：
+                    <ul>
+                        <li>丙氨酸转氨酶（ALT）：Ala + α-KG ⇌ Pyr + Glu</li>
+                        <li>天冬氨酸转氨酶（AST）：Asp + α-KG ⇌ OAA + Glu</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h4>（2）氧化脱氨作用</h4>
+            <p>主要由<span class="highlight">谷氨酸脱氢酶</span>催化，是唯一能够直接脱除氨基的反应。</p>
+            <ul>
+                <li><strong>反应式</strong>：谷氨酸 + NAD(P)⁺ + H₂O → α-酮戊二酸 + NH₃ + NAD(P)H + H⁺</li>
+                <li><strong>调节</strong>：受ADP激活，受ATP和GTP抑制</li>
+            </ul>
+
+            <h3>2. 氨的处理和尿素循环</h3>
+            <p>氨基酸脱氨基产生的氨对细胞有毒，必须及时处理。</p>
+            
+            <h4>（1）氨的毒性</h4>
+            <ul>
+                <li>干扰三羧酸循环</li>
+                <li>影响神经系统功能</li>
+                <li>破坏细胞的酸碱平衡</li>
+            </ul>
+            
+            <h4>（2）尿素循环（Urea Cycle）</h4>
+            <p>尿素循环是<span class="highlight">哺乳动物处理氨的主要途径</span>，主要在肝脏进行。</p>
+            
+            <div class="note">
+                <strong>尿素循环的五个关键酶：</strong>
+                <ol>
+                    <li><strong>氨基甲酰磷酸合成酶I（CPS I）</strong>：线粒体内，合成氨基甲酰磷酸</li>
+                    <li><strong>鸟氨酸氨基甲酰转移酶（OCT）</strong>：线粒体内，形成瓜氨酸</li>
+                    <li><strong>精氨酸琥珀酸合成酶（ASS）</strong>：胞质，形成精氨酸琥珀酸</li>
+                    <li><strong>精氨酸琥珀酸裂解酶（ASL）</strong>：胞质，形成精氨酸</li>
+                    <li><strong>精氨酸酶（ARG）</strong>：胞质，形成尿素和鸟氨酸</li>
+                </ol>
+            </div>
+            
+            <h4>（3）尿素循环的调节</h4>
+            <ul>
+                <li><strong>N-乙酰谷氨酸</strong>：CPS I的变构激活剂</li>
+                <li><strong>高蛋白饮食</strong>：诱导尿素循环酶的合成</li>
+                <li><strong>激素调节</strong>：胰高血糖素和皮质醇促进酶合成</li>
+            </ul>
+
+            <h3>3. 氨基酸碳骨架的代谢去路</h3>
+            <p>氨基酸脱氨基后的碳骨架可以进入不同的代谢途径。</p>
+            
+            <h4>（1）生糖氨基酸（Glucogenic Amino Acids）</h4>
+            <p>碳骨架可以转化为葡萄糖的氨基酸，包括：</p>
+            <ul>
+                <li><strong>转化为丙酮酸</strong>：Ala（丙氨酸）、Cys（半胱氨酸）、Gly（甘氨酸）、Ser（丝氨酸）、Thr（苏氨酸）</li>
+                <li><strong>转化为α-酮戊二酸</strong>：Arg（精氨酸）、Glu（谷氨酸）、Gln（谷氨酰胺）、His（组氨酸）、Pro（脯氨酸）</li>
+                <li><strong>转化为琥珀酰CoA</strong>：Ile（异亮氨酸）、Met（甲硫氨酸）、Thr（苏氨酸）、Val（缬氨酸）</li>
+                <li><strong>转化为延胡索酸</strong>：Asp（天冬氨酸）、Asn（天冬酰胺）</li>
+                <li><strong>转化为草酰乙酸</strong>：Asp（天冬氨酸）、Asn（天冬酰胺）</li>
+            </ul>
+            
+            <h4>（2）生酮氨基酸（Ketogenic Amino Acids）</h4>
+            <p>碳骨架转化为酮体的氨基酸：</p>
+            <ul>
+                <li><strong>纯生酮氨基酸</strong>：Leu（亮氨酸）、Lys（赖氨酸）</li>
+                <li><strong>既生糖又生酮</strong>：Ile（异亮氨酸）、Phe（苯丙氨酸）、Trp（色氨酸）、Tyr（酪氨酸）</li>
+            </ul>
+
+            <h2>三、重要氨基酸的特殊代谢</h2>
+            
+            <h3>1. 苯丙氨酸和酪氨酸代谢</h3>
+            <h4>（1）正常代谢途径</h4>
+            <ul>
+                <li><strong>苯丙氨酸羟化酶</strong>：Phe → Tyr（需要四氢生物蝶呤作辅因子）</li>
+                <li><strong>酪氨酸羟化酶</strong>：Tyr → DOPA（多巴）</li>
+                <li><strong>最终产物</strong>：延胡索酸和乙酰乙酸</li>
+            </ul>
+            
+            <h4>（2）代谢异常疾病</h4>
+            <ul>
+                <li><strong>苯丙酮尿症（PKU）</strong>：苯丙氨酸羟化酶缺陷</li>
+                <li><strong>酪氨酸血症</strong>：酪氨酸代谢酶缺陷</li>
+                <li><strong>白化病</strong>：酪氨酸酶缺陷，影响黑色素合成</li>
+            </ul>
+
+            <h3>2. 含硫氨基酸代谢</h3>
+            <h4>（1）甲硫氨酸循环</h4>
+            <ul>
+                <li><strong>S-腺苷甲硫氨酸（SAM）</strong>：重要的甲基供体</li>
+                <li><strong>同型半胱氨酸</strong>：可重新甲基化为甲硫氨酸</li>
+                <li><strong>转硫途径</strong>：同型半胱氨酸 → 胱硫氨酸 → 半胱氨酸</li>
+            </ul>
+            
+            <h4>（2）一碳单位代谢</h4>
+            <ul>
+                <li><strong>载体</strong>：四氢叶酸（THF）</li>
+                <li><strong>来源</strong>：丝氨酸、甘氨酸、组氨酸、色氨酸</li>
+                <li><strong>用途</strong>：嘌呤合成、胸腺嘧啶合成、氨基酸合成</li>
+            </ul>
+
+            <h3>3. 支链氨基酸代谢</h3>
+            <p>缬氨酸（Val）、亮氨酸（Leu）、异亮氨酸（Ile）的代谢特点：</p>
+            <ul>
+                <li><strong>组织特异性</strong>：主要在肌肉、脂肪组织代谢</li>
+                <li><strong>第一步反应</strong>：支链氨基酸转氨酶催化</li>
+                <li><strong>第二步反应</strong>：支链α-酮酸脱氢酶复合体催化</li>
+                <li><strong>代谢异常</strong>：枫糖浆尿症（支链α-酮酸脱氢酶缺陷）</li>
+            </ul>
+
+            <!-- 名词解释库 -->
+            <h2>四、名词解释库</h2>
+            <div class="glossary">
+                <div class="glossary-item">
+                    <div class="term">泛素（Ubiquitin）</div>
+                    <div class="definition">一种由76个氨基酸组成的小蛋白质，作为蛋白质降解的标签，标记需要被蛋白酶体降解的蛋白质。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">蛋白酶体（Proteasome）</div>
+                    <div class="definition">真核细胞中负责降解被泛素标记蛋白质的大型蛋白质复合体，26S蛋白酶体由20S催化核心和两个19S调节亚基组成。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">自噬（Autophagy）</div>
+                    <div class="definition">细胞通过形成自噬体包裹细胞质成分并与溶酶体融合进行降解的过程，是细胞清除损伤细胞器和蛋白质聚集体的重要机制。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">转氨作用（Transamination）</div>
+                    <div class="definition">氨基酸与α-酮酸之间氨基转移的反应，由转氨酶催化，需要磷酸吡哆醛作为辅酶，是氨基酸脱氨基的主要方式。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">氧化脱氨作用（Oxidative Deamination）</div>
+                    <div class="definition">氨基酸直接脱除氨基的反应，主要由谷氨酸脱氢酶催化，产生α-酮酸、氨和NADH。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">尿素循环（Urea Cycle）</div>
+                    <div class="definition">哺乳动物将有毒的氨转化为无毒尿素的代谢途径，主要在肝脏进行，涉及五个关键酶。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">氨基甲酰磷酸合成酶I（CPS I）</div>
+                    <div class="definition">尿素循环的限速酶，位于线粒体内，催化氨、CO₂和ATP合成氨基甲酰磷酸，受N-乙酰谷氨酸激活。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">生糖氨基酸（Glucogenic Amino Acids）</div>
+                    <div class="definition">碳骨架可以转化为葡萄糖的氨基酸，通过糖异生途径产生葡萄糖，包括大部分氨基酸。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">生酮氨基酸（Ketogenic Amino Acids）</div>
+                    <div class="definition">碳骨架转化为酮体（乙酰乙酸或乙酰CoA）的氨基酸，包括亮氨酸、赖氨酸等。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">苯丙酮尿症（Phenylketonuria, PKU）</div>
+                    <div class="definition">由苯丙氨酸羟化酶缺陷引起的遗传性疾病，导致苯丙氨酸在体内蓄积，可引起智力发育障碍。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">S-腺苷甲硫氨酸（S-Adenosylmethionine, SAM）</div>
+                    <div class="definition">重要的甲基供体，由甲硫氨酸和ATP合成，参与DNA甲基化、蛋白质甲基化等反应。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">一碳单位（One-Carbon Units）</div>
+                    <div class="definition">以四氢叶酸为载体的甲基、甲酰基、亚甲基等基团，参与嘌呤、胸腺嘧啶和某些氨基酸的合成。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">支链氨基酸（Branched-Chain Amino Acids, BCAA）</div>
+                    <div class="definition">包括缬氨酸、亮氨酸和异亮氨酸，主要在肌肉组织代谢，是重要的能量来源。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">枫糖浆尿症（Maple Syrup Urine Disease）</div>
+                    <div class="definition">支链α-酮酸脱氢酶复合体缺陷引起的遗传病，导致支链氨基酸及其酮酸在体内蓄积。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">磷酸吡哆醛（Pyridoxal Phosphate, PLP）</div>
+                    <div class="definition">维生素B6的活性形式，是转氨酶的辅酶，参与氨基酸的转氨、脱羧等反应。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">N-乙酰谷氨酸（N-Acetylglutamate）</div>
+                    <div class="definition">氨基甲酰磷酸合成酶I的变构激活剂，调节尿素循环的活性，其合成受精氨酸激活。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">同型半胱氨酸（Homocysteine）</div>
+                    <div class="definition">甲硫氨酸代谢的中间产物，可重新甲基化为甲硫氨酸或通过转硫途径转化为半胱氨酸。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="term">四氢生物蝶呤（Tetrahydrobiopterin, BH4）</div>
+                    <div class="definition">苯丙氨酸羟化酶、酪氨酸羟化酶等的重要辅因子，参与芳香族氨基酸的羟化反应。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <h2>五、选择题测试</h2>
+            <div class="quiz-section">
+                <div id="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-result" class="result"></div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <h2>六、深度思考题</h2>
+            <div class="thinking-questions">
+                <div class="thinking-question">
+                    <h4>1. 比较分析泛素-蛋白酶体系统和溶酶体蛋白质降解系统的异同点，并说明它们在细胞生理功能中的重要意义。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>相同点：</strong>
+                                <ul>
+                                    <li>都是细胞内重要的蛋白质降解系统，维持蛋白质稳态</li>
+                                    <li>都具有选择性，能够识别特定的底物蛋白质</li>
+                                    <li>都参与细胞质量控制，清除异常或损伤的蛋白质</li>
+                                    <li>都受到严格的调节控制，确保降解的准确性和时效性</li>
+                                </ul>
+                            </li>
+                            <li><strong>不同点：</strong>
+                                <ul>
+                                    <li><strong>底物特异性：</strong>UPS主要降解胞质和核内蛋白质，溶酶体系统主要降解膜蛋白、细胞器和胞外蛋白质</li>
+                                    <li><strong>能量依赖性：</strong>UPS需要ATP提供能量进行泛素化和蛋白酶体活动，溶酶体降解本身不需要ATP</li>
+                                    <li><strong>标记机制：</strong>UPS使用泛素作为降解标签，溶酶体通过自噬体包裹或受体介导内吞</li>
+                                    <li><strong>降解速度：</strong>UPS降解速度快，适合快速调节，溶酶体降解相对较慢但容量大</li>
+                                </ul>
+                            </li>
+                            <li><strong>生理意义：</strong>
+                                <ul>
+                                    <li>维持细胞蛋白质稳态，防止蛋白质聚集和毒性</li>
+                                    <li>调节细胞周期、信号转导等重要生理过程</li>
+                                    <li>参与细胞应激反应和适应性调节</li>
+                                    <li>与多种疾病（如神经退行性疾病、癌症）密切相关</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 详细阐述尿素循环的分子机制，分析其调节方式，并讨论尿素循环异常对机体的影响。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>分子机制：</strong>
+                                <ul>
+                                    <li><strong>第一步（线粒体内）：</strong>CPS I催化NH₃ + CO₂ + 2ATP → 氨基甲酰磷酸，需要N-乙酰谷氨酸激活</li>
+                                    <li><strong>第二步（线粒体内）：</strong>OCT催化氨基甲酰磷酸 + 鸟氨酸 → 瓜氨酸</li>
+                                    <li><strong>第三步（胞质）：</strong>ASS催化瓜氨酸 + 天冬氨酸 + ATP → 精氨酸琥珀酸</li>
+                                    <li><strong>第四步（胞质）：</strong>ASL催化精氨酸琥珀酸 → 精氨酸 + 延胡索酸</li>
+                                    <li><strong>第五步（胞质）：</strong>ARG催化精氨酸 → 尿素 + 鸟氨酸</li>
+                                </ul>
+                            </li>
+                            <li><strong>调节方式：</strong>
+                                <ul>
+                                    <li><strong>变构调节：</strong>N-乙酰谷氨酸激活CPS I，精氨酸促进N-乙酰谷氨酸合成</li>
+                                    <li><strong>酶诱导：</strong>高蛋白饮食、胰高血糖素、皮质醇诱导尿素循环酶合成</li>
+                                    <li><strong>底物调节：</strong>氨浓度升高促进循环活动</li>
+                                    <li><strong>组织特异性：</strong>主要在肝脏进行，肠道、肾脏也有一定活性</li>
+                                </ul>
+                            </li>
+                            <li><strong>异常影响：</strong>
+                                <ul>
+                                    <li><strong>高氨血症：</strong>可导致神经系统损伤、昏迷甚至死亡</li>
+                                    <li><strong>遗传性尿素循环缺陷：</strong>如鸟氨酸氨基甲酰转移酶缺陷症</li>
+                                    <li><strong>肝功能损伤：</strong>影响尿素合成能力，导致氨中毒</li>
+                                    <li><strong>营养代谢紊乱：</strong>影响氨基酸和蛋白质代谢平衡</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 分析氨基酸代谢与糖代谢、脂代谢之间的相互关系，说明氨基酸在能量代谢中的作用。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>与糖代谢的关系：</strong>
+                                <ul>
+                                    <li><strong>糖异生：</strong>生糖氨基酸可通过糖异生途径合成葡萄糖，在饥饿状态下维持血糖稳定</li>
+                                    <li><strong>丙氨酸-葡萄糖循环：</strong>肌肉产生的丙氨酸运输到肝脏转化为葡萄糖</li>
+                                    <li><strong>共同中间产物：</strong>丙酮酸、α-酮戊二酸等既是氨基酸代谢产物也是糖代谢中间产物</li>
+                                    <li><strong>调节机制：</strong>胰岛素促进氨基酸合成蛋白质，胰高血糖素促进氨基酸分解</li>
+                                </ul>
+                            </li>
+                            <li><strong>与脂代谢的关系：</strong>
+                                <ul>
+                                    <li><strong>酮体生成：</strong>生酮氨基酸可转化为乙酰CoA，进一步合成酮体</li>
+                                    <li><strong>脂肪酸合成：</strong>氨基酸代谢产生的乙酰CoA可用于脂肪酸合成</li>
+                                    <li><strong>胆固醇合成：</strong>某些氨基酸参与胆固醇合成途径</li>
+                                    <li><strong>载脂蛋白合成：</strong>氨基酸是载脂蛋白合成的原料</li>
+                                </ul>
+                            </li>
+                            <li><strong>能量代谢作用：</strong>
+                                <ul>
+                                    <li><strong>直接供能：</strong>氨基酸碳骨架进入TCA循环产生ATP</li>
+                                    <li><strong>应急供能：</strong>在糖原耗竭时，肌肉蛋白质分解提供氨基酸供能</li>
+                                    <li><strong>代谢调节：</strong>某些氨基酸（如亮氨酸）具有信号分子功能，调节mTOR通路</li>
+                                    <li><strong>组织特异性：</strong>不同组织对氨基酸的利用方式不同，如肌肉主要利用支链氨基酸</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 论述一碳单位代谢的生物学意义，分析其与氨基酸代谢、核酸代谢的关系。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>一碳单位的来源和载体：</strong>
+                                <ul>
+                                    <li><strong>主要来源：</strong>丝氨酸、甘氨酸、组氨酸、色氨酸等氨基酸的分解</li>
+                                    <li><strong>载体系统：</strong>四氢叶酸（THF）及其衍生物</li>
+                                    <li><strong>一碳单位形式：</strong>甲基、甲酰基、亚甲基、甲炔基等</li>
+                                    <li><strong>维生素依赖：</strong>需要叶酸、维生素B12等维生素参与</li>
+                                </ul>
+                            </li>
+                            <li><strong>与氨基酸代谢的关系：</strong>
+                                <ul>
+                                    <li><strong>氨基酸合成：</strong>参与甲硫氨酸、甘氨酸、组氨酸等的合成</li>
+                                    <li><strong>甲硫氨酸循环：</strong>提供甲基用于同型半胱氨酸的重甲基化</li>
+                                    <li><strong>丝氨酸-甘氨酸转换：</strong>丝氨酸脱氨产生一碳单位和甘氨酸</li>
+                                    <li><strong>代谢调节：</strong>一碳单位水平影响氨基酸代谢的方向和速度</li>
+                                </ul>
+                            </li>
+                            <li><strong>与核酸代谢的关系：</strong>
+                                <ul>
+                                    <li><strong>嘌呤合成：</strong>提供C2和C8位的碳原子</li>
+                                    <li><strong>胸腺嘧啶合成：</strong>dUMP甲基化形成dTMP</li>
+                                    <li><strong>DNA甲基化：</strong>通过SAM提供甲基进行表观遗传调节</li>
+                                    <li><strong>RNA修饰：</strong>参与某些RNA的甲基化修饰</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学意义：</strong>
+                                <ul>
+                                    <li><strong>细胞增殖：</strong>DNA合成必需，是细胞分裂的限制因子</li>
+                                    <li><strong>表观遗传：</strong>DNA和组蛋白甲基化调节基因表达</li>
+                                    <li><strong>神经发育：</strong>影响神经管闭合，缺乏可导致神经管缺陷</li>
+                                    <li><strong>疾病相关：</strong>与癌症、心血管疾病、神经退行性疾病相关</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 结合临床实例，分析氨基酸代谢异常疾病的发病机制、临床表现和治疗策略。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>苯丙酮尿症（PKU）：</strong>
+                                <ul>
+                                    <li><strong>发病机制：</strong>苯丙氨酸羟化酶缺陷，苯丙氨酸不能转化为酪氨酸</li>
+                                    <li><strong>临床表现：</strong>智力发育迟缓、癫痫、皮肤色素减少、鼠臭味</li>
+                                    <li><strong>治疗策略：</strong>低苯丙氨酸饮食、四氢生物蝶呤补充（部分患者）</li>
+                                    <li><strong>预防措施：</strong>新生儿筛查、遗传咨询</li>
+                                </ul>
+                            </li>
+                            <li><strong>枫糖浆尿症：</strong>
+                                <ul>
+                                    <li><strong>发病机制：</strong>支链α-酮酸脱氢酶复合体缺陷</li>
+                                    <li><strong>临床表现：</strong>尿液有枫糖浆味、喂养困难、神经系统症状</li>
+                                    <li><strong>治疗策略：</strong>限制支链氨基酸摄入、硫胺素补充（某些类型）</li>
+                                    <li><strong>急性处理：</strong>血液透析清除毒性代谢产物</li>
+                                </ul>
+                            </li>
+                            <li><strong>高氨血症：</strong>
+                                <ul>
+                                    <li><strong>发病机制：</strong>尿素循环酶缺陷或肝功能损伤</li>
+                                    <li><strong>临床表现：</strong>意识障碍、昏迷、脑水肿</li>
+                                    <li><strong>治疗策略：</strong>限制蛋白质摄入、苯甲酸钠等氨清除剂</li>
+                                    <li><strong>支持治疗：</strong>血液净化、营养支持</li>
+                                </ul>
+                            </li>
+                            <li><strong>同型半胱氨酸尿症：</strong>
+                                <ul>
+                                    <li><strong>发病机制：</strong>胱硫氨酸β-合成酶缺陷等</li>
+                                    <li><strong>临床表现：</strong>智力障碍、骨骼异常、血管病变</li>
+                                    <li><strong>治疗策略：</strong>维生素B6、B12、叶酸补充，低甲硫氨酸饮食</li>
+                                    <li><strong>预后改善：</strong>早期诊断和治疗可显著改善预后</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "真核细胞中蛋白质降解的两大主要系统是：",
+                options: ["A. 泛素-蛋白酶体系统和溶酶体系统", "B. 胃蛋白酶系统和胰蛋白酶系统", "C. 内质网系统和高尔基体系统", "D. 线粒体系统和过氧化物酶体系统"],
+                correct: 0,
+                explanation: "真核细胞中蛋白质降解主要通过两大系统：泛素-蛋白酶体系统（UPS）负责降解胞质和核内蛋白质，溶酶体系统负责降解膜蛋白、细胞器和胞外蛋白质。"
+            },
+            {
+                question: "泛素化过程中，负责识别特定靶蛋白的酶是：",
+                options: ["A. E1酶（泛素激活酶）", "B. E2酶（泛素结合酶）", "C. E3酶（泛素连接酶）", "D. E4酶（泛素转移酶）"],
+                correct: 2,
+                explanation: "E3酶（泛素连接酶）负责识别特定的靶蛋白，具有底物特异性，决定哪些蛋白质被泛素化标记进而被降解。"
+            },
+            {
+                question: "26S蛋白酶体的组成包括：",
+                options: ["A. 一个20S催化核心", "B. 两个19S调节亚基", "C. 一个20S催化核心和两个19S调节亚基", "D. 一个19S催化核心和两个20S调节亚基"],
+                correct: 2,
+                explanation: "26S蛋白酶体由一个20S催化核心（含有蛋白酶活性位点）和两个19S调节亚基（识别多泛素化蛋白质）组成。"
+            },
+            {
+                question: "氨基酸脱氨基的主要方式是：",
+                options: ["A. 直接脱氨", "B. 转氨作用", "C. 氧化脱氨", "D. 还原脱氨"],
+                correct: 1,
+                explanation: "转氨作用是氨基酸脱氨基的主要方式，由转氨酶催化，需要磷酸吡哆醛（PLP）作为辅酶，将氨基转移给α-酮戊二酸。"
+            },
+            {
+                question: "转氨酶的辅酶是：",
+                options: ["A. NAD+", "B. FAD", "C. 磷酸吡哆醛（PLP）", "D. 辅酶A"],
+                correct: 2,
+                explanation: "磷酸吡哆醛（PLP）是维生素B6的活性形式，是转氨酶的辅酶，参与氨基的转移反应。"
+            },
+            {
+                question: "能够直接脱除氨基的酶是：",
+                options: ["A. 丙氨酸转氨酶", "B. 天冬氨酸转氨酶", "C. 谷氨酸脱氢酶", "D. 苯丙氨酸羟化酶"],
+                correct: 2,
+                explanation: "谷氨酸脱氢酶是唯一能够直接脱除氨基的酶，催化谷氨酸氧化脱氨生成α-酮戊二酸、氨和NADH。"
+            },
+            {
+                question: "尿素循环的限速酶是：",
+                options: ["A. 鸟氨酸氨基甲酰转移酶", "B. 氨基甲酰磷酸合成酶I", "C. 精氨酸琥珀酸合成酶", "D. 精氨酸酶"],
+                correct: 1,
+                explanation: "氨基甲酰磷酸合成酶I（CPS I）是尿素循环的限速酶，位于线粒体内，受N-乙酰谷氨酸激活。"
+            },
+            {
+                question: "N-乙酰谷氨酸的作用是：",
+                options: ["A. 抑制CPS I", "B. 激活CPS I", "C. 抑制精氨酸酶", "D. 激活鸟氨酸转运"],
+                correct: 1,
+                explanation: "N-乙酰谷氨酸是氨基甲酰磷酸合成酶I（CPS I）的变构激活剂，调节尿素循环的活性。"
+            },
+            {
+                question: "尿素循环中，在线粒体内进行的反应有：",
+                options: ["A. 1个", "B. 2个", "C. 3个", "D. 4个"],
+                correct: 1,
+                explanation: "尿素循环中有2个反应在线粒体内进行：CPS I催化的氨基甲酰磷酸合成和OCT催化的瓜氨酸形成。"
+            },
+            {
+                question: "下列哪个氨基酸是纯生酮氨基酸：",
+                options: ["A. 丙氨酸", "B. 亮氨酸", "C. 异亮氨酸", "D. 苯丙氨酸"],
+                correct: 1,
+                explanation: "亮氨酸和赖氨酸是纯生酮氨基酸，其碳骨架只能转化为酮体，不能用于糖异生。"
+            },
+            {
+                question: "苯丙酮尿症的病因是：",
+                options: ["A. 酪氨酸羟化酶缺陷", "B. 苯丙氨酸羟化酶缺陷", "C. 酪氨酸酶缺陷", "D. 多巴脱羧酶缺陷"],
+                correct: 1,
+                explanation: "苯丙酮尿症（PKU）是由苯丙氨酸羟化酶缺陷引起的，导致苯丙氨酸不能转化为酪氨酸而在体内蓄积。"
+            },
+            {
+                question: "枫糖浆尿症的缺陷酶是：",
+                options: ["A. 支链氨基酸转氨酶", "B. 支链α-酮酸脱氢酶复合体", "C. 异戊酰CoA脱氢酶", "D. 3-甲基巴豆酰CoA羧化酶"],
+                correct: 1,
+                explanation: "枫糖浆尿症是由支链α-酮酸脱氢酶复合体缺陷引起的，导致支链氨基酸及其酮酸在体内蓄积。"
+            },
+            {
+                question: "S-腺苷甲硫氨酸（SAM）的主要功能是：",
+                options: ["A. 氨基供体", "B. 甲基供体", "C. 磷酸供体", "D. 硫基供体"],
+                correct: 1,
+                explanation: "S-腺苷甲硫氨酸（SAM）是重要的甲基供体，参与DNA甲基化、蛋白质甲基化等反应。"
+            },
+            {
+                question: "一碳单位的载体是：",
+                options: ["A. 生物素", "B. 四氢叶酸", "C. 辅酶A", "D. NAD+"],
+                correct: 1,
+                explanation: "四氢叶酸（THF）是一碳单位的载体，携带甲基、甲酰基、亚甲基等基团参与各种合成反应。"
+            },
+            {
+                question: "支链氨基酸包括：",
+                options: ["A. 缬氨酸、亮氨酸、异亮氨酸", "B. 苯丙氨酸、酪氨酸、色氨酸", "C. 丝氨酸、苏氨酸、半胱氨酸", "D. 精氨酸、赖氨酸、组氨酸"],
+                correct: 0,
+                explanation: "支链氨基酸（BCAA）包括缬氨酸、亮氨酸和异亮氨酸，主要在肌肉组织代谢。"
+            },
+            {
+                question: "自噬的主要类型不包括：",
+                options: ["A. 巨自噬", "B. 微自噬", "C. 分子伴侣介导的自噬", "D. 受体介导的自噬"],
+                correct: 3,
+                explanation: "自噬主要包括三种类型：巨自噬、微自噬和分子伴侣介导的自噬。受体介导的内吞是另一种蛋白质摄取方式。"
+            },
+            {
+                question: "下列哪个氨基酸的代谢产物可以直接进入TCA循环：",
+                options: ["A. 丙氨酸", "B. 天冬氨酸", "C. 甘氨酸", "D. 半胱氨酸"],
+                correct: 1,
+                explanation: "天冬氨酸经转氨作用生成草酰乙酸，可以直接进入TCA循环。"
+            },
+            {
+                question: "蛋白质降解的生理意义不包括：",
+                options: ["A. 清除异常蛋白质", "B. 调节酶活性", "C. 维持氨基酸平衡", "D. 增加蛋白质合成"],
+                correct: 3,
+                explanation: "蛋白质降解的主要生理意义包括清除异常蛋白质、调节酶活性、维持氨基酸平衡等，而不是增加蛋白质合成。"
+            },
+            {
+                question: "谷氨酸脱氢酶的调节特点是：",
+                options: ["A. 受ADP激活，受ATP抑制", "B. 受ATP激活，受ADP抑制", "C. 受NAD+激活，受NADH抑制", "D. 受GTP激活，受GDP抑制"],
+                correct: 0,
+                explanation: "谷氨酸脱氢酶受ADP激活，受ATP和GTP抑制，体现了能量状态对氨基酸代谢的调节。"
+            },
+            {
+                question: "尿素循环每产生1分子尿素消耗的ATP分子数是：",
+                options: ["A. 2个", "B. 3个", "C. 4个", "D. 5个"],
+                correct: 2,
+                explanation: "尿素循环每产生1分子尿素消耗4个ATP：CPS I消耗2个ATP，ASS消耗1个ATP，延胡索酸再生草酰乙酸消耗1个ATP。"
+            },
+            {
+                question: "同型半胱氨酸的代谢去路不包括：",
+                options: ["A. 重新甲基化为甲硫氨酸", "B. 转硫途径生成半胱氨酸", "C. 直接脱氨生成α-酮酸", "D. 与丝氨酸结合生成胱硫氨酸"],
+                correct: 2,
+                explanation: "同型半胱氨酸可以重新甲基化为甲硫氨酸，或通过转硫途径与丝氨酸结合生成胱硫氨酸，但不能直接脱氨。"
+            },
+            {
+                question: "四氢生物蝶呤的作用是：",
+                options: ["A. 转氨酶的辅酶", "B. 芳香族氨基酸羟化酶的辅因子", "C. 脱氢酶的辅酶", "D. 羧化酶的辅因子"],
+                correct: 1,
+                explanation: "四氢生物蝶呤（BH4）是苯丙氨酸羟化酶、酪氨酸羟化酶等芳香族氨基酸羟化酶的重要辅因子。"
+            },
+            {
+                question: "丙氨酸-葡萄糖循环的生理意义是：",
+                options: ["A. 维持血糖稳定", "B. 清除肌肉中的氨", "C. 提供能量给肌肉", "D. 以上都是"],
+                correct: 3,
+                explanation: "丙氨酸-葡萄糖循环具有多重生理意义：维持血糖稳定、清除肌肉中的氨、为肌肉提供能量来源。"
+            },
+            {
+                question: "蛋白酶体的催化机制属于：",
+                options: ["A. 丝氨酸蛋白酶", "B. 半胱氨酸蛋白酶", "C. 苏氨酸蛋白酶", "D. 金属蛋白酶"],
+                correct: 2,
+                explanation: "20S蛋白酶体的催化亚基具有苏氨酸蛋白酶活性，通过苏氨酸残基的羟基进行亲核攻击。"
+            },
+            {
+                question: "下列关于溶酶体蛋白质降解的描述，错误的是：",
+                options: ["A. 需要酸性环境", "B. 主要降解胞外蛋白质", "C. 需要ATP提供能量", "D. 参与自噬过程"],
+                correct: 2,
+                explanation: "溶酶体蛋白质降解本身不需要ATP提供能量，其蛋白酶在酸性环境下具有活性。"
+            },
+            {
+                question: "精氨酸在尿素循环中的作用是：",
+                options: ["A. 激活CPS I", "B. 促进N-乙酰谷氨酸合成", "C. 直接参与尿素形成", "D. 以上都是"],
+                correct: 3,
+                explanation: "精氨酸在尿素循环中具有多重作用：激活CPS I、促进N-乙酰谷氨酸合成、直接参与尿素形成反应。"
+            },
+            {
+                question: "氨基酸代谢中，维生素B12主要参与：",
+                options: ["A. 转氨反应", "B. 脱氨反应", "C. 甲基化反应", "D. 脱羧反应"],
+                correct: 2,
+                explanation: "维生素B12（钴胺素）主要参与甲基化反应，如同型半胱氨酸重新甲基化为甲硫氨酸。"
+            },
+            {
+                question: "白化病的生化基础是：",
+                options: ["A. 苯丙氨酸羟化酶缺陷", "B. 酪氨酸羟化酶缺陷", "C. 酪氨酸酶缺陷", "D. 多巴脱羧酶缺陷"],
+                correct: 2,
+                explanation: "白化病是由酪氨酸酶缺陷引起的，影响黑色素的合成，导致皮肤、毛发和眼睛色素缺乏。"
+            },
+            {
+                question: "下列氨基酸中，既是生糖又是生酮的是：",
+                options: ["A. 丙氨酸", "B. 异亮氨酸", "C. 甘氨酸", "D. 天冬氨酸"],
+                correct: 1,
+                explanation: "异亮氨酸既是生糖又是生酮氨基酸，其碳骨架可以同时转化为葡萄糖和酮体。"
+            },
+            {
+                question: "泛素分子的特点是：",
+                options: ["A. 由76个氨基酸组成", "B. 高度保守", "C. 可以形成多聚体", "D. 以上都是"],
+                correct: 3,
+                explanation: "泛素是由76个氨基酸组成的高度保守的小蛋白质，可以形成多聚体链标记靶蛋白。"
+            }
+        ];
+
+        // 随机选择15道题
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        function initQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            userAnswers = [];
+            let correctCount = 0;
+            
+            // 收集用户答案
+            selectedQuestions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                userAnswers.push(userAnswer);
+                
+                if (userAnswer === q.correct) {
+                    correctCount++;
+                }
+            });
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quiz-result');
+            const accuracy = ((correctCount / selectedQuestions.length) * 100).toFixed(1);
+            
+            let resultHTML = `
+                <h3>测试结果</h3>
+                <p><strong>正确率：${accuracy}% (${correctCount}/${selectedQuestions.length})</strong></p>
+                <div style="margin-top: 20px;">
+            `;
+            
+            selectedQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
+                
+                resultHTML += `
+                    <div style="background-color: ${bgColor}; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                        <p><strong>第${index + 1}题：${q.question}</strong></p>
+                        <p>您的答案：${userAnswers[index] >= 0 ? q.options[userAnswers[index]] : '未作答'}</p>
+                        <p>正确答案：${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultHTML += '</div>';
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载时初始化测试
+        document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

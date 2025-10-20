@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生物信息的传递（下）——从mRNA到蛋白质 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .important {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e17055;
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: "Consolas", monospace;
+            border: 2px dashed #3498db;
+        }
+
+        .glossary {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .glossary-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .glossary-definition {
+            margin-top: 5px;
+            color: #34495e;
+        }
+
+        .quiz-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .quiz-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            display: block;
+            padding: 8px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .quiz-option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .quiz-result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result-correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result-incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .thinking-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .thinking-question {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #fff;
+        }
+
+        .thinking-answer {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .image-placeholder {
+            background: #f1f2f6;
+            border: 2px dashed #3498db;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>生物信息的传递（下）</h1>
+            <p>从mRNA到蛋白质 - 现代分子生物学考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、遗传密码（Genetic Code）</h2>
+                
+                <h3>1.1 遗传密码的基本概念</h3>
+                <p>遗传密码是DNA（或RNA）中的三联体与蛋白质中氨基酸之间的对应关系。<mcreference link="https://blog.csdn.net/zea408497299/article/details/124672916" index="1">1</mcreference> mRNA上每3个核苷酸翻译成多肽链上的一个氨基酸，这3个核苷酸就称为一个密码子（三联子密码，triplet code）。</p>
+                
+                <div class="highlight">
+                    <p><strong>重要概念：</strong></p>
+                    <ul>
+                        <li><strong>密码子（Codon）：</strong>代表氨基酸或终止信号的核苷酸三联体</li>
+                        <li><strong>起始密码子：</strong>用于开始合成蛋白质的特殊密码子（通常是AUG，也可以是GUG）</li>
+                        <li><strong>终止密码子：</strong>导致蛋白质合成终止的三种密码子（UAG、UAA、UGA）</li>
+                        <li><strong>阅读框（Reading frame）：</strong>将核苷酸序列作为一系列三联体读取的三种可能方式之一</li>
+                    </ul>
+                </div>
+
+                <h3>1.2 遗传密码的性质</h3>
+                <ol>
+                    <li><strong>连续性（Commaless）：</strong>三联子密码是非重叠和连续的，每三个核苷酸编码一个氨基酸</li>
+                    <li><strong>简并性（Degeneracy）：</strong>64个密码子中，61个编码氨基酸，3个是终止密码子。多个密码子可编码同一氨基酸</li>
+                    <li><strong>普遍性（Universality）：</strong>生物界基本共用同一套遗传密码</li>
+                    <li><strong>特殊性（Specificity）：</strong>在某些生物中存在例外，如线粒体中的特殊密码</li>
+                </ol>
+
+                <div class="important">
+                    <p><strong>考试重点：</strong>除色氨酸（UGG）和甲硫氨酸（AUG）只有一个密码子外，其他氨基酸都有一个以上的密码子。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>二、转移RNA（tRNA）</h2>
+                
+                <h3>2.1 tRNA的结构特点</h3>
+                <p>tRNA是模板与氨基酸之间的接合体，具有独特的三叶草型二级结构和L型三级结构。</p>
+                
+                <h4>2.1.1 tRNA的功能区域</h4>
+                <ul>
+                    <li><strong>反密码子环：</strong>含有与mRNA密码子配对的反密码子</li>
+                    <li><strong>氨基酸臂：</strong>3'端的CCA序列，氨基酸结合位点</li>
+                    <li><strong>D环和TψC环：</strong>参与tRNA的三级结构形成</li>
+                    <li><strong>可变环：</strong>不同tRNA分子的可变区域</li>
+                </ul>
+
+                <h3>2.2 氨酰tRNA合成酶</h3>
+                <p>氨酰tRNA合成酶催化氨基酸与对应tRNA的结合，形成氨酰tRNA。这个过程需要消耗ATP，分两步进行：</p>
+                <div class="formula">
+                    <p>第一步：氨基酸 + ATP + 酶 → 氨酰-AMP-酶复合物 + PPi</p>
+                    <p>第二步：氨酰-AMP-酶复合物 + tRNA → 氨酰-tRNA + AMP + 酶</p>
+                </div>
+
+                <h3>2.3 密码子与反密码子的相互作用</h3>
+                <p>tRNA的反密码子通过碱基的反向配对与mRNA上的密码子相互作用。<mcreference link="https://blog.csdn.net/zea408497299/article/details/124672916" index="1">1</mcreference> 这种配对遵循Watson-Crick碱基配对规则，但在第三位存在摆动配对现象。</p>
+            </div>
+
+            <div class="section">
+                <h2>三、核糖体（Ribosome）</h2>
+                
+                <h3>3.1 核糖体的结构组成</h3>
+                <p>核糖体是蛋白质合成的场所，由大小两个亚基组成：</p>
+                
+                <h4>3.1.1 原核生物核糖体（70S）</h4>
+                <ul>
+                    <li><strong>大亚基（50S）：</strong>含有23S rRNA、5S rRNA和约34种蛋白质</li>
+                    <li><strong>小亚基（30S）：</strong>含有16S rRNA和约21种蛋白质</li>
+                </ul>
+
+                <h4>3.1.2 真核生物核糖体（80S）</h4>
+                <ul>
+                    <li><strong>大亚基（60S）：</strong>含有28S rRNA、18S rRNA、5.8S rRNA、5S rRNA和约49种蛋白质</li>
+                    <li><strong>小亚基（40S）：</strong>含有18S rRNA和约33种蛋白质</li>
+                </ul>
+
+                <h3>3.2 核糖体的功能位点</h3>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>A位点（氨酰位点）：</strong>新进入的氨酰tRNA结合位点</li>
+                        <li><strong>P位点（肽酰位点）：</strong>携带肽链的tRNA结合位点</li>
+                        <li><strong>E位点（出口位点）：</strong>去酰化tRNA离开前的结合位点</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>四、蛋白质合成过程（翻译）</h2>
+                
+                <h3>4.1 翻译前的准备</h3>
+                <h4>4.1.1 氨基酸活化</h4>
+                <p>氨基酸在氨酰tRNA合成酶的催化下与对应的tRNA结合，形成氨酰tRNA，这个过程消耗ATP。</p>
+                
+                <h4>4.1.2 核糖体解离</h4>
+                <p>翻译开始前，核糖体大小亚基处于解离状态，由起始因子维持分离。</p>
+
+                <h3>4.2 翻译起始</h3>
+                <p>翻译起始是蛋白质合成的第一步，涉及起始密码子的识别和翻译起始复合物的形成。</p>
+                
+                <h4>4.2.1 原核生物翻译起始</h4>
+                <ol>
+                    <li>小亚基与mRNA结合，识别Shine-Dalgarno序列</li>
+                    <li>起始tRNA（fMet-tRNA）在起始因子帮助下结合到P位点</li>
+                    <li>大亚基结合，形成完整的翻译起始复合物</li>
+                    <li>起始因子释放，翻译开始</li>
+                </ol>
+
+                <h4>4.2.2 真核生物翻译起始</h4>
+                <ol>
+                    <li>小亚基与mRNA的5'帽结构结合</li>
+                    <li>扫描至起始密码子AUG</li>
+                    <li>Met-tRNA结合到P位点</li>
+                    <li>大亚基结合，形成翻译起始复合物</li>
+                </ol>
+
+                <h3>4.3 肽链延伸</h3>
+                <p>肽链延伸是一个循环过程，包括以下步骤：</p>
+                <ol>
+                    <li><strong>氨酰tRNA结合：</strong>新的氨酰tRNA在延伸因子帮助下结合到A位点</li>
+                    <li><strong>肽键形成：</strong>P位点的肽链转移到A位点的氨基酸上</li>
+                    <li><strong>核糖体移位：</strong>核糖体沿mRNA移动一个密码子的距离</li>
+                    <li><strong>tRNA转位：</strong>A位点的肽酰tRNA移至P位点，P位点的去酰化tRNA移至E位点</li>
+                </ol>
+
+                <div class="important">
+                    <p><strong>能量消耗：</strong>每添加一个氨基酸需要消耗4个高能磷酸键（2个ATP用于氨基酸活化，2个GTP用于延伸过程）。</p>
+                </div>
+
+                <h3>4.4 翻译终止</h3>
+                <p>当核糖体遇到终止密码子（UAG、UAA、UGA）时，翻译终止：</p>
+                <ol>
+                    <li>释放因子识别终止密码子</li>
+                    <li>肽酰tRNA水解，多肽链从tRNA上释放</li>
+                    <li>核糖体亚基解离</li>
+                    <li>mRNA和tRNA释放</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>五、蛋白质的加工与修饰</h2>
+                
+                <h3>5.1 新生肽链的折叠</h3>
+                <p>新合成的多肽链需要正确折叠才能获得生物活性：</p>
+                <ul>
+                    <li><strong>分子伴侣：</strong>协助蛋白质正确折叠，如GroEL/GroES系统</li>
+                    <li><strong>二硫键形成：</strong>半胱氨酸残基间形成二硫键稳定结构</li>
+                    <li><strong>翻译后修饰：</strong>磷酸化、甲基化、乙酰化等</li>
+                </ul>
+
+                <h3>5.2 蛋白质的定向运输</h3>
+                <h4>5.2.1 信号肽假说</h4>
+                <p>分泌蛋白和膜蛋白含有信号肽，指导蛋白质的定向运输：</p>
+                <ol>
+                    <li>信号肽从核糖体出现</li>
+                    <li>信号识别颗粒（SRP）识别并结合信号肽</li>
+                    <li>翻译暂停，核糖体与内质网结合</li>
+                    <li>翻译恢复，蛋白质进入内质网腔</li>
+                    <li>信号肽被切除</li>
+                </ol>
+
+                <h4>5.2.2 蛋白质分选</h4>
+                <ul>
+                    <li><strong>内质网：</strong>分泌蛋白、膜蛋白的加工场所</li>
+                    <li><strong>高尔基体：</strong>蛋白质的进一步修饰和分选</li>
+                    <li><strong>线粒体：</strong>含有特殊的蛋白质导入机制</li>
+                    <li><strong>细胞核：</strong>核蛋白通过核孔复合体进入</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>六、翻译调控机制</h2>
+                
+                <h3>6.1 翻译水平调控</h3>
+                <ul>
+                    <li><strong>起始因子调控：</strong>磷酸化修饰影响翻译起始</li>
+                    <li><strong>mRNA结构调控：</strong>5'UTR和3'UTR的二级结构影响翻译效率</li>
+                    <li><strong>microRNA调控：</strong>miRNA与mRNA结合抑制翻译</li>
+                    <li><strong>核糖体开关：</strong>小分子代谢物调控翻译</li>
+                </ul>
+
+                <h3>6.2 翻译抑制剂</h3>
+                <div class="highlight">
+                    <p><strong>常见翻译抑制剂：</strong></p>
+                    <ul>
+                        <li><strong>链霉素：</strong>结合30S亚基，干扰翻译起始</li>
+                        <li><strong>氯霉素：</strong>抑制肽酰转移酶活性</li>
+                        <li><strong>环己酰亚胺：</strong>抑制真核生物翻译延伸</li>
+                        <li><strong>嘌呤霉素：</strong>模拟氨酰tRNA，导致肽链提前终止</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>专业术语库</h2>
+                <div class="glossary">
+                    <div class="glossary-item">
+                        <div class="glossary-term">遗传密码（Genetic Code）</div>
+                        <div class="glossary-definition">DNA或RNA中的三联体与蛋白质中氨基酸之间的对应关系，是生物信息从核酸传递到蛋白质的桥梁。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">密码子（Codon）</div>
+                        <div class="glossary-definition">mRNA上由三个连续核苷酸组成的编码单位，每个密码子对应一个氨基酸或终止信号。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">反密码子（Anticodon）</div>
+                        <div class="glossary-definition">tRNA分子上与mRNA密码子互补配对的三个核苷酸序列，位于反密码子环中。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">转移RNA（Transfer RNA, tRNA）</div>
+                        <div class="glossary-definition">携带特定氨基酸到核糖体进行蛋白质合成的RNA分子，具有三叶草型二级结构和L型三级结构。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">氨酰tRNA合成酶（Aminoacyl-tRNA Synthetase）</div>
+                        <div class="glossary-definition">催化氨基酸与对应tRNA结合形成氨酰tRNA的酶，保证翻译的准确性。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">核糖体（Ribosome）</div>
+                        <div class="glossary-definition">蛋白质合成的场所，由大小两个亚基组成，含有rRNA和蛋白质。原核生物为70S，真核生物为80S。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">翻译（Translation）</div>
+                        <div class="glossary-definition">以mRNA为模板，在核糖体上合成蛋白质的过程，包括起始、延伸和终止三个阶段。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">信号肽（Signal Peptide）</div>
+                        <div class="glossary-definition">位于新生蛋白质N端的短肽序列，指导蛋白质的定向运输，通常在运输后被切除。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">信号识别颗粒（Signal Recognition Particle, SRP）</div>
+                        <div class="glossary-definition">识别并结合信号肽的核糖核蛋白复合物，介导核糖体与内质网的结合。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">分子伴侣（Molecular Chaperone）</div>
+                        <div class="glossary-definition">协助蛋白质正确折叠、组装和运输的蛋白质，如热休克蛋白（HSP）家族。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">多聚核糖体（Polyribosome, Polysome）</div>
+                        <div class="glossary-definition">多个核糖体同时在一条mRNA上进行翻译形成的复合物，提高翻译效率。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">摆动配对（Wobble Pairing）</div>
+                        <div class="glossary-definition">密码子第三位与反密码子第一位之间的非标准碱基配对，解释了遗传密码的简并性。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="quiz-section">
+                <h2>选择题测试</h2>
+                <p>以下题目从30道题库中随机抽取15道，测试你对蛋白质合成的掌握程度：</p>
+                
+                <div id="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="quiz-button" onclick="submitQuiz()">提交答案</button>
+                <button class="quiz-button" onclick="resetQuiz()">重新测试</button>
+                
+                <div id="quiz-result" class="quiz-result">
+                    <!-- 结果将通过JavaScript显示 -->
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="thinking-section">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h3>1. 分析遗传密码的简并性对生物进化的意义</h3>
+                    <div class="thinking-answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>减少突变的有害影响：</strong>由于多个密码子编码同一氨基酸，DNA序列的点突变可能不会改变蛋白质序列，这种同义突变减少了有害突变的概率，提高了生物的生存能力。</li>
+                            <li><strong>提供进化的原材料：</strong>简并性允许DNA序列在保持蛋白质功能的前提下发生变化，为自然选择提供了更多的遗传变异，促进了物种的适应性进化。</li>
+                            <li><strong>优化翻译效率：</strong>常用氨基酸往往有更多的密码子，这与tRNA的丰度相匹配，提高了翻译效率。同时，摆动配对减少了所需tRNA种类的数量。</li>
+                            <li><strong>缓冲环境压力：</strong>在环境压力下，即使发生突变，简并性也能维持蛋白质的基本功能，增强了生物对环境变化的抗性。</li>
+                            <li><strong>促进基因重复和分化：</strong>简并性使得基因重复后的拷贝可以在保持原有功能的同时积累突变，最终分化出新的功能。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h3>2. 比较原核生物和真核生物翻译过程的差异及其生物学意义</h3>
+                    <div class="thinking-answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>时空分离差异：</strong>原核生物转录和翻译在细质中同时进行，甚至可以边转录边翻译；真核生物转录在核内，翻译在胞质，时空分离允许更复杂的调控机制。</li>
+                            <li><strong>起始机制差异：</strong>原核生物通过Shine-Dalgarno序列识别起始位点，可以多顺反子翻译；真核生物通过5'帽结构和扫描机制，通常单顺反子翻译，调控更精细。</li>
+                            <li><strong>核糖体结构差异：</strong>原核生物70S核糖体，真核生物80S核糖体，结构差异使得某些抗生素可以特异性抑制原核生物翻译而不影响真核生物。</li>
+                            <li><strong>mRNA加工差异：</strong>真核生物mRNA经过5'加帽、3'加尾和剪接等加工，增加了调控层次和mRNA稳定性，而原核生物mRNA通常不经过这些加工。</li>
+                            <li><strong>翻译调控复杂性：</strong>真核生物具有更多的翻译调控机制，如miRNA调控、上游开放阅读框（uORF）调控等，适应了多细胞生物复杂的基因表达调控需求。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h3>3. 阐述蛋白质定向运输的分子机制及其在细胞功能中的重要性</h3>
+                    <div class="thinking-answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>信号肽识别机制：</strong>新生蛋白质的信号肽被信号识别颗粒（SRP）识别，SRP结合信号肽后使翻译暂停，并引导核糖体与内质网膜上的SRP受体结合，确保蛋白质正确定位。</li>
+                            <li><strong>共翻译转位：</strong>分泌蛋白和膜蛋白在翻译过程中直接进入内质网，通过Sec61转位子穿越或插入膜，这种机制避免了疏水蛋白在胞质中聚集。</li>
+                            <li><strong>翻译后转位：</strong>某些蛋白质如线粒体蛋白在翻译完成后通过特殊的转位机制进入目标细胞器，需要分子伴侣维持蛋白质的转位能力状态。</li>
+                            <li><strong>质量控制机制：</strong>内质网具有未折叠蛋白反应（UPR）等质量控制机制，确保只有正确折叠的蛋白质才能继续运输，错误折叠的蛋白质被降解。</li>
+                            <li><strong>细胞功能意义：</strong>蛋白质定向运输实现了细胞的区室化，使不同功能的蛋白质在正确的位置发挥作用，维持细胞的正常生理功能和代谢活动。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h3>4. 分析翻译抑制剂的作用机制及其在医学和研究中的应用</h3>
+                    <div class="thinking-answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>抑制机制分类：</strong>翻译抑制剂可分为影响起始（如链霉素）、延伸（如氯霉素、环己酰亚胺）和终止（如嘌呤霉素）等不同阶段的药物，每类都有特定的作用靶点。</li>
+                            <li><strong>选择性抑制原理：</strong>许多抗生素利用原核和真核核糖体结构差异实现选择性抑制，如链霉素特异性结合原核生物30S亚基，而对真核生物毒性较小。</li>
+                            <li><strong>医学应用价值：</strong>翻译抑制剂广泛用作抗菌药物治疗细菌感染，如氯霉素治疗伤寒，红霉素治疗呼吸道感染，为临床提供了重要的治疗手段。</li>
+                            <li><strong>科研工具应用：</strong>在分子生物学研究中，翻译抑制剂用于研究基因表达调控、蛋白质功能分析和细胞周期调控等，是重要的实验工具。</li>
+                            <li><strong>耐药性挑战：</strong>细菌对翻译抑制剂产生耐药性是临床面临的重大挑战，需要不断开发新的抑制剂和合理使用现有药物来应对耐药性问题。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道题库
+        const questionBank = [
+            {
+                question: "遗传密码的基本单位是：",
+                options: ["A. 单个核苷酸", "B. 双核苷酸", "C. 三联子密码", "D. 四联子密码"],
+                correct: 2,
+                explanation: "遗传密码的基本单位是三联子密码（密码子），每三个核苷酸编码一个氨基酸。这是通过插入或删除实验证明的。"
+            },
+            {
+                question: "下列哪个不是终止密码子：",
+                options: ["A. UAG", "B. UAA", "C. UGA", "D. AUG"],
+                correct: 3,
+                explanation: "AUG是起始密码子，编码甲硫氨酸。UAG、UAA、UGA是三个终止密码子，不编码任何氨基酸。"
+            },
+            {
+                question: "tRNA的反密码子与mRNA密码子的配对方式是：",
+                options: ["A. 平行配对", "B. 反向平行配对", "C. 同向配对", "D. 随机配对"],
+                correct: 1,
+                explanation: "tRNA的反密码子与mRNA密码子采用反向平行配对方式，遵循Watson-Crick碱基配对规则，但第三位存在摆动配对。"
+            },
+            {
+                question: "原核生物核糖体的沉降系数是：",
+                options: ["A. 60S", "B. 70S", "C. 80S", "D. 90S"],
+                correct: 1,
+                explanation: "原核生物核糖体为70S，由30S小亚基和50S大亚基组成。真核生物核糖体为80S。"
+            },
+            {
+                question: "氨基酸活化过程需要消耗：",
+                options: ["A. 1个ATP", "B. 2个ATP", "C. 1个GTP", "D. 2个GTP"],
+                correct: 1,
+                explanation: "氨基酸活化过程消耗2个高能磷酸键，相当于2个ATP。第一步形成氨酰-AMP，第二步形成氨酰-tRNA。"
+            },
+            {
+                question: "核糖体的A位点是：",
+                options: ["A. 氨酰位点", "B. 肽酰位点", "C. 出口位点", "D. 起始位点"],
+                correct: 0,
+                explanation: "A位点是氨酰位点，新进入的氨酰tRNA结合位点。P位点是肽酰位点，E位点是出口位点。"
+            },
+            {
+                question: "真核生物翻译起始时，小亚基首先识别：",
+                options: ["A. Shine-Dalgarno序列", "B. 5'帽结构", "C. 3'poly(A)尾", "D. 起始密码子"],
+                correct: 1,
+                explanation: "真核生物翻译起始时，小亚基首先识别mRNA的5'帽结构，然后扫描至起始密码子AUG。"
+            },
+            {
+                question: "每添加一个氨基酸到肽链上需要消耗的高能磷酸键数目是：",
+                options: ["A. 2个", "B. 3个", "C. 4个", "D. 5个"],
+                correct: 2,
+                explanation: "每添加一个氨基酸需要4个高能磷酸键：2个用于氨基酸活化（ATP），2个用于延伸过程（GTP）。"
+            },
+            {
+                question: "信号肽通常位于蛋白质的：",
+                options: ["A. C端", "B. N端", "C. 中间", "D. 任意位置"],
+                correct: 1,
+                explanation: "信号肽通常位于新生蛋白质的N端，指导蛋白质的定向运输，在运输完成后通常被信号肽酶切除。"
+            },
+            {
+                question: "下列哪种抗生素主要抑制原核生物的翻译：",
+                options: ["A. 环己酰亚胺", "B. 链霉素", "C. 放线菌酮", "D. 秋水仙素"],
+                correct: 1,
+                explanation: "链霉素特异性结合原核生物30S核糖体亚基，干扰翻译起始。环己酰亚胺主要抑制真核生物翻译。"
+            },
+            {
+                question: "遗传密码的简并性是指：",
+                options: ["A. 一个密码子对应多个氨基酸", "B. 多个密码子对应一个氨基酸", "C. 密码子与氨基酸一一对应", "D. 密码子不编码氨基酸"],
+                correct: 1,
+                explanation: "遗传密码的简并性是指多个密码子可以编码同一个氨基酸。64个密码子编码20种氨基酸，存在冗余。"
+            },
+            {
+                question: "tRNA的三级结构呈：",
+                options: ["A. 线性结构", "B. 环状结构", "C. L型结构", "D. 球状结构"],
+                correct: 2,
+                explanation: "tRNA的三级结构呈L型，反密码子环和氨基酸臂分别位于L型的两端，这种结构有利于翻译过程中的功能发挥。"
+            },
+            {
+                question: "原核生物mRNA上的Shine-Dalgarno序列的作用是：",
+                options: ["A. 终止翻译", "B. 识别起始位点", "C. 增强转录", "D. 稳定mRNA"],
+                correct: 1,
+                explanation: "Shine-Dalgarno序列位于起始密码子上游，与16S rRNA互补配对，帮助核糖体识别翻译起始位点。"
+            },
+            {
+                question: "嘌呤霉素的作用机制是：",
+                options: ["A. 抑制转录", "B. 模拟氨酰tRNA导致肽链提前终止", "C. 阻止核糖体结合", "D. 抑制氨基酸活化"],
+                correct: 1,
+                explanation: "嘌呤霉素结构类似氨酰tRNA，可以进入A位点并与肽链结合，但无法继续延伸，导致肽链提前终止。"
+            },
+            {
+                question: "真核生物中，新合成的分泌蛋白首先进入：",
+                options: ["A. 细胞核", "B. 线粒体", "C. 内质网", "D. 高尔基体"],
+                correct: 2,
+                explanation: "分泌蛋白含有信号肽，在SRP引导下，核糖体与内质网结合，新合成的蛋白质直接进入内质网腔。"
+            },
+            {
+                question: "摆动配对主要发生在密码子的：",
+                options: ["A. 第一位", "B. 第二位", "C. 第三位", "D. 任意位置"],
+                correct: 2,
+                explanation: "摆动配对主要发生在密码子的第三位，这种非标准配对解释了遗传密码的简并性和tRNA种类相对较少的现象。"
+            },
+            {
+                question: "氯霉素主要抑制：",
+                options: ["A. 转录起始", "B. 翻译起始", "C. 肽酰转移酶活性", "D. 翻译终止"],
+                correct: 2,
+                explanation: "氯霉素结合50S核糖体亚基，抑制肽酰转移酶活性，阻止肽键形成，从而抑制蛋白质合成。"
+            },
+            {
+                question: "多聚核糖体的形成可以：",
+                options: ["A. 降低翻译效率", "B. 提高翻译效率", "C. 抑制翻译", "D. 促进转录"],
+                correct: 1,
+                explanation: "多聚核糖体是多个核糖体同时在一条mRNA上翻译，可以同时合成多条相同的多肽链，显著提高翻译效率。"
+            },
+            {
+                question: "线粒体蛋白质的合成主要在：",
+                options: ["A. 线粒体内", "B. 胞质中", "C. 内质网上", "D. 核糖体上"],
+                correct: 1,
+                explanation: "大部分线粒体蛋白质在胞质核糖体上合成，然后通过特殊的转位机制进入线粒体。只有少数蛋白质在线粒体内合成。"
+            },
+            {
+                question: "tRNA分子中CCA序列的作用是：",
+                options: ["A. 与mRNA配对", "B. 结合氨基酸", "C. 识别核糖体", "D. 调节基因表达"],
+                correct: 1,
+                explanation: "tRNA分子3'端的CCA序列是氨基酸的结合位点，氨基酸通过酯键与腺苷酸的3'-OH结合形成氨酰tRNA。"
+            },
+            {
+                question: "真核生物翻译起始因子eIF4E的作用是：",
+                options: ["A. 识别起始密码子", "B. 结合5'帽结构", "C. 促进大亚基结合", "D. 活化氨基酸"],
+                correct: 1,
+                explanation: "eIF4E是帽结合蛋白，特异性识别并结合mRNA的5'帽结构，是真核生物翻译起始复合物形成的关键因子。"
+            },
+            {
+                question: "核糖体的肽酰转移酶活性主要由什么提供：",
+                options: ["A. 蛋白质", "B. rRNA", "C. mRNA", "D. tRNA"],
+                correct: 1,
+                explanation: "核糖体的肽酰转移酶活性主要由23S rRNA（原核）或28S rRNA（真核）提供，这是RNA具有催化活性的重要例证。"
+            },
+            {
+                question: "信号识别颗粒（SRP）的主要功能是：",
+                options: ["A. 激活氨基酸", "B. 识别信号肽并引导核糖体定位", "C. 催化肽键形成", "D. 终止翻译"],
+                correct: 1,
+                explanation: "SRP识别新生蛋白质的信号肽，使翻译暂停，并引导核糖体与内质网膜结合，确保蛋白质正确定位。"
+            },
+            {
+                question: "下列关于遗传密码普遍性的描述，哪个是错误的：",
+                options: ["A. 所有生物都使用完全相同的遗传密码", "B. 大多数生物使用相同的遗传密码", "C. 线粒体中存在一些例外", "D. 某些微生物中有特殊情况"],
+                correct: 0,
+                explanation: "遗传密码具有普遍性，但不是绝对的。在线粒体、叶绿体和某些微生物中存在例外，如UGA在某些情况下编码色氨酸而非终止。"
+            },
+            {
+                question: "翻译延伸过程中，肽酰tRNA从P位点移动到E位点需要：",
+                options: ["A. ATP", "B. GTP", "C. 延伸因子", "D. 以上都需要"],
+                correct: 3,
+                explanation: "翻译延伸过程中的转位需要GTP提供能量，延伸因子EF-G（原核）或eEF2（真核）催化，实现tRNA在各位点间的移动。"
+            },
+            {
+                question: "下列哪种修饰不是翻译后修饰：",
+                options: ["A. 磷酸化", "B. 甲基化", "C. 5'加帽", "D. 乙酰化"],
+                correct: 2,
+                explanation: "5'加帽是mRNA的转录后修饰，发生在转录过程中。磷酸化、甲基化、乙酰化都是蛋白质的翻译后修饰。"
+            },
+            {
+                question: "原核生物中，fMet-tRNA的作用是：",
+                options: ["A. 延伸翻译", "B. 起始翻译", "C. 终止翻译", "D. 调控翻译"],
+                correct: 1,
+                explanation: "fMet-tRNA（甲酰甲硫氨酰tRNA）是原核生物翻译起始的专用tRNA，携带甲酰甲硫氨酸作为肽链的第一个氨基酸。"
+            },
+            {
+                question: "蛋白质折叠过程中，分子伴侣的主要作用是：",
+                options: ["A. 提供折叠信息", "B. 协助正确折叠", "C. 决定最终结构", "D. 催化肽键形成"],
+                correct: 1,
+                explanation: "分子伴侣不提供折叠信息，而是协助蛋白质正确折叠，防止错误折叠和聚集，蛋白质的最终结构由其氨基酸序列决定。"
+            },
+            {
+                question: "真核生物mRNA的poly(A)尾对翻译的影响是：",
+                options: ["A. 抑制翻译", "B. 增强翻译效率", "C. 无影响", "D. 终止翻译"],
+                correct: 1,
+                explanation: "poly(A)尾结合poly(A)结合蛋白，与5'帽结构形成闭环结构，增强mRNA稳定性和翻译效率，促进核糖体循环利用。"
+            },
+            {
+                question: "下列关于核糖体循环的描述，哪个是正确的：",
+                options: ["A. 翻译结束后核糖体被降解", "B. 核糖体亚基解离后可重新组装", "C. 核糖体永远结合在mRNA上", "D. 核糖体只能使用一次"],
+                correct: 1,
+                explanation: "翻译终止后，核糖体大小亚基解离，释放的亚基可以重新组装参与新一轮翻译，实现核糖体的循环利用。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时自动生成15道随机题目
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 从30道题中随机选择15道
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-question';
+                questionDiv.innerHTML = `
+                    <h4>${index + 1}. ${q.question}</h4>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="quiz-option">
+                            <input type="radio" name="q${index}" value="${optIndex}" onchange="recordAnswer(${index}, ${optIndex})">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 隐藏结果
+            document.getElementById('quiz-result').style.display = 'none';
+        }
+
+        function recordAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+            let resultHTML = '<h3>测试结果</h3>';
+            
+            currentQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+                
+                resultHTML += `
+                    <div style="margin: 15px 0; padding: 15px; border-radius: 5px; ${isCorrect ? 'background: #d4edda; border: 1px solid #c3e6cb;' : 'background: #f8d7da; border: 1px solid #f5c6cb;'}">
+                        <strong>第${index + 1}题：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}<br>
+                        <strong>你的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未作答'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((correctCount / 15) * 100);
+            resultHTML = `
+                <div style="text-align: center; margin-bottom: 20px; padding: 20px; background: ${percentage >= 80 ? '#d4edda' : percentage >= 60 ? '#fff3cd' : '#f8d7da'}; border-radius: 8px;">
+                    <h3>总分：${correctCount}/15 (${percentage}%)</h3>
+                    <p>${percentage >= 80 ? '优秀！你对蛋白质合成掌握得很好！' : percentage >= 60 ? '良好，还需要进一步复习。' : '需要加强学习，建议重新阅读相关内容。'}</p>
+                </div>
+            ` + resultHTML;
+            
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+        }
+
+        function resetQuiz() {
+            generateQuiz();
+        }
+    </script>
+</body>
+</html>

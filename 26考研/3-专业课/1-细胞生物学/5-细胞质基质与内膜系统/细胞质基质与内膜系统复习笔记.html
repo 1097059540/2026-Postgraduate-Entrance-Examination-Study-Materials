@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞质基质与内膜系统 - 考研复习笔记</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .answer h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .diagram-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #7f8c8d;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>细胞质基质与内膜系统</h1>
+            <p>考研专业课复习笔记 | 基于《细胞生物学》第五版</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、细胞质基质的涵义与功能</h2>
+                
+                <h3>1.1 细胞质基质的基本概念</h3>
+                <p>细胞质基质是指真核细胞的细胞质中，除去可分辨的细胞器以外的<span class="highlight">胶状物质</span>。它是细胞质的连续相，填充在各种细胞器之间，为细胞内的各种生化反应提供场所。</p>
+                
+                <h4>主要成分：</h4>
+                <ul>
+                    <li><strong>水</strong>：占细胞质基质的70-85%</li>
+                    <li><strong>蛋白质</strong>：包括酶类、结构蛋白、调节蛋白等</li>
+                    <li><strong>各种RNA</strong>：mRNA、tRNA、rRNA等</li>
+                    <li><strong>有机分子</strong>：糖类、脂类、氨基酸、核苷酸等</li>
+                    <li><strong>无机离子</strong>：K⁺、Na⁺、Mg²⁺、Ca²⁺、Cl⁻、PO₄³⁻等</li>
+                </ul>
+
+                <h3>1.2 细胞质基质的主要功能</h3>
+                
+                <h4>（1）中间代谢过程的主要场所</h4>
+                <p>细胞质基质是糖酵解、磷酸戊糖途径、脂肪酸合成等重要代谢途径的主要场所。这些代谢过程为细胞提供能量和合成原料。</p>
+                
+                <h4>（2）蛋白质合成与修饰</h4>
+                <p>游离核糖体在细胞质基质中进行蛋白质合成，主要合成<span class="important">胞质蛋白、核蛋白、过氧化物酶体蛋白和线粒体蛋白</span>。同时，细胞质基质也是蛋白质翻译后修饰的重要场所。</p>
+                
+                <h4>（3）蛋白质的选择性降解</h4>
+                <p>通过<span class="highlight">泛素-蛋白酶体系统</span>，细胞质基质能够选择性地降解错误折叠、损伤或不需要的蛋白质，维持细胞内蛋白质的稳态。</p>
+                
+                <h4>（4）帮助蛋白质正确折叠</h4>
+                <p>细胞质基质中含有多种<span class="highlight">分子伴侣</span>（如热激蛋白），协助新合成的蛋白质正确折叠，防止蛋白质聚集和错误折叠。</p>
+
+                <h2>二、细胞内膜系统概述</h2>
+                
+                <h3>2.1 内膜系统的定义</h3>
+                <p>内膜系统是指细胞质内在<span class="highlight">形态结构、功能和发生上具有相互联系</span>的膜相结构的总称。它包括核膜、内质网、高尔基体、溶酶体、内体和分泌泡等。</p>
+                
+                <h3>2.2 内膜系统的组成与特点</h3>
+                <ul>
+                    <li><strong>结构连续性</strong>：各组分在结构上相互连接或通过膜泡运输相互联系</li>
+                    <li><strong>功能协调性</strong>：各组分在功能上相互配合，形成完整的物质转运和加工体系</li>
+                    <li><strong>发生相关性</strong>：各组分在发生上具有共同的起源或相互转化关系</li>
+                </ul>
+
+                <h2>三、内质网的结构与功能</h2>
+                
+                <h3>3.1 内质网的形态结构</h3>
+                <p>内质网是由<span class="highlight">单层膜围成的管状和囊状结构</span>组成的膜系统，在细胞质中形成复杂的网状结构。根据膜表面是否附着核糖体，分为两种基本类型：</p>
+                
+                <h4>（1）糙面内质网（RER）</h4>
+                <ul>
+                    <li>膜表面附着大量核糖体，呈颗粒状外观</li>
+                    <li>主要由扁平囊状结构组成</li>
+                    <li>在分泌细胞中特别发达</li>
+                </ul>
+                
+                <h4>（2）光面内质网（SER）</h4>
+                <ul>
+                    <li>膜表面无核糖体附着，表面光滑</li>
+                    <li>主要由管状结构组成</li>
+                    <li>在类固醇激素分泌细胞和肝细胞中发达</li>
+                </ul>
+
+                <h3>3.2 内质网的主要功能</h3>
+                
+                <h4>（1）蛋白质合成（糙面内质网）</h4>
+                <p>糙面内质网是<span class="important">膜蛋白和分泌蛋白</span>合成的主要场所，包括：</p>
+                <ul>
+                    <li>分泌性蛋白质（抗体、激素、酶等）</li>
+                    <li>膜蛋白（质膜、内膜系统的膜蛋白）</li>
+                    <li>可溶性驻留蛋白（内质网、高尔基体的驻留蛋白）</li>
+                </ul>
+                
+                <h4>（2）脂质合成（光面内质网）</h4>
+                <ul>
+                    <li>磷脂合成：主要在内质网膜的胞质面进行</li>
+                    <li>胆固醇合成：所有酶都定位于内质网</li>
+                    <li>类固醇激素合成：在特定细胞的光面内质网中进行</li>
+                </ul>
+                
+                <h4>（3）蛋白质修饰与加工</h4>
+                <ul>
+                    <li><strong>N-连接糖基化</strong>：在蛋白质的天冬酰胺残基上添加寡糖链</li>
+                    <li><strong>蛋白质折叠</strong>：在分子伴侣协助下进行正确折叠</li>
+                    <li><strong>二硫键形成</strong>：在蛋白质二硫键异构酶催化下形成</li>
+                    <li><strong>信号肽切除</strong>：信号肽酶切除信号序列</li>
+                </ul>
+
+                <h3>3.3 内质网应激与细胞应答</h3>
+                <p>当内质网中积累大量未折叠或错误折叠的蛋白质时，会引起<span class="highlight">内质网应激</span>，细胞启动以下应答机制：</p>
+                
+                <h4>（1）未折叠蛋白质应答反应（UPR）</h4>
+                <ul>
+                    <li>增加分子伴侣的表达</li>
+                    <li>扩大内质网容量</li>
+                    <li>降低蛋白质合成速率</li>
+                    <li>激活内质网相关的蛋白质降解途径</li>
+                </ul>
+                
+                <h4>（2）内质网超负荷反应（EOR）</h4>
+                <p>当UPR无法缓解内质网应激时，细胞启动凋亡程序，清除受损细胞。</p>
+
+                <h2>四、高尔基体的结构与功能</h2>
+                
+                <h3>4.1 高尔基体的形态结构</h3>
+                <p>高尔基体是由<span class="highlight">扁平膜囊、小管和小泡</span>组成的膜系统，具有明显的<span class="important">极性结构</span>：</p>
+                
+                <h4>（1）顺面（形成面，cis面）</h4>
+                <ul>
+                    <li>靠近内质网的一面</li>
+                    <li>由管状囊泡形成网络结构（顺面高尔基网络，CGN）</li>
+                    <li>功能：初级分选站，对来自内质网的蛋白质进行鉴别</li>
+                </ul>
+                
+                <h4>（2）中间膜囊</h4>
+                <ul>
+                    <li>由扁平囊和管道组成</li>
+                    <li>功能：蛋白质糖基修饰、糖脂形成、多糖合成</li>
+                </ul>
+                
+                <h4>（3）反面（成熟面，trans面）</h4>
+                <ul>
+                    <li>远离内质网的一面</li>
+                    <li>反面高尔基网络（TGN）呈管网状结构</li>
+                    <li>功能：蛋白质分类包装、"晚期"蛋白质修饰</li>
+                </ul>
+
+                <h3>4.2 高尔基体的主要功能</h3>
+                
+                <h4>（1）蛋白质糖基化修饰</h4>
+                <ul>
+                    <li><strong>N-连接糖基化的修饰</strong>：去除甘露糖，添加其他糖基</li>
+                    <li><strong>O-连接糖基化</strong>：在丝氨酸或苏氨酸残基上添加糖基</li>
+                    <li><strong>糖蛋白的成熟</strong>：形成复杂型糖链结构</li>
+                </ul>
+                
+                <h4>（2）蛋白质分选与包装</h4>
+                <p>高尔基体根据蛋白质的<span class="highlight">分选信号</span>，将蛋白质包装到不同的载体中：</p>
+                <ul>
+                    <li>分泌蛋白 → 分泌囊泡 → 细胞外</li>
+                    <li>膜蛋白 → 载体囊泡 → 质膜</li>
+                    <li>溶酶体酶 → 载体囊泡 → 溶酶体</li>
+                </ul>
+                
+                <h4>（3）脂质代谢</h4>
+                <ul>
+                    <li>鞘磷脂和糖脂的合成</li>
+                    <li>胆固醇的酯化</li>
+                    <li>膜脂的修饰和转运</li>
+                </ul>
+
+                <h2>五、溶酶体的结构与功能</h2>
+                
+                <h3>5.1 溶酶体的基本特征</h3>
+                <p>溶酶体是<span class="highlight">单层膜围成的囊状细胞器</span>，内含多种酸性水解酶，是细胞的"消化系统"。</p>
+                
+                <h4>主要特点：</h4>
+                <ul>
+                    <li><strong>酸性环境</strong>：内部pH约为5.0-5.5</li>
+                    <li><strong>膜结构</strong>：富含糖蛋白，具有保护作用</li>
+                    <li><strong>标志酶</strong>：酸性磷酸酶、β-葡萄糖醛酸酶等</li>
+                    <li><strong>异质性</strong>：大小、形态、酶含量存在差异</li>
+                </ul>
+
+                <h3>5.2 溶酶体的分类</h3>
+                
+                <h4>（1）初级溶酶体</h4>
+                <p>刚从高尔基体出芽形成的溶酶体，含有新合成的酸性水解酶，尚未参与消化活动。</p>
+                
+                <h4>（2）次级溶酶体</h4>
+                <p>初级溶酶体与<span class="highlight">内吞泡、自噬泡</span>等融合形成的溶酶体，正在进行消化活动。</p>
+                
+                <h4>（3）残质体</h4>
+                <p>消化活动结束后，含有不能被消化的残留物质的溶酶体。</p>
+
+                <h3>5.3 溶酶体的主要功能</h3>
+                
+                <h4>（1）消化胞吞内容物</h4>
+                <ul>
+                    <li>消化通过胞饮、吞噬作用进入细胞的物质</li>
+                    <li>分解病原微生物</li>
+                    <li>处理细胞外基质成分</li>
+                </ul>
+                
+                <h4>（2）细胞自噬</h4>
+                <ul>
+                    <li><strong>大自噬</strong>：降解细胞器和大分子复合物</li>
+                    <li><strong>微自噬</strong>：直接吞噬胞质成分</li>
+                    <li><strong>分子伴侣介导的自噬</strong>：特异性降解某些蛋白质</li>
+                </ul>
+                
+                <h4>（3）细胞防御</h4>
+                <ul>
+                    <li>清除入侵的病原体</li>
+                    <li>降解有害物质</li>
+                    <li>维持细胞内环境稳定</li>
+                </ul>
+
+                <h3>5.4 溶酶体的发生过程</h3>
+                <p>溶酶体的形成主要通过<span class="highlight">M6P（甘露糖-6-磷酸）分选途径</span>：</p>
+                <ol>
+                    <li>溶酶体酶在内质网合成，获得M6P标记</li>
+                    <li>在高尔基体中，M6P受体识别并结合溶酶体酶</li>
+                    <li>受体-酶复合物被包装到载体囊泡中</li>
+                    <li>载体囊泡与早期内体融合</li>
+                    <li>在酸性环境中，酶与受体分离</li>
+                    <li>受体回收，酶留在溶酶体中</li>
+                </ol>
+
+                <h2>六、过氧化物酶体</h2>
+                
+                <h3>6.1 过氧化物酶体的基本特征</h3>
+                <p>过氧化物酶体是<span class="highlight">单层膜围成的细胞器</span>，含有多种氧化酶，主要功能是进行氧化反应和解毒。</p>
+                
+                <h4>主要特点：</h4>
+                <ul>
+                    <li><strong>标志酶</strong>：过氧化氢酶（catalase）</li>
+                    <li><strong>基质</strong>：含有结晶状的尿酸氧化酶</li>
+                    <li><strong>分布</strong>：肝细胞、肾细胞中含量丰富</li>
+                </ul>
+
+                <h3>6.2 过氧化物酶体的主要功能</h3>
+                
+                <h4>（1）脂肪酸β氧化</h4>
+                <p>特别是<span class="highlight">长链脂肪酸和支链脂肪酸</span>的氧化分解。</p>
+                
+                <h4>（2）解毒作用</h4>
+                <ul>
+                    <li>分解过氧化氢（H₂O₂）</li>
+                    <li>氧化有毒物质（如酒精、甲醛等）</li>
+                    <li>参与药物代谢</li>
+                </ul>
+                
+                <h4>（3）胆汁酸合成</h4>
+                <p>参与胆固醇向胆汁酸的转化过程。</p>
+                
+                <h4>（4）嘌呤代谢</h4>
+                <p>参与嘌呤碱基的分解代谢。</p>
+
+                <h3>6.3 过氧化物酶体的发生</h3>
+                <p>过氧化物酶体主要通过<span class="highlight">分裂增殖</span>的方式产生：</p>
+                <ul>
+                    <li>蛋白质在胞质核糖体合成</li>
+                    <li>通过PTS（过氧化物酶体靶向信号）导入</li>
+                    <li>过氧化物酶体生长并分裂</li>
+                    <li>形成新的过氧化物酶体</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">细胞质基质<span class="term-english">(Cytoplasmic Matrix)</span></div>
+                    <div class="term-definition">真核细胞的细胞质中，除去可分辨的细胞器以外的胶状物质，是细胞质的连续相，主要由水、蛋白质、RNA、有机分子和无机离子组成。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">内膜系统<span class="term-english">(Endomembrane System)</span></div>
+                    <div class="term-definition">细胞质内在形态结构、功能和发生上具有相互联系的膜相结构的总称，包括核膜、内质网、高尔基体、溶酶体、内体和分泌泡等。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">糙面内质网<span class="term-english">(Rough Endoplasmic Reticulum, RER)</span></div>
+                    <div class="term-definition">膜表面附着核糖体的内质网，主要功能是合成膜蛋白和分泌蛋白，在分泌细胞中特别发达。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">光面内质网<span class="term-english">(Smooth Endoplasmic Reticulum, SER)</span></div>
+                    <div class="term-definition">膜表面无核糖体附着的内质网，主要功能是脂质合成、药物解毒和钙离子储存，在类固醇激素分泌细胞中发达。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号肽<span class="term-english">(Signal Peptide)</span></div>
+                    <div class="term-definition">位于新生蛋白质N端的短肽序列，指导蛋白质转运到特定的细胞器或膜系统，通常在转运完成后被切除。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">分子伴侣<span class="term-english">(Molecular Chaperone)</span></div>
+                    <div class="term-definition">协助蛋白质正确折叠、组装和转运的蛋白质，不参与最终产物的组成，包括热激蛋白、伴侣素等。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">泛素<span class="term-english">(Ubiquitin, Ub)</span></div>
+                    <div class="term-definition">由76个氨基酸组成的小蛋白质，通过共价结合标记需要降解的蛋白质，是蛋白质降解的重要调节因子。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">蛋白酶体<span class="term-english">(Proteasome)</span></div>
+                    <div class="term-definition">细胞质中负责降解泛素标记蛋白质的大型蛋白质复合物，是细胞内蛋白质降解的主要途径。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">内质网应激<span class="term-english">(ER Stress)</span></div>
+                    <div class="term-definition">当内质网中积累大量未折叠或错误折叠蛋白质时引起的细胞应激状态，激活未折叠蛋白质应答反应。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">未折叠蛋白质应答<span class="term-english">(Unfolded Protein Response, UPR)</span></div>
+                    <div class="term-definition">细胞对内质网应激的保护性应答机制，通过增加分子伴侣表达、扩大内质网容量等方式缓解应激。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">高尔基体<span class="term-english">(Golgi Apparatus)</span></div>
+                    <div class="term-definition">由扁平膜囊、小管和小泡组成的极性膜系统，主要功能是蛋白质修饰、分选和包装。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">顺面高尔基网络<span class="term-english">(Cis-Golgi Network, CGN)</span></div>
+                    <div class="term-definition">高尔基体靠近内质网一面的网络结构，作为初级分选站，对来自内质网的蛋白质进行鉴别。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">反面高尔基网络<span class="term-english">(Trans-Golgi Network, TGN)</span></div>
+                    <div class="term-definition">高尔基体远离内质网一面的网络结构，负责蛋白质的最终分类、包装和运输。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">N-连接糖基化<span class="term-english">(N-linked Glycosylation)</span></div>
+                    <div class="term-definition">在蛋白质天冬酰胺残基上共价连接寡糖链的翻译后修饰过程，主要在内质网和高尔基体中进行。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">O-连接糖基化<span class="term-english">(O-linked Glycosylation)</span></div>
+                    <div class="term-definition">在蛋白质丝氨酸或苏氨酸残基上共价连接糖基的翻译后修饰过程，主要在高尔基体中进行。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">溶酶体<span class="term-english">(Lysosome)</span></div>
+                    <div class="term-definition">单层膜围成的酸性细胞器，含有多种水解酶，负责细胞内物质的消化和降解。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">甘露糖-6-磷酸<span class="term-english">(Mannose-6-Phosphate, M6P)</span></div>
+                    <div class="term-definition">溶酶体酶的特异性标记，通过M6P受体介导溶酶体酶的分选和转运。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">自噬<span class="term-english">(Autophagy)</span></div>
+                    <div class="term-definition">细胞降解自身组分的过程，包括大自噬、微自噬和分子伴侣介导的自噬，是细胞维持稳态的重要机制。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">过氧化物酶体<span class="term-english">(Peroxisome)</span></div>
+                    <div class="term-definition">单层膜围成的细胞器，含有过氧化氢酶等氧化酶，主要功能是脂肪酸氧化和解毒。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">过氧化氢酶<span class="term-english">(Catalase)</span></div>
+                    <div class="term-definition">过氧化物酶体的标志酶，催化过氧化氢分解为水和氧气，具有重要的解毒功能。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">膜泡运输<span class="term-english">(Vesicular Transport)</span></div>
+                    <div class="term-definition">通过膜泡在内膜系统各组分间转运蛋白质和脂质的过程，是内膜系统功能协调的重要机制。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">包被蛋白<span class="term-english">(Coat Protein)</span></div>
+                    <div class="term-definition">覆盖在转运膜泡表面的蛋白质，如COPII、COPI、网格蛋白等，参与膜泡的形成和分选。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">热激蛋白<span class="term-english">(Heat Shock Protein, HSP)</span></div>
+                    <div class="term-definition">在应激条件下大量表达的分子伴侣蛋白，协助蛋白质折叠，防止蛋白质聚集和变性。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号识别颗粒<span class="term-english">(Signal Recognition Particle, SRP)</span></div>
+                    <div class="term-definition">识别信号肽并引导核糖体结合到内质网膜的核糖核蛋白复合物，是蛋白质转运的关键因子。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转位子<span class="term-english">(Translocon)</span></div>
+                    <div class="term-definition">内质网膜上的蛋白质转运通道，允许新生蛋白质跨膜转运或插入膜中。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>选择题测试</h2>
+                <div class="quiz-container">
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述内质网应激的分子机制及其生物学意义，并分析其与疾病发生的关系。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>内质网应激的触发机制：</strong>当内质网中积累大量未折叠或错误折叠的蛋白质时，超过了内质网的折叠能力，导致内质网稳态失衡。这种情况可由多种因素引起，包括营养缺乏、氧化应激、钙稳态失衡、病毒感染等。内质网应激的核心是蛋白质折叠负荷与折叠能力之间的不平衡。</li>
+                            <li><strong>未折叠蛋白质应答反应（UPR）的分子机制：</strong>UPR主要通过三个信号传导途径实现：PERK途径（磷酸化eIF2α，抑制蛋白质翻译）、IRE1途径（剪切XBP1 mRNA，激活转录因子）、ATF6途径（激活转录因子，上调分子伴侣表达）。这些途径协同作用，减少新蛋白质合成，增加分子伴侣表达，扩大内质网容量，激活内质网相关降解途径。</li>
+                            <li><strong>生物学意义：</strong>UPR是细胞的保护性机制，帮助细胞适应应激条件，维持蛋白质稳态。它不仅调节蛋白质折叠，还参与脂质代谢、氧化应激应答、炎症反应等多个生物学过程。UPR的适度激活有利于细胞存活，但持续的内质网应激会导致细胞凋亡。</li>
+                            <li><strong>与疾病的关系：</strong>内质网应激与多种疾病密切相关，包括糖尿病（胰岛β细胞功能障碍）、神经退行性疾病（蛋白质聚集）、癌症（肿瘤细胞适应性）、心血管疾病（动脉粥样硬化）等。理解内质网应激机制为疾病治疗提供了新的靶点和策略。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较分析溶酶体和过氧化物酶体在结构、功能和发生机制方面的异同点。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>结构特征比较：</strong>相同点：都是单层膜围成的细胞器，都含有特异性酶类。不同点：溶酶体内部呈酸性（pH 5.0-5.5），膜富含糖蛋白，形态多样；过氧化物酶体内部接近中性，基质常含结晶状尿酸氧化酶，形态相对规则。溶酶体的标志酶是酸性磷酸酶，过氧化物酶体的标志酶是过氧化氢酶。</li>
+                            <li><strong>功能特征比较：</strong>溶酶体主要进行水解反应，功能包括消化胞吞物质、细胞自噬、防御病原体等，是细胞的"消化系统"；过氧化物酶体主要进行氧化反应，功能包括脂肪酸β氧化、解毒、胆汁酸合成等，是细胞的"解毒工厂"。两者都参与细胞稳态维持，但作用机制不同。</li>
+                            <li><strong>发生机制比较：</strong>溶酶体通过内膜系统途径发生，酶在内质网合成，经高尔基体修饰和分选，通过M6P受体介导的途径形成；过氧化物酶体主要通过分裂增殖方式产生，蛋白质在胞质核糖体合成，通过PTS信号导入，过氧化物酶体生长后分裂形成新的过氧化物酶体。</li>
+                            <li><strong>进化和疾病意义：</strong>溶酶体的出现使真核细胞获得了强大的消化能力，过氧化物酶体的出现帮助细胞适应有氧环境。两者功能缺陷都会导致严重疾病：溶酶体储积病（如Tay-Sachs病）和过氧化物酶体病（如Zellweger综合征），说明它们在细胞生命活动中的重要性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 阐述高尔基体极性结构的形成机制及其在蛋白质分选中的作用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>极性结构的形成机制：</strong>高尔基体的极性结构是由其功能需求决定的。顺面（cis面）靠近内质网，主要接收来自内质网的转运囊泡；反面（trans面）远离内质网，主要负责蛋白质的最终分选和输出。这种极性结构通过膜泡运输的方向性、酶的区域化分布、膜脂组成的梯度变化等机制维持。膜囊成熟模型认为，膜囊从顺面向反面移动过程中逐渐成熟，获得不同的酶活性。</li>
+                            <li><strong>蛋白质修饰的区域化：</strong>不同区域具有特异的酶活性：顺面主要进行N-连接糖基化的初步修饰，去除部分甘露糖；中间膜囊进行复杂的糖基修饰，包括添加半乳糖、岩藻糖等，同时进行O-连接糖基化；反面进行最终的糖基修饰和蛋白质分选标记的添加。这种区域化确保了蛋白质修饰的有序进行。</li>
+                            <li><strong>分选机制的精确性：</strong>反面高尔基网络（TGN）是蛋白质分选的关键部位，通过识别不同的分选信号将蛋白质包装到相应的载体中。分泌蛋白通过默认途径进入分泌囊泡，膜蛋白通过特定信号定位到质膜，溶酶体酶通过M6P标记被分选到溶酶体。这种精确的分选机制确保了蛋白质的正确定位。</li>
+                            <li><strong>调控机制和病理意义：</strong>高尔基体的极性结构受到多种因素调控，包括细胞骨架、小GTP酶、膜脂组成等。极性结构的破坏会导致蛋白质分选错误，引起细胞功能异常。在某些疾病中，如阿尔茨海默病，高尔基体结构异常与疾病发生密切相关，说明其结构完整性对细胞功能的重要性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析细胞质基质在细胞生命活动中的多重作用及其调控机制。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>代谢中心的作用：</strong>细胞质基质是多种重要代谢途径的场所，包括糖酵解、磷酸戊糖途径、脂肪酸合成、氨基酸代谢等。这些代谢过程为细胞提供能量（ATP）、还原力（NADPH）和合成原料。细胞质基质的胶体性质为酶-底物相互作用提供了适宜的微环境，其离子组成和pH调节影响酶活性和代谢流向。</li>
+                            <li><strong>蛋白质质量控制系统：</strong>细胞质基质含有完整的蛋白质质量控制系统，包括分子伴侣系统（协助蛋白质折叠）、泛素-蛋白酶体系统（降解错误蛋白质）、应激应答系统（应对蛋白质应激）。这些系统协同作用，确保蛋白质的正确折叠和及时清除有害蛋白质，维持细胞蛋白质稳态。</li>
+                            <li><strong>信号转导的整合平台：</strong>细胞质基质是多种信号转导途径的汇聚点，包括第二信使系统、蛋白激酶级联、转录因子激活等。胞质中的信号分子浓度、蛋白质修饰状态、分子间相互作用等都影响信号传递的效率和特异性。细胞质基质的动态性质使其能够快速响应外界刺激。</li>
+                            <li><strong>调控机制的复杂性：</strong>细胞质基质的功能受到多层次调控：转录水平（调节酶的表达量）、翻译水平（调节蛋白质合成）、翻译后修饰（调节酶活性）、代谢物反馈（调节代谢流向）、细胞骨架组织（影响空间分布）等。这种多层次调控确保了细胞质基质功能与细胞需求的精确匹配，体现了细胞调控的精密性和适应性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 论述内膜系统各组分间的协调配合机制及其在细胞功能中的重要性。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>结构连续性与功能协调：</strong>内膜系统各组分在结构上相互连接或通过膜泡运输相互联系，形成了一个功能协调的整体。内质网与核膜相连，通过COPII囊泡向高尔基体运输蛋白质；高尔基体通过不同类型的载体囊泡向溶酶体、质膜等运输蛋白质；这种结构连续性确保了物质转运的高效性和准确性。</li>
+                            <li><strong>蛋白质加工的流水线机制：</strong>从内质网到高尔基体再到最终目的地，蛋白质经历了一个完整的加工流水线：内质网负责初步折叠和N-糖基化，高尔基体负责糖基修饰和分选标记，溶酶体等负责最终功能执行。每个步骤都有特定的酶系统和质量控制机制，确保蛋白质的正确加工和定位。</li>
+                            <li><strong>膜脂代谢的协调机制：</strong>内膜系统不仅转运蛋白质，还参与膜脂的合成、修饰和分布。内质网是磷脂合成的主要场所，高尔基体参与鞘脂和糖脂的合成，不同膜结构具有特异的脂质组成。膜脂的不对称分布和动态调节影响膜蛋白功能和膜泡运输效率。</li>
+                            <li><strong>质量控制和应激应答的整合：</strong>内膜系统具有完整的质量控制网络，包括内质网的UPR系统、高尔基体的分选检查点、溶酶体的降解系统等。当系统某一环节出现问题时，会激活相应的应激应答机制，调节其他组分的功能以维持整体稳态。这种整合性质量控制确保了细胞功能的稳定性和适应性。</li>
+                            <li><strong>疾病机制和治疗靶点：</strong>内膜系统功能异常与多种疾病相关，如蛋白质折叠病、溶酶体储积病、分泌功能障碍等。理解内膜系统的协调机制为疾病诊断和治疗提供了重要线索，如分子伴侣增强剂、蛋白酶体抑制剂、基因治疗等都是基于内膜系统功能的治疗策略。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "细胞质基质的主要成分不包括：",
+                options: ["A. 水", "B. 蛋白质", "C. RNA", "D. DNA"],
+                correct: 3,
+                explanation: "细胞质基质主要由水、蛋白质、RNA、有机分子和无机离子组成，DNA主要存在于细胞核中，不是细胞质基质的主要成分。"
+            },
+            {
+                question: "下列哪种细胞器不属于内膜系统：",
+                options: ["A. 内质网", "B. 高尔基体", "C. 线粒体", "D. 溶酶体"],
+                correct: 2,
+                explanation: "线粒体具有双分子膜结构，在进化上起源于内共生细菌，不属于内膜系统。内膜系统包括内质网、高尔基体、溶酶体等单层膜结构。"
+            },
+            {
+                question: "糙面内质网的主要功能是：",
+                options: ["A. 脂质合成", "B. 蛋白质合成", "C. 糖类合成", "D. 核酸合成"],
+                correct: 1,
+                explanation: "糙面内质网表面附着核糖体，主要功能是合成膜蛋白和分泌蛋白。脂质合成主要在光面内质网进行。"
+            },
+            {
+                question: "信号肽的主要作用是：",
+                options: ["A. 激活酶活性", "B. 指导蛋白质定位", "C. 调节基因表达", "D. 维持蛋白质结构"],
+                correct: 1,
+                explanation: "信号肽是位于蛋白质N端的短肽序列，主要作用是指导蛋白质转运到特定的细胞器或膜系统，实现蛋白质的正确定位。"
+            },
+            {
+                question: "内质网应激时，细胞主要通过哪种机制应对：",
+                options: ["A. 增加蛋白质合成", "B. 未折叠蛋白质应答反应", "C. 加速细胞分裂", "D. 增加ATP产生"],
+                correct: 1,
+                explanation: "内质网应激时，细胞启动未折叠蛋白质应答反应（UPR），通过减少蛋白质合成、增加分子伴侣表达等方式缓解应激。"
+            },
+            {
+                question: "高尔基体的极性结构中，蛋白质分选主要发生在：",
+                options: ["A. 顺面", "B. 中间膜囊", "C. 反面", "D. 整个高尔基体"],
+                correct: 2,
+                explanation: "高尔基体的反面（trans面）特别是反面高尔基网络（TGN）是蛋白质分选的主要部位，负责将蛋白质包装到不同的载体中。"
+            },
+            {
+                question: "N-连接糖基化主要发生在：",
+                options: ["A. 细胞质基质", "B. 内质网", "C. 高尔基体", "D. 溶酶体"],
+                correct: 1,
+                explanation: "N-连接糖基化的起始反应发生在内质网，在蛋白质的天冬酰胺残基上添加预合成的寡糖链，随后在高尔基体中进行修饰。"
+            },
+            {
+                question: "溶酶体的标志酶是：",
+                options: ["A. 过氧化氢酶", "B. 酸性磷酸酶", "C. 细胞色素氧化酶", "D. 琥珀酸脱氢酶"],
+                correct: 1,
+                explanation: "酸性磷酸酶是溶酶体的标志酶，在酸性环境中具有活性。过氧化氢酶是过氧化物酶体的标志酶。"
+            },
+            {
+                question: "过氧化物酶体的主要功能不包括：",
+                options: ["A. 脂肪酸β氧化", "B. 解毒作用", "C. 蛋白质合成", "D. 过氧化氢分解"],
+                correct: 2,
+                explanation: "过氧化物酶体主要功能包括脂肪酸β氧化、解毒、过氧化氢分解等，不参与蛋白质合成。蛋白质合成主要在核糖体进行。"
+            },
+            {
+                question: "泛素-蛋白酶体系统的主要作用是：",
+                options: ["A. 蛋白质合成", "B. 蛋白质折叠", "C. 蛋白质降解", "D. 蛋白质修饰"],
+                correct: 2,
+                explanation: "泛素-蛋白酶体系统是细胞质中蛋白质降解的主要途径，通过泛素标记需要降解的蛋白质，然后由蛋白酶体进行降解。"
+            },
+            {
+                question: "M6P受体主要参与：",
+                options: ["A. 蛋白质合成", "B. 脂质转运", "C. 溶酶体酶分选", "D. 糖基化修饰"],
+                correct: 2,
+                explanation: "M6P（甘露糖-6-磷酸）受体识别并结合带有M6P标记的溶酶体酶，介导溶酶体酶从高尔基体到溶酶体的分选转运。"
+            },
+            {
+                question: "光面内质网最发达的细胞类型是：",
+                options: ["A. 浆细胞", "B. 类固醇激素分泌细胞", "C. 神经细胞", "D. 肌肉细胞"],
+                correct: 1,
+                explanation: "类固醇激素分泌细胞（如肾上腺皮质细胞）的光面内质网特别发达，因为类固醇激素的合成需要大量的光面内质网酶系统。"
+            },
+            {
+                question: "分子伴侣的主要功能是：",
+                options: ["A. 催化生化反应", "B. 协助蛋白质折叠", "C. 转运物质", "D. 储存能量"],
+                correct: 1,
+                explanation: "分子伴侣的主要功能是协助蛋白质正确折叠、组装和转运，防止蛋白质聚集和错误折叠，不参与最终产物的组成。"
+            },
+            {
+                question: "自噬过程主要在哪个细胞器中完成：",
+                options: ["A. 内质网", "B. 高尔基体", "C. 溶酶体", "D. 过氧化物酶体"],
+                correct: 2,
+                explanation: "自噬过程的最终消化步骤在溶酶体中完成，自噬泡与溶酶体融合形成自噬溶酶体，利用溶酶体的酸性水解酶降解内容物。"
+            },
+            {
+                question: "COPII包被蛋白主要参与：",
+                options: ["A. 内质网到高尔基体的转运", "B. 高尔基体到内质网的转运", "C. 高尔基体到质膜的转运", "D. 胞吞作用"],
+                correct: 0,
+                explanation: "COPII包被蛋白参与从内质网到高尔基体的前向转运，而COPI包被蛋白参与逆向转运和高尔基体内部转运。"
+            },
+            {
+                question: "热激蛋白属于：",
+                options: ["A. 酶蛋白", "B. 结构蛋白", "C. 分子伴侣", "D. 载体蛋白"],
+                correct: 2,
+                explanation: "热激蛋白（HSP）是一类重要的分子伴侣，在应激条件下大量表达，协助蛋白质折叠，防止蛋白质变性和聚集。"
+            },
+            {
+                question: "糖基化修饰对蛋白质的作用不包括：",
+                options: ["A. 影响蛋白质折叠", "B. 调节蛋白质稳定性", "C. 参与蛋白质识别", "D. 直接提供能量"],
+                correct: 3,
+                explanation: "糖基化修饰影响蛋白质折叠、稳定性和识别功能，但不直接提供能量。能量主要由ATP、糖类等分子提供。"
+            },
+            {
+                question: "内质网中蛋白质折叠的质量控制主要依靠：",
+                options: ["A. 蛋白酶体", "B. 分子伴侣系统", "C. 自噬系统", "D. 溶酶体"],
+                correct: 1,
+                explanation: "内质网中蛋白质折叠的质量控制主要依靠分子伴侣系统，包括BiP、PDI等，协助蛋白质正确折叠并识别错误折叠的蛋白质。"
+            },
+            {
+                question: "高尔基体膜囊成熟模型认为：",
+                options: ["A. 膜囊是静止的", "B. 膜囊从反面向顺面移动", "C. 膜囊从顺面向反面移动", "D. 膜囊随机移动"],
+                correct: 2,
+                explanation: "膜囊成熟模型认为高尔基体膜囊从顺面（cis）向反面（trans）移动并逐渐成熟，在移动过程中获得不同的酶活性。"
+            },
+            {
+                question: "溶酶体储积病的主要原因是：",
+                options: ["A. 溶酶体酶缺陷", "B. 溶酶体膜破裂", "C. 溶酶体数量减少", "D. 溶酶体pH异常"],
+                correct: 0,
+                explanation: "溶酶体储积病主要由溶酶体酶缺陷引起，导致特定底物不能被正常降解而在溶酶体中积累，如Tay-Sachs病、Gaucher病等。"
+            },
+            {
+                question: "过氧化物酶体的蛋白质导入信号是：",
+                options: ["A. 信号肽", "B. PTS信号", "C. M6P标记", "D. 糖基化修饰"],
+                correct: 1,
+                explanation: "过氧化物酶体的蛋白质导入依靠PTS（过氧化物酶体靶向信号），包括PTS1（C端信号）和PTS2（N端信号）。"
+            },
+            {
+                question: "细胞质基质中进行的代谢过程不包括：",
+                options: ["A. 糖酵解", "B. 脂肪酸合成", "C. 柠檬酸循环", "D. 磷酸戊糖途径"],
+                correct: 2,
+                explanation: "柠檬酸循环（三羧酸循环）主要在线粒体基质中进行，而糖酵解、脂肪酸合成、磷酸戊糖途径等在细胞质基质中进行。"
+            },
+            {
+                question: "信号识别颗粒（SRP）的作用是：",
+                options: ["A. 激活核糖体", "B. 引导核糖体到内质网", "C. 切除信号肽", "D. 修饰蛋白质"],
+                correct: 1,
+                explanation: "SRP识别新生蛋白质的信号肽，暂停翻译并引导核糖体结合到内质网膜上，确保蛋白质在正确位置合成。"
+            },
+            {
+                question: "下列关于内膜系统的叙述错误的是：",
+                options: ["A. 具有结构连续性", "B. 功能相互协调", "C. 都含有DNA", "D. 发生上相互关联"],
+                correct: 2,
+                explanation: "内膜系统的各组分都是单层膜结构，不含有DNA。DNA主要存在于细胞核和线粒体、叶绿体等双膜细胞器中。"
+            },
+            {
+                question: "蛋白质二硫键的形成主要在：",
+                options: ["A. 细胞质基质", "B. 内质网腔", "C. 高尔基体", "D. 溶酶体"],
+                correct: 1,
+                explanation: "蛋白质二硫键的形成主要在内质网腔中进行，由蛋白质二硫键异构酶（PDI）催化，这是蛋白质正确折叠的重要步骤。"
+            },
+            {
+                question: "O-连接糖基化主要发生在：",
+                options: ["A. 内质网", "B. 高尔基体", "C. 细胞质基质", "D. 溶酶体"],
+                correct: 1,
+                explanation: "O-连接糖基化主要在高尔基体中进行，在蛋白质的丝氨酸或苏氨酸残基上添加糖基，与N-连接糖基化的位置不同。"
+            },
+            {
+                question: "下列哪种疾病与内质网应激相关：",
+                options: ["A. 糖尿病", "B. 高血压", "C. 贫血", "D. 骨折"],
+                correct: 0,
+                explanation: "糖尿病与内质网应激密切相关，特别是2型糖尿病中胰岛β细胞的内质网应激导致细胞功能障碍和凋亡。"
+            },
+            {
+                question: "膜泡运输的方向性主要由什么决定：",
+                options: ["A. 膜泡大小", "B. 包被蛋白类型", "C. 膜脂组成", "D. 运输距离"],
+                correct: 1,
+                explanation: "膜泡运输的方向性主要由包被蛋白类型决定，不同的包被蛋白（如COPII、COPI、网格蛋白）介导不同方向的运输。"
+            },
+            {
+                question: "细胞自噬的生物学意义不包括：",
+                options: ["A. 清除损伤的细胞器", "B. 提供营养物质", "C. 合成新蛋白质", "D. 维持细胞稳态"],
+                correct: 2,
+                explanation: "细胞自噬的主要功能是清除损伤的细胞器、提供营养物质、维持细胞稳态等，但不直接参与新蛋白质的合成。"
+            },
+            {
+                question: "转位子（Translocon）的主要功能是：",
+                options: ["A. 合成蛋白质", "B. 转运蛋白质跨膜", "C. 修饰蛋白质", "D. 降解蛋白质"],
+                correct: 1,
+                explanation: "转位子是内质网膜上的蛋白质转运通道，允许新生蛋白质跨膜转运或插入膜中，是蛋白质转运的关键结构。"
+            },
+            {
+                question: "高尔基体的主要脂质合成功能是：",
+                options: ["A. 磷脂合成", "B. 胆固醇合成", "C. 鞘脂合成", "D. 脂肪酸合成"],
+                correct: 2,
+                explanation: "高尔基体主要参与鞘脂和糖脂的合成，磷脂合成主要在内质网，胆固醇合成在内质网，脂肪酸合成在细胞质基质。"
+            },
+            {
+                question: "内质网相关降解（ERAD）的主要作用是：",
+                options: ["A. 合成新蛋白质", "B. 清除错误折叠蛋白质", "C. 修饰蛋白质", "D. 转运蛋白质"],
+                correct: 1,
+                explanation: "ERAD是内质网的质量控制机制，识别并清除错误折叠或未正确组装的蛋白质，将其转运到胞质中由蛋白酶体降解。"
+            },
+            {
+                question: "溶酶体的酸性环境主要由什么维持：",
+                options: ["A. 碳酸酐酶", "B. V型ATP酶", "C. 钠钾泵", "D. 钙泵"],
+                correct: 1,
+                explanation: "溶酶体的酸性环境主要由V型ATP酶维持，该酶利用ATP水解的能量将质子泵入溶酶体腔，维持pH 5.0-5.5的酸性环境。"
+            },
+            {
+                question: "过氧化物酶体增殖激活受体（PPAR）主要调节：",
+                options: ["A. 蛋白质合成", "B. 脂质代谢", "C. 糖类代谢", "D. 核酸合成"],
+                correct: 1,
+                explanation: "PPAR主要调节脂质代谢相关基因的表达，包括脂肪酸氧化酶、过氧化物酶体增殖等，是脂质代谢的重要调节因子。"
+            },
+            {
+                question: "细胞质基质的pH值大约是：",
+                options: ["A. 5.0-5.5", "B. 6.0-6.5", "C. 7.0-7.4", "D. 8.0-8.5"],
+                correct: 2,
+                explanation: "细胞质基质的pH值大约是7.0-7.4，接近中性，这为大多数酶的活性提供了适宜的环境。溶酶体内部pH约为5.0-5.5。"
+            },
+            {
+                question: "蛋白质糖基化的主要意义不包括：",
+                options: ["A. 增加蛋白质稳定性", "B. 参与细胞识别", "C. 直接催化反应", "D. 调节蛋白质功能"],
+                correct: 2,
+                explanation: "蛋白质糖基化主要影响蛋白质稳定性、细胞识别、功能调节等，但糖基化修饰本身不直接催化生化反应，催化功能主要由蛋白质的氨基酸序列决定。"
+            }
+        ];
+
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 生成题目HTML
+        function generateQuizHTML() {
+            const questions = getRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                    <div class="explanation" id="explanation-${index}" style="display: none; margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 5px; color: #495057;">
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储当前题目以供检查答案
+            window.currentQuestions = questions;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const questions = window.currentQuestions;
+            let score = 0;
+            let total = questions.length;
+            
+            questions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const explanation = document.getElementById(`explanation-${index}`);
+                
+                if (selected) {
+                    const answer = parseInt(selected.value);
+                    if (answer === q.correct) {
+                        score++;
+                        selected.parentElement.style.background = '#d4edda';
+                        selected.parentElement.style.borderColor = '#c3e6cb';
+                    } else {
+                        selected.parentElement.style.background = '#f8d7da';
+                        selected.parentElement.style.borderColor = '#f5c6cb';
+                        
+                        // 显示正确答案
+                        const correctOption = document.querySelector(`input[name="q${index}"][value="${q.correct}"]`);
+                        if (correctOption) {
+                            correctOption.parentElement.style.background = '#d4edda';
+                            correctOption.parentElement.style.borderColor = '#c3e6cb';
+                        }
+                    }
+                }
+                
+                // 显示解析
+                explanation.style.display = 'block';
+            });
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((score / total) * 100);
+            
+            resultDiv.className = `result show ${percentage >= 70 ? 'correct' : 'incorrect'}`;
+            resultDiv.innerHTML = `
+                <h4>测试结果</h4>
+                <p>您答对了 ${score} 道题，共 ${total} 道题</p>
+                <p>正确率：${percentage}%</p>
+                <p>${percentage >= 90 ? '优秀！' : percentage >= 70 ? '良好！' : '需要继续努力！'}</p>
+                <button class="submit-btn" onclick="resetQuiz()" style="margin-top: 15px;">重新测试</button>
+            `;
+            
+            // 禁用所有选项
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.disabled = true;
+            });
+            
+            // 隐藏提交按钮
+            document.querySelector('.submit-btn').style.display = 'none';
+        }
+
+        // 重置测试
+        function resetQuiz() {
+            document.getElementById('quiz-questions').innerHTML = '';
+            document.getElementById('quiz-result').className = 'result';
+            document.getElementById('quiz-result').innerHTML = '';
+            document.querySelector('.submit-btn').style.display = 'inline-block';
+            generateQuizHTML();
+        }
+
+        // 页面加载时生成题目
+        document.addEventListener('DOMContentLoaded', function() {
+            generateQuizHTML();
+        });
+    </script>
+</body>
+</html>

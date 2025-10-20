@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核酸的降解和核苷酸代谢 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .important {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #e17055;
+            font-weight: bold;
+        }
+
+        .term-definition {
+            background: #e8f4f8;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .quiz-container {
+            background: #f1f2f6;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback-item {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid;
+        }
+
+        .feedback-correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+            color: #155724;
+        }
+
+        .feedback-incorrect {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+            color: #721c24;
+        }
+
+        .thinking-question {
+            background: #fff3cd;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .thinking-answer {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+
+        .pathway-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .enzyme-list {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .scientist-name {
+            color: #8e44ad;
+            font-weight: bold;
+        }
+
+        .amino-acid {
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>核酸的降解和核苷酸代谢</h1>
+            <p>Nucleic Acid Degradation and Nucleotide Metabolism</p>
+            <p>考研生物化学复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、核酸和核苷酸的分解代谢</h2>
+                
+                <h3>1.1 核酸的酶解</h3>
+                <div class="highlight">
+                    <h4>核酸酶的分类：</h4>
+                    <ul>
+                        <li><strong>核酸外切酶</strong>：从核酸分子的末端开始，逐个切除核苷酸</li>
+                        <li><strong>核酸内切酶</strong>：在核酸分子内部的特定位点切断磷酸二酯键</li>
+                        <li><strong>DNA酶</strong>：专一性水解DNA</li>
+                        <li><strong>RNA酶</strong>：专一性水解RNA</li>
+                    </ul>
+                </div>
+
+                <h3>1.2 嘌呤碱的分解代谢</h3>
+                <div class="pathway-box">
+                    <h4>嘌呤分解途径：</h4>
+                    <p><strong>腺嘌呤 → 次黄嘌呤 → 黄嘌呤 → 尿酸</strong></p>
+                    <p><strong>鸟嘌呤 → 黄嘌呤 → 尿酸</strong></p>
+                </div>
+
+                <div class="enzyme-list">
+                    <h4>关键酶：</h4>
+                    <ul>
+                        <li><strong>腺嘌呤脱氨酶</strong>：催化腺嘌呤脱氨生成次黄嘌呤</li>
+                        <li><strong>鸟嘌呤脱氨酶</strong>：催化鸟嘌呤脱氨生成黄嘌呤</li>
+                        <li><strong>黄嘌呤氧化酶</strong>：催化次黄嘌呤和黄嘌呤氧化生成尿酸</li>
+                    </ul>
+                </div>
+
+                <div class="important">
+                    <strong>痛风的成因：</strong>尿酸在体内积累过多，形成尿酸盐结晶沉积在关节等部位，引起炎症反应。治疗药物包括别嘌呤醇（黄嘌呤氧化酶抑制剂）。
+                </div>
+
+                <h3>1.3 嘧啶碱的分解代谢</h3>
+                <div class="pathway-box">
+                    <h4>嘧啶分解途径：</h4>
+                    <p><strong>胞嘧啶 → 尿嘧啶 → 二氢尿嘧啶 → β-丙氨酸</strong></p>
+                    <p><strong>胸腺嘧啶 → 二氢胸腺嘧啶 → β-氨基异丁酸</strong></p>
+                </div>
+
+                <div class="highlight">
+                    嘧啶分解的最终产物是水溶性的氨基酸衍生物，可以进一步代谢或直接排出体外，不像嘌呤分解产生难溶的尿酸。
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>二、核苷酸的生物合成</h2>
+
+                <h3>2.1 嘌呤核苷酸的从头合成</h3>
+                <div class="important">
+                    <strong>合成特点：</strong>嘌呤环是在磷酸核糖基础上逐步构建的，而不是先合成嘌呤碱基再与糖磷酸结合。
+                </div>
+
+                <div class="pathway-box">
+                    <h4>从头合成途径：</h4>
+                    <p><strong>5-磷酸核糖 → PRPP → IMP → AMP/GMP</strong></p>
+                    <p>共需要11步反应，消耗6个ATP分子</p>
+                </div>
+
+                <div class="enzyme-list">
+                    <h4>关键酶和调节：</h4>
+                    <ul>
+                        <li><strong>PRPP合成酶</strong>：催化5-磷酸核糖形成PRPP，受ADP、GDP反馈抑制</li>
+                        <li><strong>PRPP酰胺转移酶</strong>：限速酶，受IMP、AMP、GMP反馈抑制</li>
+                        <li><strong>腺苷酸琥珀酸合成酶</strong>：催化IMP转化为AMP，需要GTP</li>
+                        <li><strong>IMP脱氢酶</strong>：催化IMP转化为GMP，需要ATP</li>
+                    </ul>
+                </div>
+
+                <h3>2.2 嘌呤核苷酸的补救途径</h3>
+                <div class="highlight">
+                    <h4>补救途径的重要性：</h4>
+                    <ul>
+                        <li>节约能量和氨基酸消耗</li>
+                        <li>脑、骨髓等组织主要依赖补救途径</li>
+                        <li>维持核苷酸池的平衡</li>
+                    </ul>
+                </div>
+
+                <div class="enzyme-list">
+                    <h4>关键酶：</h4>
+                    <ul>
+                        <li><strong>腺嘌呤磷酸核糖转移酶(APRT)</strong>：腺嘌呤 + PRPP → AMP</li>
+                        <li><strong>次黄嘌呤-鸟嘌呤磷酸核糖转移酶(HGPRT)</strong>：次黄嘌呤/鸟嘌呤 + PRPP → IMP/GMP</li>
+                    </ul>
+                </div>
+
+                <div class="important">
+                    <strong>Lesch-Nyhan综合征：</strong>HGPRT缺陷导致的X连锁隐性遗传病，表现为严重痛风、神经系统异常和自残行为。
+                </div>
+
+                <h3>2.3 嘧啶核苷酸的合成</h3>
+                <div class="pathway-box">
+                    <h4>从头合成特点：</h4>
+                    <p>先合成嘧啶环，再与PRPP结合形成核苷酸</p>
+                    <p><strong>天冬氨酸 + 氨基甲酰磷酸 → UMP → CMP/TMP</strong></p>
+                </div>
+
+                <div class="enzyme-list">
+                    <h4>关键酶：</h4>
+                    <ul>
+                        <li><strong>氨基甲酰磷酸合成酶II</strong>：合成氨基甲酰磷酸</li>
+                        <li><strong>UMP合成酶</strong>：催化乳清酸形成UMP</li>
+                        <li><strong>胸腺嘧啶核苷酸合酶</strong>：催化dUMP形成dTMP</li>
+                    </ul>
+                </div>
+
+                <h3>2.4 脱氧核糖核苷酸的生成</h3>
+                <div class="highlight">
+                    <strong>核糖核苷酸还原酶：</strong>催化核糖核苷酸在二磷酸水平上还原为脱氧核糖核苷酸，是DNA合成的关键酶。
+                </div>
+
+                <div class="important">
+                    <h4>调节机制：</h4>
+                    <ul>
+                        <li>酶活性受细胞周期调节，S期活性最高</li>
+                        <li>大亚基含自由基，小亚基提供电子</li>
+                        <li>受ATP、dATP等效应物变构调节</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>三、含腺苷（酸）的辅酶和活性物质</h2>
+                
+                <div class="highlight">
+                    <h4>重要的含腺苷辅酶：</h4>
+                    <ul>
+                        <li><strong>ATP</strong>：细胞的主要能量货币</li>
+                        <li><strong>NAD+/NADH</strong>：氧化还原反应的辅酶</li>
+                        <li><strong>FAD/FADH2</strong>：黄素腺嘌呤二核苷酸</li>
+                        <li><strong>CoA</strong>：辅酶A，酰基转移反应</li>
+                        <li><strong>cAMP</strong>：环腺苷酸，第二信使</li>
+                        <li><strong>S-腺苷甲硫氨酸</strong>：甲基转移反应</li>
+                    </ul>
+                </div>
+
+                <div class="important">
+                    <strong>腺苷在辅酶中的作用：</strong>腺苷部分通常起到"分子手柄"的作用，帮助酶识别和结合辅酶，同时提供结构稳定性。
+                </div>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>四、名词解释库</h2>
+                
+                <div class="term-definition">
+                    <div class="term-name">从头合成途径<span class="term-english">(De novo synthesis pathway)</span></div>
+                    <p>利用简单的前体物质（氨基酸、CO2、一碳单位等）合成核苷酸的代谢途径，是体内核苷酸合成的主要途径。</p>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">补救途径<span class="term-english">(Salvage pathway)</span></div>
+                    <p>利用体内游离的嘌呤或嘧啶碱基，通过简单反应重新合成核苷酸的途径，节约能量和原料消耗。</p>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">PRPP<span class="term-english">(5-Phosphoribosyl pyrophosphate)</span></div>
+                    <p>5-磷酸核糖焦磷酸，是嘌呤和嘧啶核苷酸合成的重要前体物质，也是组氨酸和色氨酸合成的原料。</p>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">IMP<span class="term-english">(Inosine monophosphate)</span></div>
+                    <p>次黄嘌呤核苷酸，是嘌呤核苷酸从头合成的第一个产物，可进一步转化为AMP和GMP。</p>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">核糖核苷酸还原酶<span class="term-english">(Ribonucleotide reductase)</span></div>
+                    <p>催化核糖核苷酸还原为脱氧核糖核苷酸的关键酶，是DNA合成的限速酶，受细胞周期严格调节。</p>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">胸腺嘧啶核苷酸合酶<span class="term-english">(Thymidylate synthase)</span></div>
+                    <p>催化dUMP甲基化生成dTMP的酶，是DNA合成中唯一的甲基化反应，抗癌药物的重要靶点。</p>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">黄嘌呤氧化酶<span class="term-english">(Xanthine oxidase)</span></div>
+                    <p>催化次黄嘌呤和黄嘌呤氧化生成尿酸的酶，痛风治疗药物别嘌呤醇的作用靶点。</p>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">Lesch-Nyhan综合征<span class="term-english">(Lesch-Nyhan syndrome)</span></div>
+                    <p>由HGPRT缺陷引起的X连锁隐性遗传病，表现为高尿酸血症、神经系统异常和自残行为。</p>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>五、选择题测试</h2>
+                <div class="quiz-container">
+                    <p style="font-weight: bold; margin-bottom: 20px; color: #2c3e50;">
+                        以下是从题库中随机抽取的15道选择题，请选择最佳答案：
+                    </p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-feedback" class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>六、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 比较分析嘌呤核苷酸和嘧啶核苷酸从头合成途径的异同点，并解释这种差异的生物学意义。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>合成策略差异：</strong>嘌呤核苷酸是在磷酸核糖基础上逐步构建嘌呤环，而嘧啶核苷酸是先合成嘧啶环再与PRPP结合。这种差异反映了两类碱基结构复杂性的不同，嘌呤环较大且复杂，需要在糖磷酸骨架上稳定构建。</li>
+                            <li><strong>能量消耗差异：</strong>嘌呤核苷酸从头合成需要消耗6个ATP，而嘧啶核苷酸合成相对节能。这与嘌呤环的复杂结构和多步骨架构建过程相关。</li>
+                            <li><strong>调节机制差异：</strong>嘌呤合成主要受终产物反馈抑制调节，而嘧啶合成还受到天冬氨酸转氨甲酰酶的变构调节。这确保了细胞内嘌呤和嘧啶核苷酸的平衡供应。</li>
+                            <li><strong>生物学意义：</strong>不同的合成策略使细胞能够根据需要独立调节两类核苷酸的合成，同时通过交叉调节维持ATP/GTP和CTP/UTP的平衡，确保DNA和RNA合成的协调进行。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 分析核糖核苷酸还原酶的调节机制及其在细胞周期中的重要性，并讨论其作为抗癌药物靶点的潜力。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>酶结构与机制：</strong>核糖核苷酸还原酶由大亚基(R1)和小亚基(R2)组成，R2含有酪氨酸自由基，是酶活性的必需组分。酶通过自由基机制催化核糖环的2'-OH还原。</li>
+                            <li><strong>细胞周期调节：</strong>R1亚基在细胞周期中稳定表达，而R2亚基仅在S期表达，这确保了脱氧核苷酸仅在DNA复制期合成，避免了dNTP池的失衡和DNA损伤。</li>
+                            <li><strong>变构调节：</strong>酶活性受ATP、dATP等效应物调节，ATP激活酶活性，而dATP则抑制酶活性，形成负反馈调节，防止dNTP过量积累。</li>
+                            <li><strong>抗癌靶点潜力：</strong>由于癌细胞快速增殖需要大量DNA合成，核糖核苷酸还原酶成为理想的抗癌靶点。羟基脲等药物通过清除R2亚基的自由基抑制酶活性，选择性杀伤增殖细胞。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 论述嘌呤核苷酸补救途径的生理意义，并分析HGPRT缺陷导致Lesch-Nyhan综合征的分子机制。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>补救途径的生理意义：</strong>补救途径通过重新利用分解代谢产生的嘌呤碱基，显著节约了从头合成的能量消耗（约90%的ATP节约）和氨基酸原料。对于脑组织等代谢活跃但从头合成能力有限的器官尤为重要。</li>
+                            <li><strong>组织特异性依赖：</strong>脑、骨髓、淋巴细胞等组织由于缺乏完整的从头合成酶系，主要依赖补救途径维持核苷酸供应，这解释了HGPRT缺陷对神经系统的特异性影响。</li>
+                            <li><strong>Lesch-Nyhan综合征机制：</strong>HGPRT缺陷导致次黄嘌呤和鸟嘌呤无法有效回收，迫使细胞增加从头合成，导致PRPP消耗增加和尿酸生成过多。同时，脑组织核苷酸供应不足影响神经递质合成和神经功能。</li>
+                            <li><strong>临床表现的分子基础：</strong>高尿酸血症导致痛风，而脑内嘌呤核苷酸缺乏影响多巴胺等神经递质的合成和代谢，导致运动障碍、智力缺陷和特征性的自残行为。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析抗代谢物在核苷酸代谢中的作用机制，并讨论其在癌症治疗中的应用原理和局限性。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>抗代谢物的作用机制：</strong>抗代谢物通过结构模拟天然底物，竞争性抑制关键酶活性或作为假底物干扰正常代谢。如6-巯基嘌呤模拟次黄嘌呤，甲氨蝶呤抑制二氢叶酸还原酶，5-氟尿嘧啶干扰胸腺嘧啶核苷酸合成。</li>
+                            <li><strong>选择性杀伤原理：</strong>癌细胞由于快速增殖对核苷酸需求量大，对抗代谢物更敏感。正常细胞由于增殖缓慢，受影响相对较小，形成治疗窗口。</li>
+                            <li><strong>多靶点干扰：</strong>抗代谢物可同时影响DNA合成、RNA合成和蛋白质合成，通过多重机制发挥抗肿瘤作用，如5-FU既抑制胸腺嘧啶核苷酸合酶又可掺入RNA干扰其功能。</li>
+                            <li><strong>局限性分析：</strong>抗代谢物缺乏绝对特异性，对正常增殖组织（骨髓、胃肠道上皮等）也有毒性；肿瘤细胞可通过上调靶酶表达、增强DNA修复等机制产生耐药性；个体差异导致疗效和毒性的不可预测性。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "嘌呤核苷酸从头合成的第一个产物是：",
+                options: ["AMP", "GMP", "IMP", "XMP"],
+                correct: 2,
+                explanation: "嘌呤核苷酸从头合成首先生成IMP（次黄嘌呤核苷酸），然后IMP可以转化为AMP和GMP。这是嘌呤合成的中心代谢物。"
+            },
+            {
+                question: "PRPP合成酶受到以下哪种物质的反馈抑制？",
+                options: ["ATP", "ADP", "AMP", "cAMP"],
+                correct: 1,
+                explanation: "PRPP合成酶受到ADP和GDP的反馈抑制，这是嘌呤核苷酸合成调节的重要环节，防止过量合成。"
+            },
+            {
+                question: "Lesch-Nyhan综合征是由于缺乏以下哪种酶？",
+                options: ["APRT", "HGPRT", "PRPP合成酶", "腺苷脱氨酶"],
+                correct: 1,
+                explanation: "Lesch-Nyhan综合征是由HGPRT（次黄嘌呤-鸟嘌呤磷酸核糖转移酶）缺陷引起的X连锁隐性遗传病，导致严重的神经系统异常。"
+            },
+            {
+                question: "嘧啶核苷酸从头合成的特点是：",
+                options: ["先合成嘧啶环再与PRPP结合", "在PRPP基础上构建嘧啶环", "直接利用游离嘧啶", "需要叶酸参与"],
+                correct: 0,
+                explanation: "嘧啶核苷酸从头合成是先合成嘧啶环，然后再与PRPP结合形成核苷酸，这与嘌呤合成策略不同。"
+            },
+            {
+                question: "核糖核苷酸还原酶的活性在细胞周期的哪个时期最高？",
+                options: ["G1期", "S期", "G2期", "M期"],
+                correct: 1,
+                explanation: "核糖核苷酸还原酶在S期活性最高，因为S期是DNA复制期，需要大量脱氧核糖核苷酸。"
+            },
+            {
+                question: "痛风的直接原因是：",
+                options: ["嘌呤合成过多", "尿酸排泄减少", "尿酸在关节沉积", "黄嘌呤氧化酶活性增高"],
+                correct: 2,
+                explanation: "痛风的直接原因是尿酸在关节等部位沉积形成结晶，引起炎症反应，虽然根本原因是尿酸代谢异常。"
+            },
+            {
+                question: "胸腺嘧啶核苷酸合酶催化的反应需要以下哪种辅助因子？",
+                options: ["NAD+", "FAD", "四氢叶酸", "生物素"],
+                correct: 2,
+                explanation: "胸腺嘧啶核苷酸合酶催化dUMP甲基化生成dTMP，需要N5,N10-甲烯四氢叶酸作为一碳单位供体。"
+            },
+            {
+                question: "别嘌呤醇治疗痛风的机制是：",
+                options: ["抑制嘌呤合成", "促进尿酸排泄", "抑制黄嘌呤氧化酶", "抑制嘌呤分解"],
+                correct: 2,
+                explanation: "别嘌呤醇是黄嘌呤氧化酶的抑制剂，通过阻断次黄嘌呤和黄嘌呤氧化为尿酸来降低血尿酸水平。"
+            },
+            {
+                question: "嘌呤环中的N9原子来源于：",
+                options: ["甘氨酸", "天冬氨酸", "谷氨酰胺", "丙氨酸"],
+                correct: 2,
+                explanation: "嘌呤环的N9原子来源于谷氨酰胺的酰胺基，这是PRPP酰胺转移酶催化的第一步反应。"
+            },
+            {
+                question: "UMP合成酶缺陷会导致：",
+                options: ["嘧啶核苷酸缺乏", "乳清酸尿症", "免疫缺陷", "以上都是"],
+                correct: 3,
+                explanation: "UMP合成酶缺陷导致乳清酸不能转化为UMP，引起乳清酸尿症、嘧啶核苷酸缺乏和继发的免疫缺陷。"
+            },
+            {
+                question: "以下哪种物质不含腺苷结构？",
+                options: ["NAD+", "FAD", "CoA", "FMN"],
+                correct: 3,
+                explanation: "FMN（黄素单核苷酸）含有核糖醇而不是腺苷，其他选项都含有腺苷结构作为分子的一部分。"
+            },
+            {
+                question: "嘌呤核苷酸补救途径的生理意义不包括：",
+                options: ["节约ATP消耗", "节约氨基酸", "提供脑组织核苷酸", "调节基因表达"],
+                correct: 3,
+                explanation: "补救途径主要功能是节约能量和原料，为特定组织提供核苷酸，但不直接参与基因表达调节。"
+            },
+            {
+                question: "IMP转化为AMP需要消耗：",
+                options: ["ATP", "GTP", "CTP", "UTP"],
+                correct: 1,
+                explanation: "IMP转化为AMP的第一步反应（腺苷酸琥珀酸合成）需要GTP提供能量，这也是AMP和GMP合成相互调节的基础。"
+            },
+            {
+                question: "嘧啶分解的最终产物是：",
+                options: ["尿酸", "β-丙氨酸", "尿素", "氨"],
+                correct: 1,
+                explanation: "嘧啶分解的最终产物是β-丙氨酸（胞嘧啶、尿嘧啶）和β-氨基异丁酸（胸腺嘧啶），都是水溶性氨基酸衍生物。"
+            },
+            {
+                question: "PRPP在以下哪个代谢途径中不是必需的？",
+                options: ["嘌呤从头合成", "嘧啶从头合成", "组氨酸合成", "色氨酸合成"],
+                correct: 1,
+                explanation: "PRPP在嘧啶从头合成中是在嘧啶环合成完成后才参与，而在嘌呤合成、组氨酸和色氨酸合成中都是起始原料。"
+            },
+            {
+                question: "核糖核苷酸还原酶的小亚基(R2)的特点是：",
+                options: ["含有铁硫簇", "含有酪氨酸自由基", "在所有细胞周期都表达", "不需要氧气"],
+                correct: 1,
+                explanation: "核糖核苷酸还原酶的R2亚基含有酪氨酸自由基，这是酶活性的必需组分，且仅在S期表达。"
+            },
+            {
+                question: "6-巯基嘌呤的抗肿瘤机制是：",
+                options: ["抑制DNA聚合酶", "抑制IMP转化为AMP和GMP", "抑制PRPP合成", "抑制核糖核苷酸还原酶"],
+                correct: 1,
+                explanation: "6-巯基嘌呤在体内转化为6-巯基嘌呤核苷酸，抑制IMP转化为AMP和GMP的反应，从而干扰核苷酸代谢。"
+            },
+            {
+                question: "甲氨蝶呤(MTX)的作用靶点是：",
+                options: ["胸腺嘧啶核苷酸合酶", "二氢叶酸还原酶", "PRPP酰胺转移酶", "核糖核苷酸还原酶"],
+                correct: 1,
+                explanation: "甲氨蝶呤是二氢叶酸还原酶的抑制剂，阻断四氢叶酸的生成，从而影响一碳单位代谢和核苷酸合成。"
+            },
+            {
+                question: "腺苷在神经系统中的作用不包括：",
+                options: ["调节睡眠", "神经保护", "调节神经递质释放", "促进神经再生"],
+                correct: 3,
+                explanation: "腺苷在神经系统中主要起调节作用，包括睡眠调节、神经保护和调节神经递质释放，但不直接促进神经再生。"
+            },
+            {
+                question: "嘌呤核苷酸循环的生理意义是：",
+                options: ["产生ATP", "脱氨基作用", "补充TCA循环中间产物", "以上都是"],
+                correct: 3,
+                explanation: "嘌呤核苷酸循环具有多重生理意义：天冬氨酸脱氨、产生延胡索酸补充TCA循环，在肌肉运动中尤为重要。"
+            },
+            {
+                question: "dTMP合成中的甲基供体是：",
+                options: ["S-腺苷甲硫氨酸", "N5-甲基四氢叶酸", "N5,N10-甲烯四氢叶酸", "甲硫氨酸"],
+                correct: 2,
+                explanation: "dTMP合成中，N5,N10-甲烯四氢叶酸既提供甲基又提供还原当量，是唯一的甲基化同时伴随还原的反应。"
+            },
+            {
+                question: "PRPP酰胺转移酶是嘌呤合成的：",
+                options: ["第一个酶", "限速酶", "调节酶", "以上都是"],
+                correct: 3,
+                explanation: "PRPP酰胺转移酶是嘌呤从头合成的第一个专一性酶，也是限速酶和主要调节点，受多种核苷酸反馈抑制。"
+            },
+            {
+                question: "嘧啶核苷酸合成中氨基甲酰磷酸的来源是：",
+                options: ["氨基甲酰磷酸合成酶I", "氨基甲酰磷酸合成酶II", "精氨酸酶", "鸟氨酸转氨甲酰酶"],
+                correct: 1,
+                explanation: "嘧啶合成中的氨基甲酰磷酸由氨基甲酰磷酸合成酶II在胞液中合成，与尿素循环中的酶I不同。"
+            },
+            {
+                question: "核苷酸抗代谢物的共同特点是：",
+                options: ["结构与天然核苷酸相似", "选择性杀伤增殖细胞", "干扰DNA/RNA合成", "以上都是"],
+                correct: 3,
+                explanation: "核苷酸抗代谢物通过结构模拟、选择性杀伤增殖细胞、干扰核酸合成等多重机制发挥抗肿瘤作用。"
+            },
+            {
+                question: "腺苷脱氨酶缺陷主要影响：",
+                options: ["肝脏功能", "肾脏功能", "免疫系统", "神经系统"],
+                correct: 2,
+                explanation: "腺苷脱氨酶缺陷导致严重联合免疫缺陷病(SCID)，主要影响T细胞和B细胞功能。"
+            },
+            {
+                question: "黄嘌呤氧化酶的辅助因子包括：",
+                options: ["钼", "铁硫簇", "FAD", "以上都是"],
+                correct: 3,
+                explanation: "黄嘌呤氧化酶是复杂的金属酶，含有钼、铁硫簇和FAD等多种辅助因子。"
+            },
+            {
+                question: "5-氟尿嘧啶的抗肿瘤机制不包括：",
+                options: ["抑制胸腺嘧啶核苷酸合酶", "掺入RNA干扰功能", "抑制DNA聚合酶", "掺入DNA引起突变"],
+                correct: 2,
+                explanation: "5-氟尿嘧啶主要通过抑制胸腺嘧啶核苷酸合酶和掺入核酸干扰功能发挥作用，不直接抑制DNA聚合酶。"
+            },
+            {
+                question: "嘌呤从头合成需要消耗的ATP分子数是：",
+                options: ["4个", "5个", "6个", "7个"],
+                correct: 2,
+                explanation: "嘌呤从头合成从5-磷酸核糖到IMP需要消耗6个ATP分子，这是一个高耗能的合成过程。"
+            },
+            {
+                question: "核糖核苷酸还原的电子供体最终来源于：",
+                options: ["NADH", "NADPH", "FADH2", "谷胱甘肽"],
+                correct: 1,
+                explanation: "核糖核苷酸还原的电子最终来源于NADPH，通过硫氧还蛋白或谷氧还蛋白系统传递给还原酶。"
+            },
+            {
+                question: "IMP脱氢酶的产物是：",
+                options: ["AMP", "GMP", "XMP", "cAMP"],
+                correct: 2,
+                explanation: "IMP脱氢酶催化IMP氧化生成XMP（黄苷酸），然后XMP在GMP合成酶作用下转化为GMP。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = {};
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            displayQuestions();
+        };
+
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+        }
+
+        function displayQuestions() {
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                let optionsHtml = '';
+                q.options.forEach((option, optIndex) => {
+                    optionsHtml += `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${String.fromCharCode(65 + optIndex)}. ${option}
+                        </label>
+                    `;
+                });
+
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${optionsHtml}
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            // 收集答案
+            userAnswers = {};
+            for (let i = 0; i < selectedQuestions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    userAnswers[i] = parseInt(selected.value);
+                }
+            }
+
+            // 显示反馈
+            showFeedback();
+        }
+
+        function showFeedback() {
+            const feedbackDiv = document.getElementById('quiz-feedback');
+            let correct = 0;
+            let feedbackHtml = '';
+
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correct++;
+
+                const correctClass = isCorrect ? 'feedback-correct' : 'feedback-incorrect';
+                const resultText = isCorrect ? '✓ 正确' : '✗ 错误';
+                
+                feedbackHtml += `
+                    <div class="feedback-item ${correctClass}">
+                        <strong>第${index + 1}题：${q.question}</strong><br>
+                        <strong>${resultText}</strong><br>
+                        <strong>正确答案：</strong>${String.fromCharCode(65 + q.correct)}. ${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+
+            const score = Math.round((correct / selectedQuestions.length) * 100);
+            const scoreColor = score >= 80 ? '#28a745' : score >= 60 ? '#ffc107' : '#dc3545';
+
+            feedbackDiv.innerHTML = `
+                <div style="text-align: center; margin-bottom: 20px; padding: 15px; background: ${scoreColor}; color: white; border-radius: 5px;">
+                    <h3>测试完成！</h3>
+                    <p>正确率：${correct}/${selectedQuestions.length} (${score}%)</p>
+                </div>
+                ${feedbackHtml}
+            `;
+            
+            feedbackDiv.classList.add('show');
+            feedbackDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

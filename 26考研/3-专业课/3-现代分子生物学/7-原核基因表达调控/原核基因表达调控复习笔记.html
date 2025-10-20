@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第7章 原核基因表达调控 - 复习笔记</title>
+    <style>
+        /* 基础样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #34495e;
+            margin: 20px 0 15px 0;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: #34495e;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            text-indent: 0;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 10px 10px 0;
+            transition: background 0.3s ease;
+        }
+
+        .quiz-button:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #f39c12;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* 流程图样式 */
+        .flow-chart {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .flow-step {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .arrow {
+            font-size: 1.5em;
+            color: #3498db;
+            margin: 0 10px;
+        }
+
+        /* 操纵子结构图样式 */
+        .operon-diagram {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .gene-box {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 8px 12px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .regulatory-box {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 8px 12px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>第7章 原核基因表达调控</h1>
+            <p>考研现代分子生物学复习笔记 | 基于《现代分子生物学》第五版</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2 class="section-title">一、原核基因表达调控概述</h2>
+                
+                <h3>（一）基因表达与调控的基本概念</h3>
+                <p><span class="highlight">基因表达</span>是指基因经过转录和翻译，产生具有特异性生物学功能的蛋白质产物来执行生命活动，即从DNA到蛋白质的过程。基因表达具有<span class="important">时间特异性（阶段特异性）和空间特异性</span>。</p>
+                
+                <p><span class="highlight">基因表达调控</span>是指发生在基因表达过程中各种各样的调节方式，主要表现在转录水平的调控和转录后水平的调控。</p>
+                
+                <h3>（二）原核基因表达调控分类</h3>
+                
+                <table>
+                    <tr>
+                        <th>调控类型</th>
+                        <th>调节基因产物</th>
+                        <th>作用机制</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">负转录调控</td>
+                        <td>负控诱导</td>
+                        <td>阻遏蛋白抑制结构基因转录，与诱导物结合后变为非活性，结构基因转录</td>
+                    </tr>
+                    <tr>
+                        <td>负控阻遏</td>
+                        <td>阻遏蛋白非活性时不影响转录，与效应物结合后变为活性，抑制转录</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">正转录调控</td>
+                        <td>正控诱导</td>
+                        <td>诱导物存在使激活蛋白处于活性状态，开启结构基因转录</td>
+                    </tr>
+                    <tr>
+                        <td>正控阻遏</td>
+                        <td>激活蛋白促进转录，效应物存在时使激活蛋白非活性，阻遏转录</td>
+                    </tr>
+                </table>
+                
+                <h3>（三）原核基因表达调控的主要特点</h3>
+                
+                <h4>1. 操纵子调控机制</h4>
+                <ul>
+                    <li><span class="highlight">乳糖操纵子</span>：负控诱导系统的典型代表</li>
+                    <li><span class="highlight">色氨酸操纵子</span>：负控阻遏系统的典型代表</li>
+                    <li><span class="highlight">半乳糖操纵子和阿拉伯糖操纵子</span>：复杂调控系统</li>
+                </ul>
+                
+                <h4>2. 转录水平调控</h4>
+                <ul>
+                    <li><span class="highlight">转录起始阶段调控</span>：基因表达调控的关键环节</li>
+                    <li><span class="highlight">转录终止阶段调控</span>：包括抗终止作用和弱化作用</li>
+                </ul>
+                
+                <h4>3. 转录后调控</h4>
+                <ul>
+                    <li>mRNA自身结构元件对翻译起始的调节</li>
+                    <li>反义RNA对翻译的调控</li>
+                    <li>稀有密码子对翻译的影响</li>
+                    <li>翻译阻遏等现象</li>
+                </ul>
+            </div>
+
+            <!-- 乳糖操纵子 -->
+            <div class="section">
+                <h2 class="section-title">二、乳糖操纵子：分解代谢操纵子的典范</h2>
+                
+                <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 15px 0;">
+                    <h4 style="color: #2c3e50; margin-top: 0;">🏭 生活化理解</h4>
+                    <p style="font-style: italic; color: #555;">乳糖操纵子就像一个"来活了才开工，而且没好饭吃才拼命干"的智能工厂。它是<strong>诱导型</strong>的，负责生产消化乳糖的工具（酶）。</p>
+                </div>
+                
+                <h3>（一）乳糖操纵子的基本结构</h3>
+                
+                <div class="operon-diagram">
+                    <div class="regulatory-box">lacI</div>
+                    <div class="regulatory-box">CAP</div>
+                    <div class="regulatory-box">P</div>
+                    <div class="regulatory-box">O</div>
+                    <div class="gene-box">lacZ</div>
+                    <div class="gene-box">lacY</div>
+                    <div class="gene-box">lacA</div>
+                    <br><br>
+                    <p style="font-size: 0.9em; color: #666;">
+                        lacI: 调节基因 | CAP: cAMP结合位点 | P: 启动子 | O: 操纵基因 | lacZ: β-半乳糖苷酶 | lacY: 透过酶 | lacA: 乙酰基转移酶
+                    </p>
+                </div>
+                
+                <h4>结构基因功能详解：</h4>
+                <ul>
+                    <li><span class="highlight">lacZ基因</span>：编码β-半乳糖苷酶，将乳糖水解为半乳糖和葡萄糖，同时产生少量异构乳糖（真正的诱导物）</li>
+                    <li><span class="highlight">lacY基因</span>：编码β-半乳糖苷透过酶（permease），负责乳糖跨膜转运，是乳糖进入细胞的"门户"</li>
+                    <li><span class="highlight">lacA基因</span>：编码β-半乳糖苷乙酰基转移酶，催化有毒代谢产物的乙酰化解毒</li>
+                </ul>
+                
+                <h3>（二）双重调控机制：负调控+正调控协同作用</h3>
+                
+                <h4>1. 负调控系统（保安机制）</h4>
+                
+                <div style="background: #fff3cd; padding: 12px; border-radius: 5px; margin: 10px 0;">
+                    <p><strong>核心元件：</strong>由lacI基因编码的阻遏蛋白（Lac repressor, LacI）</p>
+                </div>
+                
+                <div class="flow-chart">
+                    <div class="flow-step">无乳糖状态</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">阻遏蛋白以活性构象结合lacO</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">空间位阻阻止RNA聚合酶</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">转录被抑制</div>
+                    <br><br>
+                    <div class="flow-step">有乳糖状态</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">异构乳糖（诱导物）结合阻遏蛋白</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">变构效应使阻遏蛋白失活</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">阻遏蛋白从lacO解离</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">转录解除抑制</div>
+                </div>
+                
+                <p><span class="important">关键概念：</span><strong>异构乳糖（allolactose）</strong>是真正的诱导物，由β-半乳糖苷酶的转糖基作用产生，形成正反馈调节。</p>
+                
+                <h4>2. 正调控系统（经理机制）</h4>
+                
+                <div style="background: #d1ecf1; padding: 12px; border-radius: 5px; margin: 10px 0;">
+                    <p><strong>核心元件：</strong>分解代谢物激活蛋白（CAP/CRP）与环腺苷酸（cAMP）形成的复合物</p>
+                </div>
+                
+                <p><span class="highlight">详细机制：</span></p>
+                <ul>
+                    <li><span class="highlight">cAMP的产生</span>：当葡萄糖等优先碳源匮乏时，腺苷酸环化酶活性增强，ATP转化为cAMP</li>
+                    <li><span class="highlight">cAMP-CAP复合物形成</span>：cAMP与CAP结合，诱导CAP构象变化，获得DNA结合活性</li>
+                    <li><span class="highlight">转录激活机制</span>：
+                        <ul>
+                            <li>cAMP-CAP结合到启动子上游的特定位点</li>
+                            <li>通过弯曲DNA分子，增强RNA聚合酶与启动子的亲和力</li>
+                            <li>促进开放复合物形成，大幅提高转录起始效率</li>
+                        </ul>
+                    </li>
+                    <li><span class="highlight">葡萄糖效应</span>：葡萄糖存在时抑制腺苷酸环化酶，cAMP水平降低，正调控失效</li>
+                </ul>
+                
+                <h4>3. 协同调节的逻辑门控（AND逻辑）</h4>
+                
+                <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                    <p><strong>核心原理：</strong>乳糖操纵子的高效表达需要同时满足两个条件：</p>
+                    <p>① 诱导物存在（解除阻遏，负调控关闭）<strong>AND</strong> ② cAMP水平高（CAP激活，正调控开启）</p>
+                </div>
+                
+                <table>
+                    <tr>
+                        <th>葡萄糖</th>
+                        <th>乳糖</th>
+                        <th>cAMP-CRP</th>
+                        <th>阻遏蛋白状态</th>
+                        <th>转录水平</th>
+                        <th>生物学意义</th>
+                    </tr>
+                    <tr>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>有活性</td>
+                        <td>结合lacO</td>
+                        <td>关闭</td>
+                        <td>无底物，不需要酶</td>
+                    </tr>
+                    <tr>
+                        <td>有</td>
+                        <td>无</td>
+                        <td>无活性</td>
+                        <td>结合lacO</td>
+                        <td>关闭</td>
+                        <td>优先利用葡萄糖</td>
+                    </tr>
+                    <tr>
+                        <td>有</td>
+                        <td>有</td>
+                        <td>无活性</td>
+                        <td>不结合</td>
+                        <td>低水平</td>
+                        <td>葡萄糖优先，乳糖备用</td>
+                    </tr>
+                    <tr>
+                        <td>无</td>
+                        <td>有</td>
+                        <td>有活性</td>
+                        <td>不结合</td>
+                        <td><strong>高水平</strong></td>
+                        <td>最佳表达条件</td>
+                    </tr>
+                </table>
+                
+                <div style="background: #ffe6e6; padding: 12px; border-radius: 5px; margin: 15px 0;">
+                    <h4 style="color: #c0392b; margin-top: 0;">🎯 记忆要点</h4>
+                    <p><strong>"等米下锅"策略：</strong>只有在缺乏更好的葡萄糖（饿急了）且眼前有乳糖（米来了）时，才不惜成本地大量生产消化工具。这种双重保障确保了能量的高效利用。</p>
+                </div>
+            </div>
+
+            <!-- 色氨酸操纵子 -->
+            <div class="section">
+                <h2 class="section-title">三、色氨酸操纵子：合成代谢操纵子的典范</h2>
+                
+                <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #e74c3c; margin: 15px 0;">
+                    <h4 style="color: #2c3e50; margin-top: 0;">🏭 生活化理解</h4>
+                    <p style="font-style: italic; color: #555;">色氨酸操纵子就像一个"货够了就停产，而且快够了就减速"的精细工厂。它是<strong>阻遏型</strong>的，负责生产色氨酸（自身需要的氨基酸）。</p>
+                </div>
+                
+                <h3>（一）色氨酸操纵子的基本结构</h3>
+                
+                <div class="operon-diagram">
+                    <div class="regulatory-box">trpR</div>
+                    <div class="regulatory-box">P</div>
+                    <div class="regulatory-box">O</div>
+                    <div class="regulatory-box">trpL</div>
+                    <div class="regulatory-box">a</div>
+                    <div class="gene-box">trpE</div>
+                    <div class="gene-box">trpD</div>
+                    <div class="gene-box">trpC</div>
+                    <div class="gene-box">trpB</div>
+                    <div class="gene-box">trpA</div>
+                    <br><br>
+                    <p style="font-size: 0.9em; color: #666;">
+                        trpR: 调节基因 | P: 启动子 | O: 操纵基因 | trpL: 前导序列 | a: 弱化子（衰减子） | trpE-A: 结构基因
+                    </p>
+                </div>
+                
+                <h4>结构基因功能详解：</h4>
+                <ul>
+                    <li><span class="highlight">trpE</span>：编码邻氨基苯甲酸合成酶α亚基，催化色氨酸合成的第一步</li>
+                    <li><span class="highlight">trpD</span>：编码磷酸核糖基邻氨基苯甲酸转移酶，参与中间代谢</li>
+                    <li><span class="highlight">trpC</span>：编码吲哚-3-甘油磷酸合成酶，形成吲哚环结构</li>
+                    <li><span class="highlight">trpB</span>：编码色氨酸合成酶β亚基，与trpA协同完成最后一步</li>
+                    <li><span class="highlight">trpA</span>：编码色氨酸合成酶α亚基，催化色氨酸的最终合成</li>
+                </ul>
+                
+                <h3>（二）层级调控机制：阻遏系统+衰减作用</h3>
+                
+                <h4>1. 阻遏系统（总开关机制）</h4>
+                
+                <div style="background: #fff3cd; padding: 12px; border-radius: 5px; margin: 10px 0;">
+                    <p><strong>核心元件：</strong>由trpR基因编码的阻遏蛋白（aporepressor），本身无活性</p>
+                </div>
+                
+                <p><span class="highlight">详细机制：</span></p>
+                <ul>
+                    <li><span class="highlight">辅阻遏物</span>：色氨酸本身作为操纵子终产物，充当辅阻遏物（corepressor）</li>
+                    <li><span class="highlight">变构激活</span>：色氨酸与阻遏蛋白结合，诱导变构，形成具有DNA结合活性的复合物</li>
+                    <li><span class="highlight">负反馈调节</span>：终产物直接参与调控，实现经典的负反馈抑制</li>
+                </ul>
+                
+                <div class="flow-chart">
+                    <div class="flow-step">色氨酸充足</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">Trp+阻遏蛋白→活化复合物</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">复合物特异性结合trpO</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">阻遏转录（粗调）</div>
+                    <br><br>
+                    <div class="flow-step">色氨酸缺乏</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">阻遏蛋白无法结合DNA</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">操纵子基础转录</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">合成色氨酸</div>
+                </div>
+                
+                <h4>2. 衰减作用（微调旋钮机制）</h4>
+                
+                <div style="background: #d1ecf1; padding: 12px; border-radius: 5px; margin: 10px 0;">
+                    <p><strong>发生位置：</strong>前导序列（trpL）中的弱化子（attenuator），一个依赖ρ因子的转录终止子</p>
+                </div>
+                
+                <p><span class="highlight">核心机制：转录-翻译偶联调控</span></p>
+                
+                <div style="background: #f0f8ff; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                    <p><strong>前导序列特征：</strong></p>
+                    <ul style="margin: 5px 0;">
+                        <li>长度162bp，包含编码前导肽的开放阅读框</li>
+                        <li>前导肽含14个氨基酸，第10、11位为连续的色氨酸密码子（UGG UGG）</li>
+                        <li>含有4个序列互补区域，可形成不同的二级结构（发夹结构）</li>
+                    </ul>
+                </div>
+                
+                <p><span class="highlight">四个关键区域的配对模式：</span></p>
+                <ul>
+                    <li><span class="highlight">区域1</span>：前导肽编码序列（含Trp密码子）</li>
+                    <li><span class="highlight">区域2</span>：可与区域1或3配对</li>
+                    <li><span class="highlight">区域3</span>：可与区域2或4配对</li>
+                    <li><span class="highlight">区域4</span>：终止子序列</li>
+                </ul>
+                
+                <div class="flow-chart">
+                    <div class="flow-step">色氨酸充足情况</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">核糖体快速翻译前导肽</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">顺利通过Trp密码子，覆盖区域2</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">mRNA形成3:4终止子发夹</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">RNA聚合酶提前终止（细调关闭）</div>
+                    <br><br>
+                    <div class="flow-step">色氨酸缺乏情况</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">核糖体在Trp密码子处停滞</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">无法覆盖区域2</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">mRNA形成2:3抗终止发夹</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">阻止3:4终止子形成，转录通读（细调开启）</div>
+                </div>
+                
+                <h4>3. 层级调控的协同逻辑</h4>
+                
+                <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                    <p><strong>双重保障机制：</strong></p>
+                    <p>① <strong>阻遏系统</strong>：提供粗调（on/off switch），大幅关闭或开启转录</p>
+                    <p>② <strong>衰减作用</strong>：提供细调（fine-tuning），对色氨酸浓度微小变化做出响应</p>
+                </div>
+                
+                <table>
+                    <tr>
+                        <th>色氨酸浓度</th>
+                        <th>阻遏系统状态</th>
+                        <th>衰减作用</th>
+                        <th>转录水平</th>
+                        <th>调控倍数</th>
+                    </tr>
+                    <tr>
+                        <td>极高</td>
+                        <td>完全阻遏</td>
+                        <td>完全终止</td>
+                        <td>几乎为0</td>
+                        <td>~600倍↓</td>
+                    </tr>
+                    <tr>
+                        <td>较高</td>
+                        <td>部分阻遏</td>
+                        <td>大部分终止</td>
+                        <td>极低</td>
+                        <td>~100倍↓</td>
+                    </tr>
+                    <tr>
+                        <td>中等</td>
+                        <td>轻微阻遏</td>
+                        <td>部分终止</td>
+                        <td>中等</td>
+                        <td>~10倍↓</td>
+                    </tr>
+                    <tr>
+                        <td>较低</td>
+                        <td>无阻遏</td>
+                        <td>少量终止</td>
+                        <td>较高</td>
+                        <td>基础水平</td>
+                    </tr>
+                    <tr>
+                        <td>极低</td>
+                        <td>无阻遏</td>
+                        <td>无终止</td>
+                        <td><strong>最高</strong></td>
+                        <td>最大表达</td>
+                    </tr>
+                </table>
+                
+                <div style="background: #ffe6e6; padding: 12px; border-radius: 5px; margin: 15px 0;">
+                    <h4 style="color: #c0392b; margin-top: 0;">🎯 记忆要点</h4>
+                    <p><strong>"看菜吃饭"策略：</strong>产品够用了就完全停产（阻遏系统），快够用了就降低生产速度（衰减作用），绝不浪费一滴原料。这种层级调控实现了最高可达数百倍的动态调控范围。</p>
+                </div>
+            </div>
+
+            <!-- 其他调控机制 -->
+            <div class="section">
+                <h2 class="section-title">四、其他调控机制</h2>
+                
+                <h3>（一）SOS应答系统</h3>
+                <p>当细菌DNA遭到破坏时，启动SOS诱导型DNA修复系统：</p>
+                <ul>
+                    <li><span class="highlight">RecA蛋白</span>：SOS反应的发动因子，被激活后表现为蛋白水解酶活性</li>
+                    <li><span class="highlight">LexA阻遏蛋白</span>：被RecA降解，解除对DNA修复基因的抑制</li>
+                </ul>
+                
+                <h3>（二）转录水平的其他调控方式</h3>
+                
+                <table>
+                    <tr>
+                        <th>调控方式</th>
+                        <th>作用机制</th>
+                    </tr>
+                    <tr>
+                        <td>σ因子调节</td>
+                        <td>识别启动子共有序列，不同σ因子调控不同基因集</td>
+                    </tr>
+                    <tr>
+                        <td>组蛋白类似蛋白</td>
+                        <td>H-NS蛋白等维持DNA高级结构</td>
+                    </tr>
+                    <tr>
+                        <td>转录调控因子</td>
+                        <td>与启动子结合，激活或抑制转录</td>
+                    </tr>
+                    <tr>
+                        <td>抗终止因子</td>
+                        <td>阻止转录终止，使RNA聚合酶越过终止子</td>
+                    </tr>
+                </table>
+                
+                <h3>（三）转录后水平调控</h3>
+                
+                <h4>1. mRNA结构元件调节</h4>
+                <ul>
+                    <li><span class="highlight">起始密码子</span>：GUG、UUG等非典型起始密码子降低翻译效率</li>
+                    <li><span class="highlight">5' UTR</span>：核糖体结合位点（RBS）和SD序列影响翻译起始</li>
+                    <li><span class="highlight">核糖开关</span>：感受代谢物浓度变化，改变mRNA二级结构</li>
+                </ul>
+                
+                <h4>2. 魔斑核苷酸调节</h4>
+                <ul>
+                    <li><span class="highlight">ppGpp和pppGpp</span>：氨基酸缺乏时大量产生</li>
+                    <li><span class="highlight">严紧控制</span>：rel⁺基因型，蛋白质和RNA合成速率下降</li>
+                    <li><span class="highlight">松散控制</span>：rel⁻基因型，蛋白质合成停止但RNA合成不受影响</li>
+                </ul>
+                
+                <h4>3. 其他调控方式</h4>
+                <ul>
+                    <li><span class="highlight">反义RNA</span>：与mRNA互补结合，调节翻译</li>
+                    <li><span class="highlight">小RNA</span>：非编码RNA分子调节基因表达</li>
+                    <li><span class="highlight">稀有密码子</span>：影响翻译效率</li>
+                    <li><span class="highlight">重叠基因</span>：保证翻译偶联</li>
+                </ul>
+            </div>
+
+            <!-- 重要名词解释库 -->
+            <div class="section">
+                <h2 class="section-title">五、重要名词解释</h2>
+                
+                <div class="term">
+                    <div class="term-name">操纵子<span class="term-english">(Operon)</span></div>
+                    <div class="term-definition">原核生物基因中，多个功能相关的结构基因串联排列，与上游启动区和操纵区以及下游转录终止区一起构成的基因表达单位。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">阻遏蛋白<span class="term-english">(Repressor Protein)</span></div>
+                    <div class="term-definition">由调节基因产生的，在转录水平对基因表达产生负控作用的蛋白质，通过结合操纵基因阻碍RNA聚合酶转录。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">弱化子<span class="term-english">(Attenuator)</span></div>
+                    <div class="term-definition">原核生物操纵子中能显著减弱甚至终止转录作用的核苷酸序列，利用转录与翻译偶联机制对转录进行调节。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">反义RNA<span class="term-english">(Antisense RNA)</span></div>
+                    <div class="term-definition">与mRNA互补的RNA分子，通过特异性互补结合改变mRNA构象，调节翻译过程。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">魔斑核苷酸<span class="term-english">(Magic Spot Nucleotides)</span></div>
+                    <div class="term-definition">氨基酸缺乏时细胞内大量产生的ppGpp和pppGpp，是细胞内严紧控制的关键信号分子。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">葡萄糖效应<span class="term-english">(Glucose Effect)</span></div>
+                    <div class="term-definition">又称降解物阻遏，指葡萄糖和其他糖类同时存在时，葡萄糖优先被利用的现象。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">CAP-cAMP复合物<span class="term-english">(CAP-cAMP Complex)</span></div>
+                    <div class="term-definition">环腺苷酸受体蛋白与cAMP结合形成的复合物，结合启动子上游CAP位点，促进转录起始。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">σ因子<span class="term-english">(Sigma Factor)</span></div>
+                    <div class="term-definition">原核生物RNA聚合酶全酶的组分，负责识别启动子共有序列，是转录起始所必需的因子。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">SOS应答<span class="term-english">(SOS Response)</span></div>
+                    <div class="term-definition">细菌DNA遭到破坏时启动的诱导型DNA修复系统，通过RecA蛋白降解LexA阻遏蛋白实现。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">严紧控制<span class="term-english">(Stringent Control)</span></div>
+                    <div class="term-definition">细菌在氨基酸饥饿条件下，蛋白质和RNA合成速率下降，大部分活性区域被关闭的调控机制。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2 class="section-title">六、选择题测试</h2>
+                
+                <div class="quiz-container">
+                    <div id="quiz-questions"></div>
+                    <button class="quiz-button" onclick="submitQuiz()">提交答案</button>
+                    <button class="quiz-button" onclick="generateNewQuiz()">重新生成题目</button>
+                    <div id="quiz-results"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2 class="section-title">七、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 详细分析乳糖操纵子的双重调控机制，并阐述其生物学意义。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>负调控机制（阻遏蛋白调控）：</strong>
+                                <ul>
+                                    <li>无乳糖时：LacI阻遏蛋白结合操纵区O，阻止RNA聚合酶转录</li>
+                                    <li>有乳糖时：异构乳糖与阻遏蛋白结合，改变其构象，使其脱离O区</li>
+                                    <li>机制特点：确保只有在需要时才合成乳糖代谢酶</li>
+                                </ul>
+                            </li>
+                            <li><strong>正调控机制（CAP-cAMP调控）：</strong>
+                                <ul>
+                                    <li>无葡萄糖时：cAMP浓度高，与CRP结合形成复合物</li>
+                                    <li>cAMP-CRP复合物结合CAP位点，促进RNA聚合酶与启动子结合</li>
+                                    <li>有葡萄糖时：cAMP浓度低，无法形成有效的激活复合物</li>
+                                </ul>
+                            </li>
+                            <li><strong>协同调控的四种状态：</strong>
+                                <ul>
+                                    <li>只有在无葡萄糖、有乳糖时，操纵子才完全开启</li>
+                                    <li>体现了细菌对碳源利用的精确调控</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学意义：</strong>
+                                <ul>
+                                    <li>节约能量：避免不必要的酶合成</li>
+                                    <li>优先利用：确保优先利用葡萄糖这一更高效的碳源</li>
+                                    <li>快速响应：能够迅速适应环境中碳源的变化</li>
+                                    <li>精确调控：双重调控确保基因表达的精确性</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较分析色氨酸操纵子的阻遏系统和弱化系统，说明两种机制的协同作用。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>阻遏系统特点：</strong>
+                                <ul>
+                                    <li>调控机制：色氨酸作为辅阻遏物与TrpR蛋白结合</li>
+                                    <li>作用位点：激活的阻遏蛋白结合操纵区O</li>
+                                    <li>调控效果：完全阻断转录起始</li>
+                                    <li>响应范围：对色氨酸浓度的大幅变化敏感</li>
+                                </ul>
+                            </li>
+                            <li><strong>弱化系统特点：</strong>
+                                <ul>
+                                    <li>调控机制：通过前导肽翻译感知色氨酰-tRNA浓度</li>
+                                    <li>作用位点：前导序列的茎-环结构形成</li>
+                                    <li>调控效果：决定转录是否提前终止</li>
+                                    <li>响应范围：对色氨酸浓度的细微变化敏感</li>
+                                </ul>
+                            </li>
+                            <li><strong>两种机制的协同作用：</strong>
+                                <ul>
+                                    <li>阻遏系统：粗调，在色氨酸充足时完全关闭操纵子</li>
+                                    <li>弱化系统：细调，在色氨酸中等浓度时进行微调</li>
+                                    <li>协同效果：实现对色氨酸合成的精确调控</li>
+                                    <li>调控范围：覆盖从完全缺乏到完全充足的整个浓度范围</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学优势：</strong>
+                                <ul>
+                                    <li>节约资源：避免过量合成色氨酸</li>
+                                    <li>快速响应：能够迅速调整合成速率</li>
+                                    <li>精确控制：双重机制确保调控的精确性</li>
+                                    <li>代谢平衡：维持细胞内氨基酸的平衡</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 阐述原核生物转录后调控的多样性及其调控机制的分子基础。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>mRNA结构元件调控：</strong>
+                                <ul>
+                                    <li>起始密码子：非AUG起始密码子降低翻译效率</li>
+                                    <li>SD序列：与16S rRNA互补配对，影响核糖体结合</li>
+                                    <li>5' UTR二级结构：影响核糖体接近起始密码子</li>
+                                    <li>核糖开关：感受代谢物浓度，改变mRNA构象</li>
+                                </ul>
+                            </li>
+                            <li><strong>小RNA调控机制：</strong>
+                                <ul>
+                                    <li>反义RNA：与靶mRNA互补配对，阻止翻译或促进降解</li>
+                                    <li>microRNA样分子：调节mRNA稳定性和翻译效率</li>
+                                    <li>调控范围：可同时调控多个靶基因</li>
+                                    <li>作用特点：快速、可逆、精确</li>
+                                </ul>
+                            </li>
+                            <li><strong>蛋白质介导的调控：</strong>
+                                <ul>
+                                    <li>RNA结合蛋白：调节mRNA稳定性和翻译起始</li>
+                                    <li>核糖体蛋白：自身调节翻译（翻译阻遏）</li>
+                                    <li>RNA酶：控制mRNA降解速率</li>
+                                    <li>修饰酶：通过RNA修饰调节功能</li>
+                                </ul>
+                            </li>
+                            <li><strong>代谢调控机制：</strong>
+                                <ul>
+                                    <li>魔斑核苷酸：ppGpp和pppGpp调节严紧控制</li>
+                                    <li>稀有密码子：通过tRNA可用性调节翻译速率</li>
+                                    <li>重叠基因：确保基因产物的化学计量关系</li>
+                                    <li>翻译偶联：前一基因翻译影响后一基因表达</li>
+                                </ul>
+                            </li>
+                            <li><strong>调控的生物学意义：</strong>
+                                <ul>
+                                    <li>精细调节：在转录调控基础上进行微调</li>
+                                    <li>快速响应：比转录调控响应更迅速</li>
+                                    <li>节约能量：避免不必要的蛋白质合成</li>
+                                    <li>适应环境：快速适应环境变化</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 分析σ因子在原核基因表达调控中的作用机制及其调控网络的特点。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>σ因子的基本功能：</strong>
+                                <ul>
+                                    <li>启动子识别：识别-10和-35区的共有序列</li>
+                                    <li>转录起始：引导RNA聚合酶正确起始转录</li>
+                                    <li>DNA解链：参与启动子区域双链DNA的解开</li>
+                                    <li>特异性决定：决定RNA聚合酶的启动子特异性</li>
+                                </ul>
+                            </li>
+                            <li><strong>不同σ因子的功能分工：</strong>
+                                <ul>
+                                    <li>σ70：管家基因的转录，维持基本生理功能</li>
+                                    <li>σ32：热激反应，应对高温胁迫</li>
+                                    <li>σ54：氮代谢相关基因的转录</li>
+                                    <li>σS：静止期和胁迫响应基因的转录</li>
+                                </ul>
+                            </li>
+                            <li><strong>σ因子的调控机制：</strong>
+                                <ul>
+                                    <li>转录调控：σ因子基因的转录水平调节</li>
+                                    <li>蛋白稳定性：通过蛋白酶调节σ因子稳定性</li>
+                                    <li>抗σ因子：特异性结合σ因子，阻止其与RNA聚合酶结合</li>
+                                    <li>竞争结合：不同σ因子竞争结合RNA聚合酶核心酶</li>
+                                </ul>
+                            </li>
+                            <li><strong>σ因子调控网络特点：</strong>
+                                <ul>
+                                    <li>层级调控：形成调控级联，一个σ因子调控另一个σ因子</li>
+                                    <li>交叉调控：不同σ因子之间相互影响</li>
+                                    <li>时序表达：在不同生长阶段表达不同σ因子</li>
+                                    <li>环境响应：根据环境条件选择性激活特定σ因子</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学意义：</strong>
+                                <ul>
+                                    <li>全局调控：通过改变σ因子实现基因表达的全局重编程</li>
+                                    <li>适应性：快速响应环境变化，调整基因表达模式</li>
+                                    <li>经济性：用少数调控因子控制大量基因</li>
+                                    <li>协调性：确保相关基因的协调表达</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "原核生物基因表达调控主要发生在哪个水平？",
+                options: ["A. 翻译水平", "B. DNA水平", "C. 转录水平", "D. 转录后水平"],
+                correct: 2,
+                explanation: "正确答案是C。原核生物的基因表达调控主要发生在转录水平上，根据调控机制的不同可分为负转录调控和正转录调控。"
+            },
+            {
+                question: "下列哪个操纵子不含有衰减子序列？",
+                options: ["A. trp操纵子", "B. lac操纵子", "C. his操纵子", "D. phe操纵子"],
+                correct: 1,
+                explanation: "正确答案是B。lac操纵子属于负控诱导系统，不含有衰减子序列。衰减子主要存在于氨基酸合成操纵子中。"
+            },
+            {
+                question: "在乳糖操纵子中，阻遏蛋白结合的是：",
+                options: ["A. 操纵区", "B. 调节基因", "C. 启动子", "D. 结构基因"],
+                correct: 0,
+                explanation: "正确答案是A。操纵区是DNA上的一小段序列，是阻遏蛋白的结合位点，当阻遏蛋白与操纵区相结合时，lac mRNA的转录起始受到抑制。"
+            },
+            {
+                question: "在调控乳糖操纵子表达中，乳糖的作用是：",
+                options: ["A. 与RNA聚合酶结合诱导结构基因的表达", "B. 与RNA聚合酶结合抑制结构基因的表达", "C. 与阻遏蛋白结合诱导结构基因表达", "D. 与阻遏蛋白结合抑制结构基因表达"],
+                correct: 2,
+                explanation: "正确答案是C。在乳糖操纵子模型中，乳糖作为诱导物与阻遏蛋白结合，使阻遏蛋白构象改变，不再特异性结合lac操纵区，激活lac mRNA转录。"
+            },
+            {
+                question: "乳糖操纵子的安慰诱导物是：",
+                options: ["A. 乳糖", "B. 半乳糖", "C. 异构乳糖", "D. 异丙基巯基半乳糖苷"],
+                correct: 3,
+                explanation: "正确答案是D。异丙基巯基半乳糖苷(IPTG)不会被β-半乳糖苷酶所降解，但能诱导β-半乳糖苷酶的合成，因此常用作乳糖操纵子的安慰诱导物。"
+            },
+            {
+                question: "色氨酸衰减子通过前导肽的翻译来实现对mRNA转录的控制属于：",
+                options: ["A. 可诱导的负调控", "B. 可阻遏的负调控", "C. 可诱导的正调控", "D. 可阻遏的正调控"],
+                correct: 1,
+                explanation: "正确答案是B。衰减子能形成不同的二级结构，利用原核生物转录与翻译的偶联机制对转录进行调节，属于可阻遏的负调控。"
+            },
+            {
+                question: "正转录调控系统中，调节基因的产物被称为：",
+                options: ["A. 阻遏蛋白", "B. 诱导因子", "C. 激活蛋白", "D. 增强子"],
+                correct: 2,
+                explanation: "正确答案是C。在负转录调控系统中，调节基因的产物是阻遏蛋白；在正转录调控系统中，调节基因的产物是激活蛋白。"
+            },
+            {
+                question: "操纵子一般由哪三种成分组成？",
+                options: ["A. 启动子、操纵基因、结构基因", "B. 调节基因、启动子、结构基因", "C. 操纵基因、结构基因、终止子", "D. 启动子、结构基因、终止子"],
+                correct: 0,
+                explanation: "正确答案是A。典型的操纵子包括启动子、操纵基因和结构基因三种基本成分，调节基因通常位于操纵子外部。"
+            },
+            {
+                question: "CAP-cAMP复合物的作用是：",
+                options: ["A. 抑制转录起始", "B. 促进转录起始", "C. 终止转录", "D. 降解mRNA"],
+                correct: 1,
+                explanation: "正确答案是B。CAP-cAMP复合物结合于启动子上游的CAP位点，帮助RNA聚合酶结合到启动子区域，促进转录起始。"
+            },
+            {
+                question: "葡萄糖效应的机制是：",
+                options: ["A. 葡萄糖直接抑制RNA聚合酶", "B. 葡萄糖代谢产物抑制腺苷酸环化酶", "C. 葡萄糖结合阻遏蛋白", "D. 葡萄糖破坏mRNA结构"],
+                correct: 1,
+                explanation: "正确答案是B。葡萄糖的代谢产物抑制细菌的腺苷酸环化酶，使得细胞内cAMP含量降低，导致CAP-cAMP复合物无法形成。"
+            },
+            {
+                question: "色氨酸操纵子中，前导肽含有多少个氨基酸？",
+                options: ["A. 10个", "B. 12个", "C. 14个", "D. 16个"],
+                correct: 2,
+                explanation: "正确答案是C。前导肽是含有14个氨基酸的多肽，其中第10和第11个密码子编码连续的色氨酸残基。"
+            },
+            {
+                question: "弱化子的作用机制依赖于：",
+                options: ["A. DNA-蛋白质相互作用", "B. 转录与翻译的偶联", "C. mRNA的剪接", "D. 蛋白质修饰"],
+                correct: 1,
+                explanation: "正确答案是B。弱化子利用原核生物转录与翻译相偶联的机制发挥转录调控作用，通过核糖体在mRNA上的位置决定RNA二级结构。"
+            },
+            {
+                question: "SOS应答系统中，RecA蛋白的主要功能是：",
+                options: ["A. 修复DNA损伤", "B. 降解LexA阻遏蛋白", "C. 激活转录", "D. 合成DNA"],
+                correct: 1,
+                explanation: "正确答案是B。RecA蛋白在SOS应答中被激活成为蛋白酶，分解LexA阻遏蛋白，解除对DNA损伤修复相关基因转录的抑制。"
+            },
+            {
+                question: "σ因子的主要功能是：",
+                options: ["A. 延长转录", "B. 终止转录", "C. 识别启动子", "D. 剪接mRNA"],
+                correct: 2,
+                explanation: "正确答案是C。σ因子负责识别启动子共有序列，是转录起始所必需的因子，主要影响RNA聚合酶对转录起始位点的正确识别。"
+            },
+            {
+                question: "魔斑核苷酸包括：",
+                options: ["A. cAMP和cGMP", "B. ppGpp和pppGpp", "C. ATP和GTP", "D. ADP和GDP"],
+                correct: 1,
+                explanation: "正确答案是B。魔斑核苷酸是指当氨基酸缺乏时，细胞内大量产生的鸟苷四磷酸(ppGpp)和鸟苷五磷酸(pppGpp)。"
+            },
+            {
+                question: "反义RNA的调控机制是：",
+                options: ["A. 与DNA结合阻止转录", "B. 与mRNA互补配对调节翻译", "C. 激活蛋白质合成", "D. 促进DNA复制"],
+                correct: 1,
+                explanation: "正确答案是B。反义RNA与mRNA中的特定序列互补配对，改变mRNA分子的构象，导致翻译过程被开启或关闭。"
+            },
+            {
+                question: "严紧控制的特征是：",
+                options: ["A. 蛋白质合成增加", "B. RNA合成增加", "C. 蛋白质和RNA合成都下降", "D. 只有DNA合成下降"],
+                correct: 2,
+                explanation: "正确答案是C。严紧控制是指细菌在氨基酸饥饿条件下，蛋白质和RNA合成速率都下降，大部分活性区域被关闭。"
+            },
+            {
+                question: "核糖开关的功能是：",
+                options: ["A. 调节DNA复制", "B. 感受代谢物浓度变化调节基因表达", "C. 合成蛋白质", "D. 降解RNA"],
+                correct: 1,
+                explanation: "正确答案是B。核糖开关通过感受细胞内代谢物浓度、离子浓度、温度等的变化来改变自身的二级结构和调控功能。"
+            },
+            {
+                question: "乳糖操纵子中Z基因编码的酶是：",
+                options: ["A. β-半乳糖苷透过酶", "B. β-半乳糖苷酶", "C. β-半乳糖苷乙酰基转移酶", "D. 腺苷酸环化酶"],
+                correct: 1,
+                explanation: "正确答案是B。Z基因编码β-半乳糖苷酶，将乳糖水解为半乳糖和葡萄糖。"
+            },
+            {
+                question: "色氨酸操纵子属于：",
+                options: ["A. 负控诱导系统", "B. 负控阻遏系统", "C. 正控诱导系统", "D. 正控阻遏系统"],
+                correct: 1,
+                explanation: "正确答案是B。色氨酸操纵子是负控阻遏系统，色氨酸作为辅阻遏物与阻遏蛋白结合后抑制转录。"
+            },
+            {
+                question: "抗终止因子的作用是：",
+                options: ["A. 促进转录终止", "B. 阻止转录终止", "C. 启动转录", "D. 降解mRNA"],
+                correct: 1,
+                explanation: "正确答案是B。抗终止因子是能够在特定位点阻止转录终止的一类蛋白，使RNA聚合酶能够越过终止子继续转录。"
+            },
+            {
+                question: "稀有密码子对翻译的影响是：",
+                options: ["A. 提高翻译效率", "B. 降低翻译效率", "C. 不影响翻译", "D. 促进mRNA降解"],
+                correct: 1,
+                explanation: "正确答案是B。细胞内对应于稀有密码子的tRNA较少，高频率使用稀有密码子的基因翻译过程容易受阻。"
+            },
+            {
+                question: "重叠基因的生物学意义是：",
+                options: ["A. 节约DNA空间", "B. 保证基因产物数量相等", "C. 提高转录效率", "D. 以上都是"],
+                correct: 3,
+                explanation: "正确答案是D。重叠基因既节约了DNA空间，又通过翻译偶联保证了两个基因产物在数量上相等。"
+            },
+            {
+                question: "大肠杆菌至少存在多少种σ因子？",
+                options: ["A. 5种", "B. 7种", "C. 9种", "D. 11种"],
+                correct: 1,
+                explanation: "正确答案是B。大肠杆菌至少存在7种σ因子，其中σ70参与最基本的生理功能基因的转录调控。"
+            },
+            {
+                question: "H-NS蛋白的作用是：",
+                options: ["A. 激活转录", "B. 维持DNA高级结构", "C. 降解RNA", "D. 合成蛋白质"],
+                correct: 1,
+                explanation: "正确答案是B。H-NS蛋白是细菌中存在的组蛋白类似蛋白，是非特异性的DNA结合蛋白，用来维持DNA的高级结构。"
+            },
+            {
+                question: "松散控制的基因型是：",
+                options: ["A. rel+", "B. rel-", "C. lac+", "D. trp+"],
+                correct: 1,
+                explanation: "正确答案是B。松散控制的基因型是rel-，当氨基酸供应不足时，细胞内蛋白质合成停止，但RNA的合成速率却没有下降。"
+            },
+            {
+                question: "异构乳糖在乳糖操纵子中的作用是：",
+                options: ["A. 真正的诱导物", "B. 阻遏物", "C. 激活蛋白", "D. 终止因子"],
+                correct: 0,
+                explanation: "正确答案是A。异构乳糖是乳糖的异构体，是乳糖操纵子的真正诱导物，与阻遏蛋白结合使其失活。"
+            },
+            {
+                question: "色氨酸操纵子前导序列含有几个序列互补区？",
+                options: ["A. 2个", "B. 3个", "C. 4个", "D. 5个"],
+                correct: 2,
+                explanation: "正确答案是C。前导序列含有4个序列互补区(1、2、3和4区)，能形成不同碱基配对的RNA结构。"
+            },
+            {
+                question: "操纵子学说是由谁提出的？",
+                options: ["A. Watson和Crick", "B. Jacob和Monod", "C. Meselson和Stahl", "D. Avery和MacLeod"],
+                correct: 1,
+                explanation: "正确答案是B。操纵子学说是由Jacob和Monod于1961年提出的关于原核生物基因结构及其表达调控的学说。"
+            },
+            {
+                question: "下列哪种情况下乳糖操纵子完全开启？",
+                options: ["A. 有葡萄糖有乳糖", "B. 无葡萄糖无乳糖", "C. 无葡萄糖有乳糖", "D. 有葡萄糖无乳糖"],
+                correct: 2,
+                explanation: "正确答案是C。只有在无葡萄糖、有乳糖的条件下，阻遏蛋白解离且cAMP-CRP复合物发挥作用，操纵子才完全开启。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+
+        // 生成随机题目
+        function generateQuiz() {
+            // 从30道题中随机选择15道
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}" 
+                                   onchange="userAnswers[${index}] = ${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            let correctCount = 0;
+            const resultsContainer = document.getElementById('quiz-results');
+            resultsContainer.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                if (isCorrect) correctCount++;
+                
+                const resultDiv = document.createElement('div');
+                resultDiv.className = `result show ${isCorrect ? 'correct' : 'incorrect'}`;
+                resultDiv.innerHTML = `
+                    <strong>第${index + 1}题：</strong>${isCorrect ? '正确' : '错误'}<br>
+                    <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                    <strong>解析：</strong>${q.explanation}
+                `;
+                resultsContainer.appendChild(resultDiv);
+            });
+            
+            const scoreDiv = document.createElement('div');
+            scoreDiv.className = 'result show';
+            scoreDiv.style.background = '#e8f4fd';
+            scoreDiv.style.border = '1px solid #3498db';
+            scoreDiv.style.color = '#2c3e50';
+            scoreDiv.style.fontSize = '1.2em';
+            scoreDiv.style.fontWeight = 'bold';
+            scoreDiv.innerHTML = `
+                <strong>测试完成！</strong><br>
+                正确率：${correctCount}/15 (${Math.round(correctCount/15*100)}%)<br>
+                ${correctCount >= 12 ? '优秀！' : correctCount >= 9 ? '良好！' : '需要继续努力！'}
+            `;
+            resultsContainer.insertBefore(scoreDiv, resultsContainer.firstChild);
+        }
+
+        // 重新生成题目
+        function generateNewQuiz() {
+            generateQuiz();
+            document.getElementById('quiz-results').innerHTML = '';
+        }
+
+        // 页面加载时生成题目
+        window.onload = function() {
+            generateQuiz();
+        };
+    </script>
+</body>
+</html>

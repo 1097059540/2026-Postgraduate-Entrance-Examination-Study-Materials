@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞的社会联系 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .term-definition {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #6c757d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-description {
+            margin-top: 8px;
+            text-indent: 0;
+        }
+
+        .quiz-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .thinking-questions {
+            background-color: #fff3cd;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .thinking-question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .question-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .answer-content {
+            margin-top: 15px;
+        }
+
+        .answer-content ol {
+            padding-left: 20px;
+        }
+
+        .answer-content li {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>细胞的社会联系</h1>
+            <p>Cell Social Connections - 考研专业课复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、细胞社会联系概述</h2>
+                <p>细胞的社会联系是指<span class="highlight">多细胞生物体内细胞与细胞之间、细胞与细胞外基质之间的相互作用和联系</span>。这些联系对于维持组织结构、调节细胞功能、传递信息和协调生物体的生理活动具有重要意义。</p>
+                
+                <h3>1.1 细胞社会联系的重要性</h3>
+                <ul>
+                    <li><span class="important">结构支撑</span>：维持组织和器官的形态结构</li>
+                    <li><span class="important">信息传递</span>：细胞间的信号传导和通讯</li>
+                    <li><span class="important">功能协调</span>：协调不同细胞的生理功能</li>
+                    <li><span class="important">发育调控</span>：调节胚胎发育和组织分化</li>
+                    <li><span class="important">稳态维持</span>：维持内环境稳定</li>
+                </ul>
+
+                <h3>1.2 细胞社会联系的类型</h3>
+                <p>根据功能和结构特点，细胞社会联系主要包括：</p>
+                <ol>
+                    <li><span class="highlight">细胞连接</span>：细胞膜之间的直接连接</li>
+                    <li><span class="highlight">细胞黏着</span>：细胞与细胞或细胞外基质的黏附</li>
+                    <li><span class="highlight">细胞外基质</span>：细胞外的支撑结构</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>二、细胞连接</h2>
+                <p>细胞连接是相邻细胞膜之间形成的特殊结构，根据功能可分为三大类：<span class="highlight">封闭连接、锚定连接和通信连接</span>。</p>
+
+                <h3>2.1 封闭连接（Occluding Junctions）</h3>
+                <h4>2.1.1 紧密连接（Tight Junctions）</h4>
+                <p>紧密连接是上皮细胞和内皮细胞间最重要的封闭连接，主要功能是<span class="important">封闭细胞间隙，防止物质在细胞间自由通过</span>。</p>
+                
+                <ul>
+                    <li><strong>结构特点</strong>：由跨膜蛋白形成的密封带状结构</li>
+                    <li><strong>主要蛋白</strong>：
+                        <ul>
+                            <li>闭合蛋白（Claudin）：决定紧密连接的选择性通透性</li>
+                            <li>密封蛋白（Occludin）：调节紧密连接的稳定性</li>
+                            <li>连接黏附分子（JAM）：参与细胞识别和黏附</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：
+                        <ul>
+                            <li>屏障功能：阻止物质在细胞间扩散</li>
+                            <li>栅栏功能：维持细胞膜的极性</li>
+                            <li>信号传导：参与细胞增殖和分化调控</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>2.2 锚定连接（Anchoring Junctions）</h3>
+                <p>锚定连接将细胞骨架与细胞膜连接，提供机械强度和稳定性。</p>
+
+                <h4>2.2.1 桥粒（Desmosomes）</h4>
+                <ul>
+                    <li><strong>结构</strong>：由桥粒芯糖蛋白和桥粒斑蛋白组成</li>
+                    <li><strong>主要蛋白</strong>：桥粒胶蛋白（Desmoglein）、桥粒芯蛋白（Desmocollin）</li>
+                    <li><strong>功能</strong>：连接中间纤维，提供机械强度</li>
+                </ul>
+
+                <h4>2.2.2 半桥粒（Hemidesmosomes）</h4>
+                <ul>
+                    <li><strong>结构</strong>：细胞与基底膜之间的连接结构</li>
+                    <li><strong>主要蛋白</strong>：整联蛋白α6β4、BP180、BP230</li>
+                    <li><strong>功能</strong>：将细胞锚定在基底膜上</li>
+                </ul>
+
+                <h4>2.2.3 黏着带（Adherens Belt）</h4>
+                <ul>
+                    <li><strong>结构</strong>：环绕细胞周围的带状连接</li>
+                    <li><strong>主要蛋白</strong>：E-钙黏蛋白、α-连环蛋白、β-连环蛋白</li>
+                    <li><strong>功能</strong>：连接肌动蛋白纤维，维持细胞形态</li>
+                </ul>
+
+                <h4>2.2.4 黏着斑（Focal Adhesions）</h4>
+                <ul>
+                    <li><strong>结构</strong>：细胞与细胞外基质的连接点</li>
+                    <li><strong>主要蛋白</strong>：整联蛋白、纤连蛋白、黏着斑激酶</li>
+                    <li><strong>功能</strong>：介导细胞与基质的黏附和信号传导</li>
+                </ul>
+
+                <h3>2.3 通信连接（Communicating Junctions）</h3>
+                <h4>2.3.1 间隙连接（Gap Junctions）</h4>
+                <p>间隙连接是动物细胞间最重要的通信连接，允许小分子物质在细胞间自由通过。</p>
+                
+                <ul>
+                    <li><strong>结构组成</strong>：
+                        <ul>
+                            <li>连接子（Connexon）：由6个连接蛋白（Connexin）组成</li>
+                            <li>间隙连接通道：两个连接子对接形成</li>
+                            <li>通道直径：约1.5-2.0 nm</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能特点</strong>：
+                        <ul>
+                            <li><span class="important">代谢偶联</span>：允许分子量小于1000 Da的物质通过</li>
+                            <li><span class="important">电偶联</span>：传递电信号，如心肌细胞间的电传导</li>
+                            <li><span class="important">发育调控</span>：在胚胎发育中传递调节信号</li>
+                        </ul>
+                    </li>
+                    <li><strong>调节机制</strong>：
+                        <ul>
+                            <li>pH调节：酸性条件下通道关闭</li>
+                            <li>Ca²⁺调节：高钙离子浓度抑制通道开放</li>
+                            <li>磷酸化调节：蛋白激酶调节通道活性</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>2.3.2 胞间连丝（Plasmodesmata）</h4>
+                <p>胞间连丝是植物细胞特有的通信连接，贯穿细胞壁连接相邻细胞的细胞质。</p>
+                
+                <ul>
+                    <li><strong>结构特点</strong>：
+                        <ul>
+                            <li>直径：20-60 nm</li>
+                            <li>中央有内质网管状结构（胞间连丝小管）</li>
+                            <li>周围为细胞质连续体</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：
+                        <ul>
+                            <li>物质运输：水分、离子、小分子有机物</li>
+                            <li>信号传递：激素、蛋白质、RNA等信号分子</li>
+                            <li>协调发育：调节细胞分化和器官发育</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>2.3.3 化学突触（Chemical Synapses）</h4>
+                <p>化学突触是神经细胞间特殊的通信连接，通过神经递质传递信号。</p>
+                
+                <ul>
+                    <li><strong>结构组成</strong>：突触前膜、突触间隙、突触后膜</li>
+                    <li><strong>传递机制</strong>：动作电位→Ca²⁺内流→囊泡释放→神经递质结合受体</li>
+                    <li><strong>特点</strong>：单向传递、可塑性强、易受调节</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、细胞黏着</h2>
+                <p>细胞黏着是细胞与细胞或细胞与细胞外基质之间的相互结合，主要通过<span class="highlight">细胞黏着分子</span>介导。</p>
+
+                <h3>3.1 钙黏蛋白（Cadherins）</h3>
+                <p>钙黏蛋白是最重要的细胞-细胞黏着分子，依赖Ca²⁺发挥黏着功能。</p>
+                
+                <ul>
+                    <li><strong>分类</strong>：
+                        <ul>
+                            <li>E-钙黏蛋白（E-cadherin）：上皮细胞</li>
+                            <li>N-钙黏蛋白（N-cadherin）：神经细胞</li>
+                            <li>P-钙黏蛋白（P-cadherin）：胎盘细胞</li>
+                        </ul>
+                    </li>
+                    <li><strong>结构特点</strong>：
+                        <ul>
+                            <li>胞外域：含5个钙结合域</li>
+                            <li>跨膜域：单次跨膜</li>
+                            <li>胞内域：与连环蛋白结合</li>
+                        </ul>
+                    </li>
+                    <li><strong>黏着机制</strong>：同型黏着（相同类型钙黏蛋白结合）</li>
+                    <li><strong>生物学意义</strong>：
+                        <ul>
+                            <li>胚胎发育：调节细胞分选和组织形成</li>
+                            <li>肿瘤转移：E-钙黏蛋白缺失促进癌细胞转移</li>
+                            <li>组织稳态：维持组织结构完整性</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>3.2 选择素（Selectins）</h3>
+                <p>选择素主要介导白细胞与血管内皮细胞的初始黏着，参与炎症反应。</p>
+                
+                <ul>
+                    <li><strong>分类</strong>：
+                        <ul>
+                            <li>L-选择素：淋巴细胞表面</li>
+                            <li>E-选择素：内皮细胞表面</li>
+                            <li>P-选择素：血小板和内皮细胞</li>
+                        </ul>
+                    </li>
+                    <li><strong>配体</strong>：糖蛋白和糖脂上的寡糖结构</li>
+                    <li><strong>功能</strong>：介导白细胞滚动和初始黏着</li>
+                </ul>
+
+                <h3>3.3 整联蛋白（Integrins）</h3>
+                <p>整联蛋白是最重要的细胞-基质黏着分子，介导细胞与细胞外基质的结合。</p>
+                
+                <ul>
+                    <li><strong>结构</strong>：α亚基和β亚基组成的异二聚体</li>
+                    <li><strong>配体</strong>：胶原、纤连蛋白、层粘连蛋白等</li>
+                    <li><strong>信号转导</strong>：
+                        <ul>
+                            <li><span class="important">由内向外信号</span>：胞内信号调节整联蛋白活性</li>
+                            <li><span class="important">由外向内信号</span>：基质信号传入细胞内</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：
+                        <ul>
+                            <li>细胞黏着：将细胞锚定在基质上</li>
+                            <li>信号传导：激活黏着斑激酶等信号通路</li>
+                            <li>细胞迁移：调节细胞运动和定向</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、细胞外基质</h2>
+                <p>细胞外基质（Extracellular Matrix, ECM）是由细胞分泌的大分子构成的复杂网络结构，为细胞提供支撑并调节细胞功能。</p>
+
+                <h3>4.1 细胞外基质的组成</h3>
+                <p>细胞外基质主要由以下四类大分子组成：</p>
+                
+                <h4>4.1.1 结构蛋白</h4>
+                <ul>
+                    <li><strong>胶原蛋白</strong>：提供抗张强度</li>
+                    <li><strong>弹性蛋白</strong>：提供弹性和可逆性变形</li>
+                </ul>
+
+                <h4>4.1.2 蛋白聚糖和糖胺聚糖</h4>
+                <ul>
+                    <li><strong>蛋白聚糖</strong>：核心蛋白结合糖胺聚糖链</li>
+                    <li><strong>糖胺聚糖</strong>：高度水合，提供抗压性</li>
+                </ul>
+
+                <h4>4.1.3 粘连糖蛋白</h4>
+                <ul>
+                    <li><strong>纤连蛋白</strong>：介导细胞与基质黏着</li>
+                    <li><strong>层粘连蛋白</strong>：基底膜的主要成分</li>
+                </ul>
+
+                <h3>4.2 胶原蛋白（Collagen）</h3>
+                <p>胶原蛋白是动物体内含量最丰富的蛋白质，约占人体蛋白质总量的30%以上。</p>
+                
+                <h4>4.2.1 胶原蛋白的结构</h4>
+                <ul>
+                    <li><strong>基本结构</strong>：三股螺旋（Triple Helix）</li>
+                    <li><strong>氨基酸组成</strong>：Gly-X-Y重复序列（X常为Pro，Y常为Hyp）</li>
+                    <li><strong>分子结构</strong>：
+                        <ul>
+                            <li>α链：约1000个氨基酸残基</li>
+                            <li>原胶原：三条α链组成的三股螺旋</li>
+                            <li>胶原纤维：原胶原分子聚合形成</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>4.2.2 胶原蛋白的类型</h4>
+                <ul>
+                    <li><strong>Ⅰ型胶原</strong>：皮肤、骨骼、肌腱中最丰富</li>
+                    <li><strong>Ⅱ型胶原</strong>：软骨的主要成分</li>
+                    <li><strong>Ⅲ型胶原</strong>：血管壁、子宫等</li>
+                    <li><strong>Ⅳ型胶原</strong>：基底膜的主要成分</li>
+                </ul>
+
+                <h4>4.2.3 胶原蛋白的合成与装配</h4>
+                <ol>
+                    <li><strong>转录翻译</strong>：前α链在粗面内质网合成</li>
+                    <li><strong>翻译后修饰</strong>：脯氨酸和赖氨酸羟基化（需维生素C）</li>
+                    <li><strong>三股螺旋形成</strong>：三条前α链组装成前胶原</li>
+                    <li><strong>分泌与成熟</strong>：前肽被切除，形成成熟胶原</li>
+                    <li><strong>纤维形成</strong>：胶原分子聚合成纤维</li>
+                </ol>
+
+                <h3>4.3 弹性蛋白（Elastin）</h3>
+                <p>弹性蛋白是弹性纤维的主要成分，赋予组织弹性和可逆性变形能力。</p>
+                
+                <ul>
+                    <li><strong>分布</strong>：血管壁、肺泡、韧带、皮肤</li>
+                    <li><strong>结构特点</strong>：
+                        <ul>
+                            <li>富含甘氨酸、脯氨酸、丙氨酸</li>
+                            <li>含有特殊的交联氨基酸（锁链素、异锁链素）</li>
+                            <li>无规则卷曲结构</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：提供组织弹性，维持血管和肺的功能</li>
+                </ul>
+
+                <h3>4.4 糖胺聚糖和蛋白聚糖</h3>
+                <h4>4.4.1 糖胺聚糖（Glycosaminoglycans, GAGs）</h4>
+                <p>糖胺聚糖是由重复二糖单位组成的长链多糖，高度带负电荷。</p>
+                
+                <ul>
+                    <li><strong>主要类型</strong>：
+                        <ul>
+                            <li>透明质酸（Hyaluronic Acid）</li>
+                            <li>硫酸软骨素（Chondroitin Sulfate）</li>
+                            <li>硫酸皮肤素（Dermatan Sulfate）</li>
+                            <li>硫酸乙酰肝素（Heparan Sulfate）</li>
+                            <li>硫酸角质素（Keratan Sulfate）</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：
+                        <ul>
+                            <li>保水：形成高度水合的凝胶</li>
+                            <li>抗压：抵抗压缩力</li>
+                            <li>信号调节：结合生长因子和细胞因子</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>4.4.2 蛋白聚糖（Proteoglycans）</h4>
+                <p>蛋白聚糖由核心蛋白共价结合一条或多条糖胺聚糖链组成。</p>
+                
+                <ul>
+                    <li><strong>结构</strong>：核心蛋白 + GAG链</li>
+                    <li><strong>主要类型</strong>：
+                        <ul>
+                            <li>聚集蛋白聚糖：软骨基质的主要成分</li>
+                            <li>多配蛋白：基底膜成分</li>
+                            <li>辛迪加蛋白：细胞表面蛋白聚糖</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：结构支撑、信号传导、细胞黏着</li>
+                </ul>
+
+                <h3>4.5 粘连糖蛋白</h3>
+                <h4>4.5.1 纤连蛋白（Fibronectin）</h4>
+                <p>纤连蛋白是重要的粘连糖蛋白，介导细胞与细胞外基质的黏着。</p>
+                
+                <ul>
+                    <li><strong>结构</strong>：
+                        <ul>
+                            <li>二聚体糖蛋白（约440 kDa）</li>
+                            <li>含多个功能域：胶原结合域、肝素结合域、RGD序列</li>
+                            <li>V字形结构</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：
+                        <ul>
+                            <li>细胞黏着：通过RGD序列与整联蛋白结合</li>
+                            <li>细胞迁移：为细胞迁移提供基质</li>
+                            <li>创伤修复：参与血液凝固和组织修复</li>
+                            <li>胚胎发育：调节细胞分化和器官形成</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>4.5.2 层粘连蛋白（Laminin）</h4>
+                <p>层粘连蛋白是基底膜的主要糖蛋白成分，具有十字形结构。</p>
+                
+                <ul>
+                    <li><strong>结构</strong>：
+                        <ul>
+                            <li>异三聚体：α、β、γ三条链</li>
+                            <li>十字形结构：一个长臂和三个短臂</li>
+                            <li>分子量：约800 kDa</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：
+                        <ul>
+                            <li>基底膜组装：与Ⅳ型胶原共同构建基底膜</li>
+                            <li>细胞黏着：与细胞表面受体结合</li>
+                            <li>细胞分化：调节细胞极性和分化</li>
+                            <li>神经发育：引导神经元轴突生长</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>4.6 基膜（Basement Membrane）</h3>
+                <p>基膜是特殊的细胞外基质结构，位于上皮细胞、内皮细胞、肌细胞等与结缔组织之间。</p>
+                
+                <ul>
+                    <li><strong>组成</strong>：
+                        <ul>
+                            <li>Ⅳ型胶原：提供结构框架</li>
+                            <li>层粘连蛋白：介导细胞黏着</li>
+                            <li>巢蛋白：连接层粘连蛋白和Ⅳ型胶原</li>
+                            <li>多配蛋白：硫酸乙酰肝素蛋白聚糖</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能</strong>：
+                        <ul>
+                            <li>结构支撑：为细胞提供支撑平台</li>
+                            <li>分子筛：调节分子通透性</li>
+                            <li>细胞极性：维持上皮细胞极性</li>
+                            <li>信号传导：储存和释放生长因子</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>五、植物细胞壁</h2>
+                <p>植物细胞壁是植物细胞特有的细胞外结构，为植物提供机械支撑和保护。</p>
+
+                <h3>5.1 植物细胞壁的化学组成</h3>
+                <ul>
+                    <li><strong>纤维素</strong>：主要结构成分，提供抗张强度</li>
+                    <li><strong>半纤维素</strong>：连接纤维素微纤丝</li>
+                    <li><strong>果胶</strong>：填充物质，调节细胞壁可塑性</li>
+                    <li><strong>木质素</strong>：次生细胞壁成分，增加硬度</li>
+                    <li><strong>伸展蛋白</strong>：调节细胞壁延展性</li>
+                </ul>
+
+                <h3>5.2 植物细胞壁的结构层次</h3>
+                <ol>
+                    <li><strong>中间层</strong>：相邻细胞间的共同结构，富含果胶</li>
+                    <li><strong>初生细胞壁</strong>：细胞分裂后形成，较薄且可延展</li>
+                    <li><strong>次生细胞壁</strong>：细胞停止生长后形成，厚而坚硬</li>
+                </ol>
+
+                <h3>5.3 植物细胞壁的功能</h3>
+                <ul>
+                    <li><strong>机械支撑</strong>：维持植物形态和抵抗外力</li>
+                    <li><strong>保护作用</strong>：防止病原体入侵和机械损伤</li>
+                    <li><strong>调节渗透</strong>：控制水分和溶质的进出</li>
+                    <li><strong>信号传递</strong>：参与植物的防御反应</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>六、名词解释库</h2>
+                
+                <div class="term-definition">
+                    <div class="term-name">紧密连接<span class="term-english">(Tight Junctions)</span></div>
+                    <div class="term-description">上皮细胞和内皮细胞间的封闭连接，由闭合蛋白和密封蛋白等跨膜蛋白形成密封带状结构，主要功能是封闭细胞间隙，防止物质在细胞间自由通过，同时维持细胞膜的极性。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">间隙连接<span class="term-english">(Gap Junctions)</span></div>
+                    <div class="term-description">动物细胞间的通信连接，由连接蛋白组成的连接子对接形成通道，允许分子量小于1000 Da的物质在细胞间自由通过，实现细胞间的代谢偶联和电偶联。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">桥粒<span class="term-english">(Desmosomes)</span></div>
+                    <div class="term-description">细胞间的锚定连接，由桥粒胶蛋白和桥粒芯蛋白组成，连接细胞的中间纤维，为组织提供机械强度，在皮肤等承受机械应力的组织中特别重要。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">胞间连丝<span class="term-english">(Plasmodesmata)</span></div>
+                    <div class="term-description">植物细胞特有的通信连接，贯穿细胞壁连接相邻细胞的细胞质，直径20-60 nm，中央有内质网管状结构，允许水分、离子、小分子有机物和信号分子在细胞间运输。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">钙黏蛋白<span class="term-english">(Cadherins)</span></div>
+                    <div class="term-description">依赖Ca²⁺的细胞黏着分子，介导同型细胞间的黏着，含胞外钙结合域、跨膜域和与连环蛋白结合的胞内域，在胚胎发育、组织形成和肿瘤转移中发挥重要作用。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">整联蛋白<span class="term-english">(Integrins)</span></div>
+                    <div class="term-description">由α和β亚基组成的异二聚体跨膜受体，介导细胞与细胞外基质的黏着，具有双向信号传导功能，参与细胞黏着、迁移、增殖和分化的调节。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">细胞外基质<span class="term-english">(Extracellular Matrix, ECM)</span></div>
+                    <div class="term-description">由细胞分泌的大分子构成的复杂网络结构，主要包括胶原蛋白、弹性蛋白、蛋白聚糖、糖胺聚糖和粘连糖蛋白，为细胞提供支撑并调节细胞功能。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">胶原蛋白<span class="term-english">(Collagen)</span></div>
+                    <div class="term-description">动物体内含量最丰富的蛋白质，由三条α链组成三股螺旋结构，含Gly-X-Y重复序列，提供组织的抗张强度，目前已发现至少19种类型。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">纤连蛋白<span class="term-english">(Fibronectin)</span></div>
+                    <div class="term-description">重要的粘连糖蛋白，V字形二聚体结构，含RGD序列与整联蛋白结合，介导细胞与细胞外基质的黏着，参与细胞迁移、创伤修复和胚胎发育。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">层粘连蛋白<span class="term-english">(Laminin)</span></div>
+                    <div class="term-description">基底膜的主要糖蛋白成分，由α、β、γ三条链组成的异三聚体，具有十字形结构，参与基底膜组装、细胞黏着和分化调节。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">糖胺聚糖<span class="term-english">(Glycosaminoglycans, GAGs)</span></div>
+                    <div class="term-description">由重复二糖单位组成的长链多糖，高度带负电荷，包括透明质酸、硫酸软骨素等，形成高度水合的凝胶，提供抗压性并参与信号调节。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">蛋白聚糖<span class="term-english">(Proteoglycans)</span></div>
+                    <div class="term-description">由核心蛋白共价结合一条或多条糖胺聚糖链组成的大分子，参与细胞外基质的结构支撑、信号传导和细胞黏着。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">基膜<span class="term-english">(Basement Membrane)</span></div>
+                    <div class="term-description">特殊的细胞外基质结构，主要由Ⅳ型胶原、层粘连蛋白、巢蛋白和多配蛋白组成，位于上皮细胞等与结缔组织之间，提供结构支撑并调节分子通透性。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">黏着斑<span class="term-english">(Focal Adhesions)</span></div>
+                    <div class="term-description">细胞与细胞外基质的连接点，由整联蛋白、纤连蛋白、黏着斑激酶等蛋白组成，介导细胞与基质的黏附并传递机械信号和生化信号。</div>
+                </div>
+
+                <div class="term-definition">
+                    <div class="term-name">连接蛋白<span class="term-english">(Connexins)</span></div>
+                    <div class="term-description">构成间隙连接的跨膜蛋白，6个连接蛋白组成一个连接子，两个连接子对接形成间隙连接通道，调节细胞间的物质交换和信号传递。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="quiz-container">
+                <h2>七、选择题测试</h2>
+                <p>以下题目从30道题库中随机抽取15道，请选择最佳答案：</p>
+                
+                <div id="quiz-questions"></div>
+                
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                
+                <div id="quiz-results"></div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="thinking-questions">
+                <h2>八、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <div class="question-title">1. 试分析紧密连接在维持上皮组织屏障功能中的作用机制，并讨论其在疾病发生中的意义。</div>
+                    <div class="answer-content">
+                        <ol>
+                            <li><strong>屏障功能的分子机制</strong>：紧密连接通过闭合蛋白（claudin）和密封蛋白（occludin）形成跨膜蛋白复合体，在相邻细胞间形成连续的密封带。这些蛋白在细胞外域相互作用，完全封闭细胞间隙，阻止大分子物质和病原体通过细胞旁途径进入组织内部。同时，紧密连接还具有栅栏功能，维持细胞膜顶端域和基底侧域的不同蛋白质组成，保持细胞极性。</li>
+                            <li><strong>选择性通透调节</strong>：不同类型的闭合蛋白赋予紧密连接不同的选择性通透性。例如，claudin-2形成阳离子选择性通道，而claudin-4则形成阴离子屏障。这种选择性使得上皮组织能够精确调节离子和小分子的跨上皮转运，维持体内稳态。</li>
+                            <li><strong>信号传导功能</strong>：紧密连接蛋白与多种信号分子相互作用，参与细胞增殖、分化和凋亡的调节。ZO蛋白连接跨膜蛋白与细胞骨架，传递机械信号；同时，紧密连接还调节Wnt、Hippo等信号通路，影响细胞命运决定。</li>
+                            <li><strong>疾病相关性</strong>：紧密连接功能异常与多种疾病密切相关。在炎症性肠病中，紧密连接破坏导致肠道屏障功能受损，细菌和毒素易于穿透肠壁引起炎症；在癌症中，紧密连接蛋白表达下调促进肿瘤细胞的侵袭和转移；在神经系统疾病中，血脑屏障紧密连接的破坏导致神经毒性物质进入脑组织。</li>
+                            <li><strong>治疗靶点价值</strong>：基于紧密连接在疾病中的关键作用，调节紧密连接功能成为重要的治疗策略。例如，通过增强紧密连接可以改善肠道屏障功能，治疗炎症性肠病；而在某些情况下，适度开放紧密连接可以促进药物的组织渗透，提高治疗效果。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <div class="question-title">2. 比较分析动物细胞间隙连接与植物胞间连丝的结构特点和功能差异，并探讨其进化意义。</div>
+                    <div class="answer-content">
+                        <ol>
+                            <li><strong>结构组成差异</strong>：间隙连接由连接蛋白（connexin）组成，6个连接蛋白形成连接子，两个连接子对接形成直径约2nm的通道；而胞间连丝是贯穿细胞壁的细胞质通道，直径20-60nm，中央有内质网衍生的管状结构（胞间连丝小管），周围为连续的细胞质。这种结构差异反映了动植物细胞壁存在与否的根本区别。</li>
+                            <li><strong>通透性和选择性</strong>：间隙连接只允许分子量小于1000Da的小分子通过，包括离子、氨基酸、核苷酸等，具有严格的分子量限制；胞间连丝不仅允许小分子通过，还能转运蛋白质、RNA等大分子，甚至病毒颗粒，通透性更广泛。这种差异使得植物能够实现更复杂的细胞间信号传递。</li>
+                            <li><strong>调节机制对比</strong>：间隙连接的开闭主要受pH、Ca²⁺浓度和蛋白磷酸化调节，响应快速但调节方式相对简单；胞间连丝的调节更为复杂，涉及胼胝质沉积、蛋白质修饰、RNA结合蛋白等多种机制，能够实现更精细的时空调控。</li>
+                            <li><strong>功能特化程度</strong>：间隙连接主要实现代谢偶联和电偶联，在心肌传导、神经信号传递等方面发挥关键作用；胞间连丝除了物质运输外，还参与发育模式建立、激素信号传递、病毒传播等多种生物学过程，功能更加多样化。</li>
+                            <li><strong>进化适应意义</strong>：动物细胞的间隙连接适应了动物快速响应环境变化的需求，特别是神经系统的快速信号传递；植物胞间连丝则适应了植物固着生活方式，通过复杂的细胞间通讯网络协调整个植株的生长发育和环境响应。这两种不同的连接方式体现了动植物在进化过程中对不同生存策略的适应。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <div class="question-title">3. 分析细胞外基质在肿瘤发生发展中的双重作用，并讨论基于ECM的抗肿瘤治疗策略。</div>
+                    <div class="answer-content">
+                        <ol>
+                            <li><strong>ECM的肿瘤抑制作用</strong>：正常情况下，细胞外基质通过多种机制抑制肿瘤发生。基底膜作为物理屏障阻止细胞异常迁移；ECM成分如纤连蛋白、层粘连蛋白通过整联蛋白介导的信号传导调节细胞增殖和凋亡，维持组织稳态；某些ECM蛋白如肌腱蛋白具有抗黏附特性，抑制细胞过度增殖；ECM还能储存和调节生长因子的释放，防止细胞过度激活。</li>
+                            <li><strong>ECM在肿瘤进展中的促进作用</strong>：肿瘤发展过程中，ECM成分和结构发生显著改变，反而促进肿瘤进展。肿瘤细胞分泌的基质金属蛋白酶（MMPs）降解基底膜和ECM，为肿瘤侵袭开辟通道；异常的ECM重塑产生更硬的基质，激活机械敏感信号通路促进肿瘤细胞增殖；某些ECM成分如透明质酸在肿瘤中过度表达，促进血管生成和转移；肿瘤相关成纤维细胞产生的ECM为肿瘤细胞提供生存和迁移的支撑。</li>
+                            <li><strong>ECM与肿瘤微环境</strong>：ECM是肿瘤微环境的重要组成部分，影响肿瘤细胞与免疫细胞、血管内皮细胞等的相互作用。致密的ECM可以阻止免疫细胞浸润，形成免疫抑制微环境；同时，ECM的机械特性影响药物在肿瘤组织中的分布，导致化疗药物难以到达肿瘤深部。</li>
+                            <li><strong>基于ECM的治疗策略</strong>：针对ECM的抗肿瘤治疗包括多个方面：使用MMP抑制剂阻止ECM降解，防止肿瘤侵袭转移；通过透明质酸酶处理降低ECM密度，改善药物渗透；利用整联蛋白拮抗剂阻断肿瘤细胞与ECM的相互作用；开发ECM标准化的药物载体系统，提高药物的靶向性和有效性。</li>
+                            <li><strong>个体化治疗前景</strong>：随着对ECM在肿瘤中作用机制认识的深入，基于患者特异性ECM特征的个体化治疗成为可能。通过分析肿瘤组织的ECM组成和结构，可以预测治疗反应并制定个体化的治疗方案，这为精准医学提供了新的思路和方法。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <div class="question-title">4. 探讨整联蛋白介导的双向信号传导在细胞行为调节中的作用机制及其临床应用价值。</div>
+                    <div class="answer-content">
+                        <ol>
+                            <li><strong>由外向内信号传导机制</strong>：当整联蛋白与ECM配体结合后，发生构象变化并聚集形成黏着复合体。这一过程激活黏着斑激酶（FAK）、Src家族激酶等信号分子，进而激活下游的MAPK、PI3K/Akt、Rho家族GTPases等信号通路。这些信号调节细胞骨架重组、基因转录、细胞存活和增殖等多种细胞行为，使细胞能够感知和响应ECM的变化。</li>
+                            <li><strong>由内向外信号传导机制</strong>：细胞内信号可以调节整联蛋白的活性状态，这一过程称为整联蛋白激活。Talin、kindlin等胞内蛋白结合整联蛋白β亚基的胞质域，诱导整联蛋白从低亲和力状态转变为高亲和力状态，增强其与ECM的结合能力。这种机制使细胞能够根据内在需求主动调节与ECM的相互作用。</li>
+                            <li><strong>机械力传导与细胞行为</strong>：整联蛋白是重要的机械力传感器，能够将ECM的机械特性转化为生化信号。当细胞感受到基质硬度增加时，整联蛋白介导的信号传导增强，促进细胞增殖和分化；相反，软基质上的细胞倾向于保持干细胞特性或发生凋亡。这种机械生物学机制在组织发育、创伤修复和疾病发生中发挥关键作用。</li>
+                            <li><strong>疾病相关性与治疗靶点</strong>：整联蛋白信号异常与多种疾病相关。在癌症中，某些整联蛋白过度表达促进肿瘤血管生成和转移，成为重要的治疗靶点；在血栓性疾病中，血小板整联蛋白αIIbβ3的激活导致血栓形成；在炎症性疾病中，白细胞整联蛋白介导的黏附和迁移加重炎症反应。针对这些整联蛋白开发的拮抗剂已在临床应用或试验中。</li>
+                            <li><strong>再生医学应用前景</strong>：基于整联蛋白信号传导的认识，可以设计具有特定机械特性和生物活性的生物材料，调控干细胞的分化方向和组织再生过程。例如，通过调节支架材料的硬度和整联蛋白配体密度，可以引导间充质干细胞向骨、软骨或脂肪细胞分化，为组织工程和再生医学提供新的策略。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <div class="question-title">5. 分析细胞连接在胚胎发育中的作用，并讨论其异常如何导致先天性疾病。</div>
+                    <div class="answer-content">
+                        <ol>
+                            <li><strong>早期胚胎发育中的细胞连接建立</strong>：在胚胎发育早期，细胞连接的建立对于胚层形成和细胞分选至关重要。E-钙黏蛋白介导的细胞黏着决定了细胞的聚集模式，紧密连接的形成建立了第一个上皮屏障，间隙连接则协调细胞间的信号传递。这些连接的时空特异性表达模式指导着胚胎的正确发育程序。</li>
+                            <li><strong>组织分化与器官形成</strong>：不同类型的细胞连接在特定组织的分化过程中发挥关键作用。神经系统发育中，N-钙黏蛋白调节神经元的迁移和突触形成；心脏发育中，间隙连接蛋白Cx43的表达对心肌细胞的电传导至关重要；肾脏发育中，紧密连接的建立对肾小管上皮的极性和功能具有决定性意义。</li>
+                            <li><strong>形态发生运动的调控</strong>：胚胎发育过程中的复杂形态发生运动依赖于细胞连接的动态调节。细胞间黏着的减弱促进细胞迁移，而黏着的增强则稳定组织结构。黏着连接与细胞骨架的相互作用产生收缩力，驱动组织折叠、内陷等形态发生过程。</li>
+                            <li><strong>先天性疾病的分子机制</strong>：细胞连接基因的突变导致多种先天性疾病。GJB2基因（编码Cx26）突变引起遗传性耳聋，因为内耳毛细胞间的间隙连接对听觉功能至关重要；CDH1基因（编码E-钙黏蛋白）突变与遗传性弥漫性胃癌相关；紧密连接蛋白基因突变可导致肠道屏障功能缺陷和炎症性肠病。</li>
+                            <li><strong>治疗策略与基因治疗前景</strong>：基于对细胞连接在发育中作用的理解，可以开发针对性的治疗策略。基因治疗技术的发展为纠正细胞连接基因缺陷提供了可能；小分子药物可以调节细胞连接的功能，改善疾病症状；组织工程方法可以利用正常的细胞连接重建受损组织的功能。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "紧密连接的主要功能是什么？",
+                options: ["A. 允许小分子物质通过", "B. 提供机械强度", "C. 封闭细胞间隙，维持屏障功能", "D. 传递电信号"],
+                correct: 2,
+                explanation: "紧密连接的主要功能是封闭细胞间隙，防止物质在细胞间自由通过，维持上皮和内皮的屏障功能，同时维持细胞膜的极性。"
+            },
+            {
+                question: "间隙连接允许通过的分子最大分子量约为多少？",
+                options: ["A. 500 Da", "B. 1000 Da", "C. 2000 Da", "D. 5000 Da"],
+                correct: 1,
+                explanation: "间隙连接通道的直径约为1.5-2.0 nm，允许分子量小于1000 Da的小分子物质通过，包括离子、氨基酸、核苷酸等。"
+            },
+            {
+                question: "桥粒主要连接哪种细胞骨架成分？",
+                options: ["A. 微管", "B. 肌动蛋白纤维", "C. 中间纤维", "D. 核纤层蛋白"],
+                correct: 2,
+                explanation: "桥粒是锚定连接的一种，主要功能是连接相邻细胞的中间纤维，为组织提供机械强度，特别在承受机械应力的组织中重要。"
+            },
+            {
+                question: "胞间连丝是哪类生物特有的细胞连接？",
+                options: ["A. 动物", "B. 植物", "C. 真菌", "D. 细菌"],
+                correct: 1,
+                explanation: "胞间连丝是植物细胞特有的通信连接，贯穿细胞壁连接相邻细胞的细胞质，允许水分、离子、小分子有机物和信号分子在细胞间运输。"
+            },
+            {
+                question: "钙黏蛋白发挥黏着功能需要哪种离子？",
+                options: ["A. Na⁺", "B. K⁺", "C. Ca²⁺", "D. Mg²⁺"],
+                correct: 2,
+                explanation: "钙黏蛋白是依赖Ca²⁺的细胞黏着分子，其胞外域含有5个钙结合域，Ca²⁺的结合对维持钙黏蛋白的正确构象和黏着功能至关重要。"
+            },
+            {
+                question: "整联蛋白的基本结构是什么？",
+                options: ["A. 单一跨膜蛋白", "B. α和β亚基组成的异二聚体", "C. 三聚体复合物", "D. 四聚体复合物"],
+                correct: 1,
+                explanation: "整联蛋白由α亚基和β亚基组成的异二聚体跨膜受体，介导细胞与细胞外基质的黏着，具有双向信号传导功能。"
+            },
+            {
+                question: "胶原蛋白的基本氨基酸重复序列是什么？",
+                options: ["A. Gly-Pro-Hyp", "B. Gly-X-Y", "C. Pro-Hyp-Gly", "D. X-Gly-Pro"],
+                correct: 1,
+                explanation: "胶原蛋白的基本结构特征是Gly-X-Y重复序列，其中X位常为脯氨酸（Pro），Y位常为羟脯氨酸（Hyp），这种序列对形成稳定的三股螺旋结构至关重要。"
+            },
+            {
+                question: "纤连蛋白与整联蛋白结合的关键序列是什么？",
+                options: ["A. RGD序列", "B. EGF序列", "C. LRR序列", "D. WD40序列"],
+                correct: 0,
+                explanation: "纤连蛋白含有RGD（精氨酸-甘氨酸-天冬氨酸）序列，这是与整联蛋白结合的关键序列，介导细胞与细胞外基质的黏着。"
+            },
+            {
+                question: "基底膜的主要组成成分不包括哪个？",
+                options: ["A. Ⅳ型胶原", "B. 层粘连蛋白", "C. Ⅰ型胶原", "D. 多配蛋白"],
+                correct: 2,
+                explanation: "基底膜主要由Ⅳ型胶原、层粘连蛋白、巢蛋白和多配蛋白组成。Ⅰ型胶原主要存在于皮肤、骨骼、肌腱等组织中，不是基底膜的主要成分。"
+            },
+            {
+                question: "糖胺聚糖的主要功能特点是什么？",
+                options: ["A. 提供抗张强度", "B. 高度水合，提供抗压性", "C. 介导细胞黏着", "D. 传递信号"],
+                correct: 1,
+                explanation: "糖胺聚糖是高度带负电荷的长链多糖，能够结合大量水分子形成高度水合的凝胶，主要功能是提供抗压性和缓冲作用。"
+            },
+            {
+                question: "连接蛋白（connexin）的主要功能是什么？",
+                options: ["A. 形成紧密连接", "B. 构成间隙连接", "C. 组成桥粒", "D. 形成黏着连接"],
+                correct: 1,
+                explanation: "连接蛋白（connexin）是构成间隙连接的跨膜蛋白，6个连接蛋白组成一个连接子，两个连接子对接形成间隙连接通道。"
+            },
+            {
+                question: "E-钙黏蛋白主要表达在哪种细胞类型？",
+                options: ["A. 神经细胞", "B. 上皮细胞", "C. 肌肉细胞", "D. 血细胞"],
+                correct: 1,
+                explanation: "E-钙黏蛋白（E-cadherin）主要表达在上皮细胞中，是上皮细胞间黏着的关键分子，其缺失与上皮-间质转化和肿瘤转移相关。"
+            },
+            {
+                question: "黏着斑激酶（FAK）主要参与哪种信号传导？",
+                options: ["A. 紧密连接信号", "B. 间隙连接信号", "C. 整联蛋白信号", "D. 钙黏蛋白信号"],
+                correct: 2,
+                explanation: "黏着斑激酶（FAK）是整联蛋白信号传导的关键分子，当整联蛋白与ECM结合后被激活，进而激活下游信号通路调节细胞行为。"
+            },
+            {
+                question: "植物细胞壁的主要结构成分是什么？",
+                options: ["A. 胶原蛋白", "B. 纤维素", "C. 弹性蛋白", "D. 角蛋白"],
+                correct: 1,
+                explanation: "纤维素是植物细胞壁的主要结构成分，由β-1,4-葡萄糖苷键连接的葡萄糖聚合物，提供细胞壁的抗张强度。"
+            },
+            {
+                question: "层粘连蛋白的典型结构特征是什么？",
+                options: ["A. 球状结构", "B. 纤维状结构", "C. 十字形结构", "D. 螺旋结构"],
+                correct: 2,
+                explanation: "层粘连蛋白由α、β、γ三条链组成异三聚体，具有典型的十字形结构，包括一个长臂和三个短臂，是基底膜的主要糖蛋白成分。"
+            },
+            {
+                question: "间隙连接的通透性主要受哪些因素调节？",
+                options: ["A. 温度和湿度", "B. pH和Ca²⁺浓度", "C. 光照和氧气", "D. 压力和体积"],
+                correct: 1,
+                explanation: "间隙连接的通透性主要受pH和Ca²⁺浓度调节。酸性条件和高钙离子浓度会导致间隙连接通道关闭，此外蛋白磷酸化也参与调节。"
+            },
+            {
+                question: "选择素主要参与哪种生物学过程？",
+                options: ["A. 神经传导", "B. 肌肉收缩", "C. 白细胞黏着和炎症", "D. 激素分泌"],
+                correct: 2,
+                explanation: "选择素主要介导白细胞与血管内皮细胞的初始黏着，参与炎症反应中白细胞的滚动、黏着和迁移过程。"
+            },
+            {
+                question: "蛋白聚糖的核心结构是什么？",
+                options: ["A. 核心蛋白结合糖胺聚糖链", "B. 纯糖链结构", "C. 纯蛋白质结构", "D. 脂质-蛋白质复合物"],
+                correct: 0,
+                explanation: "蛋白聚糖由核心蛋白共价结合一条或多条糖胺聚糖链组成，是细胞外基质的重要成分，参与结构支撑和信号传导。"
+            },
+            {
+                question: "紧密连接中的闭合蛋白（claudin）主要决定什么？",
+                options: ["A. 连接强度", "B. 选择性通透性", "C. 连接稳定性", "D. 信号传导"],
+                correct: 1,
+                explanation: "闭合蛋白（claudin）是紧密连接的关键组成蛋白，不同类型的claudin赋予紧密连接不同的选择性通透性，调节离子和小分子的跨上皮转运。"
+            },
+            {
+                question: "半桥粒主要连接细胞与什么结构？",
+                options: ["A. 相邻细胞", "B. 基底膜", "C. 细胞核", "D. 线粒体"],
+                correct: 1,
+                explanation: "半桥粒是细胞与基底膜之间的锚定连接，主要由整联蛋白α6β4等蛋白组成，将细胞牢固锚定在基底膜上。"
+            },
+            {
+                question: "弹性蛋白主要分布在哪些组织？",
+                options: ["A. 骨骼和牙齿", "B. 血管壁和肺泡", "C. 肝脏和肾脏", "D. 大脑和脊髓"],
+                correct: 1,
+                explanation: "弹性蛋白主要分布在需要弹性的组织中，如血管壁、肺泡、韧带和皮肤，赋予这些组织弹性和可逆性变形能力。"
+            },
+            {
+                question: "胶原蛋白合成过程中需要哪种维生素？",
+                options: ["A. 维生素A", "B. 维生素B", "C. 维生素C", "D. 维生素D"],
+                correct: 2,
+                explanation: "胶原蛋白合成过程中的脯氨酸和赖氨酸羟基化反应需要维生素C作为辅因子，维生素C缺乏会导致坏血病。"
+            },
+            {
+                question: "化学突触传递信号的方式是什么？",
+                options: ["A. 直接的细胞质连接", "B. 神经递质介导", "C. 电流直接传导", "D. 机械力传递"],
+                correct: 1,
+                explanation: "化学突触通过神经递质介导信号传递，动作电位到达突触前膜引起Ca²⁺内流，促进囊泡释放神经递质，神经递质结合突触后膜受体产生信号。"
+            },
+            {
+                question: "透明质酸属于哪类生物大分子？",
+                options: ["A. 蛋白质", "B. 脂质", "C. 糖胺聚糖", "D. 核酸"],
+                correct: 2,
+                explanation: "透明质酸是一种糖胺聚糖，由重复的二糖单位（葡萄糖醛酸-N-乙酰葡萄糖胺）组成，能够结合大量水分，在关节滑液和眼玻璃体中含量丰富。"
+            },
+            {
+                question: "黏着带主要连接哪种细胞骨架？",
+                options: ["A. 微管", "B. 肌动蛋白纤维", "C. 中间纤维", "D. 核纤层蛋白"],
+                correct: 1,
+                explanation: "黏着带是环绕细胞周围的带状锚定连接，主要连接肌动蛋白纤维，由E-钙黏蛋白和连环蛋白等组成，维持细胞形态。"
+            },
+            {
+                question: "基底膜的主要功能不包括哪个？",
+                options: ["A. 结构支撑", "B. 分子筛作用", "C. 能量代谢", "D. 维持细胞极性"],
+                correct: 2,
+                explanation: "基底膜的主要功能包括为细胞提供结构支撑、调节分子通透性（分子筛作用）、维持上皮细胞极性和储存生长因子，但不直接参与能量代谢。"
+            },
+            {
+                question: "连环蛋白主要与哪种黏着分子相互作用？",
+                options: ["A. 整联蛋白", "B. 钙黏蛋白", "C. 选择素", "D. 免疫球蛋白"],
+                correct: 1,
+                explanation: "连环蛋白（如α-连环蛋白、β-连环蛋白）主要与钙黏蛋白的胞内域相互作用，将钙黏蛋白与细胞骨架连接，参与细胞黏着和信号传导。"
+            },
+            {
+                question: "Ⅳ型胶原主要存在于哪种结构中？",
+                options: ["A. 皮肤真皮", "B. 骨基质", "C. 基底膜", "D. 肌腱"],
+                correct: 2,
+                explanation: "Ⅳ型胶原是基底膜的主要胶原类型，与其他胶原不同，它不形成纤维状结构，而是形成网状结构，为基底膜提供结构框架。"
+            },
+            {
+                question: "细胞外基质重塑主要通过哪类酶实现？",
+                options: ["A. 蛋白酶体", "B. 基质金属蛋白酶", "C. 胰蛋白酶", "D. 胃蛋白酶"],
+                correct: 1,
+                explanation: "细胞外基质重塑主要通过基质金属蛋白酶（MMPs）实现，这类酶能够降解胶原、弹性蛋白、纤连蛋白等ECM成分，在组织重塑、创伤修复和肿瘤侵袭中发挥重要作用。"
+            },
+            {
+                question: "间隙连接在心肌中的主要作用是什么？",
+                options: ["A. 营养物质交换", "B. 电信号传导", "C. 机械支撑", "D. 代谢废物清除"],
+                correct: 1,
+                explanation: "间隙连接在心肌中的主要作用是电信号传导，使心肌细胞形成功能性合胞体，确保心脏的同步收缩。心肌间隙连接主要由Cx43组成。"
+            }
+        ];
+
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="question${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储正确答案和解析
+            window.currentQuestions = selectedQuestions;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const results = document.getElementById('quiz-results');
+            let score = 0;
+            let resultHTML = '<div class="score-display">测试结果</div>';
+            
+            window.currentQuestions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                const isCorrect = selectedOption && parseInt(selectedOption.value) === q.correct;
+                
+                if (isCorrect) score++;
+                
+                resultHTML += `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        <strong>第${index + 1}题：${q.question}</strong><br>
+                        您的答案：${selectedOption ? q.options[selectedOption.value] : '未选择'}<br>
+                        正确答案：${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / 15) * 100);
+            resultHTML = `<div class="score-display">您的得分：${score}/15 (${percentage}%)</div>` + resultHTML;
+            
+            results.innerHTML = resultHTML;
+            
+            // 滚动到结果区域
+            results.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载时渲染题目
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

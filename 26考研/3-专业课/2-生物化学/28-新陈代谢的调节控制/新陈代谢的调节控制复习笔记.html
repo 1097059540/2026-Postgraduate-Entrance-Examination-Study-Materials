@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新陈代谢的调节控制 - 考研复习笔记</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.7;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #856404;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #e8f4f8;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            margin: 8px 0;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .submit-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        /* 反馈样式 */
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback-item {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid;
+        }
+
+        .feedback-correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+            color: #155724;
+        }
+
+        .feedback-incorrect {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feedback-answer {
+            margin: 5px 0;
+        }
+
+        .feedback-explanation {
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff8e1;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .thinking-question h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+
+        .thinking-answer {
+            background: white;
+            margin-top: 15px;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ffcc02;
+        }
+
+        .thinking-answer ol {
+            counter-reset: item;
+        }
+
+        .thinking-answer ol > li {
+            display: block;
+            margin: 15px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .thinking-answer ol > li:before {
+            content: counter(item) ". ";
+            counter-increment: item;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+        }
+
+        /* 代码样式 */
+        code {
+            font-family: "Consolas", monospace;
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>新陈代谢的调节控制</h1>
+            <p>考研生物化学复习笔记 | 基于朱圣庚《生物化学》第四版</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、代谢调节控制概述</h2>
+                
+                <h3>1. 细胞代谢的三个方面</h3>
+                <ul>
+                    <li><span class="highlight">物质代谢</span>：糖类、脂类、蛋白质、核酸等生物大分子的合成与分解</li>
+                    <li><span class="highlight">能量代谢</span>：ATP的产生、储存和利用，维持细胞的各种生命活动</li>
+                    <li><span class="highlight">信息代谢</span>：遗传信息的复制、转录、翻译和调控</li>
+                </ul>
+
+                <h3>2. 代谢调节控制的三个水平</h3>
+                <ol>
+                    <li><span class="important">酶水平调节</span>：通过调节酶的活性和含量来控制代谢流</li>
+                    <li><span class="important">细胞水平调节</span>：通过细胞结构和膜系统的调控作用</li>
+                    <li><span class="important">整体水平调节</span>：通过神经系统和内分泌系统的协调作用</li>
+                </ol>
+
+                <h3>3. 关键中间代谢物</h3>
+                <ul>
+                    <li><span class="highlight">ATP/ADP比值</span>：反映细胞的能荷状态</li>
+                    <li><span class="highlight">NAD+/NADH比值</span>：反映细胞的氧化还原状态</li>
+                    <li><span class="highlight">乙酰辅酶A</span>：连接糖、脂、蛋白质代谢的关键分子</li>
+                    <li><span class="highlight">柠檬酸</span>：柠檬酸循环的关键调节点</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>二、酶水平的代谢调节</h2>
+
+                <h3>1. 酶活性调节</h3>
+                <h4>(1) 别构调节</h4>
+                <ul>
+                    <li><span class="highlight">正别构效应</span>：别构激活剂结合，增强酶活性</li>
+                    <li><span class="highlight">负别构效应</span>：别构抑制剂结合，降低酶活性</li>
+                    <li><span class="highlight">协同效应</span>：多个亚基间的相互作用</li>
+                </ul>
+
+                <h4>(2) 共价修饰调节</h4>
+                <ul>
+                    <li><span class="highlight">磷酸化/去磷酸化</span>：最重要的共价修饰方式</li>
+                    <li><span class="highlight">甲基化</span>：主要调节基因表达</li>
+                    <li><span class="highlight">乙酰化</span>：调节蛋白质功能和定位</li>
+                    <li><span class="highlight">泛素化</span>：标记蛋白质降解</li>
+                </ul>
+
+                <h4>(3) 反馈调节</h4>
+                <ul>
+                    <li><span class="highlight">负反馈抑制</span>：终产物抑制代谢途径的关键酶</li>
+                    <li><span class="highlight">正反馈激活</span>：产物激活代谢途径（较少见）</li>
+                    <li><span class="highlight">前馈调节</span>：底物激活下游酶活性</li>
+                </ul>
+
+                <h3>2. 酶含量调节</h3>
+                <ul>
+                    <li><span class="highlight">转录水平调节</span>：控制mRNA的合成</li>
+                    <li><span class="highlight">转录后调节</span>：mRNA的稳定性和翻译效率</li>
+                    <li><span class="highlight">翻译后修饰</span>：蛋白质的成熟和激活</li>
+                    <li><span class="highlight">蛋白质降解</span>：通过蛋白酶体系统降解</li>
+                </ul>
+
+                <h3>3. 能荷调节</h3>
+                <p><span class="highlight">能荷(Energy Charge)</span> = [ATP + 0.5ADP] / [ATP + ADP + AMP]</p>
+                <ul>
+                    <li>能荷高(0.8-0.95)：抑制分解代谢，促进合成代谢</li>
+                    <li>能荷低(0.2-0.5)：促进分解代谢，抑制合成代谢</li>
+                    <li>关键调节酶：磷酸果糖激酶、柠檬酸合酶、异柠檬酸脱氢酶</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、细胞结构对代谢的调控</h2>
+
+                <h3>1. 酶的区域化分布</h3>
+                <ul>
+                    <li><span class="highlight">胞质</span>：糖酵解、戊糖磷酸途径、脂肪酸合成</li>
+                    <li><span class="highlight">线粒体基质</span>：柠檬酸循环、脂肪酸β氧化、氨基酸脱氨</li>
+                    <li><span class="highlight">线粒体内膜</span>：电子传递链、ATP合酶</li>
+                    <li><span class="highlight">内质网</span>：蛋白质合成、脂质合成</li>
+                    <li><span class="highlight">过氧化物酶体</span>：脂肪酸氧化、过氧化氢分解</li>
+                </ul>
+
+                <h3>2. 膜的基本功能</h3>
+                <ol>
+                    <li><span class="highlight">屏障功能</span>：维持细胞内外环境的差异</li>
+                    <li><span class="highlight">载体功能</span>：选择性物质转运</li>
+                    <li><span class="highlight">识别功能</span>：受体介导的信号转导</li>
+                </ol>
+
+                <h3>3. 膜转运对代谢的调节</h3>
+                <ul>
+                    <li><span class="highlight">载体蛋白</span>：调节底物和产物的跨膜转运</li>
+                    <li><span class="highlight">通道蛋白</span>：控制离子梯度和膜电位</li>
+                    <li><span class="highlight">ATP-ADP载体</span>：调节线粒体能量输出</li>
+                    <li><span class="highlight">柠檬酸-丙酮酸载体</span>：连接糖代谢和脂代谢</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、整体水平的神经和激素调节</h2>
+
+                <h3>1. 激素调节机制</h3>
+                <h4>(1) 胰岛素(Insulin)</h4>
+                <ul>
+                    <li><span class="highlight">促进作用</span>：糖原合成、脂肪合成、蛋白质合成</li>
+                    <li><span class="highlight">抑制作用</span>：糖异生、脂肪分解、蛋白质分解</li>
+                    <li><span class="highlight">信号转导</span>：受体酪氨酸激酶途径</li>
+                </ul>
+
+                <h4>(2) 胰高血糖素(Glucagon)</h4>
+                <ul>
+                    <li><span class="highlight">促进作用</span>：糖原分解、糖异生、脂肪分解</li>
+                    <li><span class="highlight">抑制作用</span>：糖原合成、脂肪合成</li>
+                    <li><span class="highlight">信号转导</span>：cAMP-PKA途径</li>
+                </ul>
+
+                <h4>(3) 肾上腺素(Epinephrine)</h4>
+                <ul>
+                    <li><span class="highlight">促进作用</span>：糖原分解、脂肪分解、糖异生</li>
+                    <li><span class="highlight">信号转导</span>：cAMP-PKA途径(β受体)，IP3-DAG途径(α受体)</li>
+                </ul>
+
+                <h3>2. 神经调节</h3>
+                <ul>
+                    <li><span class="highlight">交感神经</span>：促进分解代谢，释放肾上腺素</li>
+                    <li><span class="highlight">副交感神经</span>：促进合成代谢，刺激胰岛素分泌</li>
+                    <li><span class="highlight">下丘脑-垂体轴</span>：调节多种内分泌腺的功能</li>
+                </ul>
+
+                <h3>3. 信号转导途径</h3>
+                <h4>(1) cAMP-PKA途径</h4>
+                <ul>
+                    <li>激素结合G蛋白偶联受体 → 激活腺苷酸环化酶 → cAMP升高 → 激活PKA</li>
+                    <li>PKA磷酸化关键酶：ACC(抑制)、HMG-CoA还原酶(抑制)、磷酸化酶激酶(激活)</li>
+                </ul>
+
+                <h4>(2) IP3-DAG途径</h4>
+                <ul>
+                    <li>激素结合受体 → 激活磷脂酶C → 产生IP3和DAG → Ca2+释放和PKC激活</li>
+                </ul>
+
+                <h4>(3) 受体酪氨酸激酶途径</h4>
+                <ul>
+                    <li>胰岛素结合受体 → 受体自磷酸化 → 激活下游信号分子 → 调节代谢酶活性</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>五、各器官代谢的相互协调</h2>
+
+                <h3>1. 肝脏的代谢功能</h3>
+                <ul>
+                    <li><span class="highlight">糖代谢</span>：糖原合成与分解、糖异生</li>
+                    <li><span class="highlight">脂代谢</span>：脂肪酸合成、胆固醇合成、酮体生成</li>
+                    <li><span class="highlight">蛋白质代谢</span>：血浆蛋白合成、氨基酸脱氨、尿素合成</li>
+                    <li><span class="highlight">解毒功能</span>：药物代谢、有毒物质转化</li>
+                </ul>
+
+                <h3>2. 肌肉组织的代谢特点</h3>
+                <ul>
+                    <li><span class="highlight">骨骼肌</span>：糖原储存、乳酸产生、蛋白质合成</li>
+                    <li><span class="highlight">心肌</span>：主要利用脂肪酸，需要持续的ATP供应</li>
+                    <li><span class="highlight">平滑肌</span>：代谢较慢，主要进行有氧代谢</li>
+                </ul>
+
+                <h3>3. 脂肪组织的代谢调节</h3>
+                <ul>
+                    <li><span class="highlight">脂肪合成</span>：胰岛素促进，胰高血糖素抑制</li>
+                    <li><span class="highlight">脂肪分解</span>：肾上腺素、胰高血糖素促进</li>
+                    <li><span class="highlight">瘦素分泌</span>：调节食欲和能量平衡</li>
+                </ul>
+
+                <h3>4. 脑组织的代谢需求</h3>
+                <ul>
+                    <li><span class="highlight">葡萄糖依赖</span>：正常情况下主要利用葡萄糖</li>
+                    <li><span class="highlight">酮体利用</span>：饥饿状态下可利用酮体</li>
+                    <li><span class="highlight">血脑屏障</span>：选择性允许某些物质通过</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>六、代谢紊乱相关疾病</h2>
+
+                <h3>1. 糖尿病</h3>
+                <h4>(1) 1型糖尿病</h4>
+                <ul>
+                    <li><span class="highlight">病因</span>：胰岛β细胞破坏，胰岛素绝对缺乏</li>
+                    <li><span class="highlight">特点</span>：发病年龄轻，需要胰岛素治疗</li>
+                </ul>
+
+                <h4>(2) 2型糖尿病</h4>
+                <ul>
+                    <li><span class="highlight">病因</span>：胰岛素抵抗和相对缺乏</li>
+                    <li><span class="highlight">特点</span>：多见于成年人，与肥胖相关</li>
+                </ul>
+
+                <h3>2. 肥胖症</h3>
+                <ul>
+                    <li><span class="highlight">能量失衡</span>：摄入大于消耗</li>
+                    <li><span class="highlight">瘦素抵抗</span>：瘦素信号传导异常</li>
+                    <li><span class="highlight">代谢综合征</span>：伴随胰岛素抵抗、高血压等</li>
+                </ul>
+
+                <h3>3. 饥饿和营养不良</h3>
+                <ul>
+                    <li><span class="highlight">短期饥饿</span>：糖原分解、糖异生增加</li>
+                    <li><span class="highlight">长期饥饿</span>：蛋白质分解、酮体生成</li>
+                    <li><span class="highlight">严重营养不良</span>：免疫功能下降、器官功能衰竭</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">能荷 <span class="term-english">(Energy Charge)</span></div>
+                    <div class="term-definition">反映细胞能量状态的指标，计算公式为[ATP + 0.5ADP] / [ATP + ADP + AMP]，正常细胞的能荷维持在0.8-0.95之间，是调节代谢途径的重要参数。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">别构调节 <span class="term-english">(Allosteric Regulation)</span></div>
+                    <div class="term-definition">调节分子结合到酶的别构位点，通过改变酶的构象来调节酶活性的机制。包括正别构效应（激活）和负别构效应（抑制）。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">共价修饰调节 <span class="term-english">(Covalent Modification Regulation)</span></div>
+                    <div class="term-definition">通过在酶分子上添加或移除化学基团来调节酶活性的机制，最常见的是磷酸化/去磷酸化修饰。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">反馈抑制 <span class="term-english">(Feedback Inhibition)</span></div>
+                    <div class="term-definition">代谢途径的终产物抑制该途径中关键酶活性的调节机制，防止产物过量积累，维持代谢平衡。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">前馈调节 <span class="term-english">(Feed-forward Regulation)</span></div>
+                    <div class="term-definition">代谢途径的底物或早期产物激活下游酶活性的调节机制，确保代谢流的顺畅进行。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">酶的区域化 <span class="term-english">(Enzyme Compartmentalization)</span></div>
+                    <div class="term-definition">不同的酶分布在细胞的不同区域或细胞器中，通过空间分离来调节代谢途径，提高代谢效率。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号转导 <span class="term-english">(Signal Transduction)</span></div>
+                    <div class="term-definition">细胞接收、处理和响应外界信号的过程，包括信号识别、信号传递和细胞响应三个步骤。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">血脑屏障 <span class="term-english">(Blood-Brain Barrier, BBB)</span></div>
+                    <div class="term-definition">由脑毛细血管内皮细胞形成的选择性屏障，限制血液中某些物质进入脑组织，保护脑组织免受有害物质侵害。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">瘦素 <span class="term-english">(Leptin)</span></div>
+                    <div class="term-definition">由脂肪细胞分泌的激素，调节食欲和能量平衡，抑制食欲，增加能量消耗，被称为"饱腹激素"。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">胰岛素抵抗 <span class="term-english">(Insulin Resistance)</span></div>
+                    <div class="term-definition">机体对胰岛素的敏感性降低，需要更多胰岛素才能维持正常血糖水平的病理状态，是2型糖尿病的主要特征。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>选择题测试</h2>
+                <div class="quiz-container" id="quizContainer">
+                    <p>正在加载题目...</p>
+                </div>
+                <button class="submit-btn" id="submitBtn" onclick="submitQuiz()" disabled>提交答案</button>
+                <div class="feedback" id="feedback"></div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述细胞能荷调节在代谢控制中的作用机制，并分析其在不同生理状态下的调节意义。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>能荷的定义和计算：</strong>能荷(Energy Charge)是反映细胞能量状态的重要指标，计算公式为[ATP + 0.5ADP] / [ATP + ADP + AMP]。正常细胞的能荷维持在0.8-0.95之间，这个范围确保了细胞既有足够的能量进行各种生命活动，又不会因ATP过量而浪费资源。</li>
+                            <li><strong>高能荷状态的调节机制：</strong>当能荷较高时(>0.8)，细胞会抑制分解代谢途径，如糖酵解和脂肪酸氧化，同时促进合成代谢途径，如糖原合成、脂肪酸合成和蛋白质合成。关键调节酶如磷酸果糖激酶被ATP抑制，而乙酰辅酶A羧化酶被激活。</li>
+                            <li><strong>低能荷状态的调节机制：</strong>当能荷较低时(<0.5)，细胞会激活分解代谢途径以快速产生ATP，同时抑制耗能的合成代谢。AMP激活磷酸果糖激酶和异柠檬酸脱氢酶，促进糖酵解和柠檬酸循环，同时激活AMP激活的蛋白激酶(AMPK)，抑制合成代谢。</li>
+                            <li><strong>生理意义和适应性：</strong>能荷调节使细胞能够根据能量需求自动调整代谢流向，在运动时快速提供能量，在休息时储存能量。这种调节机制具有高度的敏感性和快速响应能力，是细胞代谢稳态维持的基础。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 分析胰岛素和胰高血糖素在代谢调节中的拮抗作用，并阐述其信号转导机制的差异。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>胰岛素的代谢调节作用：</strong>胰岛素是主要的合成代谢激素，促进糖原合成、脂肪合成和蛋白质合成，同时抑制糖异生、脂肪分解和蛋白质分解。它通过激活关键的合成酶如糖原合酶、乙酰辅酶A羧化酶，并抑制分解酶如激素敏感性脂酶来发挥作用。</li>
+                            <li><strong>胰高血糖素的代谢调节作用：</strong>胰高血糖素是主要的分解代谢激素，促进糖原分解、糖异生和脂肪分解，抑制糖原合成和脂肪合成。它主要在肝脏发挥作用，通过激活糖原磷酸化酶和磷酸烯醇式丙酮酸羧激酶等关键酶来调节代谢。</li>
+                            <li><strong>信号转导机制的差异：</strong>胰岛素通过受体酪氨酸激酶途径发挥作用，激活PI3K-Akt信号通路，直接磷酸化并调节代谢酶的活性。而胰高血糖素通过G蛋白偶联受体激活腺苷酸环化酶，提高cAMP水平，激活蛋白激酶A(PKA)，通过磷酸化调节酶活性。</li>
+                            <li><strong>拮抗作用的生理意义：</strong>这种拮抗调节确保了机体能够根据营养状态和能量需求精确调节代谢。进食后胰岛素占主导，促进营养物质储存；饥饿时胰高血糖素占主导，动员储存的能量。这种精密的调节系统维持了血糖稳态和整体代谢平衡。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 论述酶的区域化分布在代谢调节中的重要性，并举例说明其在提高代谢效率方面的作用。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>区域化分布的基本概念：</strong>酶的区域化是指不同的代谢酶分布在细胞的特定区域或细胞器中，形成功能性的代谢区室。这种空间组织使得相关的代谢途径能够在特定的微环境中高效进行，避免了不同途径间的相互干扰。</li>
+                            <li><strong>线粒体的代谢区域化：</strong>线粒体基质含有柠檬酸循环的所有酶、脂肪酸β氧化酶系和部分氨基酸代谢酶，而内膜含有电子传递链和ATP合酶。这种分布使得脂肪酸氧化产生的乙酰辅酶A能够直接进入柠檬酸循环，NADH能够高效地被电子传递链氧化产生ATP。</li>
+                            <li><strong>胞质的代谢区域化：</strong>糖酵解酶系、戊糖磷酸途径酶系和脂肪酸合成酶系主要分布在胞质中。这种分布使得葡萄糖能够通过糖酵解快速产生ATP和丙酮酸，戊糖磷酸途径能够提供NADPH用于脂肪酸合成，形成了高效的代谢网络。</li>
+                            <li><strong>提高代谢效率的机制：</strong>区域化分布通过以下方式提高效率：(1)减少底物和产物的扩散距离；(2)维持局部的最适pH和离子浓度；(3)防止相互竞争的途径间的干扰；(4)便于协调调节相关酶的活性。例如，脂肪酸合成需要大量NADPH，而戊糖磷酸途径正好在同一区室提供NADPH，实现了高效的底物供应。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析糖尿病患者代谢紊乱的分子机制，并探讨现代治疗策略的生化基础。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>1型糖尿病的分子机制：</strong>1型糖尿病是由于自身免疫反应破坏胰岛β细胞，导致胰岛素绝对缺乏。缺乏胰岛素使得葡萄糖不能有效进入细胞，血糖升高，同时糖原合成受阻，糖异生增强。脂肪分解增加导致酮体生成过多，可能引起酮症酸中毒。蛋白质分解增加，导致肌肉萎缩和负氮平衡。</li>
+                            <li><strong>2型糖尿病的分子机制：</strong>2型糖尿病主要特征是胰岛素抵抗和相对性胰岛素缺乏。胰岛素受体或其下游信号通路异常，导致胰岛素敏感性降低。初期胰岛β细胞代偿性增加胰岛素分泌，但随着病程进展，β细胞功能逐渐衰竭。肥胖、炎症因子和游离脂肪酸等都参与胰岛素抵抗的发生。</li>
+                            <li><strong>代谢紊乱的连锁反应：</strong>高血糖导致蛋白质糖基化，形成糖化终末产物(AGEs)，损伤血管和神经。糖代谢异常影响脂代谢，导致血脂异常和动脉粥样硬化。肾脏长期高糖负荷导致糖尿病肾病。这些并发症的发生都有明确的生化机制基础。</li>
+                            <li><strong>现代治疗策略的生化基础：</strong>胰岛素治疗直接补充缺乏的激素；二甲双胍通过激活AMPK改善胰岛素敏感性，抑制肝糖输出；磺脲类药物刺激胰岛β细胞分泌胰岛素；α-糖苷酶抑制剂延缓碳水化合物吸收；GLP-1受体激动剂促进胰岛素分泌并抑制胰高血糖素。这些治疗方法都基于对糖尿病分子机制的深入理解。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库数据 - 30道选择题
+        const questionBank = [
+            {
+                question: "细胞能荷的正常范围是：",
+                options: ["A. 0.2-0.5", "B. 0.5-0.8", "C. 0.8-0.95", "D. 0.95-1.0"],
+                correct: 2,
+                explanation: "正常细胞的能荷维持在0.8-0.95之间，这个范围确保细胞有足够能量进行生命活动，又不会浪费资源。"
+            },
+            {
+                question: "下列哪种调节方式属于酶活性的共价修饰调节？",
+                options: ["A. 别构调节", "B. 磷酸化调节", "C. 反馈抑制", "D. 竞争性抑制"],
+                correct: 1,
+                explanation: "磷酸化/去磷酸化是最重要的共价修饰调节方式，通过在酶分子上添加或移除磷酸基团来调节酶活性。"
+            },
+            {
+                question: "胰岛素主要通过哪种信号转导途径发挥作用？",
+                options: ["A. cAMP-PKA途径", "B. IP3-DAG途径", "C. 受体酪氨酸激酶途径", "D. 离子通道途径"],
+                correct: 2,
+                explanation: "胰岛素通过受体酪氨酸激酶途径发挥作用，激活PI3K-Akt信号通路，调节代谢酶活性。"
+            },
+            {
+                question: "下列哪个细胞器主要进行脂肪酸β氧化？",
+                options: ["A. 胞质", "B. 线粒体基质", "C. 内质网", "D. 过氧化物酶体"],
+                correct: 1,
+                explanation: "脂肪酸β氧化主要在线粒体基质中进行，产生的乙酰辅酶A直接进入柠檬酸循环。"
+            },
+            {
+                question: "反馈抑制的主要特点是：",
+                options: ["A. 底物激活酶活性", "B. 产物抑制酶活性", "C. 辅酶调节酶活性", "D. 离子调节酶活性"],
+                correct: 1,
+                explanation: "反馈抑制是指代谢途径的终产物抑制该途径中关键酶活性，防止产物过量积累。"
+            },
+            {
+                question: "胰高血糖素主要在哪个器官发挥作用？",
+                options: ["A. 肌肉", "B. 脂肪组织", "C. 肝脏", "D. 肾脏"],
+                correct: 2,
+                explanation: "胰高血糖素主要在肝脏发挥作用，促进糖原分解和糖异生，维持血糖稳定。"
+            },
+            {
+                question: "下列哪种物质是连接糖、脂、蛋白质代谢的关键分子？",
+                options: ["A. 葡萄糖", "B. 乙酰辅酶A", "C. 丙酮酸", "D. 柠檬酸"],
+                correct: 1,
+                explanation: "乙酰辅酶A是连接糖、脂、蛋白质代谢的关键分子，是多种代谢途径的共同中间产物。"
+            },
+            {
+                question: "血脑屏障的主要功能是：",
+                options: ["A. 促进物质交换", "B. 选择性阻止某些物质进入脑组织", "C. 加速代谢产物清除", "D. 调节脑血流"],
+                correct: 1,
+                explanation: "血脑屏障由脑毛细血管内皮细胞形成，选择性限制血液中某些物质进入脑组织，保护脑组织。"
+            },
+            {
+                question: "瘦素的主要功能是：",
+                options: ["A. 促进食欲", "B. 抑制食欲", "C. 促进脂肪合成", "D. 抑制胰岛素分泌"],
+                correct: 1,
+                explanation: "瘦素由脂肪细胞分泌，抑制食欲，增加能量消耗，调节能量平衡，被称为'饱腹激素'。"
+            },
+            {
+                question: "1型糖尿病的主要病因是：",
+                options: ["A. 胰岛素抵抗", "B. 胰岛β细胞破坏", "C. 胰岛素受体异常", "D. 肝糖输出增加"],
+                correct: 1,
+                explanation: "1型糖尿病是由于自身免疫反应破坏胰岛β细胞，导致胰岛素绝对缺乏。"
+            },
+            {
+                question: "cAMP-PKA信号转导途径主要调节：",
+                options: ["A. 蛋白质合成", "B. DNA复制", "C. 代谢酶的磷酸化", "D. 膜转运"],
+                correct: 2,
+                explanation: "cAMP-PKA途径通过PKA磷酸化关键代谢酶来调节其活性，是重要的代谢调节机制。"
+            },
+            {
+                question: "下列哪种酶在糖酵解中受ATP的负反馈抑制？",
+                options: ["A. 己糖激酶", "B. 磷酸果糖激酶", "C. 丙酮酸激酶", "D. 乳酸脱氢酶"],
+                correct: 1,
+                explanation: "磷酸果糖激酶是糖酵解的关键调节酶，受ATP负反馈抑制，受AMP正向激活。"
+            },
+            {
+                question: "肌肉收缩时主要产生的代谢产物是：",
+                options: ["A. 丙酮酸", "B. 乳酸", "C. 乙酰辅酶A", "D. 柠檬酸"],
+                correct: 1,
+                explanation: "肌肉剧烈收缩时，由于氧气供应不足，糖酵解产生的丙酮酸被还原为乳酸。"
+            },
+            {
+                question: "别构调节的特点不包括：",
+                options: ["A. 调节分子结合到别构位点", "B. 改变酶的构象", "C. 共价修饰酶分子", "D. 可逆性调节"],
+                correct: 2,
+                explanation: "别构调节是非共价的可逆性调节，不涉及共价修饰，而是通过构象变化调节酶活性。"
+            },
+            {
+                question: "脂肪酸合成主要在哪个细胞区域进行？",
+                options: ["A. 线粒体基质", "B. 胞质", "C. 内质网", "D. 过氧化物酶体"],
+                correct: 1,
+                explanation: "脂肪酸合成主要在胞质中进行，需要胞质中的乙酰辅酶A羧化酶和脂肪酸合酶。"
+            },
+            {
+                question: "下列哪种激素促进糖原分解？",
+                options: ["A. 胰岛素", "B. 生长激素", "C. 肾上腺素", "D. 甲状腺激素"],
+                correct: 2,
+                explanation: "肾上腺素通过cAMP-PKA途径激活糖原磷酸化酶，促进糖原分解产生葡萄糖。"
+            },
+            {
+                question: "AMPK激活的主要条件是：",
+                options: ["A. ATP浓度高", "B. AMP浓度高", "C. 胰岛素浓度高", "D. 葡萄糖浓度高"],
+                correct: 1,
+                explanation: "AMPK(AMP激活的蛋白激酶)在AMP浓度高、能荷低时被激活，促进分解代谢。"
+            },
+            {
+                question: "糖异生的主要原料不包括：",
+                options: ["A. 乳酸", "B. 甘油", "C. 氨基酸", "D. 脂肪酸"],
+                correct: 3,
+                explanation: "脂肪酸不能通过糖异生转化为葡萄糖，因为乙酰辅酶A不能净合成葡萄糖。"
+            },
+            {
+                question: "2型糖尿病的主要特征是：",
+                options: ["A. 胰岛素绝对缺乏", "B. 胰岛素抵抗", "C. 胰岛α细胞破坏", "D. 胰高血糖素缺乏"],
+                correct: 1,
+                explanation: "2型糖尿病的主要特征是胰岛素抵抗和相对性胰岛素缺乏，多与肥胖相关。"
+            },
+            {
+                question: "柠檬酸在代谢调节中的作用是：",
+                options: ["A. 激活糖酵解", "B. 抑制脂肪酸合成", "C. 激活乙酰辅酶A羧化酶", "D. 抑制糖异生"],
+                correct: 2,
+                explanation: "柠檬酸是脂肪酸合成的激活剂，激活乙酰辅酶A羧化酶，同时抑制磷酸果糖激酶。"
+            },
+            {
+                question: "下列哪种载体蛋白调节线粒体能量输出？",
+                options: ["A. 葡萄糖载体", "B. ATP-ADP载体", "C. 氨基酸载体", "D. 脂肪酸载体"],
+                correct: 1,
+                explanation: "ATP-ADP载体(腺苷酸载体)调节ATP从线粒体输出和ADP输入，控制能量供应。"
+            },
+            {
+                question: "饥饿状态下脑组织主要利用：",
+                options: ["A. 葡萄糖", "B. 脂肪酸", "C. 酮体", "D. 氨基酸"],
+                correct: 2,
+                explanation: "长期饥饿时，肝脏产生酮体，脑组织可以利用酮体作为葡萄糖的替代能源。"
+            },
+            {
+                question: "胰岛素抵抗最常见于：",
+                options: ["A. 1型糖尿病", "B. 2型糖尿病", "C. 甲亢", "D. 甲减"],
+                correct: 1,
+                explanation: "胰岛素抵抗是2型糖尿病的主要病理特征，机体对胰岛素的敏感性降低。"
+            },
+            {
+                question: "下列哪种酶受胰岛素激活？",
+                options: ["A. 激素敏感性脂酶", "B. 糖原磷酸化酶", "C. 糖原合酶", "D. 磷酸烯醇式丙酮酸羧激酶"],
+                correct: 2,
+                explanation: "胰岛素激活糖原合酶，促进糖原合成，同时抑制糖原分解和糖异生。"
+            },
+            {
+                question: "前馈调节的特点是：",
+                options: ["A. 产物抑制酶活性", "B. 底物激活下游酶", "C. 辅酶调节酶活性", "D. 竞争性抑制"],
+                correct: 1,
+                explanation: "前馈调节是指代谢途径的底物或早期产物激活下游酶活性，确保代谢流顺畅。"
+            },
+            {
+                question: "肝脏在代谢调节中的主要功能不包括：",
+                options: ["A. 糖原合成与分解", "B. 糖异生", "C. 肌肉收缩", "D. 尿素合成"],
+                correct: 2,
+                explanation: "肝脏主要负责糖、脂、蛋白质代谢和解毒功能，不参与肌肉收缩。"
+            },
+            {
+                question: "cAMP浓度升高时会激活：",
+                options: ["A. 蛋白激酶A", "B. 蛋白激酶C", "C. 酪氨酸激酶", "D. 腺苷酸环化酶"],
+                correct: 0,
+                explanation: "cAMP升高激活蛋白激酶A(PKA)，PKA磷酸化多种代谢酶调节其活性。"
+            },
+            {
+                question: "下列哪种情况会导致能荷降低？",
+                options: ["A. 休息状态", "B. 剧烈运动", "C. 进食后", "D. 睡眠时"],
+                correct: 1,
+                explanation: "剧烈运动时ATP大量消耗，AMP浓度升高，导致能荷降低，激活分解代谢。"
+            },
+            {
+                question: "胰高血糖素的主要作用不包括：",
+                options: ["A. 促进糖原分解", "B. 促进糖异生", "C. 促进脂肪合成", "D. 促进脂肪分解"],
+                correct: 2,
+                explanation: "胰高血糖素促进分解代谢，包括糖原分解、糖异生和脂肪分解，抑制脂肪合成。"
+            },
+            {
+                question: "酶的区域化分布的主要意义是：",
+                options: ["A. 节约空间", "B. 提高代谢效率", "C. 减少酶的合成", "D. 降低能量消耗"],
+                correct: 1,
+                explanation: "酶的区域化分布通过减少扩散距离、维持最适微环境、避免途径干扰来提高代谢效率。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = {};
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            renderQuestions();
+        };
+
+        // 随机选择15道题
+        function selectRandomQuestions() {
+            const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}" onchange="recordAnswer(${index}, ${optIndex})">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        // 记录用户答案
+        function recordAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        // 提交答案并显示反馈
+        function submitQuiz() {
+            let correctCount = 0;
+            const feedbackDiv = document.getElementById('feedback');
+            let feedbackHTML = '<h3>答题结果</h3>';
+
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+
+                const feedbackClass = isCorrect ? 'feedback-correct' : 'feedback-incorrect';
+                feedbackHTML += `
+                    <div class="feedback-item ${feedbackClass}">
+                        <div class="feedback-question"><strong>第${index + 1}题：</strong>${q.question}</div>
+                        <div class="feedback-answer"><strong>您的答案：</strong>${userAnswer !== undefined ? q.options[userAnswer] : '未作答'}</div>
+                        <div class="feedback-answer"><strong>正确答案：</strong>${q.options[q.correct]}</div>
+                        <div class="feedback-explanation"><strong>解析：</strong>${q.explanation}</div>
+                    </div>
+                `;
+            });
+
+            const accuracy = ((correctCount / selectedQuestions.length) * 100).toFixed(1);
+            feedbackHTML = `<div style="text-align: center; margin-bottom: 20px; padding: 15px; background: #e8f4f8; border-radius: 8px;">
+                <h3 style="color: #2c3e50; margin-bottom: 10px;">测试完成！</h3>
+                <p style="font-size: 1.2em; color: #3498db;"><strong>正确率：${accuracy}% (${correctCount}/${selectedQuestions.length})</strong></p>
+            </div>` + feedbackHTML;
+
+            feedbackDiv.innerHTML = feedbackHTML;
+            feedbackDiv.classList.add('show');
+            
+            // 禁用提交按钮
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').textContent = '已提交';
+            
+            // 滚动到反馈区域
+            feedbackDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

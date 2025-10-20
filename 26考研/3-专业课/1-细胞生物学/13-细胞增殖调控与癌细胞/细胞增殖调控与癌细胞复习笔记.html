@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞增殖调控与癌细胞 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .emphasis {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .formula {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            margin: 15px 0;
+            text-align: center;
+            border-radius: 5px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+        
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        .term-definition {
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .question {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .option {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result-item {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .result-item.correct {
+            background: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .result-item.incorrect {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .result-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .result-analysis {
+            margin-top: 10px;
+            color: #495057;
+        }
+        
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .thinking-question h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .answer {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        
+        .answer h5 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+        
+        .diagram-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #6c757d;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>细胞增殖调控与癌细胞</h1>
+            <p>考研专业课复习笔记 | 细胞生物学第十三章</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>第一部分：核心知识内容</h2>
+                
+                <h3>一、细胞增殖调控的发现历程</h3>
+                <h4>1. MPF（成熟促进因子）的发现</h4>
+                <p>1960年代，Yoshio Masui发现成熟蛙卵的提取物能促进未成熟卵的胚胞破裂（GVBD）。后来Sunkara将不同时期HeLa细胞的提取液注射到蛙卵母细胞中，发现G1和S期的抽取物不能诱导GVBD，而G2和M期的则具有促进胚胞破裂的功能，这种诱导物质被称为<span class="emphasis">有丝分裂因子（MF）</span>，后统称为<span class="emphasis">MPF（成熟促进因子）</span>。</p>
+                
+                <div class="note">
+                    <strong>重要发现：</strong>Rao和Johnson通过细胞融合实验发现，M期细胞能诱导间期细胞产生早熟凝集染色体（PCC），证明了M期细胞具有某种促进分裂的因子。
+                </div>
+                
+                <h4>2. p34<sup>cdc2</sup>激酶的发现</h4>
+                <p>1970年代，Leland Hartwell以芽殖酵母为实验材料，利用温度敏感突变株分离出几十个与细胞分裂有关的基因（CDC基因）。Paul Nurse等人以裂殖酵母为材料，发现了cdc2、cdc25、wee1等关键基因。</p>
+                
+                <ul>
+                    <li><strong>cdc2基因</strong>：编码34KD的蛋白激酶，促进细胞周期进行</li>
+                    <li><strong>wee1基因</strong>：抑制CDC2活性，突变型提早分裂</li>
+                    <li><strong>cdc25基因</strong>：促进CDC2活性，突变型无法分裂</li>
+                </ul>
+                
+                <h4>3. 周期蛋白（Cyclin）的发现</h4>
+                <p>1983年Timothy Hunt在海胆卵受精后的卵裂过程中发现两种蛋白质的含量随细胞周期剧烈振荡：在间期开始合成，G2/M时达到高峰，M结束后突然消失，故命名为<span class="emphasis">周期蛋白（Cyclin）</span>。</p>
+                
+                <div class="formula">
+                    <strong>MPF的组成：</strong><br>
+                    MPF = p34<sup>cdc2</sup>（CDK1）+ Cyclin B
+                </div>
+                
+                <h3>二、细胞周期调控的分子机制</h3>
+                
+                <h4>1. CDK（周期蛋白依赖性激酶）</h4>
+                <p>CDC2与细胞周期蛋白结合才具有激酶活性，称为<span class="emphasis">细胞周期蛋白依赖性激酶（CDK）</span>。目前发现的CDK在动物中有7种，各种CDK分子均含有相似的激酶结构域，包含保守序列PSTAIRE。</p>
+                
+                <ul>
+                    <li><strong>CDK1（CDC2）</strong>：调控G2/M转换</li>
+                    <li><strong>CDK2</strong>：调控G1/S和S期进程</li>
+                    <li><strong>CDK4/CDK6</strong>：调控G1期进程</li>
+                </ul>
+                
+                <h4>2. 周期蛋白（Cyclin）的分类与功能</h4>
+                <ul>
+                    <li><strong>G1/S周期蛋白（Cyclin E）</strong>：与CDK2结合，启动S期</li>
+                    <li><strong>S期周期蛋白（Cyclin A）</strong>：与CDK2结合，维持S期进程</li>
+                    <li><strong>M期周期蛋白（Cyclin B）</strong>：与CDK1结合，启动M期</li>
+                    <li><strong>G1期周期蛋白（Cyclin D）</strong>：与CDK4/6结合，推进G1期</li>
+                </ul>
+                
+                <h4>3. CDK抑制因子（CKI）</h4>
+                <p>细胞中存在<span class="emphasis">CDK抑制因子（CKI）</span>，能够抑制CDK活性，主要分为两大家族：</p>
+                
+                <ul>
+                    <li><strong>CIP/KIP家族</strong>：p21、p27、p57，广谱抑制多种CDK</li>
+                    <li><strong>INK4家族</strong>：p15、p16、p18、p19，特异抑制CDK4/6</li>
+                </ul>
+                
+                <h3>三、细胞周期检验点</h3>
+                
+                <h4>1. G1/S检验点（限制点）</h4>
+                <p>检查DNA损伤、营养状况、生长信号等。p53蛋白在此发挥关键作用，DNA损伤时激活p53，诱导p21表达，抑制CDK2活性，阻止细胞进入S期。</p>
+                
+                <h4>2. S期检验点</h4>
+                <p>监控DNA复制过程，确保DNA复制的准确性和完整性。</p>
+                
+                <h4>3. G2/M检验点</h4>
+                <p>检查DNA复制是否完成、DNA是否有损伤。只有通过检验，细胞才能进入M期。</p>
+                
+                <h4>4. 纺锤体检验点</h4>
+                <p>确保所有染色体正确附着在纺锤体上，防止染色体分离错误。APC/C（后期促进复合体）在此发挥重要作用。</p>
+                
+                <h3>四、癌细胞的特征与发生机制</h3>
+                
+                <h4>1. 癌细胞的基本特征</h4>
+                <ul>
+                    <li><strong>无限增殖能力</strong>：突破Hayflick界限</li>
+                    <li><strong>失去接触抑制</strong>：细胞密度增高时仍继续分裂</li>
+                    <li><strong>失去锚定依赖性</strong>：可在悬浮状态下生长</li>
+                    <li><strong>侵袭和转移能力</strong>：突破基底膜，远处转移</li>
+                    <li><strong>诱导血管生成</strong>：分泌血管生成因子</li>
+                    <li><strong>逃避免疫监视</strong>：逃避机体免疫系统清除</li>
+                </ul>
+                
+                <h4>2. 癌基因与抑癌基因</h4>
+                
+                <div class="note">
+                    <strong>癌基因（Oncogene）</strong>：正常情况下调控细胞增殖的基因，突变或过度表达时促进癌变。
+                </div>
+                
+                <p><strong>主要癌基因类型：</strong></p>
+                <ul>
+                    <li><strong>生长因子</strong>：如PDGF</li>
+                    <li><strong>生长因子受体</strong>：如EGFR、HER2</li>
+                    <li><strong>信号转导蛋白</strong>：如Ras、Myc</li>
+                    <li><strong>转录因子</strong>：如Jun、Fos</li>
+                    <li><strong>细胞周期调控蛋白</strong>：如Cyclin D、CDK4</li>
+                </ul>
+                
+                <div class="note">
+                    <strong>抑癌基因（Tumor Suppressor Gene）</strong>：正常情况下抑制细胞增殖，失活时导致癌变。
+                </div>
+                
+                <p><strong>主要抑癌基因：</strong></p>
+                <ul>
+                    <li><strong>p53基因</strong>："基因组守护者"，调控细胞周期检验点</li>
+                    <li><strong>Rb基因</strong>：调控G1/S转换</li>
+                    <li><strong>APC基因</strong>：调控细胞粘附和Wnt信号通路</li>
+                    <li><strong>BRCA1/BRCA2</strong>：参与DNA损伤修复</li>
+                </ul>
+                
+                <h4>3. 肿瘤发生的多步骤模型</h4>
+                <p>肿瘤的发生是<span class="emphasis">基因突变逐渐积累</span>的结果，通常需要3-7个关键基因的突变。典型的结肠癌发生模型：</p>
+                
+                <div class="formula">
+                    正常上皮 → APC突变 → 早期腺瘤 → K-ras突变 → 中期腺瘤 → p53突变 → 晚期腺瘤 → 其他突变 → 癌变
+                </div>
+            </div>
+            
+            <!-- 名词解释板块 -->
+            <div class="section">
+                <h2>第二部分：重要名词解释</h2>
+                
+                <div class="term">
+                    <div class="term-name">成熟促进因子</div>
+                    <div class="term-english">(Maturation Promoting Factor, MPF)</div>
+                    <div class="term-definition">存在于M期细胞中的一种促进细胞分裂的因子，由CDK1（p34<sup>cdc2</sup>）和Cyclin B组成，能够磷酸化多种靶蛋白，如核纤层蛋白、组蛋白H1等，导致核膜解体、染色体凝缩等M期特征性变化。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">周期蛋白依赖性激酶</div>
+                    <div class="term-english">(Cyclin-Dependent Kinase, CDK)</div>
+                    <div class="term-definition">一类丝氨酸/苏氨酸蛋白激酶，必须与相应的周期蛋白结合才具有激酶活性。不同的CDK-Cyclin复合体调控细胞周期的不同阶段，是细胞周期调控的核心分子机器。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">周期蛋白</div>
+                    <div class="term-english">(Cyclin)</div>
+                    <div class="term-definition">一类在细胞周期中含量呈周期性变化的蛋白质，在特定时期合成，在特定时期被降解。不同类型的周期蛋白与相应的CDK结合，调控细胞周期的不同阶段。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">CDK抑制因子</div>
+                    <div class="term-english">(CDK Inhibitor, CKI)</div>
+                    <div class="term-definition">能够结合并抑制CDK活性的蛋白质，主要包括CIP/KIP家族（p21、p27、p57）和INK4家族（p15、p16、p18、p19），在细胞周期负调控中发挥重要作用。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">细胞周期检验点</div>
+                    <div class="term-english">(Cell Cycle Checkpoint)</div>
+                    <div class="term-definition">细胞周期中的质量控制机制，监控细胞内外环境，确保细胞周期有序进行。主要包括G1/S检验点、S期检验点、G2/M检验点和纺锤体检验点。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">癌基因</div>
+                    <div class="term-english">(Oncogene)</div>
+                    <div class="term-definition">正常情况下参与调控细胞增殖、分化的基因，当发生突变、扩增或异常表达时，能够促进细胞恶性转化。包括生长因子、生长因子受体、信号转导蛋白、转录因子等。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">抑癌基因</div>
+                    <div class="term-english">(Tumor Suppressor Gene)</div>
+                    <div class="term-definition">正常情况下抑制细胞过度增殖的基因，当发生突变或缺失时，失去抑制功能，导致细胞恶性转化。典型代表有p53、Rb、APC等。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">早熟凝集染色体</div>
+                    <div class="term-english">(Prematurely Condensed Chromosome, PCC)</div>
+                    <div class="term-definition">当间期细胞与M期细胞融合时，在MPF作用下，间期细胞的染色体提前凝缩形成的染色体结构。不同时期的PCC形态不同：G1期为单线状，S期为粉末状，G2期为双线状。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">接触抑制</div>
+                    <div class="term-english">(Contact Inhibition)</div>
+                    <div class="term-definition">正常细胞在培养皿中生长到相互接触形成单层时停止分裂的现象。癌细胞失去这种特性，能够堆积生长形成多层。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">锚定依赖性</div>
+                    <div class="term-english">(Anchorage Dependence)</div>
+                    <div class="term-definition">正常细胞需要附着在固体表面才能生长增殖的特性。癌细胞失去这种依赖性，能够在悬浮状态下生长，这与其侵袭转移能力相关。</div>
+                </div>
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>第三部分：选择题测试</h2>
+                <div class="quiz-container" id="quizContainer">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div class="result" id="result"></div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>第四部分：深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述细胞周期检验点的分子机制及其在维持基因组稳定性中的作用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>G1/S检验点（限制点）机制：</strong>p53蛋白作为核心调控因子，当检测到DNA损伤时，p53被激活并稳定化，转录激活p21基因。p21蛋白结合并抑制CDK2-Cyclin E复合体，阻止Rb蛋白磷酸化，维持Rb与E2F转录因子的结合，抑制S期基因表达，使细胞周期停滞在G1期，为DNA修复争取时间。</li>
+                            <li><strong>S期检验点机制：</strong>ATR激酶检测复制叉停滞，激活Chk1激酶，抑制CDC25A磷酸酶活性，维持CDK2的抑制性磷酸化状态，减缓S期进程。同时激活同源重组修复机制，确保DNA复制的准确性。</li>
+                            <li><strong>G2/M检验点机制：</strong>ATM/ATR激酶检测DNA双链断裂，激活Chk1/Chk2激酶，抑制CDC25C磷酸酶，阻止CDK1去磷酸化激活，防止细胞过早进入M期。</li>
+                            <li><strong>纺锤体检验点机制：</strong>Mad2、BubR1等蛋白监控染色体-纺锤体附着状态，未正确附着的染色体产生"等待"信号，抑制APC/C活性，阻止分离酶激活，确保染色体正确分离。</li>
+                            <li><strong>基因组稳定性维持：</strong>这些检验点协同工作，防止DNA损伤细胞继续分裂，避免突变传递给子代细胞，维持基因组完整性，是防止癌变的重要屏障。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 分析p53基因被称为"基因组守护者"的分子基础，并阐述其失活在肿瘤发生中的作用机制。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>p53的分子结构与功能：</strong>p53是转录因子，包含DNA结合域、转录激活域和寡聚化域。正常情况下与MDM2结合被快速降解，DNA损伤时通过磷酸化修饰稳定化，激活下游靶基因转录。</li>
+                            <li><strong>DNA损伤应答机制：</strong>ATM/ATR激酶磷酸化p53的Ser15位点，阻断与MDM2结合；p300/CBP乙酰化p53，增强其转录活性。稳定的p53结合靶基因启动子，激活转录。</li>
+                            <li><strong>细胞命运决定：</strong>轻度损伤时，p53激活p21转录，诱导细胞周期停滞，启动DNA修复；严重损伤时，p53激活PUMA、Bax等促凋亡基因，诱导细胞凋亡，清除潜在危险细胞。</li>
+                            <li><strong>p53失活的后果：</strong>超过50%的人类肿瘤存在p53突变，失活后细胞失去DNA损伤检验点控制，损伤细胞继续分裂，突变累积加速，基因组不稳定性增加。</li>
+                            <li><strong>肿瘤发生机制：</strong>p53失活使细胞获得抗凋亡能力，突破增殖限制，配合其他癌基因激活或抑癌基因失活，最终导致恶性转化。这解释了p53在肿瘤抑制中的核心地位。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 比较分析癌基因和抑癌基因在肿瘤发生中的不同作用机制，并举例说明其在临床诊断和治疗中的应用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>作用机制差异：</strong>癌基因是"油门"，正常时促进细胞增殖分化，异常激活时过度促进增殖；抑癌基因是"刹车"，正常时抑制过度增殖，失活时失去抑制功能。癌基因突变通常是显性的，一个等位基因突变即可发挥作用；抑癌基因失活通常是隐性的，需要两个等位基因都失活（Knudson二次打击假说）。</li>
+                            <li><strong>典型例子分析：</strong>Ras癌基因正常时调控细胞增殖信号，突变后持续激活增殖通路；p53抑癌基因正常时监控DNA完整性，突变后失去检验点功能。HER2在乳腺癌中扩增，导致生长信号过强；Rb在视网膜母细胞瘤中缺失，失去G1/S控制。</li>
+                            <li><strong>临床诊断应用：</strong>HER2检测用于乳腺癌分型和预后评估；p53突变检测用于多种肿瘤的风险评估；BRCA1/2突变检测用于遗传性乳腺癌筛查；K-ras突变检测用于结肠癌靶向治疗选择。</li>
+                            <li><strong>治疗应用策略：</strong>针对癌基因的抑制剂：如HER2单抗（曲妥珠单抗）、EGFR抑制剂（吉非替尼）、Ras下游通路抑制剂；针对抑癌基因缺陷的合成致死疗法：如BRCA缺陷肿瘤使用PARP抑制剂、p53缺陷肿瘤的MDM2抑制剂。</li>
+                            <li><strong>个体化医疗前景：</strong>基于肿瘤基因谱的精准治疗，多靶点联合治疗克服耐药，免疫治疗结合分子靶向治疗，为肿瘤患者提供更有效的个体化治疗方案。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 阐述细胞周期调控异常与肿瘤发生的关系，并分析现代肿瘤治疗中针对细胞周期的治疗策略。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>细胞周期调控异常类型：</strong>CDK过度激活（如Cyclin D扩增、CDK4扩增）导致G1/S转换失控；检验点缺陷（如p53、ATM突变）使损伤细胞逃避监控；CKI失活（如p16缺失、p21下调）失去周期抑制；DNA修复缺陷（如BRCA1/2突变）导致基因组不稳定。</li>
+                            <li><strong>肿瘤发生机制：</strong>正常细胞周期调控确保DNA准确复制和分离，异常时导致基因组不稳定，突变累积加速。失去增殖控制的细胞获得生长优势，逐步获得恶性表型，最终形成肿瘤。</li>
+                            <li><strong>CDK抑制剂治疗：</strong>CDK4/6抑制剂（如palbociclib）用于ER阳性乳腺癌，阻断G1/S转换；CDK1抑制剂用于p53缺陷肿瘤，利用合成致死原理；CDK2抑制剂正在开发中，针对特定肿瘤类型。</li>
+                            <li><strong>检验点抑制剂：</strong>Chk1抑制剂增强化疗敏感性，特别是在DNA修复缺陷肿瘤中；ATR抑制剂针对复制应激高的肿瘤；WEE1抑制剂与DNA损伤药物联用，增强疗效。</li>
+                            <li><strong>联合治疗策略：</strong>细胞周期抑制剂与传统化疗联合，增强杀伤效果；与免疫治疗联合，调节肿瘤微环境；与靶向治疗联合，克服耐药机制。个体化选择基于肿瘤分子特征，实现精准治疗。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "MPF（成熟促进因子）的主要组成成分是：",
+                options: ["A. p34cdc2 + Cyclin A", "B. p34cdc2 + Cyclin B", "C. CDK2 + Cyclin E", "D. CDK4 + Cyclin D"],
+                correct: 1,
+                analysis: "MPF由p34cdc2（即CDK1）和Cyclin B组成，这是调控G2/M转换的关键复合体。Cyclin B在G2期积累，M期结束时被降解。"
+            },
+            {
+                question: "下列哪个不是细胞周期检验点？",
+                options: ["A. G1/S检验点", "B. G2/M检验点", "C. 纺锤体检验点", "D. G0/G1检验点"],
+                correct: 3,
+                analysis: "细胞周期检验点包括G1/S检验点、S期检验点、G2/M检验点和纺锤体检验点。G0/G1不是检验点，G0是静止期。"
+            },
+            {
+                question: "p53基因被称为'基因组守护者'，其主要功能是：",
+                options: ["A. 促进细胞增殖", "B. 调控DNA损伤应答", "C. 激活癌基因", "D. 抑制免疫反应"],
+                correct: 1,
+                analysis: "p53是重要的抑癌基因，在DNA损伤时被激活，可诱导细胞周期停滞或凋亡，维护基因组稳定性，因此被称为'基因组守护者'。"
+            },
+            {
+                question: "CDK抑制因子p21的主要作用是：",
+                options: ["A. 激活CDK2", "B. 抑制CDK2活性", "C. 促进Cyclin合成", "D. 激活p53"],
+                correct: 1,
+                analysis: "p21属于CIP/KIP家族的CDK抑制因子，能够结合并抑制CDK2-Cyclin复合体的活性，阻止细胞从G1期进入S期。"
+            },
+            {
+                question: "早熟凝集染色体（PCC）实验证明了：",
+                options: ["A. 细胞周期的存在", "B. M期细胞含有促分裂因子", "C. DNA复制的机制", "D. 蛋白质合成的重要性"],
+                correct: 1,
+                analysis: "Rao和Johnson的PCC实验发现M期细胞能诱导间期细胞染色体提前凝缩，证明M期细胞含有促进分裂的因子（后来确定为MPF）。"
+            },
+            {
+                question: "下列哪个基因属于抑癌基因？",
+                options: ["A. Ras", "B. Myc", "C. Rb", "D. EGFR"],
+                correct: 2,
+                analysis: "Rb是经典的抑癌基因，调控G1/S转换。Ras、Myc、EGFR都是癌基因，正常时促进细胞增殖，异常激活时促进癌变。"
+            },
+            {
+                question: "Cyclin B的表达特点是：",
+                options: ["A. 在整个细胞周期中恒定表达", "B. 在G2期积累，M期结束时降解", "C. 只在G1期表达", "D. 只在S期表达"],
+                correct: 1,
+                analysis: "Cyclin B在G2期开始积累，在M期达到高峰，M期结束时被APC/C介导的泛素化降解，这种周期性变化是其调控功能的基础。"
+            },
+            {
+                question: "癌细胞失去接触抑制的含义是：",
+                options: ["A. 不能贴壁生长", "B. 细胞密度高时仍继续分裂", "C. 不能进行DNA复制", "D. 失去细胞周期调控"],
+                correct: 1,
+                analysis: "正常细胞在培养中相互接触形成单层时会停止分裂（接触抑制），癌细胞失去这种特性，能够堆积生长形成多层。"
+            },
+            {
+                question: "纺锤体检验点的主要功能是：",
+                options: ["A. 检查DNA复制是否完成", "B. 检查染色体是否正确附着在纺锤体上", "C. 检查细胞大小是否合适", "D. 检查蛋白质合成是否正常"],
+                correct: 1,
+                analysis: "纺锤体检验点确保所有染色体都正确附着在纺锤体上，只有当所有染色体都正确附着时，APC/C才被激活，细胞才能进入后期。"
+            },
+            {
+                question: "下列关于CDK的叙述，错误的是：",
+                options: ["A. CDK需要与Cyclin结合才有活性", "B. 不同CDK调控不同的细胞周期阶段", "C. CDK活性不受磷酸化调控", "D. CDK含有保守的PSTAIRE序列"],
+                correct: 2,
+                analysis: "CDK活性受到多种磷酸化修饰的调控，如Thr14和Tyr15的抑制性磷酸化，以及Thr161的激活性磷酸化。"
+            },
+            {
+                question: "BRCA1和BRCA2基因的主要功能是：",
+                options: ["A. 促进细胞增殖", "B. 参与DNA损伤修复", "C. 调控细胞凋亡", "D. 激活免疫反应"],
+                correct: 1,
+                analysis: "BRCA1和BRCA2是重要的抑癌基因，参与同源重组修复，维护基因组稳定性。其突变与遗传性乳腺癌和卵巢癌密切相关。"
+            },
+            {
+                question: "Knudson的二次打击假说主要解释了：",
+                options: ["A. 癌基因的激活机制", "B. 抑癌基因的失活机制", "C. DNA修复的过程", "D. 细胞周期的调控"],
+                correct: 1,
+                analysis: "Knudson二次打击假说解释了抑癌基因的失活需要两个等位基因都发生突变或缺失，这是隐性遗传的特征。"
+            },
+            {
+                question: "APC/C复合体的主要功能是：",
+                options: ["A. 激活CDK", "B. 降解Cyclin", "C. 修复DNA", "D. 合成蛋白质"],
+                correct: 1,
+                analysis: "APC/C（后期促进复合体）是E3泛素连接酶，负责在M期结束时降解Cyclin B和分离酶抑制因子，启动染色体分离。"
+            },
+            {
+                question: "下列哪个不是癌细胞的特征？",
+                options: ["A. 无限增殖能力", "B. 锚定依赖性生长", "C. 侵袭和转移能力", "D. 诱导血管生成"],
+                correct: 1,
+                analysis: "癌细胞失去锚定依赖性，能够在悬浮状态下生长。锚定依赖性生长是正常细胞的特征。"
+            },
+            {
+                question: "p16基因属于哪类CDK抑制因子？",
+                options: ["A. CIP/KIP家族", "B. INK4家族", "C. p53家族", "D. Rb家族"],
+                correct: 1,
+                analysis: "p16属于INK4家族的CDK抑制因子，特异性抑制CDK4和CDK6，阻止G1期进程。INK4家族还包括p15、p18、p19。"
+            },
+            {
+                question: "Timothy Hunt因发现什么而获得诺贝尔奖？",
+                options: ["A. CDK", "B. 周期蛋白", "C. p53", "D. 细胞凋亡"],
+                correct: 1,
+                analysis: "Timothy Hunt在1983年发现了周期蛋白（Cyclin），因对细胞周期调控机理的研究与Hartwell、Nurse共同获得2001年诺贝尔生理医学奖。"
+            },
+            {
+                question: "Ras基因在多少比例的人类肿瘤中发生突变？",
+                options: ["A. 10%", "B. 20%", "C. 30%", "D. 50%"],
+                correct: 2,
+                analysis: "Ras基因在约30%的人类肿瘤中发生突变，是最常见的癌基因突变之一，特别在胰腺癌、结肠癌中突变频率很高。"
+            },
+            {
+                question: "细胞周期中DNA复制发生在：",
+                options: ["A. G1期", "B. S期", "C. G2期", "D. M期"],
+                correct: 1,
+                analysis: "DNA复制发生在S期（合成期），这是细胞周期的关键阶段，确保每个子细胞获得完整的遗传信息。"
+            },
+            {
+                question: "MDM2蛋白的主要功能是：",
+                options: ["A. 激活p53", "B. 降解p53", "C. 修复DNA", "D. 激活CDK"],
+                correct: 1,
+                analysis: "MDM2是p53的负调控因子，在正常情况下结合p53并促进其泛素化降解，维持p53在低水平。DNA损伤时这种结合被阻断。"
+            },
+            {
+                question: "HER2基因扩增最常见于：",
+                options: ["A. 肺癌", "B. 乳腺癌", "C. 肝癌", "D. 胃癌"],
+                correct: 1,
+                analysis: "HER2基因扩增在约20-25%的乳腺癌中发生，是乳腺癌分子分型的重要标志，也是靶向治疗的重要靶点。"
+            },
+            {
+                question: "细胞周期G1/S检验点的关键调控蛋白是：",
+                options: ["A. p53和Rb", "B. CDK1和Cyclin B", "C. Mad2和BubR1", "D. ATM和ATR"],
+                correct: 0,
+                analysis: "G1/S检验点主要由p53和Rb蛋白调控。p53检测DNA损伤，Rb控制G1/S转换，两者协同确保只有健康细胞进入S期。"
+            },
+            {
+                question: "下列哪个药物是CDK4/6抑制剂？",
+                options: ["A. 紫杉醇", "B. 顺铂", "C. 帕博西尼", "D. 吉非替尼"],
+                correct: 2,
+                analysis: "帕博西尼（Palbociclib）是选择性CDK4/6抑制剂，用于治疗ER阳性乳腺癌，通过阻断G1/S转换发挥抗肿瘤作用。"
+            },
+            {
+                question: "癌基因c-Myc的正常功能是：",
+                options: ["A. DNA修复", "B. 调控细胞增殖和代谢", "C. 诱导细胞凋亡", "D. 维持细胞周期停滞"],
+                correct: 1,
+                analysis: "c-Myc是重要的转录因子，正常情况下调控细胞增殖、分化和代谢。异常激活时促进细胞过度增殖，是重要的癌基因。"
+            },
+            {
+                question: "细胞凋亡与坏死的主要区别是：",
+                options: ["A. 是否需要ATP", "B. 是否引起炎症反应", "C. 是否涉及DNA断裂", "D. 以上都是"],
+                correct: 3,
+                analysis: "细胞凋亡是程序性死亡，需要ATP，不引起炎症，DNA有序断裂；坏死是被动死亡，不需ATP，引起炎症，DNA随机断裂。"
+            },
+            {
+                question: "Hayflick界限是指：",
+                options: ["A. 细胞大小的限制", "B. 细胞分裂次数的限制", "C. DNA复制速度的限制", "D. 蛋白质合成的限制"],
+                correct: 1,
+                analysis: "Hayflick界限是指正常体细胞在体外培养中只能分裂有限次数（约50-60次），之后进入衰老状态，这与端粒缩短有关。"
+            },
+            {
+                question: "端粒酶在癌细胞中的状态是：",
+                options: ["A. 完全失活", "B. 异常激活", "C. 正常表达", "D. 表达下调"],
+                correct: 1,
+                analysis: "约90%的癌细胞中端粒酶异常激活，使癌细胞获得无限增殖能力，突破Hayflick界限，这是癌细胞的重要特征之一。"
+            },
+            {
+                question: "PARP抑制剂主要用于治疗：",
+                options: ["A. p53突变的肿瘤", "B. BRCA缺陷的肿瘤", "C. Ras突变的肿瘤", "D. HER2阳性的肿瘤"],
+                correct: 1,
+                analysis: "PARP抑制剂利用合成致死原理，在BRCA缺陷（同源重组修复缺陷）的肿瘤中，抑制PARP介导的单链断裂修复，导致癌细胞死亡。"
+            },
+            {
+                question: "细胞周期蛋白的降解主要通过：",
+                options: ["A. 蛋白酶体途径", "B. 溶酶体途径", "C. 自噬途径", "D. 胞吐途径"],
+                correct: 0,
+                analysis: "细胞周期蛋白的降解主要通过泛素-蛋白酶体途径，由特定的E3连接酶（如APC/C、SCF）介导泛素化，然后被26S蛋白酶体降解。"
+            },
+            {
+                question: "肿瘤抑制因子p53的半衰期在DNA损伤时：",
+                options: ["A. 显著缩短", "B. 显著延长", "C. 保持不变", "D. 先延长后缩短"],
+                correct: 1,
+                analysis: "正常情况下p53半衰期很短（约20分钟），DNA损伤时通过磷酸化等修饰阻断与MDM2结合，半衰期显著延长至数小时，使其发挥功能。"
+            },
+            {
+                question: "下列哪个信号通路与细胞增殖调控密切相关？",
+                options: ["A. Wnt通路", "B. p53通路", "C. Rb通路", "D. 以上都是"],
+                correct: 3,
+                analysis: "Wnt通路调控细胞增殖和分化，p53通路调控DNA损伤应答和细胞周期检验点，Rb通路调控G1/S转换，这些通路都与细胞增殖调控密切相关。"
+            }
+        ];
+        
+        let selectedQuestions = [];
+        let userAnswers = [];
+        
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+        
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <button class="option" onclick="selectOption(${index}, ${optIndex})" id="q${index}_opt${optIndex}">
+                            ${option}
+                        </button>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+        
+        function selectOption(questionIndex, optionIndex) {
+            // 清除该题的其他选项
+            for (let i = 0; i < 4; i++) {
+                const opt = document.getElementById(`q${questionIndex}_opt${i}`);
+                opt.classList.remove('selected');
+            }
+            
+            // 选中当前选项
+            document.getElementById(`q${questionIndex}_opt${optionIndex}`).classList.add('selected');
+            userAnswers[questionIndex] = optionIndex;
+        }
+        
+        function submitQuiz() {
+            let score = 0;
+            const resultDiv = document.getElementById('result');
+            let resultHTML = '<h3>测试结果</h3>';
+            
+            selectedQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                if (isCorrect) score++;
+                
+                resultHTML += `
+                    <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="result-question">第${index + 1}题：${q.question}</div>
+                        <div><strong>您的答案：</strong>${userAnswers[index] >= 0 ? q.options[userAnswers[index]] : '未作答'}</div>
+                        <div><strong>正确答案：</strong>${q.options[q.correct]}</div>
+                        <div><strong>结果：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}</div>
+                        <div class="result-analysis"><strong>解析：</strong>${q.analysis}</div>
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / 15) * 100);
+            resultHTML = `<div style="text-align: center; margin-bottom: 20px; padding: 20px; background: ${percentage >= 80 ? '#d4edda' : percentage >= 60 ? '#fff3cd' : '#f8d7da'}; border-radius: 5px;">
+                <h4>您的得分：${score}/15 (${percentage}%)</h4>
+                <p>${percentage >= 80 ? '优秀！您对本章内容掌握得很好！' : percentage >= 60 ? '良好，还需要进一步复习巩固。' : '需要加强学习，建议重新阅读相关内容。'}</p>
+            </div>` + resultHTML;
+            
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.classList.add('show');
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

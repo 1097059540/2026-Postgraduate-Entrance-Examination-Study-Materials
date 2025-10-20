@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柠檬酸循环复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .formula {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Consolas", monospace;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .term {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .english {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .definition {
+            background-color: #f1f2f6;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .quiz-container {
+            background-color: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .quiz-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-options li {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-options li:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .quiz-options li.selected {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        .quiz-button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 10px 0 0;
+        }
+
+        .quiz-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .quiz-result {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .quiz-explanation {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .thinking-question {
+            background-color: #f8f9fa;
+            border: 2px solid #6c757d;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .thinking-question h4 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .thinking-answer {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        .svg-diagram {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: block;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .thinking-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #bdc3c7;
+        }
+
+        .thinking-answer h5 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        .thinking-answer ol {
+            padding-left: 20px;
+        }
+
+        .thinking-answer li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>柠檬酸循环复习笔记</h1>
+            <p>Tricarboxylic Acid Cycle (TCA Cycle) / Citric Acid Cycle / Krebs Cycle</p>
+            <p>考研生物化学专业课复习资料</p>
+        </div>
+
+        <div class="content">
+            <!-- 一、柠檬酸循环概述 -->
+            <div class="section">
+                <h2>一、柠檬酸循环概述</h2>
+                
+                <div class="highlight">
+                    <p><strong>柠檬酸循环</strong>（Tricarboxylic Acid Cycle, TCA Cycle），又称<strong>三羧酸循环</strong>、<strong>Krebs循环</strong>，是细胞呼吸的核心代谢途径，是糖类、脂类和蛋白质最终氧化的共同通路。</p>
+                </div>
+                
+                <h3>1.1 基本特征</h3>
+                <ul>
+                    <li><strong>发生部位</strong>：真核细胞的线粒体基质，原核细胞的细胞质</li>
+                    <li><strong>反应性质</strong>：需氧代谢，循环性代谢途径</li>
+                    <li><strong>主要功能</strong>：彻底氧化丙酮酸，产生ATP、NADH、FADH₂和CO₂</li>
+                    <li><strong>代谢意义</strong>：连接糖、脂、蛋白质代谢的枢纽</li>
+                </ul>
+                
+                <h3>1.2 总反应式</h3>
+                <div class="formula">
+                    丙酮酸 + 4NAD⁺ + FAD + GDP + Pi + 2H₂O → 3CO₂ + 4NADH + 4H⁺ + FADH₂ + GTP
+                </div>
+                
+                <p>每轮循环消耗1分子乙酰-CoA，产生2分子CO₂、3分子NADH、1分子FADH₂和1分子GTP（相当于ATP）。</p>
+                 
+                 <svg class="svg-diagram" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                     <!-- 背景 -->
+                     <rect width="800" height="600" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" rx="10"/>
+                     
+                     <!-- 标题 -->
+                     <text x="400" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">柠檬酸循环示意图</text>
+                     
+                     <!-- 循环路径 -->
+                     <ellipse cx="400" cy="320" rx="280" ry="200" fill="none" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5"/>
+                     
+                     <!-- 化合物节点 -->
+                     <!-- 乙酰-CoA -->
+                     <circle cx="400" cy="120" r="25" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+                     <text x="400" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="white">乙酰-CoA</text>
+                     
+                     <!-- 草酰乙酸 -->
+                     <circle cx="200" cy="200" r="25" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+                     <text x="200" y="205" text-anchor="middle" font-size="10" font-weight="bold" fill="white">草酰乙酸</text>
+                     
+                     <!-- 柠檬酸 -->
+                     <circle cx="300" cy="150" r="25" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+                     <text x="300" y="155" text-anchor="middle" font-size="12" font-weight="bold" fill="white">柠檬酸</text>
+                     
+                     <!-- 异柠檬酸 -->
+                     <circle cx="500" cy="150" r="25" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+                     <text x="500" y="155" text-anchor="middle" font-size="10" font-weight="bold" fill="white">异柠檬酸</text>
+                     
+                     <!-- α-酮戊二酸 -->
+                     <circle cx="600" cy="250" r="25" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+                     <text x="600" y="255" text-anchor="middle" font-size="9" font-weight="bold" fill="white">α-酮戊二酸</text>
+                     
+                     <!-- 琥珀酰-CoA -->
+                     <circle cx="600" cy="400" r="25" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+                     <text x="600" y="405" text-anchor="middle" font-size="10" font-weight="bold" fill="white">琥珀酰-CoA</text>
+                     
+                     <!-- 琥珀酸 -->
+                     <circle cx="500" cy="480" r="25" fill="#16a085" stroke="#138d75" stroke-width="2"/>
+                     <text x="500" y="485" text-anchor="middle" font-size="12" font-weight="bold" fill="white">琥珀酸</text>
+                     
+                     <!-- 延胡索酸 -->
+                     <circle cx="300" cy="480" r="25" fill="#16a085" stroke="#138d75" stroke-width="2"/>
+                     <text x="300" y="485" text-anchor="middle" font-size="10" font-weight="bold" fill="white">延胡索酸</text>
+                     
+                     <!-- 苹果酸 -->
+                     <circle cx="200" cy="400" r="25" fill="#8e44ad" stroke="#7d3c98" stroke-width="2"/>
+                     <text x="200" y="405" text-anchor="middle" font-size="12" font-weight="bold" fill="white">苹果酸</text>
+                     
+                     <!-- 反应箭头和酶名 -->
+                     <!-- 1. 柠檬酸合酶 -->
+                     <path d="M 225 200 Q 250 175 275 150" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                     <text x="250" y="170" text-anchor="middle" font-size="10" fill="#2c3e50">柠檬酸合酶</text>
+                     
+                     <!-- 2. 乌头酸酶 -->
+                     <path d="M 325 150 L 475 150" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                     <text x="400" y="140" text-anchor="middle" font-size="10" fill="#2c3e50">乌头酸酶</text>
+                     
+                     <!-- 3. 异柠檬酸脱氢酶 -->
+                     <path d="M 520 170 Q 560 210 580 240" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                     <text x="550" y="200" text-anchor="middle" font-size="9" fill="#2c3e50">异柠檬酸脱氢酶</text>
+                     
+                     <!-- 4. α-酮戊二酸脱氢酶 -->
+                     <path d="M 600 275 L 600 375" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                     <text x="650" y="325" text-anchor="middle" font-size="9" fill="#2c3e50">α-酮戊二酸脱氢酶</text>
+                     
+                     <!-- 5. 琥珀酰-CoA合成酶 -->
+                     <path d="M 580 420 Q 540 450 520 470" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                     <text x="550" y="450" text-anchor="middle" font-size="9" fill="#2c3e50">琥珀酰-CoA合成酶</text>
+                     
+                     <!-- 6. 琥珀酸脱氢酶 -->
+                     <path d="M 475 480 L 325 480" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                     <text x="400" y="500" text-anchor="middle" font-size="10" fill="#2c3e50">琥珀酸脱氢酶</text>
+                     
+                     <!-- 7. 延胡索酸水合酶 -->
+                     <path d="M 280 460 Q 240 430 220 410" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                     <text x="250" y="440" text-anchor="middle" font-size="9" fill="#2c3e50">延胡索酸水合酶</text>
+                     
+                     <!-- 8. 苹果酸脱氢酶 -->
+                     <path d="M 200 375 L 200 225" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                     <text x="150" y="300" text-anchor="middle" font-size="10" fill="#2c3e50">苹果酸脱氢酶</text>
+                     
+                     <!-- 产物标注 -->
+                     <!-- CO2 -->
+                     <text x="650" y="180" font-size="12" fill="#e74c3c" font-weight="bold">CO₂</text>
+                     <text x="650" y="350" font-size="12" fill="#e74c3c" font-weight="bold">CO₂</text>
+                     
+                     <!-- NADH -->
+                     <text x="520" y="200" font-size="12" fill="#27ae60" font-weight="bold">NADH</text>
+                     <text x="650" y="300" font-size="12" fill="#27ae60" font-weight="bold">NADH</text>
+                     <text x="120" y="300" font-size="12" fill="#27ae60" font-weight="bold">NADH</text>
+                     
+                     <!-- FADH2 -->
+                     <text x="400" y="520" font-size="12" fill="#f39c12" font-weight="bold">FADH₂</text>
+                     
+                     <!-- GTP -->
+                     <text x="520" y="420" font-size="12" fill="#9b59b6" font-weight="bold">GTP</text>
+                     
+                     <!-- 乙酰-CoA输入箭头 -->
+                     <path d="M 400 95 L 400 115" fill="none" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead)"/>
+                     <text x="400" y="85" text-anchor="middle" font-size="12" fill="#e74c3c" font-weight="bold">输入</text>
+                     
+                     <!-- 箭头标记定义 -->
+                     <defs>
+                         <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                             <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                         </marker>
+                     </defs>
+                     
+                     <!-- 图例 -->
+                     <rect x="20" y="520" width="200" height="70" fill="white" stroke="#dee2e6" stroke-width="1" rx="5"/>
+                     <text x="30" y="540" font-size="14" font-weight="bold" fill="#2c3e50">图例</text>
+                     <circle cx="40" cy="555" r="8" fill="#e74c3c"/>
+                     <text x="55" y="560" font-size="10" fill="#2c3e50">起始物质</text>
+                     <circle cx="40" cy="575" r="8" fill="#27ae60"/>
+                     <text x="55" y="580" font-size="10" fill="#2c3e50">产物/辅酶</text>
+                     <text x="130" y="560" font-size="10" fill="#2c3e50">→ 反应方向</text>
+                     <text x="130" y="580" font-size="10" fill="#2c3e50">--- 循环路径</text>
+                 </svg>
+             </div>
+
+            <!-- 二、柠檬酸循环的八个反应步骤 -->
+            <div class="section">
+                <h2>二、柠檬酸循环的八个反应步骤</h2>
+                
+                <h3>2.1 第一步：乙酰-CoA + 草酰乙酸 → 柠檬酸</h3>
+                <div class="definition">
+                    <p><strong>催化酶</strong>：柠檬酸合酶（Citrate synthase）</p>
+                    <p><strong>反应特点</strong>：高放能反应（ΔG°' = -31.4 kJ/mol），不可逆</p>
+                    <p><strong>调控</strong>：受ATP、NADH、琥珀酰-CoA负反馈抑制</p>
+                </div>
+                
+                <h3>2.2 第二步：柠檬酸 → 异柠檬酸</h3>
+                <div class="definition">
+                    <p><strong>催化酶</strong>：乌头酸酶（Aconitase）</p>
+                    <p><strong>反应特点</strong>：通过顺乌头酸中间体，涉及脱水和加水</p>
+                    <p><strong>辅助因子</strong>：Fe-S簇</p>
+                </div>
+                
+                <h3>2.3 第三步：异柠檬酸 → α-酮戊二酸</h3>
+                <div class="definition">
+                    <p><strong>催化酶</strong>：异柠檬酸脱氢酶（Isocitrate dehydrogenase）</p>
+                    <p><strong>反应特点</strong>：第一个脱氢反应，产生第一个NADH和第一个CO₂</p>
+                    <p><strong>调控</strong>：关键调控点，受ADP激活，ATP和NADH抑制</p>
+                    <p><strong>辅助因子</strong>：NAD⁺、Mg²⁺或Mn²⁺</p>
+                </div>
+                
+                <h3>2.4 第四步：α-酮戊二酸 → 琥珀酰-CoA</h3>
+                <div class="definition">
+                    <p><strong>催化酶</strong>：α-酮戊二酸脱氢酶复合体</p>
+                    <p><strong>反应特点</strong>：第二个脱氢反应，产生第二个NADH和第二个CO₂</p>
+                    <p><strong>调控</strong>：关键调控点，受琥珀酰-CoA、NADH、ATP抑制</p>
+                    <p><strong>辅助因子</strong>：NAD⁺、CoA、硫胺素焦磷酸、脂酰胺、FAD</p>
+                </div>
+                
+                <h3>2.5 第五步：琥珀酰-CoA → 琥珀酸</h3>
+                <div class="definition">
+                    <p><strong>催化酶</strong>：琥珀酰-CoA合成酶</p>
+                    <p><strong>反应特点</strong>：底物水平磷酸化，直接产生GTP（相当于ATP）</p>
+                    <p><strong>能量变化</strong>：ΔG°' = -2.9 kJ/mol</p>
+                </div>
+                
+                <h3>2.6 第六步：琥珀酸 → 延胡索酸</h3>
+                <div class="definition">
+                    <p><strong>催化酶</strong>：琥珀酸脱氢酶</p>
+                    <p><strong>反应特点</strong>：第三个脱氢反应，产生FADH₂</p>
+                    <p><strong>特殊性</strong>：该酶结合在线粒体内膜上，是电子传递链复合体II的一部分</p>
+                </div>
+                
+                <h3>2.7 第七步：延胡索酸 → 苹果酸</h3>
+                <div class="definition">
+                    <p><strong>催化酶</strong>：延胡索酸水合酶</p>
+                    <p><strong>反应特点</strong>：加水反应，可逆</p>
+                    <p><strong>立体化学</strong>：产生L-苹果酸</p>
+                </div>
+                
+                <h3>2.8 第八步：苹果酸 → 草酰乙酸</h3>
+                <div class="definition">
+                    <p><strong>催化酶</strong>：苹果酸脱氢酶</p>
+                    <p><strong>反应特点</strong>：第四个脱氢反应，产生第三个NADH</p>
+                    <p><strong>热力学</strong>：ΔG°' = +29.7 kJ/mol，需要产物快速移除才能进行</p>
+                    <p><strong>辅助因子</strong>：NAD⁺</p>
+                </div>
+            </div>
+
+            <!-- 三、柠檬酸循环的调控机制 -->
+            <div class="section">
+                <h2>三、柠檬酸循环的调控机制</h2>
+                
+                <h3>3.1 三个关键调控酶</h3>
+                
+                <h4>3.1.1 柠檬酸合酶</h4>
+                <ul>
+                    <li><strong>抑制剂</strong>：ATP、NADH、琥珀酰-CoA（负反馈抑制）</li>
+                    <li><strong>激活剂</strong>：ADP、Ca²⁺</li>
+                    <li><strong>调控意义</strong>：控制循环的启动</li>
+                </ul>
+                
+                <h4>3.1.2 异柠檬酸脱氢酶</h4>
+                <ul>
+                    <li><strong>抑制剂</strong>：ATP、NADH（变构抑制）</li>
+                    <li><strong>激活剂</strong>：ADP、Ca²⁺（变构激活）</li>
+                    <li><strong>必需离子</strong>：Mg²⁺或Mn²⁺</li>
+                    <li><strong>调控意义</strong>：最重要的调控点，感受细胞能量状态</li>
+                </ul>
+                
+                <h4>3.1.3 α-酮戊二酸脱氢酶复合体</h4>
+                <ul>
+                    <li><strong>抑制剂</strong>：琥珀酰-CoA、NADH、ATP</li>
+                    <li><strong>激活剂</strong>：Ca²⁺</li>
+                    <li><strong>调控意义</strong>：控制循环后半段的进行</li>
+                </ul>
+                
+                <h3>3.2 能量电荷调控</h3>
+                <div class="highlight">
+                    <p><strong>能量电荷</strong> = (ATP + 0.5ADP) / (ATP + ADP + AMP)</p>
+                    <ul>
+                        <li><strong>高能量电荷</strong>（0.8-1.0）：循环活性降低，ATP、NADH抑制关键酶</li>
+                        <li><strong>低能量电荷</strong>（0.0-0.5）：循环活性增强，ADP激活关键酶</li>
+                    </ul>
+                </div>
+                
+                <h3>3.3 Ca²⁺调控</h3>
+                <p>Ca²⁺作为第二信使，激活三个关键调控酶，协调循环活性与细胞代谢需求。</p>
+            </div>
+
+            <!-- 四、柠檬酸循环的生物学意义 -->
+            <div class="section">
+                <h2>四、柠檬酸循环的生物学意义</h2>
+                
+                <h3>4.1 能量产生</h3>
+                <ul>
+                    <li><strong>直接产能</strong>：每轮循环产生1个GTP（相当于ATP）</li>
+                    <li><strong>间接产能</strong>：3个NADH和1个FADH₂通过电子传递链产生约30个ATP</li>
+                    <li><strong>总产能</strong>：每个乙酰-CoA完全氧化约产生31个ATP</li>
+                </ul>
+                
+                <h3>4.2 代谢枢纽功能</h3>
+                <ul>
+                    <li><strong>糖类代谢</strong>：丙酮酸经丙酮酸脱氢酶复合体进入循环</li>
+                    <li><strong>脂类代谢</strong>：脂肪酸β氧化产生的乙酰-CoA进入循环</li>
+                    <li><strong>蛋白质代谢</strong>：氨基酸脱氨后的碳骨架进入循环</li>
+                </ul>
+                
+                <h3>4.3 合成代谢前体提供</h3>
+                <ul>
+                    <li><strong>草酰乙酸</strong>：天冬氨酸、天冬酰胺合成前体</li>
+                    <li><strong>α-酮戊二酸</strong>：谷氨酸、谷氨酰胺、脯氨酸合成前体</li>
+                    <li><strong>琥珀酰-CoA</strong>：血红蛋白合成前体</li>
+                    <li><strong>柠檬酸</strong>：脂肪酸合成的乙酰-CoA来源</li>
+                </ul>
+            </div>
+
+            <!-- 五、乙醛酸循环 -->
+            <div class="section">
+                <h2>五、乙醛酸循环</h2>
+                
+                <p>乙醛酸循环是柠檬酸循环的变体，主要存在于植物、微生物和某些动物组织中，能够将脂肪酸转化为糖类。</p>
+                
+                <h3>5.1 关键特征</h3>
+                <ul>
+                    <li><strong>发生部位</strong>：植物的乙醛酸体，微生物的细胞质</li>
+                    <li><strong>关键酶</strong>：异柠檬酸裂解酶、苹果酸合酶</li>
+                    <li><strong>生物学意义</strong>：种子萌发时将储存脂肪转化为糖类</li>
+                </ul>
+                
+                <h3>5.2 与柠檬酸循环的区别</h3>
+                <ul>
+                    <li><strong>跳过脱羧步骤</strong>：避免CO₂丢失，实现净糖合成</li>
+                    <li><strong>不产生NADH</strong>：主要功能是物质转化而非能量产生</li>
+                    <li><strong>需要额外酶</strong>：异柠檬酸裂解酶和苹果酸合酶</li>
+                </ul>
+            </div>
+
+            <!-- 六、名词解释库 -->
+            <div class="section">
+                <h2>六、名词解释库</h2>
+                
+                <div class="definition">
+                    <p><span class="term">柠檬酸循环</span> <span class="english">(Tricarboxylic Acid Cycle, TCA Cycle)</span></p>
+                    <p>又称三羧酸循环、Krebs循环，是细胞呼吸的核心代谢途径，通过八个酶催化反应将乙酰-CoA彻底氧化为CO₂和H₂O，同时产生ATP、NADH和FADH₂。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">乙酰辅酶A</span> <span class="english">(Acetyl-CoA)</span></p>
+                    <p>由乙酰基与辅酶A结合形成的高能化合物，是柠檬酸循环的起始底物，也是糖、脂、蛋白质代谢的共同中间产物。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">柠檬酸合酶</span> <span class="english">(Citrate Synthase)</span></p>
+                    <p>催化柠檬酸循环第一步反应的关键酶，将乙酰-CoA与草酰乙酸结合生成柠檬酸，是循环的限速酶之一，受ATP、NADH负反馈调控。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">异柠檬酸脱氢酶</span> <span class="english">(Isocitrate Dehydrogenase)</span></p>
+                    <p>催化异柠檬酸氧化脱羧生成α-酮戊二酸的酶，是柠檬酸循环最重要的调控点，需要Mg²⁺或Mn²⁺激活，受ADP激活、ATP和NADH抑制。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">α-酮戊二酸脱氢酶复合体</span> <span class="english">(α-Ketoglutarate Dehydrogenase Complex)</span></p>
+                    <p>由三种酶组成的多酶复合体，催化α-酮戊二酸氧化脱羧生成琥珀酰-CoA，结构和调控机制类似于丙酮酸脱氢酶复合体。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">琥珀酰-CoA合成酶</span> <span class="english">(Succinyl-CoA Synthetase)</span></p>
+                    <p>催化琥珀酰-CoA水解生成琥珀酸的酶，同时通过底物水平磷酸化直接产生GTP（相当于ATP），是循环中唯一直接产生高能磷酸键的步骤。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">琥珀酸脱氢酶</span> <span class="english">(Succinate Dehydrogenase)</span></p>
+                    <p>催化琥珀酸氧化生成延胡索酸的酶，同时是电子传递链复合体II的组成部分，将电子直接传递给辅酶Q，产生FADH₂。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">底物水平磷酸化</span> <span class="english">(Substrate-Level Phosphorylation)</span></p>
+                    <p>通过酶催化反应直接将高能磷酸基团从底物分子转移到ADP生成ATP的过程，不依赖电子传递链和质子梯度。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">变构调节</span> <span class="english">(Allosteric Regulation)</span></p>
+                    <p>调节分子结合到酶的变构位点（非活性位点）引起酶构象改变，从而影响酶活性的调节机制，可分为正调节（激活）和负调节（抑制）。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">能量电荷</span> <span class="english">(Energy Charge)</span></p>
+                    <p>反映细胞能量状态的参数，计算公式为(ATP + 0.5ADP)/(ATP + ADP + AMP)，数值在0-1之间，用于调控代谢途径的活性。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">乙醛酸循环</span> <span class="english">(Glyoxylate Cycle)</span></p>
+                    <p>柠檬酸循环的变体，跳过两个脱羧步骤，通过异柠檬酸裂解酶和苹果酸合酶实现脂肪酸向糖类的净转化，主要存在于植物和微生物中。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">回补反应</span> <span class="english">(Anaplerotic Reactions)</span></p>
+                    <p>补充柠檬酸循环中间产物的反应，如丙酮酸羧化酶催化丙酮酸生成草酰乙酸，维持循环的正常进行。</p>
+                </div>
+                
+                <div class="definition">
+                    <p><span class="term">代谢枢纽</span> <span class="english">(Metabolic Hub)</span></p>
+                    <p>连接多条代谢途径的关键节点，柠檬酸循环是糖、脂、蛋白质代谢的共同通路，其中间产物可作为其他生物合成途径的前体。</p>
+                </div>
+            </div>
+
+            <!-- 七、深度思考题 -->
+            <div class="section">
+                <h2>七、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 分析柠檬酸循环在不同生理状态下的调控机制</h4>
+                    <p>请从分子水平分析在以下三种生理状态下，柠檬酸循环是如何通过变构调节、共价修饰和酶诱导等机制进行精确调控的：</p>
+                    <ul>
+                        <li>运动状态（ATP需求增加）</li>
+                        <li>饥饿状态（糖原耗尽，需要糖异生）</li>
+                        <li>饱食状态（营养物质充足）</li>
+                    </ul>
+                    
+                    <div class="thinking-answer">
+                        <h5>参考答案要点：</h5>
+                        <ol>
+                            <li><strong>运动状态：</strong>
+                                <ul>
+                                    <li>ATP消耗增加，ADP/ATP比值上升，ADP激活异柠檬酸脱氢酶</li>
+                                    <li>Ca²⁺浓度升高，激活三个关键调控酶（柠檬酸合酶、异柠檬酸脱氢酶、α-酮戊二酸脱氢酶）</li>
+                                    <li>NADH/NAD⁺比值下降，解除对关键酶的抑制</li>
+                                    <li>循环加速，产生更多ATP满足能量需求</li>
+                                </ul>
+                            </li>
+                            <li><strong>饥饿状态：</strong>
+                                <ul>
+                                    <li>胰高血糖素激活，促进糖异生</li>
+                                    <li>循环中间产物（草酰乙酸、α-酮戊二酸）被抽取用于糖异生</li>
+                                    <li>回补反应激活（丙酮酸羧化酶），补充草酰乙酸</li>
+                                    <li>脂肪酸β氧化增强，提供更多乙酰-CoA</li>
+                                </ul>
+                            </li>
+                            <li><strong>饱食状态：</strong>
+                                <ul>
+                                    <li>ATP/ADP比值高，ATP抑制关键调控酶</li>
+                                    <li>NADH/NAD⁺比值高，抑制脱氢酶活性</li>
+                                    <li>柠檬酸浓度升高，激活脂肪酸合成</li>
+                                    <li>循环活性下降，代谢重点转向合成代谢</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较分析柠檬酸循环与乙醛酸循环的生物学意义</h4>
+                    <p>从进化角度和代谢网络角度，分析为什么植物和微生物需要乙醛酸循环，而大多数动物缺乏这一途径？这种差异如何反映了不同生物的生存策略？</p>
+                    
+                    <div class="thinking-answer">
+                        <h5>参考答案要点：</h5>
+                        <ol>
+                            <li><strong>代谢功能差异：</strong>
+                                <ul>
+                                    <li>柠檬酸循环：主要功能是彻底氧化有机物产生ATP，伴随CO₂丢失</li>
+                                    <li>乙醛酸循环：跳过脱羧步骤，实现脂肪酸向糖类的净转化</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学意义：</strong>
+                                <ul>
+                                    <li>植物种子：储存大量油脂，萌发时需要转化为糖类供幼苗生长</li>
+                                    <li>微生物：在缺乏糖类的环境中，利用脂肪酸或乙酸作为唯一碳源</li>
+                                    <li>动物：可以从食物中获得糖类，不需要从脂肪酸合成糖类的能力</li>
+                                </ul>
+                            </li>
+                            <li><strong>进化意义：</strong>
+                                <ul>
+                                    <li>反映了不同生物对环境的适应策略</li>
+                                    <li>植物的自养特性要求更灵活的代谢转换能力</li>
+                                    <li>动物的异养特性使其依赖外源营养，代谢途径相对简化</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 柠檬酸循环异常与人类疾病的关系</h4>
+                    <p>分析柠檬酸循环中关键酶缺陷或调控异常如何导致人类疾病，并从分子机制角度解释可能的治疗策略。</p>
+                    
+                    <div class="thinking-answer">
+                        <h5>参考答案要点：</h5>
+                        <ol>
+                            <li><strong>酶缺陷相关疾病：</strong>
+                                <ul>
+                                    <li>琥珀酸脱氢酶缺陷：导致琥珀酸血症，影响电子传递</li>
+                                    <li>延胡索酸水合酶缺陷：延胡索酸血症，神经系统损伤</li>
+                                    <li>α-酮戊二酸脱氢酶缺陷：影响神经系统发育</li>
+                                </ul>
+                            </li>
+                            <li><strong>代谢调控异常：</strong>
+                                <ul>
+                                    <li>糖尿病：胰岛素抵抗导致循环调控失衡</li>
+                                    <li>肿瘤：Warburg效应，循环活性下降，偏向糖酵解</li>
+                                    <li>神经退行性疾病：线粒体功能障碍，循环效率降低</li>
+                                </ul>
+                            </li>
+                            <li><strong>治疗策略：</strong>
+                                <ul>
+                                    <li>酶替代疗法：补充缺陷酶或其产物</li>
+                                    <li>代谢调节：使用激活剂或抑制剂调节关键酶活性</li>
+                                    <li>基因治疗：修复缺陷基因</li>
+                                    <li>营养干预：提供替代代谢途径的底物</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 八、选择题测试 -->
+            <div class="section">
+                <h2>八、选择题测试</h2>
+                <div class="quiz-container">
+                    <p style="text-align: center; font-size: 1.1em; margin-bottom: 20px;">系统将从30道题库中随机抽取15道题进行测试</p>
+                    <div id="quizArea"></div>
+                    <button class="quiz-button" onclick="submitQuiz()">提交答案</button>
+                    <button class="quiz-button" onclick="generateNewQuiz()">重新生成测试</button>
+                    <div id="quizResult" class="quiz-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "柠檬酸循环发生的主要部位是：",
+                options: ["A. 细胞质", "B. 线粒体基质", "C. 线粒体内膜", "D. 内质网"],
+                correct: 1,
+                explanation: "柠檬酸循环的八个酶催化反应都发生在线粒体基质中，这里含有循环所需的所有酶和辅酶。线粒体内膜主要进行电子传递和氧化磷酸化。"
+            },
+            {
+                question: "柠檬酸循环中第一个脱氢反应是：",
+                options: ["A. 柠檬酸→异柠檬酸", "B. 异柠檬酸→α-酮戊二酸", "C. α-酮戊二酸→琥珀酰-CoA", "D. 苹果酸→草酰乙酸"],
+                correct: 1,
+                explanation: "异柠檬酸脱氢酶催化异柠檬酸氧化脱羧生成α-酮戊二酸，这是循环中第一个脱氢反应，产生第一个NADH和第一个CO₂。"
+            },
+            {
+                question: "柠檬酸循环中唯一通过底物水平磷酸化直接产生ATP的步骤是：",
+                options: ["A. 柠檬酸→异柠檬酸", "B. 异柠檬酸→α-酮戊二酸", "C. 琥珀酰-CoA→琥珀酸", "D. 苹果酸→草酰乙酸"],
+                correct: 2,
+                explanation: "琥珀酰-CoA合成酶催化琥珀酰-CoA水解生成琥珀酸，同时通过底物水平磷酸化直接产生GTP（相当于ATP），这是循环中唯一直接产生高能磷酸键的步骤。"
+            },
+            {
+                question: "异柠檬酸脱氢酶的变构激活剂是：",
+                options: ["A. ATP", "B. NADH", "C. ADP", "D. 琥珀酰-CoA"],
+                correct: 2,
+                explanation: "异柠檬酸脱氢酶是柠檬酸循环最重要的调控点，ADP作为变构激活剂，当细胞能量不足时激活该酶，促进循环进行产生更多ATP。"
+            },
+            {
+                question: "柠檬酸循环每轮产生的NADH分子数是：",
+                options: ["A. 2个", "B. 3个", "C. 4个", "D. 5个"],
+                correct: 1,
+                explanation: "柠檬酸循环每轮产生3个NADH：异柠檬酸脱氢酶产生1个，α-酮戊二酸脱氢酶产生1个，苹果酸脱氢酶产生1个。"
+            },
+            {
+                question: "琥珀酸脱氢酶的特殊性在于：",
+                options: ["A. 需要CoA参与", "B. 产生CO₂", "C. 是电子传递链复合体II的组成部分", "D. 需要Mg²⁺激活"],
+                correct: 2,
+                explanation: "琥珀酸脱氢酶结合在线粒体内膜上，是电子传递链复合体II的组成部分，将电子直接传递给辅酶Q，产生FADH₂。"
+            },
+            {
+                question: "能量电荷的计算公式是：",
+                options: ["A. ATP/(ATP+ADP+AMP)", "B. (ATP+ADP)/(ATP+ADP+AMP)", "C. (ATP+0.5ADP)/(ATP+ADP+AMP)", "D. (ATP+AMP)/(ATP+ADP+AMP)"],
+                correct: 2,
+                explanation: "能量电荷 = (ATP + 0.5ADP)/(ATP + ADP + AMP)，这个公式考虑了ADP含有一个高能磷酸键，因此系数为0.5。"
+            },
+            {
+                question: "柠檬酸循环中产生CO₂的反应有：",
+                options: ["A. 1个", "B. 2个", "C. 3个", "D. 4个"],
+                correct: 1,
+                explanation: "柠檬酸循环中有2个脱羧反应产生CO₂：异柠檬酸脱氢酶反应和α-酮戊二酸脱氢酶反应，每轮循环产生2个CO₂。"
+            },
+            {
+                question: "乙醛酸循环与柠檬酸循环的主要区别是：",
+                options: ["A. 发生部位不同", "B. 跳过两个脱羧步骤", "C. 需要不同的辅酶", "D. 产生更多ATP"],
+                correct: 1,
+                explanation: "乙醛酸循环跳过异柠檬酸脱氢酶和α-酮戊二酸脱氢酶催化的两个脱羧步骤，避免CO₂丢失，实现脂肪酸向糖类的净转化。"
+            },
+            {
+                question: "柠檬酸合酶的负反馈抑制剂包括：",
+                options: ["A. ADP、Ca²⁺", "B. ATP、NADH、琥珀酰-CoA", "C. NAD⁺、FAD", "D. Mg²⁺、Mn²⁺"],
+                correct: 1,
+                explanation: "柠檬酸合酶受ATP、NADH、琥珀酰-CoA的负反馈抑制，这些都是循环的产物，当浓度高时抑制循环启动，体现了代谢调控的精确性。"
+            },
+            {
+                question: "α-酮戊二酸脱氢酶复合体需要的辅助因子不包括：",
+                options: ["A. NAD⁺", "B. CoA", "C. 硫胺素焦磷酸", "D. 生物素"],
+                correct: 3,
+                explanation: "α-酮戊二酸脱氢酶复合体需要NAD⁺、CoA、硫胺素焦磷酸、脂酰胺、FAD等辅助因子，但不需要生物素。生物素主要参与羧化反应。"
+            },
+            {
+                question: "柠檬酸循环中草酰乙酸的作用是：",
+                options: ["A. 仅作为反应底物", "B. 仅作为反应产物", "C. 既是底物又是产物，起催化剂作用", "D. 仅提供能量"],
+                correct: 2,
+                explanation: "草酰乙酸在循环开始时与乙酰-CoA结合，在循环结束时重新生成，起到催化剂的作用，使循环能够持续进行。"
+            },
+            {
+                question: "延胡索酸水合酶催化的反应类型是：",
+                options: ["A. 氧化反应", "B. 脱羧反应", "C. 加水反应", "D. 磷酸化反应"],
+                correct: 2,
+                explanation: "延胡索酸水合酶催化延胡索酸加水生成L-苹果酸，这是一个可逆的加水反应，不涉及氧化、脱羧或磷酸化。"
+            },
+            {
+                question: "柠檬酸循环的总能量产出（包括电子传递链）约为：",
+                options: ["A. 12个ATP", "B. 25个ATP", "C. 30-32个ATP", "D. 38个ATP"],
+                correct: 2,
+                explanation: "每个乙酰-CoA通过柠檬酸循环产生3个NADH、1个FADH₂和1个GTP，通过电子传递链总共约产生30-32个ATP（考虑不同计算方法）。"
+            },
+            {
+                question: "乌头酸酶的辅助因子是：",
+                options: ["A. NAD⁺", "B. FAD", "C. Fe-S簇", "D. Mg²⁺"],
+                correct: 2,
+                explanation: "乌头酸酶含有Fe-S簇作为辅助因子，催化柠檬酸通过顺乌头酸中间体转化为异柠檬酸，涉及脱水和加水反应。"
+            },
+            {
+                question: "柠檬酸循环中哪个化合物可以作为脂肪酸合成的前体：",
+                options: ["A. 草酰乙酸", "B. α-酮戊二酸", "C. 柠檬酸", "D. 琥珀酸"],
+                correct: 2,
+                explanation: "柠檬酸可以通过柠檬酸-苹果酸循环转运出线粒体，在细胞质中被ATP柠檬酸裂解酶分解提供乙酰-CoA用于脂肪酸合成。"
+            },
+            {
+                question: "苹果酸脱氢酶反应的热力学特点是：",
+                options: ["A. 高放能反应", "B. 高吸能反应", "C. 能量变化很小", "D. 不涉及能量变化"],
+                correct: 1,
+                explanation: "苹果酸脱氢酶反应的ΔG°' = +29.7 kJ/mol，是高吸能反应，需要产物NADH和H⁺快速移除才能使反应向前进行。"
+            },
+            {
+                question: "柠檬酸循环中哪个酶不受ATP抑制：",
+                options: ["A. 柠檬酸合酶", "B. 异柠檬酸脱氢酶", "C. 乌头酸酶", "D. α-酮戊二酸脱氢酶"],
+                correct: 2,
+                explanation: "乌头酸酶不是调控酶，不受ATP抑制。柠檬酸合酶、异柠檬酸脱氢酶和α-酮戊二酸脱氢酶都是关键调控酶，受ATP负反馈抑制。"
+            },
+            {
+                question: "回补反应的主要作用是：",
+                options: ["A. 产生更多ATP", "B. 补充循环中间产物", "C. 加速循环进行", "D. 减少副产物"],
+                correct: 1,
+                explanation: "回补反应（如丙酮酸羧化酶反应）的主要作用是补充柠檬酸循环的中间产物，特别是草酰乙酸，维持循环的正常进行。"
+            },
+            {
+                question: "柠檬酸循环中产生FADH₂的反应是：",
+                options: ["A. 异柠檬酸→α-酮戊二酸", "B. α-酮戊二酸→琥珀酰-CoA", "C. 琥珀酸→延胡索酸", "D. 苹果酸→草酰乙酸"],
+                correct: 2,
+                explanation: "琥珀酸脱氢酶催化琥珀酸氧化生成延胡索酸，产生FADH₂。这是循环中唯一产生FADH₂的反应。"
+            },
+            {
+                question: "Ca²⁺对柠檬酸循环的调控作用是：",
+                options: ["A. 抑制所有关键酶", "B. 激活三个关键调控酶", "C. 仅激活柠檬酸合酶", "D. 不参与调控"],
+                correct: 1,
+                explanation: "Ca²⁺作为第二信使，激活柠檬酸合酶、异柠檬酸脱氢酶和α-酮戊二酸脱氢酶三个关键调控酶，协调循环活性与细胞代谢需求。"
+            },
+            {
+                question: "柠檬酸循环中不可逆反应的数目是：",
+                options: ["A. 2个", "B. 3个", "C. 4个", "D. 5个"],
+                correct: 1,
+                explanation: "柠檬酸循环中有3个不可逆反应：柠檬酸合酶反应、异柠檬酸脱氢酶反应和α-酮戊二酸脱氢酶反应，这些都是关键调控点。"
+            },
+            {
+                question: "异柠檬酸脱氢酶需要的金属离子是：",
+                options: ["A. Fe²⁺", "B. Zn²⁺", "C. Mg²⁺或Mn²⁺", "D. Cu²⁺"],
+                correct: 2,
+                explanation: "异柠檬酸脱氢酶需要Mg²⁺或Mn²⁺作为必需的金属离子激活剂，这些离子对酶的活性和稳定性至关重要。"
+            },
+            {
+                question: "柠檬酸循环的代谢意义不包括：",
+                options: ["A. 产生ATP", "B. 提供合成代谢前体", "C. 直接合成蛋白质", "D. 连接糖脂蛋白代谢"],
+                correct: 2,
+                explanation: "柠檬酸循环不直接合成蛋白质，而是提供氨基酸合成的前体物质（如α-酮戊二酸、草酰乙酸），蛋白质合成需要另外的翻译机制。"
+            },
+            {
+                question: "乙醛酸循环主要存在于：",
+                options: ["A. 动物肝脏", "B. 植物种子和微生物", "C. 动物肌肉", "D. 动物大脑"],
+                correct: 1,
+                explanation: "乙醛酸循环主要存在于植物种子（特别是含油种子）和某些微生物中，用于将脂肪酸转化为糖类，支持种子萌发。"
+            },
+            {
+                question: "柠檬酸循环中琥珀酰-CoA的去向不包括：",
+                options: ["A. 转化为琥珀酸", "B. 血红蛋白合成", "C. 直接产生ATP", "D. 脂肪酸合成"],
+                correct: 3,
+                explanation: "琥珀酰-CoA主要转化为琥珀酸继续循环，也可用于血红蛋白合成，但不直接产生ATP（通过琥珀酰-CoA合成酶产生GTP），也不直接用于脂肪酸合成。"
+            },
+            {
+                question: "柠檬酸循环的限速步骤是：",
+                options: ["A. 柠檬酸合酶反应", "B. 异柠檬酸脱氢酶反应", "C. 琥珀酸脱氢酶反应", "D. 苹果酸脱氢酶反应"],
+                correct: 1,
+                explanation: "异柠檬酸脱氢酶反应是柠檬酸循环的主要限速步骤，该酶受到最严格的调控，是决定循环速率的关键因素。"
+            },
+            {
+                question: "柠檬酸循环中哪个化合物含有三个羧基：",
+                options: ["A. 柠檬酸", "B. 异柠檬酸", "C. α-酮戊二酸", "D. 琥珀酸"],
+                correct: 0,
+                explanation: "柠檬酸含有三个羧基，这也是三羧酸循环名称的由来。异柠檬酸也含有三个羧基，但柠檬酸是循环的起始化合物。"
+            },
+            {
+                question: "高能量电荷时柠檬酸循环的状态是：",
+                options: ["A. 活性增强", "B. 活性降低", "C. 活性不变", "D. 完全停止"],
+                correct: 1,
+                explanation: "高能量电荷（0.8-1.0）时，ATP和NADH浓度高，通过负反馈抑制关键调控酶，使柠檬酸循环活性降低，避免过度产能。"
+            },
+            {
+                question: "柠檬酸循环与糖酵解的连接点是：",
+                options: ["A. 葡萄糖", "B. 丙酮酸", "C. 乙酰-CoA", "D. 柠檬酸"],
+                correct: 2,
+                explanation: "糖酵解产生的丙酮酸通过丙酮酸脱氢酶复合体转化为乙酰-CoA，乙酰-CoA是连接糖酵解和柠檬酸循环的关键中间产物。"
+            }
+        ];
+
+        let currentQuiz = [];
+        let userAnswers = [];
+
+        // 生成随机测试
+        function generateQuiz() {
+            // 从30道题中随机选择15道
+            const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+            currentQuiz = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const quizArea = document.getElementById('quizArea');
+            quizArea.innerHTML = '';
+            
+            currentQuiz.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-question';
+                questionDiv.innerHTML = `
+                    <h4>${index + 1}. ${q.question}</h4>
+                    <ul class="quiz-options">
+                        ${q.options.map((option, optIndex) => 
+                            `<li onclick="selectAnswer(${index}, ${optIndex})" data-question="${index}" data-option="${optIndex}">${option}</li>`
+                        ).join('')}
+                    </ul>
+                `;
+                quizArea.appendChild(questionDiv);
+            });
+        }
+
+        // 选择答案
+        function selectAnswer(questionIndex, optionIndex) {
+            userAnswers[questionIndex] = optionIndex;
+            
+            // 清除同一题目的其他选择
+            const questionOptions = document.querySelectorAll(`[data-question="${questionIndex}"]`);
+            questionOptions.forEach(option => option.classList.remove('selected'));
+            
+            // 标记当前选择
+            const selectedOption = document.querySelector(`[data-question="${questionIndex}"][data-option="${optionIndex}"]`);
+            selectedOption.classList.add('selected');
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            let score = 0;
+            let resultHTML = '<h3>测试结果</h3>';
+            
+            currentQuiz.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) score++;
+                
+                resultHTML += `
+                    <div class="quiz-explanation">
+                        <h4>第${index + 1}题：${q.question}</h4>
+                        <p><strong>您的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未作答'} ${isCorrect ? '✓' : '✗'}</p>
+                        <p><strong>正确答案：</strong>${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / 15) * 100);
+            resultHTML = `<p style="font-size: 1.2em; font-weight: bold; color: ${percentage >= 60 ? '#27ae60' : '#e74c3c'};">得分：${score}/15 (${percentage}%)</p>` + resultHTML;
+            
+            const resultDiv = document.getElementById('quizResult');
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+        }
+
+        // 重新生成测试
+        function generateNewQuiz() {
+            generateQuiz();
+            document.getElementById('quizResult').style.display = 'none';
+        }
+
+        // 页面滚动进度条
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        });
+
+        // 页面加载时生成测试
+        window.addEventListener('load', function() {
+            generateQuiz();
+        });
+    </script>
+</body>
+</html>

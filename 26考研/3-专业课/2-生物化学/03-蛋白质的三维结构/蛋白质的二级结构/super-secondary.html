@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超二级结构 - 蛋白质二级结构</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入Three.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <!-- 引入OrbitControls用于3D交互控制 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- 引入TWEEN.js用于动画效果 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+<body>
+    <header>
+        <h1>蛋白质的二级结构</h1>
+        <nav>
+            <ul>
+                <li><a href="alpha-helix.html" class="nav-link">α螺旋</a></li>
+                <li><a href="beta-sheet.html" class="nav-link">β折叠</a></li>
+                <li><a href="beta-turn.html" class="nav-link">β转角</a></li>
+                <li><a href="super-secondary.html" class="nav-link active">超二级结构</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="super-secondary" class="structure-section active">
+            <div class="content-wrapper">
+                <div class="model-container">
+                    <div id="super-secondary-model" class="model"></div>
+                    <div class="model-controls">
+                        <button id="super-secondary-rotate">自动旋转</button>
+                        <button id="super-secondary-reset">重置视图</button>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h2>超二级结构与结构域 (Super-Secondary Structure & Domain)</h2>
+                    <div class="info-content">
+                        <p>超二级结构是由多个二级结构元件组合形成的更高级结构单元，具有以下特点：</p>
+                        <ul>
+                            <li><strong>结构模块</strong>：由α螺旋、β折叠和β转角等基本二级结构组合而成</li>
+                            <li><strong>常见模式</strong>：包括βαβ单元、ββ发夹、αα发夹、β卷曲等</li>
+                            <li><strong>功能相关</strong>：特定的超二级结构常与特定的功能相关联</li>
+                            <li><strong>结构域形成</strong>：多个超二级结构可进一步组合形成结构域</li>
+                            <li><strong>保守性</strong>：在进化上往往比单个二级结构更为保守</li>
+                            <li><strong>折叠核心</strong>：常作为蛋白质折叠过程中的核心单元</li>
+                        </ul>
+                        <p>结构域是蛋白质中具有独立折叠能力和功能的区域，通常由多个超二级结构组成。一个蛋白质可以包含一个或多个结构域，每个结构域可能具有特定的功能。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 蛋白质二级结构学习平台 | 细胞生物学辅助工具</p>
+    </footer>
+
+    <script src="super-secondary.js"></script>
+</body>
+</html>

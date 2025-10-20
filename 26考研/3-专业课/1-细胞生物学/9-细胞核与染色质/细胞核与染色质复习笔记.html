@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞核与染色质 - 考研复习笔记</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+
+        /* 核心内容样式 */
+        .core-content h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        .core-content h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .core-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .core-content ul, .core-content ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        .core-content li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .note {
+            background-color: #d1ecf1;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* 名词解释样式 */
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .glossary-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .glossary-definition {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-summary {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .result-item.correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .result-item.incorrect {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .result-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .result-analysis {
+            margin-top: 10px;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-questions .question-item {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .thinking-questions .question-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .thinking-questions .answer {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .thinking-questions .answer ol {
+            margin-left: 20px;
+        }
+
+        .thinking-questions .answer li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .glossary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>细胞核与染色质</h1>
+            <p>考研专业课复习笔记 | 基于《细胞生物学》第五版（丁明孝主编）</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section core-content">
+                <h2 class="section-title">核心知识点</h2>
+                
+                <h3>一、核被膜（Nuclear Envelope）</h3>
+                <h4>1. 核被膜的结构组成</h4>
+                <p>核被膜是包围细胞核的双分子膜结构，由<span class="highlight">外核膜</span>和<span class="highlight">内核膜</span>组成。外核膜与内质网相连，表面附着核糖体；内核膜光滑，与核纤层紧密结合。两膜之间的空隙称为<span class="highlight">核周隙</span>（perinuclear space），宽度约20-40nm。</p>
+                
+                <h4>2. 核孔复合体（Nuclear Pore Complex, NPC）</h4>
+                <p>核孔复合体是核被膜上的大型蛋白质复合物，直径约120nm，由约30种不同的<span class="highlight">核孔蛋白</span>（nucleoporins, Nups）组成。核孔复合体具有八重对称结构，包括：</p>
+                <ul>
+                    <li><strong>胞质纤维</strong>：延伸至胞质侧</li>
+                    <li><strong>核篮</strong>：延伸至核质侧</li>
+                    <li><strong>中央通道</strong>：允许物质通过的孔道</li>
+                    <li><strong>中央栓</strong>：调节通道开闭</li>
+                </ul>
+
+                <div class="note">
+                    <strong>重要考点：</strong>核孔复合体的主动运输过程需要消耗GTP，能够识别携带核定位信号（NLS）的蛋白质，实现选择性运输。
+                </div>
+
+                <h4>3. 核纤层（Nuclear Lamina）</h4>
+                <p>核纤层位于内核膜下方，由<span class="highlight">核纤层蛋白</span>（lamins）构成的纤维网络结构。核纤层蛋白属于中间丝蛋白家族，主要功能包括：</p>
+                <ul>
+                    <li>维持核形态和结构稳定性</li>
+                    <li>参与DNA复制和转录调控</li>
+                    <li>在细胞分裂时解聚和重组</li>
+                    <li>与染色质相互作用</li>
+                </ul>
+
+                <h3>二、染色质（Chromatin）</h3>
+                <h4>1. 染色质的基本组成</h4>
+                <p>染色质是细胞核内DNA与蛋白质的复合物，主要成分包括：</p>
+                <ul>
+                    <li><strong>DNA</strong>：携带遗传信息的双螺旋分子</li>
+                    <li><strong>组蛋白</strong>：富含碱性氨基酸的结构蛋白</li>
+                    <li><strong>非组蛋白</strong>：参与基因调控的各种蛋白质</li>
+                    <li><strong>少量RNA</strong>：主要是转录产物</li>
+                </ul>
+
+                <h4>2. 基因组DNA的分类</h4>
+                <p>根据序列特征，真核生物基因组DNA可分为：</p>
+                <ul>
+                    <li><strong>单一序列（Unique Sequence）</strong>：单拷贝或少数拷贝，多为编码基因</li>
+                    <li><strong>中度重复序列</strong>：重复次数10¹-10⁵，包括rRNA、tRNA、组蛋白基因等</li>
+                    <li><strong>高度重复序列</strong>：重复次数>10⁵，主要分布在端粒、着丝粒区域</li>
+                </ul>
+
+                <h4>3. 组蛋白的类型与特点</h4>
+                <p>组蛋白是富含<span class="highlight">精氨酸</span>和<span class="highlight">赖氨酸</span>的碱性蛋白质，等电点在pH 10.0以上。主要包括五种类型：</p>
+                <ul>
+                    <li><strong>H1</strong>：连接组蛋白，分子量约21kDa</li>
+                    <li><strong>H2A</strong>：核小体组蛋白，分子量约14kDa</li>
+                    <li><strong>H2B</strong>：核小体组蛋白，分子量约13.8kDa</li>
+                    <li><strong>H3</strong>：核小体组蛋白，分子量约15.4kDa</li>
+                    <li><strong>H4</strong>：核小体组蛋白，分子量约11.3kDa</li>
+                </ul>
+
+                <h4>4. 核小体（Nucleosome）结构</h4>
+                <p>核小体是染色质的基本结构单位，包含：</p>
+                <ul>
+                    <li><strong>核心颗粒</strong>：由H2A、H2B、H3、H4各2分子组成的八聚体</li>
+                    <li><strong>DNA缠绕</strong>：146bp DNA在八聚体上缠绕1.65圈</li>
+                    <li><strong>连接DNA</strong>：相邻核小体间的DNA片段（约20-80bp）</li>
+                    <li><strong>H1组蛋白</strong>：结合在连接DNA上，稳定高级结构</li>
+                </ul>
+
+                <h3>三、染色质的组装与类型</h3>
+                <h4>1. 染色质的多级组装</h4>
+                <p>染色质具有多级组装结构：</p>
+                <ol>
+                    <li><strong>一级结构</strong>：DNA双螺旋（2nm）</li>
+                    <li><strong>二级结构</strong>：核小体串珠状结构（11nm）</li>
+                    <li><strong>三级结构</strong>：螺线管结构（30nm纤维）</li>
+                    <li><strong>四级结构</strong>：高度压缩的分裂期染色体（700nm）</li>
+                </ol>
+
+                <h4>2. 染色质的类型</h4>
+                <p>根据压缩程度和转录活性，染色质分为：</p>
+                <ul>
+                    <li><strong>常染色质（Euchromatin）</strong>：
+                        <ul>
+                            <li>结构疏松，转录活跃</li>
+                            <li>富含转录活性基因</li>
+                            <li>组蛋白修饰多样</li>
+                        </ul>
+                    </li>
+                    <li><strong>异染色质（Heterochromatin）</strong>：
+                        <ul>
+                            <li>结构致密，转录沉默</li>
+                            <li>分为组成性异染色质和兼性异染色质</li>
+                            <li>富含重复序列</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>四、染色体的功能元件</h3>
+                <h4>1. 复制起点（Origin of Replication）</h4>
+                <p>真核细胞染色体含有多个复制起点，特征序列为富含A-T的保守序列，长度约11-14bp。复制起点的激活受到严格调控，确保DNA只复制一次。</p>
+
+                <h4>2. 着丝粒（Centromere）</h4>
+                <p>着丝粒是姐妹染色单体连接的区域，包含两个核心序列：</p>
+                <ul>
+                    <li>80-90bp的A-T富集区</li>
+                    <li>11bp高度保守序列：TGATTTCCGAA</li>
+                </ul>
+                <p>着丝粒结合<span class="highlight">着丝粒蛋白</span>形成动粒，是纺锤体微管附着的位点。</p>
+
+                <h4>3. 端粒（Telomere）</h4>
+                <p>端粒位于染色体末端，由富含TG的重复序列组成。人类端粒序列为(TTAGGG)n，具有以下功能：</p>
+                <ul>
+                    <li>保护染色体末端免受降解</li>
+                    <li>防止染色体融合</li>
+                    <li>解决DNA复制的末端问题</li>
+                    <li>与细胞衰老密切相关</li>
+                </ul>
+
+                <h3>五、核仁与核体</h3>
+                <h4>1. 核仁（Nucleolus）结构与功能</h4>
+                <p>核仁是细胞核内最显著的结构，主要功能是<span class="highlight">rRNA的转录、加工和核糖体亚基的组装</span>。核仁包含三个区域：</p>
+                <ul>
+                    <li><strong>纤维中心（FC）</strong>：含有rDNA和RNA聚合酶I</li>
+                    <li><strong>致密纤维组分（DFC）</strong>：rRNA转录和早期加工场所</li>
+                    <li><strong>颗粒组分（GC）</strong>：核糖体亚基组装的后期阶段</li>
+                </ul>
+
+                <h4>2. 核体（Nuclear Body）</h4>
+                <p>核体是细胞核内的非膜结构域，包括：</p>
+                <ul>
+                    <li><strong>Cajal体</strong>：参与snRNA和snoRNA的修饰</li>
+                    <li><strong>PML体</strong>：参与转录调控和DNA修复</li>
+                    <li><strong>剪接体</strong>：mRNA前体的剪接场所</li>
+                </ul>
+
+                <h3>六、核基质与核骨架</h3>
+                <h4>1. 核基质（Nuclear Matrix）</h4>
+                <p>核基质是细胞核内除核被膜、核纤层、染色质和核仁外的网架结构体系，主要成分包括：</p>
+                <ul>
+                    <li>纤维蛋白网络</li>
+                    <li>各种酶类</li>
+                    <li>转录因子</li>
+                    <li>RNA加工因子</li>
+                </ul>
+
+                <h4>2. 核骨架的功能</h4>
+                <ul>
+                    <li>维持核形态和内部结构</li>
+                    <li>提供DNA复制和转录的支架</li>
+                    <li>参与基因表达调控</li>
+                    <li>组织核内各种生化反应</li>
+                </ul>
+
+                <h3>七、核质运输</h3>
+                <h4>1. 亲核蛋白的核输入</h4>
+                <p>亲核蛋白通过以下步骤进入细胞核：</p>
+                <ol>
+                    <li>识别<span class="highlight">核定位信号</span>（NLS）</li>
+                    <li>与<span class="highlight">输入蛋白</span>（importin）结合</li>
+                    <li>通过核孔复合体</li>
+                    <li>Ran-GTP水解提供能量</li>
+                    <li>在核内释放货物蛋白</li>
+                </ol>
+
+                <h4>2. RNA的核输出</h4>
+                <p>成熟的mRNA、tRNA、rRNA通过<span class="highlight">输出蛋白</span>（exportin）介导的机制输出到胞质，过程同样需要Ran-GTP参与。</p>
+            </div>
+
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2 class="section-title">名词解释库</h2>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">细胞核（Cell Nucleus）</div>
+                        <div class="glossary-definition">真核细胞内最大、最重要的细胞器，被核被膜包围，含有细胞的遗传物质DNA，是细胞遗传和代谢的控制中心。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">染色质（Chromatin）</div>
+                        <div class="glossary-definition">间期细胞核中由DNA和组蛋白构成的能被碱性染料着色的物质，是遗传信息的载体。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">染色体（Chromosome）</div>
+                        <div class="glossary-definition">细胞分裂期染色质高度螺旋、折叠、缩短变粗后形成的条状结构，确保遗传物质准确分配。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">核被膜（Nuclear Envelope）</div>
+                        <div class="glossary-definition">包围细胞核的双分子膜结构，由内外两层膜组成，具有选择透过性，控制核质间物质交换。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">核孔复合体（Nuclear Pore Complex, NPC）</div>
+                        <div class="glossary-definition">核被膜上的大型蛋白质复合物，直径约120nm，介导核质间大分子物质的选择性运输。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">核纤层（Nuclear Lamina）</div>
+                        <div class="glossary-definition">位于内核膜下方由核纤层蛋白构成的纤维网络结构，维持核形态和结构稳定性。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">组蛋白（Histone）</div>
+                        <div class="glossary-definition">富含精氨酸和赖氨酸的碱性蛋白质，是染色质的主要结构蛋白，包括H1、H2A、H2B、H3、H4五种。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">非组蛋白（Non-histone Protein）</div>
+                        <div class="glossary-definition">细胞核中除组蛋白外的所有蛋白质，种类多样，主要参与基因表达调控和DNA代谢。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">核小体（Nucleosome）</div>
+                        <div class="glossary-definition">染色质的基本结构单位，由组蛋白八聚体和缠绕其上的146bp DNA组成。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">常染色质（Euchromatin）</div>
+                        <div class="glossary-definition">结构疏松、转录活跃的染色质区域，富含活性基因，在间期细胞核中呈浅染状态。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">异染色质（Heterochromatin）</div>
+                        <div class="glossary-definition">结构致密、转录沉默的染色质区域，分为组成性和兼性两类，在间期细胞核中呈深染状态。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">着丝粒（Centromere）</div>
+                        <div class="glossary-definition">姐妹染色单体连接的区域，含有特殊DNA序列，是纺锤体微管附着的位点。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">端粒（Telomere）</div>
+                        <div class="glossary-definition">位于染色体末端的特殊DNA-蛋白质结构，由富含TG的重复序列组成，保护染色体稳定性。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">核仁（Nucleolus）</div>
+                        <div class="glossary-definition">细胞核内最显著的结构，是rRNA转录、加工和核糖体亚基组装的场所。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">核基质（Nuclear Matrix）</div>
+                        <div class="glossary-definition">细胞核内除核被膜、核纤层、染色质和核仁外的网架结构体系，参与基因表达调控。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">核定位信号（Nuclear Localization Signal, NLS）</div>
+                        <div class="glossary-definition">蛋白质中的特定氨基酸序列，通常富含碱性氨基酸，指导蛋白质进入细胞核。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">输入蛋白（Importin）</div>
+                        <div class="glossary-definition">介导蛋白质从胞质向核内运输的载体蛋白，识别核定位信号并通过核孔复合体。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">Ran-GTP系统</div>
+                        <div class="glossary-definition">调控核质运输方向性的GTP酶系统，在核内浓度高，在胞质中浓度低，提供运输动力。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2 class="section-title">选择题测试</h2>
+                <div class="quiz-container">
+                    <p style="margin-bottom: 20px; font-weight: bold; color: #2c3e50;">
+                        以下是从30道题库中随机抽取的15道选择题，请选择最佳答案：
+                    </p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="section thinking-questions">
+                <h2 class="section-title">深度思考题</h2>
+                
+                <div class="question-item">
+                    <div class="question-title">1. 试述核孔复合体的结构特点及其在核质运输中的作用机制。</div>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>结构特点：</strong>核孔复合体是核被膜上的大型蛋白质复合物，直径约120nm，由约30种核孔蛋白组成，具有八重对称结构。包括胞质纤维、核篮、中央通道和中央栓等组分，形成选择性通透的分子筛。</li>
+                            <li><strong>选择性识别：</strong>核孔复合体能够识别携带核定位信号（NLS）的蛋白质，通过与输入蛋白（importin）结合形成运输复合物，实现选择性运输。小分子（<40kDa）可自由扩散，大分子需要载体蛋白介导。</li>
+                            <li><strong>能量依赖性：</strong>大分子的主动运输需要消耗GTP，Ran-GTP系统提供方向性和动力。核内Ran-GTP浓度高，胞质中Ran-GDP浓度高，形成浓度梯度驱动运输过程。</li>
+                            <li><strong>双向运输：</strong>核孔复合体既介导蛋白质的核输入，也介导RNA的核输出。输入和输出使用不同的载体蛋白系统，但都依赖Ran-GTP梯度调控运输方向。</li>
+                            <li><strong>调控机制：</strong>核孔复合体的通透性受到细胞周期、信号转导等多种因素调控，在细胞分裂时核孔复合体解体，分裂完成后重新组装，确保核质运输的精确调控。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-title">2. 比较常染色质与异染色质的结构特征、功能差异及其生物学意义。</div>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>结构特征差异：</strong>常染色质结构疏松，核小体间距较大，组蛋白修饰多样化（如H3K4me3、H3K27ac等激活性修饰）；异染色质结构致密，核小体紧密排列，富含抑制性组蛋白修饰（如H3K9me3、H3K27me3）。</li>
+                            <li><strong>转录活性差异：</strong>常染色质转录活跃，富含活性基因和转录因子结合位点，RNA聚合酶II易于接近；异染色质转录沉默，基因表达受到抑制，转录因子难以结合。</li>
+                            <li><strong>DNA可及性：</strong>常染色质中DNA更容易被DNase I消化，表明结构开放；异染色质对DNase I抗性强，DNA可及性低，反映其紧密的包装状态。</li>
+                            <li><strong>复制时序：</strong>常染色质在S期早期复制，异染色质在S期晚期复制。这种时序差异与基因表达调控和染色体稳定性维持密切相关。</li>
+                            <li><strong>生物学意义：</strong>这种结构功能分化实现了基因表达的精确调控，常染色质确保管家基因和组织特异性基因的适时表达，异染色质维持基因组稳定性并抑制转座子活性，两者协调作用维持细胞身份和基因组完整性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-title">3. 阐述核小体的组装过程及其在基因表达调控中的作用。</div>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>核小体组装过程：</strong>首先H3-H4二聚体结合形成四聚体，作为核小体组装的核心；随后H2A-H2B二聚体分别结合到H3-H4四聚体两侧，形成组蛋白八聚体；146bp DNA以左手螺旋方式在八聚体上缠绕1.65圈，形成核心颗粒；最后H1组蛋白结合到连接DNA上，稳定核小体间的高级结构。</li>
+                            <li><strong>动态调控机制：</strong>核小体具有动态性，可通过ATP依赖的染色质重塑复合物（如SWI/SNF、ISWI）进行滑动、弹出或重新定位。组蛋白伴侣蛋白（如CAF-1、HIRA）参与核小体的组装和拆卸过程。</li>
+                            <li><strong>转录调控作用：</strong>核小体包装的DNA转录活性降低，形成转录屏障。转录激活需要染色质重塑，使转录因子和RNA聚合酶能够接近DNA。核小体定位影响转录起始位点的选择和转录效率。</li>
+                            <li><strong>表观遗传调控：</strong>组蛋白尾部的化学修饰（甲基化、乙酰化、磷酸化等）调控染色质结构和基因表达。不同修饰组合形成"组蛋白密码"，招募特定的效应蛋白，实现基因表达的精确调控。</li>
+                            <li><strong>遗传稳定性：</strong>核小体结构保护DNA免受物理和化学损伤，但也可能影响DNA修复过程。DNA损伤修复时需要暂时拆卸核小体，修复完成后重新组装，维持染色质结构的完整性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-title">4. 分析端粒结构与功能的关系，并讨论端粒与细胞衰老的分子机制。</div>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>端粒结构特征：</strong>端粒由富含TG的重复序列组成（人类为TTAGGG重复），3'端形成单链突出，与端粒结合蛋白（TRF1、TRF2、POT1等）结合形成T-loop结构。这种特殊结构掩盖了染色体末端，防止被识别为DNA断裂。</li>
+                            <li><strong>保护功能机制：</strong>端粒帽子结构（telomere cap）保护染色体末端免受核酸外切酶降解，防止染色体末端融合和重排。端粒结合蛋白复合物（shelterin complex）维持端粒结构稳定性，抑制DNA损伤反应的激活。</li>
+                            <li><strong>复制问题解决：</strong>由于DNA聚合酶无法完全复制线性DNA的末端（末端复制问题），端粒酶通过其RNA模板合成端粒DNA，补偿复制过程中的端粒缩短。端粒酶由TERT（催化亚基）和TERC（RNA组分）组成。</li>
+                            <li><strong>细胞衰老机制：</strong>大多数体细胞中端粒酶活性低或缺失，导致端粒随细胞分裂逐渐缩短。当端粒长度降至临界值时，激活DNA损伤检查点，诱导细胞周期阻滞和细胞衰老。这是细胞内在的"分子时钟"机制。</li>
+                            <li><strong>疾病相关性：</strong>端粒功能异常与多种疾病相关：端粒过度缩短导致早衰综合征，端粒酶异常激活与肿瘤发生相关。端粒长度可作为细胞衰老和疾病风险的生物标志物，为抗衰老和肿瘤治疗提供新的靶点。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-title">5. 论述核仁的结构组织与功能，以及核仁在细胞生理中的重要作用。</div>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>核仁结构组织：</strong>核仁由三个功能区域组成：纤维中心（FC）含有rDNA基因和RNA聚合酶I；致密纤维组分（DFC）是rRNA转录和早期加工的场所；颗粒组分（GC）进行核糖体亚基组装的后期阶段。这种结构反映了rRNA加工的时空顺序。</li>
+                            <li><strong>rRNA转录与加工：</strong>核仁是rRNA基因转录的专门场所，RNA聚合酶I转录45S前体rRNA，随后通过一系列剪切、修饰（甲基化、假尿苷化）过程，产生成熟的18S、5.8S和28S rRNA。这个过程需要大量snoRNA和相关蛋白的参与。</li>
+                            <li><strong>核糖体亚基组装：</strong>核仁中进行核糖体大小亚基的组装，包括rRNA与核糖体蛋白的结合、rRNA的折叠和修饰、亚基的成熟等步骤。组装完成的亚基通过核孔输出到胞质，参与蛋白质合成。</li>
+                            <li><strong>细胞周期调控：</strong>核仁大小和活性与细胞代谢状态密切相关，在细胞分裂时核仁解体，分裂完成后重新组装。核仁应激（nucleolar stress）可激活p53通路，调控细胞周期和凋亡，是细胞应对不良环境的重要机制。</li>
+                            <li><strong>疾病相关性：</strong>核仁功能异常与多种疾病相关：核仁应激参与肿瘤抑制，某些遗传病（如Werner综合征）表现为核仁结构异常，病毒感染常影响核仁功能。核仁也是多种药物的作用靶点，为疾病治疗提供新的策略。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "核被膜的结构特点是：",
+                options: ["A. 单分子膜结构", "B. 双分子膜结构，外膜与内质网相连", "C. 三分子膜结构", "D. 与细胞质膜结构完全相同"],
+                correct: 1,
+                explanation: "核被膜是双分子膜结构，由内外两层膜组成，外核膜与内质网相连并附着核糖体，内核膜光滑且与核纤层结合。"
+            },
+            {
+                question: "核孔复合体的直径约为：",
+                options: ["A. 50nm", "B. 80nm", "C. 120nm", "D. 200nm"],
+                correct: 2,
+                explanation: "核孔复合体是核被膜上的大型蛋白质复合物，直径约120nm，具有八重对称结构。"
+            },
+            {
+                question: "组蛋白H1的主要功能是：",
+                options: ["A. 形成核小体核心", "B. 连接相邻核小体", "C. 参与DNA复制", "D. 调控基因转录"],
+                correct: 1,
+                explanation: "H1是连接组蛋白，结合在连接DNA上，连接相邻核小体并稳定染色质的高级结构。"
+            },
+            {
+                question: "核小体的核心颗粒由以下哪些组蛋白组成：",
+                options: ["A. H1, H2A, H2B, H3", "B. H2A, H2B, H3, H4各2分子", "C. H1, H3, H4各2分子", "D. 所有五种组蛋白各1分子"],
+                correct: 1,
+                explanation: "核小体核心颗粒由H2A、H2B、H3、H4各2分子组成八聚体，146bp DNA在其上缠绕1.65圈。"
+            },
+            {
+                question: "常染色质与异染色质的主要区别是：",
+                options: ["A. 化学成分不同", "B. 结构致密程度和转录活性不同", "C. 分布位置不同", "D. 复制时间相同"],
+                correct: 1,
+                explanation: "常染色质结构疏松、转录活跃，异染色质结构致密、转录沉默，两者在结构和功能上存在显著差异。"
+            },
+            {
+                question: "人类端粒的重复序列是：",
+                options: ["A. TTGGGG", "B. TTAGGG", "C. TTAAGG", "D. TTAGAG"],
+                correct: 1,
+                explanation: "人类端粒由TTAGGG重复序列组成，这种富含TG的序列是端粒的典型特征。"
+            },
+            {
+                question: "核定位信号（NLS）的特点是：",
+                options: ["A. 富含酸性氨基酸", "B. 富含碱性氨基酸", "C. 富含疏水性氨基酸", "D. 富含芳香族氨基酸"],
+                correct: 1,
+                explanation: "核定位信号通常富含精氨酸和赖氨酸等碱性氨基酸，被输入蛋白识别并介导蛋白质进入细胞核。"
+            },
+            {
+                question: "核仁的主要功能是：",
+                options: ["A. DNA复制", "B. mRNA转录", "C. rRNA转录和核糖体组装", "D. 蛋白质合成"],
+                correct: 2,
+                explanation: "核仁是rRNA转录、加工和核糖体亚基组装的专门场所，是细胞内最重要的RNA加工中心。"
+            },
+            {
+                question: "Ran-GTP系统在核质运输中的作用是：",
+                options: ["A. 提供结构支架", "B. 提供能量和方向性", "C. 识别运输信号", "D. 形成运输通道"],
+                correct: 1,
+                explanation: "Ran-GTP系统通过在核内外的浓度梯度为核质运输提供能量和方向性，是运输过程的关键调控因子。"
+            },
+            {
+                question: "核纤层的主要成分是：",
+                options: ["A. 微管蛋白", "B. 肌动蛋白", "C. 核纤层蛋白", "D. 组蛋白"],
+                correct: 2,
+                explanation: "核纤层由核纤层蛋白（lamins）构成，属于中间丝蛋白家族，形成核内膜下的纤维网络结构。"
+            },
+            {
+                question: "DNA的末端复制问题是指：",
+                options: ["A. DNA聚合酶无法合成RNA引物", "B. DNA聚合酶无法完全复制线性DNA末端", "C. DNA聚合酶活性不足", "D. DNA模板结构异常"],
+                correct: 1,
+                explanation: "由于DNA聚合酶只能从5'到3'方向合成DNA，无法完全复制线性DNA的末端，导致端粒逐渐缩短。"
+            },
+            {
+                question: "组蛋白的等电点通常在：",
+                options: ["A. pH 5.0以下", "B. pH 7.0左右", "C. pH 10.0以上", "D. pH 12.0以上"],
+                correct: 2,
+                explanation: "组蛋白富含精氨酸和赖氨酸等碱性氨基酸，等电点通常在pH 10.0以上，属于碱性蛋白质。"
+            },
+            {
+                question: "核孔复合体介导的主动运输需要消耗：",
+                options: ["A. ATP", "B. GTP", "C. CTP", "D. UTP"],
+                correct: 1,
+                explanation: "核孔复合体介导的大分子主动运输需要消耗GTP，Ran-GTP的水解为运输过程提供能量。"
+            },
+            {
+                question: "异染色质可分为：",
+                options: ["A. 活性异染色质和非活性异染色质", "B. 组成性异染色质和兼性异染色质", "C. 早期异染色质和晚期异染色质", "D. 核心异染色质和边缘异染色质"],
+                correct: 1,
+                explanation: "异染色质分为组成性异染色质（永久沉默）和兼性异染色质（可逆沉默），反映不同的调控机制。"
+            },
+            {
+                question: "核小体中DNA缠绕的圈数是：",
+                options: ["A. 1.25圈", "B. 1.65圈", "C. 2.0圈", "D. 2.5圈"],
+                correct: 1,
+                explanation: "146bp DNA在组蛋白八聚体上以左手螺旋方式缠绕1.65圈，形成核小体的核心颗粒。"
+            },
+            {
+                question: "端粒酶的组成包括：",
+                options: ["A. 仅有蛋白质组分", "B. 仅有RNA组分", "C. 蛋白质和RNA组分", "D. 蛋白质和DNA组分"],
+                correct: 2,
+                explanation: "端粒酶由TERT（蛋白质催化亚基）和TERC（RNA模板组分）组成，是一种核糖核蛋白复合物。"
+            },
+            {
+                question: "核周隙的宽度约为：",
+                options: ["A. 10-20nm", "B. 20-40nm", "C. 50-80nm", "D. 100-150nm"],
+                correct: 1,
+                explanation: "核周隙是内外核膜之间的空隙，宽度约20-40nm，与内质网腔相通。"
+            },
+            {
+                question: "rRNA基因主要位于：",
+                options: ["A. 常染色质区", "B. 异染色质区", "C. 核仁组织区", "D. 着丝粒区"],
+                correct: 2,
+                explanation: "rRNA基因位于核仁组织区（NOR），在核仁中进行转录和加工，形成核糖体亚基。"
+            },
+            {
+                question: "组蛋白修饰中，与基因激活相关的是：",
+                options: ["A. H3K9me3", "B. H3K27me3", "C. H3K4me3", "D. H3K20me3"],
+                correct: 2,
+                explanation: "H3K4me3是与基因激活相关的组蛋白修饰，通常出现在活性基因的启动子区域。"
+            },
+            {
+                question: "核基质的主要功能不包括：",
+                options: ["A. 维持核形态", "B. 提供转录支架", "C. 合成核糖体", "D. 组织生化反应"],
+                correct: 2,
+                explanation: "核基质主要提供结构支架和组织生化反应，核糖体的合成主要在核仁中进行。"
+            },
+            {
+                question: "着丝粒的保守序列长度约为：",
+                options: ["A. 5-8bp", "B. 11bp", "C. 20-25bp", "D. 50bp"],
+                correct: 1,
+                explanation: "着丝粒含有11bp的高度保守序列TGATTTCCGAA，这是着丝粒功能所必需的核心序列。"
+            },
+            {
+                question: "核输入过程中，下列哪个步骤是错误的：",
+                options: ["A. NLS识别", "B. 与importin结合", "C. 消耗ATP", "D. 通过核孔复合体"],
+                correct: 2,
+                explanation: "核输入过程消耗的是GTP而不是ATP，Ran-GTP系统为运输提供能量和方向性。"
+            },
+            {
+                question: "核仁的颗粒组分（GC）主要进行：",
+                options: ["A. rRNA转录", "B. rRNA早期加工", "C. 核糖体亚基后期组装", "D. mRNA加工"],
+                correct: 2,
+                explanation: "颗粒组分是核糖体亚基组装的后期阶段，进行亚基的成熟和最终组装。"
+            },
+            {
+                question: "染色质重塑复合物的能量来源是：",
+                options: ["A. GTP", "B. ATP", "C. CTP", "D. UTP"],
+                correct: 1,
+                explanation: "染色质重塑复合物（如SWI/SNF）是ATP依赖的，利用ATP水解的能量改变核小体位置和结构。"
+            },
+            {
+                question: "核纤层在细胞分裂时会：",
+                options: ["A. 保持不变", "B. 部分解聚", "C. 完全解聚", "D. 重新定位"],
+                correct: 2,
+                explanation: "在细胞分裂时核纤层完全解聚，分裂完成后重新组装，这是核被膜解体和重建的重要步骤。"
+            },
+            {
+                question: "端粒结合蛋白复合物的名称是：",
+                options: ["A. telomere complex", "B. shelterin complex", "C. protection complex", "D. cap complex"],
+                correct: 1,
+                explanation: "端粒结合蛋白复合物称为shelterin complex，包括TRF1、TRF2、POT1等蛋白，保护端粒结构。"
+            },
+            {
+                question: "核小体的连接DNA长度通常为：",
+                options: ["A. 10-30bp", "B. 20-80bp", "C. 100-150bp", "D. 200-300bp"],
+                correct: 1,
+                explanation: "连接DNA是相邻核小体间的DNA片段，长度通常为20-80bp，变异较大且具有种属特异性。"
+            },
+            {
+                question: "下列哪种结构不属于核体：",
+                options: ["A. Cajal体", "B. PML体", "C. 核仁", "D. 剪接体"],
+                correct: 2,
+                explanation: "核仁是细胞核内最大的结构，不属于核体。核体是指Cajal体、PML体、剪接体等小的非膜结构域。"
+            },
+            {
+                question: "组蛋白H4的分子量约为：",
+                options: ["A. 11.3kDa", "B. 13.8kDa", "C. 15.4kDa", "D. 21kDa"],
+                correct: 0,
+                explanation: "组蛋白H4的分子量约为11.3kDa，是五种组蛋白中分子量最小的一种。"
+            },
+            {
+                question: "核质运输的方向性主要由什么决定：",
+                options: ["A. 核孔复合体结构", "B. 载体蛋白种类", "C. Ran-GTP浓度梯度", "D. ATP浓度"],
+                correct: 2,
+                explanation: "核质运输的方向性主要由Ran-GTP在核内外的浓度梯度决定，核内Ran-GTP浓度高，胞质中Ran-GDP浓度高。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            displayQuestions();
+        };
+
+        function selectRandomQuestions() {
+            const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+        }
+
+        function displayQuestions() {
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            userAnswers = [];
+            let correctCount = 0;
+
+            // 收集用户答案
+            selectedQuestions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                userAnswers.push(userAnswer);
+                
+                if (userAnswer === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            // 显示结果
+            displayResults(correctCount);
+        }
+
+        function displayResults(correctCount) {
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((correctCount / 15) * 100);
+            
+            let summaryClass = '';
+            let summaryText = '';
+            
+            if (percentage >= 90) {
+                summaryClass = 'correct';
+                summaryText = '优秀！';
+            } else if (percentage >= 80) {
+                summaryClass = 'correct';
+                summaryText = '良好！';
+            } else if (percentage >= 70) {
+                summaryClass = 'correct';
+                summaryText = '及格！';
+            } else {
+                summaryClass = 'incorrect';
+                summaryText = '需要加强！';
+            }
+
+            let resultHTML = `
+                <div class="result-summary ${summaryClass}">
+                    ${summaryText} 您答对了 ${correctCount}/15 题，正确率：${percentage}%
+                </div>
+            `;
+
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const resultClass = isCorrect ? 'correct' : 'incorrect';
+                
+                resultHTML += `
+                    <div class="result-item ${resultClass}">
+                        <div class="result-question">
+                            <strong>第${index + 1}题：</strong>${q.question}
+                        </div>
+                        <div>
+                            <strong>您的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未作答'}<br>
+                            <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                            <strong>结果：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}
+                        </div>
+                        <div class="result-analysis">
+                            <strong>解析：</strong>${q.explanation}
+                        </div>
+                    </div>
+                `;
+            });
+
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.classList.add('show');
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

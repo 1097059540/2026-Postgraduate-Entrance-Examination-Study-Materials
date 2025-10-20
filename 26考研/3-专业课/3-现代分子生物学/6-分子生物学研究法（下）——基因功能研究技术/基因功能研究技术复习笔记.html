@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分子生物学研究法（下）——基因功能研究技术 复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin: 30px 0 20px 0;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        
+        h4 {
+            color: #2c3e50;
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .definition {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .definition strong {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .thinking-question {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .thinking-answer {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .code {
+            font-family: Consolas, monospace;
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* 图片占位符样式已移除，所有示意图已使用SVG实现 */
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #ecf0f1;
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>分子生物学研究法（下）</h1>
+            <p>基因功能研究技术 复习笔记</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <h2>一、基因表达研究技术</h2>
+            
+            <h3>1.1 RNA-Seq技术</h3>
+            <p><span class="emphasis">RNA-Seq（RNA Sequencing）</span>是一种基于高通量测序技术的转录组分析方法，能够全面检测细胞或组织中所有RNA分子的表达情况。该技术通过对mRNA进行逆转录、文库构建和高通量测序，获得基因表达的定量信息。</p>
+            
+            <div style="background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 20px 0; border: 1px solid #dee2e6;">
+                <svg width="100%" height="450" viewBox="0 0 900 450" style="background: white; border-radius: 8px;">
+                    <!-- 标题 -->
+                    <text x="450" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">RNA-Seq技术流程</text>
+                    
+                    <!-- 第一步：RNA提取 -->
+                    <text x="50" y="60" font-size="14" font-weight="bold" fill="#2c3e50">1. RNA提取</text>
+                    <circle cx="150" cy="80" r="25" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="150" y="85" text-anchor="middle" font-size="10" fill="white" font-weight="bold">细胞/组织</text>
+                    <path d="M 180 80 L 220 80" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow1)"/>
+                    
+                    <!-- 总RNA -->
+                    <rect x="240" y="70" width="60" height="20" fill="#e74c3c" stroke="#2c3e50" stroke-width="2" rx="3"/>
+                    <text x="270" y="83" text-anchor="middle" font-size="10" fill="white" font-weight="bold">总RNA</text>
+                    
+                    <!-- 第二步：mRNA富集 -->
+                    <text x="50" y="130" font-size="14" font-weight="bold" fill="#2c3e50">2. mRNA富集</text>
+                    <path d="M 270 90 L 270 110" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow1)"/>
+                    <text x="320" y="125" font-size="11" fill="#2c3e50">Oligo(dT)磁珠</text>
+                    
+                    <rect x="240" y="130" width="60" height="20" fill="#f39c12" stroke="#2c3e50" stroke-width="2" rx="3"/>
+                    <text x="270" y="143" text-anchor="middle" font-size="10" fill="white" font-weight="bold">mRNA</text>
+                    
+                    <!-- 第三步：逆转录 -->
+                    <text x="50" y="190" font-size="14" font-weight="bold" fill="#2c3e50">3. 逆转录</text>
+                    <path d="M 270 150 L 270 170" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow1)"/>
+                    <text x="320" y="185" font-size="11" fill="#2c3e50">逆转录酶</text>
+                    
+                    <rect x="240" y="190" width="60" height="20" fill="#9b59b6" stroke="#2c3e50" stroke-width="2" rx="3"/>
+                    <text x="270" y="203" text-anchor="middle" font-size="10" fill="white" font-weight="bold">cDNA一链</text>
+                    
+                    <!-- 第四步：二链合成 -->
+                    <text x="50" y="250" font-size="14" font-weight="bold" fill="#2c3e50">4. 二链合成</text>
+                    <path d="M 270 210 L 270 230" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow1)"/>
+                    <text x="320" y="245" font-size="11" fill="#2c3e50">DNA聚合酶</text>
+                    
+                    <rect x="240" y="250" width="60" height="20" fill="#27ae60" stroke="#2c3e50" stroke-width="2" rx="3"/>
+                    <text x="270" y="263" text-anchor="middle" font-size="10" fill="white" font-weight="bold">双链cDNA</text>
+                    
+                    <!-- 第五步：文库构建 -->
+                    <text x="50" y="310" font-size="14" font-weight="bold" fill="#2c3e50">5. 文库构建</text>
+                    <path d="M 270 270 L 270 290" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow1)"/>
+                    <text x="320" y="305" font-size="11" fill="#2c3e50">片段化+接头</text>
+                    
+                    <!-- 文库片段 -->
+                    <g>
+                        <rect x="230" y="310" width="25" height="8" fill="#e67e22" rx="2"/>
+                        <rect x="260" y="310" width="20" height="8" fill="#e67e22" rx="2"/>
+                        <rect x="285" y="310" width="30" height="8" fill="#e67e22" rx="2"/>
+                        <text x="270" y="335" text-anchor="middle" font-size="9" fill="#2c3e50">测序文库</text>
+                    </g>
+                    
+                    <!-- 第六步：高通量测序 -->
+                    <text x="50" y="370" font-size="14" font-weight="bold" fill="#2c3e50">6. 高通量测序</text>
+                    <path d="M 270 340 L 270 360" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow1)"/>
+                    
+                    <rect x="220" y="370" width="100" height="25" fill="#34495e" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="270" y="385" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Illumina测序</text>
+                    
+                    <!-- 第七步：数据分析 -->
+                    <text x="50" y="420" font-size="14" font-weight="bold" fill="#2c3e50">7. 数据分析</text>
+                    <path d="M 270 395 L 270 415" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow1)"/>
+                    
+                    <rect x="200" y="420" width="70" height="20" fill="#8e44ad" stroke="#2c3e50" stroke-width="2" rx="3"/>
+                    <text x="235" y="433" text-anchor="middle" font-size="9" fill="white" font-weight="bold">序列比对</text>
+                    
+                    <rect x="280" y="420" width="70" height="20" fill="#d35400" stroke="#2c3e50" stroke-width="2" rx="3"/>
+                    <text x="315" y="433" text-anchor="middle" font-size="9" fill="white" font-weight="bold">表达分析</text>
+                    
+                    <!-- 右侧说明 -->
+                    <text x="450" y="80" font-size="12" fill="#2c3e50" font-weight="bold">技术特点：</text>
+                    <text x="450" y="100" font-size="10" fill="#2c3e50">• 全转录组覆盖</text>
+                    <text x="450" y="115" font-size="10" fill="#2c3e50">• 高分辨率检测</text>
+                    <text x="450" y="130" font-size="10" fill="#2c3e50">• 动态范围广</text>
+                    <text x="450" y="145" font-size="10" fill="#2c3e50">• 定量准确</text>
+                    
+                    <text x="450" y="180" font-size="12" fill="#2c3e50" font-weight="bold">应用领域：</text>
+                    <text x="450" y="200" font-size="10" fill="#2c3e50">• 差异表达分析</text>
+                    <text x="450" y="215" font-size="10" fill="#2c3e50">• 可变剪接检测</text>
+                    <text x="450" y="230" font-size="10" fill="#2c3e50">• 新转录本发现</text>
+                    <text x="450" y="245" font-size="10" fill="#2c3e50">• 融合基因检测</text>
+                    
+                    <text x="450" y="280" font-size="12" fill="#2c3e50" font-weight="bold">数据分析流程：</text>
+                    <text x="450" y="300" font-size="10" fill="#2c3e50">• 质量控制(FastQC)</text>
+                    <text x="450" y="315" font-size="10" fill="#2c3e50">• 序列比对(HISAT2)</text>
+                    <text x="450" y="330" font-size="10" fill="#2c3e50">• 表达定量(HTSeq)</text>
+                    <text x="450" y="345" font-size="10" fill="#2c3e50">• 差异分析(DESeq2)</text>
+                    
+                    <text x="450" y="380" font-size="12" fill="#2c3e50" font-weight="bold">技术优势：</text>
+                    <text x="450" y="400" font-size="10" fill="#2c3e50">• 无需预先设计探针</text>
+                    <text x="450" y="415" font-size="10" fill="#2c3e50">• 检测未知转录本</text>
+                    <text x="450" y="430" font-size="10" fill="#2c3e50">• 单核苷酸分辨率</text>
+                    
+                    <!-- 箭头定义 -->
+                    <defs>
+                        <marker id="arrow1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            <div class="highlight">
+                <strong>RNA-Seq技术流程：</strong>
+                <ol>
+                    <li><strong>RNA提取：</strong>从样本中提取总RNA，通过质量检测确保RNA完整性</li>
+                    <li><strong>mRNA富集：</strong>利用Oligo(dT)磁珠富集具有poly(A)尾的mRNA</li>
+                    <li><strong>逆转录：</strong>将mRNA逆转录为cDNA第一链</li>
+                    <li><strong>二链合成：</strong>合成cDNA第二链，形成双链cDNA</li>
+                    <li><strong>文库构建：</strong>对cDNA进行片段化、末端修复、接头连接</li>
+                    <li><strong>高通量测序：</strong>利用Illumina等平台进行大规模并行测序</li>
+                    <li><strong>数据分析：</strong>序列比对、表达量计算、差异分析</li>
+                </ol>
+            </div>
+            
+            <h4>RNA-Seq的优势与应用</h4>
+            <ul>
+                <li><strong>全转录组覆盖：</strong>能够检测所有已知和未知的转录本</li>
+                <li><strong>高分辨率：</strong>可以检测单核苷酸水平的变异</li>
+                <li><strong>动态范围广：</strong>能够检测低丰度和高丰度转录本</li>
+                <li><strong>应用领域：</strong>疾病机制研究、药物筛选、发育生物学、进化生物学</li>
+            </ul>
+            
+            <h3>1.2 可变剪接研究</h3>
+            <p><span class="emphasis">可变剪接（Alternative Splicing）</span>是真核生物基因表达调控的重要机制，通过不同的剪接方式产生多种mRNA异构体，从而增加蛋白质的多样性。</p>
+            
+            <h4>可变剪接的主要类型</h4>
+            <ol>
+                <li><strong>外显子跳跃（Exon Skipping）：</strong>某个外显子被跳过，不包含在成熟mRNA中</li>
+                <li><strong>内含子保留（Intron Retention）：</strong>某个内含子未被剪除，保留在成熟mRNA中</li>
+                <li><strong>可变5'剪接位点：</strong>使用不同的5'剪接位点</li>
+                <li><strong>可变3'剪接位点：</strong>使用不同的3'剪接位点</li>
+                <li><strong>互斥外显子：</strong>多个外显子中只有一个被包含在成熟mRNA中</li>
+            </ol>
+            
+            <h3>1.3 原位杂交技术</h3>
+            <p><span class="emphasis">原位杂交（In Situ Hybridization, ISH）</span>是一种在细胞或组织的原位检测特定核酸序列的技术，能够确定目标基因在细胞中的空间分布和表达模式。</p>
+            
+            <div style="background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 20px 0; border: 1px solid #dee2e6;">
+                <svg width="100%" height="400" viewBox="0 0 800 400" style="background: white; border-radius: 8px;">
+                    <!-- 标题 -->
+                    <text x="400" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">原位杂交技术（In Situ Hybridization）</text>
+                    
+                    <!-- 第一步：样本制备 -->
+                    <text x="50" y="60" font-size="12" font-weight="bold" fill="#2c3e50">1. 样本制备</text>
+                    <rect x="50" y="70" width="80" height="40" fill="#3498db" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="90" y="85" text-anchor="middle" font-size="10" fill="white" font-weight="bold">组织切片</text>
+                    <text x="90" y="100" text-anchor="middle" font-size="10" fill="white" font-weight="bold">细胞固定</text>
+                    
+                    <!-- 箭头1 -->
+                    <path d="M 135 90 L 165 90" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow2)"/>
+                    
+                    <!-- 第二步：探针制备 -->
+                    <text x="180" y="60" font-size="12" font-weight="bold" fill="#2c3e50">2. 探针制备</text>
+                    <rect x="180" y="70" width="80" height="40" fill="#e74c3c" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="220" y="85" text-anchor="middle" font-size="10" fill="white" font-weight="bold">标记探针</text>
+                    <text x="220" y="100" text-anchor="middle" font-size="10" fill="white" font-weight="bold">(荧光/酶)</text>
+                    
+                    <!-- 箭头2 -->
+                    <path d="M 265 90 L 295 90" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow2)"/>
+                    
+                    <!-- 第三步：杂交反应 -->
+                    <text x="310" y="60" font-size="12" font-weight="bold" fill="#2c3e50">3. 杂交反应</text>
+                    <rect x="310" y="70" width="80" height="40" fill="#f39c12" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="350" y="85" text-anchor="middle" font-size="10" fill="white" font-weight="bold">探针结合</text>
+                    <text x="350" y="100" text-anchor="middle" font-size="10" fill="white" font-weight="bold">目标mRNA</text>
+                    
+                    <!-- 箭头3 -->
+                    <path d="M 395 90 L 425 90" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow2)"/>
+                    
+                    <!-- 第四步：信号检测 -->
+                    <text x="440" y="60" font-size="12" font-weight="bold" fill="#2c3e50">4. 信号检测</text>
+                    <rect x="440" y="70" width="80" height="40" fill="#9b59b6" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="480" y="85" text-anchor="middle" font-size="10" fill="white" font-weight="bold">显色反应</text>
+                    <text x="480" y="100" text-anchor="middle" font-size="10" fill="white" font-weight="bold">荧光检测</text>
+                    
+                    <!-- 详细杂交过程示意图 -->
+                    <text x="50" y="160" font-size="14" font-weight="bold" fill="#2c3e50">杂交过程详细示意：</text>
+                    
+                    <!-- 细胞结构 -->
+                    <ellipse cx="200" cy="220" rx="80" ry="50" fill="#ecf0f1" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="200" y="180" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="bold">细胞</text>
+                    
+                    <!-- 细胞核 -->
+                    <ellipse cx="200" cy="220" rx="40" ry="25" fill="#bdc3c7" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="200" y="225" text-anchor="middle" font-size="10" fill="#2c3e50">细胞核</text>
+                    
+                    <!-- mRNA分子 -->
+                    <g>
+                        <path d="M 160 200 Q 170 195 180 200 Q 190 205 200 200 Q 210 195 220 200" stroke="#27ae60" stroke-width="3" fill="none"/>
+                        <text x="190" y="190" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="bold">目标mRNA</text>
+                    </g>
+                    
+                    <!-- 探针分子 -->
+                    <g>
+                        <path d="M 160 240 Q 170 245 180 240 Q 190 235 200 240 Q 210 245 220 240" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                        <text x="190" y="255" text-anchor="middle" font-size="9" fill="#e74c3c" font-weight="bold">标记探针</text>
+                        
+                        <!-- 标记分子 -->
+                        <circle cx="160" cy="240" r="3" fill="#f1c40f"/>
+                        <circle cx="180" cy="240" r="3" fill="#f1c40f"/>
+                        <circle cx="200" cy="240" r="3" fill="#f1c40f"/>
+                        <circle cx="220" cy="240" r="3" fill="#f1c40f"/>
+                    </g>
+                    
+                    <!-- 杂交结合 -->
+                    <text x="320" y="200" font-size="12" fill="#2c3e50" font-weight="bold">杂交结合</text>
+                    <path d="M 280 220 L 320 220" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow2)"/>
+                    
+                    <!-- 杂交后的复合物 -->
+                    <g>
+                        <ellipse cx="420" cy="220" rx="80" ry="50" fill="#ecf0f1" stroke="#2c3e50" stroke-width="2"/>
+                        <ellipse cx="420" cy="220" rx="40" ry="25" fill="#bdc3c7" stroke="#2c3e50" stroke-width="1"/>
+                        
+                        <!-- 杂交复合物 -->
+                        <g>
+                            <path d="M 380 200 Q 390 195 400 200 Q 410 205 420 200 Q 430 195 440 200" stroke="#27ae60" stroke-width="3" fill="none"/>
+                            <path d="M 380 205 Q 390 210 400 205 Q 410 200 420 205 Q 430 210 440 205" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                            
+                            <!-- 信号分子 -->
+                            <circle cx="380" cy="205" r="4" fill="#f1c40f" stroke="#e67e22" stroke-width="1"/>
+                            <circle cx="400" cy="205" r="4" fill="#f1c40f" stroke="#e67e22" stroke-width="1"/>
+                            <circle cx="420" cy="205" r="4" fill="#f1c40f" stroke="#e67e22" stroke-width="1"/>
+                            <circle cx="440" cy="205" r="4" fill="#f1c40f" stroke="#e67e22" stroke-width="1"/>
+                            
+                            <!-- 发光效果 -->
+                            <g opacity="0.7">
+                                <circle cx="380" cy="205" r="8" fill="#f1c40f" opacity="0.3"/>
+                                <circle cx="400" cy="205" r="8" fill="#f1c40f" opacity="0.3"/>
+                                <circle cx="420" cy="205" r="8" fill="#f1c40f" opacity="0.3"/>
+                                <circle cx="440" cy="205" r="8" fill="#f1c40f" opacity="0.3"/>
+                            </g>
+                        </g>
+                        
+                        <text x="420" y="180" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="bold">杂交信号</text>
+                    </g>
+                    
+                    <!-- 技术特点说明 -->
+                    <text x="550" y="80" font-size="12" fill="#2c3e50" font-weight="bold">技术特点：</text>
+                    <text x="550" y="100" font-size="10" fill="#2c3e50">• 空间定位精确</text>
+                    <text x="550" y="115" font-size="10" fill="#2c3e50">• 保持组织结构</text>
+                    <text x="550" y="130" font-size="10" fill="#2c3e50">• 单细胞分辨率</text>
+                    <text x="550" y="145" font-size="10" fill="#2c3e50">• 多重检测可能</text>
+                    
+                    <text x="550" y="175" font-size="12" fill="#2c3e50" font-weight="bold">应用领域：</text>
+                    <text x="550" y="195" font-size="10" fill="#2c3e50">• 发育生物学研究</text>
+                    <text x="550" y="210" font-size="10" fill="#2c3e50">• 疾病诊断</text>
+                    <text x="550" y="225" font-size="10" fill="#2c3e50">• 基因表达模式</text>
+                    <text x="550" y="240" font-size="10" fill="#2c3e50">• 神经科学研究</text>
+                    
+                    <text x="550" y="270" font-size="12" fill="#2c3e50" font-weight="bold">检测方法：</text>
+                    <text x="550" y="290" font-size="10" fill="#2c3e50">• 荧光原位杂交(FISH)</text>
+                    <text x="550" y="305" font-size="10" fill="#2c3e50">• 酶联原位杂交</text>
+                    <text x="550" y="320" font-size="10" fill="#2c3e50">• 放射性同位素标记</text>
+                    
+                    <!-- 底部流程说明 -->
+                    <text x="50" y="320" font-size="11" fill="#2c3e50" font-weight="bold">关键步骤：</text>
+                    <text x="50" y="340" font-size="9" fill="#2c3e50">1. 样本固定和透化处理</text>
+                    <text x="200" y="340" font-size="9" fill="#2c3e50">2. 探针变性和预杂交</text>
+                    <text x="350" y="340" font-size="9" fill="#2c3e50">3. 杂交反应(37-65°C)</text>
+                    <text x="500" y="340" font-size="9" fill="#2c3e50">4. 洗涤和信号检测</text>
+                    
+                    <text x="50" y="360" font-size="9" fill="#2c3e50">• 保持RNA完整性</text>
+                    <text x="200" y="360" font-size="9" fill="#2c3e50">• 阻断非特异结合</text>
+                    <text x="350" y="360" font-size="9" fill="#2c3e50">• 严格控制温度</text>
+                    <text x="500" y="360" font-size="9" fill="#2c3e50">• 去除背景信号</text>
+                    
+                    <!-- 箭头定义 -->
+                    <defs>
+                        <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            
+            <h2>二、基因敲除技术</h2>
+            
+            <h3>2.1 完全性基因敲除</h3>
+            <p>完全性基因敲除是指将目标基因完全从基因组中删除或使其完全失活的技术。这种方法能够彻底阻断基因功能，是研究基因必需性的重要手段。</p>
+            
+            <h4>传统基因敲除方法</h4>
+            <ul>
+                <li><strong>同源重组：</strong>利用同源DNA序列进行精确的基因替换</li>
+                <li><strong>转座子插入：</strong>通过转座子随机插入破坏基因功能</li>
+                <li><strong>基因陷阱：</strong>利用载体随机插入基因组破坏基因表达</li>
+            </ul>
+            
+            <h3>2.2 条件性基因敲除</h3>
+            <p><span class="emphasis">条件性基因敲除（Conditional Gene Knockout）</span>允许在特定时间、特定组织或特定条件下敲除目标基因，避免了完全敲除可能导致的胚胎致死问题。</p>
+            
+            <h4>Cre-LoxP系统</h4>
+            <div style="background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 20px 0; border: 1px solid #dee2e6;">
+                <svg width="100%" height="300" viewBox="0 0 700 300" style="background: white; border-radius: 8px;">
+                    <!-- 标题 -->
+                    <text x="350" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">Cre-LoxP条件性基因敲除系统</text>
+                    
+                    <!-- 正常状态：Floxed基因 -->
+                    <text x="50" y="60" font-size="14" font-weight="bold" fill="#2c3e50">1. Floxed基因（正常状态）</text>
+                    
+                    <!-- 基因结构 -->
+                    <rect x="100" y="75" width="150" height="25" fill="#3498db" stroke="#2c3e50" stroke-width="2" rx="3"/>
+                    <text x="175" y="92" text-anchor="middle" fill="white" font-size="12" font-weight="bold">目标基因</text>
+                    
+                    <!-- LoxP位点 -->
+                    <polygon points="80,87.5 100,75 100,100" fill="#e74c3c"/>
+                    <polygon points="250,75 270,87.5 250,100" fill="#e74c3c"/>
+                    <text x="90" y="115" text-anchor="middle" font-size="10" fill="#e74c3c" font-weight="bold">LoxP</text>
+                    <text x="260" y="115" text-size="10" fill="#e74c3c" font-weight="bold">LoxP</text>
+                    
+                    <!-- Cre重组酶表达 -->
+                    <text x="400" y="60" font-size="14" font-weight="bold" fill="#2c3e50">2. Cre重组酶表达</text>
+                    <circle cx="475" cy="87" r="20" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="475" y="92" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Cre</text>
+                    
+                    <!-- 箭头1 -->
+                    <path d="M 175 125 L 175 155" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)"/>
+                    <text x="185" y="145" font-size="12" fill="#2c3e50">重组</text>
+                    
+                    <!-- 重组过程 -->
+                    <text x="50" y="180" font-size="14" font-weight="bold" fill="#2c3e50">3. 重组过程</text>
+                    
+                    <!-- 重组中间态 -->
+                    <path d="M 100 195 Q 175 170 250 195" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                    <path d="M 100 205 Q 175 230 250 205" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                    <circle cx="175" cy="200" r="15" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="175" y="205" text-anchor="middle" font-size="9" fill="white" font-weight="bold">Cre</text>
+                    
+                    <!-- 箭头2 -->
+                    <path d="M 175 225 L 175 255" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 最终结果 -->
+                    <text x="50" y="280" font-size="14" font-weight="bold" fill="#2c3e50">4. 基因敲除完成</text>
+                    <circle cx="175" cy="290" r="12" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="175" y="295" text-anchor="middle" font-size="8" fill="white" font-weight="bold">LoxP</text>
+                    <text x="200" y="295" font-size="12" fill="#e74c3c">目标基因被删除</text>
+                    
+                    <!-- 说明文字 -->
+                    <text x="450" y="140" font-size="11" fill="#2c3e50">• LoxP位点：34bp序列</text>
+                    <text x="450" y="160" font-size="11" fill="#2c3e50">• 包含8bp核心序列</text>
+                    <text x="450" y="180" font-size="11" fill="#2c3e50">• 两个13bp反向重复</text>
+                    <text x="450" y="210" font-size="11" fill="#2c3e50">• Cre：P1噬菌体重组酶</text>
+                    <text x="450" y="230" font-size="11" fill="#2c3e50">• 特异识别LoxP位点</text>
+                    <text x="450" y="250" font-size="11" fill="#2c3e50">• 催化位点特异性重组</text>
+                    
+                    <!-- 箭头标记定义 -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            <p>Cre-LoxP系统是最常用的条件性基因敲除系统：</p>
+            <ul>
+                <li><strong>LoxP位点：</strong>34bp的DNA序列，包含8bp的核心序列和两个13bp的反向重复序列</li>
+                <li><strong>Cre重组酶：</strong>来源于P1噬菌体的重组酶，能够识别LoxP位点并催化重组</li>
+                <li><strong>Floxed基因：</strong>被两个同向LoxP位点包围的基因片段</li>
+            </ul>
+            
+            <h2>三、基因组编辑技术</h2>
+            
+            <h3>3.1 CRISPR/Cas9系统</h3>
+            <p><span class="emphasis">CRISPR/Cas9（Clustered Regularly Interspaced Short Palindromic Repeats/CRISPR-associated protein 9）</span>是一种革命性的基因编辑技术，具有高效、精确、简便的特点。</p>
+            
+            <div class="highlight">
+                <strong>CRISPR/Cas9系统组成：</strong>
+                <ol>
+                    <li><strong>Cas9蛋白：</strong>具有核酸内切酶活性的效应蛋白</li>
+                    <li><strong>向导RNA（gRNA）：</strong>包含crRNA和tracrRNA，负责引导Cas9到特定位点</li>
+                    <li><strong>PAM序列：</strong>原间隔子相邻基序，Cas9识别和切割的必需序列</li>
+                </ol>
+            </div>
+            
+            <h4>CRISPR/Cas9工作原理</h4>
+            <div style="background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 20px 0; border: 1px solid #dee2e6;">
+                <svg width="100%" height="400" viewBox="0 0 800 400" style="background: white; border-radius: 8px;">
+                    <!-- 标题 -->
+                    <text x="400" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">CRISPR/Cas9基因组编辑工作原理</text>
+                    
+                    <!-- 第一步：DNA识别 -->
+                    <text x="50" y="60" font-size="14" font-weight="bold" fill="#2c3e50">1. 目标DNA识别</text>
+                    <line x1="100" y1="80" x2="500" y2="80" stroke="#3498db" stroke-width="8"/>
+                    <line x1="100" y1="95" x2="500" y2="95" stroke="#3498db" stroke-width="8"/>
+                    <text x="300" y="75" text-anchor="middle" font-size="10" fill="white" font-weight="bold">目标序列 (20bp)</text>
+                    
+                    <!-- PAM序列 -->
+                    <rect x="500" y="75" width="40" height="20" fill="#e74c3c" rx="3"/>
+                    <text x="520" y="87" text-anchor="middle" font-size="10" fill="white" font-weight="bold">PAM</text>
+                    <text x="520" y="110" text-anchor="middle" font-size="9" fill="#e74c3c">5'-NGG-3'</text>
+                    
+                    <!-- 第二步：gRNA结合 -->
+                    <text x="50" y="140" font-size="14" font-weight="bold" fill="#2c3e50">2. gRNA引导结合</text>
+                    <path d="M 100 160 Q 300 140 500 160" stroke="#f39c12" stroke-width="4" fill="none"/>
+                    <text x="300" y="155" text-anchor="middle" font-size="10" fill="#f39c12" font-weight="bold">gRNA (crRNA + tracrRNA)</text>
+                    
+                    <!-- Cas9蛋白结合 -->
+                    <ellipse cx="300" cy="180" rx="80" ry="25" fill="#9b59b6" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="300" y="185" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Cas9蛋白</text>
+                    
+                    <!-- 第三步：DNA切割 -->
+                    <text x="50" y="220" font-size="14" font-weight="bold" fill="#2c3e50">3. DNA双链断裂</text>
+                    <line x1="100" y1="240" x2="480" y2="240" stroke="#3498db" stroke-width="8"/>
+                    <line x1="100" y1="255" x2="480" y2="255" stroke="#3498db" stroke-width="8"/>
+                    
+                    <!-- 切割位点标记 -->
+                    <path d="M 480 235 L 490 235 L 490 260 L 480 260" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                    <text x="495" y="250" font-size="10" fill="#e74c3c" font-weight="bold">切割位点</text>
+                    <text x="495" y="265" font-size="8" fill="#e74c3c">PAM上游3bp</text>
+                    
+                    <!-- 第四步：DNA修复 -->
+                    <text x="50" y="300" font-size="14" font-weight="bold" fill="#2c3e50">4. DNA修复途径</text>
+                    
+                    <!-- NHEJ途径 -->
+                    <rect x="120" y="320" width="150" height="35" fill="#e67e22" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="195" y="340" text-anchor="middle" font-size="12" fill="white" font-weight="bold">NHEJ修复</text>
+                    <text x="195" y="355" text-anchor="middle" font-size="10" fill="#e67e22">非同源末端连接</text>
+                    <text x="195" y="375" text-anchor="middle" font-size="9" fill="#e67e22">→ InDels → 基因敲除</text>
+                    
+                    <!-- HDR途径 -->
+                    <rect x="320" y="320" width="150" height="35" fill="#27ae60" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="395" y="340" text-anchor="middle" font-size="12" fill="white" font-weight="bold">HDR修复</text>
+                    <text x="395" y="355" text-anchor="middle" font-size="10" fill="#27ae60">同源定向修复</text>
+                    <text x="395" y="375" text-anchor="middle" font-size="9" fill="#27ae60">→ 精确修复 → 基因敲入</text>
+                    
+                    <!-- 右侧说明 -->
+                    <text x="580" y="140" font-size="12" fill="#2c3e50" font-weight="bold">系统组成：</text>
+                    <text x="580" y="160" font-size="10" fill="#2c3e50">• Cas9：核酸内切酶</text>
+                    <text x="580" y="175" font-size="10" fill="#2c3e50">• gRNA：引导RNA</text>
+                    <text x="580" y="190" font-size="10" fill="#2c3e50">• PAM：NGG序列</text>
+                    
+                    <text x="580" y="220" font-size="12" fill="#2c3e50" font-weight="bold">技术特点：</text>
+                    <text x="580" y="240" font-size="10" fill="#2c3e50">• 高特异性识别</text>
+                    <text x="580" y="255" font-size="10" fill="#2c3e50">• 高效率切割</text>
+                    <text x="580" y="270" font-size="10" fill="#2c3e50">• 易于程序化</text>
+                    <text x="580" y="285" font-size="10" fill="#2c3e50">• 多重编辑能力</text>
+                    
+                    <text x="580" y="315" font-size="12" fill="#2c3e50" font-weight="bold">应用领域：</text>
+                    <text x="580" y="335" font-size="10" fill="#2c3e50">• 基因功能研究</text>
+                    <text x="580" y="350" font-size="10" fill="#2c3e50">• 疾病模型构建</text>
+                    <text x="580" y="365" font-size="10" fill="#2c3e50">• 基因治疗</text>
+                    <text x="580" y="380" font-size="10" fill="#2c3e50">• 农业育种</text>
+                </svg>
+            </div>
+            <ol>
+                <li><strong>识别阶段：</strong>gRNA通过碱基配对识别目标DNA序列</li>
+                <li><strong>结合阶段：</strong>Cas9-gRNA复合体结合到目标位点</li>
+                <li><strong>切割阶段：</strong>Cas9的HNH和RuvC结构域分别切割DNA双链</li>
+                <li><strong>修复阶段：</strong>细胞DNA修复机制修复双链断裂</li>
+            </ol>
+            
+            <h3>3.2 CRISPR/Cas9的应用策略</h3>
+            
+            <h4>基因敲除策略</h4>
+            <ul>
+                <li><strong>单sgRNA策略：</strong>产生InDels导致移码突变，适用于编码基因</li>
+                <li><strong>双sgRNA策略：</strong>删除目标片段，适用于非编码基因和调控元件</li>
+            </ul>
+            
+            <h4>基因敲入策略</h4>
+            <ul>
+                <li><strong>同源定向修复（HDR）：</strong>利用供体模板进行精确修复</li>
+                <li><strong>非同源末端连接（NHEJ）：</strong>直接连接断裂末端，可能产生InDels</li>
+            </ul>
+            
+            <h2>四、蛋白质与RNA相互作用技术</h2>
+            
+            <h3>4.1 酵母杂交系统</h3>
+            
+            <h4>酵母单杂交系统（Yeast One-Hybrid, Y1H）</h4>
+            <p>酵母单杂交系统用于研究蛋白质与DNA的相互作用，特别适用于转录因子与其结合位点的研究。</p>
+            
+            <div class="definition">
+                <strong>Y1H系统原理：</strong>将目标DNA序列克隆到报告基因上游，将候选蛋白基因与转录激活结构域融合。如果蛋白能够结合DNA，就会激活报告基因的表达。
+            </div>
+            
+            <h4>酵母双杂交系统（Yeast Two-Hybrid, Y2H）</h4>
+            <p>酵母双杂交系统是研究蛋白质-蛋白质相互作用的经典方法，基于转录因子的模块化结构设计。</p>
+            
+            <h4>Y2H系统组成</h4>
+            <ul>
+                <li><strong>诱饵蛋白（Bait）：</strong>与DNA结合结构域（BD）融合</li>
+                <li><strong>猎物蛋白（Prey）：</strong>与转录激活结构域（AD）融合</li>
+                <li><strong>报告基因：</strong>如HIS3、ADE2、lacZ等</li>
+            </ul>
+            
+            <h3>4.2 蛋白质相互作用技术</h3>
+            
+            <h4>免疫共沉淀（Co-Immunoprecipitation, Co-IP）</h4>
+            <p>Co-IP是检测蛋白质相互作用的重要方法，通过特异性抗体沉淀目标蛋白及其结合伙伴。</p>
+            
+            <h4>Pull-down实验</h4>
+            <p>利用融合标签蛋白（如GST、His标签）与固相载体结合，捕获相互作用的蛋白质。</p>
+            
+            <h3>4.3 染色质免疫共沉淀技术</h3>
+            <p><span class="emphasis">染色质免疫共沉淀（Chromatin Immunoprecipitation, ChIP）</span>是研究蛋白质与DNA在体内相互作用的重要技术，能够确定转录因子、组蛋白修饰等在基因组上的分布。</p>
+            
+            <h4>ChIP技术流程</h4>
+            <div style="background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 20px 0; border: 1px solid #dee2e6;">
+                <svg width="100%" height="500" viewBox="0 0 900 500" style="background: white; border-radius: 8px;">
+                    <!-- 标题 -->
+                    <text x="450" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">染色质免疫共沉淀（ChIP）技术流程</text>
+                    
+                    <!-- 第一步：交联固定 -->
+                    <text x="50" y="60" font-size="14" font-weight="bold" fill="#2c3e50">1. 交联固定</text>
+                    <circle cx="150" cy="80" r="25" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="150" y="85" text-anchor="middle" font-size="10" fill="white" font-weight="bold">细胞</text>
+                    <text x="200" y="85" font-size="12" fill="#2c3e50">+ 甲醛</text>
+                    <path d="M 180 80 L 220 80" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+                    
+                    <!-- 交联后的细胞 -->
+                    <circle cx="280" cy="80" r="25" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="280" y="85" text-anchor="middle" font-size="9" fill="white" font-weight="bold">交联</text>
+                    
+                    <!-- 第二步：细胞裂解 -->
+                    <text x="50" y="140" font-size="14" font-weight="bold" fill="#2c3e50">2. 细胞裂解</text>
+                    <path d="M 280 105 L 280 125" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+                    <ellipse cx="280" cy="150" rx="40" ry="20" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="280" y="155" text-anchor="middle" font-size="10" fill="white" font-weight="bold">染色质</text>
+                    
+                    <!-- 第三步：片段化 -->
+                    <text x="50" y="200" font-size="14" font-weight="bold" fill="#2c3e50">3. 染色质片段化</text>
+                    <path d="M 280 170 L 280 190" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+                    <text x="350" y="200" font-size="11" fill="#2c3e50">超声波处理</text>
+                    
+                    <!-- 片段化的染色质 -->
+                    <g>
+                        <rect x="250" y="210" width="20" height="8" fill="#3498db" rx="2"/>
+                        <rect x="275" y="210" width="15" height="8" fill="#3498db" rx="2"/>
+                        <rect x="295" y="210" width="25" height="8" fill="#3498db" rx="2"/>
+                        <text x="280" y="235" text-anchor="middle" font-size="9" fill="#2c3e50">DNA片段</text>
+                    </g>
+                    
+                    <!-- 第四步：免疫沉淀 -->
+                    <text x="50" y="280" font-size="14" font-weight="bold" fill="#2c3e50">4. 免疫沉淀</text>
+                    <path d="M 280 240 L 280 260" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+                    
+                    <!-- 抗体 -->
+                    <path d="M 200 280 Q 240 260 280 280" stroke="#9b59b6" stroke-width="3" fill="none"/>
+                    <circle cx="220" cy="275" r="8" fill="#9b59b6"/>
+                    <text x="180" y="295" font-size="10" fill="#9b59b6">特异性抗体</text>
+                    
+                    <!-- 磁珠 -->
+                    <circle cx="350" cy="280" r="12" fill="#34495e" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="350" y="285" text-anchor="middle" font-size="8" fill="white" font-weight="bold">磁珠</text>
+                    <text x="380" y="285" font-size="10" fill="#2c3e50">Protein A/G</text>
+                    
+                    <!-- 第五步：洗涤和逆转交联 -->
+                    <text x="50" y="340" font-size="14" font-weight="bold" fill="#2c3e50">5. 洗涤 & 逆转交联</text>
+                    <path d="M 350 295 L 350 315" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+                    
+                    <!-- 洗涤后 -->
+                    <rect x="330" y="325" width="40" height="15" fill="#27ae60" stroke="#2c3e50" stroke-width="2" rx="3"/>
+                    <text x="350" y="335" text-anchor="middle" font-size="9" fill="white" font-weight="bold">纯化DNA</text>
+                    
+                    <!-- 第六步：检测 -->
+                    <text x="50" y="400" font-size="14" font-weight="bold" fill="#2c3e50">6. DNA检测分析</text>
+                    <path d="M 350 345 L 350 365" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+                    
+                    <!-- 检测方法 -->
+                    <rect x="280" y="380" width="60" height="25" fill="#e67e22" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="310" y="395" text-anchor="middle" font-size="10" fill="white" font-weight="bold">qPCR</text>
+                    
+                    <rect x="360" y="380" width="60" height="25" fill="#8e44ad" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="390" y="395" text-anchor="middle" font-size="10" fill="white" font-weight="bold">ChIP-seq</text>
+                    
+                    <!-- 右侧说明 -->
+                    <text x="500" y="80" font-size="12" fill="#2c3e50" font-weight="bold">技术原理：</text>
+                    <text x="500" y="100" font-size="10" fill="#2c3e50">• 甲醛交联蛋白质-DNA</text>
+                    <text x="500" y="115" font-size="10" fill="#2c3e50">• 特异性抗体识别目标蛋白</text>
+                    <text x="500" y="130" font-size="10" fill="#2c3e50">• 磁珠分离复合体</text>
+                    <text x="500" y="145" font-size="10" fill="#2c3e50">• 逆转交联释放DNA</text>
+                    
+                    <text x="500" y="180" font-size="12" fill="#2c3e50" font-weight="bold">应用领域：</text>
+                    <text x="500" y="200" font-size="10" fill="#2c3e50">• 转录因子结合位点</text>
+                    <text x="500" y="215" font-size="10" fill="#2c3e50">• 组蛋白修饰分布</text>
+                    <text x="500" y="230" font-size="10" fill="#2c3e50">• 染色质重塑因子</text>
+                    <text x="500" y="245" font-size="10" fill="#2c3e50">• RNA聚合酶II分布</text>
+                    
+                    <text x="500" y="280" font-size="12" fill="#2c3e50" font-weight="bold">技术优势：</text>
+                    <text x="500" y="300" font-size="10" fill="#2c3e50">• 体内真实状态</text>
+                    <text x="500" y="315" font-size="10" fill="#2c3e50">• 全基因组分析</text>
+                    <text x="500" y="330" font-size="10" fill="#2c3e50">• 高分辨率定位</text>
+                    <text x="500" y="345" font-size="10" fill="#2c3e50">• 定量分析</text>
+                    
+                    <text x="500" y="380" font-size="12" fill="#2c3e50" font-weight="bold">注意事项：</text>
+                    <text x="500" y="400" font-size="10" fill="#2c3e50">• 抗体特异性验证</text>
+                    <text x="500" y="415" font-size="10" fill="#2c3e50">• 交联条件优化</text>
+                    <text x="500" y="430" font-size="10" fill="#2c3e50">• 阴性对照设置</text>
+                    <text x="500" y="445" font-size="10" fill="#2c3e50">• 片段化程度控制</text>
+                    
+                    <!-- 箭头定义 -->
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            <ol>
+                <li><strong>交联固定：</strong>使用甲醛交联蛋白质与DNA</li>
+                <li><strong>细胞裂解：</strong>裂解细胞并释放染色质</li>
+                <li><strong>染色质片段化：</strong>通过超声或酶切将染色质切成小片段</li>
+                <li><strong>免疫沉淀：</strong>用特异性抗体沉淀目标蛋白-DNA复合体</li>
+                <li><strong>交联逆转：</strong>逆转交联，释放DNA</li>
+                <li><strong>DNA纯化和检测：</strong>通过PCR或测序分析结合的DNA序列</li>
+            </ol>
+            
+            <h2>五、其他重要分子生物学技术</h2>
+            
+            <h3>5.1 凝胶滞缓实验</h3>
+            <p><span class="emphasis">凝胶滞缓实验（Electrophoretic Mobility Shift Assay, EMSA）</span>是检测蛋白质与DNA相互作用的经典方法，基于蛋白质结合会改变DNA的电泳迁移率这一原理。</p>
+            
+            <h4>EMSA实验原理</h4>
+            <ul>
+                <li>游离DNA在电泳中迁移速度快</li>
+                <li>蛋白质-DNA复合体分子量大，迁移速度慢</li>
+                <li>通过比较迁移率变化确定蛋白质与DNA的结合</li>
+            </ul>
+            
+            <h3>5.2 噬菌体展示技术</h3>
+            <p><span class="emphasis">噬菌体展示技术（Phage Display）</span>是一种将外源蛋白或多肽展示在噬菌体表面的技术，广泛用于蛋白质工程和药物筛选。</p>
+            
+            <h4>噬菌体展示的应用</h4>
+            <ul>
+                <li><strong>抗体筛选：</strong>构建抗体库，筛选特异性抗体</li>
+                <li><strong>多肽药物开发：</strong>筛选具有特定功能的多肽</li>
+                <li><strong>蛋白质相互作用研究：</strong>鉴定蛋白质结合伙伴</li>
+            </ul>
+            
+            <h3>5.3 蛋白质磷酸化分析技术</h3>
+            <p>蛋白质磷酸化是重要的翻译后修饰，参与细胞信号转导、代谢调节等多种生物学过程。</p>
+            
+            <h4>磷酸化检测方法</h4>
+            <ul>
+                <li><strong>质谱分析：</strong>高精度鉴定磷酸化位点</li>
+                <li><strong>磷酸化特异性抗体：</strong>检测特定磷酸化修饰</li>
+                <li><strong>同位素标记：</strong>定量分析磷酸化水平变化</li>
+            </ul>
+            
+            <h3>5.4 Western印迹技术</h3>
+            <p><span class="emphasis">Western印迹（Western Blot）</span>是检测特定蛋白质的经典方法，结合了蛋白质电泳分离和免疫检测的优势。</p>
+            
+            <h4>Western Blot实验流程</h4>
+            <ol>
+                <li><strong>蛋白质提取：</strong>从样本中提取总蛋白</li>
+                <li><strong>SDS-PAGE电泳：</strong>按分子量分离蛋白质</li>
+                <li><strong>转膜：</strong>将蛋白质转移到PVDF或硝酸纤维素膜上</li>
+                <li><strong>封闭：</strong>用牛奶或BSA封闭非特异性结合位点</li>
+                <li><strong>一抗孵育：</strong>与目标蛋白特异性抗体结合</li>
+                <li><strong>二抗孵育：</strong>与标记的二抗结合</li>
+                <li><strong>信号检测：</strong>通过化学发光或荧光检测</li>
+            </ol>
+            
+            <div class="highlight">
+                <strong>牛奶封闭的作用：</strong>牛奶中含有丰富的蛋白质（主要是酪蛋白），能够结合膜上的空白位点，防止抗体的非特异性结合，从而减少背景信号，提高检测的特异性和准确性。
+            </div>
+            
+            <h3>5.5 全基因组关联分析</h3>
+            <p><span class="emphasis">全基因组关联分析（Genome-Wide Association Study, GWAS）</span>是一种在全基因组范围内寻找与疾病或性状相关的遗传变异的方法。</p>
+            
+            <h4>GWAS的基本原理</h4>
+            <ul>
+                <li>比较病例组和对照组的基因型差异</li>
+                <li>鉴定与疾病显著关联的SNP位点</li>
+                <li>通过连锁不平衡定位候选基因</li>
+            </ul>
+            
+            <!-- 名词解释库板块 -->
+            <h2>六、重要名词解释库</h2>
+            
+            <div class="definition">
+                <strong>RNA-Seq（RNA Sequencing）：</strong>一种基于高通量测序技术的转录组分析方法，能够全面、定量地检测细胞或组织中所有RNA分子的表达水平，包括mRNA、lncRNA、miRNA等。
+            </div>
+            
+            <div class="definition">
+                <strong>可变剪接（Alternative Splicing）：</strong>真核生物mRNA前体在剪接过程中，通过不同的剪接方式产生多种成熟mRNA异构体的机制，是增加蛋白质多样性的重要途径。
+            </div>
+            
+            <div class="definition">
+                <strong>原位杂交（In Situ Hybridization, ISH）：</strong>在细胞或组织的原位检测特定核酸序列的技术，能够确定目标基因的空间表达模式和细胞定位。
+            </div>
+            
+            <div class="definition">
+                <strong>CRISPR/Cas9：</strong>成簇规律间隔短回文重复序列及其相关蛋白9系统，是一种高效、精确的基因编辑技术，由Cas9核酸酶和向导RNA组成。
+            </div>
+            
+            <div class="definition">
+                <strong>基因敲除（Gene Knockout）：</strong>通过各种技术手段使特定基因失去功能的方法，包括完全性敲除和条件性敲除两种策略。
+            </div>
+            
+            <div class="definition">
+                <strong>染色质免疫共沉淀（Chromatin Immunoprecipitation, ChIP）：</strong>研究蛋白质与DNA在体内相互作用的技术，通过交联固定、免疫沉淀等步骤确定蛋白质在基因组上的结合位点。
+            </div>
+            
+            <div class="definition">
+                <strong>酵母双杂交（Yeast Two-Hybrid, Y2H）：</strong>基于转录因子模块化结构设计的蛋白质相互作用检测系统，将待测蛋白分别与DNA结合域和转录激活域融合。
+            </div>
+            
+            <div class="definition">
+                <strong>凝胶滞缓实验（Electrophoretic Mobility Shift Assay, EMSA）：</strong>检测蛋白质与DNA相互作用的方法，基于蛋白质结合改变DNA电泳迁移率的原理。
+            </div>
+            
+            <div class="definition">
+                <strong>噬菌体展示技术（Phage Display）：</strong>将外源蛋白或多肽展示在噬菌体表面的技术，广泛用于抗体筛选、多肽药物开发等领域。
+            </div>
+            
+            <div class="definition">
+                <strong>全基因组关联分析（Genome-Wide Association Study, GWAS）：</strong>在全基因组范围内寻找与疾病或性状相关的遗传变异的方法，通过比较病例组和对照组的基因型差异来鉴定疾病易感基因。
+            </div>
+            
+            <div class="definition">
+                <strong>基因组编辑技术（Genome Editing Technology）：</strong>对基因组DNA序列进行精确修饰的技术总称，包括CRISPR/Cas9、TALEN、ZFN等系统。
+            </div>
+            
+            <div class="definition">
+                <strong>SAGE（Serial Analysis of Gene Expression）：</strong>基因表达系列分析技术，通过测序短标签序列来定量分析基因表达水平的方法。
+            </div>
+            
+            <div class="definition">
+                <strong>DNA芯片（DNA Chip/Microarray）：</strong>在固体表面上排列大量DNA探针的检测平台，用于同时检测数千个基因的表达水平。
+            </div>
+            
+            <div class="definition">
+                <strong>RNA干扰（RNA Interference, RNAi）：</strong>通过小分子RNA（siRNA、miRNA）特异性降解目标mRNA，从而抑制基因表达的机制。
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <h2>七、选择题测试</h2>
+            <div class="quiz-section">
+                <p><strong>说明：</strong>以下15道题目已从题库中随机抽取，请仔细阅读题目并选择最佳答案。</p>
+                
+                <div id="quizContainer">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                
+                <div id="quizResult" class="result">
+                    <!-- 结果将在这里显示 -->
+                </div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <h2>八、深度思考题</h2>
+            
+            <div class="thinking-question">
+                <h4>1. 比较分析CRISPR/Cas9技术与传统基因敲除方法的优缺点，并论述CRISPR/Cas9技术在基因功能研究中的应用前景。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>传统基因敲除方法的特点：</strong>传统方法主要包括同源重组、转座子插入等技术。同源重组虽然精确度高，但效率极低，通常需要数月甚至数年才能获得敲除细胞株。转座子插入方法虽然相对简单，但插入位点随机，难以实现精确的基因敲除。这些方法在时间成本、技术难度和成功率方面都存在显著局限性。</li>
+                        <li><strong>CRISPR/Cas9技术的优势：</strong>CRISPR/Cas9技术具有革命性的优势。首先是高效性，其基因编辑效率可达30-90%，远高于传统方法的1-5%。其次是精确性，通过设计特异性gRNA可以精确定位到目标基因位点。再次是简便性，整个实验流程可在数周内完成，大大缩短了实验周期。最后是成本效益，相比传统方法显著降低了实验成本。</li>
+                        <li><strong>CRISPR/Cas9技术的局限性：</strong>尽管优势明显，CRISPR/Cas9技术也存在一些挑战。脱靶效应是主要关注点，Cas9可能在非目标位点产生意外切割。此外，PAM序列的限制使得某些基因位点难以编辑。在某些细胞类型中，HDR效率仍然较低，影响了精确基因编辑的应用。</li>
+                        <li><strong>在基因功能研究中的应用前景：</strong>CRISPR/Cas9技术正在推动基因功能研究进入新时代。在疾病机制研究方面，可以快速构建疾病模型，加速致病基因的功能验证。在药物开发领域，能够高效筛选药物靶点，评估治疗效果。在基础研究中，支持大规模基因功能筛选，推动系统生物学发展。未来随着技术不断完善，CRISPR/Cas9将在精准医学、农业育种、生物制药等领域发挥更大作用。</li>
+                        <li><strong>技术发展趋势：</strong>CRISPR技术正朝着更高精度、更低脱靶、更广适用性的方向发展。新一代Cas蛋白（如Cas12、Cas13）的开发，碱基编辑和引导编辑技术的出现，以及递送系统的优化，都将进一步扩大CRISPR技术的应用范围，使其成为生命科学研究和临床应用的核心工具。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>2. 详细阐述ChIP技术的原理、实验流程及其在表观遗传学研究中的重要意义，并分析该技术的局限性和改进方向。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>ChIP技术的基本原理：</strong>染色质免疫共沉淀技术基于蛋白质与DNA在体内的天然相互作用。通过甲醛交联固定蛋白质-DNA复合体，保持其在体内的结合状态。随后利用特异性抗体识别并沉淀目标蛋白质，连同其结合的DNA片段一起被富集。最后通过逆转交联释放DNA，并通过PCR或测序技术分析蛋白质的基因组结合位点。这种方法能够在全基因组水平上绘制蛋白质的结合图谱。</li>
+                        <li><strong>详细实验流程分析：</strong>ChIP实验包含多个关键步骤，每个步骤都需要精确控制。交联固定阶段需要优化甲醛浓度和处理时间，确保充分交联同时避免过度交联。染色质片段化是技术关键，超声条件需要标准化以获得200-1000bp的理想片段大小。免疫沉淀步骤要求抗体具有高特异性和亲和力，孵育条件需要优化以提高富集效率。洗涤步骤必须严格控制，既要去除非特异性结合，又要保持特异性复合体的稳定。</li>
+                        <li><strong>在表观遗传学研究中的重要意义：</strong>ChIP技术是表观遗传学研究的核心工具，为理解基因调控机制提供了重要手段。通过ChIP-seq可以绘制组蛋白修饰的全基因组分布图谱，揭示活跃和抑制性染色质区域。转录因子ChIP实验能够确定转录调控网络，理解基因表达的精确调控机制。DNA甲基化相关蛋白的ChIP分析有助于理解DNA甲基化的建立和维持机制。这些研究为疾病机制、发育生物学和进化生物学提供了重要见解。</li>
+                        <li><strong>技术局限性分析：</strong>ChIP技术存在几个重要局限性。首先是分辨率限制，传统ChIP的分辨率约为200-1000bp，难以精确定位蛋白质结合的具体位点。其次是抗体依赖性，实验成功很大程度上依赖于高质量特异性抗体的可获得性。再次是细胞数量要求，传统ChIP需要大量细胞（通常>10^6个），限制了其在稀有细胞类型中的应用。此外，交联可能引入人工结合，影响结果的生物学意义。</li>
+                        <li><strong>技术改进和发展方向：</strong>为克服传统ChIP的局限性，多种改进技术不断涌现。ChIP-exo技术通过核酸外切酶处理提高了分辨率至单核苷酸水平。CUT&RUN和CUT&Tag技术减少了细胞需求量，可在少量细胞中进行分析。单细胞ChIP技术的发展使得在单细胞水平研究表观遗传异质性成为可能。免疫沉淀后的文库构建和测序技术的不断优化，提高了检测灵敏度和数据质量。这些技术进步正在推动表观遗传学研究向更高精度、更高通量的方向发展。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>3. 论述RNA-Seq技术在转录组学研究中的应用，分析其相对于传统基因表达检测方法的优势，并探讨该技术在精准医学中的应用前景。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>RNA-Seq技术在转录组学研究中的核心应用：</strong>RNA-Seq技术彻底改变了转录组学研究范式，实现了从候选基因研究向全转录组分析的转变。该技术能够同时检测所有已知和未知的转录本，包括mRNA、lncRNA、miRNA、circRNA等多种RNA分子。在差异表达分析中，RNA-Seq可以精确量化基因表达水平的变化，识别疾病相关的关键基因。在可变剪接研究中，能够检测和定量不同的剪接异构体，揭示剪接调控的复杂性。此外，RNA-Seq还能发现新的转录本、融合基因和RNA编辑事件，为转录组的完整性描述提供了强有力的工具。</li>
+                        <li><strong>相对于传统方法的技术优势：</strong>与传统的基因芯片技术相比，RNA-Seq具有显著优势。首先是检测范围的全面性，不受预设探针限制，能够检测所有转录本包括新发现的基因。其次是动态范围广泛，可以同时检测低丰度和高丰度转录本，检测范围跨越5-6个数量级。再次是定量精度高，基于读段计数的定量方法比荧光信号更加准确可靠。最后是功能信息丰富，除了表达量信息外，还能提供剪接变异、SNP、RNA编辑等多维度信息。相比qRT-PCR等靶向方法，RNA-Seq的高通量特性使得大规模基因表达分析成为可能。</li>
+                        <li><strong>数据分析的复杂性和挑战：</strong>RNA-Seq产生的海量数据需要复杂的生物信息学分析流程。原始数据的质量控制、序列比对、表达量计算、差异分析等每个步骤都需要专业的算法和软件工具。批次效应的校正、多重检验校正、功能富集分析等统计学问题需要仔细处理。对于非模式生物，缺乏参考基因组的情况下需要进行从头组装，增加了分析难度。此外，数据存储、计算资源需求和分析人员的专业技能要求都是实际应用中需要考虑的因素。</li>
+                        <li><strong>在精准医学中的应用前景：</strong>RNA-Seq技术在精准医学领域展现出巨大潜力。在疾病诊断方面，通过分析患者的转录组特征可以实现疾病的精确分型和预后评估。在肿瘤研究中，RNA-Seq能够识别肿瘤特异性的表达谱，发现新的生物标志物和治疗靶点。在药物开发中，可以评估药物的作用机制，预测药物反应和毒性。个体化治疗方案的制定也将受益于RNA-Seq技术，通过分析患者的基因表达特征选择最适合的治疗方案。免疫治疗领域中，RNA-Seq有助于评估肿瘤免疫微环境，指导免疫治疗策略的选择。</li>
+                        <li><strong>技术发展趋势和未来展望：</strong>RNA-Seq技术正朝着更高精度、更低成本、更快速度的方向发展。单细胞RNA-Seq技术的成熟使得在单细胞水平研究基因表达异质性成为可能，为理解发育、疾病和治疗反应的细胞机制提供了新视角。长读长测序技术的发展改善了对复杂转录本结构的解析能力。实时RNA-Seq技术的出现使得快速诊断成为可能。随着成本的持续下降和技术的标准化，RNA-Seq有望成为临床常规检测手段，推动精准医学的广泛应用。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>4. 分析酵母双杂交系统在蛋白质相互作用研究中的原理和应用，比较其与其他蛋白质相互作用检测技术的优缺点，并讨论该技术的发展前景。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>酵母双杂交系统的分子机理：</strong>酵母双杂交系统巧妙地利用了真核转录因子的模块化结构特征。转录因子通常由DNA结合域（BD）和转录激活域（AD）组成，这两个结构域必须在空间上接近才能激活转录。Y2H系统将待研究的两个蛋白分别与BD和AD融合，构建诱饵蛋白和猎物蛋白。当两个目标蛋白发生相互作用时，BD和AD被拉近，重建完整的转录因子功能，激活报告基因的表达。这种设计使得蛋白质相互作用能够转化为可检测的表型变化，如营养缺陷型酵母的生长能力恢复或β-半乳糖苷酶活性的产生。</li>
+                        <li><strong>实验系统的技术细节：</strong>Y2H系统的成功实施需要多个关键组件的协调工作。宿主酵母菌株通常缺乏组氨酸、腺嘌呤等营养合成能力，依赖报告基因的表达才能在选择性培养基上生长。诱饵蛋白的构建需要确保融合蛋白能够正确折叠并保持DNA结合活性，同时不能自激活报告基因。猎物蛋白库的构建质量直接影响筛选的成功率和覆盖度。实验中还需要设置适当的对照，包括阴性对照（空载体）和阳性对照（已知相互作用蛋白对），以验证系统的特异性和敏感性。</li>
+                        <li><strong>与其他检测技术的比较分析：</strong>相比于体外生化方法如GST pull-down，Y2H的优势在于检测的是活细胞内的蛋白质相互作用，更接近生理条件。与免疫共沉淀（Co-IP）相比，Y2H不依赖于特异性抗体，可以检测任意蛋白质对的相互作用。在高通量筛选方面，Y2H具有明显优势，可以同时筛选数千个候选蛋白。然而，Y2H也存在局限性：要求相互作用蛋白能够进入细胞核，可能检测不到膜蛋白或胞质蛋白的相互作用；融合标签可能影响蛋白质的天然构象和相互作用；假阳性和假阴性结果的存在需要进一步验证。</li>
+                        <li><strong>技术应用的广泛性和重要性：</strong>Y2H技术在多个研究领域发挥了重要作用。在信号转导研究中，帮助构建了复杂的蛋白质相互作用网络，揭示了细胞信号传递的分子机制。在疾病研究中，通过筛选疾病相关蛋白的相互作用伙伴，发现了新的致病机制和潜在治疗靶点。在药物开发中，Y2H被用于筛选能够干扰特定蛋白质相互作用的小分子化合物。在进化生物学研究中，比较不同物种间蛋白质相互作用网络的保守性，揭示了进化过程中功能模块的保持和变化。</li>
+                        <li><strong>技术发展和未来展望：</strong>为了克服传统Y2H的局限性，多种改进技术不断涌现。膜蛋白双杂交系统（MYTH）解决了膜蛋白相互作用的检测问题。三杂交系统可以检测需要第三个分子介导的蛋白质相互作用。反向双杂交系统用于筛选能够破坏蛋白质相互作用的化合物。高通量Y2H技术结合自动化设备，大大提高了筛选效率。随着合成生物学的发展，基于CRISPR的蛋白质相互作用检测系统正在兴起。未来，Y2H技术将与其他技术平台整合，形成更加全面和可靠的蛋白质相互作用研究体系，为系统生物学和精准医学提供重要支撑。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>5. 探讨基因组编辑技术在基因功能研究中的应用策略，分析不同编辑策略的适用场景，并评估该技术在临床应用中面临的挑战和解决方案。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>基因组编辑技术的策略分类：</strong>基因组编辑技术根据编辑目的可分为多种策略。基因敲除策略通过产生移码突变或删除关键序列使基因失活，适用于研究基因的必需性和功能缺失表型。基因敲入策略通过同源重组插入外源序列，可用于基因功能获得性研究、报告基因标记和疾病模型构建。碱基编辑策略实现单核苷酸的精确替换，特别适用于点突变的修复和疾病相关SNP的功能验证。引导编辑技术结合了碱基编辑和传统编辑的优势，能够实现更复杂的序列修改。每种策略都有其特定的技术要求和应用场景。</li>
+                        <li><strong>不同编辑策略的技术特点和适用性：</strong>CRISPR/Cas9系统因其简便性和高效性成为最广泛使用的工具，适用于大多数基因编辑需求。对于需要高精度编辑的应用，TALEN和ZFN虽然设计复杂但脱靶率更低。Prime editing技术能够实现插入、删除和替换的精确编辑，特别适用于疾病相关突变的修复。在不同细胞类型中，编辑效率差异显著：胚胎干细胞和某些癌细胞系编辑效率较高，而原代细胞和某些分化细胞编辑难度较大。递送方式的选择也影响编辑效果：电转染适用于体外细胞，病毒载体适用于体内应用，脂质纳米颗粒等新型递送系统正在不断发展。</li>
+                        <li><strong>在基因功能研究中的系统性应用：</strong>基因组编辑技术使得大规模基因功能筛选成为可能。通过构建全基因组敲除文库，可以系统性地研究每个基因在特定生物学过程中的作用。条件性基因编辑系统（如诱导性Cas9）允许在特定时间点激活基因编辑，研究基因在不同发育阶段或生理条件下的功能。多重基因编辑技术能够同时编辑多个基因，研究基因间的相互作用和功能冗余。表观基因组编辑技术（如dCas9-DNMT、dCas9-TET）可以在不改变DNA序列的情况下调控基因表达，为表观遗传学研究提供了新工具。</li>
+                        <li><strong>临床应用中的主要挑战：</strong>基因组编辑技术在临床应用中面临多重挑战。安全性是首要关注点，脱靶效应可能导致意外的基因突变，引发不可预测的后果。递送效率和组织特异性是技术瓶颈，如何将编辑工具高效、特异地递送到目标细胞仍是难题。免疫反应是另一个重要问题，Cas蛋白作为外源蛋白可能引发免疫排斥。编辑效率的个体差异和细胞类型差异影响治疗效果的一致性。此外，伦理问题特别是生殖细胞编辑的伦理争议，以及监管政策的不确定性，都制约着临床应用的推进。</li>
+                        <li><strong>解决方案和发展前景：</strong>为应对临床应用挑战，多种解决策略正在发展。在安全性方面，高保真Cas变体的开发、脱靶检测技术的完善和基因编辑后的安全性评估体系的建立正在提高编辑的安全性。在递送技术方面，组织特异性启动子、靶向性载体和新型递送系统的开发正在改善递送效率和特异性。在免疫问题方面，免疫抑制策略、Cas蛋白的人源化改造和瞬时表达系统的应用有助于减少免疫反应。监管框架的完善和国际合作的加强将为技术的规范化应用提供保障。随着技术的不断成熟和安全性的提高，基因组编辑技术有望在遗传性疾病、癌症、感染性疾病等领域实现突破性的临床应用。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 题库数据（30道题，随机抽取15道）
+        const questionBank = [
+            {
+                question: "CRISPR/Cas9系统中，gRNA的主要功能是什么？",
+                options: ["A. 切割DNA双链", "B. 引导Cas9蛋白到特定位点", "C. 修复DNA断裂", "D. 激活基因转录"],
+                correct: 1,
+                explanation: "gRNA（向导RNA）的主要功能是通过碱基配对识别目标DNA序列，引导Cas9蛋白精确定位到需要编辑的基因位点。gRNA由crRNA和tracrRNA组成，其中crRNA部分与目标DNA序列互补配对。"
+            },
+            {
+                question: "RNA-Seq技术相比传统基因芯片技术的主要优势是什么？",
+                options: ["A. 成本更低", "B. 操作更简单", "C. 不受预设探针限制，可检测未知转录本", "D. 检测速度更快"],
+                correct: 2,
+                explanation: "RNA-Seq技术的主要优势在于其全转录组检测能力，不受预设探针限制，能够检测所有已知和未知的转录本，包括新发现的基因、可变剪接异构体等。这是传统基因芯片技术无法实现的。"
+            },
+            {
+                question: "在ChIP实验中，甲醛交联的主要目的是什么？",
+                options: ["A. 杀死细胞", "B. 固定蛋白质与DNA的相互作用", "C. 提取蛋白质", "D. 扩增DNA"],
+                correct: 1,
+                explanation: "甲醛交联的目的是固定蛋白质与DNA在体内的天然相互作用状态，防止在后续实验过程中蛋白质从DNA上解离，从而保持蛋白质-DNA复合体的完整性，确保实验结果反映真实的体内结合情况。"
+            },
+            {
+                question: "酵母双杂交系统检测蛋白质相互作用的基本原理是什么？",
+                options: ["A. 蛋白质共沉淀", "B. 转录因子功能域的重建", "C. 蛋白质电泳分离", "D. 免疫荧光检测"],
+                correct: 1,
+                explanation: "酵母双杂交系统基于转录因子的模块化结构，将待测蛋白分别与DNA结合域和转录激活域融合。当两个蛋白发生相互作用时，重建完整的转录因子功能，激活报告基因表达，从而检测蛋白质间的相互作用。"
+            },
+            {
+                question: "Western Blot实验中使用牛奶封闭的主要目的是什么？",
+                options: ["A. 提供营养", "B. 防止抗体非特异性结合", "C. 增强信号强度", "D. 稳定蛋白质结构"],
+                correct: 1,
+                explanation: "牛奶封闭的目的是用牛奶中的蛋白质（主要是酪蛋白）结合膜上的空白位点，防止抗体的非特异性结合，从而减少背景信号，提高检测的特异性和准确性。"
+            },
+            {
+                question: "可变剪接的哪种类型是指某个外显子被跳过不包含在成熟mRNA中？",
+                options: ["A. 内含子保留", "B. 外显子跳跃", "C. 可变5'剪接位点", "D. 互斥外显子"],
+                correct: 1,
+                explanation: "外显子跳跃（Exon Skipping）是指在mRNA剪接过程中，某个外显子被跳过，不包含在最终的成熟mRNA中，这是可变剪接的一种重要类型。"
+            },
+            {
+                question: "EMSA实验检测蛋白质与DNA相互作用的原理是什么？",
+                options: ["A. 蛋白质结合改变DNA的电泳迁移率", "B. DNA结合改变蛋白质的电泳迁移率", "C. 蛋白质与DNA共沉淀", "D. 荧光标记检测"],
+                correct: 0,
+                explanation: "EMSA（凝胶滞缓实验）的原理是蛋白质与DNA结合后形成的复合体分子量增大，在电泳中迁移速度变慢，通过比较游离DNA和蛋白质-DNA复合体的迁移率差异来检测相互作用。"
+            },
+            {
+                question: "CRISPR/Cas9系统中PAM序列的作用是什么？",
+                options: ["A. 引导gRNA结合", "B. Cas9识别和切割的必需序列", "C. 修复DNA断裂", "D. 激活转录"],
+                correct: 1,
+                explanation: "PAM（原间隔子相邻基序）是Cas9蛋白识别和切割DNA的必需序列。只有在目标序列附近存在正确的PAM序列时，Cas9才能结合并切割DNA，这是CRISPR/Cas9系统特异性的重要保证。"
+            },
+            {
+                question: "RNA干扰技术的作用机制是什么？",
+                options: ["A. 激活基因转录", "B. 通过小分子RNA降解目标mRNA", "C. 修复基因突变", "D. 增强蛋白质翻译"],
+                correct: 1,
+                explanation: "RNA干扰（RNAi）通过siRNA或miRNA等小分子RNA与目标mRNA的互补配对，引导RISC复合体特异性降解目标mRNA，从而抑制基因的表达，是一种重要的基因沉默技术。"
+            },
+            {
+                question: "条件性基因敲除相比完全性基因敲除的主要优势是什么？",
+                options: ["A. 操作更简单", "B. 避免胚胎致死，可在特定条件下敲除", "C. 成本更低", "D. 效率更高"],
+                correct: 1,
+                explanation: "条件性基因敲除的主要优势是可以避免完全敲除可能导致的胚胎致死问题，允许在特定时间、特定组织或特定条件下敲除目标基因，从而研究基因在不同发育阶段或生理条件下的功能。"
+            },
+            {
+                question: "噬菌体展示技术主要用于什么研究？",
+                options: ["A. 基因表达分析", "B. 蛋白质相互作用和抗体筛选", "C. DNA测序", "D. 细胞培养"],
+                correct: 1,
+                explanation: "噬菌体展示技术将外源蛋白或多肽展示在噬菌体表面，主要用于抗体筛选、多肽药物开发、蛋白质相互作用研究等领域，是蛋白质工程和药物筛选的重要工具。"
+            },
+            {
+                question: "GWAS研究的基本策略是什么？",
+                options: ["A. 比较病例组和对照组的基因型差异", "B. 分析单个基因的功能", "C. 检测蛋白质表达", "D. 研究RNA剪接"],
+                correct: 0,
+                explanation: "GWAS（全基因组关联分析）通过比较病例组和对照组在全基因组范围内的基因型差异，鉴定与疾病或性状显著关联的遗传变异位点，从而发现疾病易感基因。"
+            },
+            {
+                question: "原位杂交技术能够提供什么信息？",
+                options: ["A. 蛋白质浓度", "B. 基因的空间表达模式", "C. DNA序列", "D. 细胞周期"],
+                correct: 1,
+                explanation: "原位杂交技术在细胞或组织的原位检测特定核酸序列，能够确定目标基因在不同细胞类型、组织部位的空间分布和表达模式，提供基因表达的时空信息。"
+            },
+            {
+                question: "Cre-LoxP系统中，LoxP位点的结构特征是什么？",
+                options: ["A. 20bp序列", "B. 34bp序列，包含8bp核心序列和两个13bp反向重复序列", "C. 50bp序列", "D. 100bp序列"],
+                correct: 1,
+                explanation: "LoxP位点是34bp的DNA序列，由8bp的核心序列和两个13bp的反向重复序列组成。Cre重组酶识别LoxP位点并在核心序列处进行重组，实现条件性基因敲除。"
+            },
+            {
+                question: "RNA-Seq数据分析的第一步通常是什么？",
+                options: ["A. 差异表达分析", "B. 质量控制和序列比对", "C. 功能富集分析", "D. 可变剪接分析"],
+                correct: 1,
+                explanation: "RNA-Seq数据分析的第一步是质量控制，评估原始测序数据的质量，然后进行序列比对，将读段比对到参考基因组或转录组，这是后续所有分析的基础。"
+            },
+            {
+                question: "ChIP-seq技术相比传统ChIP的主要改进是什么？",
+                options: ["A. 更高的特异性", "B. 全基因组范围的高通量检测", "C. 更低的成本", "D. 更简单的操作"],
+                correct: 1,
+                explanation: "ChIP-seq结合了ChIP技术和高通量测序，实现了全基因组范围内蛋白质结合位点的高通量检测，相比传统ChIP只能检测少数已知位点，ChIP-seq能够无偏向地发现所有结合位点。"
+            },
+            {
+                question: "基因编辑中HDR和NHEJ修复机制的主要区别是什么？",
+                options: ["A. HDR需要供体模板，NHEJ不需要", "B. NHEJ需要供体模板，HDR不需要", "C. 两者都需要供体模板", "D. 两者都不需要供体模板"],
+                correct: 0,
+                explanation: "HDR（同源定向修复）需要供体模板进行精确修复，能够实现精确的基因编辑。NHEJ（非同源末端连接）直接连接断裂末端，不需要模板，但可能产生随机的插入或删除突变。"
+            },
+            {
+                question: "酵母单杂交系统主要用于研究什么？",
+                options: ["A. 蛋白质-蛋白质相互作用", "B. 蛋白质-DNA相互作用", "C. RNA-蛋白质相互作用", "D. DNA-DNA相互作用"],
+                correct: 1,
+                explanation: "酵母单杂交系统专门用于研究蛋白质与DNA的相互作用，特别适用于转录因子与其结合位点的研究，通过检测蛋白质结合DNA后激活报告基因的表达来确定相互作用。"
+            },
+            {
+                question: "SAGE技术的全称是什么？",
+                options: ["A. Single Analysis of Gene Expression", "B. Serial Analysis of Gene Expression", "C. Systematic Analysis of Gene Expression", "D. Specific Analysis of Gene Expression"],
+                correct: 1,
+                explanation: "SAGE的全称是Serial Analysis of Gene Expression（基因表达系列分析），是一种通过测序短标签序列来定量分析基因表达水平的早期高通量技术。"
+            },
+            {
+                question: "蛋白质磷酸化分析中，质谱技术的主要优势是什么？",
+                options: ["A. 成本低", "B. 操作简单", "C. 高精度鉴定磷酸化位点", "D. 检测速度快"],
+                correct: 2,
+                explanation: "质谱技术在蛋白质磷酸化分析中的主要优势是能够高精度地鉴定磷酸化的具体位点，提供精确的分子量信息和修饰位置信息，是目前最准确的磷酸化检测方法。"
+            },
+            {
+                question: "Pull-down实验中常用的融合标签是什么？",
+                options: ["A. GFP和RFP", "B. GST和His标签", "C. FLAG和HA标签", "D. Myc和V5标签"],
+                correct: 1,
+                explanation: "Pull-down实验常用GST（谷胱甘肽S-转移酶）和His标签作为融合标签，因为它们可以与相应的固相载体（谷胱甘肽琼脂糖珠和镍柱）特异性结合，便于蛋白质的纯化和相互作用蛋白的捕获。"
+            },
+            {
+                question: "DNA芯片技术的局限性主要是什么？",
+                options: ["A. 成本太高", "B. 受预设探针限制，无法检测未知序列", "C. 操作复杂", "D. 检测精度低"],
+                correct: 1,
+                explanation: "DNA芯片技术的主要局限性是受预设探针限制，只能检测已知的基因序列，无法发现新的转录本或基因，这是其相比RNA-Seq等技术的重要不足。"
+            },
+            {
+                question: "CRISPR技术中，什么是脱靶效应？",
+                options: ["A. 目标基因编辑失败", "B. Cas9在非目标位点产生意外切割", "C. gRNA设计错误", "D. 细胞死亡"],
+                correct: 1,
+                explanation: "脱靶效应是指Cas9蛋白在与目标序列相似的非目标位点产生意外切割，这可能导致不可预测的基因突变，是CRISPR技术应用中需要重点关注的安全性问题。"
+            },
+            {
+                question: "转录组学研究中，什么是差异表达基因？",
+                options: ["A. 在不同条件下表达水平有显著变化的基因", "B. 只在特定组织表达的基因", "C. 新发现的基因", "D. 功能未知的基因"],
+                correct: 0,
+                explanation: "差异表达基因是指在不同实验条件（如疾病vs正常、处理vs对照）下表达水平有统计学显著变化的基因，是转录组学研究中识别关键调控基因的重要指标。"
+            },
+            {
+                question: "免疫共沉淀实验的关键要求是什么？",
+                options: ["A. 高温处理", "B. 特异性抗体", "C. 低盐缓冲液", "D. 长时间孵育"],
+                correct: 1,
+                explanation: "免疫共沉淀实验的成功关键在于使用高特异性、高亲和力的抗体，能够特异性识别并结合目标蛋白，同时将其相互作用伙伴一起沉淀下来。"
+            },
+            {
+                question: "基因功能研究中，为什么需要使用多种技术相互验证？",
+                options: ["A. 增加实验成本", "B. 每种技术都有局限性，需要相互补充", "C. 延长实验时间", "D. 增加实验复杂性"],
+                correct: 1,
+                explanation: "每种技术都有其特定的局限性和适用范围，使用多种技术相互验证可以克服单一技术的不足，提高结果的可靠性和准确性，获得更全面的基因功能信息。"
+            },
+            {
+                question: "单细胞RNA-Seq相比传统RNA-Seq的主要优势是什么？",
+                options: ["A. 成本更低", "B. 能够研究细胞间的异质性", "C. 操作更简单", "D. 检测精度更高"],
+                correct: 1,
+                explanation: "单细胞RNA-Seq的主要优势是能够在单细胞水平检测基因表达，揭示细胞群体中的异质性，发现稀有细胞类型，研究细胞分化轨迹等，这是传统bulk RNA-Seq无法实现的。"
+            },
+            {
+                question: "基因编辑技术在临床应用中面临的主要挑战是什么？",
+                options: ["A. 技术复杂", "B. 安全性和脱靶效应", "C. 成本高昂", "D. 操作困难"],
+                correct: 1,
+                explanation: "基因编辑技术在临床应用中面临的主要挑战是安全性问题，特别是脱靶效应可能导致意外的基因突变，以及长期安全性的不确定性，这些都需要在临床应用前得到充分评估和解决。"
+            },
+            {
+                question: "表观基因组编辑技术的特点是什么？",
+                options: ["A. 改变DNA序列", "B. 不改变DNA序列但调控基因表达", "C. 只能激活基因", "D. 只能抑制基因"],
+                correct: 1,
+                explanation: "表观基因组编辑技术（如dCas9-DNMT、dCas9-TET）的特点是在不改变DNA序列的情况下，通过调控DNA甲基化、组蛋白修饰等表观遗传标记来调控基因表达，为表观遗传学研究提供了重要工具。"
+            },
+            {
+                question: "高通量测序技术的核心优势是什么？",
+                options: ["A. 检测速度快", "B. 能够同时检测大量序列", "C. 成本低", "D. 操作简单"],
+                correct: 1,
+                explanation: "高通量测序技术的核心优势是能够同时检测数百万甚至数十亿个DNA或RNA分子，实现大规模并行测序，这使得全基因组、全转录组等大规模分析成为可能。"
+            },
+            {
+                question: "蛋白质相互作用网络研究的重要意义是什么？",
+                options: ["A. 降低研究成本", "B. 理解细胞功能的系统性机制", "C. 简化实验流程", "D. 提高检测精度"],
+                correct: 1,
+                explanation: "蛋白质相互作用网络研究能够揭示蛋白质如何协同工作执行细胞功能，理解疾病发生的分子机制，发现新的药物靶点，为系统生物学和精准医学提供重要基础。"
+            },
+            {
+                question: "条件性基因敲除中Cre重组酶的特点是什么？",
+                options: ["A. 来源于大肠杆菌", "B. 来源于P1噬菌体，能识别LoxP位点", "C. 只能在高温下工作", "D. 需要ATP提供能量"],
+                correct: 1,
+                explanation: "Cre重组酶来源于P1噬菌体，能够特异性识别LoxP位点并催化重组反应，不需要额外的辅助因子或ATP，是条件性基因敲除系统的核心组件。"
+            }
+        ];
+        
+        // 随机选择15道题目
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+        
+        // 生成题目HTML
+        function generateQuizHTML() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quizContainer');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <h4>第${index + 1}题：${q.question}</h4>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储正确答案和解析
+            window.quizData = selectedQuestions;
+        }
+        
+        // 提交答案并显示结果
+        function submitQuiz() {
+            const resultDiv = document.getElementById('quizResult');
+            let score = 0;
+            let resultHTML = '<h3>测试结果</h3>';
+            
+            window.quizData.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selectedOption ? parseInt(selectedOption.value) : -1;
+                const isCorrect = userAnswer === q.correct;
+                
+                if (isCorrect) score++;
+                
+                resultHTML += `
+                    <div class="${isCorrect ? 'correct' : 'incorrect'}">
+                        <h4>第${index + 1}题：${isCorrect ? '✓ 正确' : '✗ 错误'}</h4>
+                        <p><strong>你的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未选择'}</p>
+                        <p><strong>正确答案：</strong>${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / window.quizData.length) * 100);
+            resultHTML = `<div class="${percentage >= 60 ? 'correct' : 'incorrect'}">
+                <h3>总分：${score}/${window.quizData.length} (${percentage}%)</h3>
+                <p>${percentage >= 80 ? '优秀！' : percentage >= 60 ? '良好！' : '需要加强复习！'}</p>
+            </div>` + resultHTML;
+            
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.classList.add('show');
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // 页面滚动进度条
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progressFill').style.width = scrollPercent + '%';
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            generateQuizHTML();
+            window.addEventListener('scroll', updateProgressBar);
+        });
+    </script>
+</body>
+</html>

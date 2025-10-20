@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生物能学复习笔记 - 考研专业课</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 强调文本 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .formula {
+            font-family: Consolas, monospace;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            margin-top: 10px;
+            text-align: justify;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>生物能学复习笔记</h1>
+            <p>考研专业课 · 生物化学 · 第16章</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>核心知识要点</h2>
+                
+                <h3>一、热力学基础概念</h3>
+                <p>生物能学是研究生物体内能量转换规律的科学，其理论基础建立在热力学定律之上。</p>
+                
+                <h4>1. 热力学系统分类</h4>
+                <ul>
+                    <li><span class="emphasis">孤立系统</span>：与环境既无物质交换，也无能量交换</li>
+                    <li><span class="emphasis">封闭系统</span>：与环境有能量交换，但无物质交换</li>
+                    <li><span class="emphasis">开放系统</span>：与环境既有物质交换，又有能量交换（生物体属于此类）</li>
+                </ul>
+                
+                <h4>2. 状态函数</h4>
+                <p>状态函数是只依赖于系统当前状态，而与达到该状态的途径无关的物理量。</p>
+                
+                <div class="term">
+                    <div class="term-name">焓 (Enthalpy, H)</div>
+                    <div class="formula">H = U + PV</div>
+                    <div class="term-definition">其中U为内能，P为压强，V为体积。在恒压条件下，焓变等于反应热。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">熵 (Entropy, S)</div>
+                    <div class="formula">S = k ln Ω</div>
+                    <div class="term-definition">熵是系统混乱度的量度，k为玻尔兹曼常数，Ω为微观状态数。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">吉布斯自由能 (Gibbs Free Energy, G)</div>
+                    <div class="formula">G = H - TS</div>
+                    <div class="term-definition">吉布斯自由能是判断反应能否自发进行的重要判据。ΔG < 0时反应自发进行。</div>
+                </div>
+                
+                <h3>二、ATP与高能磷酸化合物</h3>
+                <p>ATP（三磷酸腺苷）是细胞内最重要的能量货币，其水解释放的能量驱动各种生命活动。</p>
+                
+                <h4>1. ATP的结构与功能</h4>
+                <ul>
+                    <li>ATP由腺嘌呤、核糖和三个磷酸基团组成</li>
+                    <li>ATP水解时释放约30.5 kJ/mol的自由能</li>
+                    <li>ATP的磷酸键被称为"高能键"，但能量实际存储在整个分子中</li>
+                </ul>
+                
+                <div class="formula">
+                    ATP + H₂O → ADP + Pi + 能量 (ΔG°' = -30.5 kJ/mol)
+                </div>
+                
+                <h4>2. 高能磷酸化合物的特点</h4>
+                <p>高能磷酸化合物是指水解时能释放大量自由能（>25 kJ/mol）的磷酸化合物。</p>
+                
+                <ul>
+                    <li><span class="emphasis">磷酸烯醇式丙酮酸</span>：ΔG°' = -61.9 kJ/mol（最高）</li>
+                    <li><span class="emphasis">1,3-二磷酸甘油酸</span>：ΔG°' = -49.4 kJ/mol</li>
+                    <li><span class="emphasis">磷酸肌酸</span>：ΔG°' = -43.1 kJ/mol</li>
+                    <li><span class="emphasis">ATP</span>：ΔG°' = -30.5 kJ/mol</li>
+                    <li><span class="emphasis">ADP</span>：ΔG°' = -30.5 kJ/mol</li>
+                </ul>
+                
+                <h3>三、生物氧化与能量释放</h3>
+                <p>生物氧化是生物体内有机物在酶催化下与氧结合或失去电子的过程，是ATP生成的主要途径。</p>
+                
+                <h4>1. 电子传递链</h4>
+                <p>电子传递链位于线粒体内膜，由四个复合体组成，负责将NADH和FADH₂的电子传递给氧气。</p>
+                
+                <h4>2. 氧化磷酸化</h4>
+                <p>氧化磷酸化包括电子传递和化学渗透两个过程，是ATP合成的主要机制。</p>
+                
+                <div class="formula">
+                    NADH + H⁺ + ½O₂ + 3ADP + 3Pi → NAD⁺ + H₂O + 3ATP
+                </div>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">三羧酸循环</div>
+                    <div class="term-english">(Tricarboxylic Acid Cycle, TCA Cycle)</div>
+                    <div class="term-definition">又名柠檬酸循环，是需氧生物体内普遍存在的代谢途径，是糖、脂、蛋白质最终氧化的共同途径，在线粒体基质中进行。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">化学渗透</div>
+                    <div class="term-english">(Chemiosmosis)</div>
+                    <div class="term-definition">利用跨膜质子梯度驱动ATP合成的过程，由Peter Mitchell提出，是氧化磷酸化的重要组成部分。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">标准自由能变</div>
+                    <div class="term-english">(Standard Free Energy Change, ΔG°')</div>
+                    <div class="term-definition">在标准条件下（25℃，pH=7.0，各组分浓度为1M）反应的吉布斯自由能变化，用于比较不同反应的热力学倾向。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">磷酸肌酸</div>
+                    <div class="term-english">(Phosphocreatine, PCr)</div>
+                    <div class="term-definition">肌肉组织中的高能磷酸化合物，可快速向ADP转移磷酸基团生成ATP，是肌肉收缩的即时能源。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">底物水平磷酸化</div>
+                    <div class="term-english">(Substrate-level Phosphorylation)</div>
+                    <div class="term-definition">通过高能中间体直接将磷酸基团转移给ADP生成ATP的过程，不依赖电子传递链。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">呼吸控制</div>
+                    <div class="term-english">(Respiratory Control)</div>
+                    <div class="term-definition">ADP浓度对细胞呼吸速率的调节作用，ADP浓度高时呼吸加快，ADP浓度低时呼吸减慢。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">解偶联剂</div>
+                    <div class="term-english">(Uncoupler)</div>
+                    <div class="term-definition">能够破坏电子传递与ATP合成偶联关系的化学物质，使电子传递产生的能量以热能形式释放。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">P/O比值</div>
+                    <div class="term-english">(P/O Ratio)</div>
+                    <div class="term-definition">每消耗一个氧原子所合成的ATP分子数，反映氧化磷酸化的效率。NADH的P/O比约为2.5，FADH₂约为1.5。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>选择题测试</h2>
+                <div class="quiz-container">
+                    <p style="margin-bottom: 20px; color: #7f8c8d;">以下是从题库中随机抽取的15道选择题，请选择最佳答案：</p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试分析ATP为什么能成为细胞内的"能量货币"？从热力学和动力学角度阐述其优势。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>热力学优势：</strong>ATP水解释放的自由能适中（-30.5 kJ/mol），既能驱动大多数需能反应，又不会造成能量浪费。这个数值处于高能磷酸化合物的中等水平，使ATP既容易合成又容易水解。</li>
+                            <li><strong>动力学优势：</strong>ATP的磷酸键在没有酶催化时相对稳定，但在特定酶作用下能快速水解，实现了能量的可控释放。这种"动力学稳定，热力学不稳定"的特性使ATP成为理想的能量载体。</li>
+                            <li><strong>结构优势：</strong>ATP分子结构相对简单，易于合成和运输。其三磷酸结构提供了多个水解位点，可以逐步释放能量，满足不同反应的需求。</li>
+                            <li><strong>代谢网络优势：</strong>ATP-ADP-AMP系统与细胞内多条代谢途径紧密相连，形成了高效的能量调节网络。ADP/ATP比值可以敏感地反映细胞能量状态，调节代谢速率。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较底物水平磷酸化和氧化磷酸化的异同，并分析它们在细胞能量代谢中的作用。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>相同点：</strong>两者都是ATP合成的重要途径，都涉及磷酸基团的转移，都需要酶的催化，都遵循热力学定律。</li>
+                            <li><strong>不同点：</strong>底物水平磷酸化直接利用高能中间体的磷酸基团，不需要氧气参与，效率较低；氧化磷酸化利用电子传递链建立的质子梯度，需要氧气作为最终电子受体，效率很高。</li>
+                            <li><strong>在糖酵解中的作用：</strong>底物水平磷酸化是糖酵解中ATP生成的唯一方式，在缺氧条件下维持细胞基本能量需求，但产量有限（每分子葡萄糖净产生2个ATP）。</li>
+                            <li><strong>在有氧呼吸中的作用：</strong>氧化磷酸化是有氧呼吸的主要ATP生成方式，通过电子传递链和化学渗透产生大量ATP（每分子葡萄糖约产生30-32个ATP），是细胞能量供应的主力。</li>
+                            <li><strong>生理意义：</strong>两种方式的结合使细胞能够在不同环境条件下维持能量供应，底物水平磷酸化提供应急能量，氧化磷酸化提供持续高效的能量来源。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 解释化学渗透理论的核心内容，并分析其在生物能量转换中的重要意义。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>理论核心：</strong>化学渗透理论由Peter Mitchell提出，认为ATP合成是通过跨膜质子梯度驱动的。电子传递链将质子从基质泵入膜间隙，形成电化学梯度，质子回流时驱动ATP合酶合成ATP。</li>
+                            <li><strong>分子机制：</strong>ATP合酶是一个分子马达，由F₀和F₁两部分组成。F₀部分嵌在膜中形成质子通道，F₁部分催化ATP合成。质子流动引起构象变化，驱动ATP合成。</li>
+                            <li><strong>能量转换意义：</strong>化学渗透将氧化还原反应的化学能转换为跨膜电化学梯度的势能，再转换为ATP的化学能，实现了高效的能量转换和储存。</li>
+                            <li><strong>调节机制：</strong>质子梯度的大小直接影响ATP合成速率，当ATP需求增加时，ADP浓度升高促进质子回流，加速ATP合成，实现了能量供需的动态平衡。</li>
+                            <li><strong>进化意义：</strong>化学渗透机制在原核生物和真核生物中高度保守，说明这是一种高效且古老的能量转换方式，对生命的进化具有重要意义。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 分析高能磷酸化合物的结构特点与其高能性质的关系，并举例说明。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>电荷排斥：</strong>高能磷酸化合物通常含有多个负电荷的磷酸基团，相互排斥产生张力。如ATP的三个磷酸基团在生理pH下带负电荷，水解后电荷排斥减少，释放能量。</li>
+                            <li><strong>共振稳定化：</strong>水解产物比反应物具有更好的共振稳定性。如磷酸烯醇式丙酮酸水解后形成的丙酮酸具有酮-烯醇互变异构，大大增加了稳定性。</li>
+                            <li><strong>水合作用：</strong>水解产物能与水分子形成更多氢键，增加稳定性。磷酸离子和ADP的水合程度比ATP高，降低了系统的自由能。</li>
+                            <li><strong>结构实例分析：</strong>1,3-二磷酸甘油酸含有混合酸酐键，水解后形成的3-磷酸甘油酸和磷酸都比原化合物稳定；磷酸肌酸的胍基磷酸键水解后，肌酸分子的共振稳定性显著增加。</li>
+                            <li><strong>生物学意义：</strong>这些结构特点使高能磷酸化合物能够在需要时快速释放大量能量，同时在不需要时保持相对稳定，满足了生物体对能量精确调控的需求。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "下列关于ATP的叙述，正确的是：",
+                options: [
+                    "ATP分子中含有两个高能磷酸键",
+                    "ATP水解时标准自由能变为-30.5 kJ/mol",
+                    "ATP只能通过氧化磷酸化途径合成",
+                    "ATP分子中的能量主要储存在磷酸键中"
+                ],
+                correct: 1,
+                explanation: "ATP水解时的标准自由能变确实为-30.5 kJ/mol。ATP含有两个高能磷酸键是错误的，实际上是三个磷酸基团。ATP可以通过底物水平磷酸化和氧化磷酸化两种途径合成。能量储存在整个分子中，不仅仅是磷酸键。"
+            },
+            {
+                question: "在生物体内，下列哪种化合物的水解自由能变最大？",
+                options: [
+                    "ATP",
+                    "磷酸烯醇式丙酮酸",
+                    "磷酸肌酸",
+                    "ADP"
+                ],
+                correct: 1,
+                explanation: "磷酸烯醇式丙酮酸的水解自由能变为-61.9 kJ/mol，是所有高能磷酸化合物中最高的。ATP为-30.5 kJ/mol，磷酸肌酸为-43.1 kJ/mol，ADP也为-30.5 kJ/mol。"
+            },
+            {
+                question: "关于吉布斯自由能，下列说法错误的是：",
+                options: [
+                    "G = H - TS",
+                    "ΔG < 0时反应能自发进行",
+                    "ΔG = 0时反应达到平衡",
+                    "ΔG的大小与反应途径有关"
+                ],
+                correct: 3,
+                explanation: "吉布斯自由能是状态函数，其变化只与始态和终态有关，与反应途径无关。其他选项都是正确的：G = H - TS是定义式，ΔG < 0表示自发反应，ΔG = 0表示平衡状态。"
+            },
+            {
+                question: "化学渗透理论的提出者是：",
+                options: [
+                    "Peter Mitchell",
+                    "Hans Krebs",
+                    "Albert Szent-Györgyi",
+                    "David Keilin"
+                ],
+                correct: 0,
+                explanation: "化学渗透理论由Peter Mitchell在1961年提出，并因此获得1978年诺贝尔化学奖。该理论解释了ATP合成与电子传递的偶联机制。"
+            },
+            {
+                question: "下列关于熵的描述，正确的是：",
+                options: [
+                    "熵是系统有序程度的量度",
+                    "熵增加表示系统变得更有序",
+                    "熵是系统混乱程度的量度",
+                    "熵的变化与温度无关"
+                ],
+                correct: 2,
+                explanation: "熵是系统混乱程度（无序程度）的量度，熵增加表示系统变得更混乱。熵的变化与温度密切相关，温度升高通常导致熵增加。"
+            },
+            {
+                question: "在标准条件下，下列反应的ΔG°'为负值的是：",
+                options: [
+                    "葡萄糖 + 6O₂ → 6CO₂ + 6H₂O",
+                    "6CO₂ + 6H₂O → 葡萄糖 + 6O₂",
+                    "ADP + Pi → ATP + H₂O",
+                    "NAD⁺ + H⁺ + 2e⁻ → NADH"
+                ],
+                correct: 0,
+                explanation: "葡萄糖的完全氧化是放能反应，ΔG°'为负值。其逆反应（光合作用）需要输入能量，ΔG°'为正值。ATP合成和NAD⁺还原都是需能反应。"
+            },
+            {
+                question: "关于高能磷酸化合物，下列说法错误的是：",
+                options: [
+                    "水解时释放的自由能大于25 kJ/mol",
+                    "磷酸键中储存着大量能量",
+                    "包括ATP、磷酸肌酸等",
+                    "在细胞能量代谢中起重要作用"
+                ],
+                correct: 1,
+                explanation: "能量实际储存在整个分子中，而不是特定的磷酸键中。'高能键'只是一个习惯说法，实际上是指整个分子的高能状态。"
+            },
+            {
+                question: "电子传递链位于：",
+                options: [
+                    "线粒体外膜",
+                    "线粒体内膜",
+                    "线粒体基质",
+                    "细胞质"
+                ],
+                correct: 1,
+                explanation: "电子传递链的各个复合体都嵌在线粒体内膜中，这样才能建立跨膜的质子梯度，驱动ATP合成。"
+            },
+            {
+                question: "NADH在电子传递链中的P/O比值约为：",
+                options: [
+                    "1.5",
+                    "2.0",
+                    "2.5",
+                    "3.0"
+                ],
+                correct: 2,
+                explanation: "NADH的P/O比值约为2.5，即每个NADH氧化可产生约2.5个ATP。FADH₂的P/O比值约为1.5，因为它跳过了复合体I。"
+            },
+            {
+                question: "下列哪个过程不属于底物水平磷酸化？",
+                options: [
+                    "1,3-二磷酸甘油酸转化为3-磷酸甘油酸",
+                    "磷酸烯醇式丙酮酸转化为丙酮酸",
+                    "琥珀酰CoA转化为琥珀酸",
+                    "NADH在电子传递链中的氧化"
+                ],
+                correct: 3,
+                explanation: "NADH在电子传递链中的氧化属于氧化磷酸化，不是底物水平磷酸化。底物水平磷酸化是直接利用高能中间体的磷酸基团合成ATP。"
+            },
+            {
+                question: "关于ATP合酶，下列描述正确的是：",
+                options: [
+                    "只有F₁亚基参与ATP合成",
+                    "F₀亚基形成质子通道",
+                    "不需要质子梯度就能合成ATP",
+                    "只存在于线粒体外膜"
+                ],
+                correct: 1,
+                explanation: "ATP合酶的F₀亚基嵌在膜中形成质子通道，F₁亚基催化ATP合成。质子通过F₀亚基的流动驱动F₁亚基的旋转，从而合成ATP。"
+            },
+            {
+                question: "解偶联剂的作用机制是：",
+                options: [
+                    "抑制电子传递链",
+                    "破坏质子梯度",
+                    "直接抑制ATP合酶",
+                    "阻止氧气结合"
+                ],
+                correct: 1,
+                explanation: "解偶联剂如DNP能够破坏跨膜质子梯度，使电子传递与ATP合成解偶联，能量以热能形式释放而不是用于ATP合成。"
+            },
+            {
+                question: "在细胞呼吸过程中，大部分ATP产生于：",
+                options: [
+                    "糖酵解",
+                    "柠檬酸循环",
+                    "氧化磷酸化",
+                    "丙酮酸氧化"
+                ],
+                correct: 2,
+                explanation: "氧化磷酸化产生的ATP约占细胞呼吸总ATP产量的90%以上。糖酵解和柠檬酸循环主要通过底物水平磷酸化产生少量ATP。"
+            },
+            {
+                question: "标准自由能变ΔG°'的测定条件不包括：",
+                options: [
+                    "温度25℃",
+                    "pH = 7.0",
+                    "各组分浓度1M",
+                    "压强1个大气压"
+                ],
+                correct: 3,
+                explanation: "生物化学中的标准自由能变ΔG°'的条件是25℃、pH=7.0、各组分浓度1M。压强通常不是主要考虑因素，因为大多数生化反应在溶液中进行。"
+            },
+            {
+                question: "关于呼吸控制，下列说法正确的是：",
+                options: [
+                    "ADP浓度高时呼吸速率降低",
+                    "ATP浓度高时呼吸速率增加",
+                    "ADP/ATP比值高时呼吸速率增加",
+                    "呼吸速率与ADP浓度无关"
+                ],
+                correct: 2,
+                explanation: "呼吸控制是指ADP/ATP比值对呼吸速率的调节。当ADP/ATP比值高时（能量需求大），呼吸速率增加；比值低时呼吸速率降低。"
+            },
+            {
+                question: "磷酸肌酸系统的主要作用是：",
+                options: [
+                    "长期提供ATP",
+                    "快速再生ATP",
+                    "储存大量能量",
+                    "调节血糖"
+                ],
+                correct: 1,
+                explanation: "磷酸肌酸系统能够快速向ADP转移磷酸基团再生ATP，是肌肉收缩初期的主要能源，但持续时间短，主要用于快速能量供应。"
+            },
+            {
+                question: "下列关于生物氧化的特点，错误的是：",
+                options: [
+                    "在常温常压下进行",
+                    "需要酶的催化",
+                    "能量一次性全部释放",
+                    "产物是CO₂和H₂O"
+                ],
+                correct: 2,
+                explanation: "生物氧化的特点是能量逐步释放，通过多步酶促反应将能量分批释放并储存在ATP等高能化合物中，而不是一次性全部释放。"
+            },
+            {
+                question: "柠檬酸循环中直接产生ATP的反应是：",
+                options: [
+                    "柠檬酸→异柠檬酸",
+                    "异柠檬酸→α-酮戊二酸",
+                    "琥珀酰CoA→琥珀酸",
+                    "苹果酸→草酰乙酸"
+                ],
+                correct: 2,
+                explanation: "琥珀酰CoA转化为琥珀酸的反应通过底物水平磷酸化直接产生ATP（或GTP）。其他反应主要产生NADH或FADH₂。"
+            },
+            {
+                question: "关于状态函数，下列说法错误的是：",
+                options: [
+                    "只与系统的状态有关",
+                    "与达到该状态的途径无关",
+                    "包括焓、熵、吉布斯自由能",
+                    "其变化量与反应速率有关"
+                ],
+                correct: 3,
+                explanation: "状态函数的变化量只与始态和终态有关，与反应速率无关。反应速率是动力学概念，而状态函数是热力学概念。"
+            },
+            {
+                question: "在糖酵解过程中，净产生ATP的数目是：",
+                options: [
+                    "1个",
+                    "2个",
+                    "3个",
+                    "4个"
+                ],
+                correct: 1,
+                explanation: "糖酵解过程中总共产生4个ATP，但消耗2个ATP（在己糖激酶和磷酸果糖激酶反应中），因此净产生2个ATP。"
+            },
+            {
+                question: "下列哪种情况下ΔG = 0？",
+                options: [
+                    "反应自发进行时",
+                    "反应达到平衡时",
+                    "反应不能进行时",
+                    "反应速率最大时"
+                ],
+                correct: 1,
+                explanation: "当反应达到平衡时，正反应和逆反应的速率相等，系统的吉布斯自由能不再变化，此时ΔG = 0。"
+            },
+            {
+                question: "电子传递链中的最终电子受体是：",
+                options: [
+                    "NAD⁺",
+                    "FAD",
+                    "O₂",
+                    "细胞色素c"
+                ],
+                correct: 2,
+                explanation: "在有氧呼吸中，氧气（O₂）是电子传递链的最终电子受体，接受电子后与质子结合形成水分子。"
+            },
+            {
+                question: "关于ATP的生物学功能，下列说法错误的是：",
+                options: [
+                    "提供化学反应所需的活化能",
+                    "驱动主动运输",
+                    "提供肌肉收缩的能量",
+                    "参与信号转导"
+                ],
+                correct: 0,
+                explanation: "ATP不能提供活化能，活化能是反应物分子达到过渡态所需的最低能量，由酶降低。ATP主要提供反应所需的自由能。"
+            },
+            {
+                question: "下列关于熵变的说法，正确的是：",
+                options: [
+                    "熵变总是正值",
+                    "熵变总是负值",
+                    "熵变可正可负",
+                    "熵变与温度无关"
+                ],
+                correct: 2,
+                explanation: "熵变可以是正值（系统变得更混乱）也可以是负值（系统变得更有序）。在生物系统中，局部熵可以减少，但总熵（包括环境）仍然增加。"
+            },
+            {
+                question: "化学渗透过程中，质子梯度的建立主要依靠：",
+                options: [
+                    "ATP合酶",
+                    "电子传递链复合体",
+                    "载体蛋白",
+                    "离子通道"
+                ],
+                correct: 1,
+                explanation: "电子传递链的复合体I、III、IV在传递电子的同时将质子从基质泵入膜间隙，建立质子梯度。ATP合酶利用这个梯度合成ATP。"
+            },
+            {
+                question: "关于高能磷酸化合物的水解，下列说法错误的是：",
+                options: [
+                    "释放大量自由能",
+                    "产物比反应物稳定",
+                    "需要大量活化能",
+                    "在酶催化下进行"
+                ],
+                correct: 2,
+                explanation: "高能磷酸化合物的水解是放能反应，不需要大量活化能。实际上，这些化合物在热力学上不稳定但在动力学上稳定，需要特定酶催化才能水解。"
+            },
+            {
+                question: "在线粒体中，质子浓度最高的区域是：",
+                options: [
+                    "基质",
+                    "膜间隙",
+                    "内膜",
+                    "外膜"
+                ],
+                correct: 1,
+                explanation: "电子传递链将质子从基质泵入膜间隙，使膜间隙的质子浓度高于基质，形成质子梯度驱动ATP合成。"
+            },
+            {
+                question: "下列关于生物能学的说法，正确的是：",
+                options: [
+                    "生物体是孤立系统",
+                    "生物体内的反应都是可逆的",
+                    "生物体遵循热力学定律",
+                    "生物体可以创造能量"
+                ],
+                correct: 2,
+                explanation: "生物体是开放系统，遵循热力学定律，不能创造或消灭能量，只能进行能量转换。生物体内有些反应在生理条件下是不可逆的。"
+            },
+            {
+                question: "ATP合成酶的旋转机制中，旋转的部分是：",
+                options: [
+                    "F₁的α亚基",
+                    "F₁的β亚基",
+                    "F₁的γ亚基",
+                    "F₀的a亚基"
+                ],
+                correct: 2,
+                explanation: "ATP合酶的γ亚基是旋转轴，质子流动驱动γ亚基旋转，引起β亚基构象变化，从而催化ATP合成。这是一个精妙的分子马达机制。"
+            },
+            {
+                question: "关于标准平衡常数K°，下列关系式正确的是：",
+                options: [
+                    "ΔG° = RT ln K°",
+                    "ΔG° = -RT ln K°",
+                    "ΔG° = RT / ln K°",
+                    "ΔG° = -RT / ln K°"
+                ],
+                correct: 1,
+                explanation: "标准吉布斯自由能变与标准平衡常数的关系是ΔG° = -RT ln K°。当K°>1时，ΔG°<0，反应自发进行；当K°<1时，ΔG°>0，反应不自发。"
+            }
+        ];
+
+        // 随机选择15道题
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        function initQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            // 渲染题目
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                let optionsHtml = '';
+                q.options.forEach((option, optIndex) => {
+                    optionsHtml += `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${String.fromCharCode(65 + optIndex)}. ${option}
+                        </label>
+                    `;
+                });
+                
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${optionsHtml}
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            userAnswers = [];
+            let score = 0;
+            
+            // 收集答案
+            for (let i = 0; i < selectedQuestions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    userAnswers[i] = parseInt(selected.value);
+                    if (userAnswers[i] === selectedQuestions[i].correct) {
+                        score++;
+                    }
+                } else {
+                    userAnswers[i] = -1; // 未选择
+                }
+            }
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((score / selectedQuestions.length) * 100);
+            
+            let resultHtml = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}/${selectedQuestions.length} (${percentage}%)</strong></p>
+                <div style="margin-top: 20px;">
+            `;
+            
+            // 详细解析
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const statusColor = isCorrect ? '#27ae60' : '#e74c3c';
+                const statusText = isCorrect ? '✓ 正确' : '✗ 错误';
+                
+                resultHtml += `
+                    <div style="border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin: 10px 0; background: ${isCorrect ? '#d4edda' : '#f8d7da'};">
+                        <p><strong>第${index + 1}题</strong> <span style="color: ${statusColor}; font-weight: bold;">${statusText}</span></p>
+                        <p><strong>正确答案：</strong>${String.fromCharCode(65 + q.correct)}. ${q.options[q.correct]}</p>
+                        ${userAnswer >= 0 ? `<p><strong>您的答案：</strong>${String.fromCharCode(65 + userAnswer)}. ${q.options[userAnswer]}</p>` : '<p><strong>您的答案：</strong>未选择</p>'}
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultHtml += '</div>';
+            resultDiv.innerHTML = resultHtml;
+            resultDiv.className = `result show ${percentage >= 60 ? 'success' : 'error'}`;
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载时初始化测试
+        document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第19章 氧化磷酸化作用 - 复习笔记</title>
+    <style>
+        /* 基础样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #34495e;
+            margin: 20px 0 15px 0;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: #34495e;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            text-indent: 0;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 10px 10px 0;
+            transition: background 0.3s ease;
+        }
+
+        .quiz-button:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #f39c12;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* 流程图样式 */
+        .flow-chart {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .flow-step {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .arrow {
+            font-size: 1.5em;
+            color: #3498db;
+            margin: 0 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>第19章 氧化磷酸化作用</h1>
+            <p>考研生物化学复习笔记 | 基于《生物化学》第四版</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2 class="section-title">一、氧化还原电势</h2>
+                
+                <h3>（一）氧化还原电势的概念</h3>
+                <p><span class="highlight">氧化还原电势（E）</span>是指物质对电子的亲和力大小，反映物质得失电子的倾向。</p>
+                
+                <h4>基本概念：</h4>
+                <ul>
+                    <li><span class="highlight">标准氧化还原电势（E⁰）</span>：在pH 7及标准状态下测得的数值，用伏特(V)表示</li>
+                    <li><span class="highlight">电子流向</span>：电子总是从氧化还原电势低的一方流向氧化还原电势高的一方</li>
+                    <li><span class="highlight">自由能关系</span>：ΔG⁰' = -nFΔE⁰'</li>
+                </ul>
+                
+                <h4>重要规律：</h4>
+                <ul>
+                    <li>标准还原电势值越大，越倾向于得电子（氧化性越强）</li>
+                    <li>标准还原电势值越小（负值绝对值越大），越倾向于失电子（还原性越强）</li>
+                    <li>ΔE⁰'为正值的反应，ΔG⁰'为负值，是放能反应</li>
+                </ul>
+            </div>
+
+            <!-- 电子传递链 -->
+            <div class="section">
+                <h2 class="section-title">二、电子传递链（呼吸链）</h2>
+                
+                <h3>（一）电子传递链的组成</h3>
+                <p>电子传递链主要包括<span class="important">四种蛋白质复合体</span>：</p>
+                
+                <table>
+                    <tr>
+                        <th>复合体</th>
+                        <th>名称</th>
+                        <th>主要组分</th>
+                        <th>功能</th>
+                    </tr>
+                    <tr>
+                        <td>复合体Ⅰ</td>
+                        <td>NADH-Q还原酶</td>
+                        <td>FMN、Fe-S中心</td>
+                        <td>NADH → CoQ，质子泵</td>
+                    </tr>
+                    <tr>
+                        <td>复合体Ⅱ</td>
+                        <td>琥珀酸-Q还原酶</td>
+                        <td>FAD、Fe-S中心</td>
+                        <td>FADH₂ → CoQ，无质子泵</td>
+                    </tr>
+                    <tr>
+                        <td>复合体Ⅲ</td>
+                        <td>细胞色素还原酶</td>
+                        <td>细胞色素b、c₁、Fe-S</td>
+                        <td>CoQH₂ → Cyt c，质子泵</td>
+                    </tr>
+                    <tr>
+                        <td>复合体Ⅳ</td>
+                        <td>细胞色素氧化酶</td>
+                        <td>细胞色素a、a₃、Cu</td>
+                        <td>Cyt c → O₂，质子泵</td>
+                    </tr>
+                </table>
+                
+                <h3>（二）电子传递过程</h3>
+                
+                <div class="flow-chart">
+                    <div class="flow-step">NADH</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">复合体Ⅰ</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">CoQ</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">复合体Ⅲ</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">Cyt c</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">复合体Ⅳ</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">O₂</div>
+                    <br><br>
+                    <div class="flow-step">FADH₂</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">复合体Ⅱ</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">CoQ</div>
+                    <span class="arrow">→</span>
+                    <div style="color: #7f8c8d;">（进入上述途径）</div>
+                </div>
+                
+                <h4>关键电子载体：</h4>
+                <ul>
+                    <li><span class="highlight">辅酶Q（CoQ）</span>：疏水性电子载体，能在膜内自由扩散</li>
+                    <li><span class="highlight">细胞色素c</span>：水溶性周边膜蛋白，流动载体</li>
+                    <li><span class="highlight">FMN、FAD</span>：黄素辅酶，参与电子传递</li>
+                    <li><span class="highlight">Fe-S中心</span>：铁硫蛋白，铁原子价态变化（Fe³⁺ ⇌ Fe²⁺）</li>
+                    <li><span class="highlight">血红素基团</span>：细胞色素的辅基</li>
+                    <li><span class="highlight">铜离子</span>：价态变化（Cu²⁺ ⇌ Cu⁺）</li>
+                </ul>
+                
+                <h3>（三）电子传递链抑制剂</h3>
+                
+                <table>
+                    <tr>
+                        <th>抑制剂</th>
+                        <th>作用部位</th>
+                        <th>抑制机制</th>
+                    </tr>
+                    <tr>
+                        <td>鱼藤酮、安密妥</td>
+                        <td>复合体Ⅰ</td>
+                        <td>抑制NADH → CoQ</td>
+                    </tr>
+                    <tr>
+                        <td>抗霉素A</td>
+                        <td>复合体Ⅲ</td>
+                        <td>抑制CoQH₂ → Cyt c</td>
+                    </tr>
+                    <tr>
+                        <td>氰化物(CN⁻)、叠氮化物(N₃⁻)、一氧化碳(CO)</td>
+                        <td>复合体Ⅳ</td>
+                        <td>抑制Cyt c → O₂</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 氧化磷酸化 -->
+            <div class="section">
+                <h2 class="section-title">三、氧化磷酸化</h2>
+                
+                <h3>（一）化学渗透假说</h3>
+                <p>目前被广泛接受的氧化磷酸化机制，由<span class="highlight">Mitchell</span>提出：</p>
+                
+                <h4>基本原理：</h4>
+                <ol>
+                    <li><span class="highlight">质子泵送</span>：电子传递释放的自由能驱动H⁺从线粒体基质泵出到膜间隙</li>
+                    <li><span class="highlight">质子梯度形成</span>：形成跨线粒体内膜的H⁺浓度梯度和膜电势</li>
+                    <li><span class="highlight">质子动力</span>：由pH梯度和膜电势构成，驱动ATP合成</li>
+                    <li><span class="highlight">ATP合成</span>：H⁺通过ATP合酶流回基质，驱动ADP + Pi → ATP</li>
+                </ol>
+                
+                <h3>（二）ATP合酶结构与功能</h3>
+                
+                <h4>1. F₁单元（球形头部）</h4>
+                <ul>
+                    <li><span class="highlight">位置</span>：朝向线粒体基质</li>
+                    <li><span class="highlight">组成</span>：α₃β₃γδε五种亚基</li>
+                    <li><span class="highlight">功能</span>：ATP合成的催化部位，只有β亚基具有催化活性</li>
+                </ul>
+                
+                <h4>2. F₀单元</h4>
+                <ul>
+                    <li><span class="highlight">位置</span>：嵌于线粒体内膜</li>
+                    <li><span class="highlight">组成</span>：abc三种亚基</li>
+                    <li><span class="highlight">功能</span>：H⁺跨膜通道</li>
+                </ul>
+                
+                <h4>3. 结合变构机制</h4>
+                <p>ATP合酶通过构象变化驱动ATP合成：</p>
+                <ul>
+                    <li><span class="highlight">L构象</span>：松散态，ADP和Pi结合</li>
+                    <li><span class="highlight">T构象</span>：紧密态，催化ATP合成</li>
+                    <li><span class="highlight">O构象</span>：开放态，ATP释放</li>
+                </ul>
+                
+                <h3>（三）P/O比值</h3>
+                
+                <table>
+                    <tr>
+                        <th>电子供体</th>
+                        <th>进入点</th>
+                        <th>质子泵数</th>
+                        <th>ATP产量</th>
+                    </tr>
+                    <tr>
+                        <td>NADH</td>
+                        <td>复合体Ⅰ</td>
+                        <td>3个（Ⅰ、Ⅲ、Ⅳ）</td>
+                        <td>2.5个ATP</td>
+                    </tr>
+                    <tr>
+                        <td>FADH₂</td>
+                        <td>复合体Ⅱ</td>
+                        <td>2个（Ⅲ、Ⅳ）</td>
+                        <td>1.5个ATP</td>
+                    </tr>
+                    <tr>
+                        <td>细胞质NADH</td>
+                        <td>穿梭途径</td>
+                        <td>2个（Ⅲ、Ⅳ）</td>
+                        <td>1.5个ATP</td>
+                    </tr>
+                </table>
+                
+                <p><span class="important">重要计算</span>：一个葡萄糖分子完全氧化可产生约<span class="highlight">30个ATP</span>分子。</p>
+            </div>
+
+            <!-- 氧化磷酸化的调节 -->
+            <div class="section">
+                <h2 class="section-title">四、氧化磷酸化的调节</h2>
+                
+                <h3>（一）呼吸控制</h3>
+                <p>电子传递与ATP合成在正常情况下是<span class="highlight">强制性偶联</span>的：</p>
+                <ul>
+                    <li>只有当ATP被合成时，电子才能流经电子传递链</li>
+                    <li>只有当细胞需要ATP时，电子传递过程才会有效进行</li>
+                    <li><span class="highlight">ADP</span>是氧化磷酸化调节的关键物质</li>
+                </ul>
+                
+                <h3>（二）解偶联剂</h3>
+                
+                <h4>1. 化学解偶联剂</h4>
+                <ul>
+                    <li><span class="highlight">2,4-二硝基苯酚（DNP）</span>：经典解偶联剂</li>
+                    <li><span class="highlight">FCCP</span>：三氟甲氧基羰基氰苯腙</li>
+                    <li><span class="highlight">作用机制</span>：破坏质子梯度，电子传递继续但不合成ATP</li>
+                    <li><span class="highlight">结果</span>：能量以热的形式释放</li>
+                </ul>
+                
+                <h4>2. 生理性解偶联</h4>
+                <ul>
+                    <li><span class="highlight">产热蛋白（thermogenin）</span>：存在于褐色脂肪组织</li>
+                    <li><span class="highlight">非战栗产热</span>：对新生儿和冬眠动物重要</li>
+                </ul>
+                
+                <h3>（三）氧化磷酸化抑制剂</h3>
+                
+                <table>
+                    <tr>
+                        <th>抑制剂类型</th>
+                        <th>代表物质</th>
+                        <th>作用机制</th>
+                    </tr>
+                    <tr>
+                        <td>ATP合酶抑制剂</td>
+                        <td>寡霉素</td>
+                        <td>结合F₀亚基，阻断H⁺通道</td>
+                    </tr>
+                    <tr>
+                        <td>离子载体抑制剂</td>
+                        <td>缬氨霉素、短杆菌肽</td>
+                        <td>增加膜对一价阳离子的透过性</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- NADH穿梭机制 -->
+            <div class="section">
+                <h2 class="section-title">五、NADH的穿梭机制</h2>
+                
+                <p>线粒体内膜不允许NADH直接通过，细胞通过两种穿梭途径间接转运NADH：</p>
+                
+                <h3>（一）3-磷酸甘油穿梭途径</h3>
+                
+                <h4>过程：</h4>
+                <ol>
+                    <li>细胞质：NADH + 磷酸二羟丙酮 → NAD⁺ + 3-磷酸甘油</li>
+                    <li>线粒体内膜：3-磷酸甘油 + FAD → 磷酸二羟丙酮 + FADH₂</li>
+                    <li>FADH₂进入电子传递链（复合体Ⅱ）</li>
+                </ol>
+                
+                <h4>特点：</h4>
+                <ul>
+                    <li><span class="highlight">产物</span>：FADH₂（产生1.5个ATP）</li>
+                    <li><span class="highlight">分布</span>：广泛存在于各种组织</li>
+                    <li><span class="highlight">效率</span>：相对较低</li>
+                </ul>
+                
+                <h3>（二）苹果酸-天冬氨酸穿梭途径</h3>
+                
+                <h4>过程：</h4>
+                <ol>
+                    <li>细胞质：NADH + 草酰乙酸 → NAD⁺ + 苹果酸</li>
+                    <li>苹果酸通过载体进入线粒体基质</li>
+                    <li>基质内：苹果酸 + NAD⁺ → 草酰乙酸 + NADH</li>
+                    <li>草酰乙酸转氨生成天冬氨酸，离开线粒体</li>
+                    <li>细胞质：天冬氨酸转氨生成草酰乙酸</li>
+                </ol>
+                
+                <h4>特点：</h4>
+                <ul>
+                    <li><span class="highlight">产物</span>：NADH（产生2.5个ATP）</li>
+                    <li><span class="highlight">分布</span>：主要在心脏和肝脏</li>
+                    <li><span class="highlight">效率</span>：相对较高</li>
+                </ul>
+            </div>
+
+            <!-- 重要名词解释库 -->
+            <div class="section">
+                <h2 class="section-title">六、重要名词解释</h2>
+                
+                <div class="term">
+                    <div class="term-name">氧化磷酸化<span class="term-english">(Oxidative Phosphorylation)</span></div>
+                    <div class="term-definition">指NADH和FADH₂在电子传递链中被氧化，同时ADP磷酸化生成ATP的过程，是细胞获得ATP的主要途径。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">电子传递链<span class="term-english">(Electron Transport Chain)</span></div>
+                    <div class="term-definition">又称呼吸链，由一系列电子载体按氧化还原电势递增顺序排列，将电子从NADH或FADH₂传递到氧的载体系统。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">化学渗透假说<span class="term-english">(Chemiosmotic Hypothesis)</span></div>
+                    <div class="term-definition">Mitchell提出的氧化磷酸化机制，认为电子传递产生的质子梯度驱动ATP合成。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">质子动力<span class="term-english">(Proton-motive Force)</span></div>
+                    <div class="term-definition">由跨膜质子浓度梯度和膜电势共同构成的驱动力，为ATP合成提供能量。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">P/O比<span class="term-english">(P/O Ratio)</span></div>
+                    <div class="term-definition">磷氧比，指每消耗一个氧原子所合成的ATP分子数，反映氧化磷酸化的效率。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">解偶联剂<span class="term-english">(Uncoupler)</span></div>
+                    <div class="term-definition">能破坏电子传递与ATP合成偶联的物质，使电子传递继续进行但不合成ATP，能量以热的形式释放。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">呼吸控制<span class="term-english">(Respiratory Control)</span></div>
+                    <div class="term-definition">电子传递速率受ATP合成速率控制的现象，体现了氧化磷酸化的调节机制。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">ATP合酶<span class="term-english">(ATP Synthase)</span></div>
+                    <div class="term-definition">由F₁和F₀两部分组成的跨膜蛋白复合体，利用质子梯度驱动ATP合成。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">细胞色素<span class="term-english">(Cytochrome)</span></div>
+                    <div class="term-definition">含有血红素辅基的电子传递蛋白，通过铁原子价态变化（Fe³⁺ ⇌ Fe²⁺）传递电子。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">辅酶Q<span class="term-english">(Coenzyme Q, CoQ)</span></div>
+                    <div class="term-definition">又称泛醌，脂溶性电子载体，能在线粒体内膜中自由扩散，连接复合体Ⅰ、Ⅱ和复合体Ⅲ。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2 class="section-title">七、选择题测试</h2>
+                
+                <div class="quiz-container">
+                    <div id="quiz-questions"></div>
+                    <button class="quiz-button" onclick="submitQuiz()">提交答案</button>
+                    <button class="quiz-button" onclick="generateNewQuiz()">重新生成题目</button>
+                    <div id="quiz-results"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2 class="section-title">八、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 详细阐述化学渗透假说的分子机制，并分析电子传递链中质子泵的工作原理。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>化学渗透假说的核心机制：</strong>
+                                <ul>
+                                    <li>电子传递释放的自由能不直接用于ATP合成，而是用于建立跨膜质子梯度</li>
+                                    <li>质子梯度包含化学梯度（浓度差）和电化学梯度（电势差）两个组分</li>
+                                    <li>质子动力（proton-motive force）= 化学梯度 + 电化学梯度</li>
+                                    <li>ATP合酶利用质子回流的驱动力催化ADP + Pi → ATP</li>
+                                </ul>
+                            </li>
+                            <li><strong>质子泵的工作原理：</strong>
+                                <ul>
+                                    <li>复合体Ⅰ：NADH氧化释放的能量驱动4个H⁺从基质泵到膜间隙</li>
+                                    <li>复合体Ⅲ：通过Q循环机制，每个QH₂氧化泵出4个H⁺</li>
+                                    <li>复合体Ⅳ：细胞色素氧化酶每传递4个电子到O₂，泵出4个H⁺</li>
+                                    <li>复合体Ⅱ不是质子泵，FADH₂氧化不直接贡献质子梯度</li>
+                                </ul>
+                            </li>
+                            <li><strong>能量转换的精确性：</strong>
+                                <ul>
+                                    <li>电子传递的自由能变化与质子泵送的化学计量关系</li>
+                                    <li>每个复合体的构象变化与质子转运的偶联机制</li>
+                                    <li>质子梯度的稳定性和ATP合成的效率</li>
+                                </ul>
+                            </li>
+                            <li><strong>实验证据支持：</strong>
+                                <ul>
+                                    <li>人工建立质子梯度可驱动ATP合成</li>
+                                    <li>解偶联剂破坏质子梯度阻止ATP合成但不影响电子传递</li>
+                                    <li>ATP合酶的结构与功能研究证实了旋转催化机制</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较分析NADH和FADH₂在氧化磷酸化中的不同作用，并解释为什么它们产生的ATP数量不同。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>电子传递路径的差异：</strong>
+                                <ul>
+                                    <li>NADH：复合体Ⅰ → CoQ → 复合体Ⅲ → Cyt c → 复合体Ⅳ → O₂</li>
+                                    <li>FADH₂：复合体Ⅱ → CoQ → 复合体Ⅲ → Cyt c → 复合体Ⅳ → O₂</li>
+                                    <li>FADH₂绕过了复合体Ⅰ，直接将电子传递给CoQ</li>
+                                </ul>
+                            </li>
+                            <li><strong>质子泵数量的差异：</strong>
+                                <ul>
+                                    <li>NADH氧化：经过3个质子泵（复合体Ⅰ、Ⅲ、Ⅳ）</li>
+                                    <li>FADH₂氧化：经过2个质子泵（复合体Ⅲ、Ⅳ）</li>
+                                    <li>复合体Ⅱ本身不是质子泵，不贡献质子梯度</li>
+                                </ul>
+                            </li>
+                            <li><strong>ATP产量的计算：</strong>
+                                <ul>
+                                    <li>NADH：约10个H⁺泵出 ÷ 4个H⁺/ATP = 2.5个ATP</li>
+                                    <li>FADH₂：约6个H⁺泵出 ÷ 4个H⁺/ATP = 1.5个ATP</li>
+                                    <li>每个ATP合成需要3个H⁺通过ATP合酶，转运需要1个H⁺</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学意义：</strong>
+                                <ul>
+                                    <li>不同代谢途径产生不同类型的还原当量</li>
+                                    <li>柠檬酸循环主要产生NADH，脂肪酸氧化产生大量FADH₂</li>
+                                    <li>细胞可通过调节不同途径的活性来优化ATP产量</li>
+                                    <li>琥珀酸脱氢酶使用FAD而非NAD⁺的热力学必然性</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 分析氧化磷酸化抑制剂和解偶联剂的作用机制差异，并阐述它们在研究和临床中的应用价值。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>抑制剂的作用机制：</strong>
+                                <ul>
+                                    <li>电子传递链抑制剂：阻断特定复合体，停止电子流动</li>
+                                    <li>ATP合酶抑制剂（如寡霉素）：阻断F₀通道，阻止质子回流</li>
+                                    <li>离子载体抑制剂：破坏膜的离子选择性，消散电化学梯度</li>
+                                    <li>结果：既阻止ATP合成，也阻止氧消耗</li>
+                                </ul>
+                            </li>
+                            <li><strong>解偶联剂的作用机制：</strong>
+                                <ul>
+                                    <li>DNP等脂溶性弱酸：在膜两侧穿梭质子，短路质子梯度</li>
+                                    <li>产热蛋白：生理性解偶联，允许质子绕过ATP合酶回流</li>
+                                    <li>结果：电子传递继续，氧消耗正常，但不合成ATP</li>
+                                    <li>能量以热的形式释放</li>
+                                </ul>
+                            </li>
+                            <li><strong>研究应用价值：</strong>
+                                <ul>
+                                    <li>确定电子传递链组分的顺序和功能</li>
+                                    <li>验证化学渗透假说的正确性</li>
+                                    <li>研究氧化磷酸化的调节机制</li>
+                                    <li>开发新的代谢调节策略</li>
+                                </ul>
+                            </li>
+                            <li><strong>临床应用价值：</strong>
+                                <ul>
+                                    <li>中毒机制研究：氰化物、一氧化碳中毒的分子机制</li>
+                                    <li>代谢疾病治疗：线粒体疾病的诊断和治疗</li>
+                                    <li>减肥药物开发：DNP曾用作减肥药（现已禁用）</li>
+                                    <li>体温调节研究：褐色脂肪组织的产热机制</li>
+                                    <li>抗菌药物开发：某些抗生素通过影响细菌呼吸链发挥作用</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 详细分析细胞质NADH的两种穿梭机制，并从能量效率和组织分布角度比较它们的生物学意义。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>3-磷酸甘油穿梭途径：</strong>
+                                <ul>
+                                    <li>机制：细胞质NADH还原磷酸二羟丙酮生成3-磷酸甘油</li>
+                                    <li>3-磷酸甘油进入线粒体被FAD氧化生成FADH₂</li>
+                                    <li>FADH₂进入复合体Ⅱ，产生1.5个ATP</li>
+                                    <li>特点：不可逆，能量效率较低</li>
+                                </ul>
+                            </li>
+                            <li><strong>苹果酸-天冬氨酸穿梭途径：</strong>
+                                <ul>
+                                    <li>机制：细胞质NADH还原草酰乙酸生成苹果酸</li>
+                                    <li>苹果酸通过载体进入线粒体，被NAD⁺氧化生成NADH</li>
+                                    <li>线粒体NADH进入复合体Ⅰ，产生2.5个ATP</li>
+                                    <li>特点：可逆，能量效率较高，需要载体蛋白</li>
+                                </ul>
+                            </li>
+                            <li><strong>能量效率比较：</strong>
+                                <ul>
+                                    <li>甘油磷酸穿梭：1个细胞质NADH → 1.5个ATP</li>
+                                    <li>苹果酸-天冬氨酸穿梭：1个细胞质NADH → 2.5个ATP</li>
+                                    <li>效率差异的原因：进入电子传递链的位点不同</li>
+                                    <li>对总ATP产量的影响：影响糖酵解等途径的能量收益</li>
+                                </ul>
+                            </li>
+                            <li><strong>组织分布和生物学意义：</strong>
+                                <ul>
+                                    <li>甘油磷酸穿梭：广泛分布，特别是脑、肌肉等高耗能组织</li>
+                                    <li>苹果酸-天冬氨酸穿梭：主要在心脏、肝脏等代谢活跃组织</li>
+                                    <li>组织特异性反映了不同组织的代谢需求和调节策略</li>
+                                    <li>心脏等高耗能组织优先使用高效率的穿梭途径</li>
+                                    <li>穿梭途径的选择影响组织的代谢灵活性和适应性</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "电子传递链中不包括以下哪个复合体：",
+                options: ["A. NADH-Q还原酶", "B. 琥珀酸-Q还原酶", "C. 细胞色素还原酶", "D. ATP合酶"],
+                correct: 3,
+                explanation: "正确答案是D。ATP合酶不属于电子传递链，而是利用电子传递建立的质子梯度合成ATP的酶。"
+            },
+            {
+                question: "下列哪种物质不是电子传递链的组成部分：",
+                options: ["A. NADH", "B. NADPH", "C. FADH₂", "D. 细胞色素aa₃"],
+                correct: 1,
+                explanation: "正确答案是B。NADPH主要参与合成代谢，不是电子传递链的直接组成部分。"
+            },
+            {
+                question: "氰化物中毒时被抑制的细胞色素是：",
+                options: ["A. 细胞色素b", "B. 细胞色素c", "C. 细胞色素aa₃", "D. 细胞色素c₁"],
+                correct: 2,
+                explanation: "正确答案是C。氰化物特异性抑制细胞色素氧化酶（细胞色素aa₃），阻断电子传递的最后步骤。"
+            },
+            {
+                question: "每个NADH分子通过氧化磷酸化可产生：",
+                options: ["A. 1个ATP", "B. 1.5个ATP", "C. 2.5个ATP", "D. 3个ATP"],
+                correct: 2,
+                explanation: "正确答案是C。NADH通过复合体Ⅰ、Ⅲ、Ⅳ三个质子泵，可产生约2.5个ATP分子。"
+            },
+            {
+                question: "每个FADH₂分子通过氧化磷酸化可产生：",
+                options: ["A. 1个ATP", "B. 1.5个ATP", "C. 2.5个ATP", "D. 3个ATP"],
+                correct: 1,
+                explanation: "正确答案是B。FADH₂绕过复合体Ⅰ，只通过复合体Ⅲ、Ⅳ两个质子泵，可产生约1.5个ATP分子。"
+            },
+            {
+                question: "化学渗透假说是由谁提出的：",
+                options: ["A. Warburg", "B. Mitchell", "C. Krebs", "D. Szent-Györgyi"],
+                correct: 1,
+                explanation: "正确答案是B。化学渗透假说由Peter Mitchell于1961年提出，为此获得1978年诺贝尔化学奖。"
+            },
+            {
+                question: "ATP合酶的F₁单元朝向：",
+                options: ["A. 线粒体膜间隙", "B. 线粒体基质", "C. 细胞质", "D. 线粒体外膜"],
+                correct: 1,
+                explanation: "正确答案是B。ATP合酶的F₁单元（球形头部）朝向线粒体基质，是ATP合成的催化部位。"
+            },
+            {
+                question: "下列哪种物质是解偶联剂：",
+                options: ["A. 鱼藤酮", "B. 抗霉素A", "C. DNP", "D. 寡霉素"],
+                correct: 2,
+                explanation: "正确答案是C。DNP（2,4-二硝基苯酚）是经典的解偶联剂，能破坏质子梯度但不影响电子传递。"
+            },
+            {
+                question: "寡霉素的作用机制是：",
+                options: ["A. 抑制复合体Ⅰ", "B. 抑制复合体Ⅲ", "C. 抑制ATP合酶", "D. 破坏质子梯度"],
+                correct: 2,
+                explanation: "正确答案是C。寡霉素结合ATP合酶的F₀亚基，阻断质子通道，抑制ATP合成。"
+            },
+            {
+                question: "辅酶Q的主要特点是：",
+                options: ["A. 水溶性", "B. 脂溶性", "C. 膜结合蛋白", "D. 外周膜蛋白"],
+                correct: 1,
+                explanation: "正确答案是B。辅酶Q是脂溶性电子载体，能在线粒体内膜中自由扩散。"
+            },
+            {
+                question: "细胞色素c的特点是：",
+                options: ["A. 膜内在蛋白", "B. 水溶性周边膜蛋白", "C. 脂溶性载体", "D. 跨膜蛋白"],
+                correct: 1,
+                explanation: "正确答案是B。细胞色素c是水溶性的周边膜蛋白，可在膜间隙中自由移动传递电子。"
+            },
+            {
+                question: "电子传递链中各成员的排列顺序根据：",
+                options: ["A. 分子量大小", "B. 氧化还原电势高低", "C. 蛋白质结构", "D. 膜内分布"],
+                correct: 1,
+                explanation: "正确答案是B。电子传递链中各成员按氧化还原电势从低到高排列，电子从低电势传向高电势。"
+            },
+            {
+                question: "P/O比的含义是：",
+                options: ["A. 磷酸与氧的分子比", "B. 每消耗一个氧原子合成的ATP数", "C. 磷酸化效率", "D. 氧化程度"],
+                correct: 1,
+                explanation: "正确答案是B。P/O比指每消耗一个氧原子所合成的ATP分子数，反映氧化磷酸化的效率。"
+            },
+            {
+                question: "呼吸控制的含义是：",
+                options: ["A. 控制呼吸频率", "B. 电子传递受ATP合成控制", "C. 氧气浓度调节", "D. 酶活性调节"],
+                correct: 1,
+                explanation: "正确答案是B。呼吸控制指电子传递速率受ATP合成速率控制，体现氧化磷酸化的偶联性。"
+            },
+            {
+                question: "3-磷酸甘油穿梭途径的最终产物是：",
+                options: ["A. NADH", "B. FADH₂", "C. ATP", "D. CoQH₂"],
+                correct: 1,
+                explanation: "正确答案是B。3-磷酸甘油穿梭途径将细胞质NADH转化为线粒体内的FADH₂。"
+            },
+            {
+                question: "苹果酸-天冬氨酸穿梭途径主要存在于：",
+                options: ["A. 脑组织", "B. 肌肉组织", "C. 心脏和肝脏", "D. 脂肪组织"],
+                correct: 2,
+                explanation: "正确答案是C。苹果酸-天冬氨酸穿梭途径主要存在于心脏和肝脏等代谢活跃的组织。"
+            },
+            {
+                question: "产热蛋白的作用是：",
+                options: ["A. 促进ATP合成", "B. 抑制电子传递", "C. 生理性解偶联", "D. 增强质子梯度"],
+                correct: 2,
+                explanation: "正确答案是C。产热蛋白（thermogenin）存在于褐色脂肪组织，起生理性解偶联作用。"
+            },
+            {
+                question: "抗霉素A的作用部位是：",
+                options: ["A. 复合体Ⅰ", "B. 复合体Ⅱ", "C. 复合体Ⅲ", "D. 复合体Ⅳ"],
+                correct: 2,
+                explanation: "正确答案是C。抗霉素A特异性抑制复合体Ⅲ（细胞色素还原酶），阻断CoQH₂到细胞色素c的电子传递。"
+            },
+            {
+                question: "鱼藤酮的作用部位是：",
+                options: ["A. 复合体Ⅰ", "B. 复合体Ⅱ", "C. 复合体Ⅲ", "D. 复合体Ⅳ"],
+                correct: 0,
+                explanation: "正确答案是A。鱼藤酮特异性抑制复合体Ⅰ（NADH-Q还原酶），阻断NADH到CoQ的电子传递。"
+            },
+            {
+                question: "线粒体内膜的主要功能是：",
+                options: ["A. 蛋白质合成", "B. 脂质合成", "C. 氧化磷酸化", "D. DNA复制"],
+                correct: 2,
+                explanation: "正确答案是C。线粒体内膜是氧化磷酸化的主要场所，含有电子传递链和ATP合酶。"
+            },
+            {
+                question: "ATP合酶的结合变构机制中，ATP释放发生在：",
+                options: ["A. L构象", "B. T构象", "C. O构象", "D. 所有构象"],
+                correct: 2,
+                explanation: "正确答案是C。在ATP合酶的结合变构机制中，O构象（开放态）负责ATP的释放。"
+            },
+            {
+                question: "每合成1个ATP分子需要通过ATP合酶的质子数是：",
+                options: ["A. 2个", "B. 3个", "C. 4个", "D. 5个"],
+                correct: 1,
+                explanation: "正确答案是B。每合成1个ATP分子需要3个质子通过ATP合酶，另外转运ATP到细胞质需要1个质子。"
+            },
+            {
+                question: "缬氨霉素的作用机制是：",
+                options: ["A. 抑制电子传递", "B. 抑制ATP合酶", "C. 增加膜对K⁺的透过性", "D. 破坏蛋白质结构"],
+                correct: 2,
+                explanation: "正确答案是C。缬氨霉素是离子载体抑制剂，增加线粒体内膜对K⁺等一价阳离子的透过性。"
+            },
+            {
+                question: "一个葡萄糖分子完全氧化可产生约多少个ATP：",
+                options: ["A. 28个", "B. 30个", "C. 32个", "D. 38个"],
+                correct: 1,
+                explanation: "正确答案是B。根据现代计算方法，一个葡萄糖分子完全氧化可产生约30个ATP分子。"
+            },
+            {
+                question: "复合体Ⅱ的特点是：",
+                options: ["A. 是质子泵", "B. 不是质子泵", "C. 含有细胞色素", "D. 结合NADH"],
+                correct: 1,
+                explanation: "正确答案是B。复合体Ⅱ（琥珀酸-Q还原酶）不是质子泵，FADH₂氧化不直接贡献质子梯度。"
+            },
+            {
+                question: "电子传递链的最终电子受体是：",
+                options: ["A. NAD⁺", "B. FAD", "C. O₂", "D. CoQ"],
+                correct: 2,
+                explanation: "正确答案是C。氧气（O₂）是电子传递链的最终电子受体，被还原生成水。"
+            },
+            {
+                question: "线粒体氧化磷酸化的解偶联可以：",
+                options: ["A. 减慢柠檬酸循环", "B. 阻断线粒体中的所有代谢", "C. 合成ATP但阻断氧消耗", "D. 阻断ATP形成但氧继续消耗"],
+                correct: 3,
+                explanation: "正确答案是D。解偶联剂破坏质子梯度，阻断ATP合成，但电子传递和氧消耗继续进行。"
+            },
+            {
+                question: "标准氧化还原电势的单位是：",
+                options: ["A. 焦耳", "B. 卡路里", "C. 伏特", "D. 安培"],
+                correct: 2,
+                explanation: "正确答案是C。标准氧化还原电势用伏特（V）表示，反映物质得失电子的倾向。"
+            },
+            {
+                question: "非战栗产热主要发生在：",
+                options: ["A. 骨骼肌", "B. 褐色脂肪组织", "C. 肝脏", "D. 心脏"],
+                correct: 1,
+                explanation: "正确答案是B。非战栗产热主要发生在褐色脂肪组织，通过产热蛋白实现解偶联产热。"
+            },
+            {
+                question: "氧化磷酸化发生的主要部位是：",
+                options: ["A. 线粒体外膜", "B. 线粒体内膜", "C. 线粒体基质", "D. 膜间隙"],
+                correct: 1,
+                explanation: "正确答案是B。氧化磷酸化主要发生在线粒体内膜，电子传递链和ATP合酶都位于此处。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+
+        // 生成随机题目
+        function generateQuiz() {
+            // 从30道题中随机选择15道
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}" 
+                                   onchange="userAnswers[${index}] = ${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            let correctCount = 0;
+            const resultsContainer = document.getElementById('quiz-results');
+            resultsContainer.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                if (isCorrect) correctCount++;
+                
+                const resultDiv = document.createElement('div');
+                resultDiv.className = `result show ${isCorrect ? 'correct' : 'incorrect'}`;
+                resultDiv.innerHTML = `
+                    <strong>第${index + 1}题：</strong>${isCorrect ? '正确' : '错误'}<br>
+                    <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                    <strong>解析：</strong>${q.explanation}
+                `;
+                resultsContainer.appendChild(resultDiv);
+            });
+            
+            const scoreDiv = document.createElement('div');
+            scoreDiv.className = 'result show';
+            scoreDiv.style.background = '#e8f4fd';
+            scoreDiv.style.border = '1px solid #3498db';
+            scoreDiv.style.color = '#2c3e50';
+            scoreDiv.style.fontSize = '1.2em';
+            scoreDiv.style.fontWeight = 'bold';
+            scoreDiv.innerHTML = `
+                <strong>测试完成！</strong><br>
+                正确率：${correctCount}/15 (${Math.round(correctCount/15*100)}%)<br>
+                ${correctCount >= 12 ? '优秀！' : correctCount >= 9 ? '良好！' : '需要继续努力！'}
+            `;
+            resultsContainer.insertBefore(scoreDiv, resultsContainer.firstChild);
+        }
+
+        // 重新生成题目
+        function generateNewQuiz() {
+            generateQuiz();
+            document.getElementById('quiz-results').innerHTML = '';
+        }
+
+        // 页面加载时生成题目
+        window.onload = function() {
+            generateQuiz();
+        };
+    </script>
+</body>
+</html>

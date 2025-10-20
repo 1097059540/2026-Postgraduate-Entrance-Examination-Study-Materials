@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>氨基酸生物合成和生物固氮 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        /* 章节标题 */
+        h2 {
+            color: #2c3e50;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin: 30px 0 20px 0;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 20px 0 15px 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+
+        h4 {
+            color: #2c3e50;
+            margin: 15px 0 10px 0;
+            font-size: 1.2em;
+        }
+
+        /* 段落和列表 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .important {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        /* 名词解释样式 */
+        .glossary {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .term {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 5px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            margin: 8px 0;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* 结果显示 */
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-questions {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question {
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .answer {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f1f3f4;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .show-answer {
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .show-answer:hover {
+            background-color: #c0392b;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>氨基酸生物合成和生物固氮</h1>
+            <p>考研生物化学复习笔记 | 基于权威教材整理</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <h2>一、生物固氮</h2>
+            
+            <h3>1.1 生物固氮的意义</h3>
+            <p>生物固氮是指某些微生物将大气中的分子氮（N₂）还原为氨（NH₃）的过程，这是自然界中氮循环的重要环节。生物固氮为生物圈提供了可利用的氮源，是维持生态系统氮平衡的关键过程。</p>
+            
+            <div class="important">
+                <strong>重要概念：</strong>生物固氮是唯一能够将大气中惰性的N₂转化为生物可利用氮化合物的生物学过程。
+            </div>
+
+            <h3>1.2 固氮酶系统</h3>
+            <h4>1.2.1 固氮酶的组成</h4>
+            <ul>
+                <li><span class="emphasis">固氮酶蛋白（Component I）</span>：含有钼-铁辅基，分子量约240 kDa，是催化N₂还原的主要酶</li>
+                <li><span class="emphasis">固氮酶还原酶（Component II）</span>：含有铁-硫簇，分子量约60 kDa，负责电子传递</li>
+            </ul>
+
+            <h4>1.2.2 固氮反应机理</h4>
+            <p>固氮反应的总反应式为：</p>
+            <p><strong>N₂ + 8H⁺ + 8e⁻ + 16ATP → 2NH₃ + H₂ + 16ADP + 16Pi</strong></p>
+            
+            <ol>
+                <li>ATP结合到固氮酶还原酶上，引起构象变化</li>
+                <li>电子从固氮酶还原酶传递到固氮酶蛋白</li>
+                <li>N₂在钼-铁辅基上被逐步还原</li>
+                <li>产生NH₃和H₂作为副产物</li>
+            </ol>
+
+            <h3>1.3 固氮的调节</h3>
+            <ul>
+                <li><span class="emphasis">氧气敏感性</span>：固氮酶对氧气极其敏感，需要厌氧或微氧环境</li>
+                <li><span class="emphasis">氨的反馈抑制</span>：产物NH₃对固氮酶活性有反馈抑制作用</li>
+                <li><span class="emphasis">能量需求</span>：固氮过程消耗大量ATP，受细胞能量状态调节</li>
+            </ul>
+
+            <h2>二、氨基酸生物合成</h2>
+
+            <h3>2.1 氨基酸分类</h3>
+            <h4>2.1.1 营养学分类</h4>
+            <ul>
+                <li><span class="emphasis">必需氨基酸（Essential amino acids）</span>：人体不能合成或合成量不足，必须从食物中获得
+                    <ul>
+                        <li>组氨酸（His）、异亮氨酸（Ile）、亮氨酸（Leu）、赖氨酸（Lys）</li>
+                        <li>甲硫氨酸（Met）、苯丙氨酸（Phe）、苏氨酸（Thr）</li>
+                        <li>色氨酸（Trp）、缬氨酸（Val）</li>
+                    </ul>
+                </li>
+                <li><span class="emphasis">非必需氨基酸（Non-essential amino acids）</span>：人体可以合成
+                    <ul>
+                        <li>丙氨酸（Ala）、天冬氨酸（Asp）、天冬酰胺（Asn）</li>
+                        <li>谷氨酸（Glu）、谷氨酰胺（Gln）、甘氨酸（Gly）</li>
+                        <li>脯氨酸（Pro）、丝氨酸（Ser）</li>
+                    </ul>
+                </li>
+                <li><span class="emphasis">半必需氨基酸</span>：特殊生理状态下需求量增加
+                    <ul>
+                        <li>精氨酸（Arg）、半胱氨酸（Cys）、酪氨酸（Tyr）</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>2.2 氨基酸合成的前体物质</h3>
+            <p>氨基酸的合成以糖酵解、柠檬酸循环和磷酸戊糖途径的中间产物为碳骨架前体：</p>
+            
+            <h4>2.2.1 来自糖酵解途径</h4>
+            <ul>
+                <li><strong>3-磷酸甘油酸</strong> → 丝氨酸 → 甘氨酸、半胱氨酸</li>
+                <li><strong>磷酸烯醇式丙酮酸</strong> → 芳香族氨基酸（苯丙氨酸、酪氨酸、色氨酸）</li>
+                <li><strong>丙酮酸</strong> → 丙氨酸、缬氨酸、亮氨酸、异亮氨酸</li>
+            </ul>
+
+            <h4>2.2.2 来自柠檬酸循环</h4>
+            <ul>
+                <li><strong>α-酮戊二酸</strong> → 谷氨酸 → 谷氨酰胺、脯氨酸、精氨酸</li>
+                <li><strong>草酰乙酸</strong> → 天冬氨酸 → 天冬酰胺、苏氨酸、甲硫氨酸、赖氨酸</li>
+            </ul>
+
+            <h3>2.3 重要氨基酸的合成途径</h3>
+
+            <h4>2.3.1 谷氨酸和谷氨酰胺的合成</h4>
+            <p><span class="emphasis">谷氨酸脱氢酶反应</span>：</p>
+            <p>α-酮戊二酸 + NH₃ + NADPH + H⁺ → 谷氨酸 + NADP⁺ + H₂O</p>
+            
+            <p><span class="emphasis">谷氨酰胺合成酶反应</span>：</p>
+            <p>谷氨酸 + NH₃ + ATP → 谷氨酰胺 + ADP + Pi</p>
+
+            <h4>2.3.2 芳香族氨基酸的合成</h4>
+            <p>苯丙氨酸、酪氨酸和色氨酸的合成都经过<span class="emphasis">莽草酸途径</span>：</p>
+            <ol>
+                <li>磷酸烯醇式丙酮酸 + 赤藓糖-4-磷酸 → 莽草酸</li>
+                <li>莽草酸 → 分支酸</li>
+                <li>分支酸 → 苯丙氨酸、酪氨酸或色氨酸</li>
+            </ol>
+
+            <h4>2.3.3 含硫氨基酸的合成</h4>
+            <p><span class="emphasis">甲硫氨酸循环</span>：</p>
+            <ul>
+                <li>甲硫氨酸 → S-腺苷甲硫氨酸（SAM）</li>
+                <li>SAM → S-腺苷同型半胱氨酸</li>
+                <li>同型半胱氨酸 → 甲硫氨酸（需要维生素B₁₂和叶酸）</li>
+            </ul>
+
+            <h3>2.4 氨基酸合成的调节</h3>
+            <h4>2.4.1 反馈抑制</h4>
+            <ul>
+                <li>终产物对合成途径中关键酶的抑制</li>
+                <li>例：苯丙氨酸抑制3-脱氧-D-阿拉伯庚酮糖酸-7-磷酸合成酶</li>
+            </ul>
+
+            <h4>2.4.2 酶的诱导和阻遏</h4>
+            <ul>
+                <li>氨基酸缺乏时诱导合成酶的产生</li>
+                <li>氨基酸充足时阻遏合成酶的产生</li>
+            </ul>
+
+            <h2>三、一碳单位代谢</h2>
+
+            <h3>3.1 一碳单位的概念</h3>
+            <p>一碳单位是指含有一个碳原子的基团，包括甲基（-CH₃）、甲酰基（-CHO）、亚甲基（-CH₂-）、甲炔基（-CH≡）等。这些基团在氨基酸、核苷酸和其他生物分子的合成中起重要作用。</p>
+
+            <h3>3.2 叶酸辅酶系统</h3>
+            <h4>3.2.1 四氢叶酸（THF）</h4>
+            <p>四氢叶酸是一碳单位的主要载体，由叶酸经二氢叶酸还原酶还原而成。</p>
+
+            <h4>3.2.2 一碳单位的载体形式</h4>
+            <ul>
+                <li><strong>N⁵-甲基-THF</strong>：甲基供体</li>
+                <li><strong>N¹⁰-甲酰基-THF</strong>：甲酰基供体</li>
+                <li><strong>N⁵,N¹⁰-亚甲基-THF</strong>：亚甲基供体</li>
+                <li><strong>N⁵,N¹⁰-甲炔基-THF</strong>：甲炔基供体</li>
+            </ul>
+
+            <h3>3.3 一碳单位在氨基酸合成中的作用</h3>
+            <ul>
+                <li><span class="emphasis">甘氨酸合成</span>：丝氨酸 + THF → 甘氨酸 + N⁵,N¹⁰-亚甲基-THF</li>
+                <li><span class="emphasis">甲硫氨酸合成</span>：同型半胱氨酸 + N⁵-甲基-THF → 甲硫氨酸 + THF</li>
+                <li><span class="emphasis">组氨酸合成</span>：需要N¹⁰-甲酰基-THF参与</li>
+            </ul>
+
+            <h2>四、氨基酸合成异常与疾病</h2>
+
+            <h3>4.1 苯丙酮尿症（PKU）</h3>
+            <div class="important">
+                <p><strong>病因</strong>：苯丙氨酸羟化酶缺陷，导致苯丙氨酸不能转化为酪氨酸</p>
+                <p><strong>后果</strong>：苯丙氨酸及其代谢产物（苯丙酮酸、苯乳酸）在体内蓄积</p>
+                <p><strong>症状</strong>：智力发育迟缓、皮肤和毛发色素减少、特殊体味</p>
+                <p><strong>治疗</strong>：低苯丙氨酸饮食，补充酪氨酸</p>
+            </div>
+
+            <h3>4.2 枫糖尿症</h3>
+            <p><strong>病因</strong>：支链氨基酸（缬氨酸、亮氨酸、异亮氨酸）脱氢酶复合体缺陷</p>
+            <p><strong>症状</strong>：尿液有枫糖味、神经系统损害</p>
+
+            <h3>4.3 同型半胱氨酸尿症</h3>
+            <p><strong>病因</strong>：胱硫醚β-合成酶缺陷或甲硫氨酸合成酶缺陷</p>
+            <p><strong>后果</strong>：同型半胱氨酸蓄积，导致血管病变和智力障碍</p>
+
+            <!-- 名词解释库 -->
+            <h2>五、名词解释库</h2>
+            <div class="glossary">
+                <div class="term">
+                    <div class="term-name">固氮酶 <span class="term-english">(Nitrogenase)</span></div>
+                    <div class="term-definition">催化大气中分子氮还原为氨的酶复合体，由固氮酶蛋白和固氮酶还原酶组成，含有钼-铁和铁-硫辅基。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">必需氨基酸 <span class="term-english">(Essential Amino Acids)</span></div>
+                    <div class="term-definition">人体不能合成或合成量不足以满足生理需要，必须从食物中获得的氨基酸，共9种。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">非必需氨基酸 <span class="term-english">(Non-essential Amino Acids)</span></div>
+                    <div class="term-definition">人体能够合成，不需要从食物中获得的氨基酸，但在某些生理状态下需求量可能增加。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">谷氨酸脱氢酶 <span class="term-english">(Glutamate Dehydrogenase, GDH)</span></div>
+                    <div class="term-definition">催化α-酮戊二酸与氨结合生成谷氨酸的关键酶，是氨基酸合成中氮素固定的重要途径。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">谷氨酰胺合成酶 <span class="term-english">(Glutamine Synthetase, GS)</span></div>
+                    <div class="term-definition">催化谷氨酸与氨结合生成谷氨酰胺的酶，是细胞内氨解毒的主要途径。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">莽草酸途径 <span class="term-english">(Shikimate Pathway)</span></div>
+                    <div class="term-definition">芳香族氨基酸（苯丙氨酸、酪氨酸、色氨酸）的共同合成途径，以莽草酸为关键中间产物。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">四氢叶酸 <span class="term-english">(Tetrahydrofolate, THF)</span></div>
+                    <div class="term-definition">叶酸的活性形式，是一碳单位代谢的主要载体，参与氨基酸和核苷酸的合成。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">一碳单位 <span class="term-english">(One-Carbon Units)</span></div>
+                    <div class="term-definition">含有一个碳原子的基团，如甲基、甲酰基、亚甲基等，在生物合成中起重要作用。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">S-腺苷甲硫氨酸 <span class="term-english">(S-Adenosylmethionine, SAM)</span></div>
+                    <div class="term-definition">甲硫氨酸的活化形式，是细胞内主要的甲基供体，参与多种甲基化反应。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">苯丙酮尿症 <span class="term-english">(Phenylketonuria, PKU)</span></div>
+                    <div class="term-definition">由苯丙氨酸羟化酶缺陷引起的遗传性疾病，导致苯丙氨酸代谢异常和智力发育障碍。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转氨酶 <span class="term-english">(Transaminase, Aminotransferase)</span></div>
+                    <div class="term-definition">催化氨基酸与α-酮酸之间氨基转移的酶类，是氨基酸合成和分解的关键酶。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">PRPP <span class="term-english">(5-Phosphoribosyl-1-pyrophosphate)</span></div>
+                    <div class="term-definition">5-磷酸核糖-1-焦磷酸，是嘌呤、嘧啶核苷酸和组氨酸、色氨酸合成的重要前体。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">分支酸 <span class="term-english">(Chorismate)</span></div>
+                    <div class="term-definition">莽草酸途径的关键中间产物，是苯丙氨酸、酪氨酸、色氨酸合成的共同前体。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">同型半胱氨酸 <span class="term-english">(Homocysteine)</span></div>
+                    <div class="term-definition">甲硫氨酸代谢的中间产物，可重新甲基化生成甲硫氨酸或转硫生成半胱氨酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">支链氨基酸 <span class="term-english">(Branched-Chain Amino Acids, BCAA)</span></div>
+                    <div class="term-definition">包括缬氨酸、亮氨酸、异亮氨酸，具有支链结构的必需氨基酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">反馈抑制 <span class="term-english">(Feedback Inhibition)</span></div>
+                    <div class="term-definition">代谢途径的终产物对该途径中关键酶活性的抑制作用，是代谢调节的重要机制。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">酶的诱导 <span class="term-english">(Enzyme Induction)</span></div>
+                    <div class="term-definition">在特定条件下，细胞增加某种酶的合成量，以适应代谢需要的调节机制。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">酶的阻遏 <span class="term-english">(Enzyme Repression)</span></div>
+                    <div class="term-definition">在特定条件下，细胞减少某种酶的合成量，以节约能量和资源的调节机制。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">氮平衡 <span class="term-english">(Nitrogen Balance)</span></div>
+                    <div class="term-definition">机体氮的摄入量与排出量之间的平衡状态，反映蛋白质代谢的整体状况。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">氨基酸库 <span class="term-english">(Amino Acid Pool)</span></div>
+                    <div class="term-definition">机体内游离氨基酸的总和，是蛋白质合成和分解的动态平衡体系。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <h2>六、选择题测试</h2>
+            <div class="quiz-section">
+                <p><strong>说明：</strong>以下将随机显示15道选择题，请选择最佳答案。</p>
+                <div id="quiz-container"></div>
+                <button class="btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-result" class="result"></div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <h2>七、深度思考题</h2>
+            <div class="thinking-questions">
+                <div class="thinking-question">
+                    <h4>1. 试述生物固氮的生物学意义及其在生态系统中的作用，并分析固氮酶系统的结构特点和催化机理。</h4>
+                    <button class="show-answer" onclick="toggleAnswer(1)">显示答案</button>
+                    <div id="answer1" class="answer">
+                        <ol>
+                            <li><strong>生物学意义：</strong>生物固氮是自然界中唯一能将大气中惰性的N₂转化为生物可利用氮化合物的过程，为生物圈提供了约80%的固定氮源。这一过程打破了氮的化学惰性，使氮元素能够进入生物循环，是维持生态系统氮平衡和生物多样性的基础。</li>
+                            <li><strong>生态系统作用：</strong>固氮微生物通过固氮作用为植物提供氮源，支持初级生产力；在农业生态系统中，豆科植物与根瘤菌的共生固氮可减少化肥使用，维护土壤健康；在海洋生态系统中，蓝藻等固氮生物是海洋食物链的重要基础。</li>
+                            <li><strong>固氮酶结构特点：</strong>固氮酶系统由两个组分组成：Component I（固氮酶蛋白）含有钼-铁辅基（FeMo-co），是催化活性中心；Component II（固氮酶还原酶）含有铁-硫簇，负责电子传递。两个组分必须结合才能发挥催化活性。</li>
+                            <li><strong>催化机理：</strong>固氮过程需要大量ATP提供能量，每固定一分子N₂需要消耗16个ATP。反应过程中，电子从还原酶传递到固氮酶蛋白，N₂在钼-铁辅基上被逐步还原，同时不可避免地产生H₂作为副产物。整个过程对氧气极其敏感，需要严格的厌氧环境。</li>
+                            <li><strong>调节机制：</strong>固氮过程受到多重调节，包括氧气的抑制、氨的反馈抑制、能量状态的调节等，确保固氮活性与环境条件和细胞需求相适应。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 分析必需氨基酸和非必需氨基酸的营养学意义，并阐述氨基酸合成途径与中心代谢途径的关系。</h4>
+                    <button class="show-answer" onclick="toggleAnswer(2)">显示答案</button>
+                    <div id="answer2" class="answer">
+                        <ol>
+                            <li><strong>必需氨基酸的营养学意义：</strong>必需氨基酸（9种）是人体无法合成或合成量不足的氨基酸，必须通过饮食获得。它们在蛋白质合成中起限制性作用，任何一种必需氨基酸的缺乏都会影响蛋白质的合成效率。在营养评价中，必需氨基酸的组成和比例决定了蛋白质的生物学价值。</li>
+                            <li><strong>非必需氨基酸的意义：</strong>非必需氨基酸虽然可以体内合成，但在特殊生理状态（如生长发育、妊娠、疾病恢复期）下，需求量可能超过合成能力，此时也需要从饮食中补充。它们参与多种生理功能，如神经递质合成、免疫功能调节等。</li>
+                            <li><strong>与糖酵解途径的关系：</strong>多种氨基酸以糖酵解中间产物为前体：3-磷酸甘油酸是丝氨酸、甘氨酸、半胱氨酸的前体；磷酸烯醇式丙酮酸参与芳香族氨基酸合成；丙酮酸是丙氨酸和支链氨基酸的前体。</li>
+                            <li><strong>与柠檬酸循环的关系：</strong>α-酮戊二酸是谷氨酸家族氨基酸的前体，通过谷氨酸脱氢酶反应形成谷氨酸，进而合成谷氨酰胺、脯氨酸、精氨酸；草酰乙酸是天冬氨酸家族氨基酸的前体，包括天冬氨酸、天冬酰胺、苏氨酸、甲硫氨酸、赖氨酸。</li>
+                            <li><strong>代谢整合意义：</strong>氨基酸合成与中心代谢途径的紧密联系体现了细胞代谢的整体性和协调性，使得氨基酸合成能够根据细胞的能量状态和代谢需求进行调节，实现代谢的经济性和高效性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 详述一碳单位代谢的生物学意义，分析叶酸辅酶系统在氨基酸合成中的作用机制。</h4>
+                    <button class="show-answer" onclick="toggleAnswer(3)">显示答案</button>
+                    <div id="answer3" class="answer">
+                        <ol>
+                            <li><strong>一碳单位代谢的生物学意义：</strong>一碳单位代谢是细胞内重要的代谢网络，涉及氨基酸、核苷酸、维生素等多种生物分子的合成。它连接了蛋白质代谢、核酸代谢和脂质代谢，是细胞生长、分裂和分化的基础。一碳单位的转移反应是表观遗传修饰（如DNA甲基化）的重要基础。</li>
+                            <li><strong>叶酸辅酶系统的结构：</strong>四氢叶酸（THF）是叶酸的活性形式，含有蝶啶环、对氨基苯甲酸和谷氨酸残基。THF分子上的N⁵和N¹⁰位点可以结合不同的一碳单位，形成多种载体形式：N⁵-甲基-THF、N¹⁰-甲酰基-THF、N⁵,N¹⁰-亚甲基-THF等。</li>
+                            <li><strong>在氨基酸合成中的作用：</strong>叶酸辅酶参与多种氨基酸的合成：在甘氨酸合成中，丝氨酸羟甲基转移酶催化丝氨酸分解为甘氨酸，同时形成N⁵,N¹⁰-亚甲基-THF；在甲硫氨酸合成中，N⁵-甲基-THF提供甲基，使同型半胱氨酸甲基化生成甲硫氨酸；在组氨酸合成中，N¹⁰-甲酰基-THF参与嘌呤环的形成。</li>
+                            <li><strong>调节机制：</strong>一碳单位代谢受到多种因素调节，包括叶酸营养状态、维生素B₁₂水平、甲硫氨酸循环的反馈调节等。叶酸缺乏会导致一碳单位代谢障碍，影响DNA合成和甲基化，导致巨幼红细胞性贫血和神经管缺陷。</li>
+                            <li><strong>临床意义：</strong>叶酸补充在预防神经管缺陷、治疗巨幼红细胞性贫血中具有重要作用。抗叶酸药物（如甲氨蝶呤）通过抑制二氢叶酸还原酶，阻断THF的生成，用于癌症化疗。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析苯丙酮尿症的发病机理、临床表现和治疗原理，并讨论其对氨基酸代谢调节的启示。</h4>
+                    <button class="show-answer" onclick="toggleAnswer(4)">显示答案</button>
+                    <div id="answer4" class="answer">
+                        <ol>
+                            <li><strong>发病机理：</strong>苯丙酮尿症是由苯丙氨酸羟化酶基因突变引起的常染色体隐性遗传病。苯丙氨酸羟化酶缺陷导致苯丙氨酸无法正常转化为酪氨酸，使苯丙氨酸在体内大量蓄积。蓄积的苯丙氨酸通过替代代谢途径转化为苯丙酮酸、苯乳酸、苯乙酸等异常代谢产物。</li>
+                            <li><strong>临床表现：</strong>患儿出生时正常，但随着苯丙氨酸及其代谢产物的蓄积，出现智力发育迟缓、行为异常、癫痫发作等神经系统症状；由于酪氨酸合成受阻，影响黑色素生成，患儿皮肤和毛发色素减少，呈现白化表现；异常代谢产物的排出使尿液和汗液具有特殊的鼠尿味。</li>
+                            <li><strong>治疗原理：</strong>采用低苯丙氨酸饮食疗法，严格控制苯丙氨酸的摄入量，维持血中苯丙氨酸浓度在安全范围内（2-6 mg/dL）。同时补充酪氨酸，因为酪氨酸在PKU患者中成为必需氨基酸。治疗需要终生坚持，特别是在大脑发育的关键期（0-12岁）。</li>
+                            <li><strong>对代谢调节的启示：</strong>PKU揭示了氨基酸代谢途径的相互依赖性，一个酶的缺陷可以影响整个代谢网络；说明了代谢途径的分支和替代途径的重要性，当主要途径受阻时，替代途径可能产生有害产物；体现了早期诊断和干预的重要性，新生儿筛查可以及时发现并治疗PKU。</li>
+                            <li><strong>分子医学意义：</strong>PKU是基因治疗和酶替代治疗的重要研究模型，为理解遗传性代谢病的发病机制和治疗策略提供了重要参考。同时也说明了营养基因组学的重要性，即基因型决定了个体对特定营养素的需求。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 论述氨基酸合成的调节机制，分析反馈抑制和酶诱导/阻遏在代谢调节中的作用及其生物学意义。</h4>
+                    <button class="show-answer" onclick="toggleAnswer(5)">显示答案</button>
+                    <div id="answer5" class="answer">
+                        <ol>
+                            <li><strong>反馈抑制机制：</strong>反馈抑制是氨基酸合成调节的重要机制，终产物氨基酸与合成途径中关键酶（通常是第一个酶）的变构位点结合，抑制酶活性。例如，苯丙氨酸抑制3-脱氧-D-阿拉伯庚酮糖酸-7-磷酸合成酶，组氨酸抑制ATP磷酸核糖基转移酶。这种调节是快速、可逆的，能够及时响应细胞内氨基酸浓度的变化。</li>
+                            <li><strong>酶诱导机制：</strong>当细胞内某种氨基酸缺乏时，相应的合成酶基因表达增加，酶蛋白合成增多，提高合成能力。这种调节涉及转录水平的控制，通过调节蛋白（如阻遏蛋白、激活蛋白）与操纵子的相互作用实现。诱导机制响应较慢但持续时间长，适合应对长期的营养缺乏。</li>
+                            <li><strong>酶阻遏机制：</strong>当氨基酸充足时，合成酶的基因表达受到抑制，减少不必要的酶合成，节约细胞资源。阻遏机制通过阻遏蛋白与氨基酸结合后与操纵子结合，阻止RNA聚合酶转录实现。这种机制确保细胞在营养充足时不会过度合成代谢酶。</li>
+                            <li><strong>多重调节的整合：</strong>氨基酸合成途径通常受到多种调节机制的共同控制，包括变构调节、共价修饰调节、转录调节等。这种多层次的调节网络确保了代谢的精确控制和快速响应。例如，谷氨酰胺合成酶同时受到反馈抑制、共价修饰和转录调节的控制。</li>
+                            <li><strong>生物学意义：</strong>精确的代谢调节机制具有重要的生物学意义：保证代谢的经济性，避免不必要的能量和资源浪费；维持细胞内氨基酸的动态平衡，满足蛋白质合成和其他生理功能的需要；提供代谢的灵活性，使细胞能够适应不同的营养条件和生理状态；为代谢工程和生物技术应用提供理论基础，通过调节关键酶的表达可以改善氨基酸的生产效率。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "生物固氮过程中，固定一分子N₂需要消耗多少个ATP？",
+                options: ["A. 8个", "B. 12个", "C. 16个", "D. 20个"],
+                correct: 2,
+                explanation: "生物固氮的反应式为：N₂ + 8H⁺ + 8e⁻ + 16ATP → 2NH₃ + H₂ + 16ADP + 16Pi，因此固定一分子N₂需要消耗16个ATP。这是一个高耗能过程，体现了将化学惰性的N₂转化为生物活性氨的困难性。"
+            },
+            {
+                question: "下列哪种氨基酸不属于必需氨基酸？",
+                options: ["A. 苯丙氨酸", "B. 色氨酸", "C. 酪氨酸", "D. 甲硫氨酸"],
+                correct: 2,
+                explanation: "酪氨酸不是必需氨基酸，它可以由必需氨基酸苯丙氨酸通过苯丙氨酸羟化酶转化而来。必需氨基酸包括：组氨酸、异亮氨酸、亮氨酸、赖氨酸、甲硫氨酸、苯丙氨酸、苏氨酸、色氨酸、缬氨酸共9种。"
+            },
+            {
+                question: "固氮酶系统的组成包括：",
+                options: ["A. 仅固氮酶蛋白", "B. 仅固氮酶还原酶", "C. 固氮酶蛋白和固氮酶还原酶", "D. 固氮酶和氢化酶"],
+                correct: 2,
+                explanation: "固氮酶系统由两个组分组成：Component I（固氮酶蛋白，含钼-铁辅基）和Component II（固氮酶还原酶，含铁-硫簇）。两个组分必须协同工作才能催化N₂的还原反应。"
+            },
+            {
+                question: "谷氨酸脱氢酶催化的反应是：",
+                options: ["A. 谷氨酸 → α-酮戊二酸", "B. α-酮戊二酸 + NH₃ → 谷氨酸", "C. 谷氨酸 + NH₃ → 谷氨酰胺", "D. 谷氨酰胺 → 谷氨酸"],
+                correct: 1,
+                explanation: "谷氨酸脱氢酶催化α-酮戊二酸与氨结合生成谷氨酸的反应：α-酮戊二酸 + NH₃ + NADPH + H⁺ → 谷氨酸 + NADP⁺ + H₂O。这是氨基酸合成中氮素固定的重要途径。"
+            },
+            {
+                question: "芳香族氨基酸的合成都经过哪个共同途径？",
+                options: ["A. 柠檬酸循环", "B. 莽草酸途径", "C. 磷酸戊糖途径", "D. 糖酵解途径"],
+                correct: 1,
+                explanation: "苯丙氨酸、酪氨酸和色氨酸的合成都经过莽草酸途径。该途径以磷酸烯醇式丙酮酸和赤藓糖-4-磷酸为起始原料，经过莽草酸，最终形成分支酸，再分别合成三种芳香族氨基酸。"
+            },
+            {
+                question: "四氢叶酸（THF）的主要功能是：",
+                options: ["A. 电子载体", "B. 一碳单位载体", "C. 氨基载体", "D. 磷酸基载体"],
+                correct: 1,
+                explanation: "四氢叶酸（THF）是一碳单位的主要载体，可以携带甲基、甲酰基、亚甲基、甲炔基等一碳单位，参与氨基酸、核苷酸等生物分子的合成。"
+            },
+            {
+                question: "苯丙酮尿症的直接病因是：",
+                options: ["A. 酪氨酸羟化酶缺陷", "B. 苯丙氨酸羟化酶缺陷", "C. 色氨酸羟化酶缺陷", "D. 组氨酸脱羧酶缺陷"],
+                correct: 1,
+                explanation: "苯丙酮尿症（PKU）是由苯丙氨酸羟化酶缺陷引起的遗传性疾病，导致苯丙氨酸无法转化为酪氨酸，在体内大量蓄积并产生异常代谢产物。"
+            },
+            {
+                question: "S-腺苷甲硫氨酸（SAM）的主要功能是：",
+                options: ["A. 氨基供体", "B. 甲基供体", "C. 磷酸供体", "D. 电子供体"],
+                correct: 1,
+                explanation: "S-腺苷甲硫氨酸（SAM）是细胞内主要的甲基供体，参与DNA、RNA、蛋白质等多种生物分子的甲基化反应，在表观遗传调节中起重要作用。"
+            },
+            {
+                question: "下列哪个化合物是丝氨酸合成的直接前体？",
+                options: ["A. 丙酮酸", "B. 3-磷酸甘油酸", "C. α-酮戊二酸", "D. 草酰乙酸"],
+                correct: 1,
+                explanation: "丝氨酸的合成以3-磷酸甘油酸为前体，经过磷酸甘油酸脱氢酶、磷酸丝氨酸转氨酶和磷酸丝氨酸磷酸酶三步反应生成。"
+            },
+            {
+                question: "固氮酶对下列哪种条件最敏感？",
+                options: ["A. 高温", "B. 低pH", "C. 氧气", "D. 高盐"],
+                correct: 2,
+                explanation: "固氮酶对氧气极其敏感，氧气会不可逆地破坏固氮酶的活性。因此，固氮微生物必须在厌氧或微氧环境中进行固氮，或具有保护固氮酶免受氧气损害的机制。"
+            },
+            {
+                question: "谷氨酰胺合成酶催化的反应需要消耗：",
+                options: ["A. GTP", "B. ATP", "C. CTP", "D. UTP"],
+                correct: 1,
+                explanation: "谷氨酰胺合成酶催化的反应为：谷氨酸 + NH₃ + ATP → 谷氨酰胺 + ADP + Pi。该反应需要消耗ATP提供能量，是细胞内氨解毒的主要途径。"
+            },
+            {
+                question: "支链氨基酸包括：",
+                options: ["A. 苯丙氨酸、酪氨酸、色氨酸", "B. 缬氨酸、亮氨酸、异亮氨酸", "C. 丝氨酸、苏氨酸、半胱氨酸", "D. 谷氨酸、谷氨酰胺、脯氨酸"],
+                correct: 1,
+                explanation: "支链氨基酸（BCAA）包括缬氨酸、亮氨酸、异亮氨酸，它们都具有支链结构，是必需氨基酸，在肌肉蛋白质合成和能量代谢中起重要作用。"
+            },
+            {
+                question: "一碳单位代谢中，甘氨酸的形成需要：",
+                options: ["A. N⁵-甲基-THF", "B. N¹⁰-甲酰基-THF", "C. N⁵,N¹⁰-亚甲基-THF", "D. 不需要THF"],
+                correct: 2,
+                explanation: "甘氨酸的形成是通过丝氨酸羟甲基转移酶催化丝氨酸分解实现的：丝氨酸 + THF → 甘氨酸 + N⁵,N¹⁰-亚甲基-THF + H₂O。该反应产生N⁵,N¹⁰-亚甲基-THF。"
+            },
+            {
+                question: "PRPP在氨基酸合成中主要参与：",
+                options: ["A. 丙氨酸合成", "B. 组氨酸合成", "C. 甘氨酸合成", "D. 丝氨酸合成"],
+                correct: 1,
+                explanation: "PRPP（5-磷酸核糖-1-焦磷酸）主要参与组氨酸和色氨酸的合成，也是嘌呤、嘧啶核苷酸合成的重要前体。在组氨酸合成中，PRPP提供核糖磷酸骨架。"
+            },
+            {
+                question: "反馈抑制通常作用于代谢途径的：",
+                options: ["A. 最后一个酶", "B. 第一个酶", "C. 中间的酶", "D. 所有酶"],
+                correct: 1,
+                explanation: "反馈抑制通常作用于代谢途径的第一个酶（关键酶），这样可以最有效地控制整个途径的流量，避免不必要的中间产物积累和资源浪费。"
+            },
+            {
+                question: "同型半胱氨酸可以通过哪种途径重新生成甲硫氨酸？",
+                options: ["A. 转硫途径", "B. 甲基化途径", "C. 脱氨途径", "D. 转氨途径"],
+                correct: 1,
+                explanation: "同型半胱氨酸可以通过甲基化途径重新生成甲硫氨酸，该反应需要N⁵-甲基-THF作为甲基供体，甲硫氨酸合成酶催化，并需要维生素B₁₂作为辅酶。"
+            },
+            {
+                question: "下列哪种维生素缺乏会导致一碳单位代谢障碍？",
+                options: ["A. 维生素B₁", "B. 维生素B₆", "C. 叶酸", "D. 维生素B₁₂"],
+                correct: 2,
+                explanation: "叶酸缺乏会导致一碳单位代谢障碍。叶酸是四氢叶酸的前体，而四氢叶酸是一碳单位的主要载体。叶酸缺乏会影响DNA合成、氨基酸代谢和甲基化反应。"
+            },
+            {
+                question: "枫糖尿症是由于哪类氨基酸代谢异常引起的？",
+                options: ["A. 芳香族氨基酸", "B. 支链氨基酸", "C. 含硫氨基酸", "D. 碱性氨基酸"],
+                correct: 1,
+                explanation: "枫糖尿症是由支链氨基酸（缬氨酸、亮氨酸、异亮氨酸）脱氢酶复合体缺陷引起的，导致支链氨基酸及其α-酮酸在体内蓄积，尿液具有枫糖味。"
+            },
+            {
+                question: "分支酸（chorismate）是哪些氨基酸合成的共同前体？",
+                options: ["A. 丙氨酸、缬氨酸、亮氨酸", "B. 苯丙氨酸、酪氨酸、色氨酸", "C. 谷氨酸、谷氨酰胺、脯氨酸", "D. 天冬氨酸、天冬酰胺、苏氨酸"],
+                correct: 1,
+                explanation: "分支酸是莽草酸途径的关键中间产物，是苯丙氨酸、酪氨酸、色氨酸三种芳香族氨基酸合成的共同前体。"
+            },
+            {
+                question: "氨基酸合成中的酶诱导现象是指：",
+                options: ["A. 氨基酸激活酶活性", "B. 氨基酸抑制酶活性", "C. 氨基酸缺乏时增加酶合成", "D. 氨基酸过量时增加酶合成"],
+                correct: 2,
+                explanation: "酶诱导是指当细胞内某种氨基酸缺乏时，相应合成酶的基因表达增加，酶蛋白合成增多，以提高该氨基酸的合成能力。"
+            },
+            {
+                question: "固氮反应的副产物是：",
+                options: ["A. CO₂", "B. H₂O", "C. H₂", "D. O₂"],
+                correct: 2,
+                explanation: "固氮反应的副产物是H₂。反应式为：N₂ + 8H⁺ + 8e⁻ + 16ATP → 2NH₃ + H₂ + 16ADP + 16Pi。H₂的产生是固氮过程中不可避免的。"
+            },
+            {
+                question: "谷氨酸家族氨基酸的共同前体是：",
+                options: ["A. 丙酮酸", "B. α-酮戊二酸", "C. 草酰乙酸", "D. 3-磷酸甘油酸"],
+                correct: 1,
+                explanation: "谷氨酸家族氨基酸（谷氨酸、谷氨酰胺、脯氨酸、精氨酸）的共同前体是α-酮戊二酸，通过谷氨酸脱氢酶反应首先形成谷氨酸。"
+            },
+            {
+                question: "苯丙酮尿症患者需要限制摄入的氨基酸是：",
+                options: ["A. 酪氨酸", "B. 苯丙氨酸", "C. 色氨酸", "D. 组氨酸"],
+                correct: 1,
+                explanation: "苯丙酮尿症患者需要限制苯丙氨酸的摄入，因为苯丙氨酸羟化酶缺陷导致苯丙氨酸无法正常代谢，会在体内蓄积产生毒性。"
+            },
+            {
+                question: "一碳单位中的甲基主要由哪种化合物提供？",
+                options: ["A. N⁵-甲基-THF", "B. N¹⁰-甲酰基-THF", "C. N⁵,N¹⁰-亚甲基-THF", "D. SAM"],
+                correct: 0,
+                explanation: "一碳单位中的甲基主要由N⁵-甲基-THF提供。虽然SAM也是重要的甲基供体，但在一碳单位代谢中，N⁵-甲基-THF是主要的甲基载体形式。"
+            },
+            {
+                question: "天冬氨酸家族氨基酸不包括：",
+                options: ["A. 天冬氨酸", "B. 苏氨酸", "C. 甲硫氨酸", "D. 谷氨酸"],
+                correct: 3,
+                explanation: "天冬氨酸家族氨基酸包括天冬氨酸、天冬酰胺、苏氨酸、甲硫氨酸、赖氨酸，它们都以草酰乙酸为前体。谷氨酸属于谷氨酸家族。"
+            },
+            {
+                question: "固氮微生物中，保护固氮酶免受氧气损害的机制不包括：",
+                options: ["A. 形成异形胞", "B. 时间分离", "C. 呼吸保护", "D. 光合作用"],
+                correct: 3,
+                explanation: "固氮微生物保护固氮酶的机制包括：形成异形胞（空间分离）、时间分离（夜间固氮）、呼吸保护（高呼吸速率消耗氧气）等。光合作用会产生氧气，不是保护机制。"
+            },
+            {
+                question: "氨基酸合成中，转氨反应的辅酶是：",
+                options: ["A. NAD⁺", "B. FAD", "C. 磷酸吡哆醛", "D. 辅酶A"],
+                correct: 2,
+                explanation: "转氨反应的辅酶是磷酸吡哆醛（PLP），它是维生素B₆的活性形式。PLP与氨基酸结合形成席夫碱中间体，参与氨基的转移。"
+            },
+            {
+                question: "同型半胱氨酸尿症的主要病因是：",
+                options: ["A. 苯丙氨酸羟化酶缺陷", "B. 胱硫醚β-合成酶缺陷", "C. 酪氨酸转氨酶缺陷", "D. 组氨酸脱羧酶缺陷"],
+                correct: 1,
+                explanation: "同型半胱氨酸尿症主要由胱硫醚β-合成酶缺陷引起，导致同型半胱氨酸无法正常转化为胱硫醚，在体内蓄积。"
+            },
+            {
+                question: "生物固氮的全球意义在于：",
+                options: ["A. 仅为农业提供氮肥", "B. 维持生态系统氮循环", "C. 仅为海洋生物提供氮源", "D. 仅为土壤微生物提供氮源"],
+                correct: 1,
+                explanation: "生物固氮的全球意义在于维持整个生态系统的氮循环，为陆地和海洋生态系统提供可利用的氮源，是维持生物圈氮平衡的基础。"
+            },
+            {
+                question: "下列关于氨基酸营养价值的说法，错误的是：",
+                options: ["A. 必需氨基酸的缺乏会限制蛋白质合成", "B. 非必需氨基酸在任何情况下都不需要从食物获得", "C. 氨基酸的组成和比例影响蛋白质的生物学价值", "D. 半必需氨基酸在特殊生理状态下需求量增加"],
+                correct: 1,
+                explanation: "选项B是错误的。非必需氨基酸虽然可以体内合成，但在特殊生理状态（如生长发育、妊娠、疾病恢复期）下，需求量可能超过合成能力，也需要从食物中补充。"
+            }
+        ];
+
+        // 随机选择15道题
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        function initializeQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            // 渲染题目
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            // 收集答案
+            userAnswers = [];
+            for (let i = 0; i < selectedQuestions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                userAnswers[i] = selected ? parseInt(selected.value) : -1;
+            }
+
+            // 计算得分
+            let correct = 0;
+            for (let i = 0; i < selectedQuestions.length; i++) {
+                if (userAnswers[i] === selectedQuestions[i].correct) {
+                    correct++;
+                }
+            }
+
+            // 显示结果
+            showResults(correct);
+        }
+
+        function showResults(correct) {
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((correct / selectedQuestions.length) * 100);
+            
+            let resultHTML = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${correct}/${selectedQuestions.length} (${percentage}%)</strong></p>
+                <div style="margin-top: 20px;">
+            `;
+
+            selectedQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
+                const userChoice = userAnswers[index] >= 0 ? q.options[userAnswers[index]] : '未选择';
+                
+                resultHTML += `
+                    <div style="background-color: ${bgColor}; padding: 15px; margin: 10px 0; border-radius: 5px; border: 1px solid ${isCorrect ? '#c3e6cb' : '#f5c6cb'};">
+                        <p><strong>题目 ${index + 1}：</strong>${q.question}</p>
+                        <p><strong>你的答案：</strong>${userChoice}</p>
+                        <p><strong>正确答案：</strong>${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+
+            resultHTML += '</div>';
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+        }
+
+        // 深度思考题答案显示
+        function toggleAnswer(questionNumber) {
+            const answer = document.getElementById(`answer${questionNumber}`);
+            const button = answer.previousElementSibling;
+            
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                button.textContent = '隐藏答案';
+            } else {
+                answer.style.display = 'none';
+                button.textContent = '显示答案';
+            }
+        }
+
+        // 页面加载时初始化测试
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeQuiz();
+        });
+    </script>
+</body>
+</html>

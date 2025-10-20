@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新陈代谢总论 - 考研复习笔记</title>
+    <style>
+        /* 学术蓝灰色系样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(44, 62, 80, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 30px -20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin: 40px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .content p {
+            margin: 15px 0;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        .content ul, .content ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .content li {
+            margin: 8px 0;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            background: #e8f4fd;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-family: "Consolas", monospace;
+            text-align: center;
+        }
+
+        .term {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #6c757d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            text-indent: 2em;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #17a2b8;
+            border-radius: 5px;
+        }
+
+        .thinking-question {
+            background: #fff3cd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+        }
+
+        .thinking-answer {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+
+        .diagram {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .diagram-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>新陈代谢总论</h1>
+            <p>考研生物化学复习笔记 | 基于朱圣庚版《生物化学》第四版</p>
+        </div>
+
+        <!-- 核心内容板块 -->
+        <div class="section">
+            <h2>一、新陈代谢的基本概念</h2>
+            <div class="content">
+                <h3>1.1 新陈代谢的定义</h3>
+                <p>新陈代谢（Metabolism）是指生物体内所有化学反应的总和，是生命活动的基础。它包括物质代谢和能量代谢两个方面，是维持生命活动、保持细胞结构和功能的基本过程。</p>
+                
+                <h3>1.2 新陈代谢的两个基本过程</h3>
+                <h4>（1）同化作用（合成代谢，Anabolism）</h4>
+                <p>同化作用是指生物体利用能量将小分子合成为大分子的过程。<mcreference link="https://zh.wikipedia.org/zh-hans/%E5%90%8C%E5%8C%96%E4%BD%9C%E7%94%A8" index="1">1</mcreference> 这是一个需要消耗能量的过程，主要特点包括：</p>
+                <ul>
+                    <li>消耗ATP等高能化合物提供能量</li>
+                    <li>需要还原性辅酶（如NADPH、NADH）参与</li>
+                    <li>合成蛋白质、核酸、多糖、脂质等生物大分子</li>
+                    <li>是熵减过程，需要外界能量输入</li>
+                </ul>
+                
+                <h4>（2）异化作用（分解代谢，Catabolism）</h4>
+                <p>异化作用是指生物体将大分子分解为小分子，同时释放能量的过程。主要特点包括：</p>
+                <ul>
+                    <li>分解糖类、脂质、蛋白质等生物大分子</li>
+                    <li>产生ATP等高能化合物</li>
+                    <li>产生还原性辅酶</li>
+                    <li>是熵增过程，释放自由能</li>
+                </ul>
+                
+                <div class="highlight">
+                    <strong>重要概念：</strong>同化作用和异化作用是相互依存、相互制约的。异化作用为同化作用提供能量和原料，同化作用为异化作用提供酶和载体。
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>二、新陈代谢遵循的物理化学规律</h2>
+            <div class="content">
+                <h3>2.1 热力学定律在代谢中的应用</h3>
+                <h4>（1）热力学第一定律</h4>
+                <p>能量守恒定律：能量既不能创造也不能消灭，只能从一种形式转化为另一种形式。在生物体内，化学能可以转化为机械能、热能、电能等。</p>
+                
+                <h4>（2）热力学第二定律</h4>
+                <p>熵增定律：在孤立系统中，熵总是趋向于增加。生物体是开放系统，通过与环境交换物质和能量来维持低熵状态。</p>
+                
+                <h3>2.2 自由能变化与反应方向</h3>
+                <div class="formula">
+                    ΔG = ΔH - TΔS<br>
+                    ΔG < 0：反应自发进行<br>
+                    ΔG > 0：反应不能自发进行<br>
+                    ΔG = 0：反应处于平衡状态
+                </div>
+                
+                <h3>2.3 能量偶联</h3>
+                <p>生物体内许多不能自发进行的反应（ΔG > 0）通过与ATP水解等放能反应偶联而得以进行。这是新陈代谢的重要机制。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>三、代谢途径的组成和特点</h2>
+            <div class="content">
+                <h3>3.1 代谢途径的基本概念</h3>
+                <p>代谢途径（Metabolic pathway）是指一系列酶催化的化学反应序列，这些反应按一定顺序进行，将一个起始化合物转化为一个或多个产物。</p>
+                
+                <h3>3.2 代谢途径的类型</h3>
+                <ul>
+                    <li><strong>线性途径：</strong>反应按直线顺序进行，如糖酵解途径</li>
+                    <li><strong>循环途径：</strong>产物又回到起始点，如柠檬酸循环</li>
+                    <li><strong>分支途径：</strong>一个中间产物可以进入多个不同途径</li>
+                    <li><strong>汇聚途径：</strong>多个不同底物汇聚到同一途径</li>
+                </ul>
+                
+                <h3>3.3 代谢途径的调节</h3>
+                <h4>（1）酶活性调节</h4>
+                <ul>
+                    <li>变构调节：调节分子与酶的变构位点结合</li>
+                    <li>共价修饰：磷酸化/去磷酸化等</li>
+                    <li>酶原激活：酶原转化为有活性的酶</li>
+                </ul>
+                
+                <h4>（2）酶含量调节</h4>
+                <ul>
+                    <li>酶的诱导合成</li>
+                    <li>酶的阻遏合成</li>
+                    <li>酶的降解调节</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>四、生物能学基础</h2>
+            <div class="content">
+                <h3>4.1 ATP - 细胞的能量货币</h3>
+                <p>三磷酸腺苷（ATP）是细胞内最重要的高能化合物，被称为"生物能量的通用货币"。</p>
+                
+                <h4>（1）ATP的结构特点</h4>
+                <ul>
+                    <li>由腺嘌呤、核糖和三个磷酸基团组成</li>
+                    <li>含有两个高能磷酸键（β-γ和α-β磷酸键）</li>
+                    <li>水解时释放大量自由能（约30.5 kJ/mol）</li>
+                </ul>
+                
+                <h4>（2）ATP的功能</h4>
+                <ul>
+                    <li>为合成代谢提供能量</li>
+                    <li>驱动主动转运</li>
+                    <li>提供肌肉收缩的能量</li>
+                    <li>参与信号转导</li>
+                </ul>
+                
+                <h3>4.2 其他高能化合物</h3>
+                <ul>
+                    <li><strong>磷酸肌酸：</strong>肌肉中的能量储存形式</li>
+                    <li><strong>磷酸烯醇式丙酮酸：</strong>糖酵解中的高能中间产物</li>
+                    <li><strong>1,3-二磷酸甘油酸：</strong>糖酵解中的高能中间产物</li>
+                    <li><strong>乙酰辅酶A：</strong>含高能硫酯键的化合物</li>
+                </ul>
+                
+                <h3>4.3 还原型电子载体</h3>
+                <h4>（1）NAD+/NADH系统</h4>
+                <p>烟酰胺腺嘌呤二核苷酸，主要参与分解代谢中的氧化反应，是电子传递链的重要组成部分。</p>
+                
+                <h4>（2）NADP+/NADPH系统</h4>
+                <p>烟酰胺腺嘌呤二核苷酸磷酸，主要为合成代谢提供还原力，如脂肪酸合成、胆固醇合成等。</p>
+                
+                <h4>（3）FAD/FADH2系统</h4>
+                <p>黄素腺嘌呤二核苷酸，参与多种氧化还原反应，特别是在电子传递链中发挥重要作用。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>五、新陈代谢的调节机制</h2>
+            <div class="content">
+                <h3>5.1 分子水平调节</h3>
+                <h4>（1）变构调节</h4>
+                <p>调节分子与酶的变构位点结合，引起酶构象变化，从而改变酶活性。可分为正调节（激活）和负调节（抑制）。</p>
+                
+                <h4>（2）共价修饰调节</h4>
+                <ul>
+                    <li><strong>磷酸化/去磷酸化：</strong>最常见的调节方式</li>
+                    <li><strong>甲基化：</strong>主要调节基因表达</li>
+                    <li><strong>乙酰化：</strong>调节蛋白质功能</li>
+                    <li><strong>泛素化：</strong>标记蛋白质降解</li>
+                </ul>
+                
+                <h4>（3）反馈调节</h4>
+                <ul>
+                    <li><strong>负反馈抑制：</strong>终产物抑制途径中的关键酶</li>
+                    <li><strong>正反馈激活：</strong>产物激活自身合成途径</li>
+                </ul>
+                
+                <h3>5.2 细胞水平调节</h3>
+                <h4>（1）区室化调节</h4>
+                <p>不同代谢途径在细胞的不同区室进行，通过控制底物和产物的转运来调节代谢。</p>
+                
+                <h4>（2）酶的诱导和阻遏</h4>
+                <ul>
+                    <li><strong>酶诱导：</strong>底物诱导相关酶的合成</li>
+                    <li><strong>酶阻遏：</strong>终产物阻遏相关酶的合成</li>
+                </ul>
+                
+                <h3>5.3 整体水平调节</h3>
+                <h4>（1）激素调节</h4>
+                <ul>
+                    <li><strong>胰岛素：</strong>促进合成代谢，抑制分解代谢</li>
+                    <li><strong>胰高血糖素：</strong>促进分解代谢，抑制合成代谢</li>
+                    <li><strong>肾上腺素：</strong>动员能量储备</li>
+                    <li><strong>皮质醇：</strong>促进糖异生，抑制蛋白质合成</li>
+                </ul>
+                
+                <h4>（2）神经调节</h4>
+                <p>交感神经和副交感神经系统通过释放神经递质来调节代谢活动。</p>
+            </div>
+        </div>
+
+        <!-- 新代谢示意图 -->
+        <div class="section">
+            <h2>六、新陈代谢网络示意图</h2>
+            <div class="diagram">
+                <svg width="800" height="600" viewBox="0 0 800 600">
+                    <!-- 箭头标记定义 -->
+                    <defs>
+                        <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+                        </marker>
+                        <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#28a745"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- 背景 -->
+                    <rect width="800" height="600" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+                    
+                    <!-- 标题 -->
+                    <text x="400" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">新陈代谢网络图</text>
+                    
+                    <!-- 同化作用区域 -->
+                    <rect x="50" y="80" width="300" height="200" fill="#e8f5e8" stroke="#28a745" stroke-width="3" rx="10"/>
+                    <text x="200" y="105" text-anchor="middle" font-size="18" font-weight="bold" fill="#28a745">同化作用（合成代谢）</text>
+                    
+                    <!-- 同化作用内容 -->
+                    <text x="70" y="130" font-size="14" fill="#2c3e50">• 蛋白质合成</text>
+                    <text x="70" y="150" font-size="14" fill="#2c3e50">• 核酸合成</text>
+                    <text x="70" y="170" font-size="14" fill="#2c3e50">• 多糖合成</text>
+                    <text x="70" y="190" font-size="14" fill="#2c3e50">• 脂质合成</text>
+                    <text x="70" y="210" font-size="14" fill="#2c3e50">• 消耗ATP</text>
+                    <text x="70" y="230" font-size="14" fill="#2c3e50">• 需要NADPH</text>
+                    <text x="70" y="250" font-size="14" fill="#2c3e50">• 熵减过程</text>
+                    
+                    <!-- 异化作用区域 -->
+                    <rect x="450" y="80" width="300" height="200" fill="#ffe8e8" stroke="#dc3545" stroke-width="3" rx="10"/>
+                    <text x="600" y="105" text-anchor="middle" font-size="18" font-weight="bold" fill="#dc3545">异化作用（分解代谢）</text>
+                    
+                    <!-- 异化作用内容 -->
+                    <text x="470" y="130" font-size="14" fill="#2c3e50">• 糖酵解</text>
+                    <text x="470" y="150" font-size="14" fill="#2c3e50">• 柠檬酸循环</text>
+                    <text x="470" y="170" font-size="14" fill="#2c3e50">• 脂肪酸氧化</text>
+                    <text x="470" y="190" font-size="14" fill="#2c3e50">• 蛋白质降解</text>
+                    <text x="470" y="210" font-size="14" fill="#2c3e50">• 产生ATP</text>
+                    <text x="470" y="230" font-size="14" fill="#2c3e50">• 产生NADH</text>
+                    <text x="470" y="250" font-size="14" fill="#2c3e50">• 熵增过程</text>
+                    
+                    <!-- 中央ATP循环 -->
+                    <circle cx="400" cy="180" r="60" fill="#e3f2fd" stroke="#3498db" stroke-width="4"/>
+                    <text x="400" y="175" text-anchor="middle" font-size="16" font-weight="bold" fill="#3498db">ATP</text>
+                    <text x="400" y="195" text-anchor="middle" font-size="14" fill="#3498db">能量货币</text>
+                    
+                    <!-- 箭头：异化→ATP -->
+                    <path d="M 450 180 L 460 180" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowhead-red)"/>
+                    <text x="455" y="175" font-size="12" fill="#dc3545">产生</text>
+                    
+                    <!-- 箭头：ATP→同化 -->
+                    <path d="M 340 180 L 350 180" stroke="#28a745" stroke-width="3" marker-end="url(#arrowhead-green)"/>
+                    <text x="345" y="175" font-size="12" fill="#28a745">消耗</text>
+                    
+                    <!-- 调节因子区域 -->
+                    <rect x="150" y="350" width="500" height="200" fill="#fff3cd" stroke="#ffc107" stroke-width="3" rx="10"/>
+                    <text x="400" y="375" text-anchor="middle" font-size="18" font-weight="bold" fill="#856404">代谢调节机制</text>
+                    
+                    <!-- 调节机制内容 -->
+                    <text x="170" y="405" font-size="16" font-weight="bold" fill="#2c3e50">分子水平：</text>
+                    <text x="170" y="425" font-size="14" fill="#2c3e50">• 变构调节  • 共价修饰  • 反馈调节</text>
+                    
+                    <text x="170" y="455" font-size="16" font-weight="bold" fill="#2c3e50">细胞水平：</text>
+                    <text x="170" y="475" font-size="14" fill="#2c3e50">• 区室化调节  • 酶诱导/阻遏</text>
+                    
+                    <text x="170" y="505" font-size="16" font-weight="bold" fill="#2c3e50">整体水平：</text>
+                    <text x="170" y="525" font-size="14" fill="#2c3e50">• 激素调节  • 神经调节</text>
+                </svg>
+                <div class="diagram-caption">
+                    图1：新陈代谢网络示意图，展示了同化作用与异化作用的相互关系以及ATP的中心地位
+                </div>
+            </div>
+        </div>
+
+        <!-- 名词解释库 -->
+        <div class="section">
+            <h2>七、重要名词解释库</h2>
+            <div class="content">
+                <div class="term">
+                    <div class="term-name">新代谢</div>
+                    <div class="term-english">Metabolism</div>
+                    <div class="term-definition">生物体内所有化学反应的总和，包括同化作用和异化作用，是维持生命活动的基础过程。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">同化作用</div>
+                    <div class="term-english">Anabolism, Assimilation</div>
+                    <div class="term-definition">生物体利用能量将小分子合成为大分子的过程，是合成代谢的总称，需要消耗ATP和NADPH等高能化合物。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">异化作用</div>
+                    <div class="term-english">Catabolism, Dissimilation</div>
+                    <div class="term-definition">生物体将大分子分解为小分子并释放能量的过程，是分解代谢的总称，产生ATP和还原性辅酶。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">三磷酸腺苷</div>
+                    <div class="term-english">Adenosine Triphosphate, ATP</div>
+                    <div class="term-definition">细胞内最重要的高能化合物，被称为"生物能量的通用货币"，由腺嘌呤、核糖和三个磷酸基团组成。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">代谢途径</div>
+                    <div class="term-english">Metabolic Pathway</div>
+                    <div class="term-definition">一系列酶催化的化学反应序列，按一定顺序进行，将起始化合物转化为产物的完整反应链。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">变构调节</div>
+                    <div class="term-english">Allosteric Regulation</div>
+                    <div class="term-definition">调节分子与酶的变构位点结合，引起酶构象变化，从而改变酶活性的调节机制。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">反馈抑制</div>
+                    <div class="term-english">Feedback Inhibition</div>
+                    <div class="term-definition">代谢途径的终产物抑制该途径中关键酶活性的调节机制，是负反馈调节的典型例子。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">高能磷酸化合物</div>
+                    <div class="term-english">High-energy Phosphate Compounds</div>
+                    <div class="term-definition">含有高能磷酸键的化合物，水解时能释放大量自由能，如ATP、磷酸肌酸、磷酸烯醇式丙酮酸等。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">还原型辅酶</div>
+                    <div class="term-english">Reduced Coenzymes</div>
+                    <div class="term-definition">携带电子和氢原子的辅酶分子，如NADH、NADPH、FADH2等，为代谢反应提供还原力。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">能量偶联</div>
+                    <div class="term-english">Energy Coupling</div>
+                    <div class="term-definition">将放能反应与吸能反应偶联，使总反应的自由能变化为负值，从而驱动不利反应进行的机制。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">区室化</div>
+                    <div class="term-english">Compartmentalization</div>
+                    <div class="term-definition">不同代谢途径在细胞的不同区室进行，通过空间分离来调节代谢活动和提高效率。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">代谢组学</div>
+                    <div class="term-english">Metabolomics</div>
+                    <div class="term-definition">研究生物体内所有小分子代谢物的科学，是系统生物学的重要组成部分。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 选择题测试 -->
+        <div class="section">
+            <h2>八、选择题自测</h2>
+            <div class="quiz-container">
+                <p style="margin-bottom: 20px; font-weight: bold; color: #2c3e50;">以下是从题库中随机抽取的15道选择题，请认真作答：</p>
+                <div id="quiz-questions"></div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-result" class="result"></div>
+            </div>
+        </div>
+
+        <!-- 深度思考题 -->
+        <div class="section">
+            <h2>九、深度思考题</h2>
+            <div class="content">
+                <div class="thinking-question">
+                    <h4>思考题1：试分析同化作用和异化作用的相互关系，并说明ATP在其中的作用机制。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>相互依存关系：</strong>同化作用和异化作用是新陈代谢的两个基本过程，它们相互依存、不可分割。异化作用通过分解大分子为同化作用提供能量（ATP）和原料（小分子前体），同化作用则合成异化作用所需的酶和载体蛋白。这种相互依存保证了细胞代谢的连续性和协调性。</li>
+                            <li><strong>能量流动的中心枢纽：</strong>ATP作为"能量货币"，是连接同化作用和异化作用的关键分子。异化作用产生的ATP为同化作用提供直接的能量来源，而ATP的水解驱动各种吸能反应的进行。这种能量偶联机制使得热力学上不利的反应得以进行。</li>
+                            <li><strong>时空调节的协调：</strong>在细胞周期的不同阶段，同化作用和异化作用的相对强度会发生变化。生长期以同化作用为主，饥饿期以异化作用为主。这种动态平衡通过激素调节、变构调节等多层次机制实现。</li>
+                            <li><strong>区室化的协调配合：</strong>同化作用和异化作用在细胞的不同区室进行，如脂肪酸合成在细胞质，而脂肪酸氧化在线粒体。这种空间分离避免了无效循环，提高了代谢效率。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>思考题2：从热力学角度分析生物体如何维持有序的低熵状态，并讨论代谢调节的重要性。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>开放系统的热力学特征：</strong>生物体是开放系统，通过与环境不断交换物质和能量来维持低熵状态。虽然局部熵减少（如蛋白质合成），但整个系统（包括环境）的总熵仍然增加，符合热力学第二定律。生物体通过消耗高质量的能量（如葡萄糖）并向环境释放低质量的能量（如热能）来维持有序结构。</li>
+                            <li><strong>能量梯度的建立和利用：</strong>生物体建立各种能量梯度（如ATP/ADP比值、NADH/NAD+比值、质子梯度等）来驱动各种生命过程。这些梯度的维持需要持续的能量输入，体现了生命系统的非平衡态特征。</li>
+                            <li><strong>代谢调节的热力学意义：</strong>代谢调节确保能量和物质的高效利用，避免无效循环和能量浪费。通过精确调节酶活性和代谢流量，细胞能够在最小的熵增代价下维持复杂的生命活动。</li>
+                            <li><strong>稳态维持的动态平衡：</strong>生物体的稳态不是静态平衡，而是动态平衡。通过负反馈调节、前馈调节等机制，生物体能够在环境变化时快速调整代谢状态，维持内环境的相对稳定。这种调节能力是生命系统适应性和稳定性的基础。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>思考题3：比较分析代谢调节的三个层次（分子、细胞、整体），并举例说明它们如何协调工作。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>分子水平调节的精确性：</strong>分子水平调节是最直接、最快速的调节方式，主要包括变构调节、共价修饰和反馈调节。例如，磷酸果糖激酶受ATP负反馈抑制，受AMP正反馈激活，能够在秒级时间内响应细胞能量状态的变化。这种调节具有高度的特异性和可逆性。</li>
+                            <li><strong>细胞水平调节的适应性：</strong>细胞水平调节主要通过改变酶的数量和细胞内区室化来实现，响应时间为分钟到小时级别。例如，当细胞缺乏某种氨基酸时，会诱导相关合成酶的表达；当营养充足时，则阻遏这些酶的合成。区室化调节如脂肪酸合成在细胞质、氧化在线粒体，避免了同时进行的冲突。</li>
+                            <li><strong>整体水平调节的系统性：</strong>整体水平调节通过激素和神经系统协调不同器官和组织的代谢活动，响应时间从分钟到小时不等。例如，胰岛素促进肝脏、肌肉和脂肪组织的葡萄糖摄取和糖原合成，同时抑制肝脏的糖异生，实现全身血糖水平的精确调节。</li>
+                            <li><strong>多层次调节的协调机制：</strong>三个层次的调节相互配合，形成完整的调节网络。以血糖调节为例：分子水平上，关键酶受变构调节；细胞水平上，胰岛素诱导葡萄糖转运蛋白和糖酵解酶的表达；整体水平上，胰岛素和胰高血糖素协调不同组织的糖代谢。这种多层次调节确保了代谢的精确性、适应性和稳定性。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>思考题4：分析代谢组学在现代生物化学研究中的意义，并讨论其在疾病诊断和治疗中的应用前景。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>系统生物学的重要组成：</strong>代谢组学作为系统生物学的重要分支，研究生物体内所有小分子代谢物的动态变化。与基因组学、转录组学、蛋白质组学相比，代谢组学更直接反映生物体的生理状态，因为代谢物是基因表达和蛋白质功能的最终产物。代谢组学数据能够提供基因型与表型之间的直接联系。</li>
+                            <li><strong>疾病机制研究的新视角：</strong>许多疾病都伴随着特征性的代谢改变，代谢组学能够揭示疾病发生发展的分子机制。例如，糖尿病患者的代谢组学特征包括葡萄糖升高、酮体增加、氨基酸代谢异常等。通过比较健康人群和患者的代谢谱差异，可以发现新的疾病标志物和治疗靶点。</li>
+                            <li><strong>精准医学的技术基础：</strong>代谢组学为个体化医疗提供了重要工具。不同个体的代谢特征存在差异，这些差异影响药物的代谢和疗效。通过代谢组学分析，可以预测个体对特定药物的反应，指导个体化用药方案的制定，提高治疗效果并减少不良反应。</li>
+                            <li><strong>药物研发的新策略：</strong>代谢组学在药物研发中发挥重要作用，包括药物靶点发现、药效评价、毒性评估等。通过分析药物对细胞或动物模型代谢谱的影响，可以评估药物的作用机制和安全性。此外，代谢组学还能够发现药物作用的意外靶点，为药物重新定位提供线索。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>思考题5：结合具体实例，分析现代生物化学研究方法（如同位素示踪、NMR、质谱等）在代谢研究中的应用和优势。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>同位素示踪技术的动态追踪优势：</strong>同位素示踪是研究代谢途径的经典方法，通过标记特定原子（如13C、15N、2H等）来追踪代谢物的转化过程。例如，使用13C标记的葡萄糖可以追踪糖酵解、柠檬酸循环和戊糖磷酸途径中碳原子的流向，定量分析各途径的相对贡献。这种方法的优势在于能够提供代谢流的动态信息，揭示代谢网络的真实活动状态。</li>
+                            <li><strong>核磁共振技术的非侵入性检测：</strong>NMR技术能够在不破坏样品的情况下检测代谢物的结构和浓度变化，特别适合活体代谢研究。31P-NMR可以实时监测ATP、ADP、磷酸肌酸等高能化合物的变化；1H-NMR可以同时检测多种代谢物。例如，通过31P-NMR监测运动过程中肌肉组织的能量代谢变化，可以研究运动生理学和代谢性疾病。</li>
+                            <li><strong>质谱技术的高灵敏度和特异性：</strong>质谱技术具有极高的灵敏度和特异性，能够检测痕量代谢物并进行精确定量。LC-MS/MS技术广泛应用于代谢组学研究，可以同时检测数百种代谢物。例如，在癌症代谢研究中，质谱技术能够发现肿瘤细胞特有的代谢标志物，如2-羟基戊二酸（在IDH突变的胶质瘤中）等。</li>
+                            <li><strong>多技术联用的nsystemic分析：</strong>现代代谢研究越来越依赖多种技术的联合应用，形成互补优势。例如，同位素示踪结合质谱分析可以同时获得代谢流和代谢物浓度信息；NMR结合质谱可以提供从宏观到微观的全面代谢图谱。这种多技术联用策略为深入理解复杂的代谢网络提供了强有力的工具，推动了系统代谢生物学的发展。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "新代谢的基本特征不包括：",
+                options: ["A. 在酶的催化下进行", "B. 遵循热力学定律", "C. 需要载体蛋白参与", "D. 所有反应都是可逆的"],
+                correct: 3,
+                explanation: "正确答案是D。新代谢中的许多反应是不可逆的，特别是一些关键的调节步骤。这些不可逆反应为代谢途径提供了方向性，并成为重要的调节点。"
+            },
+            {
+                question: "ATP被称为细胞的'能量货币'，其原因是：",
+                options: ["A. 含量最高", "B. 分子量最大", "C. 能够储存和释放能量", "D. 结构最稳定"],
+                correct: 2,
+                explanation: "正确答案是C。ATP含有高能磷酸键，水解时能释放大量自由能（约30.5 kJ/mol），为细胞的各种生命活动提供能量。ATP的合成和水解构成了细胞能量代谢的核心循环。"
+            },
+            {
+                question: "同化作用的主要特点是：",
+                options: ["A. 分解大分子", "B. 释放能量", "C. 合成大分子，消耗能量", "D. 产生ATP"],
+                correct: 2,
+                explanation: "正确答案是C。同化作用是合成代谢，将小分子合成为大分子，这是一个吸能过程，需要消耗ATP等高能化合物提供能量。"
+            },
+            {
+                question: "下列哪种化合物不属于高能磷酸化合物：",
+                options: ["A. ATP", "B. 磷酸肌酸", "C. 磷酸烯醇式丙酮酸", "D. 葡萄糖-6-磷酸"],
+                correct: 3,
+                explanation: "正确答案是D。葡萄糖-6-磷酸是低能磷酸化合物，其磷酸键水解释放的自由能较少。高能磷酸化合物的特征是磷酸键水解时能释放大量自由能（通常>25 kJ/mol）。"
+            },
+            {
+                question: "代谢途径中的限速酶通常具有以下特点：",
+                options: ["A. 活性最高", "B. 含量最多", "C. 催化不可逆反应", "D. 分子量最大"],
+                correct: 2,
+                explanation: "正确答案是C。限速酶通常催化代谢途径中的不可逆反应，这些反应的自由能变化很大（ΔG<<0），为整个途径提供驱动力，并且是重要的调节点。"
+            },
+            {
+                question: "NADPH主要参与：",
+                options: ["A. 分解代谢", "B. 合成代谢", "C. ATP合成", "D. 蛋白质降解"],
+                correct: 1,
+                explanation: "正确答案是B。NADPH是重要的还原性辅酶，主要为合成代谢提供还原力，如脂肪酸合成、胆固醇合成、核苷酸合成等都需要NADPH参与。"
+            },
+            {
+                question: "反馈抑制是指：",
+                options: ["A. 底物抑制酶活性", "B. 产物激活酶活性", "C. 终产物抑制途径中的关键酶", "D. 辅酶抑制酶活性"],
+                correct: 2,
+                explanation: "正确答案是C。反馈抑制是负反馈调节的典型例子，代谢途径的终产物与途径中关键酶（通常是第一个酶或限速酶）的变构位点结合，抑制酶活性，从而调节整个途径的活性。"
+            },
+            {
+                question: "细胞代谢的区室化调节的意义在于：",
+                options: ["A. 节约空间", "B. 提高反应效率，避免干扰", "C. 减少酶的需要量", "D. 降低反应温度"],
+                correct: 1,
+                explanation: "正确答案是B。区室化调节将不同的代谢途径分隔在不同的细胞区室中，可以创造适宜的微环境，提高反应效率，避免相互干扰，如脂肪酸合成在细胞质，氧化在线粒体。"
+            },
+            {
+                question: "变构调节的特点是：",
+                options: ["A. 调节分子与活性中心结合", "B. 调节分子与变构位点结合", "C. 只能是正调节", "D. 不可逆调节"],
+                correct: 1,
+                explanation: "正确答案是B。变构调节是指调节分子与酶的变构位点（不是活性中心）结合，引起酶构象变化，从而改变酶活性。这种调节可以是正调节（激活）或负调节（抑制），且是可逆的。"
+            },
+            {
+                question: "下列关于代谢组学的描述，错误的是：",
+                options: ["A. 研究生物体内所有小分子代谢物", "B. 是系统生物学的重要组成部分", "C. 只能用于疾病诊断", "D. 能反映基因型与表型的关系"],
+                correct: 2,
+                explanation: "正确答案是C。代谢组学不仅用于疾病诊断，还广泛应用于药物研发、营养学研究、环境毒理学、农业科学等多个领域，是一门应用广泛的学科。"
+            },
+            {
+                question: "同位素示踪法在代谢研究中的主要优势是：",
+                options: ["A. 成本低廉", "B. 操作简单", "C. 能追踪代谢物的转化过程", "D. 不需要特殊设备"],
+                correct: 2,
+                explanation: "正确答案是C。同位素示踪法通过标记特定原子来追踪代谢物在体内的转化过程，能够提供代谢途径的动态信息，是研究代谢流的重要方法。"
+            },
+            {
+                question: "胰岛素对代谢的主要调节作用是：",
+                options: ["A. 促进分解代谢", "B. 促进合成代谢", "C. 抑制所有代谢", "D. 只调节糖代谢"],
+                correct: 1,
+                explanation: "正确答案是B。胰岛素是合成代谢激素，促进葡萄糖摄取、糖原合成、脂肪合成、蛋白质合成等合成代谢过程，同时抑制糖异生、脂肪分解等分解代谢过程。"
+            },
+            {
+                question: "酶的诱导合成是指：",
+                options: ["A. 酶活性增加", "B. 酶稳定性提高", "C. 底物诱导酶的合成", "D. 产物诱导酶的合成"],
+                correct: 2,
+                explanation: "正确答案是C。酶的诱导合成是指当底物浓度增加时，诱导相关酶的基因表达和蛋白质合成，从而增加酶的数量来适应代谢需要。"
+            },
+            {
+                question: "柠檬酸循环属于：",
+                options: ["A. 线性代谢途径", "B. 循环代谢途径", "C. 分支代谢途径", "D. 汇聚代谢途径"],
+                correct: 1,
+                explanation: "正确答案是B。柠檬酸循环是典型的循环代谢途径，乙酰辅酶A进入循环后，经过一系列反应最终回到起始的草酰乙酸，形成完整的循环。"
+            },
+            {
+                question: "下列哪个过程主要在线粒体中进行：",
+                options: ["A. 糖酵解", "B. 脂肪酸合成", "C. 脂肪酸氧化", "D. 戊糖磷酸途径"],
+                correct: 2,
+                explanation: "正确答案是C。脂肪酸的β氧化主要在线粒体基质中进行，而糖酵解、脂肪酸合成、戊糖磷酸途径主要在细胞质中进行。"
+            },
+            {
+                question: "共价修饰调节中最常见的是：",
+                options: ["A. 甲基化", "B. 磷酸化", "C. 乙酰化", "D. 泛素化"],
+                correct: 1,
+                explanation: "正确答案是B。磷酸化/去磷酸化是最常见的共价修饰调节方式，能够快速、可逆地调节酶活性，广泛参与代谢调节、信号转导等过程。"
+            },
+            {
+                question: "代谢途径的调节主要发生在：",
+                options: ["A. 所有反应步骤", "B. 第一个反应", "C. 限速步骤", "D. 最后一个反应"],
+                correct: 2,
+                explanation: "正确答案是C。代谢途径的调节主要发生在限速步骤，这些步骤通常是不可逆反应，具有较大的自由能变化，是整个途径的控制点。"
+            },
+            {
+                question: "下列关于异化作用的描述，正确的是：",
+                options: ["A. 消耗ATP", "B. 合成大分子", "C. 分解大分子，释放能量", "D. 需要NADPH参与"],
+                correct: 2,
+                explanation: "正确答案是C。异化作用是分解代谢，将大分子分解为小分子，释放能量，产生ATP，为细胞的各种生命活动提供能量。"
+            },
+            {
+                question: "能荷（energy charge）的计算公式是：",
+                options: ["A. [ATP]/([ATP]+[ADP]+[AMP])", "B. ([ATP]+0.5[ADP])/([ATP]+[ADP]+[AMP])", "C. [ATP]/[ADP]", "D. ([ATP]+[ADP])/[AMP]"],
+                correct: 1,
+                explanation: "正确答案是B。能荷的计算公式是([ATP]+0.5[ADP])/([ATP]+[ADP]+[AMP])，反映细胞的能量状态，正常细胞的能荷约为0.8-0.95。"
+            },
+            {
+                question: "下列哪种辅酶主要参与氧化还原反应：",
+                options: ["A. 辅酶A", "B. NAD+", "C. 生物素", "D. 叶酸"],
+                correct: 1,
+                explanation: "正确答案是B。NAD+/NADH是重要的氧化还原辅酶，参与多种代谢途径中的氧化还原反应，如糖酵解、柠檬酸循环等。"
+            },
+            {
+                question: "代谢网络的特点不包括：",
+                options: ["A. 途径间相互关联", "B. 具有调节节点", "C. 所有反应同时进行", "D. 存在代谢流"],
+                correct: 2,
+                explanation: "正确答案是C。代谢网络中的反应不是同时进行的，而是根据细胞需要和调节信号有选择性地进行，这正是代谢调节的意义所在。"
+            },
+            {
+                question: "前馈调节的特点是：",
+                options: ["A. 产物调节酶活性", "B. 底物或前体调节下游酶活性", "C. 只能是抑制性调节", "D. 调节速度很慢"],
+                correct: 1,
+                explanation: "正确答案是B。前馈调节是指底物或前体物质调节代谢途径下游酶的活性，可以预先调节代谢流量，避免代谢物堆积。"
+            },
+            {
+                question: "下列关于代谢稳态的描述，错误的是：",
+                options: ["A. 代谢物浓度保持相对恒定", "B. 代谢流量可以调节", "C. 所有代谢物浓度完全不变", "D. 是动态平衡状态"],
+                correct: 2,
+                explanation: "正确答案是C。代谢稳态是动态平衡，代谢物浓度在一定范围内波动，而不是完全不变，这种波动正是调节机制发挥作用的体现。"
+            },
+            {
+                question: "酶的阻遏合成是指：",
+                options: ["A. 酶活性被抑制", "B. 终产物抑制酶的合成", "C. 酶被降解", "D. 酶失去活性"],
+                correct: 1,
+                explanation: "正确答案是B。酶的阻遏合成是指当终产物浓度高时，抑制相关酶的基因表达和蛋白质合成，从而减少酶的数量。"
+            },
+            {
+                question: "下列哪个过程主要在细胞质中进行：",
+                options: ["A. 柠檬酸循环", "B. 电子传递链", "C. 糖酵解", "D. β氧化"],
+                correct: 2,
+                explanation: "正确答案是C。糖酵解主要在细胞质中进行，而柠檬酸循环、电子传递链、β氧化主要在线粒体中进行。"
+            },
+            {
+                question: "代谢流（metabolic flux）是指：",
+                options: ["A. 代谢物的浓度", "B. 酶的活性", "C. 单位时间内通过代谢途径的物质量", "D. 代谢途径的数量"],
+                correct: 2,
+                explanation: "正确答案是C。代谢流是指单位时间内通过特定代谢途径的物质量，反映代谢途径的活跃程度和效率。"
+            },
+            {
+                question: "胰高血糖素对代谢的主要调节作用是：",
+                options: ["A. 促进合成代谢", "B. 促进分解代谢", "C. 抑制所有代谢", "D. 只调节脂代谢"],
+                correct: 1,
+                explanation: "正确答案是B。胰高血糖素是分解代谢激素，促进糖原分解、糖异生、脂肪分解等分解代谢过程，升高血糖。"
+            },
+            {
+                question: "下列关于酶活性调节的描述，错误的是：",
+                options: ["A. 变构调节是快速调节", "B. 共价修饰调节是中等速度调节", "C. 酶含量调节是慢速调节", "D. 所有调节方式速度相同"],
+                correct: 3,
+                explanation: "正确答案是D。不同的酶活性调节方式速度不同：变构调节最快（秒级），共价修饰调节中等（分钟级），酶含量调节最慢（小时级）。"
+            },
+            {
+                question: "代谢途径的分支点通常具有以下特点：",
+                options: ["A. 反应速度最快", "B. 是重要的调节点", "C. 不需要调节", "D. 只有一个产物"],
+                correct: 1,
+                explanation: "正确答案是B。代谢途径的分支点是重要的调节点，通过调节不同分支的活性，细胞可以根据需要将代谢流导向不同的方向。"
+            },
+            {
+                question: "下列哪种方法不能用于研究代谢途径：",
+                options: ["A. 同位素示踪法", "B. 酶抑制剂法", "C. 基因敲除法", "D. 显微镜观察法"],
+                correct: 3,
+                explanation: "正确答案是D。显微镜观察法主要用于观察细胞形态和结构，不能直接研究代谢途径。其他方法都是研究代谢途径的重要手段。"
+            }
+        ];
+
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储正确答案和解析
+            window.currentQuestions = selectedQuestions;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const questions = window.currentQuestions;
+            let score = 0;
+            let results = [];
+            
+            questions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                const isCorrect = userAnswer === q.correct;
+                
+                if (isCorrect) score++;
+                
+                results.push({
+                    question: q.question,
+                    userAnswer: userAnswer,
+                    correctAnswer: q.correct,
+                    isCorrect: isCorrect,
+                    explanation: q.explanation,
+                    options: q.options
+                });
+            });
+            
+            displayResults(score, results);
+        }
+
+        // 显示结果
+        function displayResults(score, results) {
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((score / 15) * 100);
+            
+            let resultHTML = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}/15 (${percentage}%)</strong></p>
+                <div style="margin-top: 20px;">
+            `;
+            
+            results.forEach((result, index) => {
+                const statusColor = result.isCorrect ? '#28a745' : '#dc3545';
+                const statusText = result.isCorrect ? '✓ 正确' : '✗ 错误';
+                
+                resultHTML += `
+                    <div class="explanation" style="border-left-color: ${statusColor}">
+                        <h4>第${index + 1}题 <span style="color: ${statusColor}">${statusText}</span></h4>
+                        <p><strong>题目：</strong>${result.question}</p>
+                        ${result.userAnswer >= 0 ? `<p><strong>你的答案：</strong>${result.options[result.userAnswer]}</p>` : '<p><strong>你的答案：</strong>未作答</p>'}
+                        <p><strong>正确答案：</strong>${result.options[result.correctAnswer]}</p>
+                        <p><strong>解析：</strong>${result.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultHTML += '</div>';
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

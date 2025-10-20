@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第11章 基因组与比较基因组学 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .important {
+            background-color: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #17a2b8;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .term {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .term-english {
+            color: #6c757d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .term-definition {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        
+        /* 选择题样式 */
+        .quiz-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .explanation {
+            margin-top: 10px;
+            font-style: italic;
+            color: #495057;
+        }
+        
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .diagram-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #6c757d;
+        }
+        
+        /* 深度思考题样式 */
+        .thinking-question {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .thinking-answer {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>第11章 基因组与比较基因组学</h1>
+            <p>《现代分子生物学》第五版 - 考研复习笔记</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <h2>一、核心知识体系</h2>
+            
+            <h3>1.1 基因组学概述</h3>
+            <p>基因组学是研究生物体全部DNA序列组织、功能及其相互关系的科学。随着DNA测序技术的飞速发展，基因组学已成为现代分子生物学的核心领域之一。</p>
+            
+            <div class="important">
+                <strong>重要概念：</strong>基因组学不仅研究基因的结构和功能，更关注基因间的相互作用、调控网络以及基因组的整体组织模式。
+            </div>
+            
+            <h3>1.2 人类基因组计划(HGP)</h3>
+            <p>人类基因组计划是20世纪末21世纪初最重要的生物学研究项目之一，与曼哈顿原子弹计划、阿波罗登月计划并称为人类三大科学工程。</p>
+            
+            <div class="diagram">
+                <svg width="600" height="400" viewBox="0 0 600 400">
+                    <!-- HGP时间线图 -->
+                    <defs>
+                        <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 时间轴 -->
+                    <line x1="50" y1="200" x2="550" y2="200" stroke="url(#timelineGrad)" stroke-width="4"/>
+                    
+                    <!-- 关键时间点 -->
+                    <circle cx="100" cy="200" r="8" fill="#e74c3c"/>
+                    <text x="100" y="180" text-anchor="middle" font-size="12" fill="#2c3e50">1990</text>
+                    <text x="100" y="230" text-anchor="middle" font-size="10" fill="#2c3e50">HGP启动</text>
+                    
+                    <circle cx="250" cy="200" r="8" fill="#e74c3c"/>
+                    <text x="250" y="180" text-anchor="middle" font-size="12" fill="#2c3e50">2000</text>
+                    <text x="250" y="230" text-anchor="middle" font-size="10" fill="#2c3e50">工作草图</text>
+                    
+                    <circle cx="400" cy="200" r="8" fill="#e74c3c"/>
+                    <text x="400" y="180" text-anchor="middle" font-size="12" fill="#2c3e50">2003</text>
+                    <text x="400" y="230" text-anchor="middle" font-size="10" fill="#2c3e50">正式完成</text>
+                    
+                    <!-- 标题 -->
+                    <text x="300" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">人类基因组计划时间线</text>
+                    
+                    <!-- 成果框 -->
+                    <rect x="50" y="280" width="500" height="80" fill="#ecf0f1" stroke="#3498db" stroke-width="2" rx="10"/>
+                    <text x="300" y="305" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">主要成果</text>
+                    <text x="70" y="325" font-size="12" fill="#2c3e50">• 测定30亿个碱基对序列</text>
+                    <text x="70" y="340" font-size="12" fill="#2c3e50">• 识别约2-2.5万个人类基因</text>
+                    <text x="70" y="355" font-size="12" fill="#2c3e50">• 建立基因组学和生物信息学技术平台</text>
+                </svg>
+                <div class="diagram-caption">图1：人类基因组计划发展历程及主要成果</div>
+            </div>
+            
+            <div class="highlight">
+                <strong>HGP的重要意义：</strong>
+                <ul>
+                    <li>科学意义：为理解人类遗传信息提供了完整蓝图</li>
+                    <li>技术推动：促进了测序技术和生物信息学的发展</li>
+                    <li>医学应用：为疾病诊断、治疗和预防提供了基础</li>
+                    <li>国际合作：展现了大科学工程的国际合作模式</li>
+                </ul>
+            </div>
+            
+            <h3>1.3 高通量测序技术(NGS)</h3>
+            <p>下一代测序技术(Next-Generation Sequencing, NGS)是相对于传统Sanger测序的革命性技术，具有高通量、低成本、快速等特点。</p>
+            
+            <div class="diagram">
+                <svg width="600" height="350" viewBox="0 0 600 350">
+                    <!-- NGS技术发展图 -->
+                    <defs>
+                        <linearGradient id="ngsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3498db;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:0.8" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 第一代测序 -->
+                    <rect x="50" y="50" width="150" height="80" fill="#e74c3c" rx="10"/>
+                    <text x="125" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="white">第一代测序</text>
+                    <text x="125" y="95" text-anchor="middle" font-size="12" fill="white">Sanger测序</text>
+                    <text x="125" y="110" text-anchor="middle" font-size="10" fill="white">低通量、高成本</text>
+                    
+                    <!-- 第二代测序 -->
+                    <rect x="225" y="50" width="150" height="80" fill="#3498db" rx="10"/>
+                    <text x="300" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="white">第二代测序</text>
+                    <text x="300" y="95" text-anchor="middle" font-size="12" fill="white">NGS</text>
+                    <text x="300" y="110" text-anchor="middle" font-size="10" fill="white">高通量、低成本</text>
+                    
+                    <!-- 第三代测序 -->
+                    <rect x="400" y="50" width="150" height="80" fill="#27ae60" rx="10"/>
+                    <text x="475" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="white">第三代测序</text>
+                    <text x="475" y="95" text-anchor="middle" font-size="12" fill="white">单分子测序</text>
+                    <text x="475" y="110" text-anchor="middle" font-size="10" fill="white">长读长、实时</text>
+                    
+                    <!-- 箭头 -->
+                    <polygon points="210,90 225,85 225,95" fill="#2c3e50"/>
+                    <polygon points="385,90 400,85 400,95" fill="#2c3e50"/>
+                    
+                    <!-- NGS特点 -->
+                    <rect x="100" y="180" width="400" height="120" fill="url(#ngsGrad)" rx="15"/>
+                    <text x="300" y="205" text-anchor="middle" font-size="16" font-weight="bold" fill="white">NGS技术特点</text>
+                    
+                    <text x="130" y="230" font-size="12" fill="white">• 大规模并行测序：同时处理数百万个DNA片段</text>
+                    <text x="130" y="250" font-size="12" fill="white">• 成本大幅降低：从30亿美元降至1000美元以下</text>
+                    <text x="130" y="270" font-size="12" fill="white">• 时间显著缩短：从13年缩短至数天或数周</text>
+                    <text x="130" y="290" font-size="12" fill="white">• 应用领域广泛：基因组、转录组、表观基因组等</text>
+                </svg>
+                <div class="diagram-caption">图2：测序技术发展历程及NGS技术特点</div>
+            </div>
+            
+            <h3>1.4 比较基因组学</h3>
+            <p>比较基因组学是基于基因组图谱和测序基础上，对已知的基因和基因组结构进行比较，来了解基因的功能、表达机理和物种进化的学科。</p>
+            
+            <div class="important">
+                <strong>比较基因组学的核心内容：</strong>
+                <ul>
+                    <li>序列比较：比较不同物种间的DNA序列同源性</li>
+                    <li>结构比较：分析基因组的组织结构和染色体重排</li>
+                    <li>功能比较：研究基因功能的保守性和分化</li>
+                    <li>进化分析：揭示物种间的进化关系和机制</li>
+                </ul>
+            </div>
+            
+            <div class="diagram">
+                <svg width="600" height="300" viewBox="0 0 600 300">
+                    <!-- 比较基因组学示意图 -->
+                    <text x="300" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">比较基因组学研究框架</text>
+                    
+                    <!-- 中心圆 -->
+                    <circle cx="300" cy="150" r="60" fill="#3498db" stroke="#2c3e50" stroke-width="3"/>
+                    <text x="300" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="white">比较</text>
+                    <text x="300" y="160" text-anchor="middle" font-size="12" font-weight="bold" fill="white">基因组学</text>
+                    
+                    <!-- 四个分支 -->
+                    <circle cx="150" cy="80" r="40" fill="#e74c3c"/>
+                    <text x="150" y="75" text-anchor="middle" font-size="10" font-weight="bold" fill="white">序列</text>
+                    <text x="150" y="88" text-anchor="middle" font-size="10" font-weight="bold" fill="white">比较</text>
+                    
+                    <circle cx="450" cy="80" r="40" fill="#27ae60"/>
+                    <text x="450" y="75" text-anchor="middle" font-size="10" font-weight="bold" fill="white">结构</text>
+                    <text x="450" y="88" text-anchor="middle" font-size="10" font-weight="bold" fill="white">比较</text>
+                    
+                    <circle cx="150" cy="220" r="40" fill="#f39c12"/>
+                    <text x="150" y="215" text-anchor="middle" font-size="10" font-weight="bold" fill="white">功能</text>
+                    <text x="150" y="228" text-anchor="middle" font-size="10" font-weight="bold" fill="white">比较</text>
+                    
+                    <circle cx="450" cy="220" r="40" fill="#9b59b6"/>
+                    <text x="450" y="215" text-anchor="middle" font-size="10" font-weight="bold" fill="white">进化</text>
+                    <text x="450" y="228" text-anchor="middle" font-size="10" font-weight="bold" fill="white">分析</text>
+                    
+                    <!-- 连接线 -->
+                    <line x1="260" y1="120" x2="180" y2="100" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="340" y1="120" x2="420" y2="100" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="260" y1="180" x2="180" y2="200" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="340" y1="180" x2="420" y2="200" stroke="#2c3e50" stroke-width="2"/>
+                </svg>
+                <div class="diagram-caption">图3：比较基因组学研究的四个主要方向</div>
+            </div>
+            
+            <h3>1.5 基因组注释与功能分析</h3>
+            <p>基因组注释是识别和标记基因组序列中功能元件的过程，包括基因预测、功能注释和调控元件识别等。</p>
+            
+            <div class="highlight">
+                <strong>基因组注释的主要内容：</strong>
+                <ul>
+                    <li>基因结构注释：外显子、内含子、启动子等</li>
+                    <li>功能注释：蛋白质功能、代谢通路、GO分类等</li>
+                    <li>调控元件注释：转录因子结合位点、增强子等</li>
+                    <li>重复序列注释：转座子、串联重复等</li>
+                </ul>
+            </div>
+            
+            <!-- 名词解释库板块 -->
+            <h2>二、重要名词解释库</h2>
+            
+            <div class="term">
+                <div class="term-name">人类基因组计划</div>
+                <div class="term-english">(Human Genome Project, HGP)</div>
+                <div class="term-definition">
+                    一项规模宏大、跨国跨学科的科学探索工程，旨在测定组成人类染色体的30亿个碱基对的核苷酸序列，绘制人类基因组图谱，识别其载有的基因及其序列，达到破译人类遗传信息的最终目的。该计划于1990年启动，2003年正式完成。
+                </div>
+            </div>
+            
+            <div class="term">
+                <div class="term-name">下一代测序技术</div>
+                <div class="term-english">(Next-Generation Sequencing, NGS)</div>
+                <div class="term-definition">
+                    又称高通量测序，是相对于传统Sanger测序的新一代DNA测序技术。具有高通量、低成本、快速等特点，能够同时对数百万个DNA分子进行并行测序，大大提高了测序效率并降低了成本。
+                </div>
+            </div>
+            
+            <div class="term">
+                <div class="term-name">比较基因组学</div>
+                <div class="term-english">(Comparative Genomics)</div>
+                <div class="term-definition">
+                    基于基因组图谱和测序基础上，对已知的基因和基因组结构进行比较，来了解基因的功能、表达机理和物种进化的学科。利用模式生物基因组与人类基因组之间编码顺序上和结构上的同源性，克隆人类疾病基因，揭示基因功能和疾病分子机制。
+                </div>
+            </div>
+            
+            <div class="term">
+                <div class="term-name">基因组注释</div>
+                <div class="term-english">(Genome Annotation)</div>
+                <div class="term-definition">
+                    识别和标记基因组序列中功能元件的过程，包括基因预测、功能注释、调控元件识别等。通过计算生物学方法和实验验证，为基因组序列赋予生物学意义。
+                </div>
+            </div>
+            
+            <div class="term">
+                <div class="term-name">单核苷酸多态性</div>
+                <div class="term-english">(Single Nucleotide Polymorphism, SNP)</div>
+                <div class="term-definition">
+                    指在基因组水平上由单个核苷酸的变异所引起的DNA序列多态性。是人类可遗传的变异中最常见的一种，占所有已知多态性的90%以上，是个体差异、疾病易感性研究的重要标记。
+                </div>
+            </div>
+            
+            <div class="term">
+                <div class="term-name">表达序列标签</div>
+                <div class="term-english">(Expressed Sequence Tag, EST)</div>
+                <div class="term-definition">
+                    从cDNA文库中随机挑选克隆进行单次测序反应所获得的DNA序列，长度通常为200-800个碱基对。EST代表在特定时间、特定条件下细胞中表达的基因片段，是基因发现和功能研究的重要工具。
+                </div>
+            </div>
+            
+            <div class="term">
+                <div class="term-name">霰弹枪测序法</div>
+                <div class="term-english">(Shotgun Sequencing)</div>
+                <div class="term-definition">
+                    一种DNA测序策略，将基因组随机打断成小片段，对这些片段进行测序，然后通过计算机算法将重叠的序列拼接成完整的基因组序列。该方法大大提高了大基因组测序的效率。
+                </div>
+            </div>
+            
+            <div class="term">
+                <div class="term-name">蛋白质组学</div>
+                <div class="term-english">(Proteomics)</div>
+                <div class="term-definition">
+                    研究细胞、组织或生物体在特定时间和条件下表达的全部蛋白质的科学。包括蛋白质的结构、功能、表达模式、相互作用和修饰等方面的研究，是基因组学研究的重要延伸。
+                </div>
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <h2>三、选择题测试</h2>
+            <div class="quiz-container">
+                <div id="quiz-questions"></div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-results" class="result"></div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <h2>四、深度思考题</h2>
+            
+            <div class="thinking-question">
+                <h3>思考题1：人类基因组计划的完成对现代生物医学研究产生了哪些深远影响？</h3>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>技术革命与平台建设：</strong>HGP的完成催生了高通量测序技术的发展，建立了完整的基因组学和生物信息学技术平台。这些技术不仅大幅降低了测序成本（从30亿美元降至1000美元以下），还提高了测序速度和精度，为后续的各种组学研究奠定了坚实基础。同时，促进了生物信息学算法和数据库的发展，形成了完整的数据存储、分析和共享体系。</li>
+                        <li><strong>疾病研究的范式转变：</strong>HGP为疾病研究提供了全新的视角和方法。通过全基因组关联研究(GWAS)，科学家能够系统性地寻找疾病相关的遗传变异，发现了大量疾病易感基因。这种从单基因到多基因、从候选基因到全基因组的研究范式转变，极大地推进了复杂疾病的遗传学研究，为精准医学的发展提供了理论基础。</li>
+                        <li><strong>个性化医学的兴起：</strong>基于个体基因组信息的个性化医学成为可能。通过分析个体的基因变异，可以预测疾病风险、指导药物选择和剂量调整、制定个性化的治疗方案。药物基因组学的发展使得根据患者基因型选择最适合的药物和剂量成为现实，提高了治疗效果并减少了不良反应。</li>
+                        <li><strong>新兴学科的诞生：</strong>HGP催生了多个新兴交叉学科，如比较基因组学、功能基因组学、表观基因组学、系统生物学等。这些学科从不同角度深入研究基因组的结构、功能和调控机制，形成了多层次、多维度的生命科学研究体系，推动了生命科学的整体发展。</li>
+                        <li><strong>伦理和社会影响：</strong>HGP的完成也带来了重要的伦理和社会问题，如基因隐私保护、基因歧视、基因专利等。这些问题促进了生命伦理学的发展，推动了相关法律法规的制定，为基因组时代的社会治理提供了重要参考。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h3>思考题2：比较基因组学在揭示生物进化机制方面有哪些重要贡献？</h3>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>分子进化钟的精确化：</strong>通过比较不同物种间同源基因的序列差异，比较基因组学为分子进化钟提供了更加精确的数据支持。科学家可以根据中性突变的积累速率推算物种分化的时间，重建生命之树的时间框架。这种方法结合化石证据，为理解生物进化的时间尺度提供了重要依据。</li>
+                        <li><strong>基因组重排与物种分化：</strong>比较基因组学揭示了基因组重排在物种分化中的重要作用。通过比较不同物种的基因组结构，发现了大量的染色体重排、基因重复、基因缺失等事件。这些结构变异不仅是物种分化的重要驱动力，也是适应性进化的重要机制。例如，人类与黑猩猩基因组的比较揭示了人类特有的染色体重排事件。</li>
+                        <li><strong>基因功能的保守性与分化：</strong>比较基因组学研究发现，许多基因在不同物种间高度保守，反映了这些基因的重要功能。同时，也发现了基因功能的分化现象，如基因重复后的功能分化、调控序列的进化等。这些发现为理解基因功能的进化提供了重要线索。</li>
+                        <li><strong>适应性进化的分子机制：</strong>通过比较不同环境下物种的基因组，比较基因组学揭示了适应性进化的分子机制。例如，高原适应、极地适应等特殊环境适应的基因组基础，为理解生物如何适应环境变化提供了重要信息。</li>
+                        <li><strong>人类进化的独特性：</strong>人类基因组与其他灵长类动物的比较研究，揭示了人类进化的独特性。发现了人类特有的基因、调控序列和表达模式，为理解人类的认知能力、语言能力等独特特征的进化基础提供了重要线索。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h3>思考题3：高通量测序技术的发展如何推动了功能基因组学研究的进展？</h3>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>转录组学研究的革命：</strong>RNA-seq技术的出现彻底改变了转录组研究。与传统的芯片技术相比，RNA-seq能够检测全部转录本，包括新的转录本、剪接变体、非编码RNA等。这种全转录组的检测能力为理解基因表达调控、剪接调控、非编码RNA功能等提供了前所未有的分辨率和深度。</li>
+                        <li><strong>表观基因组学的兴起：</strong>高通量测序技术使得全基因组范围内的表观遗传修饰检测成为可能。ChIP-seq、ATAC-seq、BS-seq等技术的发展，为研究DNA甲基化、组蛋白修饰、染色质可及性等表观遗传现象提供了强大工具。这些研究揭示了表观遗传在基因调控、细胞分化、疾病发生中的重要作用。</li>
+                        <li><strong>单细胞基因组学的突破：</strong>单细胞测序技术的发展使得在单细胞水平研究基因组、转录组、表观基因组成为可能。这种技术揭示了细胞异质性、细胞分化轨迹、细胞间相互作用等重要生物学现象，为理解发育生物学、肿瘤生物学、免疫学等领域的复杂问题提供了新的视角。</li>
+                        <li><strong>功能基因组学研究方法的创新：</strong>高通量测序技术与基因编辑技术的结合，催生了大量功能基因组学研究方法。如CRISPR筛选、CRISPRi/CRISPRa、基因扰动-测序等技术，使得大规模、系统性的基因功能研究成为可能。这些方法为理解基因网络、信号通路、基因相互作用提供了强大工具。</li>
+                        <li><strong>多组学整合分析的发展：</strong>高通量测序技术的标准化和成本降低，使得同时进行多种组学研究成为可能。基因组、转录组、蛋白质组、代谢组等多组学数据的整合分析，为系统性理解生物学过程提供了全新的研究范式。这种系统生物学方法为理解复杂生物学现象和疾病机制提供了更加全面和深入的视角。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "人类基因组计划(HGP)正式启动的年份是：",
+                options: ["A. 1988年", "B. 1990年", "C. 1992年", "D. 1995年"],
+                correct: 1,
+                explanation: "人类基因组计划于1990年正式启动，由美国能源部和国家卫生研究院投资，预期在15年内完成。"
+            },
+            {
+                question: "人类基因组包含大约多少个碱基对？",
+                options: ["A. 10亿", "B. 20亿", "C. 30亿", "D. 40亿"],
+                correct: 2,
+                explanation: "人类基因组包含大约30亿个碱基对的DNA序列，这是HGP要测定的目标序列长度。"
+            },
+            {
+                question: "下列哪项不是NGS技术相比传统Sanger测序的优势？",
+                options: ["A. 高通量", "B. 低成本", "C. 长读长", "D. 快速"],
+                correct: 2,
+                explanation: "NGS技术的主要优势是高通量、低成本和快速，但读长相对较短是其劣势，通常在35-700bp范围内。"
+            },
+            {
+                question: "EST序列的全称是：",
+                options: ["A. Expressed Sequence Tag", "B. Extended Sequence Tag", "C. Experimental Sequence Tag", "D. Essential Sequence Tag"],
+                correct: 0,
+                explanation: "EST是Expressed Sequence Tag的缩写，即表达序列标签，代表在特定条件下细胞中表达的基因片段。"
+            },
+            {
+                question: "比较基因组学的主要研究内容不包括：",
+                options: ["A. 序列比较", "B. 结构比较", "C. 蛋白质合成", "D. 进化分析"],
+                correct: 2,
+                explanation: "比较基因组学主要包括序列比较、结构比较、功能比较和进化分析，蛋白质合成不是其主要研究内容。"
+            },
+            {
+                question: "人类基因组计划的工作草图发表于：",
+                options: ["A. 2000年", "B. 2001年", "C. 2002年", "D. 2003年"],
+                correct: 1,
+                explanation: "人类基因组工作草图于2000年6月问世，2001年2月完成并发表了工作草案。"
+            },
+            {
+                question: "SNP是指：",
+                options: ["A. 短串联重复", "B. 单核苷酸多态性", "C. 序列标签", "D. 信号肽"],
+                correct: 1,
+                explanation: "SNP是Single Nucleotide Polymorphism的缩写，即单核苷酸多态性，是人类可遗传变异中最常见的一种。"
+            },
+            {
+                question: "霰弹枪测序法的基本原理是：",
+                options: ["A. 逐个测序每个基因", "B. 随机打断后拼接", "C. 按染色体顺序测序", "D. 只测序编码区"],
+                correct: 1,
+                explanation: "霰弹枪测序法将基因组随机打断成小片段，测序后通过计算机算法拼接成完整序列。"
+            },
+            {
+                question: "中国在人类基因组计划中承担的测序任务比例是：",
+                options: ["A. 0.5%", "B. 1%", "C. 2%", "D. 3%"],
+                correct: 1,
+                explanation: "中国承担了人类基因组计划1%的测序任务，成为第六个加入该组织的国家。"
+            },
+            {
+                question: "下列哪种技术属于第三代测序技术？",
+                options: ["A. Illumina", "B. 454测序", "C. PacBio", "D. SOLiD"],
+                correct: 2,
+                explanation: "PacBio属于第三代测序技术，特点是单分子测序、长读长和实时检测。"
+            },
+            {
+                question: "基因组注释的主要目的是：",
+                options: ["A. 测定DNA序列", "B. 识别功能元件", "C. 扩增DNA片段", "D. 合成蛋白质"],
+                correct: 1,
+                explanation: "基因组注释是识别和标记基因组序列中功能元件的过程，为序列赋予生物学意义。"
+            },
+            {
+                question: "人类基因组计划正式完成的时间是：",
+                options: ["A. 2001年4月", "B. 2002年4月", "C. 2003年4月", "D. 2004年4月"],
+                correct: 2,
+                explanation: "人类基因组计划于2003年4月13日正式宣布完成，历时13年。"
+            },
+            {
+                question: "下列哪项是NGS技术的局限性？",
+                options: ["A. 通量低", "B. 成本高", "C. 读长短", "D. 速度慢"],
+                correct: 2,
+                explanation: "NGS技术的主要局限性是读长较短，通常在35-700bp范围内，这影响了复杂区域的组装。"
+            },
+            {
+                question: "蛋白质组学研究的对象是：",
+                options: ["A. 全部DNA", "B. 全部RNA", "C. 全部蛋白质", "D. 全部代谢物"],
+                correct: 2,
+                explanation: "蛋白质组学研究细胞、组织或生物体在特定条件下表达的全部蛋白质。"
+            },
+            {
+                question: "国际人类基因组组织(HUGO)成立于：",
+                options: ["A. 1986年", "B. 1988年", "C. 1990年", "D. 1992年"],
+                correct: 1,
+                explanation: "国际人类基因组组织(HUGO)于1988年在维克多·马克库斯克等科学家的倡导下成立。"
+            },
+            {
+                question: "EST序列的典型长度范围是：",
+                options: ["A. 50-100bp", "B. 200-800bp", "C. 1000-2000bp", "D. 3000-5000bp"],
+                correct: 1,
+                explanation: "EST序列长度通常为200-800个碱基对，代表cDNA文库中随机挑选克隆的单次测序结果。"
+            },
+            {
+                question: "下列哪个不是比较基因组学的应用？",
+                options: ["A. 疾病基因克隆", "B. 物种进化研究", "C. DNA复制", "D. 基因功能预测"],
+                correct: 2,
+                explanation: "比较基因组学主要应用于疾病基因克隆、物种进化研究和基因功能预测，DNA复制是细胞生物学过程。"
+            },
+            {
+                question: "人类基因组中编码蛋白质的基因大约有：",
+                options: ["A. 1-1.5万个", "B. 2-2.5万个", "C. 3-3.5万个", "D. 4-4.5万个"],
+                correct: 1,
+                explanation: "人类基因组包含大约2-2.5万个编码蛋白质的基因，这个数目比最初预期的要少。"
+            },
+            {
+                question: "下列哪种方法不属于NGS技术？",
+                options: ["A. 边合成边测序", "B. 边连接边测序", "C. 链终止法", "D. 单分子测序"],
+                correct: 2,
+                explanation: "链终止法是传统Sanger测序的原理，不属于NGS技术。NGS主要包括边合成边测序和边连接边测序。"
+            },
+            {
+                question: "基因组学研究的核心内容不包括：",
+                options: ["A. 基因结构", "B. 基因功能", "C. 基因调控", "D. 蛋白质折叠"],
+                correct: 3,
+                explanation: "基因组学主要研究基因的结构、功能和调控，蛋白质折叠属于结构生物学研究范畴。"
+            },
+            {
+                question: "塞雷拉基因组公司采用的测序策略是：",
+                options: ["A. 克隆步移法", "B. 霰弹枪测序法", "C. 引物步移法", "D. 染色体步移法"],
+                correct: 1,
+                explanation: "塞雷拉基因组公司采用了更快速的霰弹枪测序法，这是一种风险较高但效率更高的策略。"
+            },
+            {
+                question: "下列哪项不是基因组注释的内容？",
+                options: ["A. 基因预测", "B. 功能注释", "C. DNA合成", "D. 调控元件识别"],
+                correct: 2,
+                explanation: "基因组注释包括基因预测、功能注释和调控元件识别，DNA合成是细胞生物学过程。"
+            },
+            {
+                question: "人类基因组计划的总投资约为：",
+                options: ["A. 10亿美元", "B. 20亿美元", "C. 30亿美元", "D. 40亿美元"],
+                correct: 2,
+                explanation: "人类基因组计划历时13年，总投资约38亿美元，现在个人基因组测序成本已降至1000美元以下。"
+            },
+            {
+                question: "下列哪种技术可以检测全转录组？",
+                options: ["A. 基因芯片", "B. RNA-seq", "C. PCR", "D. 蛋白质印迹"],
+                correct: 1,
+                explanation: "RNA-seq技术能够检测全转录组，包括新的转录本、剪接变体、非编码RNA等。"
+            },
+            {
+                question: "比较基因组学中同源性分析的主要目的是：",
+                options: ["A. 测定序列长度", "B. 预测基因功能", "C. 计算GC含量", "D. 确定转录起始位点"],
+                correct: 1,
+                explanation: "同源性分析通过比较不同物种间的序列相似性来预测基因功能和进化关系。"
+            },
+            {
+                question: "单细胞测序技术的主要优势是：",
+                options: ["A. 成本低", "B. 通量高", "C. 揭示细胞异质性", "D. 读长长"],
+                correct: 2,
+                explanation: "单细胞测序技术的主要优势是能够揭示细胞异质性，在单细胞水平研究基因表达。"
+            },
+            {
+                question: "表观基因组学主要研究：",
+                options: ["A. DNA序列变异", "B. RNA剪接", "C. DNA甲基化等修饰", "D. 蛋白质结构"],
+                correct: 2,
+                explanation: "表观基因组学主要研究DNA甲基化、组蛋白修饰等表观遗传修饰现象。"
+            },
+            {
+                question: "GWAS研究的全称是：",
+                options: ["A. 全基因组关联研究", "B. 全基因组注释研究", "C. 全基因组组装研究", "D. 全基因组分析研究"],
+                correct: 0,
+                explanation: "GWAS是Genome-Wide Association Study的缩写，即全基因组关联研究，用于寻找疾病相关的遗传变异。"
+            },
+            {
+                question: "下列哪项技术不属于表观基因组学研究方法？",
+                options: ["A. ChIP-seq", "B. ATAC-seq", "C. BS-seq", "D. WGS"],
+                correct: 3,
+                explanation: "WGS(全基因组测序)属于基因组学研究方法，ChIP-seq、ATAC-seq、BS-seq都是表观基因组学研究方法。"
+            },
+            {
+                question: "功能基因组学的主要研究目标是：",
+                options: ["A. 测定基因序列", "B. 理解基因功能", "C. 合成基因", "D. 克隆基因"],
+                correct: 1,
+                explanation: "功能基因组学的主要目标是理解基因的功能、表达调控和相互作用机制。"
+            }
+        ];
+        
+        let selectedQuestions = [];
+        let userAnswers = [];
+        
+        // 随机选择15道题
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+        }
+        
+        // 渲染题目
+        function renderQuestions() {
+            const container = document.getElementById('quiz-questions');
+            let html = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                html += `
+                    <div class="question">
+                        <div class="question-text">${index + 1}. ${q.question}</div>
+                        ${q.options.map((option, optIndex) => `
+                            <label class="option">
+                                <input type="radio" name="q${index}" value="${optIndex}">
+                                ${option}
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // 提交答案
+        function submitQuiz() {
+            userAnswers = [];
+            let score = 0;
+            
+            // 收集用户答案
+            selectedQuestions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                userAnswers.push(userAnswer);
+                
+                if (userAnswer === q.correct) {
+                    score++;
+                }
+            });
+            
+            // 显示结果
+            showResults(score);
+        }
+        
+        // 显示结果
+        function showResults(score) {
+            const resultsContainer = document.getElementById('quiz-results');
+            const percentage = Math.round((score / 15) * 100);
+            
+            let html = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}/15 (${percentage}%)</strong></p>
+                <div style="margin-top: 20px;">
+            `;
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
+                
+                html += `
+                    <div style="background-color: ${bgColor}; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid ${isCorrect ? '#c3e6cb' : '#f5c6cb'};">
+                        <div><strong>第${index + 1}题：</strong>${q.question}</div>
+                        <div style="margin: 10px 0;">
+                            ${q.options.map((option, optIndex) => {
+                                let style = '';
+                                if (optIndex === q.correct) {
+                                    style = 'color: #155724; font-weight: bold;';
+                                } else if (optIndex === userAnswer && userAnswer !== q.correct) {
+                                    style = 'color: #721c24; text-decoration: line-through;';
+                                }
+                                return `<div style="${style}">${option}</div>`;
+                            }).join('')}
+                        </div>
+                        <div class="explanation"><strong>解析：</strong>${q.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            resultsContainer.innerHTML = html;
+            resultsContainer.style.display = 'block';
+        }
+        
+        // 页面加载时初始化
+        window.onload = function() {
+            selectRandomQuestions();
+            renderQuestions();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第4章 蛋白质的生物学功能 - 复习笔记</title>
+    <style>
+        /* 基础样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #34495e;
+            margin: 20px 0 15px 0;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: #34495e;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            text-indent: 0;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 10px 10px 0;
+            transition: background 0.3s ease;
+        }
+
+        .quiz-button:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #f39c12;
+        }
+
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>第4章 蛋白质的生物学功能</h1>
+            <p>考研生物化学复习笔记 | 基于《生物化学》第四版</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2 class="section-title">一、蛋白质功能的多样性</h2>
+                
+                <p>蛋白质是生命活动的主要承担者，其功能极其多样化。根据功能可归纳为以下几个方面：</p>
+                
+                <ol>
+                    <li><span class="highlight">催化和转化功能</span>：酶是最重要的生物催化剂，几乎所有的生化反应都需要酶的参与</li>
+                    <li><span class="highlight">信号分子和信号转导器</span>：激素、细胞因子等起信息传递作用</li>
+                    <li><span class="highlight">转运专一的分子和物质</span>：如血红蛋白转运氧气，载体蛋白转运离子</li>
+                    <li><span class="highlight">结构和支撑成分</span>：如胶原蛋白、角蛋白等构成细胞骨架</li>
+                    <li><span class="highlight">运动和动力作用</span>：如肌动蛋白、肌球蛋白参与肌肉收缩</li>
+                    <li><span class="highlight">防卫和保护功能</span>：如免疫球蛋白参与免疫反应</li>
+                    <li><span class="highlight">养分贮库</span>：如卵白蛋白、酪蛋白等贮存营养物质</li>
+                    <li><span class="highlight">支架或衔接作用</span>：连接不同的生物分子或细胞结构</li>
+                </ol>
+                
+                <p class="important">重要提示：在生物体中，蛋白质行使功能时几乎都是在多种蛋白质协同下完成的。</p>
+            </div>
+
+            <!-- 血红蛋白和肌红蛋白 -->
+            <div class="section">
+                <h2 class="section-title">二、血红蛋白和肌红蛋白的结构与功能</h2>
+                
+                <h3>（一）结构特征比较</h3>
+                
+                <table>
+                    <tr>
+                        <th>特征</th>
+                        <th>肌红蛋白（Mb）</th>
+                        <th>血红蛋白（Hb）</th>
+                    </tr>
+                    <tr>
+                        <td>分子组成</td>
+                        <td>单体蛋白，153个氨基酸残基</td>
+                        <td>四聚体蛋白，α₂β₂结构</td>
+                    </tr>
+                    <tr>
+                        <td>血红素数量</td>
+                        <td>1个血红素辅基</td>
+                        <td>4个血红素辅基</td>
+                    </tr>
+                    <tr>
+                        <td>二级结构</td>
+                        <td>8个α螺旋片段，约80%为α螺旋</td>
+                        <td>每个亚基含8个α螺旋片段</td>
+                    </tr>
+                    <tr>
+                        <td>氧合曲线</td>
+                        <td>双曲线型</td>
+                        <td>S形曲线</td>
+                    </tr>
+                    <tr>
+                        <td>主要功能</td>
+                        <td>贮存氧气</td>
+                        <td>运输氧气</td>
+                    </tr>
+                </table>
+                
+                <h3>（二）血红素结构与氧结合机制</h3>
+                
+                <div class="diagram">
+                    <svg width="400" height="300" viewBox="0 0 400 300">
+                        <!-- 血红素环结构 -->
+                        <circle cx="200" cy="150" r="80" fill="none" stroke="#e74c3c" stroke-width="3"/>
+                        <circle cx="200" cy="150" r="60" fill="none" stroke="#e74c3c" stroke-width="2"/>
+                        <circle cx="200" cy="150" r="40" fill="none" stroke="#e74c3c" stroke-width="2"/>
+                        <circle cx="200" cy="150" r="20" fill="none" stroke="#e74c3c" stroke-width="2"/>
+                        
+                        <!-- 中心铁原子 -->
+                        <circle cx="200" cy="150" r="8" fill="#8b4513"/>
+                        <text x="210" y="155" font-size="12" fill="#8b4513">Fe²⁺</text>
+                        
+                        <!-- 配位键 -->
+                        <line x1="200" y1="150" x2="200" y2="100" stroke="#3498db" stroke-width="2"/>
+                        <text x="205" y="95" font-size="10" fill="#3498db">O₂结合位点</text>
+                        
+                        <line x1="200" y1="150" x2="200" y2="200" stroke="#2ecc71" stroke-width="2"/>
+                        <text x="205" y="215" font-size="10" fill="#2ecc71">His F8</text>
+                        
+                        <!-- 卟啉环标注 -->
+                        <text x="120" y="80" font-size="12" fill="#e74c3c">卟啉环</text>
+                        <text x="50" y="150" font-size="14" fill="#2c3e50" font-weight="bold">血红素结构</text>
+                    </svg>
+                </div>
+                
+                <p>血红素是由<span class="highlight">原卟啉IX与Fe²⁺</span>形成的络合物。Fe²⁺具有6个配位键：</p>
+                <ul>
+                    <li>4个配位键与卟啉环的4个氮原子结合</li>
+                    <li>第5配位键与近端组氨酸（His F8）结合</li>
+                    <li>第6配位键与氧分子可逆结合</li>
+                </ul>
+                
+                <h3>（三）氧合曲线的生理意义</h3>
+                
+                <h4>1. 肌红蛋白的氧合曲线（双曲线型）</h4>
+                <p>肌红蛋白的氧合曲线呈<span class="highlight">双曲线</span>特征，表明：</p>
+                <ul>
+                    <li>在低氧分压时对氧有<span class="important">高亲和力</span></li>
+                    <li>有利于从含氧量少的血液中吸取氧气</li>
+                    <li>适合作为<span class="highlight">氧气贮存蛋白</span></li>
+                    <li>P₅₀值约为2 torr，在组织中能有效贮存氧气</li>
+                </ul>
+                
+                <h4>2. 血红蛋白的氧合曲线（S形曲线）</h4>
+                <p>血红蛋白的氧合曲线呈<span class="highlight">S形</span>特征，表明：</p>
+                <ul>
+                    <li>在低氧分压时对氧有<span class="important">低亲和力</span></li>
+                    <li>在高氧分压时对氧有<span class="important">高亲和力</span></li>
+                    <li>P₅₀值约为26 torr，适合氧气运输</li>
+                    <li>体现了亚基间的<span class="highlight">协同效应</span></li>
+                </ul>
+            </div>
+
+            <!-- 血红蛋白的别构效应 -->
+            <div class="section">
+                <h2 class="section-title">三、血红蛋白的别构效应</h2>
+                
+                <h3>（一）别构效应的基本概念</h3>
+                <p><span class="highlight">别构效应（Allosteric Effects）</span>是指一个配体与蛋白质结合影响该蛋白质的其余结合位点与其配体的亲和性的现象。</p>
+                
+                <h4>关键要素：</h4>
+                <ul>
+                    <li><span class="highlight">配体（Ligand）</span>：与蛋白质结合的物质</li>
+                    <li><span class="highlight">别构效应剂</span>：与别构部位结合，引起别构效应的配体</li>
+                    <li><span class="highlight">协同性</span>：用Hill系数（nH）来量度</li>
+                </ul>
+                
+                <h3>（二）血红蛋白的构象变化</h3>
+                
+                <h4>1. T态和R态</h4>
+                <ul>
+                    <li><span class="highlight">T态（紧张态）</span>：脱氧血红蛋白的构象，对氧亲和力低</li>
+                    <li><span class="highlight">R态（松弛态）</span>：氧合血红蛋白的构象，对氧亲和力高</li>
+                </ul>
+                
+                <h4>2. 协同结合机制</h4>
+                <p>血红蛋白的协同结合过程：</p>
+                <ol>
+                    <li>第一个亚基与O₂结合后，促进第二个亚基与O₂结合</li>
+                    <li>前三个亚基与O₂结合后，大大促进第四个亚基与O₂结合</li>
+                    <li>α/β亚基对旋转并滑动，β亚基间距缩小0.7nm</li>
+                    <li>中央腔变窄，整体构象从T态转向R态</li>
+                </ol>
+                
+                <h3>（三）影响血红蛋白氧亲和力的因素</h3>
+                
+                <h4>1. H⁺的影响（Bohr效应）</h4>
+                <ul>
+                    <li>高浓度质子促进氧从氧合血红蛋白上解离</li>
+                    <li>pH降低时，血红蛋白对氧的亲和力<span class="important">降低</span></li>
+                    <li>有利于在代谢活跃的组织中释放氧气</li>
+                </ul>
+                
+                <h4>2. CO₂的影响</h4>
+                <ul>
+                    <li>CO₂与脱氧血红蛋白中未解离的α氨基反应</li>
+                    <li>形成氨基甲酸，参与盐键形成</li>
+                    <li>稳定脱氧血红蛋白（T态）</li>
+                </ul>
+                
+                <h4>3. 2,3-二磷酸甘油酸（BPG）的影响</h4>
+                <ul>
+                    <li>BPG带多个负电荷，结合在脱氧血红蛋白的中央腔</li>
+                    <li>与β链His₁₆₃的正电荷结合</li>
+                    <li>降低血红蛋白对氧的亲和力</li>
+                    <li>促进氧气在组织中的释放</li>
+                </ul>
+            </div>
+
+            <!-- 镰刀形红细胞贫血症 -->
+            <div class="section">
+                <h2 class="section-title">四、镰刀形红细胞贫血症</h2>
+                
+                <h3>（一）分子机制</h3>
+                <p><span class="highlight">镰刀形红细胞贫血症</span>是蛋白质氨基酸序列变化对其构象和功能影响的典型例子。</p>
+                
+                <h4>1. 氨基酸序列差异</h4>
+                <ul>
+                    <li><span class="highlight">正常血红蛋白（HbA）</span>：β链第6位为谷氨酸（Glu）</li>
+                    <li><span class="highlight">异常血红蛋白（HbS）</span>：β链第6位为缬氨酸（Val）</li>
+                    <li>仅一个氨基酸的改变导致严重的功能缺陷</li>
+                </ul>
+                
+                <h4>2. 构象变化</h4>
+                <ul>
+                    <li>HbA的β链6位Glu位于分子表面，带负电荷</li>
+                    <li>HbS的β链6位Val为疏水氨基酸</li>
+                    <li>形成"黏性"突起，导致HbS分子自发聚合</li>
+                    <li>产生纤维状沉淀，压迫红细胞变形为镰刀状</li>
+                </ul>
+                
+                <h3>（二）临床意义</h3>
+                <ul>
+                    <li>纯合子患者出现严重的慢性贫血</li>
+                    <li>红细胞寿命缩短，容易破裂</li>
+                    <li>血管阻塞，引起疼痛危象</li>
+                    <li>杂合子患者对疟疾有一定抗性</li>
+                </ul>
+            </div>
+
+            <!-- 免疫球蛋白 -->
+            <div class="section">
+                <h2 class="section-title">五、免疫系统和免疫球蛋白</h2>
+                
+                <h3>（一）抗体的结构特征</h3>
+                
+                <h4>1. 基本结构</h4>
+                <ul>
+                    <li>由<span class="highlight">两条轻链和两条重链</span>组成</li>
+                    <li>通过非共价键和共价键（二硫键）连接</li>
+                    <li>总体形状类似英文字母"Y"</li>
+                    <li>分子量约为150,000 Da</li>
+                </ul>
+                
+                <h4>2. 功能区域</h4>
+                <ul>
+                    <li><span class="highlight">免疫球蛋白结构域</span>：由7段β折叠组成</li>
+                    <li><span class="highlight">CDR区</span>：抗体识别抗原的位置</li>
+                    <li>位于重链和轻链的第1个免疫球蛋白结构域</li>
+                    <li>含有3个特殊的氨基酸序列，高度可变</li>
+                </ul>
+                
+                <h3>（二）抗原-抗体相互作用</h3>
+                <ul>
+                    <li>抗原通过<span class="highlight">分子表面互补</span>结合到抗体的CDR区</li>
+                    <li>结合具有高度的特异性</li>
+                    <li>涉及多种非共价相互作用</li>
+                    <li>可发生诱导契合现象</li>
+                </ul>
+            </div>
+
+            <!-- 肌动蛋白和肌球蛋白 -->
+            <div class="section">
+                <h2 class="section-title">六、肌动蛋白、肌球蛋白和分子马达</h2>
+                
+                <h3>（一）肌球蛋白的结构与功能</h3>
+                
+                <h4>1. 分子组成</h4>
+                <ul>
+                    <li>由<span class="highlight">2条重链（H链）和4条轻链（L链）</span>组成</li>
+                    <li>相对分子质量约520,000</li>
+                    <li>形成豆芽状结构：头部和尾部</li>
+                </ul>
+                
+                <h4>2. 功能特征</h4>
+                <ul>
+                    <li>头部具有<span class="highlight">ATP酶活性</span></li>
+                    <li>催化ATP水解，提供肌肉收缩的能量</li>
+                    <li>多个肌球蛋白分子形成<span class="highlight">粗丝</span></li>
+                </ul>
+                
+                <h3>（二）肌动蛋白的结构与功能</h3>
+                
+                <h4>1. 分子形式</h4>
+                <ul>
+                    <li><span class="highlight">G-肌动蛋白</span>：球状单体形式</li>
+                    <li><span class="highlight">F-肌动蛋白</span>：纤维状聚合形式</li>
+                    <li>两根F-肌动蛋白链形成双股绳索结构</li>
+                </ul>
+                
+                <h4>2. 细丝组成</h4>
+                <ul>
+                    <li><span class="highlight">细丝</span>由F-肌动蛋白、原肌球蛋白和肌钙蛋白组成</li>
+                    <li>每个肌动蛋白分子都与ADP结合</li>
+                    <li>是肌肉收缩的基本单位</li>
+                </ul>
+                
+                <h3>（三）肌肉收缩机制</h3>
+                
+                <h4>1. 滑丝理论</h4>
+                <ul>
+                    <li>粗丝（肌球蛋白）沿细丝（肌动蛋白）滑行</li>
+                    <li>肌节长度缩短，但丝的长度不变</li>
+                    <li>ATP提供收缩所需的能量</li>
+                </ul>
+                
+                <h4>2. 收缩循环</h4>
+                <ol>
+                    <li>肌球蛋白-ATP复合物与肌动蛋白亲和力低</li>
+                    <li>ATP水解为ADP+Pi，肌球蛋白构象改变</li>
+                    <li>肌球蛋白-ADP-Pi与肌动蛋白高亲和力结合</li>
+                    <li>Pi释放，发生"动力冲程"</li>
+                    <li>ADP释放，新的ATP结合，循环重新开始</li>
+                </ol>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2 class="section-title">七、重要名词解释</h2>
+                
+                <div class="term">
+                    <div class="term-name">配体<span class="term-english">(Ligand)</span></div>
+                    <div class="term-definition">可和中心原子（金属或类金属）产生键结的原子、分子和离子。在蛋白质功能研究中，泛指与蛋白质结合的物质。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">血红蛋白<span class="term-english">(Hemoglobin, Hb)</span></div>
+                    <div class="term-definition">高等生物体内负责运载氧的四聚体蛋白质，由两条α链和两条β链组成，每个亚基结合一个血红素辅基。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">肌红蛋白<span class="term-english">(Myoglobin, Mb)</span></div>
+                    <div class="term-definition">存在于肌肉细胞中的单体蛋白质，含153个氨基酸残基和一个血红素辅基，主要功能是贮存氧气。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">别构效应<span class="term-english">(Allosteric Effects)</span></div>
+                    <div class="term-definition">一个配体与蛋白质结合影响该蛋白质的其余结合位点与其配体的亲和性的现象。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">协同性<span class="term-english">(Cooperativity)</span></div>
+                    <div class="term-definition">在多亚基蛋白质中，一个配体分子的结合影响其他配体分子结合的现象。用Hill系数nH来量度。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">Hill系数<span class="term-english">(Hill Coefficient, nH)</span></div>
+                    <div class="term-definition">配体结合协同性程度的量度。nH=1表示非协同性；nH>1表示正协同性；nH<1表示负协同性。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">Bohr效应<span class="term-english">(Bohr Effect)</span></div>
+                    <div class="term-definition">pH值和CO₂浓度对血红蛋白氧亲和力的影响。pH降低或CO₂浓度升高时，血红蛋白对氧的亲和力降低。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">2,3-二磷酸甘油酸<span class="term-english">(2,3-Bisphosphoglycerate, BPG)</span></div>
+                    <div class="term-definition">血红蛋白的别构抑制剂，结合在脱氧血红蛋白的中央腔，降低血红蛋白对氧的亲和力。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">免疫球蛋白<span class="term-english">(Immunoglobulin, Ig)</span></div>
+                    <div class="term-definition">由B细胞产生的具有抗体活性的糖蛋白，由两条重链和两条轻链组成，呈Y形结构。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">肌球蛋白<span class="term-english">(Myosin)</span></div>
+                    <div class="term-definition">由2条重链和4条轻链组成的马达蛋白，具有ATP酶活性，是肌肉收缩的主要蛋白质。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">肌动蛋白<span class="term-english">(Actin)</span></div>
+                    <div class="term-definition">球状蛋白质，可聚合成纤维状结构，与肌球蛋白相互作用产生肌肉收缩。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2 class="section-title">八、选择题测试</h2>
+                
+                <div class="quiz-container">
+                    <div id="quiz-questions"></div>
+                    <button class="quiz-button" onclick="submitQuiz()">提交答案</button>
+                    <button class="quiz-button" onclick="generateNewQuiz()">重新生成题目</button>
+                    <div id="quiz-results"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2 class="section-title">九、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试分析血红蛋白的S形氧合曲线对其运输氧功能的生理意义，并解释为什么肌红蛋白不适合作为氧气运输蛋白。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>血红蛋白S形氧合曲线的生理意义：</strong>
+                                <ul>
+                                    <li>在肺部高氧分压环境下（约100 torr），血红蛋白几乎完全饱和（约98%）</li>
+                                    <li>在组织低氧分压环境下（约40 torr），血红蛋白大量释放氧气（饱和度降至约75%）</li>
+                                    <li>协同效应使血红蛋白对氧分压变化极其敏感，在较窄的氧分压范围内完成高效的氧气装载和卸载</li>
+                                    <li>这种特性使血红蛋白成为理想的氧气运输载体</li>
+                                </ul>
+                            </li>
+                            <li><strong>肌红蛋白不适合运输氧气的原因：</strong>
+                                <ul>
+                                    <li>肌红蛋白的氧合曲线呈双曲线，P₅₀约为2 torr</li>
+                                    <li>在组织氧分压下（约40 torr）仍保持高饱和度（约95%），不易释放氧气</li>
+                                    <li>缺乏协同效应，对氧分压变化不敏感</li>
+                                    <li>更适合作为氧气贮存蛋白，在极低氧分压时才释放氧气</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 详细阐述2,3-二磷酸甘油酸（BPG）对血红蛋白功能的调节机制，并分析其在不同生理条件下的适应性意义。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>BPG的调节机制：</strong>
+                                <ul>
+                                    <li>BPG是血红蛋白的别构抑制剂，专一性结合脱氧血红蛋白</li>
+                                    <li>结合位点位于血红蛋白中央腔，与两条β链上的正电荷残基（His₁₆₃、Lys₈₂等）形成盐键</li>
+                                    <li>稳定T态构象，降低血红蛋白对氧的亲和力</li>
+                                    <li>氧合血红蛋白转为R态时，中央腔变小，BPG亲和力大大降低</li>
+                                </ul>
+                            </li>
+                            <li><strong>生理适应性意义：</strong>
+                                <ul>
+                                    <li>高原适应：高海拔地区BPG浓度升高，促进氧气释放，补偿低氧环境</li>
+                                    <li>胎儿血红蛋白：HbF（α₂γ₂）对BPG亲和力低，氧亲和力高于母体HbA，有利于胎盘氧气转移</li>
+                                    <li>运动适应：剧烈运动时BPG浓度升高，促进氧气向活跃肌肉释放</li>
+                                    <li>病理状态：贫血、心肺疾病时BPG升高，代偿性增强氧气释放</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 从分子水平分析镰刀形红细胞贫血症的发病机制，并讨论单个氨基酸改变如何导致严重的生理后果。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>分子机制：</strong>
+                                <ul>
+                                    <li>基因突变：β-珠蛋白基因第6位密码子GAG→GTG，导致Glu→Val替换</li>
+                                    <li>蛋白质结构变化：Val为疏水氨基酸，在HbS表面形成疏水"黏性"突起</li>
+                                    <li>分子聚合：脱氧状态下HbS分子通过疏水相互作用自发聚合成纤维束</li>
+                                    <li>细胞变形：纤维束使红细胞变形为镰刀状，失去正常的可变形性</li>
+                                </ul>
+                            </li>
+                            <li><strong>生理后果的放大效应：</strong>
+                                <ul>
+                                    <li>血液流变学改变：镰刀状红细胞粘度增加，易发生血管阻塞</li>
+                                    <li>溶血性贫血：变形红细胞膜脆性增加，寿命缩短（正常120天→20天）</li>
+                                    <li>血管危象：微血管阻塞导致组织缺血、疼痛和器官损伤</li>
+                                    <li>慢性并发症：长期缺氧和血管损伤导致多器官功能障碍</li>
+                                </ul>
+                            </li>
+                            <li><strong>结构-功能关系的启示：</strong>
+                                <ul>
+                                    <li>蛋白质功能对结构的高度依赖性</li>
+                                    <li>单个氨基酸改变可能产生级联放大效应</li>
+                                    <li>疏水相互作用在蛋白质聚合中的重要作用</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 比较分析肌肉收缩中肌动蛋白-肌球蛋白相互作用的分子机制，并解释ATP在此过程中的关键作用。</h4>
+                    <div class="answer">
+                        <p><strong>答案要点：</strong></p>
+                        <ol>
+                            <li><strong>分子相互作用机制：</strong>
+                                <ul>
+                                    <li>滑丝理论：粗丝（肌球蛋白）沿细丝（肌动蛋白）滑行产生收缩</li>
+                                    <li>横桥循环：肌球蛋白头部与肌动蛋白反复结合-解离-再结合</li>
+                                    <li>构象变化：ATP水解引起肌球蛋白头部构象改变，产生"动力冲程"</li>
+                                    <li>Ca²⁺调节：通过肌钙蛋白-原肌球蛋白复合体调节相互作用</li>
+                                </ul>
+                            </li>
+                            <li><strong>ATP的关键作用：</strong>
+                                <ul>
+                                    <li>能量供应：ATP水解提供肌肉收缩所需的化学能</li>
+                                    <li>构象驱动：ATP结合和水解引起肌球蛋白构象循环变化</li>
+                                    <li>解离作用：ATP结合降低肌球蛋白对肌动蛋白的亲和力，促进解离</li>
+                                    <li>重置机制：新ATP结合使肌球蛋白头部重新"装载"，准备下一次收缩</li>
+                                </ul>
+                            </li>
+                            <li><strong>收缩循环的精确调控：</strong>
+                                <ul>
+                                    <li>时序性：ATP水解的不同阶段对应不同的功能状态</li>
+                                    <li>方向性：确保肌球蛋白沿肌动蛋白单向移动</li>
+                                    <li>效率性：最大化化学能向机械能的转换效率</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "血红蛋白的氧合曲线呈什么形状？",
+                options: ["A. 直线", "B. 双曲线", "C. S形曲线", "D. 抛物线"],
+                correct: 2,
+                explanation: "血红蛋白的氧合曲线呈S形，这是由于亚基间的协同效应造成的。第一个亚基与氧结合后，促进其他亚基与氧的结合。"
+            },
+            {
+                question: "肌红蛋白的氧合曲线呈什么形状？",
+                options: ["A. S形曲线", "B. 双曲线", "C. 直线", "D. 指数曲线"],
+                correct: 1,
+                explanation: "肌红蛋白是单体蛋白，没有协同效应，其氧合曲线呈双曲线形状。"
+            },
+            {
+                question: "镰刀形红细胞贫血症是由于血红蛋白β链第几位氨基酸发生突变？",
+                options: ["A. 第4位", "B. 第6位", "C. 第8位", "D. 第10位"],
+                correct: 1,
+                explanation: "镰刀形红细胞贫血症是由于β链第6位谷氨酸被缬氨酸取代造成的。"
+            },
+            {
+                question: "2,3-二磷酸甘油酸（BPG）对血红蛋白的作用是：",
+                options: ["A. 增加氧亲和力", "B. 降低氧亲和力", "C. 不影响氧亲和力", "D. 先增加后降低氧亲和力"],
+                correct: 1,
+                explanation: "BPG是血红蛋白的别构抑制剂，结合后降低血红蛋白对氧的亲和力，促进氧气释放。"
+            },
+            {
+                question: "血红蛋白分子由几个亚基组成？",
+                options: ["A. 2个", "B. 3个", "C. 4个", "D. 6个"],
+                correct: 2,
+                explanation: "血红蛋白由4个亚基组成，即2个α亚基和2个β亚基（α₂β₂）。"
+            },
+            {
+                question: "Bohr效应是指：",
+                options: ["A. 温度对血红蛋白的影响", "B. pH和CO₂对血红蛋白氧亲和力的影响", "C. 压力对血红蛋白的影响", "D. 光照对血红蛋白的影响"],
+                correct: 1,
+                explanation: "Bohr效应是指pH值和CO₂浓度对血红蛋白氧亲和力的影响。pH降低或CO₂浓度升高时，血红蛋白对氧的亲和力降低。"
+            },
+            {
+                question: "肌红蛋白主要存在于：",
+                options: ["A. 血液中", "B. 肌肉细胞中", "C. 肝脏中", "D. 肾脏中"],
+                correct: 1,
+                explanation: "肌红蛋白主要存在于肌肉细胞中，起贮存氧气的作用。"
+            },
+            {
+                question: "血红素中心的金属离子是：",
+                options: ["A. Fe³⁺", "B. Fe²⁺", "C. Cu²⁺", "D. Zn²⁺"],
+                correct: 1,
+                explanation: "血红素中心是二价铁离子（Fe²⁺），它能可逆地与氧分子结合。"
+            },
+            {
+                question: "协同效应的Hill系数nH>1表示：",
+                options: ["A. 负协同性", "B. 正协同性", "C. 非协同性", "D. 无法判断"],
+                correct: 1,
+                explanation: "Hill系数nH>1表示正协同性，即一个配体分子的结合促进其余配体的结合。"
+            },
+            {
+                question: "免疫球蛋白的基本结构包括：",
+                options: ["A. 1条重链和1条轻链", "B. 2条重链和1条轻链", "C. 1条重链和2条轻链", "D. 2条重链和2条轻链"],
+                correct: 3,
+                explanation: "免疫球蛋白由2条重链和2条轻链组成，呈Y形结构。"
+            },
+            {
+                question: "肌球蛋白具有什么酶活性？",
+                options: ["A. 蛋白酶活性", "B. ATP酶活性", "C. 脂酶活性", "D. 淀粉酶活性"],
+                correct: 1,
+                explanation: "肌球蛋白头部具有ATP酶活性，能催化ATP水解，为肌肉收缩提供能量。"
+            },
+            {
+                question: "血红蛋白的T态是指：",
+                options: ["A. 氧合血红蛋白", "B. 脱氧血红蛋白", "C. 一氧化碳血红蛋白", "D. 高铁血红蛋白"],
+                correct: 1,
+                explanation: "T态（紧张态）是指脱氧血红蛋白的构象，对氧的亲和力较低。"
+            },
+            {
+                question: "肌动蛋白的单体形式称为：",
+                options: ["A. F-肌动蛋白", "B. G-肌动蛋白", "C. H-肌动蛋白", "D. I-肌动蛋白"],
+                correct: 1,
+                explanation: "G-肌动蛋白是肌动蛋白的球状单体形式，可聚合成纤维状的F-肌动蛋白。"
+            },
+            {
+                question: "胎儿血红蛋白（HbF）的组成是：",
+                options: ["A. α₂β₂", "B. α₂γ₂", "C. α₂δ₂", "D. β₄"],
+                correct: 1,
+                explanation: "胎儿血红蛋白（HbF）由2个α亚基和2个γ亚基组成（α₂γ₂）。"
+            },
+            {
+                question: "血红蛋白与一氧化碳结合的亲和力比氧气高约：",
+                options: ["A. 10倍", "B. 100倍", "C. 250倍", "D. 1000倍"],
+                correct: 2,
+                explanation: "在蛋白质环境下，血红蛋白与一氧化碳结合的亲和力比氧气高约250倍。"
+            },
+            {
+                question: "肌红蛋白含有几个血红素辅基？",
+                options: ["A. 1个", "B. 2个", "C. 3个", "D. 4个"],
+                correct: 0,
+                explanation: "肌红蛋白是单体蛋白，只含有1个血红素辅基。"
+            },
+            {
+                question: "血红蛋白的R态是指：",
+                options: ["A. 脱氧血红蛋白", "B. 氧合血红蛋白", "C. 一氧化碳血红蛋白", "D. 高铁血红蛋白"],
+                correct: 1,
+                explanation: "R态（松弛态）是指氧合血红蛋白的构象，对氧的亲和力较高。"
+            },
+            {
+                question: "抗体识别抗原的区域称为：",
+                options: ["A. CDR区", "B. Fc区", "C. Fab区", "D. 铰链区"],
+                correct: 0,
+                explanation: "CDR（互补决定区）是抗体识别和结合抗原的特异性区域。"
+            },
+            {
+                question: "肌肉收缩的基本理论是：",
+                options: ["A. 滑丝理论", "B. 折叠理论", "C. 膨胀理论", "D. 旋转理论"],
+                correct: 0,
+                explanation: "滑丝理论认为肌肉收缩是由于粗丝（肌球蛋白）沿细丝（肌动蛋白）滑行造成的。"
+            },
+            {
+                question: "血红蛋白α亚基含有多少个氨基酸残基？",
+                options: ["A. 141个", "B. 146个", "C. 153个", "D. 164个"],
+                correct: 0,
+                explanation: "血红蛋白α亚基含有141个氨基酸残基，β亚基含有146个氨基酸残基。"
+            },
+            {
+                question: "肌红蛋白的P₅₀值约为：",
+                options: ["A. 2 torr", "B. 26 torr", "C. 40 torr", "D. 100 torr"],
+                correct: 0,
+                explanation: "肌红蛋白的P₅₀值约为2 torr，表明它在低氧分压下仍能保持较高的氧饱和度。"
+            },
+            {
+                question: "血红蛋白的P₅₀值约为：",
+                options: ["A. 2 torr", "B. 26 torr", "C. 40 torr", "D. 100 torr"],
+                correct: 1,
+                explanation: "血红蛋白的P₅₀值约为26 torr，适合在肺部装载氧气，在组织中释放氧气。"
+            },
+            {
+                question: "镰刀形红细胞贫血症中，谷氨酸被什么氨基酸取代？",
+                options: ["A. 丙氨酸", "B. 缬氨酸", "C. 亮氨酸", "D. 异亮氨酸"],
+                correct: 1,
+                explanation: "在镰刀形红细胞贫血症中，β链第6位的谷氨酸被缬氨酸取代。"
+            },
+            {
+                question: "肌球蛋白分子的相对分子质量约为：",
+                options: ["A. 17,000", "B. 64,000", "C. 150,000", "D. 520,000"],
+                correct: 3,
+                explanation: "肌球蛋白分子的相对分子质量约为520,000，是一个大型蛋白质复合体。"
+            },
+            {
+                question: "血红蛋白分子的相对分子质量约为：",
+                options: ["A. 17,000", "B. 64,000", "C. 150,000", "D. 520,000"],
+                correct: 1,
+                explanation: "血红蛋白分子的相对分子质量约为64,000，由4个亚基组成。"
+            },
+            {
+                question: "肌红蛋白分子含有几段α螺旋？",
+                options: ["A. 6段", "B. 7段", "C. 8段", "D. 9段"],
+                correct: 2,
+                explanation: "肌红蛋白分子含有8段α螺旋，从A到H依次编号。"
+            },
+            {
+                question: "细丝的主要组成蛋白质是：",
+                options: ["A. 肌球蛋白", "B. 肌动蛋白", "C. 肌钙蛋白", "D. 原肌球蛋白"],
+                correct: 1,
+                explanation: "细丝主要由肌动蛋白组成，还包含原肌球蛋白和肌钙蛋白。"
+            },
+            {
+                question: "粗丝的主要组成蛋白质是：",
+                options: ["A. 肌球蛋白", "B. 肌动蛋白", "C. 肌钙蛋白", "D. 原肌球蛋白"],
+                correct: 0,
+                explanation: "粗丝主要由肌球蛋白组成，是肌肉收缩的动力蛋白。"
+            },
+            {
+                question: "免疫球蛋白的形状类似于：",
+                options: ["A. X形", "B. Y形", "C. T形", "D. L形"],
+                correct: 1,
+                explanation: "免疫球蛋白的总体形状类似英文字母Y，由两条重链和两条轻链组成。"
+            },
+            {
+                question: "血红素铁原子的第6配位键结合：",
+                options: ["A. 组氨酸", "B. 氧分子", "C. 水分子", "D. 二氧化碳"],
+                correct: 1,
+                explanation: "血红素铁原子的第6配位键与氧分子可逆结合，这是血红蛋白载氧的分子基础。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+
+        // 生成随机题目
+        function generateQuiz() {
+            // 从30道题中随机选择15道
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}" 
+                                   onchange="userAnswers[${index}] = ${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            let correctCount = 0;
+            const resultsContainer = document.getElementById('quiz-results');
+            resultsContainer.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                if (isCorrect) correctCount++;
+                
+                const resultDiv = document.createElement('div');
+                resultDiv.className = `result show ${isCorrect ? 'correct' : 'incorrect'}`;
+                resultDiv.innerHTML = `
+                    <strong>第${index + 1}题：</strong>${isCorrect ? '正确' : '错误'}<br>
+                    <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                    <strong>解析：</strong>${q.explanation}
+                `;
+                resultsContainer.appendChild(resultDiv);
+            });
+            
+            const scoreDiv = document.createElement('div');
+            scoreDiv.className = 'result show';
+            scoreDiv.style.background = '#e8f4fd';
+            scoreDiv.style.border = '1px solid #3498db';
+            scoreDiv.style.color = '#2c3e50';
+            scoreDiv.style.fontSize = '1.2em';
+            scoreDiv.style.fontWeight = 'bold';
+            scoreDiv.innerHTML = `
+                <strong>测试完成！</strong><br>
+                正确率：${correctCount}/15 (${Math.round(correctCount/15*100)}%)<br>
+                ${correctCount >= 12 ? '优秀！' : correctCount >= 9 ? '良好！' : '需要继续努力！'}
+            `;
+            resultsContainer.insertBefore(scoreDiv, resultsContainer.firstChild);
+        }
+
+        // 重新生成题目
+        function generateNewQuiz() {
+            generateQuiz();
+            document.getElementById('quiz-results').innerHTML = '';
+        }
+
+        // 页面加载时生成题目
+        window.onload = function() {
+            generateQuiz();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>β折叠 - 蛋白质二级结构</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入Three.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <!-- 引入OrbitControls用于3D交互控制 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- 引入TWEEN.js用于动画效果 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+<body>
+    <header>
+        <h1>蛋白质的二级结构</h1>
+        <nav>
+            <ul>
+                <li><a href="alpha-helix.html" class="nav-link">α螺旋</a></li>
+                <li><a href="beta-sheet.html" class="nav-link active">β折叠</a></li>
+                <li><a href="beta-turn.html" class="nav-link">β转角</a></li>
+                <li><a href="super-secondary.html" class="nav-link">超二级结构</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="beta-sheet" class="structure-section active">
+            <div class="content-wrapper">
+                <div class="model-container">
+                    <div id="beta-sheet-model" class="model"></div>
+                    <div class="model-controls">
+                        <button id="beta-rotate">自动旋转</button>
+                        <button id="beta-reset">重置视图</button>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h2>β折叠 (Beta Sheet)</h2>
+                    <div class="info-content">
+                        <p>β折叠是蛋白质中另一种重要的二级结构，具有以下特点：</p>
+                        <ul>
+                            <li><strong>平行与反平行</strong>：相邻肽链可以同向（平行）或反向（反平行）排列</li>
+                            <li><strong>伸展构象</strong>：肽链呈现伸展状态，不像α螺旋那样紧密盘绕</li>
+                            <li><strong>氢键连接</strong>：相邻肽链间通过氢键连接稳定结构</li>
+                            <li><strong>折叠形态</strong>：整体呈现褶皱状的"折叠床单"形态</li>
+                            <li><strong>侧链交替朝向</strong>：R基团在折叠平面的上下两侧交替排列</li>
+                            <li><strong>距离特征</strong>：相邻氨基酸残基间距约为0.35nm</li>
+                        </ul>
+                        <p>β折叠常见于蛋白质的核心区域，对蛋白质的稳定性和功能至关重要。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 蛋白质二级结构学习平台 | 细胞生物学辅助工具</p>
+    </footer>
+
+    <script src="beta-sheet.js"></script>
+</body>
+</html>

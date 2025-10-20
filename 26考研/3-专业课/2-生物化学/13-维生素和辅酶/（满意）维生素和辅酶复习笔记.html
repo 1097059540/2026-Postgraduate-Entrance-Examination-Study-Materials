@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维生素和辅酶 - 生物化学复习笔记</title>
+    <style>
+        /* 整体样式设计 - 学术蓝灰色系 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(44, 62, 80, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .term {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .term-definition {
+            color: #34495e;
+            margin-top: 8px;
+        }
+        
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .explanation {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #f8f9fa;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .thinking-answer {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .thinking-answer ol {
+            counter-reset: item;
+        }
+        
+        .thinking-answer ol > li {
+            display: block;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .thinking-answer ol > li:before {
+            content: counter(item, decimal) ".";
+            counter-increment: item;
+            font-weight: bold;
+            color: #e74c3c;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* 引用样式 */
+        .citation {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>维生素和辅酶</h1>
+            <p>生物化学复习笔记 | 考研专业课</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、维生素概论</h2>
+                
+                <div class="highlight">
+                    <p><strong>维生素定义：</strong>维生素是维持人和动物机体健康所必需的一类营养素，本质为低分子有机化合物。它们不能在体内合成，或者所合成的量难以满足机体的需要，必须由食物供给。<span class="citation">参考：河南大学药理教研室</span></p>
+                </div>
+                
+                <h3>维生素的特点</h3>
+                <ul>
+                    <li><strong>外源性：</strong>动物体自身不可合成或合成量不足以满足生理所需</li>
+                    <li><strong>微量性：</strong>动物体所需量很少，但可以发挥巨大作用</li>
+                    <li><strong>调节性：</strong>维生素必须能够调节人体新陈代谢或能量转变</li>
+                    <li><strong>特异性：</strong>缺乏某种维生素后，动物将呈现特有的病态</li>
+                </ul>
+                
+                <h3>维生素的分类</h3>
+                <p>维生素按溶解性分为两大类：</p>
+                <ul>
+                    <li><strong>脂溶性维生素：</strong>维生素A、D、E、K</li>
+                    <li><strong>水溶性维生素：</strong>B族维生素、维生素C</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>二、脂溶性维生素</h2>
+                
+                <h3>维生素A（视黄醇）</h3>
+                <h4>化学结构与性质</h4>
+                <p>维生素A是由β-白芷酮环和两分子2-甲基丁二烯构成的不饱和一元醇。主要形式包括：</p>
+                <ul>
+                    <li><strong>维生素A₁：</strong>存在于哺乳动物和咸水鱼肝脏中</li>
+                    <li><strong>维生素A₂：</strong>存在于淡水鱼肝油中，生理效用仅及A₁的40%</li>
+                    <li><strong>β-胡萝卜素：</strong>维生素A原，可转化为维生素A</li>
+                </ul>
+                
+                <h4>生理功能</h4>
+                <ul>
+                    <li>维持正常视觉功能，参与视紫红质的合成</li>
+                    <li>促进上皮组织增殖分化</li>
+                    <li>维持黏膜屏障的完整性</li>
+                    <li>促进儿童生长发育</li>
+                </ul>
+                
+                <h4>缺乏症</h4>
+                <p>夜盲症、干眼症、角膜软化症、皮肤干燥粗糙、抵抗力下降。</p>
+                
+                <h3>维生素D（钙化醇）</h3>
+                <h4>化学结构与代谢</h4>
+                <p>维生素D系固醇类衍生物，主要形式：</p>
+                <ul>
+                    <li><strong>维生素D₃（胆钙化醇）：</strong>由7-脱氢胆固醇经紫外线照射转变</li>
+                    <li><strong>维生素D₂（钙化醇）：</strong>由植物中麦角固醇经紫外线照射产生</li>
+                </ul>
+                
+                <h4>生理功能</h4>
+                <ul>
+                    <li>调节钙、磷代谢</li>
+                    <li>促进肠内钙磷吸收和骨质钙化</li>
+                    <li>维持血钙和血磷的平衡</li>
+                    <li>参与免疫调节</li>
+                </ul>
+                
+                <h4>缺乏症</h4>
+                <p>佝偻病、软骨病、骨质疏松症。</p>
+                
+                <h3>维生素E（生育酚）</h3>
+                <h4>生理功能</h4>
+                <ul>
+                    <li>抗氧化作用，保护细胞膜</li>
+                    <li>维持生殖功能</li>
+                    <li>保护红细胞膜的完整性</li>
+                    <li>参与免疫功能调节</li>
+                </ul>
+                
+                <h3>维生素K（凝血维生素）</h3>
+                <h4>生理功能</h4>
+                <ul>
+                    <li>参与凝血因子的合成</li>
+                    <li>参与骨代谢</li>
+                    <li>维持正常的凝血功能</li>
+                </ul>
+                
+                <h4>缺乏症</h4>
+                <p>凝血时间延长，出血倾向。</p>
+            </div>
+            
+            <div class="section">
+                <h2>三、水溶性维生素</h2>
+                
+                <div class="highlight">
+                    <p><strong>重要特点：</strong>水溶性维生素主要作为酶的辅酶或辅基的组成成分，在物质代谢中起重要作用。<span class="citation">参考：广东工业大学生物化学课件</span></p>
+                </div>
+                
+                <h3>B族维生素</h3>
+                
+                <h4>维生素B₁（硫胺素）</h4>
+                <ul>
+                    <li><strong>辅酶形式：</strong>硫胺素焦磷酸（TPP）</li>
+                    <li><strong>功能：</strong>参与糖代谢，丙酮酸脱羧反应的辅酶</li>
+                    <li><strong>缺乏症：</strong>脚气病、神经炎</li>
+                </ul>
+                
+                <h4>维生素B₂（核黄素）</h4>
+                <ul>
+                    <li><strong>辅酶形式：</strong>黄素单核苷酸（FMN）、黄素腺嘌呤二核苷酸（FAD）</li>
+                    <li><strong>功能：</strong>参与氧化还原反应，电子传递链的重要组成</li>
+                    <li><strong>缺乏症：</strong>口角炎、舌炎、脂溢性皮炎</li>
+                </ul>
+                
+                <h4>维生素B₃（烟酸/尼克酸）</h4>
+                <ul>
+                    <li><strong>辅酶形式：</strong>烟酰胺腺嘌呤二核苷酸（NAD⁺）、烟酰胺腺嘌呤二核苷酸磷酸（NADP⁺）</li>
+                    <li><strong>功能：</strong>参与氧化还原反应，能量代谢的关键辅酶</li>
+                    <li><strong>缺乏症：</strong>糙皮病</li>
+                </ul>
+                
+                <h4>维生素B₅（泛酸）</h4>
+                <ul>
+                    <li><strong>辅酶形式：</strong>辅酶A（CoA-SH）</li>
+                    <li><strong>功能：</strong>参与脂肪酸合成和氧化，柠檬酸循环</li>
+                    <li><strong>缺乏症：</strong>疲劳、失眠、消化不良</li>
+                </ul>
+                
+                <h4>维生素B₆（吡哆醇/吡哆醛/吡哆胺）</h4>
+                <ul>
+                    <li><strong>辅酶形式：</strong>磷酸吡哆醛（PLP）</li>
+                    <li><strong>功能：</strong>参与氨基酸代谢，转氨、脱羧反应</li>
+                    <li><strong>缺乏症：</strong>皮炎、贫血、神经症状</li>
+                </ul>
+                
+                <h4>维生素B₉（叶酸）</h4>
+                <ul>
+                    <li><strong>辅酶形式：</strong>四氢叶酸（FH₄）</li>
+                    <li><strong>功能：</strong>参与一碳单位转移，DNA合成</li>
+                    <li><strong>缺乏症：</strong>巨幼红细胞性贫血</li>
+                </ul>
+                
+                <h4>维生素B₁₂（钴胺素）</h4>
+                <ul>
+                    <li><strong>辅酶形式：</strong>甲基钴胺素、腺苷钴胺素</li>
+                    <li><strong>功能：</strong>参与甲基转移反应，DNA合成</li>
+                    <li><strong>缺乏症：</strong>恶性贫血、神经系统损害</li>
+                </ul>
+                
+                <h4>生物素（维生素H）</h4>
+                <ul>
+                    <li><strong>功能：</strong>参与羧化反应，脂肪酸合成</li>
+                    <li><strong>缺乏症：</strong>皮炎、脱发、神经症状</li>
+                </ul>
+                
+                <h3>维生素C（抗坏血酸）</h3>
+                <h4>生理功能</h4>
+                <ul>
+                    <li>促进胶原蛋白合成</li>
+                    <li>抗氧化作用</li>
+                    <li>促进铁的吸收</li>
+                    <li>增强免疫功能</li>
+                </ul>
+                
+                <h4>缺乏症</h4>
+                <p>坏血病，表现为牙龈出血、皮下出血、伤口愈合不良。</p>
+            </div>
+            
+            <div class="section">
+                <h2>四、辅酶和金属离子</h2>
+                
+                <h3>辅酶的概念</h3>
+                <p>辅酶是与酶蛋白结合疏松，用透析法容易与蛋白部分分开的有机小分子。辅酶在酶催化反应中其化学组分发生变化，可以认为是一种特殊的底物或"第二底物"。<span class="citation">参考：百度百科-辅酶</span></p>
+                
+                <h3>重要辅酶</h3>
+                <ul>
+                    <li><strong>NAD⁺/NADH：</strong>参与氧化还原反应，呼吸链电子载体</li>
+                    <li><strong>NADP⁺/NADPH：</strong>参与合成代谢，提供还原力</li>
+                    <li><strong>FAD/FADH₂：</strong>参与氧化还原反应，电子传递</li>
+                    <li><strong>FMN/FMNH₂：</strong>参与电子传递链</li>
+                    <li><strong>辅酶A：</strong>参与脂肪酸代谢，柠檬酸循环</li>
+                    <li><strong>四氢叶酸：</strong>参与一碳单位转移</li>
+                </ul>
+                
+                <h3>金属离子辅因子</h3>
+                <ul>
+                    <li><strong>Fe²⁺/Fe³⁺：</strong>血红蛋白、细胞色素、过氧化氢酶</li>
+                    <li><strong>Mg²⁺：</strong>激酶、磷酸酶、DNA聚合酶</li>
+                    <li><strong>Zn²⁺：</strong>碳酸酐酶、醇脱氢酶、DNA聚合酶</li>
+                    <li><strong>Cu²⁺：</strong>细胞色素氧化酶、超氧化物歧化酶</li>
+                    <li><strong>Mn²⁺：</strong>超氧化物歧化酶、精氨酸酶</li>
+                </ul>
+            </div>
+            
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>五、名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">维生素</div>
+                    <div class="term-english">Vitamin</div>
+                    <div class="term-definition">维持人和动物机体健康所必需的一类营养素，本质为低分子有机化合物，不能在体内合成或合成量不足，必须由食物供给。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">辅酶</div>
+                    <div class="term-english">Coenzyme</div>
+                    <div class="term-definition">与酶蛋白结合疏松的有机小分子，在酶催化反应中化学组分发生变化，可视为特殊的底物。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">视黄醇</div>
+                    <div class="term-english">Retinol, Vitamin A</div>
+                    <div class="term-definition">脂溶性维生素，参与视觉过程，维持上皮组织正常分化，缺乏可导致夜盲症。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">硫胺素焦磷酸</div>
+                    <div class="term-english">Thiamine Pyrophosphate, TPP</div>
+                    <div class="term-definition">维生素B₁的活性形式，参与丙酮酸脱羧反应和α-酮酸氧化反应的辅酶。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">烟酰胺腺嘌呤二核苷酸</div>
+                    <div class="term-english">Nicotinamide Adenine Dinucleotide, NAD⁺</div>
+                    <div class="term-definition">重要的氧化还原辅酶，参与细胞呼吸和能量代谢，由烟酸衍生而来。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">黄素腺嘌呤二核苷酸</div>
+                    <div class="term-english">Flavin Adenine Dinucleotide, FAD</div>
+                    <div class="term-definition">核黄素衍生的辅酶，参与氧化还原反应，是电子传递链的重要组成部分。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">磷酸吡哆醛</div>
+                    <div class="term-english">Pyridoxal Phosphate, PLP</div>
+                    <div class="term-definition">维生素B₆的活性形式，参与氨基酸代谢中的转氨、脱羧等反应。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">四氢叶酸</div>
+                    <div class="term-english">Tetrahydrofolate, FH₄</div>
+                    <div class="term-definition">叶酸的活性形式，参与一碳单位的转移反应，对DNA合成至关重要。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">辅酶A</div>
+                    <div class="term-english">Coenzyme A, CoA-SH</div>
+                    <div class="term-definition">泛酸衍生的辅酶，参与脂肪酸合成和氧化，柠檬酸循环等代谢过程。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">抗坏血酸</div>
+                    <div class="term-english">Ascorbic Acid, Vitamin C</div>
+                    <div class="term-definition">水溶性维生素，具有抗氧化作用，参与胶原蛋白合成，缺乏导致坏血病。</div>
+                </div>
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>六、选择题测试</h2>
+                <div class="quiz-container">
+                    <p><strong>说明：</strong>以下是从题库中随机抽取的15道选择题，请选择正确答案后点击提交查看结果。</p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>七、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述水溶性维生素与脂溶性维生素在化学性质、生理功能和代谢特点方面的主要区别，并分析这些区别对临床营养补充的指导意义。</h4>
+                </div>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>化学性质差异：</strong>脂溶性维生素（A、D、E、K）具有脂溶性结构，易溶于脂肪和有机溶剂，不溶于水；而水溶性维生素（B族维生素、维生素C）具有亲水性基团，易溶于水。这种化学性质差异决定了它们在体内的吸收、转运、储存和排泄方式完全不同。</li>
+                        <li><strong>吸收和转运机制：</strong>脂溶性维生素需要胆汁酸的帮助才能被吸收，通过淋巴系统转运，与载脂蛋白结合在血液中运输；水溶性维生素可直接被小肠吸收，通过门静脉进入血液循环，大多数以游离形式存在于血液中。</li>
+                        <li><strong>体内储存能力：</strong>脂溶性维生素可在肝脏、脂肪组织等部位大量储存，储存时间较长，因此缺乏症状出现较慢；水溶性维生素在体内储存量很少，多余部分迅速从尿液中排出，因此需要经常补充，缺乏症状出现较快。</li>
+                        <li><strong>生理功能特点：</strong>脂溶性维生素主要参与膜结构维护、基因表达调节、激素样作用等；水溶性维生素主要作为辅酶参与各种代谢反应，是酶活性的必需因子。</li>
+                        <li><strong>临床指导意义：</strong>脂溶性维生素补充需谨慎，过量易中毒，应根据储存状况合理补充；水溶性维生素相对安全，但需要持续补充，特别是在疾病状态、妊娠期、生长发育期等特殊情况下需要增加摄入量。</li>
+                    </ol>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 分析NAD⁺/NADH和NADP⁺/NADPH这两对辅酶在细胞代谢中的不同作用，并说明它们在分解代谢和合成代谢中的具体功能。</h4>
+                </div>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>结构差异与识别机制：</strong>NAD⁺和NADP⁺在结构上仅差一个磷酸基团，但这个微小差异使得不同的酶能够特异性识别它们。NADP⁺在腺苷的2'位多一个磷酸基团，这个磷酸基团改变了分子的空间构象，使其能够与特定的酶结合位点相互作用。</li>
+                        <li><strong>NAD⁺/NADH在分解代谢中的作用：</strong>主要参与糖酵解、柠檬酸循环、脂肪酸β氧化等分解代谢过程。在这些过程中，NAD⁺作为电子受体，接受氢原子形成NADH，然后NADH在电子传递链中被氧化，释放能量用于ATP合成。这个系统主要负责从营养物质中提取能量。</li>
+                        <li><strong>NADP⁺/NADPH在合成代谢中的作用：</strong>主要参与脂肪酸合成、胆固醇合成、核苷酸合成等合成代谢过程。NADPH作为还原剂，提供电子和氢原子用于还原反应，是合成代谢中必需的还原力来源。磷酸戊糖途径是NADPH的主要来源。</li>
+                        <li><strong>细胞内浓度比值的调节意义：</strong>细胞内NAD⁺/NADH比值较高，有利于氧化反应的进行；而NADP⁺/NADPH比值较低，NADPH浓度相对较高，有利于还原性合成反应。这种不同的浓度比值确保了分解代谢和合成代谢能够同时高效进行。</li>
+                        <li><strong>代谢调节的协调机制：</strong>这两对辅酶系统通过不同的再生途径和消耗途径，实现了细胞能量状态和合成需求的精确调节。当细胞需要能量时，NAD⁺/NADH系统活跃；当细胞需要合成大分子时，NADP⁺/NADPH系统发挥主导作用。</li>
+                    </ol>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 维生素缺乏症的发生机制是什么？以维生素B₁缺乏导致的脚气病为例，从分子水平解释症状产生的原因。</h4>
+                </div>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>维生素缺乏症的一般发生机制：</strong>维生素作为辅酶或辅基的前体物质，当摄入不足时，相应的辅酶合成减少，导致依赖这些辅酶的酶活性下降，相关代谢途径受阻，代谢产物积累或缺乏，最终表现为特异性的临床症状。</li>
+                        <li><strong>维生素B₁的分子作用机制：</strong>维生素B₁在体内转化为硫胺素焦磷酸（TPP），TPP是丙酮酸脱氢酶复合体、α-酮戊二酸脱氢酶复合体和转酮醇酶的必需辅酶。这些酶在糖代谢中发挥关键作用，特别是在丙酮酸氧化和磷酸戊糖途径中。</li>
+                        <li><strong>脚气病的分子病理机制：</strong>维生素B₁缺乏时，TPP合成不足，导致丙酮酸脱氢酶活性下降，丙酮酸不能正常氧化为乙酰CoA进入柠檬酸循环。结果是丙酮酸和乳酸在血液和组织中积累，同时ATP产生减少，细胞能量供应不足。</li>
+                        <li><strong>神经系统症状的产生：</strong>神经组织主要依赖葡萄糖代谢提供能量，当糖代谢受阻时，神经细胞能量不足，导致神经传导功能障碍，表现为周围神经炎、感觉异常、肌肉无力等症状。同时，丙酮酸积累可能对神经组织产生毒性作用。</li>
+                        <li><strong>心血管系统症状的机制：</strong>心肌细胞对能量需求极高，糖代谢障碍导致心肌收缩力下降，出现心脏扩大、心力衰竭等症状。此外，代谢产物的积累可能影响心肌细胞的电生理特性，导致心律失常。这说明维生素虽然需要量很少，但其缺乏会在分子水平上引起连锁反应，最终导致严重的临床后果。</li>
+                    </ol>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 比较分析叶酸和维生素B₁₂在DNA合成中的协同作用机制，并解释为什么这两种维生素的缺乏都会导致巨幼红细胞性贫血。</h4>
+                </div>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>叶酸在DNA合成中的作用机制：</strong>叶酸在体内转化为四氢叶酸（FH₄），作为一碳单位的载体参与嘌呤和嘧啶的合成。特别是在胸腺嘧啶核苷酸（dTMP）的合成中，N⁵,N¹⁰-亚甲基四氢叶酸提供甲基，将脱氧尿苷酸（dUMP）转化为dTMP，这是DNA合成的限速步骤之一。</li>
+                        <li><strong>维生素B₁₂的甲基循环作用：</strong>维生素B₁₂以甲基钴胺素的形式参与甲硫氨酸循环，催化同型半胱氨酸转化为甲硫氨酸。这个反应同时使N⁵-甲基四氢叶酸重新转化为四氢叶酸，维持叶酸的活性形式。如果B₁₂缺乏，叶酸会以N⁵-甲基四氢叶酸的形式被"困住"，无法参与DNA合成。</li>
+                        <li><strong>两者的协同关系：</strong>维生素B₁₂缺乏会导致"甲基陷阱"现象，即使叶酸摄入充足，也无法发挥正常功能。这种协同关系说明了这两种维生素在细胞分裂和DNA复制中的相互依赖性，任何一种缺乏都会影响整个一碳代谢网络。</li>
+                        <li><strong>巨幼红细胞性贫血的发生机制：</strong>DNA合成障碍导致细胞分裂异常，红细胞前体细胞在骨髓中不能正常分裂成熟，形成体积异常增大的巨幼红细胞。这些细胞虽然体积大，但功能异常，携氧能力下降，导致贫血症状。</li>
+                        <li><strong>临床诊断和治疗意义：</strong>理解这种协同机制对临床诊断和治疗具有重要意义。在治疗巨幼红细胞性贫血时，需要明确是叶酸缺乏还是B₁₂缺乏，或者两者同时缺乏。单纯补充叶酸可能掩盖B₁₂缺乏的神经系统症状，延误诊断。因此，需要综合考虑两种维生素的状态，制定合理的治疗方案。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "维生素A的主要生理功能不包括：",
+                options: ["A. 维持正常视觉", "B. 促进钙磷吸收", "C. 维持上皮组织完整性", "D. 增强免疫功能"],
+                correct: 1,
+                explanation: "维生素A的主要功能包括维持正常视觉、促进上皮组织分化和增强免疫功能。促进钙磷吸收是维生素D的主要功能。"
+            },
+            {
+                question: "硫胺素焦磷酸（TPP）是哪种维生素的活性形式？",
+                options: ["A. 维生素B₁", "B. 维生素B₂", "C. 维生素B₆", "D. 维生素B₁₂"],
+                correct: 0,
+                explanation: "硫胺素焦磷酸（TPP）是维生素B₁（硫胺素）的活性形式，参与丙酮酸脱氢酶复合体的催化反应。"
+            },
+            {
+                question: "下列哪种辅酶主要参与合成代谢提供还原力？",
+                options: ["A. NAD⁺", "B. NADPH", "C. FAD", "D. FMN"],
+                correct: 1,
+                explanation: "NADPH主要在合成代谢中提供还原力，如脂肪酸合成、胆固醇合成等。NAD⁺主要参与分解代谢。"
+            },
+            {
+                question: "维生素C缺乏导致的疾病是：",
+                options: ["A. 脚气病", "B. 坏血病", "C. 糙皮病", "D. 佝偻病"],
+                correct: 1,
+                explanation: "维生素C缺乏导致坏血病，主要表现为胶原蛋白合成障碍，出现牙龈出血、皮下出血等症状。"
+            },
+            {
+                question: "磷酸吡哆醛（PLP）主要参与哪类代谢反应？",
+                options: ["A. 糖代谢", "B. 脂代谢", "C. 氨基酸代谢", "D. 核酸代谢"],
+                correct: 2,
+                explanation: "磷酸吡哆醛（PLP）是维生素B₆的活性形式，主要参与氨基酸代谢中的转氨、脱羧等反应。"
+            },
+            {
+                question: "下列哪种维生素属于脂溶性维生素？",
+                options: ["A. 维生素B₁", "B. 维生素C", "C. 维生素K", "D. 叶酸"],
+                correct: 2,
+                explanation: "维生素K属于脂溶性维生素，参与凝血因子的合成。其他选项都是水溶性维生素。"
+            },
+            {
+                question: "四氢叶酸（FH₄）的主要功能是：",
+                options: ["A. 参与氧化还原反应", "B. 参与一碳单位转移", "C. 参与脂肪酸合成", "D. 参与氨基酸脱氨"],
+                correct: 1,
+                explanation: "四氢叶酸（FH₄）是叶酸的活性形式，主要参与一碳单位的转移反应，对DNA合成至关重要。"
+            },
+            {
+                question: "维生素D的主要功能是：",
+                options: ["A. 抗氧化", "B. 调节钙磷代谢", "C. 参与凝血", "D. 维持视觉"],
+                correct: 1,
+                explanation: "维生素D的主要功能是调节钙磷代谢，促进钙的吸收和骨质钙化，维持血钙平衡。"
+            },
+            {
+                question: "辅酶A（CoA-SH）是哪种维生素的衍生物？",
+                options: ["A. 泛酸", "B. 生物素", "C. 叶酸", "D. 烟酸"],
+                correct: 0,
+                explanation: "辅酶A（CoA-SH）是泛酸（维生素B₅）的衍生物，参与脂肪酸代谢和柠檬酸循环。"
+            },
+            {
+                question: "夜盲症是由于缺乏哪种维生素引起的？",
+                options: ["A. 维生素A", "B. 维生素D", "C. 维生素E", "D. 维生素K"],
+                correct: 0,
+                explanation: "夜盲症是维生素A缺乏的典型症状，因为维生素A参与视紫红质的合成，对暗视觉至关重要。"
+            },
+            {
+                question: "下列哪种酶需要生物素作为辅酶？",
+                options: ["A. 丙酮酸脱氢酶", "B. 乙酰CoA羧化酶", "C. 琥珀酸脱氢酶", "D. 异柠檬酸脱氢酶"],
+                correct: 1,
+                explanation: "乙酰CoA羧化酶需要生物素作为辅酶，催化乙酰CoA羧化形成丙二酰CoA，是脂肪酸合成的第一步。"
+            },
+            {
+                question: "维生素B₁₂缺乏主要影响：",
+                options: ["A. 糖代谢", "B. 脂代谢", "C. DNA合成", "D. 蛋白质合成"],
+                correct: 2,
+                explanation: "维生素B₁₂缺乏主要影响DNA合成，因为它参与甲基循环，影响叶酸的再生和一碳单位转移。"
+            },
+            {
+                question: "核黄素（维生素B₂）的辅酶形式包括：",
+                options: ["A. NAD和NADP", "B. FMN和FAD", "C. TPP和CoA", "D. PLP和生物素"],
+                correct: 1,
+                explanation: "核黄素（维生素B₂）的辅酶形式包括FMN（黄素单核苷酸）和FAD（黄素腺嘌呤二核苷酸）。"
+            },
+            {
+                question: "脚气病是由于缺乏哪种维生素引起的？",
+                options: ["A. 维生素B₁", "B. 维生素B₂", "C. 维生素B₆", "D. 维生素B₁₂"],
+                correct: 0,
+                explanation: "脚气病是维生素B₁（硫胺素）缺乏引起的，主要表现为神经炎和心血管症状。"
+            },
+            {
+                question: "维生素E的主要生理功能是：",
+                options: ["A. 参与凝血", "B. 抗氧化", "C. 调节钙代谢", "D. 参与视觉"],
+                correct: 1,
+                explanation: "维生素E的主要功能是抗氧化，保护细胞膜免受自由基损伤，维持膜结构的完整性。"
+            },
+            {
+                question: "糙皮病是由于缺乏哪种维生素引起的？",
+                options: ["A. 维生素B₁", "B. 维生素B₂", "C. 烟酸", "D. 维生素C"],
+                correct: 2,
+                explanation: "糙皮病是烟酸（维生素B₃）缺乏引起的，表现为皮炎、腹泻、痴呆等症状。"
+            },
+            {
+                question: "下列关于水溶性维生素的叙述，错误的是：",
+                options: ["A. 易溶于水", "B. 在体内储存量大", "C. 主要作为辅酶", "D. 过量易从尿中排出"],
+                correct: 1,
+                explanation: "水溶性维生素在体内储存量很少，不是储存量大。它们易溶于水，主要作为辅酶，过量时易从尿中排出。"
+            },
+            {
+                question: "维生素K的主要功能是：",
+                options: ["A. 抗氧化", "B. 参与凝血", "C. 调节钙代谢", "D. 维持视觉"],
+                correct: 1,
+                explanation: "维生素K的主要功能是参与凝血因子的合成，对正常凝血功能至关重要。"
+            },
+            {
+                question: "巨幼红细胞性贫血可能由于缺乏：",
+                options: ["A. 维生素B₁和B₂", "B. 叶酸和维生素B₁₂", "C. 维生素C和E", "D. 维生素A和D"],
+                correct: 1,
+                explanation: "巨幼红细胞性贫血主要由叶酸和维生素B₁₂缺乏引起，因为这两种维生素都参与DNA合成。"
+            },
+            {
+                question: "下列哪种金属离子是细胞色素氧化酶的辅因子？",
+                options: ["A. Fe²⁺", "B. Mg²⁺", "C. Cu²⁺", "D. Zn²⁺"],
+                correct: 2,
+                explanation: "Cu²⁺是细胞色素氧化酶的辅因子，参与电子传递链的最后一步，将电子传递给氧气。"
+            },
+            {
+                question: "维生素的共同特点不包括：",
+                options: ["A. 需要量少", "B. 不能在体内合成", "C. 提供能量", "D. 调节代谢"],
+                correct: 2,
+                explanation: "维生素不提供能量，它们的主要作用是调节代谢。维生素的特点包括需要量少、不能在体内合成（或合成不足）、调节代谢。"
+            },
+            {
+                question: "β-胡萝卜素在体内可以转化为：",
+                options: ["A. 维生素D", "B. 维生素E", "C. 维生素A", "D. 维生素K"],
+                correct: 2,
+                explanation: "β-胡萝卜素是维生素A原，在体内可以被转化为维生素A，因此被称为维生素A前体。"
+            },
+            {
+                question: "辅酶与酶蛋白的结合特点是：",
+                options: ["A. 结合紧密，不易分离", "B. 结合疏松，易于分离", "C. 共价结合", "D. 不可逆结合"],
+                correct: 1,
+                explanation: "辅酶与酶蛋白结合疏松，可以用透析法容易分离，这是辅酶区别于辅基的重要特征。"
+            },
+            {
+                question: "下列哪种维生素缺乏会导致出血倾向？",
+                options: ["A. 维生素A", "B. 维生素D", "C. 维生素E", "D. 维生素K"],
+                correct: 3,
+                explanation: "维生素K缺乏会导致凝血因子合成不足，出现凝血时间延长和出血倾向。"
+            },
+            {
+                question: "磷酸戊糖途径的主要产物是：",
+                options: ["A. ATP", "B. NADH", "C. NADPH", "D. FADH₂"],
+                correct: 2,
+                explanation: "磷酸戊糖途径的主要产物是NADPH，为合成代谢提供还原力，同时产生核糖-5-磷酸用于核苷酸合成。"
+            },
+            {
+                question: "维生素B₆缺乏主要影响：",
+                options: ["A. 糖代谢", "B. 脂代谢", "C. 氨基酸代谢", "D. 核酸代谢"],
+                correct: 2,
+                explanation: "维生素B₆的活性形式磷酸吡哆醛（PLP）主要参与氨基酸代谢，包括转氨、脱羧等反应。"
+            },
+            {
+                question: "下列关于NAD⁺和NADP⁺的叙述，正确的是：",
+                options: ["A. 结构完全相同", "B. NADP⁺比NAD⁺多一个磷酸基团", "C. 功能完全相同", "D. 都主要参与分解代谢"],
+                correct: 1,
+                explanation: "NADP⁺比NAD⁺在腺苷的2'位多一个磷酸基团，这个结构差异使它们具有不同的功能：NAD⁺主要参与分解代谢，NADP⁺主要参与合成代谢。"
+            },
+            {
+                question: "生物素主要参与哪类反应？",
+                options: ["A. 氧化还原反应", "B. 羧化反应", "C. 转氨反应", "D. 脱羧反应"],
+                correct: 1,
+                explanation: "生物素主要参与羧化反应，如乙酰CoA羧化酶催化的乙酰CoA羧化反应，是脂肪酸合成的关键步骤。"
+            },
+            {
+                question: "维生素C的化学名称是：",
+                options: ["A. 抗坏血酸", "B. 视黄醇", "C. 生育酚", "D. 钙化醇"],
+                correct: 0,
+                explanation: "维生素C的化学名称是抗坏血酸，因其能够预防和治疗坏血病而得名。"
+            },
+            {
+                question: "下列哪种酶需要Mg²⁺作为辅因子？",
+                options: ["A. 过氧化氢酶", "B. 己糖激酶", "C. 细胞色素氧化酶", "D. 超氧化物歧化酶"],
+                correct: 1,
+                explanation: "己糖激酶需要Mg²⁺作为辅因子，催化葡萄糖磷酸化为6-磷酸葡萄糖，是糖酵解的第一步反应。"
+            }
+        ];
+        
+        let selectedQuestions = [];
+        let userAnswers = [];
+        
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+        
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+        
+        function submitQuiz() {
+            userAnswers = [];
+            let score = 0;
+            
+            // 收集用户答案
+            for (let i = 0; i < selectedQuestions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    userAnswers[i] = parseInt(selected.value);
+                    if (userAnswers[i] === selectedQuestions[i].correct) {
+                        score++;
+                    }
+                } else {
+                    userAnswers[i] = -1; // 未选择
+                }
+            }
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((score / selectedQuestions.length) * 100);
+            
+            let resultHTML = `
+                <h4>测试结果</h4>
+                <p><strong>得分：${score}/${selectedQuestions.length} (${percentage}%)</strong></p>
+                <div style="margin-top: 20px;">
+            `;
+            
+            // 显示每题的详细解析
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const statusColor = isCorrect ? '#27ae60' : '#e74c3c';
+                const statusText = isCorrect ? '✓ 正确' : '✗ 错误';
+                
+                resultHTML += `
+                    <div class="explanation" style="border-left: 4px solid ${statusColor};">
+                        <p><strong>第${index + 1}题：${statusText}</strong></p>
+                        <p><strong>题目：</strong>${q.question}</p>
+                        <p><strong>正确答案：</strong>${q.options[q.correct]}</p>
+                        ${userAnswer !== -1 ? `<p><strong>您的答案：</strong>${q.options[userAnswer]}</p>` : '<p><strong>您的答案：</strong>未选择</p>'}
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultHTML += '</div>';
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

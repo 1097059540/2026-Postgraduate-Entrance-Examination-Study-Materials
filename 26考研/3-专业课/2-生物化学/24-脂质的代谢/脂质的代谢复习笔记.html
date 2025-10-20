@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脂质的代谢 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: "Consolas", monospace;
+            text-align: center;
+        }
+
+        .term-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .term-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .term-definition {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback-correct {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+
+        .feedback-incorrect {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .thinking-question {
+            background: #fff;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .thinking-question h4 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+
+        .answer h5 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        ol, ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .pathway {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: "Consolas", monospace;
+        }
+
+        .enzyme {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .metabolite {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .cofactor {
+            color: #8e44ad;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .term-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>脂质的代谢</h1>
+            <p>基于《生物化学》第四版（朱圣庚、徐长法主编）的考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、脂质代谢概述</h2>
+                
+                <div class="highlight">
+                    <strong>脂质代谢的重要性：</strong>脂质是生物体内重要的能量储存物质，也是生物膜的主要组成成分。脂质代谢包括脂肪酸的分解代谢（β氧化）、合成代谢、酮体代谢、磷脂代谢和胆固醇代谢等。
+                </div>
+
+                <h3>1.1 脂肪的消化、吸收和转运</h3>
+                <p>膳食中脂肪的消化始于胃中的<span class="enzyme">胃脂肪酶</span>，终于小肠中的<span class="enzyme">胰脂肪酶</span>。消化产物脂肪酸和2-单酰甘油被小肠上皮吸收后，重新合成为三酰甘油，与蛋白质形成脂蛋白，经淋巴系统和血液循环运送到肌肉和脂肪组织。</p>
+
+                <p>脂肪组织中的脂肪被<span class="enzyme">三酰甘油脂肪酶</span>水解为甘油和脂肪酸，脂肪酸进入血液结合清蛋白后被运送到骨骼肌、心、肝等组织作为燃料。这个过程称为<strong>脂肪动员</strong>。</p>
+
+                <h3>1.2 脂质代谢的主要场所</h3>
+                <table>
+                    <tr>
+                        <th>代谢过程</th>
+                        <th>主要场所</th>
+                        <th>备注</th>
+                    </tr>
+                    <tr>
+                        <td>脂肪酸β氧化</td>
+                        <td>线粒体基质（真核细胞）<br>细胞溶胶（原核细胞）</td>
+                        <td>产生ATP的主要途径</td>
+                    </tr>
+                    <tr>
+                        <td>脂肪酸合成</td>
+                        <td>细胞溶胶</td>
+                        <td>需要NADPH和ATP</td>
+                    </tr>
+                    <tr>
+                        <td>酮体生成</td>
+                        <td>肝脏线粒体</td>
+                        <td>饥饿或糖尿病时增加</td>
+                    </tr>
+                    <tr>
+                        <td>胆固醇合成</td>
+                        <td>肝脏细胞溶胶和内质网</td>
+                        <td>HMG-CoA还原酶为限速酶</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>二、脂肪酸的β氧化</h2>
+
+                <h3>2.1 脂肪酸的活化和转运</h3>
+                
+                <div class="important">
+                    <strong>关键步骤：</strong>脂肪酸必须先活化为脂酰-CoA，然后通过肉碱转运系统进入线粒体进行β氧化。
+                </div>
+
+                <h4>2.1.1 脂肪酸的活化</h4>
+                <div class="pathway">
+                    脂肪酸 + CoA + ATP → 脂酰-CoA + AMP + PPi<br>
+                    <span class="enzyme">催化酶：脂酰辅酶A合酶</span><br>
+                    <span style="color: #e74c3c;">消耗：2个高能磷酸键</span>
+                </div>
+
+                <h4>2.1.2 肉碱转运系统</h4>
+                <p>长链脂酰-CoA不能直接穿透线粒体内膜，需要通过肉碱转运系统：</p>
+                <ol>
+                    <li><span class="enzyme">肉碱脂酰转移酶Ⅰ（CPT-Ⅰ）</span>：脂酰-CoA + 肉碱 → 脂酰肉碱 + CoA</li>
+                    <li><span class="enzyme">肉碱/脂酰肉碱转位酶</span>：脂酰肉碱穿过内膜</li>
+                    <li><span class="enzyme">肉碱脂酰转移酶Ⅱ（CPT-Ⅱ）</span>：脂酰肉碱 + CoA → 脂酰-CoA + 肉碱</li>
+                </ol>
+
+                <div class="important">
+                    <strong>调节要点：</strong>CPT-Ⅰ是脂肪酸氧化的限速酶，强烈受丙二酰-CoA抑制，这是脂肪酸合成与分解代谢协调调节的关键机制。
+                </div>
+
+                <h3>2.2 β氧化的反应过程</h3>
+                <p>β氧化是一个循环过程，每个循环包含4步反应，从脂肪酸的羧基端脱掉一个两碳单元（乙酰-CoA）：</p>
+
+                <div class="pathway">
+                    <strong>第一步：氧化（脱氢）</strong><br>
+                    脂酰-CoA + FAD → 反式-Δ²-烯酰-CoA + FADH₂<br>
+                    <span class="enzyme">催化酶：脂酰-CoA脱氢酶</span>
+                </div>
+
+                <div class="pathway">
+                    <strong>第二步：水合</strong><br>
+                    反式-Δ²-烯酰-CoA + H₂O → L-3-羟脂酰-CoA<br>
+                    <span class="enzyme">催化酶：烯酰-CoA水合酶</span>
+                </div>
+
+                <div class="pathway">
+                    <strong>第三步：氧化（脱氢）</strong><br>
+                    L-3-羟脂酰-CoA + NAD⁺ → 3-酮脂酰-CoA + NADH + H⁺<br>
+                    <span class="enzyme">催化酶：3-羟脂酰-CoA脱氢酶</span>
+                </div>
+
+                <div class="pathway">
+                    <strong>第四步：硫解</strong><br>
+                    3-酮脂酰-CoA + CoA → 乙酰-CoA + 脂酰-CoA（减少2个C）<br>
+                    <span class="enzyme">催化酶：硫解酶</span>
+                </div>
+
+                <h3>2.3 β氧化的能量计算</h3>
+                <div class="highlight">
+                    <strong>以软脂酸（16C）为例：</strong>
+                    <ul>
+                        <li>经过7轮β氧化，产生8个乙酰-CoA</li>
+                        <li>每轮产生：1个FADH₂ + 1个NADH</li>
+                        <li>总产生：7个FADH₂ + 7个NADH + 8个乙酰-CoA</li>
+                        <li>ATP计算：7×1.5 + 7×2.5 + 8×10 - 2 = 106个ATP</li>
+                    </ul>
+                </div>
+
+                <h3>2.4 特殊脂肪酸的氧化</h3>
+
+                <h4>2.4.1 不饱和脂肪酸的氧化</h4>
+                <p>不饱和脂肪酸的氧化需要额外的酶：</p>
+                <ul>
+                    <li><span class="enzyme">异构酶</span>：将顺式双键转化为反式双键</li>
+                    <li><span class="enzyme">2,4-二烯酰-CoA还原酶</span>：处理多不饱和脂肪酸</li>
+                    <li>由于绕过了脂酰-CoA脱氢酶，每个双键少产生1个FADH₂</li>
+                </ul>
+
+                <h4>2.4.2 奇数碳原子脂肪酸的氧化</h4>
+                <p>奇数碳原子脂肪酸在最后一轮β氧化后产生：</p>
+                <ul>
+                    <li>1个乙酰-CoA（2个碳）</li>
+                    <li>1个丙酰-CoA（3个碳）</li>
+                    <li>丙酰-CoA可转化为琥珀酰-CoA进入TCA循环，也可用于糖异生</li>
+                </ul>
+
+                <h3>2.5 过氧化物酶体中的β氧化</h3>
+                <p>过氧化物酶体也能进行β氧化，但有以下特点：</p>
+                <ul>
+                    <li>第一步氧化直接与O₂反应，产生H₂O₂而非FADH₂</li>
+                    <li>释放的能量以热量形式散失，不产生ATP</li>
+                    <li>主要功能：将超长链脂肪酸缩短为中长链，然后转入线粒体</li>
+                    <li>在植物中，过氧化物酶体是脂肪酸氧化的主要场所</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、酮体代谢</h2>
+
+                <h3>3.1 酮体的概念和组成</h3>
+                <div class="highlight">
+                    <strong>酮体</strong>包括三种化合物：
+                    <ul>
+                        <li><span class="metabolite">乙酰乙酸</span>（Acetoacetate）</li>
+                        <li><span class="metabolite">D-β-羟丁酸</span>（D-β-Hydroxybutyrate）</li>
+                        <li><span class="metabolite">丙酮</span>（Acetone，少量）</li>
+                    </ul>
+                </div>
+
+                <h3>3.2 酮体的生成（酮体生成）</h3>
+                <p>酮体主要在<strong>肝脏线粒体</strong>中生成，当乙酰-CoA过量时发生：</p>
+
+                <div class="pathway">
+                    <strong>酮体生成途径：</strong><br>
+                    2 乙酰-CoA → 乙酰乙酰-CoA + CoA<br>
+                    ↓ <span class="enzyme">HMG-CoA合酶</span><br>
+                    乙酰乙酰-CoA + 乙酰-CoA → HMG-CoA<br>
+                    ↓ <span class="enzyme">HMG-CoA裂解酶</span><br>
+                    HMG-CoA → 乙酰乙酸 + 乙酰-CoA<br>
+                    ↓ <span class="enzyme">β-羟丁酸脱氢酶</span><br>
+                    乙酰乙酸 + NADH → D-β-羟丁酸 + NAD⁺
+                </div>
+
+                <h3>3.3 酮体的利用</h3>
+                <p>酮体在<strong>肝外组织</strong>（心、脑、肌肉等）被氧化利用：</p>
+
+                <div class="pathway">
+                    <strong>酮体氧化途径：</strong><br>
+                    D-β-羟丁酸 + NAD⁺ → 乙酰乙酸 + NADH + H⁺<br>
+                    ↓ <span class="enzyme">琥珀酰-CoA转硫酶</span><br>
+                    乙酰乙酸 + 琥珀酰-CoA → 乙酰乙酰-CoA + 琥珀酸<br>
+                    ↓ <span class="enzyme">硫解酶</span><br>
+                    乙酰乙酰-CoA + CoA → 2 乙酰-CoA<br>
+                    ↓<br>
+                    进入TCA循环
+                </div>
+
+                <h3>3.4 酮体代谢的生理意义</h3>
+                <div class="important">
+                    <strong>生理条件下：</strong>
+                    <ul>
+                        <li>饥饿状态：为脑组织提供替代燃料</li>
+                        <li>长期饥饿：脑组织可利用酮体满足60-70%的能量需求</li>
+                        <li>运动状态：为心肌和骨骼肌提供能量</li>
+                    </ul>
+                    
+                    <strong>病理条件下：</strong>
+                    <ul>
+                        <li>糖尿病酮症酸中毒：酮体过量产生导致血液pH下降</li>
+                        <li>酮血症：血中酮体浓度异常升高</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>四、脂肪酸的生物合成</h2>
+
+                <h3>4.1 脂肪酸合成的基本特点</h3>
+                <table>
+                    <tr>
+                        <th>特征</th>
+                        <th>脂肪酸合成</th>
+                        <th>脂肪酸β氧化</th>
+                    </tr>
+                    <tr>
+                        <td>场所</td>
+                        <td>细胞溶胶</td>
+                        <td>线粒体基质</td>
+                    </tr>
+                    <tr>
+                        <td>方向</td>
+                        <td>甲基端→羧基端</td>
+                        <td>羧基端→甲基端</td>
+                    </tr>
+                    <tr>
+                        <td>载体</td>
+                        <td>ACP（酰基载体蛋白）</td>
+                        <td>CoA</td>
+                    </tr>
+                    <tr>
+                        <td>碳源</td>
+                        <td>丙二酰-CoA（3C→2C）</td>
+                        <td>产生乙酰-CoA（2C）</td>
+                    </tr>
+                    <tr>
+                        <td>辅酶</td>
+                        <td>NADPH</td>
+                        <td>NAD⁺、FAD</td>
+                    </tr>
+                    <tr>
+                        <td>羟基构型</td>
+                        <td>D-型</td>
+                        <td>L-型</td>
+                    </tr>
+                </table>
+
+                <h3>4.2 乙酰-CoA的转运</h3>
+                <p>脂肪酸合成的原料乙酰-CoA产生于线粒体，但合成在细胞溶胶进行，需要<strong>三羧酸转运系统</strong>：</p>
+
+                <div class="pathway">
+                    <strong>线粒体内：</strong><br>
+                    乙酰-CoA + 草酰乙酸 → 柠檬酸<br>
+                    ↓ 穿过线粒体内膜<br>
+                    <strong>细胞溶胶中：</strong><br>
+                    柠檬酸 + ATP + CoA → 乙酰-CoA + 草酰乙酸 + ADP + Pi<br>
+                    <span class="enzyme">催化酶：柠檬酸裂解酶</span>
+                </div>
+
+                <h3>4.3 脂肪酸合成的反应过程</h3>
+
+                <h4>4.3.1 丙二酰-CoA的形成</h4>
+                <div class="pathway">
+                    乙酰-CoA + CO₂ + ATP → 丙二酰-CoA + ADP + Pi<br>
+                    <span class="enzyme">催化酶：乙酰-CoA羧化酶（限速酶）</span><br>
+                    <span class="cofactor">辅酶：生物素</span>
+                </div>
+
+                <h4>4.3.2 脂肪酸合酶复合体</h4>
+                <p>在哺乳动物中，脂肪酸合成由一个多酶复合体催化，包含7种酶活性：</p>
+                <ol>
+                    <li><span class="enzyme">乙酰转移酶</span>：启动反应</li>
+                    <li><span class="enzyme">丙二酰转移酶</span>：装载丙二酰基团</li>
+                    <li><span class="enzyme">缩合酶</span>：形成C-C键</li>
+                    <li><span class="enzyme">β-酮脂酰还原酶</span>：第一次还原</li>
+                    <li><span class="enzyme">脱水酶</span>：脱水形成双键</li>
+                    <li><span class="enzyme">烯脂酰还原酶</span>：第二次还原</li>
+                    <li><span class="enzyme">硫酯酶</span>：释放脂肪酸</li>
+                </ol>
+
+                <h4>4.3.3 合成循环</h4>
+                <div class="pathway">
+                    <strong>启动：</strong>乙酰-CoA → 乙酰-ACP<br>
+                    <strong>装载：</strong>丙二酰-CoA → 丙二酰-ACP<br>
+                    <strong>缩合：</strong>乙酰-ACP + 丙二酰-ACP → 乙酰乙酰-ACP + CO₂<br>
+                    <strong>还原：</strong>乙酰乙酰-ACP + NADPH → D-β-羟丁酰-ACP<br>
+                    <strong>脱水：</strong>D-β-羟丁酰-ACP → 反式-丁烯酰-ACP<br>
+                    <strong>还原：</strong>反式-丁烯酰-ACP + NADPH → 丁酰-ACP<br>
+                    <strong>释放：</strong>软脂酰-ACP + H₂O → 软脂酸 + ACP
+                </div>
+
+                <h3>4.4 脂肪酸的进一步修饰</h3>
+
+                <h4>4.4.1 碳链延长</h4>
+                <p>软脂酸（C16）可进一步延长：</p>
+                <ul>
+                    <li><strong>线粒体系统</strong>：逆转β氧化过程</li>
+                    <li><strong>内质网系统</strong>：使用丙二酰-CoA作为碳源</li>
+                </ul>
+
+                <h4>4.4.2 去饱和反应</h4>
+                <p>不饱和脂肪酸的形成需要<span class="enzyme">去饱和酶</span>：</p>
+                <div class="pathway">
+                    软脂酰-CoA + NADH + H⁺ + O₂ → 软油酰-CoA + NAD⁺ + 2H₂O<br>
+                    <span class="enzyme">催化酶：Δ⁹-去饱和酶</span>
+                </div>
+
+                <div class="important">
+                    <strong>必需脂肪酸：</strong>哺乳动物缺乏在Δ⁹以外引入双键的酶，因此亚油酸（C18:2）和α-亚麻酸（C18:3）是必需脂肪酸，必须从食物中获得。
+                </div>
+
+                <h3>4.5 脂肪酸代谢的调节</h3>
+
+                <h4>4.5.1 别构调节</h4>
+                <ul>
+                    <li><span class="enzyme">乙酰-CoA羧化酶</span>：
+                        <ul>
+                            <li>激活剂：柠檬酸</li>
+                            <li>抑制剂：软脂酰-CoA</li>
+                        </ul>
+                    </li>
+                    <li><span class="enzyme">CPT-Ⅰ</span>：被丙二酰-CoA强烈抑制</li>
+                </ul>
+
+                <h4>4.5.2 共价修饰调节</h4>
+                <p>胰高血糖素/肾上腺素激活cAMP-PKA途径：</p>
+                <ul>
+                    <li>磷酸化抑制乙酰-CoA羧化酶（合成↓）</li>
+                    <li>磷酸化激活三酰甘油脂肪酶（分解↑）</li>
+                </ul>
+
+                <h4>4.5.3 酶水平调节</h4>
+                <p>长期膳食改变导致相关酶合成水平的调节：</p>
+                <ul>
+                    <li>高糖低脂饮食：促进脂肪酸合成酶表达</li>
+                    <li>高脂低糖饮食：促进脂肪酸氧化酶表达</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>五、复合脂质的代谢</h2>
+
+                <h3>5.1 磷脂的生物合成</h3>
+
+                <h4>5.1.1 磷脂酸的形成</h4>
+                <p>磷脂合成的共同前体是<span class="metabolite">磷脂酸</span>：</p>
+                <div class="pathway">
+                    甘油-3-磷酸 + 2脂酰-CoA → 磷脂酸 + 2CoA<br>
+                    <span class="enzyme">催化酶：甘油磷酸酰基转移酶</span>
+                </div>
+
+                <h4>5.1.2 甘油磷脂的合成</h4>
+                <p>有两条主要途径：</p>
+
+                <div class="highlight">
+                    <strong>途径一（原核生物）：</strong><br>
+                    磷脂酸 + CTP → CDP-二酰甘油 + PPi<br>
+                    CDP-二酰甘油 + 丝氨酸 → 磷脂酰丝氨酸 + CMP<br>
+                    磷脂酰丝氨酸 → 磷脂酰乙醇胺 + CO₂
+                </div>
+
+                <div class="highlight">
+                    <strong>途径二（真核生物）：</strong><br>
+                    胆碱 + ATP → 磷酸胆碱 + ADP<br>
+                    磷酸胆碱 + CTP → CDP-胆碱 + PPi<br>
+                    CDP-胆碱 + 二酰甘油 → 磷脂酰胆碱 + CMP
+                </div>
+
+                <h3>5.2 鞘脂的生物合成</h3>
+
+                <h4>5.2.1 神经酰胺的形成</h4>
+                <div class="pathway">
+                    丝氨酸 + 软脂酰-CoA → 3-酮二氢鞘氨醇<br>
+                    ↓ 还原、酰化<br>
+                    神经酰胺（鞘脂类的基本骨架）
+                </div>
+
+                <h4>5.2.2 鞘脂类的形成</h4>
+                <ul>
+                    <li><strong>鞘磷脂</strong>：神经酰胺 + 磷脂酰胆碱 → 鞘磷脂 + 二酰甘油</li>
+                    <li><strong>脑苷脂</strong>：神经酰胺 + UDP-葡萄糖 → 葡萄糖脑苷脂 + UDP</li>
+                    <li><strong>神经节苷脂</strong>：在脑苷脂基础上进一步糖基化</li>
+                </ul>
+
+                <h3>5.3 鞘脂代谢异常与疾病</h3>
+                <div class="important">
+                    <strong>鞘脂贮积病</strong>：由于鞘脂分解酶缺陷导致的遗传性疾病
+                    <ul>
+                        <li><strong>Tay-Sachs病</strong>：β-己糖胺酶A缺陷，GM2神经节苷脂积累</li>
+                        <li><strong>Gaucher病</strong>：β-葡萄糖脑苷脂酶缺陷，葡萄糖脑苷脂积累</li>
+                        <li><strong>Niemann-Pick病</strong>：鞘磷脂酶缺陷，鞘磷脂积累</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>六、胆固醇代谢</h2>
+
+                <h3>6.1 胆固醇的生物学功能</h3>
+                <ul>
+                    <li>生物膜的重要组成成分，调节膜流动性</li>
+                    <li>类固醇激素的前体（雄激素、雌激素、皮质激素等）</li>
+                    <li>胆汁酸的前体</li>
+                    <li>维生素D₃的前体</li>
+                </ul>
+
+                <h3>6.2 胆固醇的生物合成</h3>
+
+                <h4>6.2.1 甲羟戊酸的形成</h4>
+                <div class="pathway">
+                    2乙酰-CoA → 乙酰乙酰-CoA<br>
+                    ↓ + 乙酰-CoA<br>
+                    HMG-CoA<br>
+                    ↓ <span class="enzyme">HMG-CoA还原酶（限速酶）</span><br>
+                    甲羟戊酸
+                </div>
+
+                <h4>6.2.2 异戊二烯单位的形成</h4>
+                <div class="pathway">
+                    甲羟戊酸 → 异戊烯焦磷酸（IPP）<br>
+                    IPP ⇌ 二甲基烯丙基焦磷酸（DMAPP）
+                </div>
+
+                <h4>6.2.3 鲨烯的形成和环化</h4>
+                <div class="pathway">
+                    6个异戊二烯单位 → 鲨烯（C30）<br>
+                    ↓ 环化<br>
+                    羊毛固醇 → 胆固醇
+                </div>
+
+                <h3>6.3 胆固醇代谢的调节</h3>
+
+                <h4>6.3.1 HMG-CoA还原酶的调节</h4>
+                <ul>
+                    <li><strong>转录水平</strong>：胆固醇抑制酶基因转录</li>
+                    <li><strong>翻译后修饰</strong>：磷酸化抑制酶活性</li>
+                    <li><strong>蛋白质降解</strong>：胆固醇促进酶降解</li>
+                </ul>
+
+                <h4>6.3.2 胆固醇的反馈抑制</h4>
+                <p>细胞内胆固醇通过以下机制调节自身合成：</p>
+                <ul>
+                    <li>抑制HMG-CoA还原酶活性</li>
+                    <li>激活酰基辅酶A：胆固醇酰基转移酶（ACAT）</li>
+                    <li>抑制LDL受体合成</li>
+                </ul>
+
+                <h3>6.4 脂蛋白代谢</h3>
+
+                <h4>6.4.1 脂蛋白的分类</h4>
+                <table>
+                    <tr>
+                        <th>脂蛋白</th>
+                        <th>密度</th>
+                        <th>主要成分</th>
+                        <th>功能</th>
+                    </tr>
+                    <tr>
+                        <td>乳糜微粒</td>
+                        <td>最低</td>
+                        <td>三酰甘油</td>
+                        <td>转运外源性脂质</td>
+                    </tr>
+                    <tr>
+                        <td>VLDL</td>
+                        <td>很低</td>
+                        <td>三酰甘油</td>
+                        <td>转运内源性三酰甘油</td>
+                    </tr>
+                    <tr>
+                        <td>LDL</td>
+                        <td>低</td>
+                        <td>胆固醇酯</td>
+                        <td>转运胆固醇到外周组织</td>
+                    </tr>
+                    <tr>
+                        <td>HDL</td>
+                        <td>高</td>
+                        <td>蛋白质、磷脂</td>
+                        <td>胆固醇逆转运</td>
+                    </tr>
+                </table>
+
+                <h4>6.4.2 LDL受体途径</h4>
+                <ol>
+                    <li>LDL与细胞表面LDL受体结合</li>
+                    <li>受体-配体复合物内吞形成内体</li>
+                    <li>内体与溶酶体融合</li>
+                    <li>LDL被降解，释放游离胆固醇</li>
+                    <li>LDL受体回收到细胞表面</li>
+                </ol>
+
+                <h3>6.5 胆汁酸代谢</h3>
+
+                <h4>6.5.1 胆汁酸的合成</h4>
+                <div class="pathway">
+                    胆固醇 → 7α-羟基胆固醇<br>
+                    <span class="enzyme">催化酶：胆固醇7α-羟化酶（限速酶）</span><br>
+                    ↓<br>
+                    胆酸、鹅脱氧胆酸
+                </div>
+
+                <h4>6.5.2 胆汁酸的肠肝循环</h4>
+                <ul>
+                    <li>肝脏合成胆汁酸，储存在胆囊</li>
+                    <li>进食后释放到小肠，帮助脂质消化</li>
+                    <li>95%的胆汁酸在回肠被重吸收</li>
+                    <li>通过门静脉回到肝脏，形成肠肝循环</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>七、名词解释库</h2>
+                <div class="term-list">
+                    <div class="term-item">
+                        <div class="term-name">β氧化</div>
+                        <div class="term-english">Beta-oxidation</div>
+                        <div class="term-definition">脂肪酸分解代谢的主要途径，通过循环的四步反应（氧化-水合-氧化-硫解）从脂肪酸羧基端逐步脱掉两碳单元，产生乙酰-CoA、FADH₂和NADH。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">肉碱转运系统</div>
+                        <div class="term-english">Carnitine Transport System</div>
+                        <div class="term-definition">长链脂酰-CoA进入线粒体的转运机制，包括CPT-Ⅰ、肉碱/脂酰肉碱转位酶和CPT-Ⅱ三个组分，其中CPT-Ⅰ是脂肪酸氧化的限速步骤。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">酮体</div>
+                        <div class="term-english">Ketone Bodies</div>
+                        <div class="term-definition">包括乙酰乙酸、D-β-羟丁酸和丙酮的总称，主要在肝脏中由乙酰-CoA合成，在肝外组织氧化供能，是饥饿状态下脑组织的重要替代燃料。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">脂肪酸合酶</div>
+                        <div class="term-english">Fatty Acid Synthase, FAS</div>
+                        <div class="term-definition">哺乳动物中催化脂肪酸合成的多酶复合体，包含7种酶活性和1个ACP，能够将乙酰-CoA和丙二酰-CoA合成为软脂酸。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">乙酰-CoA羧化酶</div>
+                        <div class="term-english">Acetyl-CoA Carboxylase, ACC</div>
+                        <div class="term-definition">脂肪酸合成的限速酶，催化乙酰-CoA羧化形成丙二酰-CoA，受柠檬酸激活，受软脂酰-CoA和cAMP依赖的磷酸化抑制。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">HMG-CoA还原酶</div>
+                        <div class="term-english">HMG-CoA Reductase</div>
+                        <div class="term-definition">胆固醇合成的限速酶，催化HMG-CoA还原为甲羟戊酸，是胆固醇合成调节的关键控制点，他汀类药物的作用靶点。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">脂肪动员</div>
+                        <div class="term-english">Fat Mobilization</div>
+                        <div class="term-definition">脂肪组织中储存的三酰甘油被脂肪酶水解为甘油和脂肪酸，脂肪酸释放入血并转运到其他组织进行氧化的过程。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">三羧酸转运系统</div>
+                        <div class="term-english">Tricarboxylate Transport System</div>
+                        <div class="term-definition">将线粒体内的乙酰-CoA以柠檬酸形式转运到细胞溶胶进行脂肪酸合成的机制，涉及柠檬酸载体和柠檬酸裂解酶。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">必需脂肪酸</div>
+                        <div class="term-english">Essential Fatty Acids</div>
+                        <div class="term-definition">人体不能合成必须从食物中获得的脂肪酸，主要包括亚油酸（C18:2）和α-亚麻酸（C18:3），是前列腺素等生物活性物质的前体。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">磷脂酸</div>
+                        <div class="term-english">Phosphatidic Acid, PA</div>
+                        <div class="term-definition">甘油磷脂合成的共同前体，由甘油-3-磷酸经两次酰化反应形成，可进一步合成各种甘油磷脂或三酰甘油。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">神经酰胺</div>
+                        <div class="term-english">Ceramide</div>
+                        <div class="term-definition">鞘脂类的基本骨架，由鞘氨醇与脂肪酸通过酰胺键结合形成，是鞘磷脂和鞘糖脂合成的前体。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">鞘脂贮积病</div>
+                        <div class="term-english">Sphingolipidoses</div>
+                        <div class="term-definition">由于鞘脂分解酶缺陷导致特定鞘脂在细胞内异常积累的遗传性疾病，如Tay-Sachs病、Gaucher病等。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">LDL受体</div>
+                        <div class="term-english">LDL Receptor</div>
+                        <div class="term-definition">细胞表面识别和结合低密度脂蛋白的受体，介导胆固醇的细胞摄取，其缺陷导致家族性高胆固醇血症。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">胆固醇逆转运</div>
+                        <div class="term-english">Reverse Cholesterol Transport</div>
+                        <div class="term-definition">HDL将外周组织的胆固醇转运回肝脏进行代谢或排泄的过程，是机体清除多余胆固醇的重要机制。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">肠肝循环</div>
+                        <div class="term-english">Enterohepatic Circulation</div>
+                        <div class="term-definition">胆汁酸在肝脏合成、胆囊储存、小肠发挥功能、回肠重吸收、门静脉回肝的循环过程，提高胆汁酸的利用效率。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">异戊二烯单位</div>
+                        <div class="term-english">Isoprene Unit</div>
+                        <div class="term-definition">胆固醇等类异戊二烯化合物的基本构建单元，包括异戊烯焦磷酸（IPP）和二甲基烯丙基焦磷酸（DMAPP）。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">过氧化物酶体β氧化</div>
+                        <div class="term-english">Peroxisomal Beta-oxidation</div>
+                        <div class="term-definition">发生在过氧化物酶体中的脂肪酸氧化过程，主要处理超长链脂肪酸，第一步氧化产生H₂O₂而非FADH₂，能量以热量形式散失。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">丙二酰-CoA</div>
+                        <div class="term-english">Malonyl-CoA</div>
+                        <div class="term-definition">脂肪酸合成的直接碳源，由乙酰-CoA羧化形成，同时是CPT-Ⅰ的强效抑制剂，协调脂肪酸合成与分解的关键调节分子。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">酰基载体蛋白</div>
+                        <div class="term-english">Acyl Carrier Protein, ACP</div>
+                        <div class="term-definition">脂肪酸合成过程中携带增长脂肪酸链的载体蛋白，含有4'-磷酸泛酰巯基乙胺辅基，是脂肪酸合酶复合体的组成部分。</div>
+                    </div>
+
+                    <div class="term-item">
+                        <div class="term-name">胆固醇7α-羟化酶</div>
+                        <div class="term-english">Cholesterol 7α-Hydroxylase</div>
+                        <div class="term-definition">胆汁酸合成的限速酶，催化胆固醇7α位羟基化，是胆汁酸合成途径的第一步和主要调节点。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>八、选择题测试</h2>
+                <div class="quiz-container">
+                    <h3>随机测试（15题）</h3>
+                    <p>以下题目从30道题库中随机抽取，请选择最佳答案：</p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-feedback" class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>九、深度思考题</h2>
+
+                <div class="thinking-question">
+                    <h4>1. 比较分析脂肪酸β氧化与脂肪酸合成在细胞定位、反应机制、调节方式等方面的差异，并阐述这些差异的生物学意义。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>细胞定位差异：</strong>β氧化发生在线粒体基质，而脂肪酸合成发生在细胞溶胶。这种空间分离避免了合成与分解的同时进行，提高了代谢效率。线粒体是ATP产生的主要场所，β氧化在此进行有利于能量的直接利用。</li>
+                            <li><strong>反应方向与机制：</strong>β氧化从羧基端向甲基端进行，每次脱掉两个碳原子；合成则从甲基端向羧基端进行，每次添加两个碳原子。β氧化产生FADH₂和NADH，合成消耗NADPH。这种相反的机制确保了两个过程的独立调节。</li>
+                            <li><strong>载体蛋白差异：</strong>β氧化使用CoA作为载体，合成使用ACP。不同载体使得两个过程使用不同的酶系统，便于精确调节。</li>
+                            <li><strong>调节机制：</strong>丙二酰-CoA既是合成的原料，又是β氧化限速酶CPT-Ⅰ的抑制剂，实现了合成与分解的协调调节。当合成活跃时，β氧化被抑制，避免了无效循环。</li>
+                            <li><strong>生物学意义：</strong>这些差异确保了机体能够根据能量状态和营养条件灵活调节脂质代谢，在能量充足时促进脂肪合成储存，在能量需求时促进脂肪分解供能。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 酮体代谢在人体能量代谢中的作用机制是什么？分析酮体代谢异常与糖尿病酮症酸中毒的关系。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>酮体的生理作用：</strong>酮体是脂肪酸β氧化产生的乙酰-CoA的替代利用途径，主要在肝脏产生，在肝外组织利用。正常情况下，酮体为心肌、骨骼肌等组织提供能量，在饥饿状态下成为脑组织的重要替代燃料。</li>
+                            <li><strong>酮体生成的调节：</strong>当草酰乙酸不足（如糖异生增强时）或乙酰-CoA过量时，乙酰-CoA不能充分进入TCA循环，转而生成酮体。这是机体在糖供应不足时的适应性反应。</li>
+                            <li><strong>酮体的转运与利用：</strong>酮体可自由穿过血脑屏障，在肝外组织通过特异性酶系统重新转化为乙酰-CoA进入TCA循环。这种机制使得脂肪酸的能量能够间接供给脑组织。</li>
+                            <li><strong>糖尿病酮症酸中毒的机制：</strong>在未控制的糖尿病中，胰岛素缺乏导致糖利用障碍，脂肪动员和β氧化过度激活，酮体生成大量增加。酮体中的乙酰乙酸和β-羟丁酸是有机酸，大量积累导致代谢性酸中毒。</li>
+                            <li><strong>临床意义：</strong>监测血酮和尿酮是糖尿病管理的重要指标。适度的酮体生成是正常的代谢适应，但过量则提示代谢紊乱，需要及时干预。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 胆固醇代谢的调节机制复杂而精密，请分析HMG-CoA还原酶的多层次调节机制及其在胆固醇稳态维持中的作用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>转录水平调节：</strong>胆固醇通过SREBP-SCAP系统调节HMG-CoA还原酶基因转录。当细胞内胆固醇充足时，SREBP被保留在内质网，无法激活基因转录；胆固醇不足时，SREBP转移到核内激活转录。这种机制确保了酶合成与胆固醇需求的匹配。</li>
+                            <li><strong>翻译后修饰调节：</strong>HMG-CoA还原酶受AMP激活的蛋白激酶（AMPK）磷酸化而失活。当细胞能量状态低下时，AMPK激活，抑制耗能的胆固醇合成。胰岛素则通过激活蛋白磷酸酶促进酶去磷酸化激活，协调胆固醇合成与营养状态。</li>
+                            <li><strong>蛋白质稳定性调节：</strong>胆固醇及其代谢产物促进HMG-CoA还原酶的泛素化降解。酶的膜结合域感受胆固醇水平变化，高胆固醇时酶快速降解，低胆固醇时酶稳定存在。这种机制提供了快速的负反馈调节。</li>
+                            <li><strong>别构调节：</strong>虽然HMG-CoA还原酶本身的别构调节相对较弱，但其产物甲羟戊酸的下游代谢物可以反馈调节酶活性，形成精细的调节网络。</li>
+                            <li><strong>临床意义：</strong>他汀类药物通过竞争性抑制HMG-CoA还原酶降低胆固醇合成，是治疗高胆固醇血症的重要药物。理解这些调节机制有助于开发新的治疗策略和理解相关疾病的发病机制。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 脂蛋白代谢异常与动脉粥样硬化的关系如何？分析LDL和HDL在胆固醇转运中的不同作用机制。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>LDL的致动脉粥样硬化机制：</strong>LDL携带胆固醇从肝脏转运到外周组织，当LDL浓度过高或被氧化修饰时，容易在动脉壁沉积。氧化LDL被巨噬细胞吞噬形成泡沫细胞，启动炎症反应，促进动脉粥样硬化斑块形成。</li>
+                            <li><strong>LDL受体途径的调节：</strong>细胞通过LDL受体摄取胆固醇，当细胞内胆固醇充足时，LDL受体表达下调，减少胆固醇摄取。但巨噬细胞的清道夫受体不受此调节，持续摄取氧化LDL导致胆固醇过载。</li>
+                            <li><strong>HDL的保护机制：</strong>HDL通过胆固醇逆转运系统将外周组织多余的胆固醇转运回肝脏。HDL中的载脂蛋白A-I激活卵磷脂胆固醇酰基转移酶（LCAT），将游离胆固醇酯化便于转运。</li>
+                            <li><strong>HDL的抗动脉粥样硬化作用：</strong>除胆固醇逆转运外，HDL还具有抗氧化、抗炎、改善内皮功能等多重保护作用。HDL能够清除氧化LDL，抑制炎症因子释放，维护血管内皮完整性。</li>
+                            <li><strong>临床应用价值：</strong>LDL-C/HDL-C比值是评估心血管疾病风险的重要指标。治疗策略包括降低LDL（他汀类药物）和提高HDL（运动、戒烟、某些药物），综合改善脂蛋白谱以预防动脉粥样硬化。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 分析脂质代谢与糖代谢之间的相互关系，特别是在饥饿状态和糖尿病条件下的代谢重编程机制。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>正常状态下的代谢协调：</strong>胰岛素促进糖的利用和脂肪的合成，抑制糖异生和脂肪分解；胰高血糖素则相反。柠檬酸-丙酮酸循环协调糖酵解与脂肪酸合成，当糖充足时促进脂肪合成，糖不足时抑制脂肪合成。</li>
+                            <li><strong>饥饿状态的代谢适应：</strong>胰岛素水平下降，胰高血糖素和肾上腺素升高，激活脂肪动员和β氧化。脂肪酸氧化产生的乙酰-CoA抑制糖酵解关键酶，促进糖异生。酮体生成为脑组织提供替代燃料，减少对葡萄糖的依赖。</li>
+                            <li><strong>Randle循环（糖脂竞争）：</strong>脂肪酸氧化产生的柠檬酸和ATP抑制磷酸果糖激酶，乙酰-CoA抑制丙酮酸脱氢酶，从而抑制糖酵解。反之，葡萄糖利用产生的丙二酰-CoA抑制CPT-Ⅰ，抑制脂肪酸氧化。</li>
+                            <li><strong>糖尿病的代谢紊乱：</strong>胰岛素缺乏或抵抗导致糖利用障碍，机体误认为处于饥饿状态，过度激活脂肪分解和糖异生。大量脂肪酸氧化产生酮体，可能导致酮症酸中毒。同时，糖异生过度激活导致高血糖。</li>
+                            <li><strong>治疗策略的代谢基础：</strong>糖尿病治疗不仅要控制血糖，还要纠正脂质代谢异常。二甲双胍通过激活AMPK同时改善糖脂代谢；胰岛素治疗恢复正常的代谢调节；生活方式干预通过改善胰岛素敏感性协调糖脂代谢。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "脂肪酸β氧化的限速酶是：",
+                options: ["A. 脂酰-CoA合酶", "B. 肉碱脂酰转移酶Ⅰ", "C. 脂酰-CoA脱氢酶", "D. 硫解酶"],
+                correct: 1,
+                explanation: "肉碱脂酰转移酶Ⅰ（CPT-Ⅰ）是脂肪酸β氧化的限速酶，受丙二酰-CoA强烈抑制，是脂肪酸氧化调节的关键控制点。"
+            },
+            {
+                question: "软脂酸（16C）完全氧化可产生多少个ATP？",
+                options: ["A. 129个", "B. 106个", "C. 147个", "D. 131个"],
+                correct: 1,
+                explanation: "软脂酸经7轮β氧化产生8个乙酰-CoA、7个FADH₂、7个NADH，总ATP = 8×10 + 7×1.5 + 7×2.5 - 2 = 106个。"
+            },
+            {
+                question: "酮体主要在哪个器官产生？",
+                options: ["A. 肌肉", "B. 脂肪组织", "C. 肝脏", "D. 肾脏"],
+                correct: 2,
+                explanation: "酮体主要在肝脏线粒体中产生，当乙酰-CoA过量或草酰乙酸不足时，乙酰-CoA转化为酮体。"
+            },
+            {
+                question: "脂肪酸合成的限速酶是：",
+                options: ["A. 柠檬酸裂解酶", "B. 乙酰-CoA羧化酶", "C. 脂肪酸合酶", "D. 苹果酸酶"],
+                correct: 1,
+                explanation: "乙酰-CoA羧化酶是脂肪酸合成的限速酶，催化乙酰-CoA羧化形成丙二酰-CoA，受柠檬酸激活，受软脂酰-CoA抑制。"
+            },
+            {
+                question: "胆固醇合成的限速酶是：",
+                options: ["A. HMG-CoA合酶", "B. HMG-CoA还原酶", "C. 甲羟戊酸激酶", "D. 鲨烯合酶"],
+                correct: 1,
+                explanation: "HMG-CoA还原酶是胆固醇合成的限速酶，催化HMG-CoA还原为甲羟戊酸，是他汀类药物的作用靶点。"
+            },
+            {
+                question: "下列哪种脂蛋白主要负责胆固醇逆转运？",
+                options: ["A. 乳糜微粒", "B. VLDL", "C. LDL", "D. HDL"],
+                correct: 3,
+                explanation: "HDL主要负责胆固醇逆转运，将外周组织的胆固醇转运回肝脏，具有抗动脉粥样硬化作用。"
+            },
+            {
+                question: "脂肪酸合成需要的辅酶是：",
+                options: ["A. NAD⁺", "B. NADPH", "C. FAD", "D. FADH₂"],
+                correct: 1,
+                explanation: "脂肪酸合成需要NADPH作为还原剂，主要来源于磷酸戊糖途径和苹果酸-柠檬酸循环。"
+            },
+            {
+                question: "肉碱的主要功能是：",
+                options: ["A. 激活脂肪酸", "B. 转运长链脂酰-CoA进入线粒体", "C. 催化β氧化", "D. 合成脂肪酸"],
+                correct: 1,
+                explanation: "肉碱的主要功能是转运长链脂酰-CoA进入线粒体进行β氧化，通过肉碱转运系统实现。"
+            },
+            {
+                question: "酮体包括以下哪些化合物？",
+                options: ["A. 乙酰乙酸、β-羟丁酸、丙酮", "B. 乙酰-CoA、丙酰-CoA、丁酰-CoA", "C. 柠檬酸、异柠檬酸、α-酮戊二酸", "D. 草酰乙酸、苹果酸、延胡索酸"],
+                correct: 0,
+                explanation: "酮体包括乙酰乙酸、D-β-羟丁酸和丙酮三种化合物，主要在肝脏产生，肝外组织利用。"
+            },
+            {
+                question: "脂肪酸β氧化发生在：",
+                options: ["A. 细胞溶胶", "B. 线粒体基质", "C. 内质网", "D. 过氧化物酶体"],
+                correct: 1,
+                explanation: "脂肪酸β氧化主要发生在线粒体基质中，过氧化物酶体也能进行β氧化但机制略有不同。"
+            },
+            {
+                question: "丙二酰-CoA的作用包括：",
+                options: ["A. 仅作为脂肪酸合成的碳源", "B. 仅抑制CPT-Ⅰ", "C. 既是脂肪酸合成的碳源，又抑制CPT-Ⅰ", "D. 激活脂肪酸合酶"],
+                correct: 2,
+                explanation: "丙二酰-CoA既是脂肪酸合成的直接碳源，又是CPT-Ⅰ的强效抑制剂，协调脂肪酸合成与分解的调节。"
+            },
+            {
+                question: "必需脂肪酸是指：",
+                options: ["A. 人体能够合成的脂肪酸", "B. 人体不能合成必须从食物获得的脂肪酸", "C. 所有不饱和脂肪酸", "D. 所有长链脂肪酸"],
+                correct: 1,
+                explanation: "必需脂肪酸是人体不能合成必须从食物中获得的脂肪酸，主要包括亚油酸和α-亚麻酸。"
+            },
+            {
+                question: "胆汁酸合成的限速酶是：",
+                options: ["A. HMG-CoA还原酶", "B. 胆固醇7α-羟化酶", "C. 胆固醇酯酶", "D. 胆固醇酰基转移酶"],
+                correct: 1,
+                explanation: "胆固醇7α-羟化酶是胆汁酸合成的限速酶，催化胆固醇7α位羟基化，是胆汁酸合成的第一步。"
+            },
+            {
+                question: "过氧化物酶体β氧化的特点是：",
+                options: ["A. 产生FADH₂", "B. 产生H₂O₂", "C. 只氧化短链脂肪酸", "D. 产生大量ATP"],
+                correct: 1,
+                explanation: "过氧化物酶体β氧化第一步直接与O₂反应产生H₂O₂而非FADH₂，能量以热量形式散失，主要处理超长链脂肪酸。"
+            },
+            {
+                question: "脂肪酸合成的载体蛋白是：",
+                options: ["A. CoA", "B. ACP", "C. NAD⁺", "D. FAD"],
+                correct: 1,
+                explanation: "脂肪酸合成使用ACP（酰基载体蛋白）作为载体，而β氧化使用CoA，这种差异有利于两个过程的独立调节。"
+            },
+            {
+                question: "奇数碳原子脂肪酸β氧化的最终产物包括：",
+                options: ["A. 只有乙酰-CoA", "B. 乙酰-CoA和丙酰-CoA", "C. 只有丙酰-CoA", "D. 乙酰-CoA和丁酰-CoA"],
+                correct: 1,
+                explanation: "奇数碳原子脂肪酸β氧化最后产生一个乙酰-CoA和一个丙酰-CoA，丙酰-CoA可转化为琥珀酰-CoA进入TCA循环。"
+            },
+            {
+                question: "磷脂合成的共同前体是：",
+                options: ["A. 甘油", "B. 甘油-3-磷酸", "C. 磷脂酸", "D. CDP-二酰甘油"],
+                correct: 2,
+                explanation: "磷脂酸是甘油磷脂合成的共同前体，由甘油-3-磷酸经两次酰化反应形成。"
+            },
+            {
+                question: "鞘脂的基本骨架是：",
+                options: ["A. 甘油", "B. 鞘氨醇", "C. 神经酰胺", "D. 胆固醇"],
+                correct: 2,
+                explanation: "神经酰胺是鞘脂类的基本骨架，由鞘氨醇与脂肪酸通过酰胺键结合形成，是各种鞘脂的前体。"
+            },
+            {
+                question: "LDL受体缺陷导致的疾病是：",
+                options: ["A. 糖尿病", "B. 家族性高胆固醇血症", "C. 脂肪肝", "D. 动脉硬化"],
+                correct: 1,
+                explanation: "LDL受体缺陷导致家族性高胆固醇血症，细胞无法正常摄取LDL，导致血胆固醇水平极度升高。"
+            },
+            {
+                question: "胆汁酸的肠肝循环中，大约多少比例被重吸收？",
+                options: ["A. 50%", "B. 75%", "C. 95%", "D. 99%"],
+                correct: 2,
+                explanation: "胆汁酸肠肝循环中约95%在回肠被重吸收，通过门静脉回到肝脏，提高了胆汁酸的利用效率。"
+            },
+            {
+                question: "脂肪酸去饱和反应需要的辅酶包括：",
+                options: ["A. 只需要NADH", "B. 只需要O₂", "C. NADH、O₂和细胞色素b5", "D. 只需要FADH₂"],
+                correct: 2,
+                explanation: "脂肪酸去饱和反应需要NADH、O₂和细胞色素b5还原酶系统，在内质网中进行。"
+            },
+            {
+                question: "三羧酸转运系统的作用是：",
+                options: ["A. 转运脂肪酸", "B. 转运乙酰-CoA等价物", "C. 转运胆固醇", "D. 转运磷脂"],
+                correct: 1,
+                explanation: "三羧酸转运系统将线粒体内的乙酰-CoA以柠檬酸形式转运到细胞溶胶，为脂肪酸合成提供原料。"
+            },
+            {
+                question: "酮症酸中毒主要发生在：",
+                options: ["A. 正常人饥饿时", "B. 未控制的糖尿病", "C. 运动后", "D. 高脂饮食后"],
+                correct: 1,
+                explanation: "酮症酸中毒主要发生在未控制的糖尿病患者，胰岛素缺乏导致脂肪过度分解，酮体大量生成引起酸中毒。"
+            },
+            {
+                question: "SREBP的主要功能是：",
+                options: ["A. 调节糖代谢", "B. 调节脂质合成基因转录", "C. 调节蛋白质合成", "D. 调节DNA复制"],
+                correct: 1,
+                explanation: "SREBP（固醇调节元件结合蛋白）主要调节脂质合成相关基因的转录，包括HMG-CoA还原酶等。"
+            },
+            {
+                question: "脂肪酸合成中每加入一个两碳单元需要消耗：",
+                options: ["A. 1个ATP", "B. 2个ATP", "C. 1个ATP和2个NADPH", "D. 2个ATP和2个NADPH"],
+                correct: 2,
+                explanation: "脂肪酸合成中每加入一个两碳单元需要消耗1个ATP（用于丙二酰-CoA形成）和2个NADPH（用于还原反应）。"
+            },
+            {
+                question: "Tay-Sachs病是由于缺乏：",
+                options: ["A. α-半乳糖苷酶", "B. β-己糖胺酶A", "C. 鞘磷脂酶", "D. β-葡萄糖脑苷脂酶"],
+                correct: 1,
+                explanation: "Tay-Sachs病是由于β-己糖胺酶A缺陷，导致GM2神经节苷脂在神经系统积累的鞘脂贮积病。"
+            },
+            {
+                question: "胆固醇在生物膜中的主要作用是：",
+                options: ["A. 提供能量", "B. 调节膜流动性", "C. 作为信号分子", "D. 催化反应"],
+                correct: 1,
+                explanation: "胆固醇在生物膜中的主要作用是调节膜流动性，在低温时增加流动性，高温时降低流动性。"
+            },
+            {
+                question: "脂肪酸β氧化中产生的FADH₂和NADH进入电子传递链可产生：",
+                options: ["A. 每个FADH₂产生3个ATP，每个NADH产生2个ATP", "B. 每个FADH₂产生2个ATP，每个NADH产生3个ATP", "C. 每个FADH₂产生1.5个ATP，每个NADH产生2.5个ATP", "D. 每个FADH₂产生2.5个ATP，每个NADH产生1.5个ATP"],
+                correct: 2,
+                explanation: "现代生物化学认为每个FADH₂通过电子传递链产生约1.5个ATP，每个NADH产生约2.5个ATP。"
+            },
+            {
+                question: "不饱和脂肪酸β氧化需要额外的酶是：",
+                options: ["A. 异构酶和还原酶", "B. 只需要异构酶", "C. 只需要还原酶", "D. 不需要额外的酶"],
+                correct: 0,
+                explanation: "不饱和脂肪酸β氧化需要异构酶（将顺式双键转化为反式双键）和2,4-二烯酰-CoA还原酶（处理多不饱和脂肪酸）。"
+            },
+            {
+                question: "软脂酸合成需要进行多少轮循环？",
+                options: ["A. 6轮", "B. 7轮", "C. 8轮", "D. 9轮"],
+                correct: 1,
+                explanation: "软脂酸（C16）合成需要7轮循环，每轮加入一个两碳单元，从乙酰-CoA（C2）开始经7轮循环得到软脂酸（C16）。"
+            }
+        ];
+
+        // 随机选择15道题
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const selectedQuestions = selectRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储当前题目到全局变量
+            window.currentQuestions = selectedQuestions;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const feedback = document.getElementById('quiz-feedback');
+            let score = 0;
+            let feedbackHTML = '<h3>测试结果</h3>';
+            
+            window.currentQuestions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const isCorrect = selected && parseInt(selected.value) === q.correct;
+                
+                if (isCorrect) score++;
+                
+                const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
+                const borderColor = isCorrect ? '#28a745' : '#dc3545';
+                
+                feedbackHTML += `
+                    <div style="background: ${bgColor}; border-left: 4px solid ${borderColor}; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                        <strong>第${index + 1}题：${q.question}</strong><br>
+                        <strong>您的答案：</strong>${selected ? q.options[selected.value] : '未选择'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / 15) * 100);
+            feedbackHTML = `<div style="text-align: center; font-size: 1.2em; margin-bottom: 20px; padding: 15px; background: #e3f2fd; border-radius: 5px;">
+                <strong>得分：${score}/15 (${percentage}%)</strong>
+            </div>` + feedbackHTML;
+            
+            feedback.innerHTML = feedbackHTML;
+            feedback.className = 'feedback show';
+            feedback.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载时渲染题目
+        document.addEventListener('DOMContentLoaded', renderQuestions);
+    </script>
+</body>
+</html>

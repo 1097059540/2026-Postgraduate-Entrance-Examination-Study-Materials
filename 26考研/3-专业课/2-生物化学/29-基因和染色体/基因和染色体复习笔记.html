@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第29章 基因和染色体 - 复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .important {
+            background: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #17a2b8;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            background: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            font-family: "KaiTi", "楷体", cursive;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .term-english {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .term-definition {
+            color: #495057;
+            line-height: 1.6;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #2980b9, #1f618d);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                padding: 10px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .quiz-container {
+                padding: 15px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+
+            .option {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+
+            .thinking-question {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            .quiz-container {
+                padding: 10px;
+            }
+
+            .question {
+                padding: 10px;
+            }
+
+            .option {
+                padding: 6px 10px;
+                font-size: 0.85em;
+            }
+        }
+
+        /* 提交按钮样式已在上方定义 */
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-answer {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>第29章 基因和染色体</h1>
+            <p>生物化学复习笔记 | 考研专业课</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、生物大分子与遗传信息</h2>
+                
+                <h3>1.1 生物大分子的功能分工</h3>
+                <p>生物功能由生物不同层次结构所决定，而不同层次结构则由生物大分子装配而成。各类生物大分子具有明确的功能分工：</p>
+                <ul>
+                    <li><strong>蛋白质</strong>：主要的生物功能分子，承担催化、结构、调节等多种功能</li>
+                    <li><strong>核酸（DNA和RNA）</strong>：主要的遗传信息携带分子</li>
+                    <li><strong>多糖和脂质化合物</strong>：协助蛋白质完成其功能</li>
+                    <li><strong>生物膜</strong>：由脂质化合物与蛋白质构成，形成细胞的基本结构</li>
+                </ul>
+                
+                <div class="important">
+                    <strong>重要概念：</strong>一切生命现象均产生于生物分子的相互作用之中。先存结构在子代细胞形成中起指导作用，因此也携带一定的遗传信息。
+                </div>
+
+                <h3>1.2 表观遗传学</h3>
+                <p>表观遗传学研究不涉及DNA序列变化的、可遗传的、表观改变的规律。这是对传统遗传学的重要补充，研究基因之外的遗传机理。</p>
+            </div>
+
+            <div class="section">
+                <h2>二、基因概念的演变</h2>
+                
+                <h3>2.1 历史发展脉络</h3>
+                <ol>
+                    <li><strong>孟德尔的遗传因子假说（1865年）</strong>
+                        <ul>
+                            <li>否定了"融合遗传"，确立了"颗粒遗传"思想</li>
+                            <li>发现遗传因子的显性和隐性之分</li>
+                            <li>发现遗传的分离和自由组合定律</li>
+                        </ul>
+                    </li>
+                    <li><strong>摩尔根的基因学说和染色体理论（20世纪初）</strong>
+                        <ul>
+                            <li>研究果蝇杂交，建立基因学说</li>
+                            <li>发现性连锁现象</li>
+                            <li>通过重组绘制基因连锁图</li>
+                        </ul>
+                    </li>
+                    <li><strong>分子生物学时期的基因概念</strong>
+                        <ul>
+                            <li>1945年：Beadle和Tatum提出"一个基因一个酶"假设</li>
+                            <li>1953年：Watson和Crick提出DNA双螺旋结构模型</li>
+                            <li>1958年：Crick提出中心法则（DNA→RNA→蛋白质）</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="formula">
+                    <strong>现代基因定义：</strong>基因是产生一条多肽链或功能RNA所必需的全部核苷酸序列
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>三、基因组结构特点</h2>
+                
+                <h3>3.1 原核生物基因组</h3>
+                <div class="highlight">
+                    <strong>原核生物基因组特点：</strong>
+                    <ul>
+                        <li>基因组较小，大部分为编码序列</li>
+                        <li>基因无内含子</li>
+                        <li>相关基因组成操纵子</li>
+                        <li>重复序列少、较短</li>
+                    </ul>
+                </div>
+
+                <h4>病毒基因组</h4>
+                <p>病毒基因组可看作游离的基因，变化较大：</p>
+                <ul>
+                    <li>核酸类型：DNA或RNA</li>
+                    <li>链型：单链或双链</li>
+                    <li>形状：线状或环状</li>
+                    <li>特点：有些病毒基因相互重叠</li>
+                </ul>
+
+                <h3>3.2 真核生物基因组</h3>
+                <div class="highlight">
+                    <strong>真核生物基因组特点：</strong>
+                    <ul>
+                        <li>基因组较大</li>
+                        <li>基因有内含子</li>
+                        <li>不组成操纵子</li>
+                        <li>重复序列多</li>
+                    </ul>
+                </div>
+
+                <h4>人类基因组数据</h4>
+                <ul>
+                    <li>大小：3.2×10⁹bp</li>
+                    <li>基因数量：约3万个基因</li>
+                    <li>基因占比：占基因组长度25%</li>
+                    <li>编码序列：仅占1.2%</li>
+                </ul>
+
+                <h4>调节序列类型</h4>
+                <ul>
+                    <li>增强子（Enhancer）</li>
+                    <li>沉默子（Silencer）</li>
+                    <li>绝缘子（Insulator）</li>
+                    <li>启动子（Promoter）</li>
+                    <li>各类调节元件</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、染色体结构与组装</h2>
+                
+                <h3>4.1 染色体基本概念</h3>
+                <p>染色体是真核细胞有丝分裂期由基因组DNA致密组装而成的易染色实体。组成染色体的物质称为染色质，具有不同层次结构，使DNA具有不同的压缩比。</p>
+
+                <h3>4.2 细菌拟核结构</h3>
+                <p>拟核（nucleoid）是原核生物中没有核膜包被的细胞核，含有一个环形DNA分子，与蛋白质组成，含有多个突环（超螺旋结构域），相当于转录单位，DNA呈负超螺旋。</p>
+
+                <h3>4.3 真核生物染色质</h3>
+                
+                <h4>4.3.1 染色质分类</h4>
+                <ul>
+                    <li><strong>常染色质</strong>：结构较疏松，是转录活性区</li>
+                    <li><strong>异染色质</strong>：结构致密
+                        <ul>
+                            <li>组成型异染色质：永久性致密</li>
+                            <li>功能型异染色质：可变性致密</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>4.3.2 核小体结构</h4>
+                <div class="important">
+                    <strong>核小体——染色质的基本结构单位：</strong>
+                    <ul>
+                        <li>组成：DNA + 组蛋白八聚体（H2A、H2B、H3、H4）₂</li>
+                        <li>DNA缠绕：以左手螺旋（负超螺旋）绕组蛋白八聚体1.65圈</li>
+                        <li>DNA长度：核心DNA 146~147 bp，连接DNA 20~60 bp</li>
+                        <li>平均长度：核小体DNA平均为200bp</li>
+                        <li>压缩比：长度压缩7倍</li>
+                    </ul>
+                </div>
+
+                <h4>4.3.3 组蛋白特性</h4>
+                <ul>
+                    <li>富含碱性氨基酸，结构保守</li>
+                    <li>中心区为α螺旋构成的折叠结构域</li>
+                    <li>N端：碱性氨基酸较多，伸出核小体外</li>
+                    <li>C端：疏水氨基酸较多</li>
+                    <li>H1组蛋白：位于连接DNA靠近核小体的入口处</li>
+                </ul>
+
+                <h4>4.3.4 核小体组装过程</h4>
+                <ol>
+                    <li>（H3-H4）₂四聚体与DNA结合</li>
+                    <li>加入2个H2A-H2B二聚体</li>
+                    <li>DNA盘绕八聚体1⅔圈</li>
+                    <li>H1结合到连接DNA处</li>
+                </ol>
+
+                <h3>4.4 染色质高级结构</h3>
+                <div class="formula">
+                    <strong>染色质组装层次：</strong><br>
+                    第一级组装：念珠状核小体链（11 nm）<br>
+                    ↓<br>
+                    第二级组装：30 nm纤丝（螺线管或锯齿状）<br>
+                    ↓<br>
+                    第三级组装：玫瑰花结螺旋（300 nm）<br>
+                    ↓<br>
+                    第四级组装：螺旋圈（700 nm）<br>
+                    ↓<br>
+                    第五级组装：染色单体
+                </div>
+
+                <p>支架蛋白结合的DNA区为支架联结区（SAR），捆绑染色质丝的蛋白质为染色体结构维持蛋白（SMC）和连接蛋白。</p>
+            </div>
+
+            <div class="section">
+                <h2>五、染色质重塑</h2>
+                
+                <h3>5.1 基本概念</h3>
+                <p>染色质重塑是指染色质结构的改变，核小体重塑是染色质重塑的基础。</p>
+
+                <h3>5.2 组蛋白修饰</h3>
+                
+                <h4>5.2.1 组蛋白变异体功能</h4>
+                <ul>
+                    <li><strong>H3.3</strong>：转录激活</li>
+                    <li><strong>CENP-A</strong>：组装着丝粒</li>
+                    <li><strong>H2AX</strong>：DNA修复和重组</li>
+                    <li><strong>H2AZ</strong>：基因表达，染色体分离</li>
+                    <li><strong>macroH2A</strong>：X染色体失活，转录阻遏</li>
+                </ul>
+
+                <h4>5.2.2 组蛋白修饰类型</h4>
+                <p>在细胞周期特定时间可发生：</p>
+                <ul>
+                    <li>甲基化</li>
+                    <li>乙酰化</li>
+                    <li>磷酸化</li>
+                    <li>ADP核糖基化</li>
+                </ul>
+
+                <div class="important">
+                    <strong>修饰意义：</strong>所有修饰都降低组蛋白的正电荷，改变染色体结构，影响转录活性，使调控蛋白易于与染色质接触。
+                </div>
+
+                <h4>5.2.3 组蛋白修饰酶</h4>
+                <ul>
+                    <li><strong>HAT</strong>（组蛋白乙酰转移酶）：催化乙酰基加到组蛋白上</li>
+                    <li><strong>HDAC</strong>（组蛋白脱乙酰酶）：催化组蛋白脱去乙酰基</li>
+                    <li><strong>HMT</strong>（组蛋白甲基转移酶）：加甲基到组蛋白上</li>
+                    <li><strong>HDM</strong>（组蛋白脱甲基酶）：脱去组蛋白的甲基</li>
+                </ul>
+
+                <h3>5.3 DNA修饰</h3>
+                
+                <h4>5.3.1 DNA甲基化</h4>
+                <ul>
+                    <li>主要方式：甲基位于CpG岛胞嘧啶的第五位碳上</li>
+                    <li>效果：DNA甲基化后失去转录活性</li>
+                    <li>区别：与组蛋白甲基化不同，DNA甲基化只能失活</li>
+                </ul>
+
+                <h4>5.3.2 生物学意义</h4>
+                <ul>
+                    <li><strong>基因沉默</strong>：DNA甲基化使基因沉默或异染色质化</li>
+                    <li><strong>性别决定和剂量补偿</strong>：调节X染色体基因表达</li>
+                    <li><strong>基因组印记</strong>：失活基因带有甲基化印记</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>剂量补偿机制：</strong>
+                    <ul>
+                        <li>雌性哺乳动物：随机关闭一个X染色体，形成巴氏小体</li>
+                        <li>雄性果蝇：X染色体组蛋白乙酰化和磷酸化，转录活性提高一倍</li>
+                        <li>结果：雌雄个体X连锁基因表达产物达到相同水平</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>六、基因进化</h2>
+                
+                <h3>6.1 生物进化的分子基础</h3>
+                <p>生物进化是一个受动力学束缚的开放系统热力学过程。在前生命期的化学进化中：</p>
+                <ol>
+                    <li>无机分子 → 有机分子</li>
+                    <li>小分子 → 大分子</li>
+                    <li>随机合成的大分子 → 自我复制的大分子</li>
+                </ol>
+
+                <h3>6.2 "RNA世界"假说</h3>
+                <p>认为最早出现的具有自我复制能力的生物大分子是RNA。遗传密码的出现使"RNA世界"转为"三驾并驱的世界"（DNA、RNA、蛋白质）。</p>
+
+                <h3>6.3 分子进化理论</h3>
+                <ul>
+                    <li><strong>中性漂变理论</strong>：分子水平变异多数是中性的，主要作用是中性漂变而非自然选择</li>
+                    <li><strong>分子钟</strong>：生物大分子进化速度恒定</li>
+                    <li><strong>获得性遗传</strong>：基因表达方式受环境影响，可通过生殖细胞传给后代</li>
+                </ul>
+
+                <h3>6.4 新基因产生方式</h3>
+                <ol>
+                    <li><strong>基因倍增和歧化</strong>：基因复制后功能分化</li>
+                    <li><strong>基因模块改组</strong>：不同基因片段重新组合</li>
+                    <li><strong>RNA逆转录</strong>：RNA逆转录成DNA整合到基因组</li>
+                </ol>
+
+                <div class="important">
+                    <strong>进化的关键：</strong>生物进化不仅是基因数的增加，更重要的是基因表达时空调节的进化。
+                </div>
+            </div>
+
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>七、重要名词解释</h2>
+                
+                <div class="term">
+                    <div class="term-name">基因（Gene）</div>
+                    <div class="term-english">Gene</div>
+                    <div class="term-definition">产生一条多肽链或功能RNA所必需的全部核苷酸序列。现代分子生物学认为，基因是编码多肽链和RNA的一段DNA。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">表观遗传学（Epigenetics）</div>
+                    <div class="term-english">Epigenetics</div>
+                    <div class="term-definition">研究不涉及DNA序列变化的、可遗传的、表观改变的规律。是对传统遗传学的重要补充，研究基因之外的遗传机理。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">核小体（Nucleosome）</div>
+                    <div class="term-english">Nucleosome</div>
+                    <div class="term-definition">染色质的基本结构单位，由DNA和组蛋白八聚体（H2A、H2B、H3、H4）₂组成。DNA以左手螺旋绕组蛋白八聚体1.65圈，长146~147 bp。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">染色质重塑（Chromatin Remodeling）</div>
+                    <div class="term-english">Chromatin Remodeling</div>
+                    <div class="term-definition">染色质结构的改变，基础是核小体重塑。包括组蛋白被变异体置换、组蛋白修饰和DNA甲基化等过程。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">操纵子（Operon）</div>
+                    <div class="term-english">Operon</div>
+                    <div class="term-definition">原核生物中相关基因组成的转录调节单位，包括结构基因、启动子、操作子等元件，可协调调节相关基因的表达。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">拟核（Nucleoid）</div>
+                    <div class="term-english">Nucleoid</div>
+                    <div class="term-definition">原核生物中没有核膜包被的细胞核，含有一个环形DNA分子，与蛋白质组成，含有多个超螺旋结构域。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">异染色质（Heterochromatin）</div>
+                    <div class="term-english">Heterochromatin</div>
+                    <div class="term-definition">结构致密的染色质，分为组成型异染色质（永久性致密）和功能型异染色质（可变性致密）。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">常染色质（Euchromatin）</div>
+                    <div class="term-english">Euchromatin</div>
+                    <div class="term-definition">结构较疏松的染色质，是转录活性区，基因表达活跃。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">剂量补偿（Dosage Compensation）</div>
+                    <div class="term-english">Dosage Compensation</div>
+                    <div class="term-definition">补偿雌雄性细胞X染色体连锁基因数量不同的机制，使雌性与雄性细胞基因表达产物达到相同水平。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">巴氏小体（Barr Body）</div>
+                    <div class="term-english">Barr Body</div>
+                    <div class="term-definition">雌性哺乳动物胚胎发育早期随机关闭的X染色体凝缩成的致密结构，实现剂量补偿。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">基因组印记（Genomic Imprinting）</div>
+                    <div class="term-english">Genomic Imprinting</div>
+                    <div class="term-definition">失活基因带有的印记，其DNA被甲基化，组蛋白被修饰，显示表观遗传学特征。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">中心法则（Central Dogma）</div>
+                    <div class="term-english">Central Dogma</div>
+                    <div class="term-definition">由Crick提出的遗传信息流动规律：DNA→RNA→蛋白质，概括了遗传信息的传递和表达过程。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>八、选择题测试</h2>
+                <div class="quiz-container">
+                    <p style="text-align: center; font-size: 1.2em; color: #2c3e50; margin-bottom: 20px;">
+                        <strong>随机测试题（15道题）</strong><br>
+                        <small>请选择最佳答案，完成后点击提交查看结果</small>
+                    </p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-results"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>九、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述染色质重塑在基因表达调节中的作用机制，并分析组蛋白修饰与DNA甲基化的异同点。</h4>
+                    <div class="thinking-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>染色质重塑的作用机制：</strong>
+                                <ul>
+                                    <li>通过改变核小体结构，调节DNA的可接触性</li>
+                                    <li>依赖ATP的染色质重塑复合物水解ATP提供能量</li>
+                                    <li>解开组蛋白与DNA间的作用力，使转录因子能够结合</li>
+                                    <li>招致特殊功能蛋白质结合，完成各类染色质功能</li>
+                                </ul>
+                            </li>
+                            <li><strong>组蛋白修饰的特点：</strong>
+                                <ul>
+                                    <li>可逆性：既可以激活也可以抑制基因表达</li>
+                                    <li>多样性：包括甲基化、乙酰化、磷酸化等多种修饰</li>
+                                    <li>位点特异性：不同位点的修饰产生不同效果</li>
+                                    <li>动态性：可根据细胞需要快速改变</li>
+                                </ul>
+                            </li>
+                            <li><strong>DNA甲基化的特点：</strong>
+                                <ul>
+                                    <li>单向性：主要起抑制作用，导致基因沉默</li>
+                                    <li>稳定性：具有长期效应，可维持较长时间</li>
+                                    <li>遗传性：可通过细胞分裂传递给子代细胞</li>
+                                    <li>位点特异性：主要发生在CpG岛的胞嘧啶上</li>
+                                </ul>
+                            </li>
+                            <li><strong>两者的协同作用：</strong>
+                                <ul>
+                                    <li>共同参与基因表达的精细调节</li>
+                                    <li>在发育、分化和疾病过程中发挥重要作用</li>
+                                    <li>形成表观遗传学调控网络</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较原核生物与真核生物基因组的结构特点，并分析这些差异对基因表达调节的影响。</h4>
+                    <div class="thinking-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>基因组大小差异：</strong>
+                                <ul>
+                                    <li>原核生物基因组较小，编码密度高，大部分序列为编码区</li>
+                                    <li>真核生物基因组较大，含有大量非编码序列和调节元件</li>
+                                    <li>影响：真核生物具有更复杂的调节机制和更精细的表达控制</li>
+                                </ul>
+                            </li>
+                            <li><strong>基因结构差异：</strong>
+                                <ul>
+                                    <li>原核生物基因无内含子，转录产物直接翻译</li>
+                                    <li>真核生物基因有内含子，需要剪接加工</li>
+                                    <li>影响：真核生物可通过选择性剪接产生多种蛋白质异构体</li>
+                                </ul>
+                            </li>
+                            <li><strong>基因组织方式差异：</strong>
+                                <ul>
+                                    <li>原核生物相关基因组成操纵子，协调表达</li>
+                                    <li>真核生物基因分散分布，独立调节</li>
+                                    <li>影响：原核生物适合快速响应环境变化，真核生物适合复杂的发育调节</li>
+                                </ul>
+                            </li>
+                            <li><strong>重复序列差异：</strong>
+                                <ul>
+                                    <li>原核生物重复序列少且短</li>
+                                    <li>真核生物含有大量重复序列，包括转座子、串联重复等</li>
+                                    <li>影响：真核生物具有更多的调节元件和进化潜力</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 阐述核小体结构与功能的关系，并分析染色质高级结构形成的生物学意义。</h4>
+                    <div class="thinking-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>核小体的结构特点：</strong>
+                                <ul>
+                                    <li>DNA以负超螺旋形式缠绕组蛋白八聚体1.65圈</li>
+                                    <li>组蛋白富含碱性氨基酸，与DNA的负电荷形成稳定结合</li>
+                                    <li>H1组蛋白位于连接DNA处，稳定核小体间连接</li>
+                                    <li>核小体间距约200bp，形成念珠状结构</li>
+                                </ul>
+                            </li>
+                            <li><strong>核小体的功能作用：</strong>
+                                <ul>
+                                    <li>DNA包装：将长链DNA压缩约7倍，节省核内空间</li>
+                                    <li>基因调节：通过核小体定位调节基因的可接触性</li>
+                                    <li>DNA保护：保护DNA免受核酸酶降解</li>
+                                    <li>表观调节：通过组蛋白修饰调节基因表达</li>
+                                </ul>
+                            </li>
+                            <li><strong>染色质高级结构的形成：</strong>
+                                <ul>
+                                    <li>第一级：念珠状核小体链（11nm）</li>
+                                    <li>第二级：30nm纤丝（螺线管或锯齿状）</li>
+                                    <li>第三级：300nm玫瑰花结螺旋</li>
+                                    <li>第四级：700nm螺旋圈</li>
+                                    <li>最终形成染色单体，压缩比达10,000倍</li>
+                                </ul>
+                            </li>
+                            <li><strong>生物学意义：</strong>
+                                <ul>
+                                    <li>空间节约：使长达2米的DNA装入直径约10μm的细胞核</li>
+                                    <li>有序分离：确保染色体在细胞分裂时准确分离</li>
+                                    <li>基因调节：不同压缩程度对应不同的转录活性</li>
+                                    <li>遗传稳定：保护遗传物质免受损伤</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析"RNA世界"假说的科学依据，并讨论其对理解生命起源和进化的意义。</h4>
+                    <div class="thinking-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>"RNA世界"假说的科学依据：</strong>
+                                <ul>
+                                    <li>RNA的双重功能：既能储存遗传信息，又具有催化活性（核酶）</li>
+                                    <li>RNA的自我复制能力：某些RNA分子能够催化自身的复制</li>
+                                    <li>RNA在现代生物中的关键作用：rRNA、tRNA、mRNA等在蛋白质合成中不可缺少</li>
+                                    <li>RNA的化学稳定性：在原始地球条件下比DNA更容易形成</li>
+                                </ul>
+                            </li>
+                            <li><strong>从RNA世界到现代生物系统：</strong>
+                                <ul>
+                                    <li>RNA首先出现，具有遗传和催化双重功能</li>
+                                    <li>DNA的出现提供了更稳定的遗传信息储存</li>
+                                    <li>蛋白质的出现提供了更高效的催化功能</li>
+                                    <li>形成现代的"三驾并驱"系统：DNA-RNA-蛋白质</li>
+                                </ul>
+                            </li>
+                            <li><strong>对生命起源的意义：</strong>
+                                <ul>
+                                    <li>解决了"鸡蛋问题"：RNA既是遗传物质又是催化剂</li>
+                                    <li>提供了从无机到有机、从简单到复杂的进化路径</li>
+                                    <li>解释了现代生物系统中RNA的核心地位</li>
+                                    <li>为实验室合成生命提供了理论指导</li>
+                                </ul>
+                            </li>
+                            <li><strong>对进化理论的贡献：</strong>
+                                <ul>
+                                    <li>支持了分子进化的连续性观点</li>
+                                    <li>解释了遗传密码的起源和进化</li>
+                                    <li>为理解早期生命的代谢网络提供了框架</li>
+                                    <li>促进了对表观遗传学机制的理解</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 论述表观遗传学在现代生物学中的重要性，并分析其在疾病发生和治疗中的应用前景。</h4>
+                    <div class="thinking-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>表观遗传学的重要性：</strong>
+                                <ul>
+                                    <li>补充了传统遗传学：解释了基因型相同但表型不同的现象</li>
+                                    <li>环境与基因的桥梁：阐明了环境因素如何影响基因表达</li>
+                                    <li>发育调控机制：解释了细胞分化和器官发育的分子基础</li>
+                                    <li>遗传多样性来源：提供了除DNA序列变异外的另一种遗传变异形式</li>
+                                </ul>
+                            </li>
+                            <li><strong>在疾病发生中的作用：</strong>
+                                <ul>
+                                    <li>肿瘤发生：DNA甲基化异常导致抑癌基因沉默</li>
+                                    <li>神经系统疾病：组蛋白修饰异常影响神经发育和功能</li>
+                                    <li>代谢性疾病：表观遗传修饰影响代谢基因的表达</li>
+                                    <li>免疫系统疾病：表观调节影响免疫细胞的分化和功能</li>
+                                </ul>
+                            </li>
+                            <li><strong>在疾病治疗中的应用：</strong>
+                                <ul>
+                                    <li>表观遗传药物：HDAC抑制剂、DNA甲基转移酶抑制剂等</li>
+                                    <li>精准医疗：基于表观遗传标记的个体化治疗</li>
+                                    <li>基因治疗：通过调节表观修饰恢复基因正常表达</li>
+                                    <li>预防医学：通过生活方式干预调节表观遗传状态</li>
+                                </ul>
+                            </li>
+                            <li><strong>未来发展前景：</strong>
+                                <ul>
+                                    <li>诊断标志物：开发基于表观遗传的疾病诊断方法</li>
+                                    <li>药物开发：设计更特异性的表观遗传调节剂</li>
+                                    <li>再生医学：利用表观调节促进组织再生</li>
+                                    <li>衰老研究：通过表观遗传干预延缓衰老过程</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "基因的现代定义是什么？",
+                options: [
+                    "A. 控制一个性状的遗传因子",
+                    "B. 编码一个蛋白质的DNA片段",
+                    "C. 产生一条多肽链或功能RNA所必需的全部核苷酸序列",
+                    "D. 位于染色体上的遗传单位"
+                ],
+                correct: 2,
+                explanation: "现代分子生物学认为，基因是产生一条多肽链或功能RNA所必需的全部核苷酸序列，这个定义更加准确和全面。"
+            },
+            {
+                question: "原核生物基因组的特点不包括：",
+                options: [
+                    "A. 基因组较小",
+                    "B. 基因有内含子",
+                    "C. 相关基因组成操纵子",
+                    "D. 重复序列少"
+                ],
+                correct: 1,
+                explanation: "原核生物基因无内含子，这是与真核生物基因的重要区别之一。原核生物基因结构相对简单。"
+            },
+            {
+                question: "核小体的核心组成包括：",
+                options: [
+                    "A. DNA + H1组蛋白",
+                    "B. DNA + 组蛋白八聚体(H2A、H2B、H3、H4)₂",
+                    "C. RNA + 组蛋白四聚体",
+                    "D. DNA + 非组蛋白"
+                ],
+                correct: 1,
+                explanation: "核小体是染色质的基本结构单位，由DNA和组蛋白八聚体组成，八聚体包含H2A、H2B、H3、H4各两个分子。"
+            },
+            {
+                question: "DNA在核小体上的缠绕方式是：",
+                options: [
+                    "A. 右手螺旋缠绕1.65圈",
+                    "B. 左手螺旋缠绕1.65圈",
+                    "C. 右手螺旋缠绕2圈",
+                    "D. 左手螺旋缠绕2圈"
+                ],
+                correct: 1,
+                explanation: "DNA以左手螺旋（负超螺旋）的方式绕组蛋白八聚体1.65圈，这种缠绕方式有利于DNA的压缩和调节。"
+            },
+            {
+                question: "表观遗传学研究的是：",
+                options: [
+                    "A. DNA序列的变化",
+                    "B. 基因突变的机制",
+                    "C. 不涉及DNA序列变化的可遗传表观改变",
+                    "D. 蛋白质结构的变化"
+                ],
+                correct: 2,
+                explanation: "表观遗传学研究不涉及DNA序列变化的、可遗传的、表观改变的规律，是对传统遗传学的重要补充。"
+            },
+            {
+                question: "染色质重塑的基础是：",
+                options: [
+                    "A. DNA复制",
+                    "B. 核小体重塑",
+                    "C. RNA转录",
+                    "D. 蛋白质合成"
+                ],
+                correct: 1,
+                explanation: "染色质重塑是指染色质结构的改变，核小体重塑是染色质重塑的基础，包括组蛋白修饰、变异体置换等。"
+            },
+            {
+                question: "人类基因组中编码序列约占：",
+                options: [
+                    "A. 25%",
+                    "B. 10%",
+                    "C. 1.2%",
+                    "D. 50%"
+                ],
+                correct: 2,
+                explanation: "人类基因组大小为3.2×10⁹bp，包含约3万个基因，占基因组长度25%，但其中编码序列只占1.2%。"
+            },
+            {
+                question: "组蛋白修饰的共同特点是：",
+                options: [
+                    "A. 增加组蛋白的正电荷",
+                    "B. 降低组蛋白的正电荷",
+                    "C. 不改变组蛋白的电荷",
+                    "D. 增加组蛋白的负电荷"
+                ],
+                correct: 1,
+                explanation: "所有组蛋白修饰（甲基化、乙酰化、磷酸化等）都有一个共同特点，即降低组蛋白所携带的正电荷。"
+            },
+            {
+                question: "\"RNA世界\"假说认为最早出现的自我复制分子是：",
+                options: [
+                    "A. DNA",
+                    "B. 蛋白质",
+                    "C. RNA",
+                    "D. 多糖"
+                ],
+                correct: 2,
+                explanation: "\"RNA世界\"假说认为最早出现的具有自我复制能力的生物大分子是RNA，因为RNA既能储存信息又具有催化活性。"
+            },
+            {
+                question: "巴氏小体是：",
+                options: [
+                    "A. 雄性细胞中失活的Y染色体",
+                    "B. 雌性细胞中失活的X染色体",
+                    "C. 细胞核中的核仁",
+                    "D. 细胞质中的线粒体"
+                ],
+                correct: 1,
+                explanation: "巴氏小体是雌性哺乳动物胚胎发育早期随机关闭的X染色体凝缩成的致密结构，实现剂量补偿。"
+            },
+            {
+                question: "中心法则描述的信息流向是：",
+                options: [
+                    "A. RNA→DNA→蛋白质",
+                    "B. DNA→蛋白质→RNA",
+                    "C. DNA→RNA→蛋白质",
+                    "D. 蛋白质→RNA→DNA"
+                ],
+                correct: 2,
+                explanation: "中心法则由Crick提出，描述了遗传信息流动的基本规律：DNA→RNA→蛋白质。"
+            },
+            {
+                question: "真核生物染色体的压缩比可达：",
+                options: [
+                    "A. 100倍",
+                    "B. 1,000倍",
+                    "C. 10,000倍",
+                    "D. 100,000倍"
+                ],
+                correct: 2,
+                explanation: "真核生物染色体有不同层次的螺旋和折叠，最终压缩比可达10,000倍，使长链DNA能装入细胞核。"
+            },
+            {
+                question: "DNA甲基化主要发生在：",
+                options: [
+                    "A. 腺嘌呤的第六位氮原子上",
+                    "B. 胞嘧啶的第五位碳原子上",
+                    "C. 鸟嘌呤的第八位碳原子上",
+                    "D. 胸腺嘧啶的第三位氮原子上"
+                ],
+                correct: 1,
+                explanation: "DNA甲基化是DNA修饰的主要方式，通常甲基位于CpG岛胞嘧啶的第五位碳上。"
+            },
+            {
+                question: "操纵子是：",
+                options: [
+                    "A. 真核生物的基因调节单位",
+                    "B. 原核生物的基因调节单位",
+                    "C. 病毒的基因调节单位",
+                    "D. 线粒体的基因调节单位"
+                ],
+                correct: 1,
+                explanation: "操纵子是原核生物中相关基因组成的转录调节单位，真核生物基因不组成操纵子。"
+            },
+            {
+                question: "核小体DNA的平均长度是：",
+                options: [
+                    "A. 100bp",
+                    "B. 147bp",
+                    "C. 200bp",
+                    "D. 300bp"
+                ],
+                correct: 2,
+                explanation: "核小体DNA平均为200bp，包括核心DNA（146~147bp）和连接DNA（20~60bp）。"
+            },
+            {
+                question: "异染色质的特点是：",
+                options: [
+                    "A. 结构疏松，转录活跃",
+                    "B. 结构致密，转录不活跃",
+                    "C. 只存在于间期细胞",
+                    "D. 只含有RNA"
+                ],
+                correct: 1,
+                explanation: "异染色质结构致密，转录不活跃，分为组成型异染色质和功能型异染色质。"
+            },
+            {
+                question: "新基因产生的方式不包括：",
+                options: [
+                    "A. 基因倍增和歧化",
+                    "B. 基因模块改组",
+                    "C. RNA逆转录",
+                    "D. 蛋白质直接转化"
+                ],
+                correct: 3,
+                explanation: "新基因产生有三种方式：基因倍增和歧化、基因模块改组、RNA逆转录。蛋白质不能直接转化为基因。"
+            },
+            {
+                question: "组蛋白乙酰转移酶（HAT）的作用是：",
+                options: [
+                    "A. 催化组蛋白脱去乙酰基",
+                    "B. 催化乙酰基加到组蛋白上",
+                    "C. 催化组蛋白甲基化",
+                    "D. 催化组蛋白磷酸化"
+                ],
+                correct: 1,
+                explanation: "组蛋白乙酰转移酶（HAT）催化乙酰基加到组蛋白上，通常与基因转录激活相关。"
+            },
+            {
+                question: "拟核的特点是：",
+                options: [
+                    "A. 有核膜包被",
+                    "B. 含有线状DNA",
+                    "C. 没有核膜包被，含有环形DNA",
+                    "D. 只存在于真核细胞"
+                ],
+                correct: 2,
+                explanation: "拟核存在于原核生物，是没有核膜包被的细胞核，含有一个环形DNA分子。"
+            },
+            {
+                question: "基因组印记的特征是：",
+                options: [
+                    "A. 只影响父系基因",
+                    "B. 失活基因带有甲基化印记",
+                    "C. 只发生在性染色体上",
+                    "D. 不能遗传给后代"
+                ],
+                correct: 1,
+                explanation: "基因组印记是失活基因带有的印记，其DNA被甲基化，组蛋白被修饰，显示表观遗传学特征。"
+            },
+            {
+                question: "30nm纤丝的结构模型包括：",
+                options: [
+                    "A. 只有螺线管模型",
+                    "B. 只有锯齿状模型",
+                    "C. 螺线管模型和锯齿状模型",
+                    "D. 只有玫瑰花结模型"
+                ],
+                correct: 2,
+                explanation: "30nm纤丝是染色质的第二级组装结构，有螺线管模型和锯齿状模型两种结构模型。"
+            },
+            {
+                question: "分子钟理论认为：",
+                options: [
+                    "A. 生物大分子进化速度变化很大",
+                    "B. 生物大分子进化速度恒定",
+                    "C. 只有DNA进化速度恒定",
+                    "D. 只有蛋白质进化速度恒定"
+                ],
+                correct: 1,
+                explanation: "分子钟理论是分子进化理论的重要组成部分，认为生物大分子进化速度恒定。"
+            },
+            {
+                question: "常染色质的特点是：",
+                options: [
+                    "A. 结构致密，转录不活跃",
+                    "B. 结构疏松，转录活跃",
+                    "C. 只存在于分裂期",
+                    "D. 不含组蛋白"
+                ],
+                correct: 1,
+                explanation: "常染色质结构较疏松，是转录活性区，基因表达活跃，与异染色质相对。"
+            },
+            {
+                question: "H1组蛋白的位置是：",
+                options: [
+                    "A. 核小体核心内部",
+                    "B. 连接DNA靠近核小体的入口处",
+                    "C. 细胞质中",
+                    "D. 核膜上"
+                ],
+                correct: 1,
+                explanation: "H1组蛋白位于连接DNA靠近核小体的入口处，起到稳定核小体间连接的作用。"
+            },
+            {
+                question: "中性漂变理论认为：",
+                options: [
+                    "A. 所有变异都是有害的",
+                    "B. 分子水平变异多数是中性的",
+                    "C. 所有变异都是有利的",
+                    "D. 变异不存在"
+                ],
+                correct: 1,
+                explanation: "中性漂变理论认为分子水平变异多数是中性的，主要作用是中性漂变而非自然选择。"
+            },
+            {
+                question: "剂量补偿的目的是：",
+                options: [
+                    "A. 增加基因表达",
+                    "B. 减少基因表达",
+                    "C. 使雌雄个体X连锁基因表达产物达到相同水平",
+                    "D. 完全关闭基因表达"
+                ],
+                correct: 2,
+                explanation: "剂量补偿是补偿雌雄性细胞X染色体连锁基因数量不同的机制，使表达产物达到相同水平。"
+            },
+            {
+                question: "支架联结区（SAR）的作用是：",
+                options: [
+                    "A. 连接核小体",
+                    "B. 结合支架蛋白",
+                    "C. 转录调节",
+                    "D. DNA复制"
+                ],
+                correct: 1,
+                explanation: "支架联结区（SAR）是支架蛋白结合的DNA区，参与染色质高级结构的形成。"
+            },
+            {
+                question: "\"一个基因一个酶\"假设是由谁提出的：",
+                options: [
+                    "A. Watson和Crick",
+                    "B. Beadle和Tatum",
+                    "C. 孟德尔",
+                    "D. 摩尔根"
+                ],
+                correct: 1,
+                explanation: "\"一个基因一个酶\"假设是1945年由Beadle和Tatum提出的，是基因概念发展的重要里程碑。"
+            },
+            {
+                question: "真核生物基因的内含子需要通过什么过程去除：",
+                options: [
+                    "A. 转录",
+                    "B. 剪接",
+                    "C. 翻译",
+                    "D. 复制"
+                ],
+                correct: 1,
+                explanation: "真核生物基因有内含子，转录后的RNA需要通过剪接过程去除内含子，保留外显子。"
+            },
+            {
+                question: "组蛋白变异体H3.3的主要功能是：",
+                options: [
+                    "A. DNA修复",
+                    "B. 转录激活",
+                    "C. 染色体分离",
+                    "D. X染色体失活"
+                ],
+                correct: 1,
+                explanation: "组蛋白变异体H3.3的主要功能是转录激活，与基因表达调节密切相关。"
+            },
+            {
+                question: "真核生物基因组中重复序列的主要类型不包括：",
+                options: [
+                    "A. 转座子",
+                    "B. 串联重复",
+                    "C. 反向重复",
+                    "D. 单拷贝基因"
+                ],
+                correct: 3,
+                explanation: "单拷贝基因不属于重复序列，而是基因组中只有一个拷贝的基因。重复序列主要包括转座子、串联重复和反向重复等。"
+            },
+            {
+                question: "核小体核心颗粒包含多少个组蛋白分子？",
+                options: [
+                    "A. 6个",
+                    "B. 8个",
+                    "C. 10个",
+                    "D. 12个"
+                ],
+                correct: 1,
+                explanation: "核小体核心颗粒包含8个组蛋白分子，即H2A、H2B、H3、H4各2个，形成组蛋白八聚体。"
+            },
+            {
+                question: "基因水平转移在哪类生物中最为常见？",
+                options: [
+                    "A. 真核生物",
+                    "B. 原核生物",
+                    "C. 病毒",
+                    "D. 古细菌"
+                ],
+                correct: 1,
+                explanation: "基因水平转移在原核生物中最为常见，是细菌获得新功能和适应环境变化的重要机制。"
+            },
+            {
+                question: "染色质重塑复合体的主要功能是：",
+                options: [
+                    "A. DNA复制",
+                    "B. 改变核小体位置",
+                    "C. 蛋白质合成",
+                    "D. RNA剪接"
+                ],
+                correct: 1,
+                explanation: "染色质重塑复合体的主要功能是利用ATP水解的能量改变核小体的位置，调节基因的可及性。"
+            },
+            {
+                question: "真核生物mRNA前体的5'端帽子结构是：",
+                options: [
+                    "A. 7-甲基鸟苷酸",
+                    "B. 多聚A尾",
+                    "C. 起始密码子",
+                    "D. 终止密码子"
+                ],
+                correct: 0,
+                explanation: "真核生物mRNA前体的5'端帽子结构是7-甲基鸟苷酸，对mRNA的稳定性和翻译起始具有重要作用。"
+            },
+            {
+                question: "基因家族的形成主要通过什么机制？",
+                options: [
+                    "A. 基因缺失",
+                    "B. 基因重复",
+                    "C. 基因倒位",
+                    "D. 基因易位"
+                ],
+                correct: 1,
+                explanation: "基因家族的形成主要通过基因重复机制，重复后的基因可能发生功能分化，形成具有相似但不完全相同功能的基因家族。"
+            },
+            {
+                question: "异染色质的主要特征是：",
+                options: [
+                    "A. 转录活跃",
+                    "B. 结构疏松",
+                    "C. 高度凝缩",
+                    "D. 富含基因"
+                ],
+                correct: 2,
+                explanation: "异染色质的主要特征是高度凝缩，转录不活跃，通常富含重复序列而基因密度较低。"
+            },
+            {
+                question: "DNA甲基化主要发生在哪种碱基上？",
+                options: [
+                    "A. 腺嘌呤",
+                    "B. 胞嘧啶",
+                    "C. 鸟嘌呤",
+                    "D. 胸腺嘧啶"
+                ],
+                correct: 1,
+                explanation: "DNA甲基化主要发生在胞嘧啶上，特别是CpG二核苷酸中的胞嘧啶，是重要的表观遗传修饰。"
+            },
+            {
+                question: "原核生物基因组的主要特点不包括：",
+                options: [
+                    "A. 基因密度高",
+                    "B. 内含子少",
+                    "C. 操纵子结构",
+                    "D. 核小体包装"
+                ],
+                correct: 3,
+                explanation: "原核生物基因组没有核小体包装结构，这是真核生物的特征。原核生物基因组具有基因密度高、内含子少、操纵子结构等特点。"
+            },
+            {
+                question: "基因表达调控中，增强子的作用距离可以是：",
+                options: [
+                    "A. 只能在基因上游",
+                    "B. 只能在基因下游",
+                    "C. 可以在很远的距离",
+                    "D. 必须紧邻启动子"
+                ],
+                correct: 2,
+                explanation: "增强子可以在很远的距离发挥作用，不受方向和位置限制，可以位于基因的上游、下游或内含子中。"
+            },
+            {
+                question: "组蛋白去乙酰化酶(HDAC)的作用是：",
+                options: [
+                    "A. 激活转录",
+                    "B. 抑制转录",
+                    "C. 促进复制",
+                    "D. 增强翻译"
+                ],
+                correct: 1,
+                explanation: "组蛋白去乙酰化酶(HDAC)通过去除组蛋白的乙酰基修饰，使染色质结构更加紧密，从而抑制转录。"
+            },
+            {
+                question: "真核生物基因内含子的剪接发生在：",
+                options: [
+                    "A. 细胞质",
+                    "B. 细胞核",
+                    "C. 线粒体",
+                    "D. 内质网"
+                ],
+                correct: 1,
+                explanation: "真核生物基因内含子的剪接发生在细胞核中，是mRNA前体加工的重要步骤。"
+            },
+            {
+                question: "分子进化中，同义突变的特点是：",
+                options: [
+                    "A. 改变氨基酸序列",
+                    "B. 不改变氨基酸序列",
+                    "C. 导致蛋白质失活",
+                    "D. 引起基因缺失"
+                ],
+                correct: 1,
+                explanation: "同义突变是指DNA序列发生改变但不改变编码的氨基酸序列的突变，通常发生在密码子的第三位。"
+            },
+            {
+                question: "基因组印记现象主要涉及：",
+                options: [
+                    "A. DNA序列改变",
+                    "B. 表观遗传修饰",
+                    "C. 基因重排",
+                    "D. 染色体易位"
+                ],
+                correct: 1,
+                explanation: "基因组印记现象主要涉及表观遗传修饰，如DNA甲基化和组蛋白修饰，导致基因的亲本特异性表达。"
+            },
+            {
+                question: "真核生物基因启动子的核心元件是：",
+                options: [
+                    "A. CAAT盒",
+                    "B. GC盒",
+                    "C. TATA盒",
+                    "D. 增强子"
+                ],
+                correct: 2,
+                explanation: "TATA盒是真核生物基因启动子的核心元件，通常位于转录起始点上游25-30bp处，是RNA聚合酶II结合的重要位点。"
+            },
+            {
+                question: "染色体端粒的主要功能是：",
+                options: [
+                    "A. 基因表达调控",
+                    "B. DNA复制起始",
+                    "C. 保护染色体末端",
+                    "D. 蛋白质结合"
+                ],
+                correct: 2,
+                explanation: "染色体端粒的主要功能是保护染色体末端，防止染色体融合和降解，维持基因组稳定性。"
+            },
+            {
+                question: "基因重复后的进化命运不包括：",
+                options: [
+                    "A. 功能分化",
+                    "B. 假基因化",
+                    "C. 新功能化",
+                    "D. 基因融合"
+                ],
+                correct: 3,
+                explanation: "基因重复后的进化命运主要包括功能分化、假基因化和新功能化。基因融合不是基因重复后的典型进化命运。"
+            },
+            {
+                question: "真核生物基因组中CpG岛的特征是：",
+                options: [
+                    "A. CpG含量低",
+                    "B. 通常被甲基化",
+                    "C. CpG含量高且少被甲基化",
+                    "D. 只存在于内含子中"
+                ],
+                correct: 2,
+                explanation: "CpG岛的特征是CpG含量高且通常不被甲基化，多位于基因的启动子区域，与基因表达调控密切相关。"
+            }
+        ];
+
+        // 随机选择15道题的函数
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目的函数
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="question${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储当前题目到全局变量
+            window.currentQuestions = selectedQuestions;
+        }
+
+        // 提交答案的函数
+        function submitQuiz() {
+            const results = [];
+            const questions = window.currentQuestions;
+            
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                const userAnswer = selectedOption ? parseInt(selectedOption.value) : -1;
+                const isCorrect = userAnswer === q.correct;
+                
+                results.push({
+                    question: q,
+                    userAnswer: userAnswer,
+                    isCorrect: isCorrect,
+                    questionIndex: index
+                });
+            });
+            
+            displayResults(results);
+        }
+
+        // 显示结果的函数
+        function displayResults(results) {
+            const correctCount = results.filter(r => r.isCorrect).length;
+            const totalCount = results.length;
+            const percentage = Math.round((correctCount / totalCount) * 100);
+            
+            const resultsContainer = document.getElementById('quiz-results');
+            resultsContainer.style.display = 'block';
+            
+            let resultsHTML = `
+                <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px;">
+                    测试结果：${correctCount}/${totalCount} (${percentage}%)
+                </h3>
+            `;
+            
+            results.forEach((result, index) => {
+                const q = result.question;
+                const bgColor = result.isCorrect ? '#d4edda' : '#f8d7da';
+                const borderColor = result.isCorrect ? '#c3e6cb' : '#f5c6cb';
+                
+                resultsHTML += `
+                    <div style="background: ${bgColor}; border: 1px solid ${borderColor}; border-radius: 8px; padding: 15px; margin: 15px 0;">
+                        <div style="font-weight: bold; margin-bottom: 10px;">
+                            ${index + 1}. ${q.question}
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <strong>您的答案：</strong> ${result.userAnswer >= 0 ? q.options[result.userAnswer] : '未选择'}
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <strong>正确答案：</strong> ${q.options[q.correct]}
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <strong>结果：</strong> ${result.isCorrect ? '✓ 正确' : '✗ 错误'}
+                        </div>
+                        <div class="explanation">
+                            <strong>解析：</strong> ${q.explanation}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultsContainer.innerHTML = resultsHTML;
+            
+            // 滚动到结果区域
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载完成后自动生成题目
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

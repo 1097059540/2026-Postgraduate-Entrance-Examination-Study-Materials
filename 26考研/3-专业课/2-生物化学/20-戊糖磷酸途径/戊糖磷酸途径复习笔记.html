@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戊糖磷酸途径 - 考研生物化学复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .important {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .formula {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: "Consolas", monospace;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .term:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .term-english {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        .term-definition {
+            color: #495057;
+            line-height: 1.6;
+        }
+        
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .option {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+        
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        
+        .option.correct {
+            background: #27ae60;
+            color: white;
+            border-color: #229954;
+        }
+        
+        .option.incorrect {
+            background: #e74c3c;
+            color: white;
+            border-color: #c0392b;
+        }
+        
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+        
+        .submit-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .explanation {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .thinking-answer {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .thinking-answer ol {
+            counter-reset: item;
+        }
+        
+        .thinking-answer li {
+            display: block;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .thinking-answer li:before {
+            content: counter(item) ". ";
+            counter-increment: item;
+            font-weight: bold;
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>戊糖磷酸途径</h1>
+            <p>Pentose Phosphate Pathway (PPP) | 考研生物化学复习笔记</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、戊糖磷酸途径概述</h2>
+                
+                <p>戊糖磷酸途径（Pentose Phosphate Pathway, PPP），又称己糖单磷酸途径（Hexose Monophosphate Pathway, HMP）或磷酸葡糖氧化途径，是葡萄糖代谢的重要旁路。该途径在细胞质中进行，是细胞内唯一能够产生5-磷酸核糖和大量NADPH的代谢途径。</p>
+                
+                <div class="highlight">
+                    <strong>主要功能：</strong>
+                    <ul>
+                        <li>产生NADPH，为合成代谢提供还原力</li>
+                        <li>生成5-磷酸核糖，用于核酸合成</li>
+                        <li>维持细胞氧化还原平衡</li>
+                        <li>为芳香族氨基酸合成提供前体物质</li>
+                    </ul>
+                </div>
+                
+                <h3>1.1 途径的发现与意义</h3>
+                <p>20世纪30-50年代，研究人员在糖酵解组织匀浆中添加酵解抑制剂时，发现葡萄糖的消耗并未停止，且C1更容易被氧化成二氧化碳，这一发现促使科学家们探索葡萄糖的其他代谢途径。1953年，磷酸戊糖途径被正式阐述。</p>
+                
+                <h3>1.2 组织分布</h3>
+                <p>戊糖磷酸途径主要发生在以下组织中：</p>
+                <ul>
+                    <li><strong>肝脏：</strong>脂肪酸合成活跃</li>
+                    <li><strong>脂肪组织：</strong>脂质合成需要大量NADPH</li>
+                    <li><strong>哺乳期乳腺：</strong>乳脂合成</li>
+                    <li><strong>肾上腺皮质：</strong>类固醇激素合成</li>
+                    <li><strong>性腺：</strong>性激素合成</li>
+                    <li><strong>红细胞：</strong>维持还原型谷胱甘肽水平</li>
+                    <li><strong>骨髓：</strong>细胞增殖活跃</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>二、戊糖磷酸途径的反应过程</h2>
+                
+                <p>戊糖磷酸途径分为两个阶段：氧化阶段（不可逆）和非氧化阶段（可逆）。</p>
+                
+                <h3>2.1 氧化阶段（第一阶段）</h3>
+                <p>氧化阶段包括三个连续的反应，主要功能是产生NADPH和5-磷酸核酮糖。</p>
+                
+                <h4>第一步：葡萄糖-6-磷酸脱氢</h4>
+                <div class="formula">
+                    葡萄糖-6-磷酸 + NADP⁺ → 6-磷酸葡萄糖酸内酯 + NADPH + H⁺
+                </div>
+                <p>催化酶：<strong>葡萄糖-6-磷酸脱氢酶（G6PDH）</strong>，这是整个途径的限速酶和关键调节点。该反应不可逆，受NADPH负反馈抑制。</p>
+                
+                <h4>第二步：内酯水解</h4>
+                <div class="formula">
+                    6-磷酸葡萄糖酸内酯 + H₂O → 6-磷酸葡萄糖酸
+                </div>
+                <p>催化酶：<strong>葡糖酸内酯酶</strong>。该反应也可自发进行，但酶催化大大加快反应速度。</p>
+                
+                <h4>第三步：6-磷酸葡萄糖酸氧化脱羧</h4>
+                <div class="formula">
+                    6-磷酸葡萄糖酸 + NADP⁺ → 5-磷酸核酮糖 + CO₂ + NADPH + H⁺
+                </div>
+                <p>催化酶：<strong>6-磷酸葡萄糖酸脱氢酶（6PGDH）</strong>。这是第一个发生碳骨架改变的步骤，六碳糖失去一个碳原子生成五碳糖。</p>
+                
+                <div class="important">
+                    <strong>氧化阶段总反应：</strong><br>
+                    葡萄糖-6-磷酸 + 2NADP⁺ + H₂O → 5-磷酸核酮糖 + CO₂ + 2NADPH + 2H⁺
+                </div>
+                
+                <h3>2.2 非氧化阶段（第二阶段）</h3>
+                <p>非氧化阶段是一系列基团转移反应，通过转酮酶和转醛酶的作用，实现不同碳数糖类之间的相互转化。</p>
+                
+                <h4>第四步：5-磷酸核酮糖异构化</h4>
+                <p>5-磷酸核酮糖在两种异构酶作用下分别转化为：</p>
+                <ul>
+                    <li><strong>5-磷酸核糖</strong>（核酸合成的原料）</li>
+                    <li><strong>5-磷酸木酮糖</strong>（参与后续转酮反应）</li>
+                </ul>
+                
+                <h4>第五步：转酮反应</h4>
+                <div class="formula">
+                    5-磷酸木酮糖 + 5-磷酸核糖 → 3-磷酸甘油醛 + 7-磷酸景天庚酮糖
+                </div>
+                <p>催化酶：<strong>转酮酶</strong>（需要TPP和Mg²⁺作为辅助因子）。转酮酶转移2个碳原子的羟基乙醛基。</p>
+                
+                <h4>第六步：转醛反应</h4>
+                <div class="formula">
+                    7-磷酸景天庚酮糖 + 3-磷酸甘油醛 → 6-磷酸果糖 + 4-磷酸赤藓糖
+                </div>
+                <p>催化酶：<strong>转醛酶</strong>（不需要辅酶）。转醛酶转移3个碳原子的二羟基丙酮基。</p>
+                
+                <h4>第七步：第二次转酮反应</h4>
+                <div class="formula">
+                    5-磷酸木酮糖 + 4-磷酸赤藓糖 → 6-磷酸果糖 + 3-磷酸甘油醛
+                </div>
+                
+                <div class="important">
+                    <strong>非氧化阶段总反应：</strong><br>
+                    3×5-磷酸核酮糖 → 2×6-磷酸果糖 + 3-磷酸甘油醛
+                </div>
+                
+                <h3>2.3 整个途径的总反应</h3>
+                <div class="formula">
+                    6×葡萄糖-6-磷酸 + 12NADP⁺ + 6H₂O → 5×葡萄糖-6-磷酸 + 6CO₂ + 12NADPH + 12H⁺ + Pi<br><br>
+                    净反应：葡萄糖-6-磷酸 + 12NADP⁺ + 6H₂O → 6CO₂ + 12NADPH + 12H⁺ + Pi
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>三、戊糖磷酸途径的调控机制</h2>
+                
+                <h3>3.1 酶水平调控</h3>
+                <h4>葡萄糖-6-磷酸脱氢酶（G6PDH）调控</h4>
+                <ul>
+                    <li><strong>产物抑制：</strong>NADPH对G6PDH具有强烈的负反馈抑制作用</li>
+                    <li><strong>底物可得性：</strong>葡萄糖-6-磷酸浓度影响途径活性</li>
+                    <li><strong>NADP⁺/NADPH比值：</strong>比值高时途径活跃，比值低时途径受抑制</li>
+                </ul>
+                
+                <h4>6-磷酸葡萄糖酸脱氢酶调控</h4>
+                <ul>
+                    <li>受ATP抑制</li>
+                    <li>受NADPH轻度抑制</li>
+                </ul>
+                
+                <h3>3.2 代谢调控</h3>
+                <h4>与糖酵解的协调</h4>
+                <p>磷酸葡萄糖异构酶受6-磷酸葡萄糖酸竞争性抑制，当PPP活跃时，糖酵解相对减弱，确保葡萄糖-6-磷酸优先进入PPP途径。</p>
+                
+                <h4>氧化应激响应</h4>
+                <p>活性氧（ROS）通过抑制糖酵解关键酶（PFK1、GAPDH、PKM2），促进葡萄糖-6-磷酸进入PPP途径，增加NADPH产量以应对氧化应激。</p>
+                
+                <h3>3.3 激素调控</h3>
+                <ul>
+                    <li><strong>胰岛素：</strong>促进G6PDH表达，增强PPP活性</li>
+                    <li><strong>甲状腺激素：</strong>上调PPP相关酶的表达</li>
+                    <li><strong>皮质醇：</strong>在某些组织中调节PPP活性</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>四、戊糖磷酸途径的生物学意义</h2>
+                
+                <h3>4.1 NADPH的生成与作用</h3>
+                <p>NADPH是细胞内最重要的还原剂，具有多重生物学功能：</p>
+                
+                <h4>合成代谢中的作用</h4>
+                <ul>
+                    <li><strong>脂肪酸合成：</strong>每合成一分子软脂酸需要14分子NADPH</li>
+                    <li><strong>胆固醇合成：</strong>合成过程需要大量NADPH提供还原力</li>
+                    <li><strong>氨基酸合成：</strong>某些氨基酸的合成需要NADPH参与</li>
+                    <li><strong>核苷酸合成：</strong>嘌呤和嘧啶合成需要NADPH</li>
+                </ul>
+                
+                <h4>抗氧化防御</h4>
+                <ul>
+                    <li><strong>谷胱甘肽还原：</strong>NADPH维持谷胱甘肽的还原状态</li>
+                    <li><strong>过氧化氢清除：</strong>通过谷胱甘肽过氧化物酶系统</li>
+                    <li><strong>维生素C再生：</strong>参与抗坏血酸的还原</li>
+                </ul>
+                
+                <h4>解毒反应</h4>
+                <ul>
+                    <li><strong>细胞色素P450系统：</strong>NADPH为药物代谢提供电子</li>
+                    <li><strong>一氧化氮合酶：</strong>NO合成需要NADPH</li>
+                </ul>
+                
+                <h3>4.2 5-磷酸核糖的生成与意义</h3>
+                <p>PPP是细胞内唯一能够生成5-磷酸核糖的途径，具有重要意义：</p>
+                <ul>
+                    <li><strong>核酸合成：</strong>DNA和RNA合成的必需原料</li>
+                    <li><strong>辅酶合成：</strong>NAD⁺、NADP⁺、FAD、CoA等的合成</li>
+                    <li><strong>ATP合成：</strong>腺苷部分的核糖来源</li>
+                    <li><strong>信号分子：</strong>cAMP、cGMP等第二信使的合成</li>
+                </ul>
+                
+                <h3>4.3 在疾病中的作用</h3>
+                
+                <h4>肿瘤细胞代谢</h4>
+                <p>肿瘤细胞对PPP的依赖性显著增强：</p>
+                <ul>
+                    <li>DNA合成活跃，需要大量核糖和NADPH</li>
+                    <li>较高的ROS水平需要更多NADPH维持氧化还原平衡</li>
+                    <li>G6PDH在多种肿瘤中表达上调</li>
+                </ul>
+                
+                <h4>G6PDH缺陷症</h4>
+                <p>G6PDH缺陷是最常见的酶缺陷病：</p>
+                <ul>
+                    <li>红细胞易发生溶血</li>
+                    <li>抗氧化能力下降</li>
+                    <li>某些药物可诱发急性溶血</li>
+                </ul>
+                
+                <h4>糖尿病并发症</h4>
+                <p>高糖环境下PPP活性改变与糖尿病并发症相关：</p>
+                <ul>
+                    <li>多元醇途径激活消耗NADPH</li>
+                    <li>氧化应激增强</li>
+                    <li>血管内皮功能受损</li>
+                </ul>
+            </div>
+            
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>五、重要名词解释</h2>
+                
+                <div class="term">
+                    <div class="term-name">戊糖磷酸途径</div>
+                    <div class="term-english">(Pentose Phosphate Pathway, PPP)</div>
+                    <div class="term-definition">又称己糖单磷酸途径，是葡萄糖代谢的重要旁路，在细胞质中进行，主要功能是产生NADPH和5-磷酸核糖，为合成代谢和抗氧化防御提供必需物质。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">葡萄糖-6-磷酸脱氢酶</div>
+                    <div class="term-english">(Glucose-6-phosphate Dehydrogenase, G6PDH)</div>
+                    <div class="term-definition">戊糖磷酸途径的限速酶，催化葡萄糖-6-磷酸氧化生成6-磷酸葡萄糖酸内酯，同时产生NADPH。该酶受NADPH负反馈抑制，是途径调控的关键点。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">NADPH</div>
+                    <div class="term-english">(Nicotinamide Adenine Dinucleotide Phosphate, Reduced Form)</div>
+                    <div class="term-definition">还原型烟酰胺腺嘌呤二核苷酸磷酸，细胞内最重要的还原剂，为合成代谢提供还原力，参与抗氧化防御和解毒反应。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">5-磷酸核糖</div>
+                    <div class="term-english">(Ribose-5-phosphate)</div>
+                    <div class="term-definition">戊糖磷酸途径的重要产物，是核酸合成的必需原料，也是多种辅酶（如NAD⁺、NADP⁺、FAD、CoA）合成的前体物质。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">转酮酶</div>
+                    <div class="term-english">(Transketolase, TK)</div>
+                    <div class="term-definition">催化转酮反应的酶，需要硫胺素焦磷酸（TPP）和Mg²⁺作为辅助因子，能够转移2个碳原子的羟基乙醛基，参与糖类分子的重排。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">转醛酶</div>
+                    <div class="term-english">(Transaldolase, TAL)</div>
+                    <div class="term-definition">催化转醛反应的酶，不需要辅酶，能够转移3个碳原子的二羟基丙酮基，与转酮酶共同完成非氧化阶段的糖类重排反应。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">6-磷酸葡萄糖酸脱氢酶</div>
+                    <div class="term-english">(6-Phosphogluconate Dehydrogenase, 6PGDH)</div>
+                    <div class="term-definition">催化6-磷酸葡萄糖酸氧化脱羧生成5-磷酸核酮糖的酶，是戊糖磷酸途径氧化阶段的第三个酶，产生第二分子NADPH。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">氧化应激</div>
+                    <div class="term-english">(Oxidative Stress)</div>
+                    <div class="term-definition">细胞内活性氧（ROS）产生与清除失衡的状态，戊糖磷酸途径通过产生NADPH维持谷胱甘肽还原状态，是细胞抗氧化防御的重要组成部分。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">谷胱甘肽</div>
+                    <div class="term-english">(Glutathione, GSH)</div>
+                    <div class="term-definition">细胞内最重要的抗氧化剂，由谷氨酸、半胱氨酸和甘氨酸组成的三肽，其还原状态的维持需要NADPH参与谷胱甘肽还原酶反应。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">己糖单磷酸途径</div>
+                    <div class="term-english">(Hexose Monophosphate Pathway, HMP)</div>
+                    <div class="term-definition">戊糖磷酸途径的别名，因为该途径中的己糖中间产物只含有一个磷酸基团，与糖酵解途径中的己糖二磷酸相区别。</div>
+                </div>
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>六、选择题测试</h2>
+                <div class="quiz-container">
+                    <p style="text-align: center; font-weight: bold; color: #2c3e50; margin-bottom: 20px;">以下题目从30道题库中随机抽取15道，点击选项选择答案，完成后点击提交查看结果。</p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>七、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 分析戊糖磷酸途径在肿瘤细胞代谢中的作用及其作为治疗靶点的潜力。</h4>
+                </div>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>肿瘤细胞对PPP的依赖性增强：</strong>肿瘤细胞具有高度的增殖活性，需要大量的DNA合成，这要求充足的核糖供应和NADPH提供还原力。同时，肿瘤细胞内活性氧水平较高，需要更多NADPH维持氧化还原平衡，防止氧化损伤。因此，PPP在肿瘤细胞中的通量显著增加。</li>
+                        <li><strong>G6PDH在肿瘤中的表达上调：</strong>多项研究表明，G6PDH在各种肿瘤组织中表达水平显著升高，包括肝癌、乳腺癌、结直肠癌等。这种上调不仅满足了肿瘤细胞对NADPH的高需求，也成为肿瘤细胞代谢重编程的重要特征之一。</li>
+                        <li><strong>PPP与肿瘤细胞的代谢适应：</strong>肿瘤细胞通过增强PPP活性，不仅获得了合成代谢所需的原料，还增强了抗氧化能力，使其能够在恶劣的微环境中生存。这种代谢适应性是肿瘤细胞获得生存优势的重要机制。</li>
+                        <li><strong>作为治疗靶点的潜力：</strong>由于肿瘤细胞对PPP的高度依赖，抑制G6PDH或其他PPP关键酶可能选择性地杀伤肿瘤细胞而对正常细胞影响较小。目前已有多种G6PDH抑制剂在研发中，如6-氨基烟酰胺、脱氢表雄酮等，显示出良好的抗肿瘤潜力。</li>
+                        <li><strong>联合治疗策略：</strong>PPP抑制剂可与传统化疗药物联合使用，通过降低肿瘤细胞的抗氧化能力，增强化疗药物的细胞毒性。此外，还可与放疗联合，因为放疗产生的活性氧在PPP受抑制时更难被清除，从而增强放疗效果。</li>
+                    </ol>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 论述戊糖磷酸途径与糖酵解途径之间的代谢协调机制及其生理意义。</h4>
+                </div>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>底物竞争与分配机制：</strong>葡萄糖-6-磷酸是两条途径的共同起始底物，细胞通过精密的调控机制决定其流向。在正常生理条件下，约70%的G6P进入糖酵解途径产生ATP，30%进入PPP产生NADPH和核糖。这种分配比例可根据细胞的代谢需求动态调整。</li>
+                        <li><strong>酶水平的协调调控：</strong>磷酸葡萄糖异构酶（糖酵解第二步酶）受6-磷酸葡萄糖酸竞争性抑制，当PPP活跃时，6-磷酸葡萄糖酸浓度升高，抑制糖酵解，确保更多G6P进入PPP。同时，糖酵解的限速酶是磷酸果糖激酶而非己糖激酶，避免了能量充足时对PPP的过度抑制。</li>
+                        <li><strong>氧化还原状态的调节：</strong>NADPH/NADP⁺比值是调节PPP活性的关键因素。当细胞需要还原力时（如脂肪酸合成、抗氧化防御），NADPH消耗增加，NADP⁺浓度升高，促进PPP活性。相反，当NADPH充足时，对G6PDH的负反馈抑制增强，PPP活性下降。</li>
+                        <li><strong>应激条件下的代谢重编程：</strong>在氧化应激条件下，活性氧通过抑制糖酵解关键酶（如GAPDH、PFK1），促使更多葡萄糖进入PPP，增加NADPH产量以应对氧化损伤。这种机制体现了细胞代谢的智能调节能力。</li>
+                        <li><strong>生理意义与临床相关性：</strong>这种协调机制确保了细胞在不同生理状态下的代谢需求得到满足。在增殖期，细胞需要更多核糖和NADPH，PPP活性增强；在静息期，主要需要ATP，糖酵解占主导。理解这种协调机制对于疾病治疗具有重要意义，如在糖尿病中，高糖环境破坏了这种平衡，导致并发症的发生。</li>
+                    </ol>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 分析G6PDH缺陷症的分子机制、临床表现及其与药物性溶血的关系。</h4>
+                </div>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>分子机制与遗传学基础：</strong>G6PDH缺陷症是X连锁隐性遗传病，由G6PD基因突变引起。该基因位于X染色体长臂，编码G6PDH酶。目前已发现400多种突变类型，其中G6PD A-和G6PD Mediterranean是最常见的变异型。这些突变导致酶活性降低、热稳定性下降或酶蛋白结构改变，影响PPP的正常功能。</li>
+                        <li><strong>红细胞的特殊易感性：</strong>红细胞缺乏细胞核和细胞器，无法合成新的酶蛋白，完全依赖现有的G6PDH维持PPP功能。同时，红细胞面临持续的氧化应激，需要充足的NADPH维持谷胱甘肽还原状态。G6PDH缺陷使红细胞抗氧化能力严重受损，在氧化应激条件下易发生溶血。</li>
+                        <li><strong>临床表现的多样性：</strong>G6PDH缺陷症的临床表现包括新生儿黄疸、急性溶血性贫血、慢性非球形红细胞溶血性贫血和蚕豆病。症状的严重程度与酶活性残留水平相关，完全缺陷者症状严重，部分缺陷者可能终生无症状，仅在特定诱因下发病。</li>
+                        <li><strong>药物性溶血的机制：</strong>某些药物（如伯氨喹、磺胺类、硝基呋喃类）在体内代谢过程中产生氧化性代谢产物，增加红细胞的氧化应激负担。正常情况下，PPP产生的NADPH足以应对这种应激，但G6PDH缺陷患者无法产生足够的NADPH，导致谷胱甘肽耗竭、血红蛋白氧化、红细胞膜损伤和溶血。</li>
+                        <li><strong>预防策略与临床管理：</strong>G6PDH缺陷症的管理主要依靠预防，包括避免已知的诱发因素（特定药物、蚕豆、感染等）、新生儿筛查、遗传咨询等。在急性溶血发作时，需要停用诱发药物、纠正贫血、维持水电解质平衡，严重者可能需要输血治疗。了解这种疾病有助于临床医生合理用药，避免医源性溶血的发生。</li>
+                    </ol>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 探讨戊糖磷酸途径在不同组织中的代谢特点及其与组织功能的关系。</h4>
+                </div>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>肝脏中的PPP特点：</strong>肝脏是脂肪酸合成的主要场所，需要大量NADPH作为还原剂。肝脏中G6PDH活性很高，PPP通量可占葡萄糖代谢的30-50%。此外，肝脏还承担解毒功能，细胞色素P450系统需要NADPH提供电子，进一步增加了对PPP的依赖。肝脏PPP活性与营养状态密切相关，饥饿时活性下降，进食后特别是高糖饮食后活性显著增加。</li>
+                        <li><strong>脂肪组织的代谢适应：</strong>脂肪组织中的脂肪细胞需要大量NADPH进行脂肪酸合成和储存。PPP在脂肪组织中的活性受胰岛素调节，胰岛素通过激活G6PDH转录和翻译后修饰，增强PPP活性。在肥胖状态下，脂肪组织PPP活性增强，但同时也面临氧化应激增加的挑战，需要更多NADPH维持抗氧化防御。</li>
+                        <li><strong>红细胞的特殊依赖性：</strong>成熟红细胞缺乏细胞核和线粒体，无法进行蛋白质合成和有氧呼吸，PPP是其获得NADPH的唯一途径。红细胞中约10%的葡萄糖通过PPP代谢，产生的NADPH主要用于维持谷胱甘肽还原状态，保护血红蛋白和细胞膜免受氧化损伤。红细胞PPP活性随细胞年龄增加而下降，这也是老化红细胞易被清除的原因之一。</li>
+                        <li><strong>内分泌腺的激素合成需求：</strong>肾上腺皮质、性腺等内分泌器官需要合成类固醇激素，这个过程需要大量NADPH参与羟化反应。这些组织中PPP活性很高，且受相应激素的正反馈调节。例如，ACTH刺激肾上腺皮质时，不仅促进皮质醇合成，还上调G6PDH表达，确保NADPH供应充足。</li>
+                        <li><strong>快速增殖组织的核酸合成需求：</strong>骨髓、肠道上皮、毛囊等快速增殖的组织需要大量核糖合成DNA和RNA。这些组织中PPP活性显著增强，特别是非氧化阶段的酶活性很高，以满足核糖的大量需求。在造血过程中，PPP不仅提供核糖，还通过产生NADPH支持血红蛋白合成和细胞分化过程中的各种合成反应。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "戊糖磷酸途径的限速酶是：",
+                options: ["A. 己糖激酶", "B. 葡萄糖-6-磷酸脱氢酶", "C. 6-磷酸葡萄糖酸脱氢酶", "D. 转酮酶"],
+                correct: 1,
+                explanation: "葡萄糖-6-磷酸脱氢酶（G6PDH）是戊糖磷酸途径的第一个酶，也是限速酶。该酶受NADPH负反馈抑制，是整个途径调控的关键点。己糖激酶属于糖酵解途径，6-磷酸葡萄糖酸脱氢酶是PPP的第三个酶但不是限速酶，转酮酶参与非氧化阶段但不是限速酶。"
+            },
+            {
+                question: "戊糖磷酸途径氧化阶段的总反应产生多少分子NADPH？",
+                options: ["A. 1分子", "B. 2分子", "C. 3分子", "D. 4分子"],
+                correct: 1,
+                explanation: "戊糖磷酸途径氧化阶段包括三个反应：第一步G6P脱氢产生1分子NADPH，第二步内酯水解不产生NADPH，第三步6-磷酸葡萄糖酸氧化脱羧产生1分子NADPH。因此氧化阶段总共产生2分子NADPH。"
+            },
+            {
+                question: "以下哪种组织对戊糖磷酸途径的依赖性最高？",
+                options: ["A. 骨骼肌", "B. 心肌", "C. 脂肪组织", "D. 肾脏"],
+                correct: 2,
+                explanation: "脂肪组织需要大量NADPH进行脂肪酸合成，因此对戊糖磷酸途径的依赖性很高。骨骼肌和心肌主要依赖糖酵解和有氧呼吸产生ATP，对PPP依赖性相对较低。肾脏虽然也有一定的PPP活性，但不如脂肪组织依赖性高。"
+            },
+            {
+                question: "G6PDH缺陷症患者容易发生溶血的主要原因是：",
+                options: ["A. ATP产生不足", "B. 核糖合成障碍", "C. NADPH产生不足", "D. 糖酵解受阻"],
+                correct: 2,
+                explanation: "G6PDH缺陷导致NADPH产生不足，无法维持谷胱甘肽的还原状态，红细胞抗氧化能力下降，在氧化应激条件下容易发生溶血。ATP主要由糖酵解和有氧呼吸产生，核糖合成障碍主要影响核酸合成，糖酵解在G6PDH缺陷时不受直接影响。"
+            },
+            {
+                question: "转酮酶催化反应需要的辅助因子是：",
+                options: ["A. NAD+", "B. NADP+", "C. TPP和Mg2+", "D. FAD"],
+                correct: 2,
+                explanation: "转酮酶催化转酮反应，需要硫胺素焦磷酸（TPP）和镁离子（Mg2+）作为辅助因子。TPP是维生素B1的活性形式，参与碳原子的转移。NAD+和NADP+是脱氢反应的辅酶，FAD也是氧化还原反应的辅酶，都不是转酮酶的辅助因子。"
+            },
+            {
+                question: "戊糖磷酸途径非氧化阶段的主要功能是：",
+                options: ["A. 产生NADPH", "B. 产生ATP", "C. 糖类分子重排", "D. 产生CO2"],
+                correct: 2,
+                explanation: "戊糖磷酸途径非氧化阶段通过转酮酶和转醛酶的作用，实现不同碳数糖类分子之间的相互转化和重排。NADPH和CO2在氧化阶段产生，ATP主要由糖酵解和有氧呼吸产生。"
+            },
+            {
+                question: "以下哪个不是NADPH的主要生理功能？",
+                options: ["A. 脂肪酸合成", "B. ATP合成", "C. 抗氧化防御", "D. 胆固醇合成"],
+                correct: 1,
+                explanation: "NADPH主要用于合成代谢（如脂肪酸合成、胆固醇合成）和抗氧化防御（维持谷胱甘肽还原状态）。ATP合成主要依赖糖酵解、三羧酸循环和氧化磷酸化，不需要NADPH直接参与。"
+            },
+            {
+                question: "戊糖磷酸途径中产生的5-磷酸核糖主要用于：",
+                options: ["A. 糖酵解", "B. 核酸合成", "C. 脂肪酸合成", "D. 蛋白质合成"],
+                correct: 1,
+                explanation: "5-磷酸核糖是核酸（DNA和RNA）合成的必需原料，也是多种辅酶（NAD+、NADP+、FAD、CoA等）合成的前体。糖酵解使用葡萄糖，脂肪酸合成需要乙酰CoA，蛋白质合成需要氨基酸。"
+            },
+            {
+                question: "在氧化应激条件下，细胞主要通过什么机制增加NADPH产量？",
+                options: ["A. 激活糖酵解", "B. 抑制糖酵解关键酶，促进PPP", "C. 激活三羧酸循环", "D. 抑制脂肪酸合成"],
+                correct: 1,
+                explanation: "氧化应激时，活性氧（ROS）通过抑制糖酵解关键酶（如GAPDH、PFK1、PKM2），使更多葡萄糖-6-磷酸进入戊糖磷酸途径，增加NADPH产量以应对氧化损伤。这是细胞的一种保护性机制。"
+            },
+            {
+                question: "戊糖磷酸途径又被称为：",
+                options: ["A. 己糖二磷酸途径", "B. 己糖单磷酸途径", "C. 三羧酸循环", "D. 糖醛酸途径"],
+                correct: 1,
+                explanation: "戊糖磷酸途径又称己糖单磷酸途径（HMP），因为该途径中的己糖中间产物只含有一个磷酸基团。己糖二磷酸途径是糖酵解的别名，三羧酸循环是柠檬酸循环，糖醛酸途径是另一条糖代谢途径。"
+            },
+            {
+                question: "G6PDH受到的主要调节因子是：",
+                options: ["A. ATP", "B. ADP", "C. NADPH", "D. NADH"],
+                correct: 2,
+                explanation: "G6PDH受NADPH负反馈抑制，这是戊糖磷酸途径最重要的调节机制。当NADPH充足时，抑制G6PDH活性，减少PPP通量；当NADPH不足时，解除抑制，增加PPP活性。ATP、ADP主要调节糖酵解和有氧呼吸。"
+            },
+            {
+                question: "转醛酶催化反应转移的碳原子数目是：",
+                options: ["A. 1个", "B. 2个", "C. 3个", "D. 4个"],
+                correct: 2,
+                explanation: "转醛酶催化转醛反应，转移3个碳原子的二羟基丙酮基。转酮酶转移2个碳原子的羟基乙醛基。这两种酶共同完成非氧化阶段的糖类重排反应。"
+            },
+            {
+                question: "戊糖磷酸途径主要发生在细胞的哪个部位？",
+                options: ["A. 线粒体", "B. 细胞质", "C. 内质网", "D. 细胞核"],
+                correct: 1,
+                explanation: "戊糖磷酸途径的所有反应都在细胞质中进行，这与糖酵解相同，但与三羧酸循环（在线粒体基质中）和氧化磷酸化（在线粒体内膜上）不同。"
+            },
+            {
+                question: "以下哪种情况下戊糖磷酸途径活性最高？",
+                options: ["A. 饥饿状态", "B. 脂肪酸合成活跃期", "C. 肌肉收缩时", "D. 睡眠状态"],
+                correct: 1,
+                explanation: "脂肪酸合成需要大量NADPH作为还原剂，因此脂肪酸合成活跃期戊糖磷酸途径活性最高。饥饿状态下合成代谢减少，肌肉收缩主要需要ATP，睡眠状态下代谢活动相对较低。"
+            },
+            {
+                question: "6-磷酸葡萄糖酸脱氢酶催化的反应产物包括：",
+                options: ["A. 5-磷酸核糖", "B. 5-磷酸核酮糖", "C. 6-磷酸果糖", "D. 3-磷酸甘油醛"],
+                correct: 1,
+                explanation: "6-磷酸葡萄糖酸脱氢酶催化6-磷酸葡萄糖酸氧化脱羧，产生5-磷酸核酮糖、CO2和NADPH。5-磷酸核糖是5-磷酸核酮糖异构化的产物，6-磷酸果糖和3-磷酸甘油醛是非氧化阶段的产物。"
+            },
+            {
+                question: "红细胞中戊糖磷酸途径的主要意义是：",
+                options: ["A. 产生ATP", "B. 合成血红蛋白", "C. 维持抗氧化能力", "D. 合成细胞膜"],
+                correct: 2,
+                explanation: "红细胞缺乏细胞核和线粒体，戊糖磷酸途径是其获得NADPH的唯一途径。NADPH主要用于维持谷胱甘肽还原状态，保护红细胞免受氧化损伤。ATP主要由糖酵解产生，血红蛋白合成在幼红细胞中进行，细胞膜合成需要多种原料。"
+            },
+            {
+                question: "戊糖磷酸途径中哪个反应是不可逆的？",
+                options: ["A. 转酮反应", "B. 转醛反应", "C. 葡萄糖-6-磷酸脱氢", "D. 异构化反应"],
+                correct: 2,
+                explanation: "葡萄糖-6-磷酸脱氢反应是不可逆的，这是戊糖磷酸途径氧化阶段的第一步，也是整个途径的限速步骤。转酮反应、转醛反应和异构化反应都是可逆的，属于非氧化阶段。"
+            },
+            {
+                question: "肿瘤细胞中戊糖磷酸途径活性增强的主要原因是：",
+                options: ["A. ATP需求增加", "B. 核酸合成和抗氧化需求增加", "C. 蛋白质合成增加", "D. 脂质分解增加"],
+                correct: 1,
+                explanation: "肿瘤细胞增殖活跃，需要大量DNA合成（需要核糖和NADPH），同时肿瘤细胞内ROS水平较高，需要更多NADPH维持抗氧化防御。因此PPP活性显著增强。"
+            },
+            {
+                question: "戊糖磷酸途径的总反应中，每消耗1分子葡萄糖-6-磷酸可产生：",
+                options: ["A. 6分子NADPH", "B. 12分子NADPH", "C. 2分子NADPH", "D. 1分子NADPH"],
+                correct: 1,
+                explanation: "根据戊糖磷酸途径的总反应：葡萄糖-6-磷酸 + 12NADP⁺ + 6H₂O → 6CO₂ + 12NADPH + 12H⁺ + Pi，每消耗1分子G6P可产生12分子NADPH。但这是完全氧化的情况，实际上氧化阶段每分子G6P产生2分子NADPH。"
+            },
+            {
+                question: "以下哪种药物最容易引起G6PDH缺陷患者溶血？",
+                options: ["A. 青霉素", "B. 伯氨喹", "C. 阿司匹林", "D. 胰岛素"],
+                correct: 1,
+                explanation: "伯氨喹是典型的能引起G6PDH缺陷患者溶血的药物，属于8-氨基喹啉类抗疟药。该药在体内代谢产生氧化性代谢产物，增加红细胞氧化应激，G6PDH缺陷患者无法产生足够NADPH应对，导致溶血。"
+            },
+            {
+                question: "戊糖磷酸途径与糖酵解的主要区别是：",
+                options: ["A. 起始底物不同", "B. 发生部位不同", "C. 产物和功能不同", "D. 调节机制不同"],
+                correct: 2,
+                explanation: "两条途径都以葡萄糖-6-磷酸为起始底物，都在细胞质中进行，但产物和功能完全不同。PPP产生NADPH和核糖，主要用于合成代谢和抗氧化；糖酵解产生ATP和丙酮酸，主要用于能量代谢。"
+            },
+            {
+                question: "6-磷酸葡萄糖酸内酯酶的主要作用是：",
+                options: ["A. 产生NADPH", "B. 水解内酯环", "C. 转移磷酸基", "D. 异构化反应"],
+                correct: 1,
+                explanation: "6-磷酸葡萄糖酸内酯酶催化6-磷酸葡萄糖酸内酯水解生成6-磷酸葡萄糖酸。虽然该反应可以自发进行，但酶催化大大加快了反应速度，确保途径的顺利进行。"
+            },
+            {
+                question: "戊糖磷酸途径在脂肪酸合成中的作用是：",
+                options: ["A. 提供乙酰CoA", "B. 提供NADPH", "C. 提供ATP", "D. 提供柠檬酸"],
+                correct: 1,
+                explanation: "脂肪酸合成需要大量NADPH作为还原剂，每合成一分子软脂酸需要14分子NADPH。戊糖磷酸途径是细胞内NADPH的主要来源。乙酰CoA来自糖酵解和β氧化，ATP来自多种途径，柠檬酸来自三羧酸循环。"
+            },
+            {
+                question: "在戊糖磷酸途径中，CO₂的产生发生在：",
+                options: ["A. 第一步反应", "B. 第二步反应", "C. 第三步反应", "D. 非氧化阶段"],
+                correct: 2,
+                explanation: "CO₂的产生发生在第三步反应，即6-磷酸葡萄糖酸氧化脱羧反应中。这是戊糖磷酸途径中唯一产生CO₂的反应，同时产生5-磷酸核酮糖和第二分子NADPH。"
+            },
+            {
+                question: "戊糖磷酸途径的非氧化阶段主要由哪两种酶催化？",
+                options: ["A. 己糖激酶和磷酸葡萄糖异构酶", "B. 转酮酶和转醛酶", "C. G6PDH和6PGDH", "D. 醛缩酶和三磷酸异构酶"],
+                correct: 1,
+                explanation: "戊糖磷酸途径非氧化阶段主要由转酮酶和转醛酶催化，实现不同碳数糖类之间的相互转化。转酮酶转移2碳基团，转醛酶转移3碳基团。其他选项中的酶都不参与PPP非氧化阶段。"
+            },
+            {
+                question: "NADPH与NADH的主要区别在于：",
+                options: ["A. 分子结构完全不同", "B. NADPH多一个磷酸基团", "C. 功能完全相同", "D. 产生途径相同"],
+                correct: 1,
+                explanation: "NADPH比NADH多一个磷酸基团（在腺苷的2'位），这个磷酸基团使得NADPH主要用于合成代谢和抗氧化防御，而NADH主要用于ATP合成。两者功能不同，产生途径也不同。"
+            },
+            {
+                question: "戊糖磷酸途径在哺乳期乳腺中活性很高的原因是：",
+                options: ["A. 需要大量ATP", "B. 需要大量NADPH合成乳脂", "C. 需要大量核糖", "D. 需要大量葡萄糖"],
+                correct: 1,
+                explanation: "哺乳期乳腺需要合成大量乳脂（主要是脂肪酸），这个过程需要大量NADPH作为还原剂。因此乳腺中戊糖磷酸途径活性很高，以满足乳脂合成的需求。"
+            },
+            {
+                question: "戊糖磷酸途径氧化阶段的第二步反应是：",
+                options: ["A. 脱氢反应", "B. 水解反应", "C. 异构化反应", "D. 脱羧反应"],
+                correct: 1,
+                explanation: "戊糖磷酸途径氧化阶段第二步是6-磷酸葡萄糖酸内酯的水解反应，由葡糖酸内酯酶催化，生成6-磷酸葡萄糖酸。这是一个简单的水解反应，不产生NADPH或CO₂。"
+            },
+            {
+                question: "以下关于戊糖磷酸途径调控的叙述，错误的是：",
+                options: ["A. G6PDH受NADPH负反馈抑制", "B. 胰岛素可促进PPP活性", "C. ATP可激活G6PDH", "D. 氧化应激可促进PPP"],
+                correct: 2,
+                explanation: "ATP不能激活G6PDH，实际上ATP对戊糖磷酸途径没有直接的激活作用。G6PDH主要受NADPH负反馈抑制，胰岛素确实可以促进PPP活性，氧化应激通过多种机制促进PPP活性增强。"
+            }
+        ];
+        
+        // 随机选择15道题
+        let selectedQuestions = [];
+        let userAnswers = [];
+        
+        function initQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            // 渲染题目
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option" onclick="selectAnswer(${index}, ${optIndex})">
+                            <input type="radio" name="q${index}" value="${optIndex}" style="display: none;">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+        
+        function selectAnswer(questionIndex, optionIndex) {
+            userAnswers[questionIndex] = optionIndex;
+            
+            // 更新选项样式
+            const question = document.querySelectorAll('.question')[questionIndex];
+            const options = question.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.classList.remove('selected');
+                if (index === optionIndex) {
+                    option.classList.add('selected');
+                }
+            });
+        }
+        
+        function submitQuiz() {
+            let correctCount = 0;
+            const resultContainer = document.getElementById('quiz-result');
+            
+            // 计算得分
+            selectedQuestions.forEach((q, index) => {
+                if (userAnswers[index] === q.correct) {
+                    correctCount++;
+                }
+            });
+            
+            const score = Math.round((correctCount / 15) * 100);
+            
+            // 显示结果
+            resultContainer.innerHTML = `
+                <h4>测试结果</h4>
+                <p><strong>得分：${score}分 (${correctCount}/15)</strong></p>
+                <p>正确率：${Math.round((correctCount / 15) * 100)}%</p>
+            `;
+            resultContainer.style.display = 'block';
+            
+            // 显示每题的解析
+            const questions = document.querySelectorAll('.question');
+            questions.forEach((questionDiv, index) => {
+                const options = questionDiv.querySelectorAll('.option');
+                const q = selectedQuestions[index];
+                
+                options.forEach((option, optIndex) => {
+                    option.onclick = null; // 禁用点击
+                    if (optIndex === q.correct) {
+                        option.classList.add('correct');
+                    } else if (optIndex === userAnswers[index] && optIndex !== q.correct) {
+                        option.classList.add('incorrect');
+                    }
+                });
+                
+                // 添加解析
+                const explanation = document.createElement('div');
+                explanation.className = 'explanation';
+                explanation.innerHTML = `<strong>解析：</strong>${q.explanation}`;
+                explanation.style.display = 'block';
+                questionDiv.appendChild(explanation);
+            });
+            
+            // 禁用提交按钮
+            document.querySelector('.submit-btn').disabled = true;
+            document.querySelector('.submit-btn').textContent = '已提交';
+        }
+        
+        // 页面加载时初始化测试
+        document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

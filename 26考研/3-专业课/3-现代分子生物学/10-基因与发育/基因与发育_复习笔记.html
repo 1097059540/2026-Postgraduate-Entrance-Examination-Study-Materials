@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第10章 基因与发育 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ecf0f1 0%, #f8f9fa 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 标题样式 */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-left: 3px solid #3498db;
+        }
+
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 段落和列表样式 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* 强调样式 */
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #f39c12;
+        }
+
+        /* 图片样式 */
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .figure-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #6c757d;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        /* 名词解释样式 */
+        .term-definition {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .term-definition:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-desc {
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px solid #3498db;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .result-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px solid #27ae60;
+            display: none;
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .question-result {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+        }
+
+        .correct {
+            background: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .incorrect {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-questions {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px solid #9b59b6;
+        }
+
+        .thinking-question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .thinking-question h4 {
+            color: #8e44ad;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #9b59b6;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>第10章 基因与发育</h1>
+        
+        <div class="note">
+            <strong>特别说明：</strong>本章节为考试非重点章节，考生了解即可。主要涉及果蝇发育调控机制和高等植物花发育的基因调控原理。
+        </div>
+
+        <!-- 核心内容板块 -->
+        <section class="main-content">
+            <h2>📚 核心知识内容</h2>
+            
+            <h3>一、果蝇的发育与调控</h3>
+            
+            <h4>1. 果蝇发育周期</h4>
+            <p>果蝇的完整发育过程包括：<span class="highlight">胚胎发育 → 幼虫 → 蛹化 → 变态 → 成虫</span>。这一过程体现了昆虫完全变态发育的典型特征。</p>
+            
+            <div class="figure">
+                <svg width="600" height="300" viewBox="0 0 600 300">
+                    <!-- 果蝇发育周期示意图 -->
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 胚胎 -->
+                    <ellipse cx="80" cy="150" rx="30" ry="20" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+                    <text x="80" y="190" text-anchor="middle" font-size="14" fill="#2c3e50">胚胎</text>
+                    
+                    <!-- 箭头1 -->
+                    <path d="M 120 150 L 160 150" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 幼虫 -->
+                    <rect x="170" y="130" width="60" height="40" rx="20" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+                    <text x="200" y="190" text-anchor="middle" font-size="14" fill="#2c3e50">幼虫</text>
+                    
+                    <!-- 箭头2 -->
+                    <path d="M 240 150 L 280 150" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 蛹 -->
+                    <ellipse cx="320" cy="150" rx="25" ry="35" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+                    <text x="320" y="190" text-anchor="middle" font-size="14" fill="#2c3e50">蛹</text>
+                    
+                    <!-- 箭头3 -->
+                    <path d="M 355 150 L 395 150" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 成虫 -->
+                    <ellipse cx="440" cy="140" rx="35" ry="15" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+                    <ellipse cx="425" cy="135" rx="8" ry="8" fill="#2c3e50"/>
+                    <ellipse cx="455" cy="135" rx="8" ry="8" fill="#2c3e50"/>
+                    <path d="M 420 125 Q 440 115 460 125" stroke="#2c3e50" stroke-width="2" fill="none"/>
+                    <path d="M 420 155 Q 440 165 460 155" stroke="#2c3e50" stroke-width="2" fill="none"/>
+                    <text x="440" y="190" text-anchor="middle" font-size="14" fill="#2c3e50">成虫</text>
+                    
+                    <!-- 箭头标记定义 -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#34495e" />
+                        </marker>
+                    </defs>
+                    
+                    <!-- 标题 -->
+                    <text x="300" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">果蝇发育周期</text>
+                </svg>
+                <div class="figure-caption">图1 果蝇完全变态发育过程示意图</div>
+            </div>
+            
+            <h4>2. 卵子发育与卵裂过程</h4>
+            <p><strong>(1) 果蝇卵子形成过程：</strong></p>
+            <ul>
+                <li><span class="highlight">卵原细胞</span>经过4次有丝分裂形成16个细胞的并合体</li>
+                <li>其中<span class="important">1个细胞发育成卵母细胞（双倍体）</span></li>
+                <li>其余<span class="important">15个细胞发育成抚育细胞（多倍体）</span></li>
+            </ul>
+            
+            <p><strong>(2) 果蝇的卵裂过程：</strong></p>
+            <ol>
+                <li><span class="highlight">细胞核以9min/次的高频率复制</span>，直至达到约6000个核并发育成为合胞体</li>
+                <li>当出现256个以上的细胞核时，<span class="highlight">细胞核开始向卵的外周移动</span>，定位到皮层组织</li>
+            </ol>
+            
+            <h4>3. 胚胎发育的分子机制</h4>
+            <p>果蝇形体模式的形成是沿<span class="highlight">前-后轴</span>和<span class="highlight">背-腹轴</span>进行的。</p>
+            
+            <p><strong>① 母源效应基因的作用：</strong></p>
+            <ul>
+                <li><span class="highlight">前端系统</span>：决定头胸部分节</li>
+                <li><span class="highlight">后端系统</span>：决定腹部分节</li>
+                <li><span class="highlight">末端系统</span>：决定胚胎两端不分节的原头区和尾节</li>
+                <li><span class="highlight">背腹系统</span>：决定胚胎的背-腹轴</li>
+            </ul>
+            
+            <p><strong>② 分节基因的分级调控：</strong></p>
+            <ol>
+                <li><span class="highlight">间隙基因</span>：控制大的身体区域</li>
+                <li><span class="highlight">成对控制基因</span>：控制相邻体节对</li>
+                <li><span class="highlight">体节极性基因</span>：控制每个体节内的模式</li>
+            </ol>
+            
+            <div class="figure">
+                <svg width="600" height="400" viewBox="0 0 600 400">
+                    <!-- 果蝇胚胎发育调控网络 -->
+                    <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 母源效应基因层 -->
+                    <rect x="50" y="50" width="500" height="60" rx="10" fill="#3498db" opacity="0.8"/>
+                    <text x="300" y="85" text-anchor="middle" font-size="16" font-weight="bold" fill="white">母源效应基因</text>
+                    
+                    <!-- 四个系统 -->
+                    <rect x="70" y="130" width="100" height="40" rx="5" fill="#e74c3c"/>
+                    <text x="120" y="155" text-anchor="middle" font-size="12" fill="white">前端系统</text>
+                    
+                    <rect x="190" y="130" width="100" height="40" rx="5" fill="#f39c12"/>
+                    <text x="240" y="155" text-anchor="middle" font-size="12" fill="white">后端系统</text>
+                    
+                    <rect x="310" y="130" width="100" height="40" rx="5" fill="#9b59b6"/>
+                    <text x="360" y="155" text-anchor="middle" font-size="12" fill="white">末端系统</text>
+                    
+                    <rect x="430" y="130" width="100" height="40" rx="5" fill="#27ae60"/>
+                    <text x="480" y="155" text-anchor="middle" font-size="12" fill="white">背腹系统</text>
+                    
+                    <!-- 分节基因层 -->
+                    <rect x="50" y="200" width="500" height="60" rx="10" fill="#2980b9" opacity="0.8"/>
+                    <text x="300" y="235" text-anchor="middle" font-size="16" font-weight="bold" fill="white">分节基因</text>
+                    
+                    <!-- 三类分节基因 -->
+                    <rect x="100" y="280" width="120" height="40" rx="5" fill="#e67e22"/>
+                    <text x="160" y="305" text-anchor="middle" font-size="12" fill="white">间隙基因</text>
+                    
+                    <rect x="240" y="280" width="120" height="40" rx="5" fill="#8e44ad"/>
+                    <text x="300" y="305" text-anchor="middle" font-size="12" fill="white">成对控制基因</text>
+                    
+                    <rect x="380" y="280" width="120" height="40" rx="5" fill="#229954"/>
+                    <text x="440" y="305" text-anchor="middle" font-size="12" fill="white">体节极性基因</text>
+                    
+                    <!-- 同源域基因 -->
+                    <rect x="200" y="350" width="200" height="40" rx="5" fill="#c0392b"/>
+                    <text x="300" y="375" text-anchor="middle" font-size="14" font-weight="bold" fill="white">同源域基因(HOM-C)</text>
+                    
+                    <!-- 连接线 -->
+                    <path d="M 300 110 L 300 130" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M 300 170 L 300 200" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M 300 260 L 300 280" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M 300 320 L 300 350" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 标题 -->
+                    <text x="300" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">果蝇胚胎发育基因调控层级</text>
+                </svg>
+                <div class="figure-caption">图2 果蝇胚胎发育的分级基因调控网络</div>
+            </div>
+            
+            <h4>4. 同源域基因(HOM-C)的功能</h4>
+            <p><span class="highlight">同源域基因决定躯体体节命运</span>。在果蝇中同源域基因统称为HOM复合体(HOM-C)。典型的同源域基因：</p>
+            <ul>
+                <li>不参与基本躯干的建成</li>
+                <li>不参与体节和肢芽的完善</li>
+                <li><span class="important">只保证体节或肢芽的最终典型特征</span></li>
+            </ul>
+            
+            <h3>二、高等植物花发育的基因调控</h3>
+            
+            <p>根据分生组织的形态特征，将植物从营养生长到生殖生长的转变分为3个阶段：</p>
+            <ol>
+                <li><span class="highlight">营养分生组织阶段</span></li>
+                <li><span class="highlight">花序分生组织发生阶段</span></li>
+                <li><span class="highlight">花分生组织发生阶段</span></li>
+            </ol>
+            
+            <h4>1. 植物花器官结构与发育过程</h4>
+            <p>花器官发育的层级过程：</p>
+            <p><span class="highlight">顶端分生组织</span> → <span class="highlight">营养分生组织</span> → <span class="highlight">花序分生组织</span> → <span class="highlight">花分生组织</span> → <span class="highlight">花器官原基</span> → <span class="highlight">花器官</span></p>
+            
+            <h4>2. 调控花器官发育的主要基因</h4>
+            <ul>
+                <li><span class="highlight">花分生组织决定基因</span>：促进从花序分生组织产生花分生组织并进一步分化产生花器官原基</li>
+                <li><span class="highlight">同源域基因</span>：控制产生花器官的类型</li>
+            </ul>
+            
+            <h3>三、控制植物开花时间的分子机制</h3>
+            
+            <h4>1. 影响植物开花的因素</h4>
+            <ul>
+                <li><strong>外部因素：</strong><span class="highlight">光照和温度</span></li>
+                <li><strong>内部因素：</strong><span class="highlight">自主途径因子和赤霉素(GA)</span></li>
+            </ul>
+            
+            <h4>2. 拟南芥的开花诱导调控途径</h4>
+            
+            <p><strong>(1) 光周期途径</strong></p>
+            <div class="note">
+                <strong>光周期现象：</strong>植物通过感受昼夜长短变化而控制开花的现象。
+            </div>
+            
+            <p>根据对光周期的反应，植物分为：</p>
+            <ul>
+                <li><span class="highlight">长日照植物(LDP)</span>：日照长度必须长于其临界日照长度才能开花，如拟南芥生态型</li>
+                <li><span class="highlight">短日照植物(SDP)</span>：日照长度必须短于其临界日照长度才能开花，如水稻、烟草等</li>
+                <li><span class="highlight">日中性植物(DNP)</span>：对日照长度不敏感，任何日照条件下都可以开花，如印度甘蔗等</li>
+            </ul>
+            
+            <p><strong>光周期的感受及传导机制：</strong></p>
+            <ul>
+                <li>感受光周期刺激的部位是<span class="highlight">叶片</span></li>
+                <li>植物叶片感受到适当的日照长度，会形成<span class="highlight">开花素/成花素(florigen)</span></li>
+                <li>开花素进行长距离运输传导到顶芽分生组织后引起开花</li>
+            </ul>
+            
+            <div class="figure">
+                <svg width="600" height="350" viewBox="0 0 600 350">
+                    <!-- 植物开花调控途径示意图 -->
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 四个调控途径 -->
+                    <rect x="50" y="50" width="120" height="60" rx="10" fill="#3498db"/>
+                    <text x="110" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="white">光周期途径</text>
+                    
+                    <rect x="200" y="50" width="120" height="60" rx="10" fill="#9b59b6"/>
+                    <text x="260" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="white">春化作用</text>
+                    
+                    <rect x="350" y="50" width="120" height="60" rx="10" fill="#e74c3c"/>
+                    <text x="410" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="white">自主途径</text>
+                    
+                    <rect x="500" y="50" width="80" height="60" rx="10" fill="#27ae60"/>
+                    <text x="540" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="white">GA途径</text>
+                    
+                    <!-- 中间调控因子 -->
+                    <ellipse cx="200" cy="180" rx="60" ry="30" fill="#f39c12"/>
+                    <text x="200" y="185" text-anchor="middle" font-size="12" font-weight="bold" fill="white">FLC抑制</text>
+                    
+                    <ellipse cx="400" cy="180" rx="60" ry="30" fill="#2980b9"/>
+                    <text x="400" y="185" text-anchor="middle" font-size="12" font-weight="bold" fill="white">SOC1/FT</text>
+                    
+                    <!-- 最终开花 -->
+                    <rect x="250" y="270" width="100" height="50" rx="10" fill="#c0392b"/>
+                    <text x="300" y="300" text-anchor="middle" font-size="16" font-weight="bold" fill="white">开花</text>
+                    
+                    <!-- 连接线 -->
+                    <path d="M 110 110 L 110 140 L 200 140 L 200 150" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M 260 110 L 260 140 L 200 140 L 200 150" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M 410 110 L 410 140 L 400 140 L 400 150" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M 540 110 L 540 140 L 400 140 L 400 150" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <path d="M 200 210 L 250 250" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M 400 210 L 350 250" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 标题 -->
+                    <text x="300" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">拟南芥开花诱导调控途径</text>
+                </svg>
+                <div class="figure-caption">图3 拟南芥开花时间的四个主要调控途径</div>
+            </div>
+            
+            <p><strong>(2) 春化作用</strong></p>
+            <p><span class="highlight">春化作用</span>是指低温诱导植物开花的过程。春化作用中VIN3识别低温处理，建立对春化关键基因<span class="important">FLC表达的抑制</span>。</p>
+            
+            <p><strong>(3) 自主途径</strong></p>
+            <p><span class="highlight">自主途径</span>是指基因通过不同机制抑制FLC表达，促进SOC1、FT表达，从而促进开花的开花诱导调节途径。</p>
+            
+            <p><strong>(4) GA（赤霉素）途径</strong></p>
+            <p><span class="highlight">GA途径</span>是指通过GA合成及信号转导有关组分影响SOC1和LFY表达，调控植物开花时间的开花诱导调节途径。</p>
+            
+            <h4>3. 植物激素对开花过程的表观调控</h4>
+            <p>植物激素包括<span class="highlight">赤霉素、茉莉酸、脱落酸、乙烯以及生长素</span>都能通过DNA甲基化、组蛋白翻译后修饰等方式，在一定程度上影响染色质的紧密程度，从而影响植物的开花过程。</p>
+        </section>
+
+        <!-- 名词解释库板块 -->
+        <section class="terminology">
+            <h2>📖 名词解释库</h2>
+            
+            <div class="term-definition">
+                <div class="term-name">光周期现象<span class="term-english">(Photoperiodism)</span></div>
+                <div class="term-desc">植物通过感受昼夜长短变化而控制开花的现象。植物能够感知日照长度的变化，并据此调节开花时间，以适应季节变化。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">同源域基因<span class="term-english">(Homeotic Genes, HOM-C)</span></div>
+                <div class="term-desc">决定躯体体节命运的基因。在果蝇中统称为HOM复合体，这些基因不参与基本躯干建成，只保证体节或肢芽的最终典型特征。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">母源效应基因<span class="term-english">(Maternal Effect Genes)</span></div>
+                <div class="term-desc">由母体基因型决定子代表型的基因。在果蝇胚胎发育中，包括前端系统、后端系统、末端系统和背腹系统四组基因。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">分节基因<span class="term-english">(Segmentation Genes)</span></div>
+                <div class="term-desc">参与果蝇分节的基因，包括间隙基因、成对控制基因和体节极性基因，这些基因分级调控同源域基因的表达。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">开花素<span class="term-english">(Florigen, FT protein)</span></div>
+                <div class="term-desc">植物叶片感受到适当日照长度后形成的成花信号分子，能够进行长距离运输，传导到顶芽分生组织后引起开花。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">春化作用<span class="term-english">(Vernalization)</span></div>
+                <div class="term-desc">低温诱导植物开花的过程。通过VIN3识别低温处理，建立对春化关键基因FLC表达的抑制，从而促进开花。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">长日照植物<span class="term-english">(Long Day Plants, LDP)</span></div>
+                <div class="term-desc">日照长度必须长于其临界日照长度才能开花的植物，如拟南芥生态型。这类植物通常在春夏季开花。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">短日照植物<span class="term-english">(Short Day Plants, SDP)</span></div>
+                <div class="term-desc">日照长度必须短于其临界日照长度才能开花的植物，如水稻、烟草等。这类植物通常在秋季开花。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">花分生组织决定基因<span class="term-english">(Floral Meristem Identity Genes)</span></div>
+                <div class="term-desc">促进从花序分生组织产生花分生组织并进一步分化产生花器官原基的基因，是花发育的关键调控因子。</div>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">合胞体<span class="term-english">(Syncytium)</span></div>
+                <div class="term-desc">果蝇早期胚胎发育阶段形成的多核细胞结构，细胞核快速分裂但细胞质不分裂，形成一个含有多个细胞核的大细胞。</div>
+            </div>
+        </section>
+
+        <!-- 选择题测试板块 -->
+        <section class="quiz-section">
+            <h2>🎯 选择题测试</h2>
+            <p style="text-align: center; font-style: italic; color: #7f8c8d;">从30道题库中随机抽取15道题进行测试</p>
+            
+            <div id="quiz-container">
+                <!-- 题目将通过JavaScript动态生成 -->
+            </div>
+            
+            <button class="submit-btn" onclick="submitQuiz()">📝 提交答案</button>
+            
+            <div id="result-section" class="result-section">
+                <!-- 结果将通过JavaScript显示 -->
+            </div>
+        </section>
+
+        <!-- 深度思考题板块 -->
+        <section class="thinking-questions">
+            <h2>🤔 深度思考题</h2>
+            
+            <div class="thinking-question">
+                <h4>1. 试分析原癌基因激活成为癌基因的分子机制，并结合果蝇发育调控原理，探讨基因表达调控在肿瘤发生中的作用。</h4>
+                <div class="answer">
+                    <strong>参考答案：</strong>
+                    <ol>
+                        <li><strong>原癌基因激活机制：</strong>原癌基因可通过点突变、基因扩增、染色体易位等方式激活。这些机制导致基因产物功能异常或表达水平异常升高，破坏正常的细胞生长调控。</li>
+                        <li><strong>与果蝇发育调控的相似性：</strong>果蝇发育中的分级基因调控网络（母源效应基因→分节基因→同源域基因）体现了基因表达的精确时空调控。肿瘤发生也涉及类似的调控网络失调，如细胞周期调控基因、凋亡调控基因等的异常表达。</li>
+                        <li><strong>基因表达调控的关键作用：</strong>正常发育需要基因在特定时间、特定位置的精确表达。当这种调控机制被破坏时，细胞可能失去正常的分化能力，获得无限增殖的特性，最终导致肿瘤形成。</li>
+                        <li><strong>临床意义：</strong>理解基因表达调控机制有助于开发靶向治疗策略，通过调节关键调控因子的表达来抑制肿瘤生长。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>2. 基因治疗作为新兴的医疗技术，面临哪些挑战？请结合植物基因工程的成功经验，分析如何提高基因治疗的效率和安全性。</h4>
+                <div class="answer">
+                    <strong>参考答案：</strong>
+                    <ol>
+                        <li><strong>基因治疗面临的主要挑战：</strong>载体安全性问题、靶向性不足、免疫反应、基因表达调控困难、伦理问题等。载体可能引起免疫反应或插入突变，影响治疗效果和安全性。</li>
+                        <li><strong>植物基因工程的成功经验：</strong>植物基因工程在载体选择（如农杆菌载体）、基因表达调控（组织特异性启动子）、安全性评估等方面积累了丰富经验。</li>
+                        <li><strong>提高效率的策略：</strong>开发更高效的载体系统、优化基因表达调控元件、改进基因递送方法、建立精确的靶向机制等。</li>
+                        <li><strong>提高安全性的措施：</strong>严格的载体安全性评估、建立可控的基因表达系统、完善的临床前安全性试验、长期跟踪监测等。</li>
+                        <li><strong>未来发展方向：</strong>个性化基因治疗、基因编辑技术的应用、多基因协同治疗等将是基因治疗发展的重要方向。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>3. HIV作为获得性免疫缺陷病毒，其致病机理与宿主免疫系统的相互作用机制是什么？请分析病毒如何逃避免疫监视。</h4>
+                <div class="answer">
+                    <strong>参考答案：</strong>
+                    <ol>
+                        <li><strong>HIV的基本致病机理：</strong>HIV主要感染CD4+ T细胞、巨噬细胞等免疫细胞，通过逆转录将病毒基因组整合到宿主细胞DNA中，导致免疫细胞功能缺陷和数量减少。</li>
+                        <li><strong>免疫逃避机制：</strong>HIV具有高度的遗传变异性，能够快速产生突变逃避抗体和细胞毒性T细胞的识别；病毒蛋白可以干扰MHC分子的表达和抗原呈递过程。</li>
+                        <li><strong>潜伏感染策略：</strong>HIV可在某些细胞中建立潜伏感染，病毒基因组整合到宿主DNA中但不活跃复制，使得免疫系统难以清除这些潜伏的病毒储库。</li>
+                        <li><strong>免疫系统的对抗反应：</strong>机体产生特异性抗体和细胞毒性T细胞反应，但由于病毒的高变异性和免疫逃避机制，难以完全清除病毒。</li>
+                        <li><strong>治疗策略：</strong>高效抗逆转录病毒治疗(HAART)通过多种药物联合使用抑制病毒复制，免疫重建治疗帮助恢复免疫功能。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>4. 肿瘤免疫治疗代表了癌症治疗的新方向，请分析CAR-T细胞疗法的作用原理，并讨论其在实体瘤治疗中面临的挑战。</h4>
+                <div class="answer">
+                    <strong>参考答案：</strong>
+                    <ol>
+                        <li><strong>CAR-T细胞疗法的基本原理：</strong>通过基因工程技术将嵌合抗原受体(CAR)导入患者T细胞，使T细胞能够特异性识别和攻击表达特定抗原的肿瘤细胞，绕过了传统MHC限制性识别。</li>
+                        <li><strong>CAR结构与功能：</strong>CAR包含胞外抗原识别域、跨膜域和胞内信号域，能够同时提供激活信号和共刺激信号，增强T细胞的杀伤活性和持久性。</li>
+                        <li><strong>在血液肿瘤中的成功：</strong>CAR-T疗法在B细胞恶性肿瘤（如急性淋巴细胞白血病）治疗中取得显著成效，主要靶向CD19等表面抗原。</li>
+                        <li><strong>实体瘤治疗的挑战：</strong>肿瘤微环境的免疫抑制、缺乏特异性靶抗原、CAR-T细胞的肿瘤浸润困难、肿瘤异质性等因素限制了疗效。</li>
+                        <li><strong>改进策略：</strong>开发新一代CAR设计、联合免疫检查点抑制剂、改善肿瘤微环境、多靶点CAR-T细胞等策略有望提高实体瘤治疗效果。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>5. 病毒在人类疾病中扮演重要角色，请比较DNA病毒与RNA病毒的致病特点，并分析不同类型病毒的预防控制策略。</h4>
+                <div class="answer">
+                    <strong>参考答案：</strong>
+                    <ol>
+                        <li><strong>DNA病毒的致病特点：</strong>基因组相对稳定，突变率较低，容易建立持续感染或潜伏感染。如HBV可引起慢性肝炎，HSV可建立神经节潜伏感染。DNA病毒通常具有较大的基因组，编码多种调控蛋白。</li>
+                        <li><strong>RNA病毒的致病特点：</strong>基因组变异性高，突变率高，容易产生新的变异株逃避免疫。如流感病毒的抗原漂移和抗原转换，HIV的高度变异性。RNA病毒复制周期通常较短，传播速度快。</li>
+                        <li><strong>DNA病毒的预防控制：</strong>疫苗接种效果通常较好且持久（如HBV疫苗），抗病毒药物可针对DNA聚合酶等关键酶，定期筛查有助于早期发现慢性感染。</li>
+                        <li><strong>RNA病毒的预防控制：</strong>疫苗需要定期更新以应对变异（如流感疫苗），抗病毒药物需要联合使用防止耐药，加强监测系统追踪病毒变异。</li>
+                        <li><strong>综合防控策略：</strong>建立完善的病毒监测网络、发展广谱抗病毒药物、加强公共卫生措施、推进精准医学在病毒感染诊治中的应用。</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "果蝇卵原细胞经过4次有丝分裂后形成的16个细胞中，发育成卵母细胞的数量是：",
+                options: ["A. 1个", "B. 2个", "C. 4个", "D. 15个"],
+                correct: 0,
+                explanation: "果蝇卵原细胞经过4次有丝分裂形成16个细胞的并合体，其中只有1个细胞发育成卵母细胞（双倍体），其余15个细胞发育成抚育细胞（多倍体）。"
+            },
+            {
+                question: "果蝇胚胎发育过程中，细胞核的复制频率约为：",
+                options: ["A. 6min/次", "B. 9min/次", "C. 12min/次", "D. 15min/次"],
+                correct: 1,
+                explanation: "果蝇卵裂过程中，细胞核以9min/次的高频率复制，直至达到约6000个核并发育成为合胞体。"
+            },
+            {
+                question: "果蝇胚胎轴的发育取决于母源效应基因，其中不包括：",
+                options: ["A. 前端系统", "B. 后端系统", "C. 中端系统", "D. 背腹系统"],
+                correct: 2,
+                explanation: "果蝇胚胎轴的发育取决于4组母源效应基因：前端系统、后端系统、末端系统和背腹系统，不包括中端系统。"
+            },
+            {
+                question: "参与果蝇分节的基因不包括：",
+                options: ["A. 间隙基因", "B. 成对控制基因", "C. 体节极性基因", "D. 背腹极性基因"],
+                correct: 3,
+                explanation: "参与果蝇分节的分节基因包括间隙基因、成对控制基因和体节极性基因，背腹极性基因属于母源效应基因。"
+            },
+            {
+                question: "果蝇的同源域基因统称为：",
+                options: ["A. HOX复合体", "B. HOM复合体", "C. HOME复合体", "D. HOMEO复合体"],
+                correct: 1,
+                explanation: "在果蝇中同源域基因统称为HOM复合体(HOM-C)，决定躯体体节命运。"
+            },
+            {
+                question: "植物从营养生长到生殖生长的转变不包括以下哪个阶段：",
+                options: ["A. 营养分生组织阶段", "B. 花序分生组织发生阶段", "C. 花分生组织发生阶段", "D. 果实分生组织阶段"],
+                correct: 3,
+                explanation: "植物从营养生长到生殖生长的转变分为3个阶段：营养分生组织阶段、花序分生组织发生阶段和花分生组织发生阶段。"
+            },
+            {
+                question: "光周期现象是指：",
+                options: ["A. 植物对光强度变化的反应", "B. 植物对光质变化的反应", "C. 植物对昼夜长短变化的反应", "D. 植物对光照方向变化的反应"],
+                correct: 2,
+                explanation: "光周期现象是指植物通过感受昼夜长短变化而控制开花的现象。"
+            },
+            {
+                question: "长日照植物的特点是：",
+                options: ["A. 日照长度必须短于临界日照长度才能开花", "B. 日照长度必须长于临界日照长度才能开花", "C. 对日照长度不敏感", "D. 只在夜间开花"],
+                correct: 1,
+                explanation: "长日照植物(LDP)的特点是日照长度必须长于其临界日照长度才能开花，如拟南芥生态型。"
+            },
+            {
+                question: "感受光周期刺激的部位是：",
+                options: ["A. 根部", "B. 茎部", "C. 叶片", "D. 花部"],
+                correct: 2,
+                explanation: "感受光周期刺激的部位是叶片，植物叶片感受到适当的日照长度后会形成开花素。"
+            },
+            {
+                question: "春化作用是指：",
+                options: ["A. 高温诱导植物开花", "B. 低温诱导植物开花", "C. 光照诱导植物开花", "D. 干旱诱导植物开花"],
+                correct: 1,
+                explanation: "春化作用是指低温诱导植物开花的过程，通过VIN3识别低温处理，建立对FLC表达的抑制。"
+            },
+            {
+                question: "拟南芥开花诱导调控途径不包括：",
+                options: ["A. 光周期途径", "B. 春化作用", "C. 自主途径", "D. 温度途径"],
+                correct: 3,
+                explanation: "拟南芥的开花诱导调控途径包括光周期途径、春化作用、自主途径和GA途径，不包括单独的温度途径。"
+            },
+            {
+                question: "开花素的英文名称是：",
+                options: ["A. Flowering hormone", "B. Florigen", "C. Floral inducer", "D. Bloom factor"],
+                correct: 1,
+                explanation: "开花素的英文名称是florigen，是植物叶片感受到适当日照长度后形成的成花信号分子。"
+            },
+            {
+                question: "果蝇胚胎发育过程中的合胞体相当于：",
+                options: ["A. 单核细胞", "B. 双核细胞", "C. 多核细胞", "D. 无核细胞"],
+                correct: 2,
+                explanation: "果蝇胚胎发育过程中的合胞体相当于一个多核细胞，细胞核快速分裂但细胞质不分裂。"
+            },
+            {
+                question: "同源域基因的主要功能是：",
+                options: ["A. 参与基本躯干建成", "B. 参与体节和肢芽完善", "C. 决定体节或肢芽的最终典型特征", "D. 控制细胞分裂"],
+                correct: 2,
+                explanation: "同源域基因不参与基本躯干建成，也不参与体节和肢芽的完善，只保证体节或肢芽的最终典型特征。"
+            },
+            {
+                question: "短日照植物的代表包括：",
+                options: ["A. 拟南芥", "B. 水稻和烟草", "C. 印度甘蔗", "D. 小麦"],
+                correct: 1,
+                explanation: "短日照植物(SDP)的代表包括水稻、烟草等，日照长度必须短于其临界日照长度才能开花。"
+            },
+            {
+                question: "果蝇末端系统的功能是：",
+                options: ["A. 决定头胸部分节", "B. 决定腹部分节", "C. 决定胚胎两端不分节的原头区和尾节", "D. 决定背-腹轴"],
+                correct: 2,
+                explanation: "果蝇末端系统决定胚胎两端不分节的原头区和尾节，是母源效应基因的一部分。"
+            },
+            {
+                question: "植物激素对开花过程的表观调控不包括：",
+                options: ["A. DNA甲基化", "B. 组蛋白翻译后修饰", "C. 染色质紧密程度调节", "D. 蛋白质磷酸化"],
+                correct: 3,
+                explanation: "植物激素通过DNA甲基化、组蛋白翻译后修饰等方式影响染色质的紧密程度，从而影响植物的开花过程。"
+            },
+            {
+                question: "花分生组织决定基因的主要功能是：",
+                options: ["A. 控制产生花器官的类型", "B. 促进从花序分生组织产生花分生组织", "C. 调节花器官的颜色", "D. 控制花的大小"],
+                correct: 1,
+                explanation: "花分生组织决定基因促进从花序分生组织产生花分生组织并进一步分化产生花器官原基。"
+            },
+            {
+                question: "日中性植物的特点是：",
+                options: ["A. 只在白天开花", "B. 只在夜间开花", "C. 对日照长度不敏感", "D. 需要特定的日照长度"],
+                correct: 2,
+                explanation: "日中性植物(DNP)对日照长度不敏感，任何日照条件下都可以开花，如印度甘蔗等。"
+            },
+            {
+                 question: "果蝇细胞核向卵的外周移动发生在：",
+                 options: ["A. 出现128个细胞核时", "B. 出现256个以上细胞核时", "C. 出现512个细胞核时", "D. 出现1024个细胞核时"],
+                 correct: 1,
+                 explanation: "当出现256个以上的细胞核时，细胞核开始向卵的外周移动，定位到皮层组织。"
+             },
+             {
+                 question: "GA途径是指：",
+                 options: ["A. 生长素调控开花", "B. 赤霉素调控开花", "C. 细胞分裂素调控开花", "D. 脱落酸调控开花"],
+                 correct: 1,
+                 explanation: "GA途径是指通过GA(赤霉素)合成及信号转导有关组分影响SOC1和LFY表达，调控植物开花时间的开花诱导调节途径。"
+             },
+             {
+                 question: "自主途径的特点是：",
+                 options: ["A. 依赖光照条件", "B. 依赖温度条件", "C. 通过抑制FLC表达促进开花", "D. 依赖激素调节"],
+                 correct: 2,
+                 explanation: "自主途径是指基因通过不同机制抑制FLC表达，促进SOC1、FT表达，从而促进开花的开花诱导调节途径。"
+             },
+             {
+                 question: "果蝇抚育细胞的倍性是：",
+                 options: ["A. 单倍体", "B. 双倍体", "C. 三倍体", "D. 多倍体"],
+                 correct: 3,
+                 explanation: "果蝇卵原细胞经过4次有丝分裂形成16个细胞，其中1个发育成卵母细胞（双倍体），其余15个发育成抚育细胞（多倍体）。"
+             },
+             {
+                 question: "间隙基因的功能是：",
+                 options: ["A. 控制每个体节内的模式", "B. 控制相邻体节对", "C. 控制大的身体区域", "D. 控制细胞分裂"],
+                 correct: 2,
+                 explanation: "间隙基因控制大的身体区域，是分节基因分级调控的第一级。"
+             },
+             {
+                 question: "成对控制基因的功能是：",
+                 options: ["A. 控制大的身体区域", "B. 控制相邻体节对", "C. 控制每个体节内的模式", "D. 控制背腹轴"],
+                 correct: 1,
+                 explanation: "成对控制基因控制相邻体节对，是分节基因分级调控的第二级。"
+             },
+             {
+                 question: "体节极性基因的功能是：",
+                 options: ["A. 控制大的身体区域", "B. 控制相邻体节对", "C. 控制每个体节内的模式", "D. 控制前后轴"],
+                 correct: 2,
+                 explanation: "体节极性基因控制每个体节内的模式，是分节基因分级调控的第三级。"
+             },
+             {
+                 question: "VIN3基因的功能是：",
+                 options: ["A. 识别高温处理", "B. 识别低温处理", "C. 识别光照变化", "D. 识别水分变化"],
+                 correct: 1,
+                 explanation: "春化作用中VIN3识别低温处理，建立对春化关键基因FLC表达的抑制。"
+             },
+             {
+                 question: "FLC基因在开花调控中的作用是：",
+                 options: ["A. 促进开花", "B. 抑制开花", "C. 不影响开花", "D. 调节花色"],
+                 correct: 1,
+                 explanation: "FLC基因是开花抑制因子，春化作用和自主途径都通过抑制FLC表达来促进开花。"
+             },
+             {
+                 question: "SOC1和FT基因的功能是：",
+                 options: ["A. 抑制开花", "B. 促进开花", "C. 调节花型", "D. 控制花期长短"],
+                 correct: 1,
+                 explanation: "SOC1和FT基因是开花促进因子，多个开花诱导途径最终通过促进这些基因的表达来诱导开花。"
+             },
+             {
+                 question: "果蝇完全变态发育的正确顺序是：",
+                 options: ["A. 胚胎→蛹→幼虫→成虫", "B. 胚胎→幼虫→蛹→成虫", "C. 幼虫→胚胎→蛹→成虫", "D. 胚胎→成虫→幼虫→蛹"],
+                 correct: 1,
+                 explanation: "果蝇的完整发育过程包括：胚胎发育→幼虫→蛹化→变态→成虫，体现了昆虫完全变态发育的典型特征。"
+             }
+        ];
+
+        // 全局变量
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时自动生成15道随机题目
+        window.onload = function() {
+            generateRandomQuiz();
+        };
+
+        // 生成随机15道题目
+        function generateRandomQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            // 渲染题目到页面
+            renderQuestions();
+        }
+
+        // 渲染题目到页面
+        function renderQuestions() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}" onchange="recordAnswer(${index}, ${optIndex})">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 记录用户答案
+        function recordAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        // 提交答案并显示结果
+        function submitQuiz() {
+            let correctCount = 0;
+            const results = [];
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+                
+                results.push({
+                    question: q.question,
+                    options: q.options,
+                    userAnswer: userAnswer,
+                    correctAnswer: q.correct,
+                    isCorrect: isCorrect,
+                    explanation: q.explanation
+                });
+            });
+            
+            displayResults(correctCount, results);
+        }
+
+        // 显示测试结果
+        function displayResults(correctCount, results) {
+            const resultSection = document.getElementById('result-section');
+            const percentage = Math.round((correctCount / 15) * 100);
+            
+            let resultHTML = `
+                <div class="score-display" style="background: ${percentage >= 80 ? '#d4edda' : percentage >= 60 ? '#fff3cd' : '#f8d7da'}; color: ${percentage >= 80 ? '#155724' : percentage >= 60 ? '#856404' : '#721c24'};">
+                    测试完成！您的得分：${correctCount}/15 (${percentage}%)
+                </div>
+            `;
+            
+            results.forEach((result, index) => {
+                const questionClass = result.isCorrect ? 'correct' : 'incorrect';
+                const userAnswerText = result.userAnswer >= 0 ? result.options[result.userAnswer] : '未作答';
+                const correctAnswerText = result.options[result.correctAnswer];
+                
+                resultHTML += `
+                    <div class="question-result ${questionClass}">
+                        <h4>第${index + 1}题：${result.question}</h4>
+                        <p><strong>您的答案：</strong>${userAnswerText}</p>
+                        <p><strong>正确答案：</strong>${correctAnswerText}</p>
+                        <p><strong>解析：</strong>${result.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultSection.innerHTML = resultHTML;
+            resultSection.style.display = 'block';
+            
+            // 滚动到结果区域
+            resultSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

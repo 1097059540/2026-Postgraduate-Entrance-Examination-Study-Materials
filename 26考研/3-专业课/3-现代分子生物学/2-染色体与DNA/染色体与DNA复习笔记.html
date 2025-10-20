@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二章 染色体与DNA - 现代分子生物学复习笔记</title>
+    <style>
+        /* 全局样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        /* 章节标题 */
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 段落和列表 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .important {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        /* 名词解释样式 */
+        .glossary {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .term {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .essay-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .essay-question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .essay-answer {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>第二章 染色体与DNA</h1>
+            <p>现代分子生物学 · 考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <h2>一、染色体概述</h2>
+            
+            <h3>1.1 真核细胞染色体的组成</h3>
+            <p>真核细胞染色体主要由<span class="emphasis">DNA和蛋白质</span>组成，其中蛋白质包括组蛋白和非组蛋白两大类。</p>
+            
+            <h4>1.1.1 组蛋白(Histones)</h4>
+            <ul>
+                <li><strong>核心组蛋白：</strong>H2A、H2B、H3、H4，形成核小体核心颗粒</li>
+                <li><strong>连接组蛋白：</strong>H1，参与高级结构形成</li>
+                <li><strong>特点：</strong>富含碱性氨基酸(赖氨酸、精氨酸)，与酸性DNA结合</li>
+                <li><strong>修饰：</strong>乙酰化、甲基化、磷酸化等表观遗传修饰</li>
+            </ul>
+
+            <h4>1.1.2 非组蛋白</h4>
+            <ul>
+                <li>包括转录因子、DNA聚合酶、拓扑异构酶等</li>
+                <li>参与DNA复制、转录、修复等生物学过程</li>
+                <li>种类繁多，功能多样化</li>
+            </ul>
+
+            <h3>1.2 真核基因组DNA序列组成</h3>
+            <div class="important">
+                <strong>重要概念：</strong>真核基因组DNA按重复程度可分为三类序列
+            </div>
+            
+            <h4>1.2.1 非重复序列(单拷贝序列)</h4>
+            <ul>
+                <li>占基因组的40-50%</li>
+                <li>主要包括蛋白质编码基因</li>
+                <li>基因密度相对较高</li>
+            </ul>
+
+            <h4>1.2.2 中度重复序列</h4>
+            <ul>
+                <li>重复次数为10-10⁵次</li>
+                <li>包括rRNA基因、tRNA基因、组蛋白基因等</li>
+                <li>满足细胞对某些产物的大量需求</li>
+            </ul>
+
+            <h4>1.2.3 高度重复序列</h4>
+            <ul>
+                <li><strong>卫星DNA：</strong>高度重复的短序列</li>
+                <li><strong>转座子：</strong>可移动的DNA序列</li>
+                <li><strong>假基因：</strong>失去功能的基因拷贝</li>
+            </ul>
+
+            <h3>1.3 染色质与核小体结构</h3>
+            <p>染色质是DNA与组蛋白结合形成的复合物，具有多级结构组织。</p>
+
+            <h4>1.3.1 核小体结构</h4>
+            <ul>
+                <li><strong>核心颗粒：</strong>147bp DNA缠绕组蛋白八聚体(H2A-H2B-H3-H4)₂</li>
+                <li><strong>连接DNA：</strong>约20-80bp，与H1结合</li>
+                <li><strong>"珠链"结构：</strong>10nm纤维，DNA压缩比约6倍</li>
+            </ul>
+
+            <h4>1.3.2 高级结构</h4>
+            <ul>
+                <li><strong>30nm纤维：</strong>核小体进一步螺旋化，压缩比约40倍</li>
+                <li><strong>环状结构：</strong>30nm纤维形成环状结构域</li>
+                <li><strong>凝缩染色体：</strong>分裂期高度压缩，压缩比达10000倍</li>
+            </ul>
+
+            <h2>二、DNA结构</h2>
+
+            <h3>2.1 DNA的一级结构</h3>
+            <p>DNA的一级结构是指<span class="emphasis">核苷酸的排列顺序</span>，决定了遗传信息的内容。</p>
+
+            <h4>2.1.1 核苷酸组成</h4>
+            <ul>
+                <li><strong>碱基：</strong>腺嘌呤(A)、鸟嘌呤(G)、胞嘧啶(C)、胸腺嘧啶(T)</li>
+                <li><strong>戊糖：</strong>2'-脱氧核糖</li>
+                <li><strong>磷酸基团：</strong>连接相邻核苷酸</li>
+            </ul>
+
+            <h4>2.1.2 序列多样性</h4>
+            <ul>
+                <li>四种碱基的不同排列组合产生序列多样性</li>
+                <li>n个碱基可形成4ⁿ种不同序列</li>
+                <li>序列特异性决定生物学功能</li>
+            </ul>
+
+            <h3>2.2 DNA的二级结构</h3>
+            <p>DNA二级结构主要指<span class="emphasis">双螺旋结构</span>，由Watson和Crick于1953年提出。</p>
+
+            <h4>2.2.1 双螺旋的基本特征</h4>
+            <ul>
+                <li><strong>反平行：</strong>两条链方向相反(5'→3'和3'→5')</li>
+                <li><strong>碱基配对：</strong>A-T配对(2个氢键)，G-C配对(3个氢键)</li>
+                <li><strong>右手螺旋：</strong>顺时针方向螺旋上升</li>
+                <li><strong>大沟和小沟：</strong>螺旋表面形成两种不同宽度的沟槽</li>
+            </ul>
+
+            <h4>2.2.2 DNA的不同构象</h4>
+            <div class="important">
+                <strong>重要知识点：</strong>DNA在不同条件下可采用不同的螺旋构象
+            </div>
+
+            <ul>
+                <li><strong>B型DNA：</strong>生理条件下的主要形式，右手螺旋，螺距3.4nm</li>
+                <li><strong>A型DNA：</strong>脱水条件下形成，右手螺旋，更紧密</li>
+                <li><strong>Z型DNA：</strong>高盐条件下形成，左手螺旋，锯齿状主链</li>
+            </ul>
+
+            <h3>2.3 DNA的高级结构</h3>
+
+            <h4>2.3.1 超螺旋结构</h4>
+            <p>超螺旋是DNA双螺旋的进一步扭曲，对DNA的生物学功能具有重要意义。</p>
+            <ul>
+                <li><strong>负超螺旋：</strong>DNA双螺旋欠扭曲，有利于DNA解链</li>
+                <li><strong>正超螺旋：</strong>DNA双螺旋过度扭曲，阻碍DNA解链</li>
+                <li><strong>拓扑异构酶：</strong>调节DNA超螺旋度的关键酶类</li>
+            </ul>
+
+            <h4>2.3.2 拓扑异构酶的作用</h4>
+            <ul>
+                <li><strong>I型拓扑异构酶：</strong>产生瞬时单链断裂，改变连环数</li>
+                <li><strong>II型拓扑异构酶：</strong>产生瞬时双链断裂，解除拓扑约束</li>
+                <li><strong>生物学意义：</strong>维持DNA拓扑状态，参与复制、转录等过程</li>
+            </ul>
+
+            <h2>三、DNA复制</h2>
+
+            <h3>3.1 DNA复制的基本原理</h3>
+
+            <h4>3.1.1 半保留复制</h4>
+            <p><span class="emphasis">半保留复制</span>是DNA复制的基本方式，由Meselson-Stahl实验证实。</p>
+            <ul>
+                <li>每条新DNA分子含有一条原有链和一条新合成链</li>
+                <li>保证遗传信息的准确传递</li>
+                <li>复制的保真性依赖于碱基配对规则</li>
+            </ul>
+
+            <h4>3.1.2 复制的基本概念</h4>
+            <ul>
+                <li><strong>复制子(Replicon)：</strong>具有复制起点的DNA单位</li>
+                <li><strong>复制叉(Replication Fork)：</strong>DNA解链形成的Y型结构</li>
+                <li><strong>复制起点(Origin)：</strong>复制开始的特定序列</li>
+                <li><strong>复制终点：</strong>复制结束的区域</li>
+            </ul>
+
+            <h3>3.2 DNA复制的方向和特点</h3>
+
+            <h4>3.2.1 复制方向</h4>
+            <ul>
+                <li><strong>单向复制：</strong>从起点向一个方向进行</li>
+                <li><strong>双向复制：</strong>从起点向两个方向同时进行(真核细胞主要方式)</li>
+                <li><strong>汇聚复制：</strong>两个复制叉相遇终止</li>
+            </ul>
+
+            <h4>3.2.2 半不连续复制</h4>
+            <div class="important">
+                <strong>核心概念：</strong>由于DNA聚合酶只能5'→3'方向合成，导致半不连续复制
+            </div>
+            <ul>
+                <li><strong>前导链：</strong>连续合成，5'→3'方向</li>
+                <li><strong>滞后链：</strong>不连续合成，形成冈崎片段</li>
+                <li><strong>冈崎片段：</strong>滞后链上的短DNA片段(1000-2000nt)</li>
+            </ul>
+
+            <h3>3.3 DNA聚合酶的结构与功能</h3>
+
+            <h4>3.3.1 DNA聚合酶的结构域</h4>
+            <ul>
+                <li><strong>掌心域(Palm)：</strong>含有活性中心，催化磷酸二酯键形成</li>
+                <li><strong>手指域(Fingers)：</strong>结合模板DNA和dNTP</li>
+                <li><strong>拇指域(Thumb)：</strong>结合双链DNA，影响酶的移动</li>
+            </ul>
+
+            <h4>3.3.2 DNA聚合酶的功能特性</h4>
+            <ul>
+                <li><strong>聚合酶活性：</strong>5'→3'方向合成DNA</li>
+                <li><strong>3'→5'外切酶活性：</strong>校对功能，提高保真性</li>
+                <li><strong>持续合成能力：</strong>不同聚合酶的持续性差异很大</li>
+            </ul>
+
+            <h2>四、DNA突变与修复</h2>
+
+            <h3>4.1 DNA损伤的类型</h3>
+            <p>DNA在细胞内外因素作用下可发生多种类型的损伤。</p>
+
+            <h4>4.1.1 自发性损伤</h4>
+            <ul>
+                <li><strong>碱基脱氨：</strong>胞嘧啶脱氨形成尿嘧啶</li>
+                <li><strong>碱基脱落：</strong>形成无嘌呤/无嘧啶位点</li>
+                <li><strong>DNA甲基化：</strong>5-甲基胞嘧啶脱氨形成胸腺嘧啶</li>
+            </ul>
+
+            <h4>4.1.2 诱发性损伤</h4>
+            <ul>
+                <li><strong>紫外线：</strong>形成嘧啶二聚体</li>
+                <li><strong>电离辐射：</strong>产生DNA断裂</li>
+                <li><strong>化学诱变剂：</strong>碱基类似物、烷化剂等</li>
+            </ul>
+
+            <h3>4.2 DNA修复机制</h3>
+
+            <h4>4.2.1 错配修复(Mismatch Repair)</h4>
+            <ul>
+                <li>识别并修复复制过程中产生的错配</li>
+                <li>依赖甲基化状态区分新旧链</li>
+                <li>涉及MutS、MutL、MutH等蛋白</li>
+            </ul>
+
+            <h4>4.2.2 切除修复(Excision Repair)</h4>
+            <div class="important">
+                <strong>重要分类：</strong>切除修复分为碱基切除修复和核苷酸切除修复
+            </div>
+            <ul>
+                <li><strong>碱基切除修复(BER)：</strong>修复单个碱基损伤</li>
+                <li><strong>核苷酸切除修复(NER)：</strong>修复较大的DNA损伤</li>
+                <li>都涉及损伤识别、切除、合成、连接四个步骤</li>
+            </ul>
+
+            <h4>4.2.3 重组修复</h4>
+            <ul>
+                <li><strong>同源重组修复：</strong>利用同源序列修复双链断裂</li>
+                <li><strong>非同源末端连接：</strong>直接连接断裂末端</li>
+                <li><strong>应用：</strong>修复复制叉停滞和DNA双链断裂</li>
+            </ul>
+
+            <h4>4.2.4 直接修复</h4>
+            <ul>
+                <li><strong>光修复：</strong>光解酶修复嘧啶二聚体</li>
+                <li><strong>甲基转移酶：</strong>直接去除烷基化损伤</li>
+                <li>修复效率高，但底物特异性强</li>
+            </ul>
+
+            <h3>4.3 SOS修复系统</h3>
+            <p>SOS修复是细菌在DNA严重损伤时启动的应急修复系统。</p>
+            <ul>
+                <li><strong>诱导条件：</strong>DNA严重损伤，单链DNA积累</li>
+                <li><strong>调控机制：</strong>RecA蛋白激活，LexA阻遏蛋白失活</li>
+                <li><strong>修复特点：</strong>容错性修复，可能引入突变</li>
+            </ul>
+
+            <h2>五、DNA转座</h2>
+
+            <h3>5.1 转座子概述</h3>
+            <p><span class="emphasis">转座子</span>是能够在基因组内移动位置的DNA序列，广泛存在于各种生物中。</p>
+
+            <h4>5.1.1 转座子的基本特征</h4>
+            <ul>
+                <li>具有移动能力的DNA序列</li>
+                <li>两端通常含有反向重复序列</li>
+                <li>编码转座酶等移动所需的蛋白</li>
+                <li>插入时在靶位点产生短的重复序列</li>
+            </ul>
+
+            <h3>5.2 原核生物转座子</h3>
+
+            <h4>5.2.1 插入序列(IS元件)</h4>
+            <ul>
+                <li>最简单的转座子，长度700-1500bp</li>
+                <li>只编码转座酶</li>
+                <li>两端为反向重复序列</li>
+                <li>例如：IS1、IS2、IS5等</li>
+            </ul>
+
+            <h4>5.2.2 复合转座子</h4>
+            <ul>
+                <li>由两个IS元件夹持其他基因形成</li>
+                <li>可携带抗生素抗性基因等</li>
+                <li>例如：Tn5(卡那霉素抗性)、Tn10(四环素抗性)</li>
+            </ul>
+
+            <h3>5.3 真核生物转座子</h3>
+
+            <h4>5.3.1 玉米转座子</h4>
+            <ul>
+                <li><strong>Ac/Ds系统：</strong>McClintock发现的经典转座子</li>
+                <li><strong>Ac元件：</strong>自主转座子，编码转座酶</li>
+                <li><strong>Ds元件：</strong>非自主转座子，需要Ac提供转座酶</li>
+            </ul>
+
+            <h4>5.3.2 转座的遗传学效应</h4>
+            <ul>
+                <li><strong>基因失活：</strong>插入基因内部导致功能丧失</li>
+                <li><strong>基因激活：</strong>插入调控序列附近影响表达</li>
+                <li><strong>染色体重排：</strong>不同位点转座子间重组</li>
+                <li><strong>基因组进化：</strong>提供遗传变异的重要来源</li>
+            </ul>
+
+            <h2>六、单核苷酸多态性(SNP)</h2>
+
+            <h3>6.1 SNP概述</h3>
+            <p><span class="emphasis">单核苷酸多态性(Single Nucleotide Polymorphism, SNP)</span>是基因组中最常见的遗传变异类型。</p>
+
+            <h4>6.1.1 SNP的基本特征</h4>
+            <ul>
+                <li>单个核苷酸位点的序列变异</li>
+                <li>人类基因组中约每300bp出现一个SNP</li>
+                <li>总数超过300万个</li>
+                <li>大多数SNP为双等位基因变异</li>
+            </ul>
+
+            <h3>6.2 SNP的检测技术</h3>
+
+            <h4>6.2.1 传统检测方法</h4>
+            <ul>
+                <li><strong>DNA测序：</strong>直接测定DNA序列</li>
+                <li><strong>限制性片段长度多态性(RFLP)：</strong>利用酶切位点变化</li>
+                <li><strong>单链构象多态性(SSCP)：</strong>基于DNA构象差异</li>
+            </ul>
+
+            <h4>6.2.2 现代高通量技术</h4>
+            <ul>
+                <li><strong>SNP芯片：</strong>同时检测数十万个SNP</li>
+                <li><strong>全基因组测序：</strong>获得完整的SNP信息</li>
+                <li><strong>靶向测序：</strong>针对特定区域的SNP检测</li>
+            </ul>
+
+            <h3>6.3 SNP的应用</h3>
+
+            <h4>6.3.1 人类单倍型图谱</h4>
+            <ul>
+                <li>构建人类基因组SNP分布图</li>
+                <li>研究人群遗传结构和进化历史</li>
+                <li>为疾病关联研究提供基础</li>
+            </ul>
+
+            <h4>6.3.2 疾病易感基因研究</h4>
+            <ul>
+                <li><strong>全基因组关联研究(GWAS)：</strong>寻找疾病相关SNP</li>
+                <li><strong>药物基因组学：</strong>研究SNP与药物反应的关系</li>
+                <li><strong>个性化医疗：</strong>基于SNP信息制定治疗方案</li>
+            </ul>
+
+            <!-- 名词解释库 -->
+            <h2>七、重要名词解释</h2>
+            <div class="glossary">
+                <div class="term">
+                    <div class="term-name">染色质<span class="term-english">(Chromatin)</span></div>
+                    <div class="term-definition">真核细胞核内DNA与组蛋白及非组蛋白结合形成的复合物，是遗传物质在细胞核内的存在形式。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">核小体<span class="term-english">(Nucleosome)</span></div>
+                    <div class="term-definition">染色质的基本重复单位，由147bp DNA缠绕组蛋白八聚体形成，呈现"珠链"状结构。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">组蛋白<span class="term-english">(Histone)</span></div>
+                    <div class="term-definition">富含碱性氨基酸的蛋白质，与DNA结合形成核小体，包括H1、H2A、H2B、H3、H4五种主要类型。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">超螺旋<span class="term-english">(Supercoiling)</span></div>
+                    <div class="term-definition">DNA双螺旋的进一步扭曲，分为正超螺旋和负超螺旋，对DNA的生物学功能具有重要调控作用。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">拓扑异构酶<span class="term-english">(Topoisomerase)</span></div>
+                    <div class="term-definition">调节DNA拓扑状态的酶类，通过产生瞬时断裂改变DNA的超螺旋度，分为I型和II型。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">半保留复制<span class="term-english">(Semi-conservative Replication)</span></div>
+                    <div class="term-definition">DNA复制的基本方式，每个新DNA分子含有一条原有链和一条新合成链。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">冈崎片段<span class="term-english">(Okazaki Fragment)</span></div>
+                    <div class="term-definition">DNA复制时滞后链上不连续合成的短DNA片段，长度约1000-2000个核苷酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">复制叉<span class="term-english">(Replication Fork)</span></div>
+                    <div class="term-definition">DNA复制时双链解开形成的Y型结构，是DNA合成的活跃区域。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">错配修复<span class="term-english">(Mismatch Repair, MMR)</span></div>
+                    <div class="term-definition">修复DNA复制过程中产生的碱基错配的修复机制，提高DNA复制的保真性。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">切除修复<span class="term-english">(Excision Repair)</span></div>
+                    <div class="term-definition">通过切除损伤的DNA片段并重新合成来修复DNA损伤的机制，包括碱基切除修复和核苷酸切除修复。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转座子<span class="term-english">(Transposon)</span></div>
+                    <div class="term-definition">能够在基因组内改变位置的DNA序列，包括插入序列和复合转座子等类型。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">单核苷酸多态性<span class="term-english">(Single Nucleotide Polymorphism, SNP)</span></div>
+                    <div class="term-definition">基因组中单个核苷酸位点的序列变异，是最常见的遗传变异类型。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">SOS修复<span class="term-english">(SOS Repair)</span></div>
+                    <div class="term-definition">细菌在DNA严重损伤时启动的应急修复系统，具有容错性但可能引入突变。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">同源重组<span class="term-english">(Homologous Recombination)</span></div>
+                    <div class="term-definition">利用同源DNA序列作为模板修复DNA双链断裂的精确修复机制。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">非同源末端连接<span class="term-english">(Non-Homologous End Joining, NHEJ)</span></div>
+                    <div class="term-definition">直接连接DNA双链断裂末端的修复机制，速度快但可能产生小的缺失或插入。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <h2>八、选择题测试</h2>
+            <div class="quiz-section">
+                <p><strong>说明：</strong>以下15道题目从题库中随机抽取，请选择最佳答案。</p>
+                <div id="quiz-container"></div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-result" class="result"></div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <h2>九、深度思考题</h2>
+            <div class="essay-section">
+                <div class="essay-question">
+                    <h4>1. 分析DNA超螺旋结构在基因表达调控中的作用机制，并说明拓扑异构酶如何参与这一过程。</h4>
+                    <div class="essay-answer">
+                        <ol>
+                            <li><strong>超螺旋结构对基因表达的影响：</strong>负超螺旋有利于DNA双链的解开，促进转录起始和DNA复制的进行。正超螺旋则会阻碍这些过程。在转录过程中，RNA聚合酶的移动会在其前方产生正超螺旋，在后方产生负超螺旋，这种拓扑变化直接影响转录效率。</li>
+                            <li><strong>拓扑异构酶的调控作用：</strong>I型拓扑异构酶通过产生瞬时单链断裂来释放超螺旋张力，而II型拓扑异构酶则通过双链断裂来解决更复杂的拓扑问题。这些酶的活性受到多种因素调控，包括翻译后修饰、蛋白质相互作用等。</li>
+                            <li><strong>与染色质结构的关系：</strong>超螺旋状态影响核小体的稳定性和染色质的高级结构。负超螺旋有利于核小体的解离，使DNA更容易被转录因子接近，从而激活基因表达。</li>
+                            <li><strong>药物作用靶点：</strong>许多抗癌药物如喜树碱、阿霉素等都是通过抑制拓扑异构酶活性来发挥作用，说明了这一系统在细胞生存中的关键地位。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <h4>2. 比较分析原核生物和真核生物DNA修复机制的异同，并讨论其进化意义。</h4>
+                    <div class="essay-answer">
+                        <ol>
+                            <li><strong>共同的修复机制：</strong>两者都具有错配修复、切除修复、重组修复等基本修复途径。这些机制的基本原理相似，都涉及损伤识别、切除、重新合成和连接等步骤，说明DNA修复的重要性和保守性。</li>
+                            <li><strong>原核生物特有机制：</strong>SOS修复系统是原核生物特有的应急修复机制，在DNA严重损伤时启动容错性修复。光修复系统在某些原核生物中也更为常见和高效。</li>
+                            <li><strong>真核生物的复杂性：</strong>真核生物的修复机制更加复杂精细，涉及更多的蛋白因子和调控网络。细胞周期检验点系统与DNA修复紧密结合，确保基因组稳定性。染色质结构也为修复过程增加了额外的复杂性。</li>
+                            <li><strong>进化意义：</strong>从原核到真核，DNA修复机制的进化体现了生物体对基因组稳定性要求的提高。复杂的修复系统虽然消耗更多能量，但为多细胞生物的发育和长寿命提供了保障。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <h4>3. 论述转座子在基因组进化中的双重作用，并分析其对宿主基因组稳定性的影响。</h4>
+                    <div class="essay-answer">
+                        <ol>
+                            <li><strong>促进基因组进化的积极作用：</strong>转座子为基因组提供了重要的变异来源，通过插入、缺失、重排等方式产生新的基因结构和调控元件。某些转座子携带的序列可能演化为新的功能基因或调控序列，如免疫系统中的V(D)J重组机制就起源于转座子。</li>
+                            <li><strong>基因组不稳定的消极影响：</strong>转座子的随机插入可能破坏重要基因的功能，导致疾病的发生。过度活跃的转座活动会增加基因组的不稳定性，影响细胞的正常功能。某些遗传病如血友病就与转座子插入相关。</li>
+                            <li><strong>宿主的防御机制：</strong>生物体进化出多种机制来控制转座子活动，包括DNA甲基化、异染色质形成、RNA干扰等表观遗传修饰。这些机制在维持基因组稳定性的同时，也保留了转座子作为进化原料的潜力。</li>
+                            <li><strong>平衡与调控：</strong>现代基因组中转座子活动受到严格调控，在特定发育阶段或环境压力下才会激活。这种精细调控体现了宿主与转座子之间长期共进化的结果，实现了基因组稳定性与进化潜力的平衡。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <h4>4. 分析SNP在精准医学中的应用前景，并讨论其在疾病预测和个性化治疗中的价值。</h4>
+                    <div class="essay-answer">
+                        <ol>
+                            <li><strong>疾病易感性预测：</strong>通过大规模GWAS研究，已经发现了数千个与常见疾病相关的SNP位点。这些信息可用于构建多基因风险评分模型，预测个体对糖尿病、心血管疾病、癌症等复杂疾病的易感性，实现疾病的早期预防和干预。</li>
+                            <li><strong>药物基因组学应用：</strong>SNP影响药物代谢酶、转运蛋白和靶点蛋白的功能，导致个体间药物反应的差异。通过检测相关SNP，可以预测药物疗效和不良反应，指导个性化用药方案的制定，提高治疗效果并减少副作用。</li>
+                            <li><strong>肿瘤精准治疗：</strong>肿瘤组织中的体细胞SNP(突变)信息可用于指导靶向治疗药物的选择。液体活检技术的发展使得通过血液检测肿瘤SNP成为可能，为肿瘤的动态监测和治疗调整提供了新的手段。</li>
+                            <li><strong>技术挑战与发展方向：</strong>虽然SNP在精准医学中前景广阔，但仍面临数据解读、种族差异、伦理问题等挑战。未来需要建立更完善的数据库、开发更精确的预测模型，并制定相应的伦理规范，以充分发挥SNP在精准医学中的潜力。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库(30道题)
+        const questionBank = [
+            {
+                question: "DNA双螺旋结构中，A-T碱基对之间形成几个氢键？",
+                options: ["A. 1个", "B. 2个", "C. 3个", "D. 4个"],
+                correct: 1,
+                explanation: "A-T碱基对之间形成2个氢键，而G-C碱基对之间形成3个氢键。这是DNA双螺旋结构稳定性的重要基础。"
+            },
+            {
+                question: "真核细胞核小体的核心颗粒由多少bp的DNA组成？",
+                options: ["A. 127bp", "B. 147bp", "C. 167bp", "D. 187bp"],
+                correct: 1,
+                explanation: "核小体核心颗粒由147bp的DNA缠绕组蛋白八聚体形成，这是染色质基本结构单位的重要特征。"
+            },
+            {
+                question: "DNA复制采用的基本方式是：",
+                options: ["A. 保守复制", "B. 半保留复制", "C. 分散复制", "D. 随机复制"],
+                correct: 1,
+                explanation: "DNA复制采用半保留复制方式，每个新DNA分子含有一条原有链和一条新合成链，这由Meselson-Stahl实验证实。"
+            },
+            {
+                question: "冈崎片段是在DNA复制的哪条链上形成的？",
+                options: ["A. 前导链", "B. 滞后链", "C. 两条链都有", "D. 随机形成"],
+                correct: 1,
+                explanation: "冈崎片段在滞后链上形成。由于DNA聚合酶只能5'→3'方向合成，滞后链必须不连续合成，形成短的DNA片段。"
+            },
+            {
+                question: "Z型DNA的螺旋方向是：",
+                options: ["A. 右手螺旋", "B. 左手螺旋", "C. 无螺旋结构", "D. 双向螺旋"],
+                correct: 1,
+                explanation: "Z型DNA是左手螺旋，与常见的B型DNA(右手螺旋)不同。Z型DNA在高盐条件下形成，主链呈锯齿状。"
+            },
+            {
+                question: "拓扑异构酶I的主要功能是：",
+                options: ["A. 产生双链断裂", "B. 产生单链断裂", "C. 连接DNA片段", "D. 合成DNA"],
+                correct: 1,
+                explanation: "拓扑异构酶I通过产生瞬时单链断裂来改变DNA的连环数，释放超螺旋张力。拓扑异构酶II则产生双链断裂。"
+            },
+            {
+                question: "组蛋白中哪一种不参与核小体核心颗粒的形成？",
+                options: ["A. H2A", "B. H2B", "C. H3", "D. H1"],
+                correct: 3,
+                explanation: "H1是连接组蛋白，不参与核小体核心颗粒的形成。核心颗粒由H2A、H2B、H3、H4各两分子组成八聚体。"
+            },
+            {
+                question: "错配修复主要修复哪种类型的DNA损伤？",
+                options: ["A. 嘧啶二聚体", "B. 碱基错配", "C. DNA断裂", "D. 碱基脱落"],
+                correct: 1,
+                explanation: "错配修复主要修复DNA复制过程中产生的碱基错配，通过识别甲基化状态区分新旧链，提高复制保真性。"
+            },
+            {
+                question: "真核基因组中非重复序列大约占：",
+                options: ["A. 20-30%", "B. 40-50%", "C. 60-70%", "D. 80-90%"],
+                correct: 1,
+                explanation: "真核基因组中非重复序列(单拷贝序列)约占40-50%，主要包括蛋白质编码基因，基因密度相对较高。"
+            },
+            {
+                question: "SOS修复系统的特点是：",
+                options: ["A. 高保真性修复", "B. 容错性修复", "C. 只修复特定损伤", "D. 不产生突变"],
+                correct: 1,
+                explanation: "SOS修复是细菌的应急修复系统，具有容错性特点，虽然能修复严重损伤但可能引入突变。"
+            },
+            {
+                question: "DNA聚合酶的3'→5'外切酶活性的作用是：",
+                options: ["A. 合成DNA", "B. 校对功能", "C. 解旋DNA", "D. 连接片段"],
+                correct: 1,
+                explanation: "DNA聚合酶的3'→5'外切酶活性具有校对功能，能够移除错误掺入的核苷酸，提高DNA复制的保真性。"
+            },
+            {
+                question: "转座子插入基因内部最可能的结果是：",
+                options: ["A. 基因激活", "B. 基因失活", "C. 基因重复", "D. 基因融合"],
+                correct: 1,
+                explanation: "转座子插入基因内部通常会破坏基因的正常结构，导致基因失活。这是转座子对基因组稳定性的主要威胁之一。"
+            },
+            {
+                question: "SNP在人类基因组中的平均密度约为：",
+                options: ["A. 每100bp一个", "B. 每300bp一个", "C. 每1000bp一个", "D. 每3000bp一个"],
+                correct: 1,
+                explanation: "SNP在人类基因组中的平均密度约为每300bp一个，是最常见的遗传变异类型，总数超过300万个。"
+            },
+            {
+                question: "核苷酸切除修复(NER)主要修复：",
+                options: ["A. 单个碱基损伤", "B. 较大的DNA损伤", "C. 碱基错配", "D. DNA断裂"],
+                correct: 1,
+                explanation: "核苷酸切除修复主要修复较大的DNA损伤，如嘧啶二聚体、化学加合物等。碱基切除修复则主要修复单个碱基损伤。"
+            },
+            {
+                question: "B型DNA每个螺旋周期包含多少个碱基对？",
+                options: ["A. 8个", "B. 10个", "C. 12个", "D. 14个"],
+                correct: 1,
+                explanation: "B型DNA每个螺旋周期包含10个碱基对，螺距为3.4nm，这是DNA双螺旋结构的经典参数。"
+            },
+            {
+                question: "同源重组修复主要用于修复：",
+                options: ["A. 碱基错配", "B. 单链断裂", "C. 双链断裂", "D. 碱基脱落"],
+                correct: 2,
+                explanation: "同源重组修复主要用于修复DNA双链断裂，利用同源序列作为模板进行精确修复，是一种高保真的修复机制。"
+            },
+            {
+                question: "原核生物插入序列(IS元件)的典型长度是：",
+                options: ["A. 200-500bp", "B. 700-1500bp", "C. 2000-5000bp", "D. 5000-10000bp"],
+                correct: 1,
+                explanation: "插入序列是最简单的转座子，典型长度为700-1500bp，只编码转座酶，两端为反向重复序列。"
+            },
+            {
+                question: "DNA超螺旋结构中，负超螺旋的作用是：",
+                options: ["A. 阻碍DNA解链", "B. 促进DNA解链", "C. 稳定双螺旋", "D. 无特殊作用"],
+                correct: 1,
+                explanation: "负超螺旋有利于DNA双链的解开，促进转录起始和DNA复制等需要解链的生物学过程。"
+            },
+            {
+                question: "真核细胞30nm染色质纤维的DNA压缩比约为：",
+                options: ["A. 6倍", "B. 20倍", "C. 40倍", "D. 100倍"],
+                correct: 2,
+                explanation: "30nm染色质纤维是核小体进一步螺旋化形成的高级结构，DNA压缩比约为40倍，比10nm纤维更加紧密。"
+            },
+            {
+                question: "光修复主要修复哪种类型的DNA损伤？",
+                options: ["A. 碱基错配", "B. 嘧啶二聚体", "C. DNA断裂", "D. 碱基脱氨"],
+                correct: 1,
+                explanation: "光修复是直接修复机制，主要修复紫外线诱导的嘧啶二聚体，通过光解酶在可见光作用下进行。"
+            },
+            {
+                question: "DNA复制中前导链的合成特点是：",
+                options: ["A. 不连续合成", "B. 连续合成", "C. 双向合成", "D. 随机合成"],
+                correct: 1,
+                explanation: "前导链沿5'→3'方向连续合成，与复制叉移动方向一致。滞后链则需要不连续合成，形成冈崎片段。"
+            },
+            {
+                question: "组蛋白的主要特征是富含：",
+                options: ["A. 酸性氨基酸", "B. 碱性氨基酸", "C. 疏水氨基酸", "D. 芳香氨基酸"],
+                correct: 1,
+                explanation: "组蛋白富含碱性氨基酸(赖氨酸、精氨酸)，带正电荷，能够与带负电荷的DNA磷酸基团结合。"
+            },
+            {
+                question: "复合转座子的结构特点是：",
+                options: ["A. 只含转座酶基因", "B. 由两个IS元件夹持其他基因", "C. 无反向重复序列", "D. 不能自主转座"],
+                correct: 1,
+                explanation: "复合转座子由两个IS元件夹持其他基因(如抗生素抗性基因)形成，是较复杂的转座子类型。"
+            },
+            {
+                question: "GWAS研究主要利用SNP来：",
+                options: ["A. 检测基因突变", "B. 寻找疾病相关基因", "C. 分析基因表达", "D. 研究蛋白质功能"],
+                correct: 1,
+                explanation: "全基因组关联研究(GWAS)通过比较病例和对照组的SNP分布，寻找与疾病相关的遗传变异位点。"
+            },
+            {
+                question: "DNA聚合酶的掌心域主要功能是：",
+                options: ["A. 结合模板DNA", "B. 催化磷酸二酯键形成", "C. 结合双链DNA", "D. 校对功能"],
+                correct: 1,
+                explanation: "DNA聚合酶的掌心域含有活性中心，负责催化磷酸二酯键的形成，是DNA合成的关键功能域。"
+            },
+            {
+                question: "非同源末端连接(NHEJ)修复的特点是：",
+                options: ["A. 需要同源序列", "B. 完全精确修复", "C. 可能产生小的缺失或插入", "D. 只在S期进行"],
+                correct: 2,
+                explanation: "非同源末端连接直接连接DNA断裂末端，不需要同源序列，但可能在连接过程中产生小的缺失或插入。"
+            },
+            {
+                question: "卫星DNA属于哪种类型的序列？",
+                options: ["A. 非重复序列", "B. 中度重复序列", "C. 高度重复序列", "D. 编码序列"],
+                correct: 2,
+                explanation: "卫星DNA是高度重复的短序列，属于高度重复序列类型，在基因组中大量存在。"
+            },
+            {
+                question: "玉米Ac/Ds系统中，Ds元件的特点是：",
+                options: ["A. 能自主转座", "B. 编码转座酶", "C. 需要Ac提供转座酶", "D. 不能转座"],
+                correct: 2,
+                explanation: "Ds元件是非自主转座子，自身不编码转座酶，需要Ac元件提供转座酶才能进行转座。"
+            },
+            {
+                question: "DNA甲基化主要发生在哪种碱基上？",
+                options: ["A. 腺嘌呤", "B. 鸟嘌呤", "C. 胞嘧啶", "D. 胸腺嘧啶"],
+                correct: 2,
+                explanation: "DNA甲基化主要发生在胞嘧啶上，形成5-甲基胞嘧啶，是重要的表观遗传修饰。"
+            },
+            {
+                question: "真核细胞DNA复制的方向主要是：",
+                options: ["A. 单向复制", "B. 双向复制", "C. 汇聚复制", "D. 随机复制"],
+                correct: 1,
+                explanation: "真核细胞DNA复制主要采用双向复制方式，从复制起点向两个方向同时进行，提高复制效率。"
+            }
+        ];
+
+        // 随机选择15道题目
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuiz() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quiz-container');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储正确答案
+            window.correctAnswers = selectedQuestions.map(q => q.correct);
+            window.explanations = selectedQuestions.map(q => q.explanation);
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const resultDiv = document.getElementById('quiz-result');
+            let score = 0;
+            let results = [];
+            
+            for (let i = 0; i < 15; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                const correct = window.correctAnswers[i];
+                
+                if (userAnswer === correct) {
+                    score++;
+                    results.push({
+                        question: i + 1,
+                        correct: true,
+                        explanation: window.explanations[i]
+                    });
+                } else {
+                    results.push({
+                        question: i + 1,
+                        correct: false,
+                        userAnswer: userAnswer,
+                        correctAnswer: correct,
+                        explanation: window.explanations[i]
+                    });
+                }
+            }
+            
+            const percentage = Math.round((score / 15) * 100);
+            let resultHTML = `<h4>测试结果：${score}/15 (${percentage}%)</h4>`;
+            
+            if (percentage >= 80) {
+                resultHTML += '<p style="color: #27ae60; font-weight: bold;">优秀！您对本章内容掌握得很好！</p>';
+                resultDiv.className = 'result show correct';
+            } else if (percentage >= 60) {
+                resultDiv.className = 'result show';
+                resultHTML += '<p style="color: #f39c12; font-weight: bold;">良好，还需要进一步复习巩固。</p>';
+            } else {
+                resultDiv.className = 'result show incorrect';
+                resultHTML += '<p style="color: #e74c3c; font-weight: bold;">需要加强学习，建议重新复习相关内容。</p>';
+            }
+            
+            resultHTML += '<h5>详细解析：</h5>';
+            results.forEach(result => {
+                if (!result.correct) {
+                    resultHTML += `
+                        <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-left: 4px solid #ffc107;">
+                            <strong>第${result.question}题：</strong>回答错误<br>
+                            <strong>正确答案：</strong>选项${String.fromCharCode(65 + result.correctAnswer)}<br>
+                            <strong>解析：</strong>${result.explanation}
+                        </div>
+                    `;
+                }
+            });
+            
+            resultDiv.innerHTML = resultHTML;
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuiz();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞生物学研究方法 - 考研复习笔记</title>
+    <style>
+        /* 全局样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域样式 */
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 15px 0;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        /* 强调文本样式 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .important {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        /* 名词解释样式 */
+        .glossary {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .term {
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 8px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.pass {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.fail {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .explanation {
+            background: #e8f4f8;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .explanation h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* 深度思考题样式 */
+        .essay-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .essay-question {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .essay-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .essay-answer {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .essay-answer h4 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>细胞生物学研究方法</h1>
+            <p>考研专业课复习笔记 | 基于《细胞生物学》第五版</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <h2>一、细胞生物学研究方法概述</h2>
+            <p>细胞生物学研究方法是揭示细胞结构与功能奥秘的重要工具。随着科学技术的不断发展，从最初的光学显微镜到现代的超分辨率显微镜，从传统的组织化学染色到分子生物学技术，研究方法的进步极大地推动了细胞生物学的发展。</p>
+            
+            <div class="important">
+                <p><span class="emphasis">重要提示：</span>掌握各种研究方法的原理、特点和应用范围是理解细胞生物学的基础，也是考研的重点内容。</p>
+            </div>
+
+            <h2>二、光学显微镜技术</h2>
+            
+            <h3>2.1 普通光学显微镜</h3>
+            <p>光学显微镜是细胞生物学研究的基础工具，其工作原理基于光的折射和放大。现代光学显微镜的分辨率约为0.2μm，放大倍数可达1500-2000倍。</p>
+            
+            <h4>基本结构与原理：</h4>
+            <ul>
+                <li><strong>照明系统：</strong>包括光源、聚光镜和光阑，提供均匀的照明</li>
+                <li><strong>成像系统：</strong>物镜和目镜组成，实现两次放大</li>
+                <li><strong>调焦系统：</strong>粗调和细调螺旋，实现精确对焦</li>
+                <li><strong>机械系统：</strong>载物台、镜臂等支撑结构</li>
+            </ul>
+
+            <h3>2.2 相差显微镜</h3>
+            <p>相差显微镜利用光的相位差原理，将透明的细胞结构转换为可见的明暗对比，特别适合观察活细胞。</p>
+            
+            <h4>技术特点：</h4>
+            <ul>
+                <li>无需染色即可观察活细胞</li>
+                <li>能够显示细胞内部结构的细微差别</li>
+                <li>适合观察细胞分裂、细胞运动等动态过程</li>
+            </ul>
+
+            <h3>2.3 微分干涉相差显微镜（DIC）</h3>
+            <p>DIC显微镜通过偏振光和棱镜系统，产生具有立体感的高对比度图像，分辨率和对比度都优于普通相差显微镜。</p>
+
+            <h3>2.4 荧光显微镜</h3>
+            <p>荧光显微镜利用荧光物质在特定波长激发下发出荧光的原理，实现对特定分子的定位和定量分析。</p>
+            
+            <h4>基本组成：</h4>
+            <ul>
+                <li><strong>激发光源：</strong>汞灯、氙灯或LED光源</li>
+                <li><strong>激发滤光片：</strong>选择特定波长的激发光</li>
+                <li><strong>二向色镜：</strong>分离激发光和荧光</li>
+                <li><strong>发射滤光片：</strong>选择特定波长的荧光</li>
+            </ul>
+
+            <h4>常用荧光染料：</h4>
+            <ul>
+                <li><strong>DAPI：</strong>蓝色荧光，特异性结合DNA</li>
+                <li><strong>FITC：</strong>绿色荧光，常用于蛋白质标记</li>
+                <li><strong>罗丹明：</strong>红色荧光，用于多重标记</li>
+                <li><strong>GFP及其衍生物：</strong>绿色荧光蛋白，活细胞标记</li>
+            </ul>
+
+            <h3>2.5 激光扫描共焦显微镜（LSCM）</h3>
+            <p>共焦显微镜通过点光源照明和针孔光阑，消除焦平面外的光线干扰，获得高分辨率的光学切片图像。</p>
+            
+            <h4>技术优势：</h4>
+            <ul>
+                <li>提高轴向分辨率，获得清晰的光学切片</li>
+                <li>可进行三维重建</li>
+                <li>适合厚标本的观察</li>
+                <li>可进行活细胞动态观察</li>
+            </ul>
+
+            <h2>三、电子显微镜技术</h2>
+            
+            <h3>3.1 透射电子显微镜（TEM）</h3>
+            <p>TEM利用电子束穿透超薄切片，通过电磁透镜成像，分辨率可达0.1-0.2nm，是观察细胞超微结构的主要工具。</p>
+            
+            <h4>样品制备流程：</h4>
+            <ol>
+                <li><strong>固定：</strong>戊二醛初固定，锇酸后固定</li>
+                <li><strong>脱水：</strong>系列酒精脱水</li>
+                <li><strong>包埋：</strong>环氧树脂包埋</li>
+                <li><strong>切片：</strong>超薄切片机制备60-80nm切片</li>
+                <li><strong>染色：</strong>醋酸铀和柠檬酸铅双重染色</li>
+            </ol>
+
+            <h3>3.2 扫描电子显微镜（SEM）</h3>
+            <p>SEM利用电子束扫描样品表面，通过二次电子成像，获得具有立体感的表面形貌图像。</p>
+            
+            <h4>应用特点：</h4>
+            <ul>
+                <li>观察细胞表面形貌</li>
+                <li>分辨率约为3-5nm</li>
+                <li>景深大，立体感强</li>
+                <li>适合观察细胞表面结构</li>
+            </ul>
+
+            <h3>3.3 冷冻电子显微镜技术</h3>
+            <p>冷冻电镜技术通过快速冷冻保持样品的天然状态，避免了化学固定和脱水过程中的人工假象。</p>
+
+            <h2>四、超分辨率显微镜技术</h2>
+            
+            <h3>4.1 PALM/STORM技术</h3>
+            <p>光激活定位显微镜（PALM）和随机光学重建显微镜（STORM）通过单分子定位实现超分辨率成像，分辨率可达20-50nm。</p>
+
+            <h3>4.2 STED显微镜</h3>
+            <p>受激发射损耗显微镜（STED）通过受激发射原理压缩有效激发体积，实现超分辨率成像。</p>
+
+            <h3>4.3 结构化照明显微镜（SIM）</h3>
+            <p>SIM通过结构化照明模式和数学重建算法，将分辨率提高约2倍。</p>
+
+            <h2>五、其他重要研究方法</h2>
+            
+            <h3>5.1 扫描隧道显微镜（STM）和原子力显微镜（AFM）</h3>
+            <p>STM和AFM属于扫描探针显微镜，可以观察原子级别的表面结构，分辨率达到原子水平。</p>
+
+            <h3>5.2 细胞分离技术</h3>
+            <h4>超速离心技术：</h4>
+            <ul>
+                <li><strong>差速离心：</strong>根据沉降系数分离不同大小的细胞器</li>
+                <li><strong>密度梯度离心：</strong>根据密度差异分离细胞组分</li>
+            </ul>
+
+            <h3>5.3 免疫技术</h3>
+            <h4>免疫荧光技术：</h4>
+            <ul>
+                <li><strong>直接免疫荧光：</strong>荧光标记的一抗直接结合抗原</li>
+                <li><strong>间接免疫荧光：</strong>一抗结合抗原，荧光标记的二抗结合一抗</li>
+            </ul>
+
+            <h3>5.4 分子生物学技术</h3>
+            <ul>
+                <li><strong>原位杂交：</strong>检测特定核酸序列的细胞内定位</li>
+                <li><strong>FRET技术：</strong>检测蛋白质间相互作用</li>
+                <li><strong>酵母双杂交：</strong>体内检测蛋白质相互作用</li>
+            </ul>
+
+            <h3>5.5 细胞培养技术</h3>
+            <h4>动物细胞培养：</h4>
+            <ul>
+                <li><strong>原代培养：</strong>直接从组织分离的细胞培养</li>
+                <li><strong>传代培养：</strong>细胞系的连续培养</li>
+                <li><strong>细胞株：</strong>具有无限增殖能力的细胞系</li>
+            </ul>
+
+            <!-- 名词解释库 -->
+            <h2>六、重要名词解释</h2>
+            <div class="glossary">
+                <div class="term">
+                    <div class="term-name">分辨率<span class="term-english">(Resolution)</span></div>
+                    <div class="term-definition">显微镜能够分辨两个相邻点的最小距离，是衡量显微镜性能的重要指标。光学显微镜的理论分辨率约为0.2μm。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">数值孔径<span class="term-english">(Numerical Aperture, NA)</span></div>
+                    <div class="term-definition">物镜的聚光能力指标，NA = n·sinα，其中n为介质折射率，α为孔径角的一半。NA越大，分辨率越高。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">荧光<span class="term-english">(Fluorescence)</span></div>
+                    <div class="term-definition">物质吸收特定波长的光后，发射出波长更长的光的现象。荧光显微镜正是利用这一原理进行成像。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">共焦<span class="term-english">(Confocal)</span></div>
+                    <div class="term-definition">激发光焦点与检测光焦点重合的光学系统，能够消除焦平面外的光线干扰，提高图像质量。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">超分辨率<span class="term-english">(Super-resolution)</span></div>
+                    <div class="term-definition">突破光学衍射极限的显微技术，分辨率可达几十纳米，包括PALM、STORM、STED等技术。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">电子束<span class="term-english">(Electron Beam)</span></div>
+                    <div class="term-definition">电子显微镜中用于成像的电子流，波长远小于可见光，因此具有更高的分辨率。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">超薄切片<span class="term-english">(Ultrathin Section)</span></div>
+                    <div class="term-definition">用于透射电镜观察的极薄样品切片，厚度通常为60-80nm，以保证电子束能够穿透。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">免疫荧光<span class="term-english">(Immunofluorescence)</span></div>
+                    <div class="term-definition">利用荧光标记的抗体特异性结合抗原，在荧光显微镜下观察特定蛋白质分布的技术。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">原位杂交<span class="term-english">(In Situ Hybridization, ISH)</span></div>
+                    <div class="term-definition">在细胞或组织原位检测特定核酸序列的分子生物学技术，可用于基因表达定位分析。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">FRET<span class="term-english">(Förster Resonance Energy Transfer)</span></div>
+                    <div class="term-definition">荧光共振能量转移，当两个荧光分子距离很近时发生的能量转移现象，用于检测蛋白质相互作用。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <h2>七、选择题测试</h2>
+            <div class="quiz-section">
+                <p><strong>说明：</strong>以下将随机从题库中抽取15道题进行测试，请选择最佳答案。</p>
+                <div id="quiz-container"></div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-result" class="result"></div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <h2>八、深度思考题</h2>
+            <div class="essay-section">
+                <div class="essay-question">
+                    <div class="essay-title">1. 比较光学显微镜、电子显微镜和超分辨率显微镜的原理、特点及应用范围，分析它们在细胞生物学研究中的互补作用。</div>
+                    <div class="essay-answer">
+                        <h4>参考答案：</h4>
+                        <ol>
+                            <li><strong>光学显微镜：</strong>基于光的折射和放大原理，分辨率约0.2μm，适合观察活细胞和动态过程。优点是操作简便、成本低、可观察活体样品；缺点是分辨率有限，无法观察超微结构。主要应用于细胞形态观察、细胞计数、活细胞动态研究等。</li>
+                            <li><strong>电子显微镜：</strong>利用电子束成像，分辨率可达0.1-0.2nm。TEM适合观察细胞内部超微结构，SEM适合观察表面形貌。优点是分辨率极高，能观察分子水平结构；缺点是样品需要特殊处理，无法观察活体，制样过程可能产生人工假象。</li>
+                            <li><strong>超分辨率显微镜：</strong>突破光学衍射极限，分辨率达20-50nm。包括PALM/STORM、STED、SIM等技术。优点是兼具高分辨率和活细胞观察能力；缺点是设备昂贵、技术复杂、对荧光标记要求高。</li>
+                            <li><strong>互补作用：</strong>三种显微镜在细胞生物学研究中形成完整的观察体系。光学显微镜提供整体概况和动态信息，电子显微镜揭示超微结构细节，超分辨率显微镜填补了两者之间的分辨率空白，实现了从宏观到微观的全方位观察。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <div class="essay-title">2. 详细阐述免疫荧光技术的原理、实验流程及在细胞生物学研究中的应用，并分析直接免疫荧光和间接免疫荧光的优缺点。</div>
+                    <div class="essay-answer">
+                        <h4>参考答案：</h4>
+                        <ol>
+                            <li><strong>基本原理：</strong>免疫荧光技术基于抗原-抗体特异性结合和荧光显微镜成像原理。荧光标记的抗体与细胞内特定抗原结合，在荧光显微镜下可观察到荧光信号，从而确定目标蛋白的细胞内分布。</li>
+                            <li><strong>实验流程：</strong>①细胞固定（4%多聚甲醛）；②透化处理（Triton X-100）；③封闭非特异性结合位点（BSA或血清）；④一抗孵育；⑤洗涤；⑥二抗孵育（间接法）；⑦洗涤；⑧封片观察。</li>
+                            <li><strong>直接免疫荧光：</strong>优点是步骤简单、特异性高、无交叉反应；缺点是信号较弱、成本高、每种抗原需要不同荧光标记的抗体。</li>
+                            <li><strong>间接免疫荧光：</strong>优点是信号放大、成本低、一种二抗可检测多种一抗；缺点是步骤复杂、可能有交叉反应、背景较高。</li>
+                            <li><strong>应用领域：</strong>蛋白质亚细胞定位、蛋白表达水平检测、细胞周期分析、病理诊断、药物筛选等。在细胞生物学研究中是不可或缺的重要技术。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <div class="essay-title">3. 分析电子显微镜样品制备过程中各个步骤的作用机制，讨论制样过程可能产生的人工假象及其避免方法。</div>
+                    <div class="essay-answer">
+                        <h4>参考答案：</h4>
+                        <ol>
+                            <li><strong>固定步骤：</strong>戊二醛初固定保持蛋白质结构，锇酸后固定保持脂质结构并增强电子密度对比。固定不充分会导致结构模糊，过度固定会产生沉淀假象。</li>
+                            <li><strong>脱水步骤：</strong>系列酒精脱水去除组织中的水分，为包埋做准备。脱水不彻底会影响包埋质量，脱水过快会导致组织收缩变形。</li>
+                            <li><strong>包埋步骤：</strong>环氧树脂渗透并固化，为超薄切片提供支撑。包埋不完全会导致切片时组织脱落，树脂聚合不充分会影响切片质量。</li>
+                            <li><strong>切片步骤：</strong>制备60-80nm超薄切片，保证电子束穿透。切片过厚会影响分辨率，过薄会导致结构不完整。</li>
+                            <li><strong>染色步骤：</strong>醋酸铀和柠檬酸铅提供电子密度对比。染色不均会导致对比度差异，过度染色会掩盖细微结构。</li>
+                            <li><strong>人工假象及避免：</strong>①收缩假象：控制固定和脱水速度；②沉淀假象：优化固定液配比和pH；③切片假象：保持刀具锋利，控制切片速度；④染色假象：严格控制染色时间和浓度。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <div class="essay-title">4. 论述超分辨率显微镜技术的发展意义，比较PALM/STORM、STED和SIM三种主要技术的原理差异及各自优势。</div>
+                    <div class="essay-answer">
+                        <h4>参考答案：</h4>
+                        <ol>
+                            <li><strong>发展意义：</strong>超分辨率显微镜突破了光学衍射极限（~200nm），实现了纳米级分辨率的活细胞成像，填补了光学显微镜和电子显微镜之间的技术空白，为细胞生物学研究提供了革命性工具。</li>
+                            <li><strong>PALM/STORM技术：</strong>基于单分子定位原理，通过光激活或光转换荧光蛋白的随机激活，精确定位单个分子位置。优势是分辨率极高（20-50nm），适合蛋白质分布研究；劣势是成像速度慢，需要特殊荧光标记。</li>
+                            <li><strong>STED技术：</strong>利用受激发射损耗原理，通过环形激光束压缩有效激发体积。优势是成像速度快，可用常规荧光染料；劣势是激光功率高，可能对样品造成损伤。</li>
+                            <li><strong>SIM技术：</strong>通过结构化照明和数学重建算法提高分辨率约2倍。优势是设备相对简单，成像速度快，对样品损伤小；劣势是分辨率提升有限，需要复杂的图像处理。</li>
+                            <li><strong>应用前景：</strong>这些技术在蛋白质相互作用、细胞器结构、病毒感染机制等研究中发挥重要作用，推动了细胞生物学向分子水平的深入发展。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <div class="essay-title">5. 结合具体实例，分析细胞培养技术在细胞生物学研究中的重要作用，讨论原代培养和细胞系培养的特点及应用选择。</div>
+                    <div class="essay-answer">
+                        <h4>参考答案：</h4>
+                        <ol>
+                            <li><strong>重要作用：</strong>细胞培养技术为细胞生物学研究提供了可控的实验系统，使研究者能够在体外条件下研究细胞的生长、分化、代谢、信号转导等基本生命过程，是现代细胞生物学不可或缺的基础技术。</li>
+                            <li><strong>原代培养特点：</strong>直接从组织分离获得，保持细胞原有特性，遗传稳定性好，更接近体内状态。但培养难度大，传代次数有限，细胞异质性高。适用于研究细胞的生理功能、药物筛选的初步评估等。</li>
+                            <li><strong>细胞系培养特点：</strong>经过转化或永生化处理，具有无限增殖能力，培养简便，重现性好，成本低。但可能偏离原有特性，遗传不稳定。适用于大规模实验、机制研究、蛋白表达等。</li>
+                            <li><strong>应用实例：</strong>①HeLa细胞系用于细胞周期研究；②原代神经元培养用于神经发育研究；③干细胞培养用于再生医学研究；④癌细胞系用于抗癌药物筛选。</li>
+                            <li><strong>选择策略：</strong>根据研究目的选择合适的培养系统。研究生理功能优选原代培养，机制研究可选择细胞系，药物筛选需要考虑两者结合使用，以确保结果的可靠性和临床相关性。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "光学显微镜的理论分辨率约为：",
+                options: ["A. 0.02μm", "B. 0.2μm", "C. 2μm", "D. 20μm"],
+                correct: 1,
+                explanation: "光学显微镜的理论分辨率受光的波长限制，约为0.2μm。这是由瑞利判据决定的，分辨率 = 0.61λ/NA，其中λ为光波长，NA为数值孔径。"
+            },
+            {
+                question: "下列哪种显微镜技术最适合观察活细胞的动态过程？",
+                options: ["A. 透射电子显微镜", "B. 扫描电子显微镜", "C. 相差显微镜", "D. 原子力显微镜"],
+                correct: 2,
+                explanation: "相差显微镜无需染色即可观察活细胞，通过相位差原理将透明结构转换为可见对比，特别适合观察细胞分裂、运动等动态过程。"
+            },
+            {
+                question: "荧光显微镜中二向色镜的主要作用是：",
+                options: ["A. 产生激发光", "B. 分离激发光和荧光", "C. 放大图像", "D. 聚焦光线"],
+                correct: 1,
+                explanation: "二向色镜是荧光显微镜的关键组件，能够反射短波长的激发光到样品，同时透过长波长的荧光到检测器，实现激发光和荧光的有效分离。"
+            },
+            {
+                question: "透射电子显微镜制样过程中，锇酸的主要作用是：",
+                options: ["A. 固定蛋白质", "B. 固定脂质并增强对比度", "C. 脱水", "D. 包埋"],
+                correct: 1,
+                explanation: "锇酸在电镜制样中主要用于后固定，特别是固定脂质结构，同时由于锇的高原子序数，能显著增强电子密度对比，改善图像质量。"
+            },
+            {
+                question: "激光扫描共焦显微镜的主要优势是：",
+                options: ["A. 分辨率达到纳米级", "B. 可观察原子结构", "C. 消除焦平面外光线干扰", "D. 无需荧光标记"],
+                correct: 2,
+                explanation: "共焦显微镜通过针孔光阑消除焦平面外的光线干扰，获得清晰的光学切片，提高轴向分辨率，可进行三维重建。"
+            },
+            {
+                question: "DAPI染料主要结合的细胞成分是：",
+                options: ["A. 蛋白质", "B. DNA", "C. RNA", "D. 脂质"],
+                correct: 1,
+                explanation: "DAPI（4',6-二脒基-2-苯基吲哚）是一种蓝色荧光染料，能特异性结合DNA的A-T碱基对，常用于细胞核染色和DNA定位。"
+            },
+            {
+                question: "超分辨率显微镜技术中，STED的全称是：",
+                options: ["A. Stimulated Emission Depletion", "B. Structured Illumination Microscopy", "C. Stochastic Optical Reconstruction", "D. Photo-Activated Localization"],
+                correct: 0,
+                explanation: "STED是Stimulated Emission Depletion（受激发射损耗）的缩写，通过环形激光束压缩有效激发体积，实现超分辨率成像。"
+            },
+            {
+                question: "扫描电子显微镜主要利用哪种信号成像？",
+                options: ["A. 透射电子", "B. 二次电子", "C. 背散射电子", "D. 特征X射线"],
+                correct: 1,
+                explanation: "扫描电子显微镜主要利用二次电子信号成像，二次电子来自样品表面几纳米深度，能很好地反映表面形貌特征。"
+            },
+            {
+                question: "免疫荧光技术中，间接法相比直接法的主要优势是：",
+                options: ["A. 特异性更高", "B. 步骤更简单", "C. 信号放大效果", "D. 背景更低"],
+                correct: 2,
+                explanation: "间接免疫荧光法中，多个荧光标记的二抗可结合一个一抗，产生信号放大效果，提高检测灵敏度，且成本更低。"
+            },
+            {
+                question: "原子力显微镜（AFM）的工作原理基于：",
+                options: ["A. 电子隧道效应", "B. 原子间作用力", "C. 光的干涉", "D. 电磁感应"],
+                correct: 1,
+                explanation: "原子力显微镜利用探针与样品表面原子间的作用力（包括范德华力、静电力等）进行成像，可在大气环境下观察原子级表面结构。"
+            },
+            {
+                question: "细胞培养中，原代培养的主要特点是：",
+                options: ["A. 可无限传代", "B. 保持原有细胞特性", "C. 培养简便", "D. 遗传稳定性差"],
+                correct: 1,
+                explanation: "原代培养直接从组织分离获得，能较好保持细胞的原有生物学特性，更接近体内状态，但传代次数有限。"
+            },
+            {
+                question: "FRET技术主要用于检测：",
+                options: ["A. DNA序列", "B. 蛋白质相互作用", "C. 细胞活力", "D. 基因表达"],
+                correct: 1,
+                explanation: "FRET（荧光共振能量转移）技术利用两个荧光分子间的能量转移检测蛋白质相互作用，当两个蛋白距离很近时会发生能量转移。"
+            },
+            {
+                question: "密度梯度离心主要根据什么原理分离细胞组分？",
+                options: ["A. 大小差异", "B. 密度差异", "C. 电荷差异", "D. 形状差异"],
+                correct: 1,
+                explanation: "密度梯度离心利用不同细胞组分的密度差异，在密度梯度介质中达到平衡位置，实现有效分离，常用蔗糖或氯化铯梯度。"
+            },
+            {
+                question: "荧光漂白恢复（FRAP）技术主要研究：",
+                options: ["A. 蛋白质结构", "B. 分子运动性", "C. 基因表达", "D. 细胞周期"],
+                correct: 1,
+                explanation: "FRAP技术通过激光漂白特定区域的荧光，观察荧光恢复过程，研究分子在活细胞中的扩散和运动特性。"
+            },
+            {
+                question: "酵母双杂交系统主要用于：",
+                options: ["A. 基因克隆", "B. 蛋白质相互作用筛选", "C. DNA测序", "D. 细胞转染"],
+                correct: 1,
+                explanation: "酵母双杂交系统利用转录激活子的模块化特性，在酵母细胞内检测和筛选蛋白质间的相互作用，是重要的功能基因组学工具。"
+            },
+            {
+                question: "流式细胞术的基本原理是：",
+                options: ["A. 电子束扫描", "B. 激光激发荧光检测", "C. 磁场分离", "D. 重力沉降"],
+                correct: 1,
+                explanation: "流式细胞术利用激光激发细胞内荧光标记物，通过检测荧光信号和散射光分析细胞的各种特性，可进行细胞分选和定量分析。"
+            },
+            {
+                question: "冷冻电镜技术的主要优势是：",
+                options: ["A. 分辨率更高", "B. 保持样品天然状态", "C. 操作更简便", "D. 成本更低"],
+                correct: 1,
+                explanation: "冷冻电镜通过快速冷冻保持样品的天然水合状态，避免化学固定和脱水过程中的人工假象，更真实地反映生物结构。"
+            },
+            {
+                question: "微操作技术中，显微注射主要用于：",
+                options: ["A. 细胞分离", "B. 外源物质导入", "C. 细胞计数", "D. 蛋白纯化"],
+                correct: 1,
+                explanation: "显微注射技术使用极细的玻璃微管将外源物质（如DNA、蛋白质、药物等）精确注入单个细胞内，是重要的细胞操作技术。"
+            },
+            {
+                question: "原位杂交技术主要检测：",
+                options: ["A. 蛋白质定位", "B. 特定核酸序列", "C. 酶活性", "D. 离子浓度"],
+                correct: 1,
+                explanation: "原位杂交技术利用标记的核酸探针与细胞或组织中的特定核酸序列杂交，检测基因表达的时空分布模式。"
+            },
+            {
+                question: "数值孔径（NA）与显微镜分辨率的关系是：",
+                options: ["A. NA越大，分辨率越低", "B. NA越大，分辨率越高", "C. NA与分辨率无关", "D. NA只影响放大倍数"],
+                correct: 1,
+                explanation: "根据瑞利判据，分辨率 = 0.61λ/NA，数值孔径NA越大，分辨率越高（分辨距离越小），这是提高显微镜性能的关键参数。"
+            },
+            {
+                question: "超薄切片的厚度通常为：",
+                options: ["A. 6-8nm", "B. 60-80nm", "C. 600-800nm", "D. 6-8μm"],
+                correct: 1,
+                explanation: "透射电镜用超薄切片厚度通常为60-80nm，这个厚度既能保证电子束有效穿透，又能保持足够的结构信息。"
+            },
+            {
+                question: "GFP（绿色荧光蛋白）的主要优势是：",
+                options: ["A. 荧光强度最高", "B. 可在活细胞中表达", "C. 稳定性最好", "D. 成本最低"],
+                correct: 1,
+                explanation: "GFP可通过基因工程在活细胞中表达，无需外加荧光染料，能够实时观察蛋白质在活细胞中的动态变化，是活细胞成像的重要工具。"
+            },
+            {
+                question: "扫描隧道显微镜（STM）的工作原理基于：",
+                options: ["A. 光的反射", "B. 电子隧道效应", "C. 磁场变化", "D. 声波传播"],
+                correct: 1,
+                explanation: "STM利用量子力学中的隧道效应，当探针接近样品表面时，电子可以穿越势垒产生隧道电流，通过检测电流变化获得原子级分辨率图像。"
+            },
+            {
+                question: "细胞融合技术主要应用于：",
+                options: ["A. DNA提取", "B. 杂交瘤制备", "C. 蛋白纯化", "D. 基因测序"],
+                correct: 1,
+                explanation: "细胞融合技术广泛应用于杂交瘤细胞制备，将B淋巴细胞与骨髓瘤细胞融合，产生既能分泌特异性抗体又能无限增殖的杂交瘤细胞。"
+            },
+            {
+                question: "自显影技术中，³H-TdR主要用于标记：",
+                options: ["A. RNA合成", "B. DNA合成", "C. 蛋白质合成", "D. 脂质合成"],
+                correct: 1,
+                explanation: "³H-胸腺嘧啶脱氧核苷（³H-TdR）特异性掺入DNA合成过程，是研究DNA复制和细胞增殖的经典放射性同位素标记物。"
+            },
+            {
+                question: "结构化照明显微镜（SIM）的分辨率提升约为：",
+                options: ["A. 10倍", "B. 5倍", "C. 2倍", "D. 1.5倍"],
+                correct: 2,
+                explanation: "SIM通过结构化照明模式和数学重建算法，将传统荧光显微镜的分辨率提高约2倍，是相对简单的超分辨率技术。"
+            },
+            {
+                question: "电子显微镜中，有效放大倍数的概念是指：",
+                options: ["A. 物镜放大倍数", "B. 总放大倍数", "C. 能够分辨细节的最大放大倍数", "D. 目镜放大倍数"],
+                correct: 2,
+                explanation: "有效放大倍数是指能够分辨出有用细节的最大放大倍数，超过此倍数只是空放大，不能提供更多结构信息，通常为分辨率的倒数乘以1000。"
+            },
+            {
+                question: "免疫电镜技术中，胶体金标记的优势是：",
+                options: ["A. 荧光强度高", "B. 电子密度高，易识别", "C. 成本低廉", "D. 操作简便"],
+                correct: 1,
+                explanation: "胶体金颗粒具有高电子密度，在电镜下呈现为黑色圆形颗粒，易于识别和定位，是免疫电镜中最常用的标记物。"
+            },
+            {
+                question: "植物细胞培养中，原生质体培养的特点是：",
+                options: ["A. 保留细胞壁", "B. 去除细胞壁", "C. 只适用于根部细胞", "D. 不能再生植株"],
+                correct: 1,
+                explanation: "原生质体是去除细胞壁的植物细胞，具有很强的全能性，可以再生细胞壁、分裂分化并最终再生完整植株，是植物生物技术的重要工具。"
+            },
+            {
+                question: "差速离心技术主要根据什么参数分离细胞组分？",
+                options: ["A. 密度", "B. 沉降系数", "C. 电荷", "D. 形状"],
+                correct: 1,
+                explanation: "差速离心根据不同细胞组分的沉降系数差异进行分离，沉降系数与颗粒大小、密度和形状有关，通过逐步增加离心力实现分级分离。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            renderQuiz();
+        };
+
+        // 随机选择15道题
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+        }
+
+        // 渲染题目
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                let optionsHtml = '';
+                q.options.forEach((option, optionIndex) => {
+                    optionsHtml += `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optionIndex}" onchange="recordAnswer(${index}, ${optionIndex})">
+                            ${option}
+                        </label>
+                    `;
+                });
+                
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${optionsHtml}
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 记录用户答案
+        function recordAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        // 提交答案并显示结果
+        function submitQuiz() {
+            let correctCount = 0;
+            let resultHtml = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+                
+                resultHtml += `
+                    <div class="explanation">
+                        <h4>第${index + 1}题：${isCorrect ? '✓ 正确' : '✗ 错误'}</h4>
+                        <p><strong>题目：</strong>${q.question}</p>
+                        <p><strong>您的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未作答'}</p>
+                        <p><strong>正确答案：</strong>${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            const score = Math.round((correctCount / 15) * 100);
+            const resultDiv = document.getElementById('quiz-result');
+            const passClass = score >= 60 ? 'pass' : 'fail';
+            
+            resultDiv.className = `result show ${passClass}`;
+            resultDiv.innerHTML = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}分 (${correctCount}/15)</strong></p>
+                <p>${score >= 60 ? '恭喜通过！' : '需要继续努力！'}</p>
+                ${resultHtml}
+            `;
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

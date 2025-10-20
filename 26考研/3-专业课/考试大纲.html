@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国科学院大学硕士研究生入学考试大纲</title>
+    <style>
+        /* 全局样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimSun", serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 标题样式 */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 3px solid #3498db;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            color: #2980b9;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #2196f3;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(33, 150, 243, 0.1);
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #17a2b8;
+            border-radius: 5px;
+        }
+
+        h4 {
+            color: #495057;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            padding: 8px 12px;
+            background: #e9ecef;
+            border-left: 3px solid #6c757d;
+            border-radius: 3px;
+        }
+
+        h5 {
+            color: #6c757d;
+            font-size: 1.1em;
+            margin: 15px 0 8px 0;
+            font-weight: 600;
+        }
+
+        h6 {
+            color: #868e96;
+            font-size: 1em;
+            margin: 12px 0 6px 0;
+            font-weight: 600;
+        }
+
+        /* 段落和列表样式 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* 特殊内容样式 */
+        .exam-info {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff9800;
+            box-shadow: 0 3px 15px rgba(255, 152, 0, 0.1);
+        }
+
+        .content-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+        }
+
+        .requirements-section {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            box-shadow: 0 2px 10px rgba(76, 175, 80, 0.1);
+        }
+
+        /* 强调文本样式 */
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        /* 分隔线样式 */
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3498db, transparent);
+            margin: 40px 0;
+        }
+
+        /* 目录导航样式 */
+        .toc {
+            background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 2px solid #8bc34a;
+            box-shadow: 0 5px 20px rgba(139, 195, 74, 0.1);
+        }
+
+        .toc h3 {
+            color: #558b2f;
+            margin-bottom: 15px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: #689f38;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: #33691e;
+            text-decoration: underline;
+        }
+
+        /* 参考书目样式 */
+        .references {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #e91e63;
+            box-shadow: 0 3px 15px rgba(233, 30, 99, 0.1);
+        }
+
+        /* 编制信息样式 */
+        .footer-info {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-radius: 10px;
+            border: 2px solid #03a9f4;
+            color: #0277bd;
+            font-weight: 600;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                padding: 12px 15px;
+            }
+
+            h3 {
+                font-size: 1.3em;
+                padding: 10px 12px;
+            }
+
+            .toc, .exam-info, .content-section, .requirements-section, .references {
+                padding: 15px;
+            }
+        }
+
+        /* 打印样式 */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid;
+            }
+
+            .toc, .exam-info, .content-section, .requirements-section, .references {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 主标题 -->
+        <h1>中国科学院大学硕士研究生入学考试大纲</h1>
+
+        <!-- 目录导航 -->
+        <div class="toc">
+            <h3>📚 目录导航</h3>
+            <ul>
+                <li><a href="#cell-biology">第一部分：细胞生物学考试大纲</a></li>
+                <li><a href="#biochemistry">第二部分：生物化学与分子生物学考试大纲</a></li>
+            </ul>
+        </div>
+
+        <!-- 第一部分：细胞生物学考试大纲 -->
+        <section id="cell-biology">
+            <h2>🔬 第一部分：细胞生物学考试大纲</h2>
+
+            <h3>一、考试科目基本要求及适用范围概述</h3>
+            <div class="content-section">
+                <p>本《细胞生物学》考试大纲适用于中国科学院大学生命学科各专业的硕士研究生入学考试。</p>
+                <p>要求考生全面系统地理解并掌握细胞生物学的基本概念、基本理论和研究方法，能熟练运用细胞生物学知识分析生物学基本问题及解决实际问题的能力，初步了解细胞生物学的最新研究进展。</p>
+            </div>
+
+            <h3>二、考试形式</h3>
+            <div class="exam-info">
+                <p><span class="highlight">考试形式</span>：闭卷，笔试，考试时间 180 分钟，总分 150 分。</p>
+                <p><span class="highlight">试卷结构（题型）</span>：基本名词解释（包括英译汉、汉译英等）、选择题、填空题、判断对错题、简述题、综合论述与综合分析题等题型。</p>
+                <p><span class="highlight">分值分布</span>：通常基本名词解释约占 30%，基础知识理解约占 40％，综合、分析题约占 30％。</p>
+            </div>
+
+            <h3>三、考试内容</h3>
+
+            <h4>1. 细胞生物学发展历史</h4>
+            <div class="content-section">
+                <ul>
+                    <li><strong>1.1.</strong> 了解细胞的发现，细胞学说的创立及其内容要点和意义</li>
+                    <li><strong>1.2.</strong> 了解细胞学经典发展时期：原生质理论的提出，细胞分裂和细胞器的发现，细胞学的建立</li>
+                    <li><strong>1.3.</strong> 了解实验细胞学时期：细胞遗传学、细胞生理学、细胞化学</li>
+                    <li><strong>1.4.</strong> 了解细胞生物学的形成和当前与今后的发展方向--分子细胞生物学</li>
+                </ul>
+            </div>
+
+            <h4>2. 细胞的基本结构与化学组成</h4>
+            
+            <h5>2.1. 细胞的形态结构</h5>
+            <div class="content-section">
+                <ul>
+                    <li>了解形状、大小和种类的多样性</li>
+                    <li>熟练掌握细胞是生命活动的基本单位</li>
+                    <li>掌握动物细胞的一般结构模式</li>
+                    <li>掌握植物细胞与动物细胞、原核细胞与真核细胞的主要结构差别</li>
+                </ul>
+            </div>
+
+            <h5>2.2. 细胞的化学组成及其意义</h5>
+            <div class="content-section">
+                <ul>
+                    <li>了解元素：主要元素、宏量、微量和痕量元素</li>
+                    <li>理解有机小分子：小分子糖类、氨基酸、核苷酸、脂质</li>
+                    <li>掌握大分子：核酸、蛋白质、大分子多糖</li>
+                    <li>掌握水、无机盐和离子</li>
+                </ul>
+            </div>
+
+            <h5>2.3. 掌握细胞的共性，细胞形态结构和化学组成与功能的相关性</h5>
+            <p><em>附：了解关于病毒与细胞的关系</em></p>
+
+            <h4>3. 细胞生物学研究技术和基本原理</h4>
+
+            <h5>3.1. 观察细胞形态结构的技术方法和仪器</h5>
+
+            <h6>3.1.1. 光学显微技术</h6>
+            <div class="content-section">
+                <ul>
+                    <li>了解普通复式光学显微镜：掌握分辨率及计算公式，像差与复合透镜</li>
+                    <li>了解观察样品的一般制备：固定、切片、染色</li>
+                    <li>了解荧光显微镜与观察样品的荧光染色</li>
+                    <li>了解暗视野显微镜：聚光器，分辨率</li>
+                    <li>了解相差显微镜：用途、特有装置（光栏、相版），原理</li>
+                    <li>了解干涉显微镜：用途、特有装置 干涉器</li>
+                    <li>理解激光共聚焦扫描显微镜及其原理、用途</li>
+                    <li>了解计算机等技术在光学显微技术中的应用</li>
+                </ul>
+            </div>
+
+            <h6>3.1.2. 电子显微镜技术</h6>
+            <div class="content-section">
+                <ul>
+                    <li>了解透射电镜：基本构造，成像原理，分辨率；超高压电镜</li>
+                    <li>了解透射电镜观察样品制备：超薄切片技术，负染色和暗视场制片术冰冻劈裂一复型技术和金属投影技术</li>
+                    <li>理解扫描电镜和隧道电镜及其原理和用途</li>
+                </ul>
+            </div>
+
+            <h5>3.2. 细胞化学组成及其定位和动态分析技术</h5>
+            <div class="content-section">
+                <ul>
+                    <li>理解细胞和细胞器的分离：如匀浆和差速离心技术等</li>
+                    <li>理解基本生物化学和分子生物学技术</li>
+                    <li>理解细胞化学、免疫荧光细胞化学、细胞光度和流式细胞分离技术</li>
+                    <li>了解电镜细胞化学和电镜免疫细胞化学技术</li>
+                    <li>了解显微放射自显影、分子原位杂交</li>
+                </ul>
+            </div>
+
+            <h5>3.3. 了解细胞培养、细胞工程、显微操作、活体染色等技术方法</h5>
+
+            <h4>4. 细胞器的结构与功能</h4>
+
+            <h5>4.1. 内膜系统的概念及其组成成员</h5>
+
+            <h5>4.2. 内质网</h5>
+            <div class="content-section">
+                <p><strong>4.2.1.</strong> 掌握内质网的形态结构特征和类别(粗面内质网和光面内质网)</p>
+                <p><strong>4.2.2.</strong> 理解并熟练掌握粗面内质网的主要功能</p>
+                <ul>
+                    <li>掌握按信号肽假说参与分泌蛋白和溶酶体酶等蛋白合成</li>
+                    <li>掌握蛋白质的修饰(包括 N-连接糖基化、酰基化等)和正确折叠</li>
+                </ul>
+                <p><strong>4.2.3.</strong> 掌握光面内质网的功能：膜脂类和甾类激素合成、胞质溶胶 Ca2+水平调节、解毒和参与糖元合成与分解等</p>
+            </div>
+
+            <h5>4.3. 高尔基体</h5>
+            <div class="content-section">
+                <p><strong>4.3.1.</strong> 掌握高尔基体的形态结构特点，结构分区，及各区的标志性酶</p>
+                <p><strong>4.3.2.</strong> 熟练掌握高尔基体的功能</p>
+                <ul>
+                    <li>蛋白质的修饰和加工：O-连接糖基化与磷酸化和硫酸化；N-连接糖基化的改</li>
+                </ul>
+            </div>
+
+            <h5>4.4. 溶酶体</h5>
+            <div class="content-section">
+                <p><strong>4.4.1.</strong> 掌握溶酶体的形态结构及化学组成特点</p>
+                <p><strong>4.4.2.</strong> 理解并掌握溶酶体的功能</p>
+                <ul>
+                    <li>溶酶体的基本功能－消化作用及溶酶体的亚类划分</li>
+                    <li>溶酶体的其他功能(动物受精过程中和免疫反应中的作用等)</li>
+                </ul>
+                <p><strong>4.4.3.</strong> 了解溶酶体的发生</p>
+            </div>
+
+            <h5>4.5. 微体</h5>
+            <div class="content-section">
+                <p><strong>4.5.1.</strong> 掌握微体的两种类型及其共同的形态结构和酶特征</p>
+                <p><strong>4.5.2.</strong> 理解过氧物酶体的酶特点和功能－解毒作用，植物光呼吸中的乙醇酸代谢</p>
+                <p><strong>4.5.3.</strong> 掌握乙醛酸循环体的酶特点和功能－参与种子萌发中的糖异生作用</p>
+                <p><strong>4.5.4.</strong> 了解关于微体的发生问题</p>
+            </div>
+
+            <h5>4.6. 线粒体</h5>
+            <div class="content-section">
+                <p><strong>4.6.1.</strong> 熟练掌握显微形态特征和主要功能概要</p>
+                <p><strong>4.6.2.</strong> 掌握超微结构与功能定位及各部的结构和化学的组成特点</p>
+                <p><strong>4.6.3.</strong> 理解内膜进行能量转化(氧化磷酸化)的分子和超分子结构基础与转化机制</p>
+            </div>
+
+            <h5>4.7. 叶绿体</h5>
+            <div class="content-section">
+                <p><strong>4.7.1.</strong> 掌握叶绿体的显微形态特征和超微结构</p>
+                <ul>
+                    <li><strong>4.7.1.1.</strong> 显微形态特征</li>
+                    <li><strong>4.7.1.2.</strong> 超微结构：
+                        <ul>
+                            <li>被膜：外膜、内膜、膜间隙(外膜)</li>
+                            <li>类囊体(片层系统)：基粒类囊体(附基粒概念)、基质类囊体、基质(内腔)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>4.7.2.</strong> 理解掌握叶绿体的主要功能－光合作用概要：总反应；阶段及亚阶段划分(光反应：原初反应→电子传递→ATP 合成；暗反应：卡尔文循环)；反应定位</p>
+                <p><strong>4.7.3.</strong> 理解掌握类囊体膜进行光反应(光合磷酸化)的分子和超分子结构基础和反应过程</p>
+            </div>
+
+            <h5>4.8. 线粒体和叶绿体的半自主性</h5>
+            <div class="content-section">
+                <p><strong>4.8.1.</strong> 掌握半自主性的主要表现</p>
+                <p><strong>4.8.2.</strong> 理解细胞质合成的线粒体叶绿体蛋白之转运机制。附：分子伴娘概念</p>
+                <p><strong>4.8.3.</strong> 了解线粒体和叶绿体的繁殖方式</p>
+            </div>
+
+            <h5>4.9. 了解广义和狭义的细胞骨架概念</h5>
+
+            <h5>4.10. 微丝</h5>
+            <div class="content-section">
+                <p><strong>4.10.1.</strong> 掌握微丝的形态结构及构成微丝的分子--肌动蛋白</p>
+                <p><strong>4.10.2.</strong> 掌握微丝的组装和解聚、永久性微丝与暂时性微丝</p>
+                <p><strong>4.10.3.</strong> 掌握微丝结合蛋白</p>
+                <p><strong>4.10.4.</strong> 理解横纹肌纤维(细胞)中的微丝系统与肌肉收缩机制</p>
+                <p><strong>4.10.5.</strong> 掌握非肌肉细胞中微丝的特点和功能：微绒毛中的支架作用、胞质流动和细胞移动中的作用、胞质分裂中的收缩环作用、细胞连接中的作用(附着带、应力纤维)</p>
+                <p><strong>4.10.6.</strong> 掌握微丝的特异性破坏药物和稳定药物</p>
+            </div>
+
+            <h5>4.11. 微管</h5>
+            <div class="content-section">
+                <p><strong>4.11.1</strong> 掌握微管的形态结构和微管的种类及分布</p>
+                <p><strong>4.11.2</strong> 掌握微管蛋白和微管结合蛋白</p>
+                <p><strong>4.11.3</strong> 掌握微管的组装、去组装与微管组织中心，微管的"滑车"现象，永久性微管和暂时性微管</p>
+                <p><strong>4.11.4</strong> 理解微管的功能</p>
+                <p><strong>4.11.5</strong> 掌握微管的特异性药物和微管组成的细胞器</p>
+            </div>
+
+            <h5>4.12. 中间纤维</h5>
+            <div class="content-section">
+                <p><strong>4.12.1.</strong> 掌握中间纤维的一般形态和类型及类型的细胞特异性</p>
+                <p><strong>4.12.2.</strong> 理解中间纤维蛋白分子的一般结构模式及中间纤维的组装</p>
+                <p><strong>4.12.3.</strong> 了解中间纤维结合蛋白</p>
+                <p><strong>4.12.4.</strong> 理解中间纤维的功能：支架和连接作用；信号传递和基因表达等方面的可能作用。</p>
+            </div>
+
+            <h5>4.13. 核糖体</h5>
+            <div class="content-section">
+                <p><strong>4.13.1.</strong> 掌握核糖体的形态结构、类别和构成分子及解离和重组装等研究结果。附：自主装概念</p>
+                <p><strong>4.13.2.</strong> 掌握核糖体的功能部位及其在蛋白质合成中的作用：mRNA 结合部位、P 位、A 位、肽酰基转移酶部位、G 因子部位、E 位。附：核酶概念</p>
+                <ul>
+                    <li>了解作用于核糖体的蛋白质合成的抑制剂</li>
+                    <li>理解多聚核糖体在蛋白合成中的意义和核糖体循环</li>
+                </ul>
+            </div>
+
+            <h4>5. 细胞基质与功能</h4>
+
+            <h5>5.1. 细胞外基质</h5>
+            <p>熟练掌握概念和功能意义概要</p>
+
+            <h6>5.1.1. 理解掌握动物细胞的胞外基质</h6>
+            <div class="content-section">
+                <p><strong>5.1.1.1.</strong> 胶原纤维：类型及分子结构和纤维特征；合成、修饰、组装和交联；功能</p>
+                <p><strong>5.1.1.2.</strong> 弹性（弹力）蛋白纤维：结构特点、分布和功能</p>
+                <p><strong>5.1.1.3.</strong> 氨基聚糖：分子结构特点；种类；特性和功能意义；透明质酸的特殊功能意义</p>
+                <p><strong>5.1.1.4.</strong> 蛋白聚糖：分子结构特点；与透明质酸为轴的更大复合结构；功能意义（包括参与构成基底膜）</p>
+                <p><strong>5.1.1.5.</strong> 层粘连蛋白和纤粘连蛋白：结构特点、功能意义</p>
+                <p><strong>5.1.1.6.</strong> 胞间粘连分子：依赖于 Ca2+的，不依赖于 Ca2+的；功能意义</p>
+            </div>
+
+            <h6>5.1.2. 掌握植物细胞的胞外基质－细胞壁：成分、结构和功能概况</h6>
+
+            <h5>5.2. 细胞质基质的概念和功能</h5>
+            <div class="content-section">
+                <p><strong>5.2.1.</strong> 掌握关于细胞质基质的不同概念和结构问题</p>
+                <p><strong>5.2.2.</strong> 理解细胞质基质的功能</p>
+            </div>
+
+            <h4>6. 细胞核与染色体</h4>
+
+            <h5>6.1 核被膜(核膜)</h5>
+            <div class="content-section">
+                <p><strong>6.1.1</strong> 掌握核被膜的一般形态结构特点和生物学意义</p>
+                <p><strong>6.1.2</strong> 掌握和理解核膜孔复合体的结构和功能</p>
+                <ul>
+                    <li>结构：颗粒－纤维模型和"鱼笼"或"滴漏"式模型</li>
+                    <li>功能：物质运输－被动运输；主动运输及其特点</li>
+                </ul>
+                <p><strong>6.1.3</strong> 掌握核纤层(核膜骨架)的形态结构特点、性质(中间纤维家族)和功能意义</p>
+            </div>
+
+            <h5>6.2 染色质</h5>
+            <div class="content-section">
+                <p><strong>6.2.1</strong> 掌握染色质的经典概念和现代概念</p>
+                <p><strong>6.2.2</strong> 掌握组蛋白的种类和特点</p>
+                <p><strong>6.2.3</strong> 掌握染色质的基本结构－串珠线模型和结构的基本单位－核小体</p>
+                <p><strong>6.2.4</strong> 掌握染色质的类型和各类染色质的定义</p>
+                <p><strong>6.2.5</strong> 了解染色质的非组蛋白：性质，一般结构模式、功能意义</p>
+            </div>
+
+            <h5>6.3 核仁</h5>
+            <div class="content-section">
+                <p><strong>6.3.1</strong> 掌握显微水平的核仁形态和细胞化学特征</p>
+                <p><strong>6.3.2</strong> 掌握核仁的超微结构分部和各部分的结构组成特点</p>
+                <p><strong>6.3.3</strong> 理解掌握核仁的功能：rRNA 的合成和核糖体亚单基的组装</p>
+            </div>
+
+            <h5>6.4 染色体</h5>
+            <div class="content-section">
+                <p><strong>6.4.1</strong> 掌握染色体包装(结构或超分子结构)的两种主要模型</p>
+                <p><strong>6.4.2</strong> 掌握中期染色体的显微形态学</p>
+                <p><strong>6.4.3</strong> 掌握染色体 DNA 序列的重复性，分类和各类 DNA 序列的排列分布</p>
+                <p><strong>6.4.4</strong> 掌握保证染色体世代稳定的结构部位和关键序列及其结构</p>
+                <ul>
+                    <li>着丝粒-着丝点、端粒、自主复制序列。附：可移动序列(转座子)概念</li>
+                </ul>
+                <p><strong>6.4.5</strong> 了解巨大染色体：多线染色体和灯刷状染色体</p>
+            </div>
+
+            <h5>6.5 核骨架和核基质</h5>
+            <div class="content-section">
+                <p><strong>6.5.1</strong> 理解核骨架的概念：广义的核骨架和狭义的核骨架。</p>
+                <p><strong>6.5.2</strong> 掌握核基质(狭义核骨架)的一般形态结构和化学组成特点以及功能意义</p>
+                <p><strong>6.5.3</strong> 了解染色体支架及其与核基质的关系</p>
+            </div>
+
+            <h5>6.6 熟练掌握细胞核的功能</h5>
+
+            <h4>7. 细胞膜与细胞表面的结构与识别</h4>
+
+            <h5>7.1. 质膜的化学组成和结构</h5>
+
+            <h6>7.1.1. 熟练掌握构成质膜的主要分子类别及其特点和意义</h6>
+            <div class="content-section">
+                <p><strong>7.1.1.1.</strong> 脂质：磷脂、糖脂、胆固醇。附：人工脂质体及其应用</p>
+                <p><strong>7.1.1.2.</strong> 蛋白质：外在蛋白，内在蛋白；跨膜蛋白的一般结构特点</p>
+                <p><strong>7.1.1.3.</strong> 糖类。附：ABO 血型抗原</p>
+            </div>
+
+            <h6>7.1.2. 掌握质膜的结构模型</h6>
+            <div class="content-section">
+                <p><strong>7.1.2.1.</strong> 了解历史上的三个主要模型： Gorter 和 Grendel 的脂双层模型；Danielli-Davson 模型；Robertson 模型（单位膜模型）</p>
+                <p><strong>7.1.2.2.</strong> 理解掌握现代被广泛接受的流动镶嵌模型：基本要点，研究方法。</p>
+                <p><strong>7.1.2.3.</strong> 了解质膜结构研究的实例--哺乳类红血球的质膜：方法，结果。质膜骨架及其存在的普遍性问题。</p>
+            </div>
+
+            <h5>7.2. 质膜的功能</h5>
+
+            <h6>7.2.1. 理解并熟练掌握物质的跨膜运输</h6>
+            <div class="content-section">
+                <p><strong>7.2.1.1.</strong> 被动运输：特点；简单扩散，易化扩散；载体、转运蛋白的概念</p>
+                <p><strong>7.2.1.2.</strong> 主动运输：特点；直接主动运输－泵运输及转运 ATP 酶的概念；间接主动运输－协同运输、胞纳(胞饮和吞噬)、胞吐、穿胞运输</p>
+            </div>
+
+            <h6>7.2.2. 掌握质膜的其他功能</h6>
+
+            <h5>7.3. 细胞表面的特化结构</h5>
+            <div class="content-section">
+                <p><strong>7.3.1.</strong> 了解细菌细胞的鞭毛：结构和运动机制</p>
+                <p><strong>7.3.2.</strong> 了解其他特化结构－鞭毛、纤毛、微绒毛、变形足等</p>
+            </div>
+
+            <h5>7.4. 细胞的连接</h5>
+            <div class="content-section">
+                <p><strong>7.4.1.</strong> 掌握闭锁连接：连接特点及生物学意义</p>
+                <p><strong>7.4.2.</strong> 掌握锚定连接及其生物学意义</p>
+                <ul>
+                    <li><strong>7.4.2.1.</strong> 掌握桥粒连接和半桥粒连接</li>
+                    <li><strong>7.4.2.2.</strong> 掌握附着连接（附着带和附着斑）</li>
+                </ul>
+                <p><strong>7.4.3.</strong> 掌握通讯连接</p>
+                <ul>
+                    <li><strong>7.4.3.1.</strong> 掌握间隙连接和电性突触，以及连接子概念</li>
+                    <li><strong>7.4.3.2.</strong> 掌握化学突触</li>
+                    <li><strong>7.4.3.2.</strong> 掌握植物细胞的胞间连丝</li>
+                </ul>
+                <p><strong>7.4.4.</strong> 了解细胞附着(细胞粘附)：概念；与细胞连接的关系和生物学意义</p>
+            </div>
+
+            <h4>8. 细胞通讯和信号转导</h4>
+            <div class="content-section">
+                <p><strong>8.1.</strong> 理解并熟练掌握细胞识别和细胞通讯有关的几个概念：细胞识别、细胞通讯、受体、信号通路、第一信使、第二信使</p>
+                <p><strong>8.2.</strong> 熟练掌握胞内受体介导的信号通路及信号分子</p>
+                <p><strong>8.3.</strong> 熟练掌握膜受体介导的信号通路：</p>
+                <ul>
+                    <li>与Ｇ蛋白偶联的：cAMP 通路及信号分子</li>
+                    <li>肌醇磷脂通路及信号分子</li>
+                    <li>受体本身为酪氨酸激酶的：生长因子类受体</li>
+                    <li>受体为配体门控离子通道的：神经递质类受体</li>
+                </ul>
+            </div>
+
+            <h4>9. 细胞增殖及其调控</h4>
+
+            <h5>9.1 了解细胞繁殖、细胞分裂和细胞周期间的关系及细胞分裂方式</h5>
+
+            <h5>9.2 细胞有丝分裂</h5>
+            <div class="content-section">
+                <p><strong>9.2.1</strong> 理解并熟练掌握有丝分裂的形态学过程，时相划分及各时相的变化标志</p>
+                <p><strong>9.2.2</strong> 掌握早中期染色体的移动与纺锤体的形成和结构</p>
+                <p><strong>9.2.3</strong> 掌握姐妹着丝粒的分离与后期染色体的移动</p>
+                <p><strong>9.2.4</strong> 掌握胞质分裂</p>
+                <p><strong>9.2.3</strong> 掌握植物细胞有丝分裂的特点与某些生物特殊形式的有丝分裂（中、后期转化和姐妹染色体分离的机制）</p>
+            </div>
+
+            <h5>9.3 减数分裂</h5>
+            <div class="content-section">
+                <p><strong>9.3.1</strong> 熟练掌握减数分裂的形态学过程，时期划分和各期的主要变化特征</p>
+                <p><strong>9.3.2</strong> 掌握重要事件和重要结构分析：</p>
+                <ul>
+                    <li>同源染色体的配对与联合复合体和 Z-DNA</li>
+                    <li>同源染色体间的交换，交换机制和 P-DNA</li>
+                </ul>
+                <p><strong>9.3.3</strong> 理解卵母细胞的减数分裂特点</p>
+            </div>
+
+            <h5>9.4 细胞周期及细胞周期和细胞增殖的调控</h5>
+            <div class="content-section">
+                <p><strong>9.4.1</strong> 熟练掌握周期内细胞、周期外细胞(休止细胞)、细胞周期检验点、Go 期细胞等概念</p>
+                <p><strong>9.4.2</strong> 了解细胞周期的时相划分，时程变异及研究细胞周期的最基本方法－细胞同步化方法和周期时程测定法</p>
+                <p><strong>9.4.3</strong> 理解、掌握细胞周期和细胞增殖的调控</p>
+                <p><strong>9.4.4</strong> 理解调控细胞增殖和细胞周期的其他主要因素</p>
+            </div>
+
+            <h4>10. 细胞分化、衰老与凋亡</h4>
+
+            <h5>10.1. 细胞的分化</h5>
+            <div class="content-section">
+                <p><strong>10.1.1.</strong> 熟练掌握细胞分化的概念及与其相关的几个概念（细胞的发育潜能、干细胞）</p>
+                <p><strong>10.1.2.</strong> 了解细胞质在早期胚胎细胞分化中的决定作用和作用的物质基础--从形态发生决定子到母体 mRNA</p>
+                <p><strong>10.1.3.</strong> 掌握核基因的表达与细胞分化（细胞核在细胞分化中的作用）</p>
+                <p><strong>10.1.4.</strong> 掌握细胞间相互作用对细胞分化的影响及相互作用类型：诱导作用、细胞反效应、激素作用</p>
+                <p><strong>10.1.5.</strong> 掌握环境对细胞分化的影响</p>
+            </div>
+
+            <h5>10.2. 细胞的衰老和死亡</h5>
+            <div class="content-section">
+                <p><strong>10.2.1.</strong> 掌握细胞衰老和死亡的客观性与 Hayflick 界限</p>
+                <p><strong>10.2.3</strong> 掌握细胞衰老的特征性表现</p>
+                <p><strong>10.2.3.</strong> 掌握细胞衰老的原因和假说</p>
+                <ul>
+                    <li><strong>10.2.3.1.</strong> 自由基理论</li>
+                    <li><strong>10.2.3.2.</strong> 细胞的编程性死亡与编程性死亡相关基因</li>
+                </ul>
+            </div>
+
+            <h4>11. 细胞起源与进化</h4>
+            <div class="content-section">
+                <p><strong>11.1.</strong> 了解有关细胞起源的研究，假说和尚存问题</p>
+                <p><strong>11.2.</strong> 了解从原核细胞到真核细胞的进化</p>
+                <ul>
+                    <li><strong>11.2.1.</strong> 真核细胞源于原核细胞的证据：古生物学（化石）的证据；分子生物学的证据；活化石的证据</li>
+                    <li><strong>11.2.2.</strong> 真核细胞的祖先可能是古代原细菌的研究证据：细胞壁成份的研究，DNA 序列的研究，核糖体的研究，5SrRNA 的研究</li>
+                    <li><strong>11.2.3.</strong> 内膜系统的起源</li>
+                    <li><strong>11.2.4.</strong> 线粒体和叶绿体的起源：内共生起源学说与非内共生起源学说</li>
+                    <li><strong>11.2.5.</strong> 细胞核的起源－核膜的起源：超微结构的和活化石的证据</li>
+                </ul>
+                <p><strong>11.3.</strong> 了解关于病毒与细胞间的起源和进化关系问题</p>
+            </div>
+
+            <h4>12. 初步了解细胞生物学研究最新进展</h4>
+
+            <h3>四、考试要求</h3>
+            <div class="requirements-section">
+                <ol>
+                    <li>理解并掌握细胞生物学的基本概念、基础理论和基本实验技术。</li>
+                    <li>初步了解细胞生物学相关研究最新进展。</li>
+                    <li>具有运用基本概念和基础理论分析问题与解决问题的能力。</li>
+                </ol>
+            </div>
+
+            <h3>五、参考书目</h3>
+            <div class="references">
+                <ol>
+                    <li>刘凌云、薛绍白、柳惠图。细胞生物学(2002年，第1版)。北京，高等教育出版社。</li>
+                    <li>丁明孝、王喜忠、张传茂、陈建国(2020年，第5版)。北京，高等教育出版社。</li>
+                </ol>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- 第二部分：生物化学与分子生物学考试大纲 -->
+        <section id="biochemistry">
+            <h2>🧬 第二部分：生物化学与分子生物学考试大纲</h2>
+
+            <h3>一、考试科目基本要求及适用范围概述</h3>
+            <div class="content-section">
+                <p>本考试科目旨在评估考生对生物化学与分子生物学领域基础理论、基本知识和基本技能的掌握程度，以及运用理论知识解决实际问题的能力。考生需要理解和掌握蛋白质与核酸等重要生物大分子的构成与功能、重要的分解和合成代谢途径及其生理学意义、基因表达与调控及其应用等核心内容。考试重点体现考生对这些内容的理解和应用，要求考生具备分析和解决相关科学问题的能力。该考试科目适用于选拔计划在生物医学、生物技术、农业科学等领域攻读硕士研究生的本科生。</p>
+            </div>
+
+            <h3>二、考试形式</h3>
+            <div class="exam-info">
+                <p><span class="highlight">考试形式</span>：闭卷，笔试，考试时间 180 分钟，总分为 150 分。</p>
+            </div>
+
+            <h3>三、试卷结构</h3>
+            <div class="exam-info">
+                <p>试卷由名词解释题、单项选择题、判断题、简答题和问答题组成。</p>
+            </div>
+
+            <h3>四、考试内容</h3>
+
+            <h4>1. 蛋白质化学</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>氨基酸的结构及分类，20种常见氨基酸的简写符号</li>
+                    <li>氨基酸的酸碱化学性质和氨基酸的化学反应</li>
+                    <li>氨基酸混合物的分析分离</li>
+                    <li>蛋白质的化学组成和分类</li>
+                    <li>蛋白质的水解</li>
+                    <li>肽和肽段的结构及物化性质</li>
+                    <li>蛋白质分子的结构（一级、二级、高级结构的概念及形式）</li>
+                    <li>蛋白质一级结构的测定</li>
+                    <li>蛋白质的理化性质及蛋白质分离纯化</li>
+                    <li>蛋白质的含量测定和蛋白质纯度鉴定</li>
+                    <li>蛋白质的变性作用</li>
+                    <li>蛋白质结构与功能的关系</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>熟练掌握氨基酸的结构与分类</li>
+                    <li>了解蛋白质的水解方法</li>
+                    <li>了解肽的结构及理化性质</li>
+                    <li>掌握蛋白质二级和三级结构的类型及特点，四级结构的概念及亚基</li>
+                    <li>熟练掌握氨基酸与蛋白质的物理性质和化学性质</li>
+                    <li>掌握氨基酸混合物的分离方法</li>
+                    <li>掌握蛋白质的变性作用</li>
+                    <li>掌握目前蛋白质一级结构的测定方法</li>
+                    <li>熟练掌握蛋白质结构与功能的关系</li>
+                    <li>掌握蛋白质的分离纯化的原则和方法</li>
+                </ul>
+            </div>
+
+            <h4>2. 核酸化学</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>核酸的种类、分布及核酸的生物学功能</li>
+                    <li>核苷酸的化学组成</li>
+                    <li>DNA一级结构的概念和二级结构主要特点，DNA的三级结构</li>
+                    <li>RNA的一级结构及高级结构</li>
+                    <li>核酸的主要理化特性</li>
+                    <li>核酸的研究方法</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>了解核酸的种类及分布</li>
+                    <li>掌握核苷酸的化学组成及结构</li>
+                    <li>掌握核酸的物化性质</li>
+                    <li>掌握核酸的研究方法</li>
+                    <li>掌握DNA的结构和功能</li>
+                    <li>掌握RNA的结构、功能多样性和研究现状</li>
+                </ul>
+            </div>
+
+            <h4>3. 糖类结构与功能</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>糖的主要分类及其各自的代表</li>
+                    <li>糖聚合物及其代表和它们的生物学功能</li>
+                    <li>糖链和糖蛋白的生物活性</li>
+                    <li>糖链结构测定方法</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>理解旋光异构</li>
+                    <li>掌握糖的概念及其分类</li>
+                    <li>掌握糖类的元素组成、化学本质及生物学功能</li>
+                    <li>掌握单糖、二糖、寡糖和多糖的结构和性质</li>
+                    <li>掌握糖的鉴定原理，了解糖链结构测定方法</li>
+                </ul>
+            </div>
+
+            <h4>4. 脂质与生物膜</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>生物体内脂质的分类及其代表脂类和各自特点</li>
+                    <li>脂肪酸的分类及理化性质</li>
+                    <li>甘油脂和磷脂的特性，及油脂和甘油磷脂的结构与性质</li>
+                    <li>血浆脂蛋白的分类、结构与功能</li>
+                    <li>生物膜的化学组成和结构特点，"流体镶嵌模型"的要点</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握脂质的类别和功能</li>
+                    <li>掌握重要脂肪酸、甘油脂和重要磷脂的结构与性质</li>
+                    <li>掌握甘油脂、磷脂以及脂肪酸的特性</li>
+                    <li>掌握血浆脂蛋白的分类、结构与功能</li>
+                    <li>熟练掌握生物膜结构的主要特征和"流体镶嵌模型"的要点</li>
+                </ul>
+            </div>
+
+            <h4>5. 酶学</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>酶催化作用特点</li>
+                    <li>酶的作用机理</li>
+                    <li>影响酶促反应的因素（米氏方程的推导）</li>
+                    <li>酶的抑制作用</li>
+                    <li>酶的提纯与酶活力测定的基本方法</li>
+                    <li>酶的国际分类和命名</li>
+                    <li>抗体酶、核酶和固定化酶的基本概念和应用</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握酶的概念及催化作用特点</li>
+                    <li>了解酶的分离提纯基本方法</li>
+                    <li>掌握酶的国际分类（第一、二级分类）</li>
+                    <li>了解特殊酶，如溶菌酶、丝氨酸蛋白酶催化反应机制</li>
+                    <li>熟练掌握酶活力概念、米氏方程以及酶活力的测定方法</li>
+                    <li>掌握酶的抑制作用类型(竞争性抑制、非竞争性抑制、反竞争性抑制)</li>
+                    <li>掌握核酶和抗体酶的基本概念</li>
+                    <li>掌握固定化酶的方法和应用</li>
+                    <li>掌握酶活性调节的主要方式（变构调节、酶活性的激活与抑制、酶原激活、共价修饰和级联反应）</li>
+                    <li>掌握酶的作用机制</li>
+                </ul>
+            </div>
+
+            <h4>6. 维生素和辅酶</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>维生素的概念、分类及性质</li>
+                    <li>各种维生素的活性形式、生理功能</li>
+                    <li>维生素与辅酶</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>了解水溶性维生素的结构和功能</li>
+                    <li>了解脂溶性维生素的结构和功能</li>
+                    <li>掌握维生素与辅酶的关系</li>
+                    <li>掌握重要维生素的活性形式及其生理功能</li>
+                </ul>
+            </div>
+
+            <h4>7. 激素与信号转导</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>激素的概念、分类及作用特点</li>
+                    <li>激素的作用机理</li>
+                    <li>信号转导的基本概念</li>
+                    <li>第二信使的概念及种类</li>
+                    <li>蛋白激酶和蛋白磷酸酶</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握激素的概念、分类及作用特点</li>
+                    <li>掌握激素的作用机理</li>
+                    <li>掌握信号转导的基本概念</li>
+                    <li>掌握第二信使的概念及种类</li>
+                    <li>掌握蛋白激酶和蛋白磷酸酶的作用</li>
+                </ul>
+            </div>
+
+            <h4>8. 新陈代谢与生物能学</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>新陈代谢的概念及特点</li>
+                    <li>ATP的结构及其在代谢中的作用</li>
+                    <li>生物氧化的概念及特点</li>
+                    <li>呼吸链的组成及电子传递过程</li>
+                    <li>氧化磷酸化的概念及机理</li>
+                    <li>影响氧化磷酸化的因素</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握新陈代谢的概念及特点</li>
+                    <li>掌握ATP的结构及其在代谢中的作用</li>
+                    <li>掌握生物氧化的概念及特点</li>
+                    <li>掌握呼吸链的组成及电子传递过程</li>
+                    <li>掌握氧化磷酸化的概念及机理</li>
+                    <li>了解影响氧化磷酸化的因素</li>
+                </ul>
+            </div>
+
+            <h4>9. 糖代谢</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>糖的消化与吸收</li>
+                    <li>糖酵解的途径、关键酶及调节</li>
+                    <li>柠檬酸循环的途径、关键酶及调节</li>
+                    <li>磷酸戊糖途径的生理意义</li>
+                    <li>糖原的合成与分解</li>
+                    <li>糖异生的途径、关键酶及调节</li>
+                    <li>血糖的调节</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>了解糖的消化与吸收</li>
+                    <li>掌握糖酵解的途径、关键酶及调节</li>
+                    <li>掌握柠檬酸循环的途径、关键酶及调节</li>
+                    <li>掌握磷酸戊糖途径的生理意义</li>
+                    <li>掌握糖原的合成与分解</li>
+                    <li>掌握糖异生的途径、关键酶及调节</li>
+                    <li>掌握血糖的调节</li>
+                </ul>
+            </div>
+
+            <h4>10. 脂类代谢</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>脂类的消化与吸收</li>
+                    <li>甘油三酯的分解代谢</li>
+                    <li>脂肪酸的β氧化</li>
+                    <li>酮体的生成与利用</li>
+                    <li>脂肪酸的合成</li>
+                    <li>胆固醇的合成与调节</li>
+                    <li>血脂与脂蛋白代谢</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>了解脂类的消化与吸收</li>
+                    <li>掌握甘油三酯的分解代谢</li>
+                    <li>掌握脂肪酸的β氧化</li>
+                    <li>掌握酮体的生成与利用</li>
+                    <li>掌握脂肪酸的合成</li>
+                    <li>掌握胆固醇的合成与调节</li>
+                    <li>了解血脂与脂蛋白代谢</li>
+                </ul>
+            </div>
+
+            <h4>11. 核酸代谢</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>嘌呤核苷酸的合成与分解</li>
+                    <li>嘧啶核苷酸的合成与分解</li>
+                    <li>核苷酸代谢的调节</li>
+                    <li>核酸的分解</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握嘌呤核苷酸的合成与分解</li>
+                    <li>掌握嘧啶核苷酸的合成与分解</li>
+                    <li>掌握核苷酸代谢的调节</li>
+                    <li>了解核酸的分解</li>
+                </ul>
+            </div>
+
+            <h4>12. 蛋白质降解和氨基酸代谢</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>蛋白质的营养价值</li>
+                    <li>蛋白质的消化、吸收与腐败</li>
+                    <li>氨基酸的一般代谢</li>
+                    <li>氨的代谢</li>
+                    <li>个别氨基酸的代谢</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>了解蛋白质的营养价值</li>
+                    <li>了解蛋白质的消化、吸收与腐败</li>
+                    <li>掌握氨基酸的一般代谢</li>
+                    <li>掌握氨的代谢</li>
+                    <li>掌握个别氨基酸的代谢</li>
+                </ul>
+            </div>
+
+            <h4>13. 基因组复制、修复和转录</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>DNA复制的基本特点</li>
+                    <li>DNA复制的酶学和拓扑学问题</li>
+                    <li>原核生物DNA复制过程</li>
+                    <li>真核生物DNA复制的特点</li>
+                    <li>逆转录和其他复制方式</li>
+                    <li>DNA损伤（突变）的类型</li>
+                    <li>DNA修复的基本途径</li>
+                    <li>DNA重组的概念及基本类型</li>
+                    <li>转录的基本过程</li>
+                    <li>原核生物的转录过程</li>
+                    <li>真核生物转录的特点</li>
+                    <li>真核生物mRNA的加工过程</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握DNA复制的基本特点</li>
+                    <li>掌握DNA复制的酶学和拓扑学问题</li>
+                    <li>掌握原核生物DNA复制过程</li>
+                    <li>掌握真核生物DNA复制的特点</li>
+                    <li>了解逆转录和其他复制方式</li>
+                    <li>掌握DNA损伤（突变）的类型</li>
+                    <li>掌握DNA修复的基本途径</li>
+                    <li>掌握DNA重组的概念及基本类型</li>
+                    <li>掌握转录的基本过程</li>
+                    <li>掌握原核生物的转录过程</li>
+                    <li>掌握真核生物转录的特点</li>
+                    <li>掌握真核生物mRNA的加工过程</li>
+                </ul>
+            </div>
+
+            <h4>14. 蛋白质合成和转运</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>遗传密码</li>
+                    <li>tRNA的结构与功能</li>
+                    <li>氨酰-tRNA合成酶</li>
+                    <li>核糖体的结构与功能</li>
+                    <li>原核生物蛋白质合成过程</li>
+                    <li>真核生物蛋白质合成的特点</li>
+                    <li>蛋白质合成后的加工修饰</li>
+                    <li>蛋白质的转运</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握遗传密码</li>
+                    <li>掌握tRNA的结构与功能</li>
+                    <li>掌握氨酰-tRNA合成酶</li>
+                    <li>掌握核糖体的结构与功能</li>
+                    <li>掌握原核生物蛋白质合成过程</li>
+                    <li>掌握真核生物蛋白质合成的特点</li>
+                    <li>掌握蛋白质合成后的加工修饰</li>
+                    <li>掌握蛋白质的转运</li>
+                </ul>
+            </div>
+
+            <h4>15. 细胞代谢与基因表达调控</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>基因表达调控的基本概念</li>
+                    <li>原核生物基因表达的调控</li>
+                    <li>真核生物基因表达的调控</li>
+                    <li>转录后调控</li>
+                    <li>翻译调控</li>
+                    <li>蛋白质活性调控</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握基因表达调控的基本概念</li>
+                    <li>掌握原核生物基因表达的调控</li>
+                    <li>掌握真核生物基因表达的调控</li>
+                    <li>掌握转录后调控</li>
+                    <li>掌握翻译调控</li>
+                    <li>掌握蛋白质活性调控</li>
+                </ul>
+            </div>
+
+            <h4>16. 基因工程和蛋白质工程</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>基因工程的基本概念和原理</li>
+                    <li>基因工程的基本技术</li>
+                    <li>基因工程的应用</li>
+                    <li>蛋白质工程的基本概念</li>
+                    <li>蛋白质工程的基本技术</li>
+                    <li>蛋白质工程的应用</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握基因工程的基本概念和原理</li>
+                    <li>掌握基因工程的基本技术</li>
+                    <li>了解基因工程的应用</li>
+                    <li>掌握蛋白质工程的基本概念</li>
+                    <li>掌握蛋白质工程的基本技术</li>
+                    <li>了解蛋白质工程的应用</li>
+                </ul>
+            </div>
+
+            <h4>17. 真核基因调控原理</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>真核基因的结构特点</li>
+                    <li>真核基因转录调控元件</li>
+                    <li>转录因子的结构与功能</li>
+                    <li>染色质结构与基因表达</li>
+                    <li>表观遗传学调控</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>掌握真核基因的结构特点</li>
+                    <li>掌握真核基因转录调控元件</li>
+                    <li>掌握转录因子的结构与功能</li>
+                    <li>掌握染色质结构与基因表达</li>
+                    <li>了解表观遗传学调控</li>
+                </ul>
+            </div>
+
+            <h4>18. 高等动物基因表达</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>高等动物基因表达的特点</li>
+                    <li>发育过程中的基因表达调控</li>
+                    <li>组织特异性基因表达</li>
+                    <li>激素调控基因表达</li>
+                    <li>细胞周期与基因表达</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>了解高等动物基因表达的特点</li>
+                    <li>了解发育过程中的基因表达调控</li>
+                    <li>了解组织特异性基因表达</li>
+                    <li>了解激素调控基因表达</li>
+                    <li>了解细胞周期与基因表达</li>
+                </ul>
+            </div>
+
+            <h4>19. 病毒分子生物学</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>病毒的基本特征</li>
+                    <li>病毒的分类</li>
+                    <li>病毒的复制周期</li>
+                    <li>病毒与宿主的相互作用</li>
+                    <li>病毒在分子生物学研究中的应用</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>了解病毒的基本特征</li>
+                    <li>了解病毒的分类</li>
+                    <li>了解病毒的复制周期</li>
+                    <li>了解病毒与宿主的相互作用</li>
+                    <li>了解病毒在分子生物学研究中的应用</li>
+                </ul>
+            </div>
+
+            <h4>20. 植物基因工程</h4>
+
+            <h5>考试内容</h5>
+            <div class="content-section">
+                <ul>
+                    <li>植物基因工程的特点</li>
+                    <li>植物转化技术</li>
+                    <li>转基因植物的检测</li>
+                    <li>转基因植物的应用</li>
+                    <li>植物基因工程的安全性</li>
+                </ul>
+            </div>
+
+            <h5>考试要求</h5>
+            <div class="requirements-section">
+                <ul>
+                    <li>了解植物基因工程的特点</li>
+                    <li>了解植物转化技术</li>
+                    <li>了解转基因植物的检测</li>
+                    <li>了解转基因植物的应用</li>
+                    <li>了解植物基因工程的安全性</li>
+                </ul>
+            </div>
+
+            <h3>五、主要参考教材</h3>
+            <div class="references">
+                <ol>
+                    <li>王镜岩、朱圣庚、徐长法主编，《生物化学》（第三版），高等教育出版社，2002年</li>
+                    <li>朱玉贤、李毅主编，《现代分子生物学》（第四版），高等教育出版社，2013年</li>
+                    <li>杨荣武主编，《生物化学原理》（第二版），高等教育出版社，2006年</li>
+                    <li>卢圣栋主编，《生物化学》（第五版），人民卫生出版社，2008年</li>
+                    <li>沈同、王镜岩主编，《生物化学》（第三版），高等教育出版社，1990年</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 编制信息 -->
+        <div class="footer-info">
+            <p><strong>编制单位：</strong>中国科学院大学</p>
+            <p><strong>编制时间：</strong>2024年</p>
+            <p><strong>适用对象：</strong>硕士研究生入学考试</p>
+        </div>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <script>
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 添加返回顶部功能
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 300) {
+                if (!document.getElementById('back-to-top')) {
+                    const backToTop = document.createElement('div');
+                    backToTop.id = 'back-to-top';
+                    backToTop.innerHTML = '↑';
+                    backToTop.style.cssText = `
+                        position: fixed;
+                        bottom: 30px;
+                        right: 30px;
+                        width: 50px;
+                        height: 50px;
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        color: white;
+                        border: none;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        font-size: 20px;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                        transition: all 0.3s ease;
+                        z-index: 1000;
+                    `;
+                    backToTop.addEventListener('click', function() {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                    backToTop.addEventListener('mouseenter', function() {
+                        this.style.transform = 'scale(1.1)';
+                        this.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+                    });
+                    backToTop.addEventListener('mouseleave', function() {
+                        this.style.transform = 'scale(1)';
+                        this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                    });
+                    document.body.appendChild(backToTop);
+                }
+            } else {
+                const backToTop = document.getElementById('back-to-top');
+                if (backToTop) {
+                    backToTop.remove();
+                }
+            }
+        });
+
+        // 打印功能
+        function printPage() {
+            window.print();
+        }
+
+        // 添加打印按钮
+        window.addEventListener('load', function() {
+            const printButton = document.createElement('div');
+            printButton.innerHTML = '🖨️';
+            printButton.title = '打印页面';
+            printButton.style.cssText = `
+                position: fixed;
+                bottom: 90px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+                z-index: 1000;
+            `;
+            printButton.addEventListener('click', printPage);
+            printButton.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+            });
+            printButton.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+            });
+            document.body.appendChild(printButton);
+        });
+    </script>
+</body>
+</html>

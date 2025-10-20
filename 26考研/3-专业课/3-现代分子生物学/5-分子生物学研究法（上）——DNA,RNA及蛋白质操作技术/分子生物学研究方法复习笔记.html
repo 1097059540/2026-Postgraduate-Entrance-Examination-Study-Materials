@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分子生物学研究法（上）——DNA、RNA及蛋白质操作技术 复习笔记</title>
+    <style>
+        /* 全局样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题样式 */
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 段落和列表样式 */
+        p {
+            margin-bottom: 15px;
+            text-indent: 2em;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本样式 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .code {
+            font-family: Consolas, monospace;
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #c0392b;
+        }
+
+        /* 名词解释样式 */
+        .term-definition {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background-color: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background-color: white;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-answer {
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+        }
+
+        .diagram-caption {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>分子生物学研究法（上）——DNA、RNA及蛋白质操作技术</h1>
+        <p style="text-align: center; color: #7f8c8d; font-style: italic;">基于《现代分子生物学》第五版 朱玉贤主编 · 考研复习笔记</p>
+
+        <!-- 核心内容板块 -->
+        <h2>第一部分：核心知识要点</h2>
+
+        <h3>一、重组DNA技术基础</h3>
+        <p><span class="emphasis">重组DNA技术</span>是现代分子生物学的核心技术，通过体外重组不同来源的DNA分子，构建重组载体，实现基因克隆和表达。</p>
+        
+        <h4>1. 基因克隆的基本步骤</h4>
+        <ol>
+            <li><strong>目的基因的获取</strong>：通过PCR扩增、cDNA合成或基因组DNA提取获得</li>
+            <li><strong>载体的选择和处理</strong>：质粒载体、噬菌体载体、人工染色体载体等</li>
+            <li><strong>DNA连接</strong>：使用DNA连接酶将目的基因与载体连接</li>
+            <li><strong>转化</strong>：将重组载体导入宿主细胞</li>
+            <li><strong>筛选和鉴定</strong>：通过抗性筛选和分子鉴定确认重组子</li>
+        </ol>
+
+        <h4>2. 载体系统分类</h4>
+        <ul>
+            <li><strong>质粒载体</strong>：pBR322、pUC系列，适合小片段DNA克隆（<10kb）</li>
+            <li><strong>噬菌体载体</strong>：λ噬菌体载体，适合中等大小DNA片段（10-20kb）</li>
+            <li><strong>人工染色体载体</strong>：YAC、BAC、PAC，适合大片段DNA克隆（>100kb）</li>
+        </ul>
+
+        <h3>二、PCR技术原理与应用</h3>
+        <p><span class="emphasis">聚合酶链式反应（PCR）</span>是体外扩增特定DNA序列的技术，具有高特异性、高敏感性和快速便捷的特点。</p>
+
+        <h4>1. PCR反应原理</h4>
+        <p>PCR反应包含三个基本步骤，在热循环仪中重复进行：</p>
+        <ol>
+            <li><strong>变性（Denaturation）</strong>：94-96°C，DNA双链解开</li>
+            <li><strong>退火（Annealing）</strong>：50-65°C，引物与模板结合</li>
+            <li><strong>延伸（Extension）</strong>：72°C，DNA聚合酶合成新链</li>
+        </ol>
+
+        <h4>2. PCR反应体系组成</h4>
+        <ul>
+            <li><strong>模板DNA</strong>：含有目标序列的DNA</li>
+            <li><strong>引物</strong>：正向和反向引物，长度通常为18-25个核苷酸</li>
+            <li><strong>DNA聚合酶</strong>：耐热DNA聚合酶，如Taq酶</li>
+            <li><strong>dNTPs</strong>：四种脱氧核苷三磷酸</li>
+            <li><strong>缓冲液</strong>：维持适宜的pH和离子强度</li>
+            <li><strong>Mg²⁺</strong>：DNA聚合酶的辅助因子</li>
+        </ul>
+
+        <h4>3. PCR技术的改进与应用</h4>
+        <ul>
+            <li><strong>实时荧光PCR（qPCR）</strong>：定量检测DNA/RNA，使用SYBR Green I或TaqMan探针</li>
+            <li><strong>逆转录PCR（RT-PCR）</strong>：检测RNA，先逆转录成cDNA再PCR扩增</li>
+            <li><strong>巢式PCR</strong>：提高特异性，使用两轮PCR扩增</li>
+            <li><strong>多重PCR</strong>：同时扩增多个目标序列</li>
+        </ul>
+
+        <h3>三、核酸电泳技术</h3>
+        <p>核酸电泳是分离和分析DNA、RNA的基本技术，基于核酸分子在电场中的迁移速率差异。</p>
+
+        <h4>1. 琼脂糖凝胶电泳</h4>
+        <ul>
+            <li><strong>原理</strong>：DNA在琼脂糖凝胶中按分子量大小分离</li>
+            <li><strong>应用</strong>：DNA片段大小分析、纯化回收</li>
+            <li><strong>检测方法</strong>：溴化乙锭（EB）染色、SYBR Safe等安全染料</li>
+        </ul>
+
+        <h4>2. 聚丙烯酰胺凝胶电泳（PAGE）</h4>
+        <ul>
+            <li><strong>变性PAGE</strong>：分离单链DNA/RNA，使用尿素变性剂</li>
+            <li><strong>非变性PAGE</strong>：保持核酸二级结构，分析蛋白质-核酸相互作用</li>
+        </ul>
+
+        <h3>四、RNA操作技术</h3>
+        <p>RNA操作技术包括RNA提取、逆转录、RNA干扰等，是研究基因表达和功能的重要手段。</p>
+
+        <h4>1. RNA提取与纯化</h4>
+        <ul>
+            <li><strong>总RNA提取</strong>：TRIzol法、柱纯化法</li>
+            <li><strong>mRNA纯化</strong>：Oligo(dT)磁珠法，利用poly(A)尾巴</li>
+            <li><strong>非编码RNA分离</strong>：差异离心、凝胶电泳分离</li>
+        </ul>
+
+        <h4>2. cDNA合成技术</h4>
+        <p><span class="emphasis">互补DNA（cDNA）</span>合成是以mRNA为模板，通过逆转录酶合成的DNA拷贝。</p>
+        <ul>
+            <li><strong>引物选择</strong>：Oligo(dT)、随机引物、基因特异性引物</li>
+            <li><strong>逆转录酶</strong>：M-MLV、SuperScript等</li>
+            <li><strong>方向性克隆</strong>：定向cDNA文库构建</li>
+        </ul>
+
+        <h4>3. RACE技术</h4>
+        <p><span class="emphasis">快速扩增cDNA末端（RACE）</span>技术用于获得完整长度的cDNA序列。</p>
+        <ul>
+            <li><strong>5' RACE</strong>：获得mRNA的5'端序列</li>
+            <li><strong>3' RACE</strong>：获得mRNA的3'端序列</li>
+            <li><strong>RAMPAGE技术</strong>：改进的RACE技术，提高效率和准确性</li>
+        </ul>
+
+        <h3>五、蛋白质操作技术</h3>
+        <p>蛋白质操作技术包括蛋白质分离纯化、结构分析和功能研究等方面。</p>
+
+        <h4>1. 蛋白质电泳技术</h4>
+        <ul>
+            <li><strong>SDS-PAGE</strong>：变性聚丙烯酰胺凝胶电泳，按分子量分离</li>
+            <li><strong>Native-PAGE</strong>：非变性电泳，保持蛋白质天然结构</li>
+            <li><strong>等电聚焦电泳</strong>：按等电点分离蛋白质</li>
+        </ul>
+
+        <h4>2. 二维电泳技术</h4>
+        <ul>
+            <li><strong>2-DE</strong>：等电聚焦+SDS-PAGE，高分辨率蛋白质分离</li>
+            <li><strong>2D-DIGE</strong>：差异凝胶电泳，比较不同样品间蛋白质表达差异</li>
+        </ul>
+
+        <h4>3. 质谱技术</h4>
+        <ul>
+            <li><strong>MALDI-TOF MS</strong>：基质辅助激光解吸电离飞行时间质谱</li>
+            <li><strong>ESI-MS</strong>：电喷雾电离质谱</li>
+            <li><strong>蛋白质组学</strong>：大规模蛋白质鉴定和定量分析</li>
+        </ul>
+
+        <h3>六、基因文库构建技术</h3>
+        <p>基因文库是克隆载体的集合，包含某一生物体的全部或部分基因信息。</p>
+
+        <h4>1. 基因组DNA文库</h4>
+        <ul>
+            <li><strong>构建原理</strong>：将基因组DNA随机切割后克隆到载体中</li>
+            <li><strong>特点</strong>：包含内含子、外显子和调控序列</li>
+            <li><strong>应用</strong>：基因定位、启动子分析</li>
+        </ul>
+
+        <h4>2. cDNA文库</h4>
+        <ul>
+            <li><strong>构建原理</strong>：以mRNA为模板合成cDNA后克隆</li>
+            <li><strong>特点</strong>：只含编码序列，无内含子</li>
+            <li><strong>应用</strong>：基因表达、蛋白质生产</li>
+        </ul>
+
+        <h3>七、现代分子克隆技术</h3>
+        <h4>1. Gateway克隆技术</h4>
+        <p><span class="emphasis">Gateway克隆</span>基于λ噬菌体的位点特异性重组系统，实现高效的基因克隆。</p>
+        <ul>
+            <li><strong>attB×attP重组</strong>：BP反应，产生Entry克隆</li>
+            <li><strong>attL×attR重组</strong>：LR反应，产生Expression克隆</li>
+        </ul>
+
+        <h4>2. 等温一步法载体构建</h4>
+        <ul>
+            <li><strong>Gibson Assembly</strong>：基于同源重组的无缝克隆</li>
+            <li><strong>In-Fusion克隆</strong>：利用15bp同源序列进行重组</li>
+        </ul>
+
+        <!-- 名词解释库 -->
+        <h2>第二部分：重要名词解释库</h2>
+
+        <div class="term-definition">
+            <div class="term-name">重组DNA技术<span class="term-english">(Recombinant DNA Technology)</span></div>
+            <p>将不同来源的DNA分子在体外进行切割和重新组合，构建具有新遗传特性的重组DNA分子的技术。是现代分子生物学和基因工程的核心技术。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">聚合酶链式反应<span class="term-english">(Polymerase Chain Reaction, PCR)</span></div>
+            <p>一种体外扩增特定DNA序列的技术，通过变性、退火、延伸三步循环，实现DNA的指数级扩增。具有高特异性、高敏感性和快速便捷的特点。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">载体<span class="term-english">(Vector)</span></div>
+            <p>能够自主复制并携带外源DNA片段的DNA分子，包括质粒载体、噬菌体载体、人工染色体载体等。载体是基因克隆的重要工具。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">互补DNA<span class="term-english">(Complementary DNA, cDNA)</span></div>
+            <p>以mRNA为模板，通过逆转录酶合成的DNA拷贝。cDNA只包含编码序列，不含内含子，常用于基因表达和蛋白质生产。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">基因文库<span class="term-english">(Gene Library)</span></div>
+            <p>包含某一生物体全部或部分基因信息的克隆载体集合。分为基因组DNA文库和cDNA文库两大类。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">RACE技术<span class="term-english">(Rapid Amplification of cDNA Ends)</span></div>
+            <p>快速扩增cDNA末端技术，用于获得完整长度的cDNA序列。包括5' RACE和3' RACE两种方法。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">实时荧光PCR<span class="term-english">(Real-time PCR, qPCR)</span></div>
+            <p>在PCR扩增过程中实时检测产物的技术，可实现DNA/RNA的定量分析。常用SYBR Green I或TaqMan探针进行检测。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">二维电泳<span class="term-english">(Two-Dimensional Electrophoresis, 2-DE)</span></div>
+            <p>结合等电聚焦和SDS-PAGE的蛋白质分离技术，可实现高分辨率的蛋白质分离，广泛应用于蛋白质组学研究。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">Gateway克隆<span class="term-english">(Gateway Cloning)</span></div>
+            <p>基于λ噬菌体位点特异性重组系统的克隆技术，通过attB×attP和attL×attR重组反应实现高效基因克隆。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">TAIL-PCR<span class="term-english">(Thermal Asymmetric Interlaced PCR)</span></div>
+            <p>热不对称交错PCR技术，用于扩增已知序列侧翼的未知DNA序列，常用于转基因植物的插入位点分析。</p>
+        </div>
+
+        <!-- 选择题测试板块 -->
+        <h2>第三部分：选择题自测</h2>
+        <div class="quiz-container">
+            <p style="text-align: center; font-weight: bold; color: #2c3e50; margin-bottom: 20px;">随机抽取15道题进行测试</p>
+            <div id="quiz-questions"></div>
+            <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+            <div id="quiz-result" class="result"></div>
+        </div>
+
+        <!-- 深度思考题板块 -->
+        <h2>第四部分：深度思考题</h2>
+
+        <div class="thinking-question">
+            <h4>1. 比较分析PCR技术与传统基因克隆技术的优缺点，并论述PCR技术在现代分子生物学研究中的重要地位。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>PCR技术的优点：</strong>
+                        <ul>
+                            <li>快速高效：数小时内完成DNA扩增，而传统克隆需要数天至数周</li>
+                            <li>高特异性：通过引物设计实现特定序列的精确扩增</li>
+                            <li>高敏感性：可从极少量模板（单个细胞）中扩增目标序列</li>
+                            <li>操作简便：自动化程度高，减少人工操作误差</li>
+                            <li>成本较低：不需要复杂的载体构建和细胞培养</li>
+                        </ul>
+                    </li>
+                    <li><strong>PCR技术的缺点：</strong>
+                        <ul>
+                            <li>扩增长度限制：常规PCR难以扩增超过10kb的长片段</li>
+                            <li>引入突变：DNA聚合酶缺乏3'-5'外切酶活性可能引入错误</li>
+                            <li>需要已知序列信息：引物设计需要目标序列的部分信息</li>
+                            <li>污染敏感：高敏感性导致容易受到外源DNA污染</li>
+                        </ul>
+                    </li>
+                    <li><strong>传统基因克隆的优势：</strong>
+                        <ul>
+                            <li>可克隆大片段DNA：载体系统支持大容量基因克隆</li>
+                            <li>保真度高：宿主细胞的修复系统保证序列准确性</li>
+                            <li>稳定保存：克隆子可长期保存和传代</li>
+                            <li>功能研究：可进行基因表达和功能分析</li>
+                        </ul>
+                    </li>
+                    <li><strong>PCR在现代分子生物学中的重要地位：</strong>
+                        <ul>
+                            <li>基因诊断：疾病基因检测、病原体检测</li>
+                            <li>法医学应用：DNA指纹分析、亲子鉴定</li>
+                            <li>进化研究：古DNA分析、系统发育研究</li>
+                            <li>基因工程：基因克隆前的预扩增、定点突变</li>
+                            <li>定量分析：qPCR技术实现基因表达定量检测</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="thinking-question">
+            <h4>2. 详细阐述基因组DNA文库与cDNA文库的构建原理、特点差异及其在分子生物学研究中的不同应用。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>基因组DNA文库构建原理：</strong>
+                        <ul>
+                            <li>DNA提取：从细胞或组织中提取完整的基因组DNA</li>
+                            <li>随机切割：使用限制性内切酶或物理方法将基因组DNA切割成适当大小的片段</li>
+                            <li>载体连接：将DNA片段与载体连接形成重组分子</li>
+                            <li>转化筛选：将重组载体导入宿主细胞并筛选阳性克隆</li>
+                        </ul>
+                    </li>
+                    <li><strong>cDNA文库构建原理：</strong>
+                        <ul>
+                            <li>mRNA提取：从特定组织或细胞中提取总RNA或mRNA</li>
+                            <li>逆转录：使用逆转录酶以mRNA为模板合成第一链cDNA</li>
+                            <li>第二链合成：合成互补的第二链形成双链cDNA</li>
+                            <li>载体克隆：将cDNA插入载体并转化宿主细胞</li>
+                        </ul>
+                    </li>
+                    <li><strong>两种文库的主要差异：</strong>
+                        <ul>
+                            <li>序列完整性：基因组文库包含完整基因结构（外显子+内含子+调控序列），cDNA文库仅含编码序列</li>
+                            <li>大小差异：基因组文库片段较大，cDNA文库片段相对较小</li>
+                            <li>表达特异性：cDNA文库反映特定时期、组织的基因表达模式</li>
+                            <li>克隆难度：基因组文库构建相对简单，cDNA文库需要高质量RNA</li>
+                        </ul>
+                    </li>
+                    <li><strong>应用领域差异：</strong>
+                        <ul>
+                            <li>基因组文库应用：基因定位与作图、启动子和调控序列分析、基因组结构研究、转基因动物构建</li>
+                            <li>cDNA文库应用：蛋白质表达与纯化、基因功能研究、药物靶点筛选、进化分析</li>
+                            <li>互补使用：基因组文库提供结构信息，cDNA文库提供功能信息</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="thinking-question">
+            <h4>3. 分析蛋白质组学研究中二维电泳技术的原理、优势及局限性，并讨论质谱技术如何弥补这些不足。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>二维电泳技术原理：</strong>
+                        <ul>
+                            <li>第一维等电聚焦：蛋白质在pH梯度中迁移至其等电点位置</li>
+                            <li>第二维SDS-PAGE：按分子量大小进一步分离蛋白质</li>
+                            <li>检测显色：银染、考马斯亮蓝染色或荧光标记检测</li>
+                            <li>图像分析：计算机辅助分析蛋白质斑点的位置、强度和体积</li>
+                        </ul>
+                    </li>
+                    <li><strong>二维电泳的优势：</strong>
+                        <ul>
+                            <li>高分辨率：可同时分离数千个蛋白质</li>
+                            <li>直观性：蛋白质表达模式一目了然</li>
+                            <li>定量分析：可比较不同条件下蛋白质表达差异</li>
+                            <li>重现性：标准化操作保证结果可重复</li>
+                            <li>成本效益：相对经济的蛋白质组学研究方法</li>
+                        </ul>
+                    </li>
+                    <li><strong>二维电泳的局限性：</strong>
+                        <ul>
+                            <li>动态范围有限：难以检测低丰度蛋白质</li>
+                            <li>疏水蛋白问题：膜蛋白等疏水蛋白难以溶解和分离</li>
+                            <li>极端pI蛋白：极酸性或极碱性蛋白质分离困难</li>
+                            <li>分子量限制：极大或极小分子量蛋白质分离效果差</li>
+                            <li>操作复杂：需要熟练技术和标准化流程</li>
+                        </ul>
+                    </li>
+                    <li><strong>质谱技术的补充作用：</strong>
+                        <ul>
+                            <li>蛋白质鉴定：通过肽质量指纹图谱或串联质谱确定蛋白质身份</li>
+                            <li>定量蛋白质组学：SILAC、iTRAQ、TMT等标记技术实现精确定量</li>
+                            <li>翻译后修饰分析：磷酸化、糖基化、泛素化等修饰的检测</li>
+                            <li>蛋白质相互作用：免疫共沉淀结合质谱分析蛋白质复合物</li>
+                            <li>无凝胶方法：液相色谱-质谱联用技术避免凝胶电泳的局限性</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="thinking-question">
+            <h4>4. 论述现代基因克隆技术（如Gateway克隆、Gibson Assembly）相比传统限制酶克隆的技术革新及其在功能基因组学研究中的应用前景。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>传统限制酶克隆的局限性：</strong>
+                        <ul>
+                            <li>酶切位点依赖：需要合适的限制酶切位点，限制了克隆灵活性</li>
+                            <li>多步骤操作：酶切、去磷酸化、连接等多个步骤，效率较低</li>
+                            <li>方向性问题：需要特殊设计保证插入方向正确</li>
+                            <li>载体改造困难：更换载体需要重新设计克隆策略</li>
+                        </ul>
+                    </li>
+                    <li><strong>Gateway克隆技术革新：</strong>
+                        <ul>
+                            <li>位点特异性重组：基于λ噬菌体重组系统，无需限制酶</li>
+                            <li>方向性保证：attB和attP位点确保正确方向插入</li>
+                            <li>载体转换便利：一次克隆可转换到多种表达载体</li>
+                            <li>高通量兼容：适合大规模基因克隆项目</li>
+                            <li>减少操作步骤：BP和LR反应简化克隆流程</li>
+                        </ul>
+                    </li>
+                    <li><strong>Gibson Assembly技术优势：</strong>
+                        <ul>
+                            <li>无缝克隆：基于同源重组，无需引入额外序列</li>
+                            <li>多片段组装：可同时组装多个DNA片段</li>
+                            <li>灵活性高：不依赖特定酶切位点</li>
+                            <li>一步反应：等温条件下完成组装</li>
+                            <li>高效率：组装成功率高，背景低</li>
+                        </ul>
+                    </li>
+                    <li><strong>在功能基因组学中的应用前景：</strong>
+                        <ul>
+                            <li>高通量基因功能研究：快速构建基因过表达或敲除载体</li>
+                            <li>合成生物学：设计和构建人工生物系统</li>
+                            <li>代谢工程：重构代谢途径，优化产物合成</li>
+                            <li>蛋白质工程：快速构建突变体文库进行定向进化</li>
+                            <li>基因治疗载体：高效构建治疗性基因载体</li>
+                            <li>农业生物技术：作物改良和新品种培育</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="thinking-question">
+            <h4>5. 结合具体实例，分析RNA干扰技术与CRISPR基因编辑技术在基因功能研究中的应用原理、优缺点比较及发展趋势。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>RNA干扰技术原理与应用：</strong>
+                        <ul>
+                            <li>作用机制：小干扰RNA（siRNA）引导RISC复合物特异性降解目标mRNA</li>
+                            <li>应用实例：线虫基因功能研究、植物抗病毒、哺乳动物基因敲减</li>
+                            <li>技术优势：操作简便、成本低廉、可逆性、适合高通量筛选</li>
+                            <li>局限性：敲减效率不稳定、脱靶效应、无法完全敲除基因</li>
+                        </ul>
+                    </li>
+                    <li><strong>CRISPR基因编辑技术原理：</strong>
+                        <ul>
+                            <li>作用机制：Cas9蛋白在gRNA引导下特异性切割目标DNA序列</li>
+                            <li>编辑类型：基因敲除、敲入、点突变、表观遗传修饰</li>
+                            <li>应用实例：疾病模型构建、基因治疗、作物改良、药物筛选</li>
+                        </ul>
+                    </li>
+                    <li><strong>两种技术的比较分析：</strong>
+                        <ul>
+                            <li>作用层面：RNAi作用于转录后水平，CRISPR作用于DNA水平</li>
+                            <li>效果持久性：RNAi效果可逆且短暂，CRISPR产生永久性改变</li>
+                            <li>特异性：CRISPR特异性更高，脱靶效应相对较少</li>
+                            <li>技术难度：RNAi操作更简便，CRISPR需要更精确的设计</li>
+                            <li>应用范围：CRISPR应用更广泛，可进行多种类型的基因编辑</li>
+                        </ul>
+                    </li>
+                    <li><strong>发展趋势与前景：</strong>
+                        <ul>
+                            <li>技术融合：RNAi与CRISPR结合使用，实现时空特异性调控</li>
+                            <li>精确度提升：碱基编辑、引导编辑等技术提高编辑精确度</li>
+                            <li>递送系统优化：改进载体和递送方法，提高体内应用效率</li>
+                            <li>安全性增强：减少脱靶效应，提高临床应用安全性</li>
+                            <li>应用拓展：从基础研究扩展到临床治疗和农业应用</li>
+                            <li>伦理规范：建立完善的伦理审查和监管体系</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #bdc3c7; color: #7f8c8d;">
+            <p>本复习笔记基于《现代分子生物学》第五版（朱玉贤主编）及相关权威资料整理</p>
+            <p>适用于中国科学院大学硕士研究生入学考试复习</p>
+        </footer>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "PCR反应中，变性步骤的温度通常是：",
+                options: ["A. 50-65°C", "B. 72°C", "C. 94-96°C", "D. 37°C"],
+                correct: 2,
+                explanation: "PCR反应的变性步骤需要在94-96°C的高温下进行，以使DNA双链完全解开。50-65°C是退火温度，72°C是延伸温度，37°C是常规酶反应温度。"
+            },
+            {
+                question: "下列哪种载体最适合克隆大片段DNA（>100kb）？",
+                options: ["A. pBR322质粒", "B. λ噬菌体载体", "C. YAC载体", "D. pUC质粒"],
+                correct: 2,
+                explanation: "YAC（酵母人工染色体）载体可以克隆100kb以上的大片段DNA。pBR322和pUC质粒适合小片段（<10kb），λ噬菌体载体适合中等大小片段（10-20kb）。"
+            },
+            {
+                question: "cDNA文库与基因组DNA文库的主要区别是：",
+                options: ["A. 构建方法不同", "B. cDNA文库不含内含子", "C. 载体类型不同", "D. 宿主细胞不同"],
+                correct: 1,
+                explanation: "cDNA文库是以mRNA为模板通过逆转录合成的，因此不含内含子，只包含编码序列。而基因组DNA文库包含完整的基因结构，包括内含子、外显子和调控序列。"
+            },
+            {
+                question: "实时荧光PCR中，SYBR Green I的检测原理是：",
+                options: ["A. 与单链DNA结合", "B. 与双链DNA结合", "C. 与RNA结合", "D. 与蛋白质结合"],
+                correct: 1,
+                explanation: "SYBR Green I是一种双链DNA特异性结合染料，只有与双链DNA结合时才发出荧光，因此可以实时监测PCR产物的生成。"
+            },
+            {
+                question: "Gateway克隆技术基于以下哪种生物学原理？",
+                options: ["A. 限制酶切割", "B. λ噬菌体重组系统", "C. 转座子插入", "D. 同源重组"],
+                correct: 1,
+                explanation: "Gateway克隆技术基于λ噬菌体的位点特异性重组系统，通过attB×attP和attL×attR重组反应实现基因的高效克隆。"
+            },
+            {
+                question: "下列哪种技术不属于蛋白质分离纯化方法？",
+                options: ["A. SDS-PAGE", "B. 等电聚焦", "C. PCR扩增", "D. 离子交换色谱"],
+                correct: 2,
+                explanation: "PCR扩增是DNA扩增技术，不是蛋白质分离纯化方法。SDS-PAGE、等电聚焦和离子交换色谱都是常用的蛋白质分离纯化技术。"
+            },
+            {
+                question: "RACE技术的主要用途是：",
+                options: ["A. DNA测序", "B. 获得完整长度cDNA", "C. 蛋白质表达", "D. 基因敲除"],
+                correct: 1,
+                explanation: "RACE（快速扩增cDNA末端）技术主要用于获得完整长度的cDNA序列，包括5' RACE和3' RACE两种方法。"
+            },
+            {
+                question: "二维电泳技术的第一维分离原理是：",
+                options: ["A. 分子量大小", "B. 等电点差异", "C. 疏水性差异", "D. 电荷密度"],
+                correct: 1,
+                explanation: "二维电泳的第一维是等电聚焦，根据蛋白质的等电点差异进行分离；第二维是SDS-PAGE，根据分子量大小进行分离。"
+            },
+            {
+                question: "下列哪种酶是PCR反应的必需组分？",
+                options: ["A. 限制性内切酶", "B. DNA连接酶", "C. 耐热DNA聚合酶", "D. 逆转录酶"],
+                correct: 2,
+                explanation: "PCR反应需要耐热DNA聚合酶（如Taq酶）来合成新的DNA链。限制性内切酶用于DNA切割，DNA连接酶用于DNA连接，逆转录酶用于RNA逆转录。"
+            },
+            {
+                question: "蛋白质质谱分析中，MALDI-TOF的全称是：",
+                options: ["A. 基质辅助激光解吸电离飞行时间质谱", "B. 电喷雾电离质谱", "C. 四极杆质谱", "D. 离子阱质谱"],
+                correct: 0,
+                explanation: "MALDI-TOF是Matrix-Assisted Laser Desorption/Ionization Time-of-Flight的缩写，即基质辅助激光解吸电离飞行时间质谱。"
+            },
+            {
+                question: "下列关于载体的描述，错误的是：",
+                options: ["A. 载体必须具有复制起点", "B. 载体需要有选择标记", "C. 载体只能在原核细胞中复制", "D. 载体需要有多克隆位点"],
+                correct: 2,
+                explanation: "载体可以在原核细胞（如大肠杆菌）或真核细胞（如酵母、哺乳动物细胞）中复制，不仅限于原核细胞。载体确实需要复制起点、选择标记和多克隆位点。"
+            },
+            {
+                question: "RT-PCR技术中的RT指的是：",
+                options: ["A. 实时检测", "B. 逆转录", "C. 重复序列", "D. 限制酶"],
+                correct: 1,
+                explanation: "RT-PCR中的RT指Reverse Transcription（逆转录），即先将RNA逆转录成cDNA，再进行PCR扩增。Real-time PCR通常缩写为qPCR。"
+            },
+            {
+                question: "下列哪种方法不能用于RNA的检测？",
+                options: ["A. Northern blot", "B. RT-PCR", "C. Southern blot", "D. 原位杂交"],
+                correct: 2,
+                explanation: "Southern blot是用于检测DNA的方法，不能直接检测RNA。Northern blot、RT-PCR和原位杂交都可以用于RNA的检测。"
+            },
+            {
+                question: "基因克隆中，转化效率的单位通常是：",
+                options: ["A. cfu/μg DNA", "B. mg/ml", "C. U/ml", "D. bp/min"],
+                correct: 0,
+                explanation: "转化效率通常用每微克DNA产生的菌落形成单位（colony forming units, cfu）来表示，即cfu/μg DNA。"
+            },
+            {
+                question: "下列关于PCR引物设计的原则，错误的是：",
+                options: ["A. 引物长度通常为18-25个核苷酸", "B. 引物的Tm值应该相近", "C. 引物3'端应避免互补", "D. 引物越长特异性越差"],
+                correct: 3,
+                explanation: "引物越长特异性越好，不是越差。长引物能提供更多的特异性结合位点，减少非特异性扩增。其他选项都是正确的引物设计原则。"
+            },
+            {
+                question: "蛋白质电泳中，SDS的主要作用是：",
+                options: ["A. 提供缓冲环境", "B. 使蛋白质变性并带负电荷", "C. 增加凝胶强度", "D. 提高分离效率"],
+                correct: 1,
+                explanation: "SDS（十二烷基硫酸钠）是一种强变性剂，能够破坏蛋白质的二级和三级结构，并使蛋白质均匀带负电荷，从而实现按分子量大小分离。"
+            },
+            {
+                question: "下列哪种技术可以用于蛋白质相互作用研究？",
+                options: ["A. 酵母双杂交", "B. PCR扩增", "C. DNA测序", "D. 限制酶分析"],
+                correct: 0,
+                explanation: "酵母双杂交系统是研究蛋白质相互作用的经典方法。PCR扩增用于DNA扩增，DNA测序用于序列分析，限制酶分析用于DNA结构分析。"
+            },
+            {
+                question: "基因文库筛选中，菌落原位杂交的原理是：",
+                options: ["A. 抗体-抗原反应", "B. 酶-底物反应", "C. 核酸分子杂交", "D. 蛋白质-蛋白质相互作用"],
+                correct: 2,
+                explanation: "菌落原位杂交基于核酸分子间的互补配对原理，使用标记的探针与目标基因序列杂交，从而筛选出含有目标基因的克隆。"
+            },
+            {
+                question: "下列关于cDNA合成的描述，正确的是：",
+                options: ["A. 以DNA为模板", "B. 需要DNA聚合酶", "C. 需要逆转录酶", "D. 产物是单链RNA"],
+                correct: 2,
+                explanation: "cDNA合成是以mRNA为模板，在逆转录酶的作用下合成互补DNA（cDNA）的过程。产物是双链DNA，不是单链RNA。"
+            },
+            {
+                question: "蛋白质组学研究中，2D-DIGE技术的优势是：",
+                options: ["A. 操作简便", "B. 可比较不同样品", "C. 成本低廉", "D. 检测范围广"],
+                correct: 1,
+                explanation: "2D-DIGE（差异凝胶电泳）技术的主要优势是可以在同一块凝胶上比较不同样品间的蛋白质表达差异，减少凝胶间的变异。"
+            },
+            {
+                question: "下列哪种方法不属于基因表达调控研究技术？",
+                options: ["A. 启动子分析", "B. RNA干扰", "C. DNA指纹分析", "D. 转录因子结合实验"],
+                correct: 2,
+                explanation: "DNA指纹分析主要用于个体识别和亲子鉴定，不是基因表达调控研究技术。启动子分析、RNA干扰和转录因子结合实验都是研究基因表达调控的重要方法。"
+            },
+            {
+                question: "PCR产物的电泳检测中，DNA分子迁移的方向是：",
+                options: ["A. 从负极向正极", "B. 从正极向负极", "C. 随机迁移", "D. 不发生迁移"],
+                correct: 0,
+                explanation: "DNA分子带负电荷，在电场中会从负极向正极迁移。分子量小的DNA片段迁移得更快，分子量大的迁移得较慢。"
+            },
+            {
+                question: "下列关于基因组DNA文库的描述，错误的是：",
+                options: ["A. 包含完整的基因结构", "B. 含有内含子和外显子", "C. 只包含编码序列", "D. 可用于启动子分析"],
+                correct: 2,
+                explanation: "基因组DNA文库包含完整的基因结构，包括内含子、外显子和调控序列，不是只包含编码序列。只包含编码序列的是cDNA文库。"
+            },
+            {
+                question: "蛋白质质谱分析前通常需要进行的处理是：",
+                options: ["A. DNA扩增", "B. 蛋白质酶解", "C. RNA逆转录", "D. 基因克隆"],
+                correct: 1,
+                explanation: "蛋白质质谱分析前通常需要用胰蛋白酶等蛋白酶将蛋白质酶解成肽段，然后对肽段进行质谱分析，通过肽质量指纹图谱鉴定蛋白质。"
+            },
+            {
+                question: "下列哪种技术可以实现基因的定量检测？",
+                options: ["A. 常规PCR", "B. 实时荧光PCR", "C. 凝胶电泳", "D. 限制酶分析"],
+                correct: 1,
+                explanation: "实时荧光PCR（qPCR）可以实时监测PCR产物的生成，通过荧光信号的强度变化实现基因的定量检测。常规PCR只能定性检测。"
+            },
+            {
+                question: "载体中多克隆位点（MCS）的作用是：",
+                options: ["A. 提供复制起点", "B. 提供选择标记", "C. 提供外源基因插入位点", "D. 提供转录终止信号"],
+                correct: 2,
+                explanation: "多克隆位点（Multiple Cloning Site, MCS）包含多个限制酶切位点，为外源基因的插入提供便利的切割和连接位点。"
+            },
+            {
+                question: "下列关于RNA提取的注意事项，最重要的是：",
+                options: ["A. 低温操作", "B. 防止RNase污染", "C. 避光操作", "D. 无菌操作"],
+                correct: 1,
+                explanation: "RNA提取最重要的是防止RNase污染，因为RNase在环境中广泛存在且非常稳定，会快速降解RNA。需要使用RNase-free的试剂和器具。"
+            },
+            {
+                question: "Gibson Assembly技术的主要优势是：",
+                options: ["A. 需要限制酶", "B. 操作复杂", "C. 无缝克隆", "D. 成本高昂"],
+                correct: 2,
+                explanation: "Gibson Assembly技术的主要优势是无缝克隆，基于同源重组原理，不需要限制酶，可以将多个DNA片段在等温条件下高效组装。"
+            },
+            {
+                question: "下列哪种方法可以用于检测蛋白质翻译后修饰？",
+                options: ["A. Western blot", "B. 质谱分析", "C. 免疫共沉淀", "D. 以上都可以"],
+                correct: 3,
+                explanation: "Western blot可以检测特定修饰的抗体，质谱分析可以精确检测修饰位点和类型，免疫共沉淀可以研究修饰相关的蛋白质相互作用，因此都可以用于检测蛋白质翻译后修饰。"
+            },
+            {
+                question: "TAIL-PCR技术主要用于：",
+                options: ["A. 基因定量", "B. 扩增未知侧翼序列", "C. 蛋白质表达", "D. RNA检测"],
+                correct: 1,
+                explanation: "TAIL-PCR（热不对称交错PCR）技术主要用于扩增已知序列侧翼的未知DNA序列，常用于转基因植物的插入位点分析和基因步移。"
+            }
+        ];
+
+        // 随机选择15道题的函数
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目的函数
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 将选中的题目存储到全局变量中
+            window.currentQuestions = selectedQuestions;
+        }
+
+        // 提交答案的函数
+        function submitQuiz() {
+            const resultDiv = document.getElementById('quiz-result');
+            let score = 0;
+            let resultHTML = '<h4>测试结果</h4>';
+            
+            window.currentQuestions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                const isCorrect = selectedOption && parseInt(selectedOption.value) === q.correct;
+                
+                if (isCorrect) {
+                    score++;
+                }
+                
+                resultHTML += `
+                    <div class="${isCorrect ? 'correct' : 'incorrect'}" style="margin: 10px 0; padding: 10px; border-radius: 5px;">
+                        <strong>第${index + 1}题：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / 15) * 100);
+            resultHTML = `<div style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">
+                <strong>得分：${score}/15 (${percentage}%)</strong>
+            </div>` + resultHTML;
+            
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.classList.add('show');
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载完成后自动生成题目
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

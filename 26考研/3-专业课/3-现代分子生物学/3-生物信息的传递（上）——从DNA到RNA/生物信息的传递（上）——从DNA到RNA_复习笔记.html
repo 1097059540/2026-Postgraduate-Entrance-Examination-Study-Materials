@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生物信息的传递（上）——从DNA到RNA 复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+
+        .important {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        .glossary {
+            background: #e8f5e8;
+            border-left: 5px solid #27ae60;
+        }
+
+        .glossary-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .glossary-term {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 1.1em;
+        }
+
+        .glossary-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .quiz-section {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+        }
+
+        .question {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .essay-section {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+        }
+
+        .essay-question {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .essay-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .essay-answer ol {
+            padding-left: 20px;
+        }
+
+        .essay-answer li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            border-radius: 8px;
+            color: #666;
+            font-style: italic;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .code {
+            font-family: Consolas, monospace;
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>生物信息的传递（上）</h1>
+            <p>从DNA到RNA——转录过程的分子机制</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、RNA的结构特点与功能分类</h2>
+                
+                <h3>1.1 RNA的基本结构特征</h3>
+                <p>RNA（核糖核酸）是生物体内重要的遗传信息载体，具有以下结构特点：</p>
+                <ul>
+                    <li><strong>单链结构：</strong>与DNA的双链结构不同，RNA通常以单链形式存在</li>
+                    <li><strong>局部双螺旋：</strong>通过分子内碱基配对形成发夹结构、茎环结构等二级结构</li>
+                    <li><strong>复杂三级结构：</strong>具有复杂的空间折叠，形成特定的功能域</li>
+                    <li><strong>环状RNA：</strong>部分RNA可形成闭合的环状结构</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>重要提示：</strong>RNA的结构多样性是其功能多样性的基础，不同的二级和三级结构决定了RNA的特定生物学功能。
+                </div>
+
+                <h3>1.2 RNA的功能分类</h3>
+                <h4>1.2.1 信使RNA（mRNA）</h4>
+                <ul>
+                    <li>携带遗传信息从DNA传递到蛋白质合成机器</li>
+                    <li>作为蛋白质合成的模板</li>
+                    <li>在真核生物中经历复杂的转录后加工过程</li>
+                </ul>
+
+                <h4>1.2.2 转移RNA（tRNA）</h4>
+                <ul>
+                    <li>转运特定氨基酸到核糖体</li>
+                    <li>具有三叶草型二级结构和L型三级结构</li>
+                    <li>含有反密码子，识别mRNA上的密码子</li>
+                </ul>
+
+                <h4>1.2.3 核糖体RNA（rRNA）</h4>
+                <ul>
+                    <li>构成核糖体的主要成分</li>
+                    <li>具有催化肽键形成的核酶活性</li>
+                    <li>参与蛋白质合成的调控</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>二、转录的基本过程</h2>
+                
+                <h3>2.1 转录的定义与意义</h3>
+                <p>转录是以DNA为模板合成RNA的过程，是基因表达的第一步。转录过程遵循碱基互补配对原则，但使用核糖核苷酸而非脱氧核糖核苷酸。</p>
+
+                <h3>2.2 转录的三个阶段</h3>
+                
+                <h4>2.2.1 起始阶段</h4>
+                <ul>
+                    <li><strong>模板识别：</strong>RNA聚合酶识别并结合到启动子序列</li>
+                    <li><strong>闭合复合物形成：</strong>RNA聚合酶与启动子结合但DNA双链未解开</li>
+                    <li><strong>开放复合物形成：</strong>DNA双链解开，形成转录泡</li>
+                    <li><strong>起始合成：</strong>开始RNA链的合成</li>
+                </ul>
+
+                <h4>2.2.2 延伸阶段</h4>
+                <ul>
+                    <li>RNA聚合酶沿DNA模板链移动</li>
+                    <li>连续添加核糖核苷酸</li>
+                    <li>具有校对功能，确保转录准确性</li>
+                    <li>转录泡随聚合酶移动而移动</li>
+                </ul>
+
+                <h4>2.2.3 终止阶段</h4>
+                <ul>
+                    <li><strong>内源性终止：</strong>依赖DNA序列形成的发夹结构</li>
+                    <li><strong>Rho依赖性终止：</strong>需要Rho蛋白参与的终止机制</li>
+                    <li>RNA聚合酶从DNA模板上解离</li>
+                    <li>新合成的RNA释放</li>
+                </ul>
+
+                <div class="image-placeholder">
+                    转录过程示意图：起始→延伸→终止
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>三、原核生物与真核生物转录的比较</h2>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>比较项目</th>
+                            <th>原核生物</th>
+                            <th>真核生物</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>RNA聚合酶种类</strong></td>
+                            <td>1种（核心酶+σ因子）</td>
+                            <td>3种（Pol I、Pol II、Pol III）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>转录产物</strong></td>
+                            <td>所有RNA类型</td>
+                            <td>Pol I：rRNA；Pol II：mRNA；Pol III：tRNA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>启动子结构</strong></td>
+                            <td>-10区（Pribnow盒）、-35区</td>
+                            <td>TATA盒、CAAT盒、GC盒</td>
+                        </tr>
+                        <tr>
+                            <td><strong>转录因子</strong></td>
+                            <td>σ因子</td>
+                            <td>通用转录因子（TFIIA、TFIIB等）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>转录与翻译</strong></td>
+                            <td>偶联进行</td>
+                            <td>时空分离</td>
+                        </tr>
+                        <tr>
+                            <td><strong>转录后加工</strong></td>
+                            <td>无或简单</td>
+                            <td>复杂（5'加帽、3'加尾、剪接）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>mRNA特征</strong></td>
+                            <td>多顺反子、短半衰期</td>
+                            <td>单顺反子、长半衰期</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.1 原核生物转录特点</h3>
+                <div class="important">
+                    <h4>关键特征：</h4>
+                    <ul>
+                        <li><strong>转录翻译偶联：</strong>转录和翻译在时间和空间上同时进行</li>
+                        <li><strong>多顺反子mRNA：</strong>一个mRNA分子可编码多个蛋白质</li>
+                        <li><strong>Shine-Dalgarno序列：</strong>核糖体结合位点，位于起始密码子上游</li>
+                        <li><strong>无5'帽和3'尾：</strong>mRNA缺乏真核生物特有的修饰</li>
+                    </ul>
+                </div>
+
+                <h3>3.2 真核生物转录特点</h3>
+                <div class="important">
+                    <h4>关键特征：</h4>
+                    <ul>
+                        <li><strong>转录翻译分离：</strong>转录在核内，翻译在胞质</li>
+                        <li><strong>单顺反子mRNA：</strong>一个mRNA只编码一个蛋白质</li>
+                        <li><strong>5'帽结构：</strong>7-甲基鸟苷酸帽，增强稳定性和翻译效率</li>
+                        <li><strong>3'多聚腺苷酸尾：</strong>poly(A)尾，提高mRNA稳定性</li>
+                        <li><strong>内含子剪接：</strong>去除内含子，保留外显子</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>四、RNA聚合酶与转录调控</h2>
+                
+                <h3>4.1 原核生物RNA聚合酶</h3>
+                <h4>4.1.1 酶的组成</h4>
+                <ul>
+                    <li><strong>核心酶：</strong>α₂ββ'ω，具有转录延伸活性</li>
+                    <li><strong>全酶：</strong>核心酶+σ因子，具有转录起始活性</li>
+                    <li><strong>σ因子：</strong>识别启动子，调控转录起始</li>
+                </ul>
+
+                <h4>4.1.2 σ因子的作用</h4>
+                <ul>
+                    <li>识别和结合启动子的-10和-35区</li>
+                    <li>协助RNA聚合酶与启动子结合</li>
+                    <li>不同σ因子调控不同基因的转录</li>
+                    <li>转录起始后从核心酶上解离</li>
+                </ul>
+
+                <h3>4.2 真核生物RNA聚合酶</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>聚合酶</th>
+                            <th>细胞定位</th>
+                            <th>转录产物</th>
+                            <th>相对活性</th>
+                            <th>α-鹅膏毒素敏感性</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pol I</strong></td>
+                            <td>核仁</td>
+                            <td>大部分rRNA</td>
+                            <td>60%</td>
+                            <td>不敏感</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pol II</strong></td>
+                            <td>核质</td>
+                            <td>mRNA、多数非编码RNA</td>
+                            <td>30%</td>
+                            <td>高度敏感</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pol III</strong></td>
+                            <td>核质</td>
+                            <td>tRNA、5S rRNA</td>
+                            <td>10%</td>
+                            <td>中度敏感</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>4.3 转录前起始复合物的组装</h3>
+                <p>真核生物RNA聚合酶II的转录起始需要多种转录因子参与：</p>
+                <ol>
+                    <li><strong>TFIID结合：</strong>识别TATA盒，形成起始复合物基础</li>
+                    <li><strong>TFIIA和TFIIB结合：</strong>稳定TFIID-DNA复合物</li>
+                    <li><strong>TFIIF-Pol II结合：</strong>将RNA聚合酶II招募到启动子</li>
+                    <li><strong>TFIIE和TFIIH结合：</strong>完成前起始复合物组装</li>
+                    <li><strong>CTD磷酸化：</strong>TFIIH激酶活性磷酸化Pol II，启动转录</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>五、转录后加工与RNA修饰</h2>
+                
+                <h3>5.1 真核生物mRNA的转录后加工</h3>
+                
+                <h4>5.1.1 5'端加帽</h4>
+                <ul>
+                    <li><strong>Cap0：</strong>7-甲基鸟苷酸通过5'-5'三磷酸键连接</li>
+                    <li><strong>Cap1：</strong>Cap0基础上第一个核苷酸2'-OH甲基化</li>
+                    <li><strong>Cap2：</strong>Cap1基础上第二个核苷酸2'-OH甲基化</li>
+                    <li><strong>功能：</strong>保护mRNA免受5'外切酶降解，促进翻译起始</li>
+                </ul>
+
+                <h4>5.1.2 3'端多聚腺苷酸化</h4>
+                <ul>
+                    <li>在多聚腺苷酸化信号序列处切割</li>
+                    <li>添加约200个腺苷酸残基形成poly(A)尾</li>
+                    <li>增强mRNA稳定性和翻译效率</li>
+                    <li>促进mRNA从核质输出到胞质</li>
+                </ul>
+
+                <h4>5.1.3 内含子剪接</h4>
+                <div class="highlight">
+                    <strong>剪接机制：</strong>
+                    <ol>
+                        <li><strong>GU-AG规则：</strong>内含子5'端为GU，3'端为AG</li>
+                        <li><strong>两步转酯反应：</strong>
+                            <ul>
+                                <li>第一步：分支点腺苷酸2'-OH攻击5'剪接位点</li>
+                                <li>第二步：5'外显子3'-OH攻击3'剪接位点</li>
+                            </ul>
+                        </li>
+                        <li><strong>剪接体参与：</strong>由snRNA和蛋白质组成的核糖核蛋白复合物</li>
+                        <li><strong>套索结构：</strong>剪接过程中内含子形成套索状中间产物</li>
+                    </ol>
+                </div>
+
+                <h3>5.2 RNA编辑与化学修饰</h3>
+                
+                <h4>5.2.1 RNA编辑</h4>
+                <ul>
+                    <li><strong>插入/缺失编辑：</strong>在特定位点插入或删除核苷酸</li>
+                    <li><strong>替换编辑：</strong>改变特定核苷酸的化学结构</li>
+                    <li><strong>生物学意义：</strong>纠错、调控翻译、扩展遗传信息</li>
+                </ul>
+
+                <h4>5.2.2 RNA化学修饰</h4>
+                <ul>
+                    <li>甲基化、硫代化、双键饱和化</li>
+                    <li>脱氨基、碱基异构化、核苷酸替换</li>
+                    <li>snoRNA指导的修饰过程</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section glossary">
+                <h2>六、名词解释库</h2>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">转录 <span class="glossary-english">(Transcription)</span></div>
+                    <p>以DNA为模板，在RNA聚合酶催化下合成RNA的过程。是基因表达的第一步，遵循碱基互补配对原则。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">RNA聚合酶 <span class="glossary-english">(RNA Polymerase)</span></div>
+                    <p>催化RNA合成的酶类。原核生物有1种，真核生物有3种（Pol I、Pol II、Pol III），分别转录不同类型的RNA。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">启动子 <span class="glossary-english">(Promoter)</span></div>
+                    <p>位于基因上游的DNA序列，RNA聚合酶识别和结合的位点。原核生物主要包含-10区和-35区，真核生物包含TATA盒等元件。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">σ因子 <span class="glossary-english">(Sigma Factor)</span></div>
+                    <p>原核生物RNA聚合酶的亚基，负责识别启动子序列，调控转录起始的特异性。不同σ因子调控不同基因的转录。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">多顺反子mRNA <span class="glossary-english">(Polycistronic mRNA)</span></div>
+                    <p>原核生物特有的mRNA类型，一个mRNA分子携带多个开放阅读框，可翻译产生多个蛋白质。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">5'帽结构 <span class="glossary-english">(5' Cap Structure)</span></div>
+                    <p>真核生物mRNA 5'端的修饰结构，由7-甲基鸟苷酸通过5'-5'三磷酸键连接形成，保护mRNA并促进翻译起始。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">剪接体 <span class="glossary-english">(Spliceosome)</span></div>
+                    <p>由小核RNA（snRNA）和蛋白质组成的核糖核蛋白复合物，负责催化真核生物mRNA前体的内含子剪接。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">内含子 <span class="glossary-english">(Intron)</span></div>
+                    <p>基因中不编码蛋白质的DNA序列，在转录后加工过程中被剪除。真核生物基因普遍含有内含子。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">外显子 <span class="glossary-english">(Exon)</span></div>
+                    <p>基因中编码蛋白质的DNA序列，在转录后加工过程中被保留，最终出现在成熟mRNA中。</p>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-term">转录因子 <span class="glossary-english">(Transcription Factor, TF)</span></div>
+                    <p>能够与DNA特异性结合并调控基因转录的蛋白质。包括通用转录因子和特异性转录因子。</p>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section quiz-section">
+                <h2>七、选择题测试</h2>
+                <p><strong>说明：</strong>以下15道题目从30道题库中随机抽取，测试你对RNA转录相关知识的掌握程度。</p>
+                
+                <div id="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                
+                <div id="quiz-result" class="result">
+                    <!-- 结果将通过JavaScript显示 -->
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section essay-section">
+                <h2>八、深度思考题</h2>
+                
+                <div class="essay-question">
+                    <h3>1. 比较分析原核生物和真核生物转录调控机制的异同，并阐述这些差异的生物学意义。</h3>
+                    <div class="essay-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>转录起始调控的差异：</strong>原核生物主要依赖σ因子识别启动子，调控相对简单；真核生物需要多种通用转录因子协同作用，调控更加精细。这种差异反映了真核生物基因表达调控的复杂性需求。</li>
+                            <li><strong>转录后调控的差异：</strong>真核生物具有复杂的转录后加工机制（5'加帽、3'加尾、剪接），而原核生物基本没有。这使得真核生物能够通过选择性剪接等机制从有限的基因产生更多样的蛋白质。</li>
+                            <li><strong>时空调控的差异：</strong>原核生物转录翻译偶联，响应迅速；真核生物转录翻译分离，允许更精细的调控。这种差异适应了不同生物的生存环境和复杂性需求。</li>
+                            <li><strong>进化意义：</strong>真核生物复杂的转录调控机制是多细胞生物发育和分化的基础，使得相同基因组能够产生不同类型的细胞。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <h3>2. 详细阐述真核生物mRNA转录后加工的分子机制及其生物学功能。</h3>
+                    <div class="essay-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>5'端加帽机制：</strong>转录起始后，5'三磷酸基团被磷酸酶去除一个磷酸基团，然后鸟苷酸转移酶催化GMP与5'二磷酸基团结合，最后甲基转移酶进行甲基化修饰。此过程保护mRNA免受降解，并促进翻译起始。</li>
+                            <li><strong>3'端多聚腺苷酸化：</strong>在多聚腺苷酸化信号序列（AAUAAA）和下游富含GU或U的序列指导下，切割和多聚腺苷酸化特异性因子（CPSF）等蛋白质复合物催化前mRNA切割并添加poly(A)尾。此修饰增强mRNA稳定性和翻译效率。</li>
+                            <li><strong>内含子剪接机制：</strong>剪接体识别剪接位点（5'端GU、3'端AG）和分支点序列，通过两步转酯反应去除内含子。第一步形成套索中间产物，第二步连接外显子并释放内含子。此过程去除非编码序列，产生成熟mRNA。</li>
+                            <li><strong>生物学功能：</strong>这些加工过程不仅确保mRNA的稳定性和翻译效率，还提供了基因表达调控的额外层次，如选择性剪接产生蛋白质异构体，poly(A)尾长度调控mRNA寿命等。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <h3>3. 分析RNA聚合酶II转录前起始复合物的组装过程，并讨论各转录因子的功能。</h3>
+                    <div class="essay-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>TFIID的核心作用：</strong>TFIID包含TATA结合蛋白（TBP）和多个TBP相关因子（TAFs），首先识别并结合TATA盒，形成转录前起始复合物的基础平台。TBP结合导致DNA弯曲，为后续因子结合创造条件。</li>
+                            <li><strong>TFIIA和TFIIB的稳定功能：</strong>TFIIA稳定TBP-DNA复合物，防止抑制因子干扰；TFIIB识别TFIIB识别元件（BRE），进一步稳定复合物并为RNA聚合酶II招募提供平台。</li>
+                            <li><strong>TFIIF的载体功能：</strong>TFIIF作为RNA聚合酶II的载体蛋白，将聚合酶招募到启动子区域，并协助形成稳定的聚合酶-启动子复合物。</li>
+                            <li><strong>TFIIE和TFIIH的激活功能：</strong>TFIIE招募TFIIH到转录前起始复合物；TFIIH具有ATP酶和激酶活性，其激酶活性磷酸化RNA聚合酶II的C端结构域（CTD），促进转录起始和聚合酶从启动子逃逸。</li>
+                            <li><strong>协同调控意义：</strong>这种多因子协同的组装机制提供了精确的转录调控，允许细胞根据需要精细调节基因表达水平。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <h3>4. 论述RNA编辑和化学修饰的分子机制及其在基因表达调控中的作用。</h3>
+                    <div class="essay-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>RNA编辑的类型与机制：</strong>包括插入/缺失编辑（如锥虫中的尿嘧啶插入/缺失）和替换编辑（如哺乳动物中的C→U编辑）。编辑过程由特定的编辑酶复合物催化，如ADAR（腺苷脱氨酶）和APOBEC（载脂蛋白B mRNA编辑酶）。</li>
+                            <li><strong>化学修饰的多样性：</strong>RNA化学修饰包括甲基化、假尿苷化、硫代修饰等。这些修饰主要由snoRNA指导的snoRNP复合物催化，修饰位点具有高度特异性。</li>
+                            <li><strong>功能调控机制：</strong>RNA编辑可以改变密码子含义，产生不同的蛋白质异构体；化学修饰影响RNA的稳定性、折叠和功能。例如，rRNA的修饰影响核糖体功能，tRNA的修饰影响翻译准确性。</li>
+                            <li><strong>进化与适应意义：</strong>RNA编辑和修饰扩展了基因组编码能力，使有限的基因能够产生更多样的功能分子。这种机制在神经系统发育和功能中尤为重要，为生物体适应环境变化提供了额外的调控层次。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="essay-question">
+                    <h3>5. 分析增强子的作用机制及其在真核基因转录调控中的重要性。</h3>
+                    <div class="essay-answer">
+                        <strong>参考答案：</strong>
+                        <ol>
+                            <li><strong>增强子的结构特征：</strong>增强子是能够增强基因转录的DNA调控序列，具有方向无关性、距离无关性和位置无关性。它们可以位于基因的上游、下游或内含子中，距离目标基因数千碱基对甚至更远。</li>
+                            <li><strong>作用机制：</strong>增强子通过结合特异性转录因子形成增强子复合物，然后通过DNA环化或染色质重塑与启动子区域发生物理接触。这种接触促进转录前起始复合物的组装和稳定，显著提高转录效率。</li>
+                            <li><strong>组织特异性调控：</strong>不同组织表达不同的转录因子，使得相同的增强子在不同组织中发挥不同的调控作用。这是实现组织特异性基因表达的重要机制。</li>
+                            <li><strong>信号响应性：</strong>增强子能够响应外界信号（如激素、生长因子、环境刺激），通过信号转导途径激活相应的转录因子，实现基因表达的动态调控。</li>
+                            <li><strong>疾病相关性：</strong>增强子功能异常与多种疾病相关，包括癌症和遗传病。理解增强子机制对于基因治疗和药物开发具有重要意义。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "RNA与DNA相比，其结构特点不包括：",
+                options: ["A. 通常为单链结构", "B. 含有核糖", "C. 含有胸腺嘧啶", "D. 可形成复杂的二级结构"],
+                correct: 2,
+                explanation: "RNA含有尿嘧啶（U）而不是胸腺嘧啶（T）。RNA的其他特点包括单链结构、含有核糖、可形成复杂的二级和三级结构。"
+            },
+            {
+                question: "原核生物RNA聚合酶的σ因子主要功能是：",
+                options: ["A. 催化磷酸二酯键形成", "B. 识别和结合启动子", "C. 参与转录终止", "D. 校对转录错误"],
+                correct: 1,
+                explanation: "σ因子是原核生物RNA聚合酶的亚基，主要功能是识别和结合启动子序列，特别是-10区和-35区，调控转录起始的特异性。"
+            },
+            {
+                question: "真核生物中，RNA聚合酶II主要转录：",
+                options: ["A. rRNA", "B. tRNA", "C. mRNA", "D. 所有RNA"],
+                correct: 2,
+                explanation: "真核生物有三种RNA聚合酶：Pol I转录大部分rRNA，Pol II转录mRNA和多数非编码RNA，Pol III转录tRNA和5S rRNA。"
+            },
+            {
+                question: "真核生物mRNA的5'帽结构的主要功能不包括：",
+                options: ["A. 保护mRNA免受5'外切酶降解", "B. 促进翻译起始", "C. 参与内含子剪接", "D. 增强mRNA稳定性"],
+                correct: 2,
+                explanation: "5'帽结构的主要功能是保护mRNA、促进翻译起始和增强稳定性。内含子剪接是由剪接体完成的，与5'帽结构无直接关系。"
+            },
+            {
+                question: "原核生物启动子的核心序列包括：",
+                options: ["A. TATA盒和CAAT盒", "B. -10区和-35区", "C. GC盒和TATA盒", "D. 增强子和启动子"],
+                correct: 1,
+                explanation: "原核生物启动子的核心序列是-10区（Pribnow盒，共有序列TATAAT）和-35区（共有序列TTGACA），它们被σ因子识别。"
+            },
+            {
+                question: "内含子剪接遵循的规则是：",
+                options: ["A. AU-GC规则", "B. GU-AG规则", "C. CG-AT规则", "D. UA-CG规则"],
+                correct: 1,
+                explanation: "内含子剪接遵循GU-AG规则，即内含子的5'端为GU序列，3'端为AG序列。这是剪接体识别剪接位点的重要信号。"
+            },
+            {
+                question: "多顺反子mRNA主要存在于：",
+                options: ["A. 真核生物", "B. 原核生物", "C. 病毒", "D. 所有生物"],
+                correct: 1,
+                explanation: "多顺反子mRNA主要存在于原核生物中，一个mRNA分子可以编码多个蛋白质。真核生物的mRNA通常是单顺反子的。"
+            },
+            {
+                question: "转录泡是指：",
+                options: ["A. RNA聚合酶的结构", "B. DNA双链解开的区域", "C. 转录产物的结构", "D. 启动子的一部分"],
+                correct: 1,
+                explanation: "转录泡是指在转录过程中DNA双链解开形成的单链区域，约12-20个碱基对，RNA聚合酶在此区域进行RNA合成。"
+            },
+            {
+                question: "真核生物转录终止主要依赖于：",
+                options: ["A. Rho蛋白", "B. 发夹结构", "C. 多腺苷酸化信号", "D. σ因子"],
+                correct: 2,
+                explanation: "真核生物RNA聚合酶II的转录终止主要依赖于多腺苷酸化信号序列，转录在该信号下游继续一段距离后终止。"
+            },
+            {
+                question: "剪接体的主要组成成分是：",
+                options: ["A. mRNA和蛋白质", "B. snRNA和蛋白质", "C. rRNA和蛋白质", "D. tRNA和蛋白质"],
+                correct: 1,
+                explanation: "剪接体由小核RNA（snRNA）和蛋白质组成的核糖核蛋白复合物（snRNP），负责催化内含子的剪接。"
+            },
+            {
+                question: "原核生物转录和翻译的关系是：",
+                options: ["A. 时空分离", "B. 偶联进行", "C. 翻译先于转录", "D. 完全独立"],
+                correct: 1,
+                explanation: "原核生物的转录和翻译在时间和空间上偶联进行，mRNA在转录的同时就开始翻译，这提高了基因表达的效率。"
+            },
+            {
+                question: "α-鹅膏毒素对哪种RNA聚合酶最敏感：",
+                options: ["A. RNA聚合酶I", "B. RNA聚合酶II", "C. RNA聚合酶III", "D. 原核RNA聚合酶"],
+                correct: 1,
+                explanation: "α-鹅膏毒素对RNA聚合酶II高度敏感，对RNA聚合酶III中度敏感，对RNA聚合酶I不敏感，对原核RNA聚合酶也不敏感。"
+            },
+            {
+                question: "Shine-Dalgarno序列的功能是：",
+                options: ["A. 转录起始信号", "B. 转录终止信号", "C. 核糖体结合位点", "D. 剪接信号"],
+                correct: 2,
+                explanation: "Shine-Dalgarno序列是原核生物mRNA上的核糖体结合位点，位于起始密码子上游，帮助核糖体识别翻译起始位点。"
+            },
+            {
+                question: "真核生物基因的增强子具有以下特点，除了：",
+                options: ["A. 方向无关性", "B. 距离无关性", "C. 序列特异性", "D. 物种特异性"],
+                correct: 3,
+                explanation: "增强子具有方向无关性、距离无关性和序列特异性，但通常不具有严格的物种特异性，相似的增强子可能在不同物种中发挥类似功能。"
+            },
+            {
+                question: "转录过程中，RNA链的合成方向是：",
+                options: ["A. 3'→5'", "B. 5'→3'", "C. 双向合成", "D. 随机方向"],
+                correct: 1,
+                explanation: "RNA链的合成方向是5'→3'，这与DNA复制的方向相同。RNA聚合酶从模板DNA的3'→5'方向读取信息。"
+            },
+            {
+                question: "原核生物RNA聚合酶核心酶的组成是：",
+                options: ["A. α₂ββ'ω", "B. α₂ββ'ωσ", "C. αββ'ω", "D. α₂β₂ω"],
+                correct: 0,
+                explanation: "原核生物RNA聚合酶核心酶由α₂ββ'ω五个亚基组成，加上σ因子后形成全酶，具有转录起始活性。"
+            },
+            {
+                question: "真核生物mRNA的poly(A)尾的主要功能不包括：",
+                options: ["A. 增强mRNA稳定性", "B. 促进mRNA输出", "C. 提高翻译效率", "D. 指导内含子剪接"],
+                correct: 3,
+                explanation: "poly(A)尾的功能包括增强稳定性、促进核质输出和提高翻译效率。内含子剪接是由剪接信号和剪接体完成的。"
+            },
+            {
+                question: "转录前起始复合物组装的第一步是：",
+                options: ["A. TFIIB结合", "B. TFIID结合", "C. RNA聚合酶II结合", "D. TFIIH结合"],
+                correct: 1,
+                explanation: "转录前起始复合物组装的第一步是TFIID结合到TATA盒，其中的TBP识别TATA序列，为后续转录因子的结合奠定基础。"
+            },
+            {
+                question: "内含子剪接的第一步反应是：",
+                options: ["A. 5'外显子攻击3'剪接位点", "B. 分支点腺苷酸攻击5'剪接位点", "C. 3'外显子攻击5'剪接位点", "D. 剪接体结合内含子"],
+                correct: 1,
+                explanation: "内含子剪接的第一步是分支点腺苷酸的2'-OH基团攻击5'剪接位点，形成2'-5'磷酸二酯键和游离的5'外显子。"
+            },
+            {
+                question: "原核生物转录终止的Rho依赖性机制需要：",
+                options: ["A. ATP水解提供能量", "B. 发夹结构形成", "C. σ因子参与", "D. DNA聚合酶协助"],
+                correct: 0,
+                explanation: "Rho依赖性转录终止需要Rho蛋白的ATP酶活性，通过ATP水解提供能量，追赶RNA聚合酶并促使其从DNA上解离。"
+            },
+            {
+                question: "真核生物RNA聚合酶I主要转录：",
+                options: ["A. mRNA", "B. tRNA", "C. 大部分rRNA", "D. snRNA"],
+                correct: 2,
+                explanation: "RNA聚合酶I主要在核仁中转录大部分rRNA（18S、5.8S、28S），占细胞总转录活性的约60%。"
+            },
+            {
+                question: "转录因子TFIIH的重要功能是：",
+                options: ["A. 识别TATA盒", "B. 磷酸化RNA聚合酶II", "C. 结合增强子", "D. 催化RNA合成"],
+                correct: 1,
+                explanation: "TFIIH具有激酶活性，能够磷酸化RNA聚合酶II的C端结构域（CTD），这是转录起始和聚合酶从启动子逃逸的关键步骤。"
+            },
+            {
+                question: "RNA编辑的生物学意义不包括：",
+                options: ["A. 纠正转录错误", "B. 调控基因表达", "C. 增加蛋白质多样性", "D. 促进DNA复制"],
+                correct: 3,
+                explanation: "RNA编辑的意义包括纠错、调控表达和增加蛋白质多样性。RNA编辑发生在转录后，与DNA复制无直接关系。"
+            },
+            {
+                question: "原核生物启动子-35区的共有序列是：",
+                options: ["A. TATAAT", "B. TTGACA", "C. AAUAAA", "D. CAAT"],
+                correct: 1,
+                explanation: "原核生物启动子-35区的共有序列是TTGACA，-10区（Pribnow盒）的共有序列是TATAAT，两者都被σ因子识别。"
+            },
+            {
+                question: "真核生物选择性剪接的意义是：",
+                options: ["A. 去除所有内含子", "B. 产生蛋白质异构体", "C. 加快转录速度", "D. 增强mRNA稳定性"],
+                correct: 1,
+                explanation: "选择性剪接允许同一个基因通过不同的剪接方式产生多种mRNA异构体，进而翻译成不同的蛋白质异构体，增加蛋白质多样性。"
+            },
+            {
+                question: "snoRNA的主要功能是：",
+                options: ["A. 参与蛋白质合成", "B. 指导RNA化学修饰", "C. 调控转录起始", "D. 参与DNA复制"],
+                correct: 1,
+                explanation: "小核仁RNA（snoRNA）主要功能是指导其他RNA（特别是rRNA）的化学修饰，如甲基化和假尿苷化。"
+            },
+            {
+                question: "转录泡的大小约为：",
+                options: ["A. 5-8个碱基对", "B. 12-20个碱基对", "C. 25-30个碱基对", "D. 50个碱基对以上"],
+                correct: 1,
+                explanation: "转录泡是RNA聚合酶周围DNA双链解开的区域，大小约为12-20个碱基对，为RNA合成提供单链DNA模板。"
+            },
+            {
+                question: "真核生物基因内含子的进化意义可能包括：",
+                options: ["A. 增加基因重组频率", "B. 便于选择性剪接", "C. 提供调控元件插入位点", "D. 以上都是"],
+                correct: 3,
+                explanation: "内含子的进化意义包括：增加重组频率促进进化、提供选择性剪接的基础、为调控元件提供插入位点等多个方面。"
+            },
+            {
+                question: "原核生物mRNA缺乏以下哪种结构：",
+                options: ["A. 5'非翻译区", "B. 3'非翻译区", "C. 5'帽结构", "D. 开放阅读框"],
+                correct: 2,
+                explanation: "原核生物mRNA缺乏5'帽结构和长的poly(A)尾，这些是真核生物mRNA特有的修饰。原核生物mRNA有5'和3'非翻译区以及开放阅读框。"
+            },
+            {
+                question: "核酶的定义是：",
+                options: ["A. 核内的蛋白酶", "B. 具有催化活性的RNA", "C. 核糖体的组成部分", "D. 核酸合成酶"],
+                correct: 1,
+                explanation: "核酶是具有催化活性的RNA分子，能够催化特定的生化反应。例如，核糖体中的rRNA具有肽基转移酶活性，剪接体中的snRNA参与剪接反应。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            userAnswers = [];
+            let score = 0;
+            
+            selectedQuestions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                userAnswers.push(userAnswer);
+                
+                if (userAnswer === q.correct) {
+                    score++;
+                }
+            });
+            
+            displayResults(score);
+        }
+
+        function displayResults(score) {
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((score / selectedQuestions.length) * 100);
+            
+            let resultHTML = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}/${selectedQuestions.length} (${percentage}%)</strong></p>
+            `;
+            
+            if (percentage >= 80) {
+                resultDiv.className = 'result show correct';
+                resultHTML += '<p>🎉 优秀！你对RNA转录知识掌握得很好！</p>';
+            } else if (percentage >= 60) {
+                resultDiv.className = 'result show';
+                resultDiv.style.background = '#fff3cd';
+                resultDiv.style.border = '1px solid #ffeaa7';
+                resultDiv.style.color = '#856404';
+                resultHTML += '<p>⚠️ 良好，但还需要进一步复习巩固。</p>';
+            } else {
+                resultDiv.className = 'result show incorrect';
+                resultHTML += '<p>❌ 需要加强学习，建议重新复习相关知识点。</p>';
+            }
+            
+            resultHTML += '<h4>详细解析：</h4>';
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                
+                resultHTML += `
+                    <div style="margin: 15px 0; padding: 15px; background: ${isCorrect ? '#d4edda' : '#f8d7da'}; border-radius: 5px;">
+                        <p><strong>第${index + 1}题：</strong>${q.question}</p>
+                        <p><strong>你的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未作答'} ${isCorrect ? '✓' : '✗'}</p>
+                        <p><strong>正确答案：</strong>${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultDiv.innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞生物学绪论 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-family: "KaiTi", "楷体", cursive;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .glossary-term {
+            background: #e8f4f8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .glossary-term strong {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .quiz-container {
+            background: #f1f2f6;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .thinking-question {
+            background: #fff3cd;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .thinking-question h4 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        .answer {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #666;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>细胞生物学绪论</h1>
+            <p>考研专业课复习笔记 | 基于《细胞生物学》第五版 丁明孝主编</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、细胞学与细胞生物学的发展历程</h2>
+                
+                <h3>1. 细胞的发现</h3>
+                <p>1665年，英国物理学家<strong>罗伯特·胡克（Robert Hooke）</strong>使用自制的显微镜观察软木薄片，首次发现了蜂窝状结构，并将其命名为"cell"（细胞），意为"小室"。这标志着细胞发现的开端。</p>
+                
+                <div class="image-placeholder">
+                    胡克观察软木细胞的示意图
+                </div>
+                
+                <p>随后，<strong>列文虎克（Leeuwenhoek）</strong>用显微镜观察到了活细胞，包括细菌、原生动物等微生物，为细胞学研究奠定了基础。</p>
+
+                <h3>2. 细胞学说的建立及其意义</h3>
+                <div class="highlight">
+                    <p><strong>细胞学说</strong>是由德国植物学家<strong>施莱登（Schleiden）</strong>和动物学家<strong>施旺（Schwann）</strong>于1838-1839年提出的关于细胞是动植物结构和生命活动基本单位的学说。</p>
+                </div>
+
+                <p><strong>细胞学说的三个要点：</strong></p>
+                <ol>
+                    <li><strong>细胞是生物体结构的基本单位</strong>：所有生物都由细胞构成</li>
+                    <li><strong>细胞是生物体功能的基本单位</strong>：生命活动是细胞活动的结果</li>
+                    <li><strong>细胞来自细胞</strong>：新细胞只能由已存在的细胞分裂产生（1858年魏尔肖补充）</li>
+                </ol>
+
+                <div class="highlight">
+                    <p><strong>历史意义：</strong>细胞学说论证了整个生物界在结构上的统一性，揭示了细胞的统一性，推动了生物学的发展。恩格斯将细胞学说与能量守恒定律、达尔文进化论并誉为19世纪自然科学的三大发现。</p>
+                </div>
+
+                <h3>3. 细胞生物学学科的形成与发展</h3>
+                <p>细胞生物学是在细胞学基础上发展起来的现代学科，经历了以下发展阶段：</p>
+                <ul>
+                    <li><strong>经典细胞学时期</strong>：主要依靠光学显微镜观察细胞形态结构</li>
+                    <li><strong>实验细胞学时期</strong>：结合生理学、生物化学等方法研究细胞功能</li>
+                    <li><strong>现代细胞生物学时期</strong>：运用电子显微镜、分子生物学技术深入研究细胞</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>二、细胞的同一性与多样性</h2>
+                
+                <h3>1. 细胞是生命活动的基本单位</h3>
+                <p>细胞是地球上最小的具有生命特征的结构单位，具有以下基本特征：</p>
+                <ul>
+                    <li>具有相对独立的、有序的结构</li>
+                    <li>具有获取和转换能量的能力</li>
+                    <li>具有调节自身与环境相互作用的能力</li>
+                    <li>具有繁殖能力</li>
+                    <li>具有遗传和变异的特性</li>
+                </ul>
+
+                <h3>2. 细胞的基本类型</h3>
+                <p>根据细胞核结构的不同，细胞可分为三大类型：</p>
+                
+                <div class="highlight">
+                    <h4>（1）原核细胞（Prokaryotic Cell）</h4>
+                    <ul>
+                        <li>无真正的细胞核，遗传物质分散在细胞质中</li>
+                        <li>无核膜包围的细胞器</li>
+                        <li>代表生物：细菌、蓝藻等</li>
+                        <li>结构相对简单，但功能完整</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <h4>（2）古核细胞（Archaeal Cell）</h4>
+                    <ul>
+                        <li>介于原核细胞和真核细胞之间</li>
+                        <li>在分子水平上具有独特性</li>
+                        <li>代表生物：古细菌（甲烷菌、嗜盐菌、嗜热菌等）</li>
+                        <li>生活在极端环境中</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <h4>（3）真核细胞（Eukaryotic Cell）</h4>
+                    <ul>
+                        <li>具有真正的细胞核，遗传物质被核膜包围</li>
+                        <li>具有多种膜结构的细胞器</li>
+                        <li>代表生物：动物、植物、真菌、原生生物</li>
+                        <li>结构复杂，功能高度分化</li>
+                    </ul>
+                </div>
+
+                <h3>3. 病毒及其与细胞的关系</h3>
+                <p>病毒是一类特殊的生物实体，具有以下特点：</p>
+                <ul>
+                    <li><strong>结构特点</strong>：由蛋白质外壳和内部核酸组成，无细胞结构</li>
+                    <li><strong>生活特性</strong>：专性细胞内寄生，离开宿主细胞无法独立生存和繁殖</li>
+                    <li><strong>遗传特性</strong>：具有遗传物质（DNA或RNA），能够遗传和变异</li>
+                    <li><strong>与细胞关系</strong>：必须依赖宿主细胞的代谢系统进行复制</li>
+                </ul>
+
+                <div class="image-placeholder">
+                    病毒结构与细胞结构对比示意图
+                </div>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>三、重要名词解释</h2>
+                
+                <div class="glossary-term">
+                    <strong>细胞学（Cytology）</strong><br>
+                    研究细胞形态结构的学科，主要通过显微镜观察细胞的形态、结构和组成。
+                </div>
+
+                <div class="glossary-term">
+                    <strong>细胞生物学（Cell Biology）</strong><br>
+                    在细胞学基础上发展起来的现代学科，运用现代技术手段研究细胞的结构、功能及其生命活动规律。
+                </div>
+
+                <div class="glossary-term">
+                    <strong>细胞学说（Cell Theory）</strong><br>
+                    关于细胞是动植物结构和生命活动基本单位的学说，包括三个要点：细胞是生物体结构的基本单位、细胞是生物体功能的基本单位、细胞来自细胞。
+                </div>
+
+                <div class="glossary-term">
+                    <strong>原生质体（Protoplast）</strong><br>
+                    去除细胞壁后的植物细胞，包括细胞膜、细胞质和细胞核等结构。
+                </div>
+
+                <div class="glossary-term">
+                    <strong>原核细胞（Prokaryotic Cell）</strong><br>
+                    无真正细胞核的细胞类型，遗传物质分散在细胞质中，如细菌和蓝藻。
+                </div>
+
+                <div class="glossary-term">
+                    <strong>真核细胞（Eukaryotic Cell）</strong><br>
+                    具有真正细胞核的细胞类型，遗传物质被核膜包围，具有多种膜结构细胞器。
+                </div>
+
+                <div class="glossary-term">
+                    <strong>病毒（Virus）</strong><br>
+                    由蛋白质外壳和核酸组成的非细胞生物实体，专性细胞内寄生。
+                </div>
+
+                <div class="glossary-term">
+                    <strong>支原体（Mycoplasma）</strong><br>
+                    目前已知最小的能够独立生活的细胞，无细胞壁，直径约0.1-0.3微米。
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>四、选择题测试</h2>
+                <div class="quiz-container" id="quizContainer">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quizResult" class="result"></div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>五、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试论述细胞学说建立的历史意义及其对现代生物学发展的影响。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>统一了生物界的认识：</strong>细胞学说首次从结构层面统一了对动植物的认识，证明了所有生物都具有共同的基本结构单位——细胞，这为生物界的统一性提供了科学依据。</li>
+                            <li><strong>奠定了生物学理论基础：</strong>细胞学说与达尔文进化论、能量守恒定律并称为19世纪自然科学三大发现，为现代生物学的发展奠定了坚实的理论基础。</li>
+                            <li><strong>推动了相关学科发展：</strong>细胞学说的建立直接推动了细胞生物学、分子生物学、遗传学、发育生物学等学科的发展，为这些学科提供了基本的理论框架。</li>
+                            <li><strong>指导了医学实践：</strong>魏尔肖将细胞学说应用于病理学，提出"一切细胞来自细胞"，为现代医学的发展，特别是疾病机理的研究提供了重要指导。</li>
+                            <li><strong>促进了技术进步：</strong>细胞学说的发展促进了显微镜技术、细胞培养技术、分子标记技术等的发展，这些技术反过来又推动了细胞生物学研究的深入。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较分析原核细胞、古核细胞和真核细胞的主要特征及其进化意义。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>结构特征比较：</strong>原核细胞无真正的细胞核和膜结构细胞器；古核细胞在某些方面类似原核细胞，但在分子水平上具有独特性；真核细胞具有真正的细胞核和复杂的膜系统。</li>
+                            <li><strong>遗传物质组织：</strong>原核细胞的DNA分散在细胞质中；古核细胞的DNA组织方式介于原核和真核之间；真核细胞的DNA被核膜包围，形成染色体结构。</li>
+                            <li><strong>代谢特征：</strong>原核细胞代谢途径相对简单但高效；古核细胞具有独特的代谢途径，能适应极端环境；真核细胞代谢复杂，具有高度分化的细胞器。</li>
+                            <li><strong>进化意义：</strong>三种细胞类型代表了生命进化的不同阶段，从简单到复杂，从低等到高等，体现了生命进化的连续性和阶段性。</li>
+                            <li><strong>生态适应性：</strong>不同类型的细胞适应不同的生态环境，共同构成了地球生物圈的多样性，为生态系统的稳定性提供了基础。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 病毒是否为生命体？请从生命的基本特征角度进行分析论证。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>支持病毒为生命体的观点：</strong>病毒具有遗传物质（DNA或RNA），能够遗传和变异；能够在宿主细胞内进行复制和繁殖；对环境变化有一定的适应能力；具有进化特征。</li>
+                            <li><strong>反对病毒为生命体的观点：</strong>病毒无细胞结构，不符合细胞学说；无独立的代谢能力，必须依赖宿主细胞；离开宿主细胞无法独立生存和繁殖；无生长现象。</li>
+                            <li><strong>现代观点：</strong>病毒被认为是介于生命体和非生命体之间的特殊存在，是"边缘生命"或"准生命体"，它们具有生命的某些特征，但不完全符合传统生命定义。</li>
+                            <li><strong>生物学意义：</strong>病毒的存在扩展了我们对生命概念的理解，促使科学家重新思考生命的定义和边界，对生命起源研究具有重要意义。</li>
+                            <li><strong>实践意义：</strong>无论如何定义病毒，它们在生态系统中发挥重要作用，在基因工程、疫苗研发等方面具有重要应用价值。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 细胞生物学研究方法的发展对学科进步有何推动作用？</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>显微镜技术的发展：</strong>从光学显微镜到电子显微镜，再到各种新型显微镜技术，使我们能够观察到越来越精细的细胞结构，推动了细胞形态学的发展。</li>
+                            <li><strong>分子标记技术：</strong>荧光标记、免疫标记等技术的发展，使我们能够在活细胞中追踪特定分子的动态变化，推动了细胞功能研究的深入。</li>
+                            <li><strong>细胞培养技术：</strong>体外细胞培养技术的建立，为细胞生物学研究提供了可控的实验系统，使得细胞功能的研究成为可能。</li>
+                            <li><strong>分子生物学技术：</strong>DNA重组技术、PCR技术、基因敲除技术等的应用，使我们能够在分子水平上研究细胞功能，推动了细胞分子生物学的发展。</li>
+                            <li><strong>系统生物学方法：</strong>高通量测序、蛋白质组学、代谢组学等技术的发展，使我们能够从系统层面理解细胞功能，推动了细胞生物学向系统化、定量化方向发展。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "首次发现细胞并命名为'cell'的科学家是：",
+                options: ["A. 列文虎克", "B. 罗伯特·胡克", "C. 施莱登", "D. 施旺"],
+                correct: 1,
+                explanation: "1665年，英国物理学家罗伯特·胡克使用显微镜观察软木薄片时首次发现了蜂窝状结构，并将其命名为'cell'（细胞）。"
+            },
+            {
+                question: "细胞学说的建立者是：",
+                options: ["A. 胡克和列文虎克", "B. 施莱登和施旺", "C. 达尔文和孟德尔", "D. 沃森和克里克"],
+                correct: 1,
+                explanation: "细胞学说是由德国植物学家施莱登（1838年）和动物学家施旺（1839年）共同建立的，他们分别从植物和动物角度证明了细胞是生物体的基本单位。"
+            },
+            {
+                question: "'一切细胞来自细胞'这一重要论断是由谁提出的：",
+                options: ["A. 施莱登", "B. 施旺", "C. 魏尔肖", "D. 胡克"],
+                correct: 2,
+                explanation: "1858年，德国病理学家魏尔肖提出了'一切细胞来自细胞'的著名论断，完善了细胞学说，强调新细胞只能由已存在的细胞分裂产生。"
+            },
+            {
+                question: "细胞学说的三个要点不包括：",
+                options: ["A. 细胞是生物体结构的基本单位", "B. 细胞是生物体功能的基本单位", "C. 细胞来自细胞", "D. 细胞都具有细胞壁"],
+                correct: 3,
+                explanation: "细胞学说的三个要点是：细胞是生物体结构的基本单位、细胞是生物体功能的基本单位、细胞来自细胞。并非所有细胞都具有细胞壁，如动物细胞就没有细胞壁。"
+            },
+            {
+                question: "原核细胞的主要特征是：",
+                options: ["A. 有真正的细胞核", "B. 无细胞膜", "C. 遗传物质分散在细胞质中", "D. 具有多种膜结构细胞器"],
+                correct: 2,
+                explanation: "原核细胞的主要特征是无真正的细胞核，遗传物质（DNA）分散在细胞质中，不被核膜包围，且缺乏膜结构的细胞器。"
+            },
+            {
+                question: "下列哪种生物属于原核生物：",
+                options: ["A. 酵母菌", "B. 大肠杆菌", "C. 衣藻", "D. 草履虫"],
+                correct: 1,
+                explanation: "大肠杆菌是细菌，属于原核生物。酵母菌是真菌，衣藻是绿藻，草履虫是原生动物，它们都属于真核生物。"
+            },
+            {
+                question: "病毒的基本结构包括：",
+                options: ["A. 细胞膜和细胞质", "B. 蛋白质外壳和核酸", "C. 细胞壁和细胞核", "D. 线粒体和叶绿体"],
+                correct: 1,
+                explanation: "病毒的基本结构非常简单，主要由蛋白质外壳（衣壳）和内部的核酸（DNA或RNA）组成，没有细胞结构。"
+            },
+            {
+                question: "支原体被认为是：",
+                options: ["A. 最大的病毒", "B. 最小的真核细胞", "C. 最小的能独立生活的细胞", "D. 一种古细菌"],
+                correct: 2,
+                explanation: "支原体是目前已知最小的能够独立生活的细胞，直径约0.1-0.3微米，无细胞壁，属于原核生物。"
+            },
+            {
+                question: "真核细胞与原核细胞的根本区别在于：",
+                options: ["A. 是否有细胞膜", "B. 是否有遗传物质", "C. 是否有真正的细胞核", "D. 是否能进行新陈代谢"],
+                correct: 2,
+                explanation: "真核细胞与原核细胞的根本区别在于是否有真正的细胞核。真核细胞的遗传物质被核膜包围形成细胞核，而原核细胞的遗传物质分散在细胞质中。"
+            },
+            {
+                question: "细胞生物学与细胞学的主要区别在于：",
+                options: ["A. 研究对象不同", "B. 研究方法和技术手段不同", "C. 研究目的不同", "D. 研究历史不同"],
+                correct: 1,
+                explanation: "细胞生物学与细胞学的主要区别在于研究方法和技术手段不同。细胞学主要通过显微镜观察细胞形态，而细胞生物学运用现代技术手段研究细胞的结构、功能及生命活动规律。"
+            },
+            {
+                question: "恩格斯称为19世纪自然科学三大发现的是：",
+                options: ["A. 细胞学说、进化论、遗传定律", "B. 细胞学说、进化论、能量守恒定律", "C. 原子论、进化论、细胞学说", "D. 相对论、量子论、细胞学说"],
+                correct: 1,
+                explanation: "恩格斯将细胞学说、达尔文进化论和能量守恒与转换定律并誉为19世纪自然科学的三大发现。"
+            },
+            {
+                question: "下列关于病毒的叙述，错误的是：",
+                options: ["A. 病毒是专性细胞内寄生的", "B. 病毒具有遗传物质", "C. 病毒能够独立进行新陈代谢", "D. 病毒能够遗传和变异"],
+                correct: 2,
+                explanation: "病毒不能独立进行新陈代谢，必须依赖宿主细胞的代谢系统才能进行复制和繁殖。病毒是专性细胞内寄生的，具有遗传物质，能够遗传和变异。"
+            },
+            {
+                question: "古细菌的特点是：",
+                options: ["A. 具有真正的细胞核", "B. 生活在极端环境中", "C. 具有叶绿体", "D. 细胞壁含有肽聚糖"],
+                correct: 1,
+                explanation: "古细菌的特点是能够生活在极端环境中，如高温、高盐、强酸等环境。它们在分子水平上具有独特性，介于原核细胞和真核细胞之间。"
+            },
+            {
+                question: "细胞学说建立的重要意义不包括：",
+                options: ["A. 论证了生物界结构的统一性", "B. 推动了生物学的发展", "C. 解释了生物的进化机制", "D. 为生物学提供了理论基础"],
+                correct: 2,
+                explanation: "细胞学说主要论证了生物界在结构上的统一性，推动了生物学发展，为生物学提供了理论基础。但细胞学说本身并不直接解释生物的进化机制，进化机制主要由达尔文进化论解释。"
+            },
+            {
+                question: "原生质体是指：",
+                options: ["A. 植物细胞去除细胞壁后的部分", "B. 动物细胞的细胞膜", "C. 细胞核内的遗传物质", "D. 细胞质中的蛋白质"],
+                correct: 0,
+                explanation: "原生质体是指植物细胞去除细胞壁后的部分，包括细胞膜、细胞质和细胞核等结构。这个概念在植物细胞融合和转基因研究中很重要。"
+            },
+            {
+                question: "下列哪项不是生命的基本特征：",
+                options: ["A. 具有有序的结构", "B. 能够获取和转换能量", "C. 具有固定不变的形态", "D. 具有繁殖能力"],
+                correct: 2,
+                explanation: "生命的基本特征包括：具有有序的结构、能够获取和转换能量、能够调节自身与环境的相互作用、具有繁殖能力、具有遗传和变异特性。生物的形态是可以变化的，不是固定不变的。"
+            },
+            {
+                question: "细胞核的发现者是：",
+                options: ["A. 胡克", "B. 列文虎克", "C. 布朗", "D. 施莱登"],
+                correct: 2,
+                explanation: "1833年，英国植物学家罗伯特·布朗在兰科植物细胞的观察中首次发现并命名了'细胞核'（nucleus），这一发现为理解细胞的基本结构奠定了基础。"
+            },
+            {
+                question: "现代细胞生物学的特点是：",
+                options: ["A. 仅使用光学显微镜", "B. 只研究细胞形态", "C. 运用多种现代技术手段", "D. 只关注单个细胞"],
+                correct: 2,
+                explanation: "现代细胞生物学的特点是运用电子显微镜、分子生物学技术、荧光标记技术等多种现代技术手段，从分子水平深入研究细胞的结构、功能及生命活动规律。"
+            },
+            {
+                question: "下列关于真核细胞的叙述，正确的是：",
+                options: ["A. 所有真核细胞都有细胞壁", "B. 真核细胞的遗传物质都是DNA", "C. 真核细胞都具有线粒体", "D. 真核细胞的遗传物质被核膜包围"],
+                correct: 3,
+                explanation: "真核细胞的主要特征是遗传物质被核膜包围形成真正的细胞核。不是所有真核细胞都有细胞壁（如动物细胞），也不是都具有线粒体（如某些厌氧真核生物）。"
+            },
+            {
+                question: "病毒与细胞的主要区别在于：",
+                options: ["A. 病毒更小", "B. 病毒无细胞结构", "C. 病毒无遗传物质", "D. 病毒不能繁殖"],
+                correct: 1,
+                explanation: "病毒与细胞的主要区别在于病毒无细胞结构，只由蛋白质外壳和核酸组成。病毒具有遗传物质，能够在宿主细胞内繁殖，但必须依赖宿主细胞。"
+            },
+            {
+                question: "细胞学说对医学发展的贡献主要体现在：",
+                options: ["A. 发明了显微镜", "B. 建立了细胞病理学", "C. 发现了抗生素", "D. 发明了疫苗"],
+                correct: 1,
+                explanation: "魏尔肖将细胞学说应用到病理学，提出'一切细胞来自细胞'，证明病理过程是在细胞和组织中进行的，从而建立了细胞病理学，为现代医学发展奠定了基础。"
+            },
+            {
+                question: "下列哪种技术不属于现代细胞生物学研究方法：",
+                options: ["A. 电子显微镜", "B. 荧光标记", "C. 肉眼观察", "D. 细胞培养"],
+                correct: 2,
+                explanation: "现代细胞生物学研究方法包括电子显微镜、荧光标记、细胞培养、分子标记等技术。肉眼观察由于分辨率限制，无法观察到细胞结构，不属于细胞生物学研究方法。"
+            },
+            {
+                question: "原核细胞、古核细胞、真核细胞三者的进化关系是：",
+                options: ["A. 同时出现", "B. 原核→古核→真核", "C. 真核→古核→原核", "D. 古核→原核→真核"],
+                correct: 1,
+                explanation: "根据进化理论和化石证据，三种细胞类型的进化顺序是：原核细胞最早出现，然后是古核细胞，最后是真核细胞，体现了从简单到复杂的进化过程。"
+            },
+            {
+                question: "细胞生物学学科形成的标志是：",
+                options: ["A. 细胞的发现", "B. 细胞学说的建立", "C. 电子显微镜的发明", "D. 分子生物学技术的应用"],
+                correct: 2,
+                explanation: "细胞生物学学科形成的重要标志是电子显微镜的发明和应用，它使科学家能够观察到细胞的超微结构，推动了从经典细胞学向现代细胞生物学的转变。"
+            },
+            {
+                question: "下列关于支原体的叙述，错误的是：",
+                options: ["A. 是最小的能独立生活的细胞", "B. 无细胞壁", "C. 属于真核生物", "D. 直径约0.1-0.3微米"],
+                correct: 2,
+                explanation: "支原体属于原核生物，不是真核生物。支原体是目前已知最小的能够独立生活的细胞，无细胞壁，直径约0.1-0.3微米。"
+            },
+            {
+                question: "细胞学说建立后，首先应用于哪个领域：",
+                options: ["A. 植物学", "B. 动物学", "C. 胚胎学", "D. 病理学"],
+                correct: 2,
+                explanation: "细胞学说建立后，瑞士解剖学家科利克尔首先将其应用于胚胎学，在1841年证明精子也是一种细胞，1844年提出受精卵通过分裂发育成有机体。"
+            },
+            {
+                question: "病毒的遗传物质可以是：",
+                options: ["A. 只能是DNA", "B. 只能是RNA", "C. DNA或RNA", "D. 蛋白质"],
+                correct: 2,
+                explanation: "病毒的遗传物质可以是DNA或RNA，但不能同时含有两种核酸。有些病毒含有DNA（如腺病毒），有些含有RNA（如流感病毒），蛋白质不是遗传物质。"
+            },
+            {
+                question: "细胞学说的建立说明了：",
+                options: ["A. 生物界的多样性", "B. 生物界的统一性", "C. 生物的复杂性", "D. 生物的特殊性"],
+                correct: 1,
+                explanation: "细胞学说的建立最重要的意义是论证了整个生物界在结构上的统一性，证明了所有生物都由细胞构成，细胞是生命活动的基本单位。"
+            },
+            {
+                question: "现代分子生物学技术对细胞生物学发展的主要贡献是：",
+                options: ["A. 提高了观察精度", "B. 实现了分子水平的研究", "C. 简化了实验操作", "D. 降低了研究成本"],
+                correct: 1,
+                explanation: "现代分子生物学技术的主要贡献是使细胞生物学研究能够深入到分子水平，从分子机制角度理解细胞的结构、功能和生命活动规律。"
+            },
+            {
+                question: "下列哪项最能体现细胞的统一性：",
+                options: ["A. 所有细胞都有相同的大小", "B. 所有细胞都有相同的形状", "C. 所有细胞都有遗传物质和细胞膜", "D. 所有细胞都有相同的功能"],
+                correct: 2,
+                explanation: "细胞的统一性主要体现在所有细胞都具有一些共同的基本特征，如都有遗传物质、都有细胞膜等基本结构，而不是在大小、形状或功能上完全相同。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <h4>${index + 1}. ${q.question}</h4>
+                    ${q.options.map((option, i) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${i}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            userAnswers = [];
+            let score = 0;
+            
+            // 收集用户答案
+            for (let i = 0; i < selectedQuestions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    userAnswers[i] = parseInt(selected.value);
+                    if (userAnswers[i] === selectedQuestions[i].correct) {
+                        score++;
+                    }
+                } else {
+                    userAnswers[i] = -1; // 未选择
+                }
+            }
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quizResult');
+            const percentage = Math.round((score / selectedQuestions.length) * 100);
+            
+            let resultHTML = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}/${selectedQuestions.length} (${percentage}%)</strong></p>
+                <div style="margin-top: 20px;">
+            `;
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const statusClass = isCorrect ? 'correct' : 'incorrect';
+                
+                resultHTML += `
+                    <div class="result ${statusClass}" style="display: block; margin-bottom: 15px;">
+                        <strong>第${index + 1}题：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        ${userAnswer !== -1 ? `<strong>您的答案：</strong>${q.options[userAnswer]}<br>` : '<strong>您未作答</strong><br>'}
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            resultHTML += '</div>';
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.className = 'result show';
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

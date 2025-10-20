@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糖异生和糖的其他代谢途径 - 考研复习笔记</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 强调文本 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 名词解释库样式 */
+        .term-library {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .term-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        /* 反馈样式 */
+        .feedback {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .feedback-item.correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .feedback-item.incorrect {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .feedback-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feedback-analysis {
+            color: #495057;
+            line-height: 1.6;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .thinking-question {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .thinking-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .thinking-answer ol {
+            margin: 10px 0;
+        }
+
+        .thinking-answer li {
+            margin-bottom: 12px;
+            color: #495057;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        /* 科学家名称样式 */
+        .scientist {
+            font-weight: bold;
+            color: #8e44ad;
+        }
+
+        /* 氨基酸名称样式 */
+        .amino-acid {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>糖异生和糖的其他代谢途径</h1>
+            <p>考研生物化学复习笔记 | 专业课重点整理</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <h2>一、糖异生作用概述</h2>
+            
+            <h3>1.1 糖异生的定义与意义</h3>
+            <p><span class="highlight">糖异生作用（Gluconeogenesis）</span>是指机体利用非糖物质（如乳酸、甘油、生糖氨基酸等）合成葡萄糖的代谢过程。<mcreference link="https://zhuanlan.zhihu.com/p/87522917" index="2">2</mcreference> 这一过程对维持血糖恒定具有重要意义，特别是在禁食状态下，当肝糖原储备耗尽后，糖异生成为维持血糖水平的主要途径。</p>
+
+            <p>糖异生主要发生在<span class="emphasis">肝脏和肾脏</span>，这两个器官含有完整的糖异生酶系。在长时间饥饿状态下，肾脏产生的葡萄糖可占总糖异生量的20%。<mcreference link="https://zhuanlan.zhihu.com/p/87522917" index="2">2</mcreference></p>
+
+            <h3>1.2 糖异生的关键酶</h3>
+            <p>糖异生过程中有四个关键限速酶，它们催化糖酵解中三个不可逆反应的逆转：</p>
+            <ol>
+                <li><span class="highlight">丙酮酸羧化酶（Pyruvate Carboxylase, PC）</span>：催化丙酮酸生成草酰乙酸，需要生物素和ATP，受乙酰辅酶A变构激活</li>
+                <li><span class="highlight">磷酸烯醇式丙酮酸羧激酶（PEPCK）</span>：催化草酰乙酸生成磷酸烯醇式丙酮酸，消耗GTP <mcreference link="https://zhuanlan.zhihu.com/p/87522917" index="2">2</mcreference></li>
+                <li><span class="highlight">果糖-1,6-二磷酸酶（FBPase）</span>：催化果糖-1,6-二磷酸水解为果糖-6-磷酸，是糖异生的第二步限速酶 <mcreference link="http://html.rhhz.net/YXXB/html/20180911.htm" index="1">1</mcreference></li>
+                <li><span class="highlight">葡萄糖-6-磷酸酶（G6Pase）</span>：催化葡萄糖-6-磷酸水解为葡萄糖，仅存在于肝脏和肾脏 <mcreference link="https://zhuanlan.zhihu.com/p/87522917" index="2">2</mcreference></li>
+            </ol>
+
+            <h3>1.3 糖异生的调节机制</h3>
+            <p><span class="emphasis">胰岛素</span>是糖异生最主要的抑制剂，而<span class="emphasis">胰高血糖素</span>是重要的促进剂。胰高血糖素通过以下机制促进糖异生：</p>
+            <ul>
+                <li>激活腺苷酸环化酶，产生cAMP</li>
+                <li>通过PKA磷酸化并灭活丙酮酸激酶</li>
+                <li>上调PEPCK的表达</li>
+                <li>增加果糖-1,6-二磷酸酶活性，同时抑制PFK-1 <mcreference link="https://zhuanlan.zhihu.com/p/87522917" index="2">2</mcreference></li>
+            </ul>
+
+            <h2>二、乙醛酸循环</h2>
+
+            <h3>2.1 乙醛酸循环的定义与发现</h3>
+            <p><span class="highlight">乙醛酸循环（Glyoxylate Cycle）</span>是柠檬酸循环的一种变体，由<span class="scientist">Hans Kornberg</span>爵士和他的导师<span class="scientist">Hans Krebs（克雷布斯）</span>于1957年在牛津大学发现。<mcreference link="https://zh.wikipedia.org/zh-hans/乙醛酸循环" index="1">1</mcreference> 这是一种发生在植物、细菌、原生生物和真菌中的合成代谢途径。</p>
+
+            <h3>2.2 乙醛酸循环的关键酶</h3>
+            <p>乙醛酸循环使用与柠檬酸循环相关的8种酶中的5种，但有两个关键的特异性酶：</p>
+            <ol>
+                <li><span class="highlight">异柠檬酸裂解酶（Isocitrate Lyase, ICL）</span>：将异柠檬酸分解为琥珀酸和乙醛酸 <mcreference link="https://baike.baidu.com/item/乙醛酸循环/619160" index="2">2</mcreference></li>
+                <li><span class="highlight">苹果酸合酶（Malate Synthase）</span>：催化乙醛酸与乙酰CoA结合生成苹果酸 <mcreference link="https://baike.baidu.com/item/乙醛酸循环/619160" index="2">2</mcreference></li>
+            </ol>
+
+            <h3>2.3 乙醛酸循环的生物学意义</h3>
+            <p>乙醛酸循环的总反应式为：<br>
+            <span class="highlight">2乙酰CoA + NAD+ + 2H₂O → 琥珀酸 + 2CoA + NADH + H+</span></p>
+
+            <p>该循环的重要意义包括：</p>
+            <ul>
+                <li><span class="emphasis">脂肪到糖的转化</span>：在油料植物种子萌发期间，储藏的脂肪通过乙醛酸循环转化为糖类，为幼苗生长提供能量 <mcreference link="https://baike.baidu.com/item/乙醛酸循环/619160" index="2">2</mcreference></li>
+                <li><span class="emphasis">碳源利用</span>：允许微生物在缺乏葡萄糖时利用乙酸等二碳化合物作为碳源 <mcreference link="https://zh.wikipedia.org/zh-hans/乙醛酸循环" index="1">1</mcreference></li>
+                <li><span class="emphasis">代谢灵活性</span>：提高生物体利用乙酰CoA的能力，为TCA循环提供四碳单位</li>
+            </ul>
+
+            <h2>三、寡糖和糖蛋白的生物合成</h2>
+
+            <h3>3.1 寡糖的生物合成</h3>
+            <p>寡糖的生物合成主要通过糖基转移酶催化，将活化的糖基供体（如UDP-葡萄糖、GDP-甘露糖等）的糖基转移到受体分子上。这一过程在细胞膜系统中进行，特别是在内质网和高尔基体中。</p>
+
+            <h3>3.2 糖蛋白的生物合成</h3>
+            <p>糖蛋白的生物合成包括两种主要类型的糖基化：</p>
+            <ol>
+                <li><span class="highlight">N-连接糖基化</span>：糖链连接到<span class="amino-acid">Asn（天冬酰胺）</span>残基上，在内质网中开始</li>
+                <li><span class="highlight">O-连接糖基化</span>：糖链连接到<span class="amino-acid">Ser（丝氨酸）</span>或<span class="amino-acid">Thr（苏氨酸）</span>残基上，主要在高尔基体中进行</li>
+            </ol>
+
+            <h2>四、葡萄糖转运</h2>
+
+            <h3>4.1 葡萄糖转运蛋白（GLUT）</h3>
+            <p>葡萄糖转运蛋白是一类跨膜蛋白，负责葡萄糖在细胞膜上的转运。不同类型的GLUT具有不同的组织分布和动力学特性：</p>
+            <ul>
+                <li><span class="highlight">GLUT1</span>：广泛分布，Km值低，保证基础葡萄糖摄取</li>
+                <li><span class="highlight">GLUT2</span>：主要在肝脏和胰岛β细胞，Km值高，摄取速率与血糖浓度成正比 <mcreference link="https://zhuanlan.zhihu.com/p/447277304" index="5">5</mcreference></li>
+                <li><span class="highlight">GLUT4</span>：主要在肌肉和脂肪细胞，受胰岛素调节 <mcreference link="https://zhuanlan.zhihu.com/p/447277304" index="5">5</mcreference></li>
+            </ul>
+
+            <!-- 名词解释库 -->
+            <div class="term-library">
+                <h2>名词解释库</h2>
+                
+                <div class="term-item">
+                    <div class="term-name">糖异生作用<span class="term-english">(Gluconeogenesis)</span></div>
+                    <div class="term-definition">机体利用非糖物质（乳酸、甘油、生糖氨基酸等）合成葡萄糖的代谢过程，主要发生在肝脏和肾脏，是维持血糖恒定的重要途径。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">磷酸烯醇式丙酮酸羧激酶<span class="term-english">(Phosphoenolpyruvate Carboxykinase, PEPCK)</span></div>
+                    <div class="term-definition">糖异生过程中的关键限速酶，催化草酰乙酸生成磷酸烯醇式丙酮酸，消耗GTP，受胰高血糖素正调节，受胰岛素负调节。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">果糖-1,6-二磷酸酶<span class="term-english">(Fructose-1,6-bisphosphatase, FBPase)</span></div>
+                    <div class="term-definition">糖异生途径中第二步的限速酶，催化果糖-1,6-二磷酸水解为果糖-6-磷酸，受AMP和果糖-2,6-二磷酸抑制，被ATP、柠檬酸激活。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">乙醛酸循环<span class="term-english">(Glyoxylate Cycle)</span></div>
+                    <div class="term-definition">柠檬酸循环的变体，存在于植物、细菌和真菌中，通过异柠檬酸裂解酶和苹果酸合酶绕过TCA循环的脱羧步骤，实现脂肪向糖的转化。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">异柠檬酸裂解酶<span class="term-english">(Isocitrate Lyase, ICL)</span></div>
+                    <div class="term-definition">乙醛酸循环的关键酶，将异柠檬酸分解为琥珀酸和乙醛酸，是植物和微生物特有的酶，动物细胞中不存在。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">苹果酸合酶<span class="term-english">(Malate Synthase)</span></div>
+                    <div class="term-definition">乙醛酸循环的另一关键酶，催化乙醛酸与乙酰CoA结合生成苹果酸，与异柠檬酸裂解酶共同实现二碳单位向四碳单位的转化。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">乙醛酸循环体<span class="term-english">(Glyoxysome)</span></div>
+                    <div class="term-definition">植物细胞中的特殊细胞器，含有乙醛酸循环的关键酶，主要存在于油料种子萌发期间，负责脂肪向糖的转化过程。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">葡萄糖转运蛋白<span class="term-english">(Glucose Transporter, GLUT)</span></div>
+                    <div class="term-definition">负责葡萄糖跨膜转运的载体蛋白家族，不同亚型具有不同的组织分布、动力学特性和调节机制。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">N-连接糖基化<span class="term-english">(N-linked Glycosylation)</span></div>
+                    <div class="term-definition">糖链通过N-糖苷键连接到蛋白质天冬酰胺残基上的翻译后修饰过程，在内质网中开始，对蛋白质折叠和功能具有重要意义。</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-name">O-连接糖基化<span class="term-english">(O-linked Glycosylation)</span></div>
+                    <div class="term-definition">糖链通过O-糖苷键连接到蛋白质丝氨酸或苏氨酸残基上的翻译后修饰过程，主要在高尔基体中进行。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="quiz-section">
+                <h2>选择题测试</h2>
+                <p>以下是从题库中随机抽取的15道选择题，请认真作答：</p>
+                
+                <div id="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                
+                <div id="feedback" class="feedback">
+                    <!-- 反馈将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="thinking-section">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 分析糖异生和糖酵解的相互调节机制，说明机体如何在不同生理状态下精确调控这两个相反的代谢途径？</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>酶水平的相互调节：</strong>糖异生和糖酵解在三个关键步骤上使用不同的酶。糖异生使用PEPCK、FBPase和G6Pase，而糖酵解使用丙酮酸激酶、PFK-1和己糖激酶。这些酶受到相反的变构调节，如FBPase被ATP激活、被AMP抑制，而PFK-1则相反，确保两个途径不会同时高度活跃。</li>
+                            <li><strong>激素调节的精确性：</strong>胰岛素和胰高血糖素通过不同的信号转导途径实现精确调控。胰岛素激活糖酵解相关酶并抑制糖异生酶的表达，而胰高血糖素通过cAMP-PKA途径激活糖异生并抑制糖酵解。这种激素调节确保了血糖水平的精确维持。</li>
+                            <li><strong>代谢物的反馈调节：</strong>关键代谢物如果糖-2,6-二磷酸作为重要的调节分子，在饥饿状态下其浓度降低，从而激活FBPase并抑制PFK-1，促进糖异生。ATP/AMP比值的变化也直接影响两个途径的酶活性。</li>
+                            <li><strong>组织特异性调节：</strong>不同组织对糖异生和糖酵解的调节存在差异。肝脏主要负责糖异生以维持血糖，而肌肉主要进行糖酵解以产生ATP。这种组织特异性确保了整体代谢的协调性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 乙醛酸循环在植物生命周期中的作用机制是什么？为什么动物细胞不具备这一代谢途径？</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>植物种子萌发的能量需求：</strong>油料植物种子在萌发初期缺乏光合作用能力，必须依靠储藏的脂肪提供能量和碳骨架。乙醛酸循环通过异柠檬酸裂解酶和苹果酸合酶绕过TCA循环的脱羧步骤，将脂肪酸β氧化产生的乙酰CoA转化为四碳化合物，进而合成糖类。</li>
+                            <li><strong>碳骨架的有效利用：</strong>乙醛酸循环的关键在于避免了CO₂的丢失，使得二碳单位能够有效转化为四碳单位。这对于需要大量碳水化合物合成细胞壁成分（如纤维素）的植物细胞至关重要。</li>
+                            <li><strong>动物细胞的代谢特点：</strong>动物细胞不具备乙醛酸循环主要因为：①动物可以通过摄食获得现成的糖类，不需要从脂肪大量合成糖；②动物的糖异生主要利用氨基酸、乳酸等三碳或四碳化合物，而非二碳单位；③动物细胞缺乏乙醛酸循环体这一特殊的细胞器结构。</li>
+                            <li><strong>进化适应性意义：</strong>乙醛酸循环的存在体现了植物对环境的适应性。种子萌发期间无法进行光合作用，必须依靠内源性储藏物质，乙醛酸循环提供了一种高效的脂肪-糖转化机制，确保幼苗在获得光照前能够正常生长。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 糖蛋白的N-连接和O-连接糖基化在细胞生物学功能上有何差异？这些差异如何影响蛋白质的功能？</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>结构和位置差异：</strong>N-连接糖基化发生在天冬酰胺残基上，糖链结构复杂且相对保守，主要在内质网开始并在高尔基体中修饰完成。O-连接糖基化发生在丝氨酸或苏氨酸残基上，糖链结构相对简单但多样性更大，主要在高尔基体中进行。</li>
+                            <li><strong>蛋白质折叠的影响：</strong>N-连接糖基化对蛋白质正确折叠至关重要，糖链可以作为分子伴侣帮助蛋白质折叠，并参与质量控制机制。错误折叠的糖蛋白会被内质网相关降解途径清除。O-连接糖基化主要影响蛋白质的稳定性和功能域的暴露。</li>
+                            <li><strong>细胞识别和信号转导：</strong>N-连接糖基化形成的复杂糖链结构是细胞表面受体识别的重要标志，参与细胞间相互作用、免疫识别等过程。O-连接糖基化则更多参与蛋白质-蛋白质相互作用的调节和信号转导的精细调控。</li>
+                            <li><strong>疾病相关性：</strong>N-连接糖基化缺陷常导致严重的遗传性疾病，如先天性糖基化缺陷综合征。O-连接糖基化异常则与肿瘤转移、炎症反应等病理过程密切相关。这些差异反映了两种糖基化修饰在维持细胞正常功能中的不同作用。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 在糖尿病患者中，糖异生途径的异常激活如何加剧高血糖症状？现有的治疗药物如何针对这一机制发挥作用？</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>胰岛素抵抗导致的糖异生失调：</strong>在2型糖尿病中，胰岛素抵抗使得胰岛素无法有效抑制肝脏糖异生，导致即使在血糖已经升高的情况下，肝脏仍然持续产生葡萄糖。同时，胰高血糖素的作用相对增强，进一步激活糖异生途径。</li>
+                            <li><strong>关键酶表达和活性的异常：</strong>糖尿病患者肝脏中PEPCK、FBPase和G6Pase的表达显著上调，这些酶的过度激活使得糖异生能力大大增强。特别是PEPCK作为限速酶，其表达增加直接导致糖异生通量的显著提升。</li>
+                            <li><strong>二甲双胍的多重作用机制：</strong>二甲双胍作为一线抗糖尿病药物，通过多种机制抑制肝脏糖异生：①激活AMPK，改善胰岛素敏感性；②抑制线粒体电子传递链复合物I，影响ATP生成；③直接抑制线粒体甘油磷酸脱氢酶，阻断甘油磷酸穿梭，提高NADH水平，从而抑制糖异生前体的氧化。</li>
+                            <li><strong>新型治疗靶点的开发：</strong>针对糖异生关键酶的特异性抑制剂正在开发中，如FBPase抑制剂已进入临床试验阶段。这些药物通过直接抑制糖异生限速酶，可以更精确地控制肝脏葡萄糖产生，为糖尿病治疗提供新的策略。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "糖异生过程中，哪个酶催化丙酮酸生成草酰乙酸？",
+                options: ["A. 丙酮酸激酶", "B. 丙酮酸羧化酶", "C. 磷酸烯醇式丙酮酸羧激酶", "D. 丙酮酸脱氢酶"],
+                correct: 1,
+                analysis: "丙酮酸羧化酶（PC）催化丙酮酸生成草酰乙酸，这是糖异生的第一步关键反应。该酶需要生物素作为辅酶，ATP提供能量，并受乙酰辅酶A变构激活。"
+            },
+            {
+                question: "果糖-1,6-二磷酸酶的变构抑制剂是：",
+                options: ["A. ATP", "B. AMP", "C. 柠檬酸", "D. 3-磷酸甘油酸"],
+                correct: 1,
+                analysis: "AMP是果糖-1,6-二磷酸酶的变构抑制剂。当细胞能量状态较低时，AMP浓度升高，抑制糖异生，有利于糖酵解进行以快速产生ATP。"
+            },
+            {
+                question: "乙醛酸循环的两个关键酶是：",
+                options: ["A. 异柠檬酸脱氢酶和苹果酸脱氢酶", "B. 异柠檬酸裂解酶和苹果酸合酶", "C. 柠檬酸合酶和乌头酸酶", "D. 琥珀酸脱氢酶和延胡索酸酶"],
+                correct: 1,
+                analysis: "乙醛酸循环的两个关键特异性酶是异柠檬酸裂解酶（将异柠檬酸分解为琥珀酸和乙醛酸）和苹果酸合酶（催化乙醛酸与乙酰CoA结合生成苹果酸）。"
+            },
+            {
+                question: "葡萄糖-6-磷酸酶主要存在于：",
+                options: ["A. 所有细胞", "B. 肌肉细胞", "C. 肝脏和肾脏", "D. 脂肪细胞"],
+                correct: 2,
+                analysis: "葡萄糖-6-磷酸酶仅存在于肝脏和肾脏，这使得只有这两个器官能够通过糖异生向血液释放葡萄糖，维持血糖水平。"
+            },
+            {
+                question: "胰高血糖素促进糖异生的机制不包括：",
+                options: ["A. 激活腺苷酸环化酶", "B. 上调PEPCK表达", "C. 激活丙酮酸激酶", "D. 增加果糖-1,6-二磷酸酶活性"],
+                correct: 2,
+                analysis: "胰高血糖素通过cAMP-PKA途径磷酸化并灭活丙酮酸激酶，而不是激活它。激活丙酮酸激酶会促进糖酵解，这与胰高血糖素促进糖异生的作用相反。"
+            },
+            {
+                question: "乙醛酸循环主要发生在：",
+                options: ["A. 线粒体", "B. 细胞质", "C. 乙醛酸循环体", "D. 内质网"],
+                correct: 2,
+                analysis: "乙醛酸循环主要发生在乙醛酸循环体（glyoxysome）中，这是植物细胞特有的细胞器，含有乙醛酸循环的关键酶。"
+            },
+            {
+                question: "糖异生从2分子丙酮酸合成1分子葡萄糖需要消耗：",
+                options: ["A. 4个ATP", "B. 6个ATP", "C. 8个ATP", "D. 2个ATP"],
+                correct: 1,
+                analysis: "从2分子丙酮酸合成1分子葡萄糖需要消耗6个高能磷酸键：丙酮酸羧化消耗2个ATP，PEPCK消耗2个GTP，3-磷酸甘油酸还原消耗2个NADH。"
+            },
+            {
+                question: "GLUT4转运蛋白主要分布在：",
+                options: ["A. 肝脏细胞", "B. 脑细胞", "C. 肌肉和脂肪细胞", "D. 肾脏细胞"],
+                correct: 2,
+                analysis: "GLUT4主要分布在肌肉和脂肪细胞中，受胰岛素调节。胰岛素促进GLUT4从细胞内囊泡转位到细胞膜，增加葡萄糖摄取。"
+            },
+            {
+                question: "乙醛酸循环的总反应式中，2分子乙酰CoA可以净生成：",
+                options: ["A. 1分子柠檬酸", "B. 1分子琥珀酸", "C. 2分子苹果酸", "D. 1分子草酰乙酸"],
+                correct: 1,
+                analysis: "乙醛酸循环的总反应是：2乙酰CoA + NAD+ + 2H₂O → 琥珀酸 + 2CoA + NADH + H+，净生成1分子琥珀酸。"
+            },
+            {
+                question: "N-连接糖基化主要发生在：",
+                options: ["A. 细胞质", "B. 线粒体", "C. 内质网", "D. 高尔基体"],
+                correct: 2,
+                analysis: "N-连接糖基化在内质网中开始，糖链连接到新生肽链的天冬酰胺残基上，然后在高尔基体中进行进一步修饰。"
+            },
+            {
+                question: "二甲双胍抑制糖异生的机制不包括：",
+                options: ["A. 激活AMPK", "B. 抑制线粒体复合物I", "C. 激活丙酮酸羧化酶", "D. 抑制甘油磷酸穿梭"],
+                correct: 2,
+                analysis: "二甲双胍通过激活AMPK、抑制线粒体复合物I和甘油磷酸穿梭来抑制糖异生，但不会激活丙酮酸羧化酶。激活PC会促进糖异生。"
+            },
+            {
+                question: "果糖-2,6-二磷酸对糖异生的作用是：",
+                options: ["A. 激活果糖-1,6-二磷酸酶", "B. 抑制果糖-1,6-二磷酸酶", "C. 激活PEPCK", "D. 抑制葡萄糖-6-磷酸酶"],
+                correct: 1,
+                analysis: "果糖-2,6-二磷酸是果糖-1,6-二磷酸酶的强效抑制剂，同时激活PFK-1。在饥饿状态下其浓度降低，解除对糖异生的抑制。"
+            },
+            {
+                question: "植物种子萌发时，乙醛酸循环的主要作用是：",
+                options: ["A. 产生ATP", "B. 将脂肪转化为糖", "C. 合成脂肪酸", "D. 分解蛋白质"],
+                correct: 1,
+                analysis: "在植物种子萌发期间，乙醛酸循环将储藏的脂肪转化为糖类，为幼苗在获得光照进行光合作用前提供碳骨架和能量。"
+            },
+            {
+                question: "PEPCK催化的反应消耗的高能化合物是：",
+                options: ["A. ATP", "B. GTP", "C. CTP", "D. UTP"],
+                correct: 1,
+                analysis: "磷酸烯醇式丙酮酸羧激酶（PEPCK）催化草酰乙酸生成磷酸烯醇式丙酮酸的反应消耗GTP，这是糖异生过程中的关键步骤。"
+            },
+            {
+                question: "糖异生过程中，哪个步骤不是限速步骤：",
+                options: ["A. 丙酮酸→草酰乙酸", "B. 草酰乙酸→磷酸烯醇式丙酮酸", "C. 3-磷酸甘油酸→2-磷酸甘油酸", "D. 果糖-1,6-二磷酸→果糖-6-磷酸"],
+                correct: 2,
+                analysis: "3-磷酸甘油酸到2-磷酸甘油酸的转化由磷酸甘油酸变位酶催化，这不是糖异生的限速步骤，而是糖酵解逆转的普通步骤。"
+            },
+            {
+                question: "乙醛酸循环与TCA循环的主要区别是：",
+                options: ["A. 发生的细胞器不同", "B. 绕过了两个脱羧步骤", "C. 使用的辅酶不同", "D. 产生的ATP数量不同"],
+                correct: 1,
+                analysis: "乙醛酸循环通过异柠檬酸裂解酶和苹果酸合酶绕过了TCA循环中异柠檬酸脱氢酶和α-酮戊二酸脱氢酶催化的两个脱羧步骤，避免CO₂丢失。"
+            },
+            {
+                question: "O-连接糖基化主要发生在哪些氨基酸残基上：",
+                options: ["A. 天冬酰胺", "B. 丝氨酸和苏氨酸", "C. 酪氨酸", "D. 组氨酸"],
+                correct: 1,
+                analysis: "O-连接糖基化主要发生在丝氨酸（Ser）和苏氨酸（Thr）残基上，糖链通过O-糖苷键与羟基相连，主要在高尔基体中进行。"
+            },
+            {
+                question: "胰岛素对糖异生的调节作用是：",
+                options: ["A. 促进糖异生", "B. 抑制糖异生", "C. 对糖异生无影响", "D. 只在特定条件下抑制"],
+                correct: 1,
+                analysis: "胰岛素是糖异生最主要的抑制剂，通过抑制糖异生关键酶的表达和活性，同时促进糖酵解，维持血糖稳定。"
+            },
+            {
+                question: "乙醛酸循环体主要存在于：",
+                options: ["A. 所有植物细胞", "B. 油料种子萌发期的细胞", "C. 叶肉细胞", "D. 根部细胞"],
+                correct: 1,
+                analysis: "乙醛酸循环体主要存在于油料种子萌发期的细胞中，当种子中储藏的脂肪耗尽后，乙醛酸循环活性随之消失。"
+            },
+            {
+                question: "糖异生过程中NADH的主要来源是：",
+                options: ["A. 丙酮酸氧化", "B. 苹果酸氧化", "C. 异柠檬酸氧化", "D. 琥珀酸氧化"],
+                correct: 1,
+                analysis: "在糖异生过程中，苹果酸在苹果酸脱氢酶催化下氧化生成草酰乙酸，同时产生NADH，这是糖异生过程中NADH的主要来源。"
+            },
+            {
+                question: "GLUT2转运蛋白的特点是：",
+                options: ["A. Km值低，亲和力高", "B. Km值高，摄取速率与血糖浓度成正比", "C. 只存在于肌肉细胞", "D. 不受胰岛素调节"],
+                correct: 1,
+                analysis: "GLUT2主要存在于肝脏和胰岛β细胞，Km值较高，使得葡萄糖摄取速率与血糖浓度成正比，适合这些细胞的生理功能。"
+            },
+            {
+                question: "糖蛋白质量控制主要发生在：",
+                options: ["A. 细胞质", "B. 内质网", "C. 高尔基体", "D. 溶酶体"],
+                correct: 1,
+                analysis: "糖蛋白质量控制主要发生在内质网中，错误折叠的糖蛋白会被内质网相关降解（ERAD）途径识别并清除。"
+            },
+            {
+                question: "乙醛酸循环的生理意义不包括：",
+                options: ["A. 实现脂肪到糖的转化", "B. 提高乙酰CoA利用效率", "C. 产生大量ATP", "D. 为TCA循环提供四碳单位"],
+                correct: 2,
+                analysis: "乙醛酸循环的主要意义是实现脂肪到糖的转化和提高乙酰CoA利用效率，但其主要目的不是产生ATP，而是合成代谢。"
+            },
+            {
+                question: "糖异生的主要调节点不包括：",
+                options: ["A. 丙酮酸羧化酶", "B. PEPCK", "C. 磷酸甘油酸变位酶", "D. 果糖-1,6-二磷酸酶"],
+                correct: 2,
+                analysis: "磷酸甘油酸变位酶催化3-磷酸甘油酸和2-磷酸甘油酸的相互转化，这不是糖异生的主要调节点，而是一个可逆的普通步骤。"
+            },
+            {
+                question: "异柠檬酸裂解酶的产物是：",
+                options: ["A. 琥珀酸和α-酮戊二酸", "B. 琥珀酸和乙醛酸", "C. 苹果酸和乙醛酸", "D. 草酰乙酸和乙酰CoA"],
+                correct: 1,
+                analysis: "异柠檬酸裂解酶将异柠檬酸分解为琥珀酸和乙醛酸，这是乙醛酸循环区别于TCA循环的关键步骤。"
+            },
+            {
+                question: "糖异生过程中，从乳酸开始的第一步反应是：",
+                options: ["A. 乳酸→丙酮酸", "B. 乳酸→草酰乙酸", "C. 乳酸→磷酸烯醇式丙酮酸", "D. 乳酸→3-磷酸甘油酸"],
+                correct: 0,
+                analysis: "从乳酸开始的糖异生，第一步是乳酸脱氢酶催化乳酸氧化为丙酮酸，然后丙酮酸进入正常的糖异生途径。"
+            },
+            {
+                question: "苹果酸合酶催化的反应是：",
+                options: ["A. 苹果酸→草酰乙酸", "B. 乙醛酸+乙酰CoA→苹果酸", "C. 琥珀酸→苹果酸", "D. 柠檬酸→苹果酸"],
+                correct: 1,
+                analysis: "苹果酸合酶催化乙醛酸与乙酰CoA结合生成苹果酸，这是乙醛酸循环的第二个关键反应，与异柠檬酸裂解酶共同完成循环。"
+            },
+            {
+                question: "糖蛋白N-连接糖基化的识别序列是：",
+                options: ["A. Asn-X-Ser/Thr", "B. Ser/Thr-X-Pro", "C. Asn-X-Pro", "D. Tyr-X-Asn"],
+                correct: 0,
+                analysis: "N-连接糖基化的识别序列是Asn-X-Ser/Thr（其中X可以是除脯氨酸外的任何氨基酸），糖链连接到天冬酰胺残基上。"
+            },
+            {
+                question: "在长时间饥饿状态下，肾脏糖异生可占总糖异生量的：",
+                options: ["A. 5%", "B. 10%", "C. 20%", "D. 50%"],
+                correct: 2,
+                analysis: "在长时间饥饿状态下，肾脏产生的葡萄糖可占总糖异生量的20%，成为维持血糖的重要器官，特别是在肝糖原耗尽后。"
+            },
+            {
+                question: "乙醛酸循环不存在于：",
+                options: ["A. 植物", "B. 细菌", "C. 真菌", "D. 哺乳动物"],
+                correct: 3,
+                analysis: "乙醛酸循环存在于植物、细菌、原生生物和真菌中，但通常认为不存在于哺乳动物中，因为哺乳动物缺乏异柠檬酸裂解酶和苹果酸合酶。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            userAnswers = [];
+            let score = 0;
+            
+            // 收集用户答案
+            selectedQuestions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                userAnswers.push(userAnswer);
+                
+                if (userAnswer === q.correct) {
+                    score++;
+                }
+            });
+            
+            // 显示反馈
+            showFeedback(score);
+        }
+
+        function showFeedback(score) {
+            const feedbackDiv = document.getElementById('feedback');
+            const percentage = Math.round((score / 15) * 100);
+            
+            let feedbackHTML = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}/15 (${percentage}%)</strong></p>
+                <div style="margin: 20px 0;">
+            `;
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const correctOption = q.options[q.correct];
+                const userOption = userAnswer >= 0 ? q.options[userAnswer] : "未作答";
+                
+                feedbackHTML += `
+                    <div class="feedback-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="feedback-question">
+                            <strong>第${index + 1}题：</strong>${q.question}
+                        </div>
+                        <p><strong>您的答案：</strong>${userOption}</p>
+                        <p><strong>正确答案：</strong>${correctOption}</p>
+                        <div class="feedback-analysis">
+                            <strong>解析：</strong>${q.analysis}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            feedbackHTML += '</div>';
+            feedbackDiv.innerHTML = feedbackHTML;
+            feedbackDiv.classList.add('show');
+            
+            // 滚动到反馈区域
+            feedbackDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

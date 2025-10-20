@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞分化与干细胞 - 考研复习笔记</title>
+    <style>
+        /* 整体样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 段落和列表样式 */
+        p {
+            margin-bottom: 15px;
+            text-indent: 2em;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* 强调样式 */
+        .emphasis {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .key-term {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #856404;
+        }
+
+        /* 名词解释样式 */
+        .term-definition {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background-color: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* 反馈样式 */
+        .feedback {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .feedback-text {
+            margin-top: 10px;
+            font-style: italic;
+            color: #495057;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-answer {
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>细胞分化与干细胞</h1>
+            <p>《细胞生物学》第五版 - 考研复习笔记</p>
+        </div>
+        
+        <div class="content">
+        <!-- 核心内容板块 -->
+        <h2>一、细胞分化的基本概念</h2>
+        
+        <h3>1.1 细胞分化的定义与特征</h3>
+        <p><span class="key-term">细胞分化</span>是指在个体发育过程中，由一个或一种细胞增殖产生的后代，在形态、结构和功能上发生稳定性差异的过程。这是多细胞生物发育的基础，也是生物体从简单到复杂、从低级到高级发展的重要机制。</p>
+        
+        <h4>细胞分化的关键特征：</h4>
+        <ul>
+            <li><span class="emphasis">不可逆性</span>：一般情况下，已分化的细胞不能逆转到未分化状态</li>
+            <li><span class="emphasis">渐进性</span>：分化是一个逐步进行的过程，不是突然发生的</li>
+            <li><span class="emphasis">稳定性</span>：分化后的细胞特性能够稳定遗传给子代细胞</li>
+            <li><span class="emphasis">多样性</span>：从同一起源可以分化出多种不同类型的细胞</li>
+        </ul>
+
+        <h4>细胞分化的实质：</h4>
+        <p>细胞分化的实质是<span class="emphasis">基因的选择性表达</span>。在分化过程中，细胞的遗传信息（DNA序列）并未改变，但不同的基因在不同的细胞中被激活或抑制，导致细胞产生不同的蛋白质，从而获得特定的形态和功能。</p>
+
+        <h3>1.2 基因表达调控与细胞分化</h3>
+        
+        <h4>管家基因与组织特异性基因：</h4>
+        <div class="term-definition">
+            <div class="term-name">管家基因 <span class="term-english">(Housekeeping Genes)</span></div>
+            <p>在所有细胞中都持续表达的基因，编码维持细胞基本生命活动所必需的蛋白质，如呼吸酶、核糖体蛋白等。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">组织特异性基因 <span class="term-english">(Tissue-specific Genes)</span></div>
+            <p>只在特定细胞类型或组织中表达的基因，决定细胞的特殊功能和特征，如血红蛋白基因只在红细胞中表达。</p>
+        </div>
+
+        <h4>组合调控机制：</h4>
+        <p>细胞分化过程中的基因表达调控采用<span class="key-term">组合调控</span>模式，即多个转录因子协同作用，精确控制特定基因的表达。这种机制具有以下特点：</p>
+        <ul>
+            <li>多个转录因子结合到同一基因的调控区域</li>
+            <li>不同转录因子组合产生不同的调控效果</li>
+            <li>时空特异性表达模式的建立</li>
+            <li>基因表达的精细调节</li>
+        </ul>
+
+        <h3>1.3 细胞谱系与分化路径</h3>
+        
+        <div class="term-definition">
+            <div class="term-name">细胞谱系 <span class="term-english">(Cell Lineage)</span></div>
+            <p>从一个祖先细胞开始，通过一系列分裂和分化步骤，最终形成特定细胞类型的完整发育路径。细胞谱系图可以清晰地展示细胞分化的层次结构和分支模式。</p>
+        </div>
+
+        <h4>细胞命运的决定：</h4>
+        <p>细胞命运的决定包括两个重要概念：</p>
+        <ul>
+            <li><span class="emphasis">细胞决定</span>：细胞获得特定发育命运的过程，此时细胞已承诺向某一方向分化</li>
+            <li><span class="emphasis">细胞记忆</span>：细胞维持其决定状态的能力，通过表观遗传修饰实现</li>
+        </ul>
+
+        <h2>二、干细胞生物学</h2>
+        
+        <h3>2.1 干细胞的定义与分类</h3>
+        
+        <div class="term-definition">
+            <div class="term-name">干细胞 <span class="term-english">(Stem Cells)</span></div>
+            <p>具有自我更新能力和多向分化潜能的细胞。在特定条件下可分化成多种功能细胞、组织或器官。干细胞是再生医学领域最为关键的"种子细胞"。</p>
+        </div>
+
+        <h4>按分化潜能分类：</h4>
+        <table>
+            <tr>
+                <th>类型</th>
+                <th>分化潜能</th>
+                <th>特征</th>
+                <th>实例</th>
+            </tr>
+            <tr>
+                <td>全能性干细胞</td>
+                <td>可分化为所有细胞类型</td>
+                <td>能发育成完整个体</td>
+                <td>受精卵、早期胚胎细胞</td>
+            </tr>
+            <tr>
+                <td>多能性干细胞</td>
+                <td>可分化为多种细胞类型</td>
+                <td>不能发育成完整个体</td>
+                <td>胚胎干细胞、iPS细胞</td>
+            </tr>
+            <tr>
+                <td>单能性干细胞</td>
+                <td>只能分化为一种细胞类型</td>
+                <td>分化潜能有限</td>
+                <td>造血干细胞、神经干细胞</td>
+            </tr>
+        </table>
+
+        <h4>按来源分类：</h4>
+        <ul>
+            <li><span class="emphasis">胚胎干细胞</span>：来源于胚胎内细胞团，具有多能性</li>
+            <li><span class="emphasis">成体干细胞</span>：存在于成体组织中，维持组织稳态</li>
+            <li><span class="emphasis">诱导性多能干细胞</span>：通过重编程技术获得的多能干细胞</li>
+        </ul>
+
+        <h3>2.2 胚胎干细胞</h3>
+        
+        <h4>胚胎干细胞的来源与建立：</h4>
+        <p>胚胎干细胞主要来源于囊胚期胚胎的<span class="key-term">内细胞团</span>（Inner Cell Mass, ICM）。建立过程包括：</p>
+        <ol>
+            <li>囊胚期胚胎的获取</li>
+            <li>内细胞团的分离</li>
+            <li>在特定培养条件下建立细胞系</li>
+            <li>多能性标志的检测与验证</li>
+        </ol>
+
+        <h4>关键信号分子和通路：</h4>
+        <ul>
+            <li><span class="emphasis">Oct4</span>：多能性维持的核心转录因子</li>
+            <li><span class="emphasis">Sox2</span>：与Oct4协同维持多能性</li>
+            <li><span class="emphasis">Nanog</span>：阻止分化，维持自我更新</li>
+            <li><span class="emphasis">LIF/STAT3通路</span>：维持小鼠胚胎干细胞的多能性</li>
+            <li><span class="emphasis">FGF/ERK通路</span>：调节人胚胎干细胞的自我更新</li>
+        </ul>
+
+        <h3>2.3 成体干细胞</h3>
+        
+        <h4>成体干细胞的分裂模式：</h4>
+        <ul>
+            <li><span class="emphasis">对称分裂</span>：产生两个相同的干细胞，用于干细胞池的扩增</li>
+            <li><span class="emphasis">不对称分裂</span>：产生一个干细胞和一个分化细胞，维持干细胞数量稳定</li>
+        </ul>
+
+        <h4>干细胞微环境（干细胞巢）：</h4>
+        <div class="term-definition">
+            <div class="term-name">干细胞巢 <span class="term-english">(Stem Cell Niche)</span></div>
+            <p>为干细胞提供特殊微环境的解剖结构，通过细胞-细胞接触、分泌因子等方式调节干细胞的自我更新和分化。</p>
+        </div>
+
+        <h4>典型的成体干细胞类型：</h4>
+        
+        <h5>造血干细胞（HSC）：</h5>
+        <ul>
+            <li>位置：骨髓</li>
+            <li>功能：产生所有血细胞类型</li>
+            <li>标志分子：CD34+、CD38-、Lin-</li>
+            <li>调控因子：SCF、TPO、FLT3L等</li>
+        </ul>
+
+        <h5>神经干细胞（NSC）：</h5>
+        <ul>
+            <li>位置：脑室下区、海马齿状回</li>
+            <li>功能：产生神经元、星形胶质细胞、少突胶质细胞</li>
+            <li>标志分子：Nestin、Sox2、GFAP</li>
+            <li>调控因子：EGF、FGF、BMP等</li>
+        </ul>
+
+        <h5>肠干细胞：</h5>
+        <ul>
+            <li>位置：小肠隐窝底部</li>
+            <li>功能：维持肠道上皮的更新</li>
+            <li>标志分子：<span class="emphasis">Lgr5</span>（重要标志）</li>
+            <li>调控机制：Wnt信号通路、Notch信号通路</li>
+        </ul>
+
+        <h3>2.4 细胞命运重编程</h3>
+        
+        <h4>诱导性多能干细胞（iPS细胞）：</h4>
+        <p>2006年，日本科学家Yamanaka(山中伸弥)报道了使用转基因的方式可以将小鼠成体细胞重编程为多能干细胞。这一技术被称为<span class="key-term">诱导性多能干细胞技术</span>。</p>
+
+        <h5>Yamanaka因子：</h5>
+        <ul>
+            <li><span class="emphasis">Oct4</span>：多能性核心因子</li>
+            <li><span class="emphasis">Sox2</span>：转录调节因子</li>
+            <li><span class="emphasis">Klf4</span>：转录因子</li>
+            <li><span class="emphasis">c-Myc</span>：细胞增殖调节因子</li>
+        </ul>
+
+        <h4>化学诱导多能干细胞（CiPS细胞）：</h4>
+        <p>中国科学家邓宏魁(Deng Hongkui)团队开发的新技术，使用化学小分子代替转录因子进行细胞重编程。2022年在《Nature》发表的研究首次实现了人成体细胞的化学重编程。</p>
+
+        <h5>CiPS技术的优势：</h5>
+        <ul>
+            <li>操作简便灵活，时空调控性强</li>
+            <li>作用可逆，可精确操控重编程过程</li>
+            <li>非整合方法，规避转基因安全问题</li>
+            <li>易于标准化和规模化生产</li>
+        </ul>
+
+        <h4>谱系重编程：</h4>
+        <div class="term-definition">
+            <div class="term-name">谱系重编程 <span class="term-english">(Lineage Reprogramming)</span></div>
+            <p>直接将一种已分化的细胞类型转换为另一种分化细胞类型，无需经过多能性状态的中间步骤。</p>
+        </div>
+
+        <h3>2.5 表观遗传修饰与细胞命运</h3>
+        
+        <h4>表观遗传修饰机制：</h4>
+        <ul>
+            <li><span class="emphasis">DNA甲基化</span>：通过CpG岛甲基化调节基因表达</li>
+            <li><span class="emphasis">组蛋白修饰</span>：包括甲基化、乙酰化、磷酸化等</li>
+            <li><span class="emphasis">染色质重塑</span>：改变染色质结构和可及性</li>
+            <li><span class="emphasis">非编码RNA调节</span>：microRNA、lncRNA等的调控作用</li>
+        </ul>
+
+        <h2>三、干细胞的应用前景</h2>
+        
+        <h3>3.1 临床应用</h3>
+        
+        <h4>成体干细胞的临床应用：</h4>
+        <ul>
+            <li>造血干细胞移植治疗血液系统疾病</li>
+            <li>间充质干细胞治疗骨关节疾病</li>
+            <li>神经干细胞治疗神经退行性疾病</li>
+        </ul>
+
+        <h4>iPS细胞与细胞治疗：</h4>
+        <ul>
+            <li>个体化细胞治疗的实现</li>
+            <li>疾病模型的建立</li>
+            <li>药物筛选平台的构建</li>
+            <li>组织工程与器官再生</li>
+        </ul>
+
+        <h3>3.2 类器官研究</h3>
+        <div class="term-definition">
+            <div class="term-name">类器官 <span class="term-english">(Organoids)</span></div>
+            <p>利用干细胞在体外培养形成的三维组织结构，能够模拟体内器官的部分功能和特征，为疾病研究和药物开发提供新的模型。</p>
+        </div>
+
+        <!-- 名词解释库板块 -->
+        <h2>四、重要名词解释库</h2>
+        
+        <div class="term-definition">
+            <div class="term-name">细胞分化 <span class="term-english">(Cell Differentiation)</span></div>
+            <p>在个体发育过程中，由一个或一种细胞增殖产生的后代，在形态、结构和功能上发生稳定性差异的过程。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">干细胞 <span class="term-english">(Stem Cells)</span></div>
+            <p>具有自我更新能力和多向分化潜能的细胞，在特定条件下可分化成多种功能细胞、组织或器官。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">管家基因 <span class="term-english">(Housekeeping Genes)</span></div>
+            <p>在所有细胞中都持续表达的基因，编码维持细胞基本生命活动所必需的蛋白质。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">组织特异性基因 <span class="term-english">(Tissue-specific Genes)</span></div>
+            <p>只在特定细胞类型或组织中表达的基因，决定细胞的特殊功能和特征。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">细胞谱系 <span class="term-english">(Cell Lineage)</span></div>
+            <p>从一个祖先细胞开始，通过一系列分裂和分化步骤，最终形成特定细胞类型的完整发育路径。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">胚胎干细胞 <span class="term-english">(Embryonic Stem Cells, ESCs)</span></div>
+            <p>来源于囊胚期胚胎内细胞团的多能性干细胞，具有无限增殖能力和分化为三胚层所有细胞类型的潜能。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">成体干细胞 <span class="term-english">(Adult Stem Cells)</span></div>
+            <p>存在于成体组织中的干细胞，负责维持组织稳态和修复损伤，分化潜能相对有限。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">诱导性多能干细胞 <span class="term-english">(Induced Pluripotent Stem Cells, iPS)</span></div>
+            <p>通过导入特定转录因子将成体细胞重编程获得的多能干细胞，具有类似胚胎干细胞的特性。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">化学诱导多能干细胞 <span class="term-english">(Chemically induced Pluripotent Stem Cells, CiPS)</span></div>
+            <p>使用化学小分子代替转录因子进行细胞重编程获得的多能干细胞，具有更高的安全性和可控性。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">干细胞巢 <span class="term-english">(Stem Cell Niche)</span></div>
+            <p>为干细胞提供特殊微环境的解剖结构，通过细胞-细胞接触、分泌因子等方式调节干细胞的自我更新和分化。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">谱系重编程 <span class="term-english">(Lineage Reprogramming)</span></div>
+            <p>直接将一种已分化的细胞类型转换为另一种分化细胞类型，无需经过多能性状态的中间步骤。</p>
+        </div>
+
+        <div class="term-definition">
+            <div class="term-name">类器官 <span class="term-english">(Organoids)</span></div>
+            <p>利用干细胞在体外培养形成的三维组织结构，能够模拟体内器官的部分功能和特征。</p>
+        </div>
+
+        <!-- 选择题测试板块 -->
+     <h2>五、选择题测试</h2>
+     <div class="quiz-container">
+         <form id="quiz-form">
+              <div id="questions-container"></div>
+              <button type="button" class="submit-btn" onclick="submitAnswers()">提交答案</button>
+          </form>
+             <div id="results-container" class="feedback" style="display: none;"></div>
+        </div>
+
+        <!-- 深度思考题板块 -->
+        <h2>六、深度思考题</h2>
+        
+        <div class="thinking-question">
+            <h4>1. 试述细胞分化过程中基因表达调控的分子机制，并分析管家基因与组织特异性基因在细胞分化中的不同作用。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>转录水平调控机制：</strong>细胞分化过程中，转录因子通过结合特定的DNA序列（启动子、增强子等）调节基因转录。不同的转录因子组合决定了不同基因的表达模式，这种组合调控机制使得细胞能够精确控制基因表达的时空特异性。转录因子可以是激活子或抑制子，通过招募辅助因子、RNA聚合酶等形成转录复合体，最终影响mRNA的合成。</li>
+                    <li><strong>表观遗传调控机制：</strong>DNA甲基化、组蛋白修饰和染色质重塑是细胞分化中的重要调控机制。DNA甲基化通常与基因沉默相关，特别是CpG岛的甲基化可以长期抑制基因表达。组蛋白修饰包括甲基化、乙酰化、磷酸化等，形成"组蛋白密码"调节染色质结构和基因可及性。这些修饰在细胞分化过程中建立稳定的基因表达模式，并能够在细胞分裂过程中维持。</li>
+                    <li><strong>管家基因的作用特征：</strong>管家基因在所有细胞类型中持续表达，编码维持细胞基本生命活动的蛋白质，如糖酵解酶、呼吸链复合体、核糖体蛋白、细胞骨架蛋白等。这些基因的表达相对稳定，不受分化状态影响，为细胞提供基础的代谢和结构支持。管家基因的启动子区域通常富含CpG岛，缺乏TATA盒，具有多个转录起始位点，这种结构特征使其能够在各种细胞环境中稳定表达。</li>
+                    <li><strong>组织特异性基因的调控特点：</strong>组织特异性基因只在特定细胞类型中表达，决定细胞的专门化功能。这些基因的表达受到复杂的调控网络控制，包括特异性转录因子、信号转导通路、表观遗传修饰等。例如，血红蛋白基因只在红细胞系中表达，胰岛素基因只在胰岛β细胞中表达。这种特异性表达是通过细胞类型特异的转录因子和调控元件实现的。</li>
+                    <li><strong>两类基因的协调作用：</strong>在细胞分化过程中，管家基因维持细胞的基本功能，而组织特异性基因赋予细胞特殊的功能特征。两者的协调表达确保了分化细胞既能维持基本的生命活动，又能执行专门化的生物学功能。这种协调是通过复杂的转录调控网络实现的，涉及多层次的基因表达调控机制。</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="thinking-question">
+            <h4>2. 比较分析胚胎干细胞、成体干细胞和诱导性多能干细胞的特征差异，并讨论它们在再生医学中的应用前景和局限性。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>胚胎干细胞的特征与应用：</strong>胚胎干细胞具有最高的分化潜能，能够分化为三胚层的所有细胞类型，具有无限的自我更新能力。它们表达多能性标志分子如Oct4、Sox2、Nanog等，在体外培养条件下能够长期维持未分化状态。在再生医学中，胚胎干细胞可用于组织工程、细胞替代治疗和疾病模型建立。然而，其应用面临伦理争议、免疫排斥反应和致瘤风险等问题，限制了临床应用的发展。</li>
+                    <li><strong>成体干细胞的特征与优势：</strong>成体干细胞存在于各种成体组织中，如造血干细胞、间充质干细胞、神经干细胞等。它们的分化潜能相对有限，通常只能分化为特定谱系的细胞类型。成体干细胞的主要优势是来源于患者自身，避免了免疫排斥问题，且不存在伦理争议。在临床应用中，造血干细胞移植已经成为治疗血液系统疾病的标准疗法，间充质干细胞在骨关节疾病治疗中也显示出良好前景。</li>
+                    <li><strong>诱导性多能干细胞的革命性意义：</strong>iPS细胞技术通过导入Yamanaka因子将成体细胞重编程为多能状态，既具有类似胚胎干细胞的分化潜能，又避免了伦理问题。iPS细胞可以来源于患者自身细胞，实现个体化治疗，在疾病建模、药物筛选和细胞治疗方面具有巨大潜力。目前已有多项基于iPS细胞的临床试验正在进行，包括治疗帕金森病、黄斑变性等疾病。</li>
+                    <li><strong>技术局限性与挑战：</strong>尽管干细胞技术前景广阔，但仍面临诸多挑战。胚胎干细胞的致瘤风险和免疫排斥问题需要进一步解决；成体干细胞的分化潜能有限，且随年龄增长功能下降；iPS细胞的重编程效率较低，且可能携带遗传突变。此外，干细胞的标准化制备、质量控制、安全性评估等技术问题也需要不断完善。</li>
+                    <li><strong>未来发展方向：</strong>随着技术的不断进步，干细胞治疗正朝着更加安全、有效的方向发展。化学重编程技术（CiPS）的出现为干细胞制备提供了新的途径；基因编辑技术的应用使得干细胞的功能改造成为可能；类器官技术的发展为疾病研究和药物开发提供了新的平台。未来的干细胞治疗将更加个体化、精准化，为人类健康事业做出更大贡献。</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="thinking-question">
+            <h4>3. 分析干细胞微环境（干细胞巢）在维持干细胞特性中的作用机制，并以造血干细胞或神经干细胞为例说明其调控机制。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>干细胞巢的基本概念与组成：</strong>干细胞巢是为干细胞提供特殊微环境的解剖结构，由多种细胞类型、细胞外基质和分泌因子组成。这个微环境通过精确的信号调控维持干细胞的自我更新能力，同时调节其分化过程。干细胞巢的组成包括支持细胞、血管系统、神经支配、细胞外基质以及各种信号分子，这些成分协同作用形成一个高度调控的微环境。</li>
+                    <li><strong>造血干细胞巢的结构与功能：</strong>造血干细胞主要位于骨髓中，其微环境包括骨细胞、间充质干细胞、内皮细胞、巨噬细胞等多种支持细胞。骨细胞通过分泌SCF（干细胞因子）维持HSC的静息状态；间充质干细胞提供CXCL12信号，促进HSC的归巢和维持；血管内皮细胞形成血管巢，调节HSC的激活和分化。这种复杂的细胞网络通过Wnt、Notch、BMP等多种信号通路精确调控HSC的命运决定。</li>
+                    <li><strong>神经干细胞巢的特殊性：</strong>成体神经干细胞主要位于脑室下区（SVZ）和海马齿状回的颗粒下区（SGZ）。在SVZ中，神经干细胞与室管膜细胞、星形胶质细胞、血管内皮细胞形成特殊的微环境。室管膜细胞分泌Noggin抑制BMP信号，维持干细胞的未分化状态；血管内皮细胞提供VEGF、BDNF等生长因子促进神经发生；星形胶质细胞通过Notch信号调节神经干细胞的自我更新。</li>
+                    <li><strong>信号调控的分子机制：</strong>干细胞巢通过多种信号通路调控干细胞行为。Wnt信号通路促进干细胞的自我更新，而BMP信号通路倾向于促进分化；Notch信号在维持干细胞状态中起关键作用；FGF和EGF信号调节干细胞的增殖。这些信号的时空特异性表达和相互作用决定了干细胞的命运选择。此外，机械力学信号、氧浓度、pH值等物理化学因素也参与调控干细胞的行为。</li>
+                    <li><strong>干细胞巢的动态调节与疾病相关性：</strong>干细胞巢不是静态结构，而是随着生理需求和病理状态动态变化的。在组织损伤时，干细胞巢会发生重构，激活干细胞进行修复；在衰老过程中，干细胞巢功能下降，导致干细胞活性降低。许多疾病的发生与干细胞巢功能异常相关，如白血病中造血干细胞巢的异常、神经退行性疾病中神经干细胞巢的功能障碍。理解干细胞巢的调控机制对于开发新的治疗策略具有重要意义。</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="thinking-question">
+            <h4>4. 讨论表观遗传修饰在细胞重编程过程中的作用，并分析化学重编程相比传统转录因子重编程的优势与挑战。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>表观遗传修饰在重编程中的核心作用：</strong>细胞重编程本质上是表观遗传状态的重新设定过程。在分化细胞中，特定的DNA甲基化模式、组蛋白修饰和染色质结构维持着细胞的身份。重编程过程需要擦除这些表观遗传标记，重新建立多能性相关的表观遗传景观。这包括多能性基因启动子区域的去甲基化、抑制性组蛋白标记的移除、激活性标记的建立等。表观遗传重塑是重编程成功的关键步骤，也是效率低下的主要原因。</li>
+                    <li><strong>传统转录因子重编程的机制与局限：</strong>Yamanaka因子（Oct4、Sox2、Klf4、c-Myc）通过结合靶基因启动子，激活多能性基因网络，同时抑制分化相关基因的表达。这些转录因子能够招募染色质重塑复合体和表观遗传修饰酶，逐步改变细胞的表观遗传状态。然而，转录因子重编程面临效率低、时间长、基因组整合风险等问题。外源基因的随机整合可能导致基因组不稳定，c-Myc的致癌性也增加了安全风险。</li>
+                    <li><strong>化学重编程的分子机制与优势：</strong>化学重编程使用小分子化合物调节关键的信号通路和表观遗传修饰酶，实现细胞命运的转变。例如，组蛋白去乙酰化酶抑制剂（如VPA）能够增加组蛋白乙酰化水平，促进基因转录；DNA甲基转移酶抑制剂（如5-azaC）能够减少DNA甲基化，激活沉默的基因。化学重编程的优势包括：操作简便、时空调控性强、作用可逆、无基因组整合风险、易于标准化生产等。</li>
+                    <li><strong>化学重编程面临的技术挑战：</strong>尽管化学重编程具有诸多优势，但也面临一些挑战。首先是效率问题，化学重编程的效率通常低于转录因子重编程，需要更长的诱导时间。其次是特异性问题，小分子化合物可能具有多重靶点，产生非预期的副作用。再次是稳定性问题，化学诱导的重编程状态可能不如转录因子诱导的稳定。此外，不同细胞类型对化学重编程的敏感性差异很大，需要针对性优化。</li>
+                    <li><strong>未来发展方向与临床前景：</strong>化学重编程技术正在不断完善和优化。通过筛选新的小分子化合物、优化化合物组合、改进培养条件等方式，可以提高重编程效率和质量。结合基因编辑技术，可以进一步增强化学重编程的特异性和安全性。在临床应用方面，化学重编程技术有望实现干细胞的标准化、规模化生产，为细胞治疗提供更安全、更经济的细胞来源。特别是在个体化医疗中，化学重编程可以快速、安全地制备患者特异性的多能干细胞，为精准医疗奠定基础。</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="thinking-question">
+            <h4>5. 结合当前研究进展，分析类器官技术在疾病建模和药物开发中的应用价值，并讨论其技术局限性和发展前景。</h4>
+            <div class="thinking-answer">
+                <ol>
+                    <li><strong>类器官技术的基本原理与特征：</strong>类器官是利用干细胞在三维培养条件下自组装形成的微型器官样结构，能够重现体内器官的部分结构和功能特征。这种技术基于干细胞的自我组织能力，通过提供适当的生长因子、细胞外基质和培养条件，诱导干细胞分化并组装成复杂的三维结构。类器官保留了原始组织的细胞多样性、空间组织结构和部分生理功能，为体外研究提供了更接近体内环境的模型系统。</li>
+                    <li><strong>疾病建模中的革命性应用：</strong>类器官技术在疾病建模方面具有独特优势。利用患者来源的干细胞可以建立个体化的疾病模型，重现疾病的发生发展过程。例如，利用囊性纤维化患者的肠道类器官可以研究CFTR基因突变的致病机制；利用阿尔茨海默病患者的脑类器官可以观察淀粉样蛋白的沉积过程。这种患者特异性模型能够更准确地反映疾病的个体差异，为精准医疗提供重要工具。</li>
+                    <li><strong>药物开发与筛选的新平台：</strong>类器官为药物开发提供了高通量、高内容的筛选平台。相比传统的二维细胞培养，类器官能够更好地预测药物的疗效和毒性。在抗癌药物筛选中，肿瘤类器官能够保持原发肿瘤的异质性和药物敏感性特征，为个体化治疗方案的制定提供指导。在药物安全性评估中，肝脏、肾脏等器官的类器官可以检测药物的器官毒性，减少动物实验的使用。</li>
+                    <li><strong>技术局限性与挑战：</strong>尽管类器官技术前景广阔，但仍存在一些局限性。首先是成熟度问题，目前的类器官主要模拟胚胎或幼体器官的特征，缺乏成体器官的完全成熟特征。其次是复杂性问题，类器官通常只包含部分细胞类型，缺乏血管、神经、免疫系统等重要组分。再次是标准化问题，类器官的培养条件、形态特征、功能评估等缺乏统一标准，影响了结果的重现性和比较性。</li>
+                    <li><strong>未来发展方向与前景：</strong>类器官技术正朝着更加复杂、成熟、标准化的方向发展。通过引入血管化技术、共培养系统、机械刺激等方式，可以提高类器官的复杂性和成熟度。结合微流控技术，可以构建"器官芯片"系统，实现多器官的联合培养和相互作用研究。在临床应用方面，类器官有望用于个体化治疗方案的制定、药物敏感性检测、移植器官的体外培养等。随着技术的不断完善，类器官将成为连接基础研究与临床应用的重要桥梁。</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "1. 细胞分化的实质是什么？",
+                options: [
+                    "A. DNA序列的改变",
+                    "B. 基因的选择性表达",
+                    "C. 细胞体积的变化",
+                    "D. 细胞膜结构的改变"
+                ],
+                correct: 1,
+                explanation: "细胞分化的实质是基因的选择性表达。在分化过程中，细胞的遗传信息（DNA序列）并未改变，但不同的基因在不同的细胞中被激活或抑制，导致细胞产生不同的蛋白质，从而获得特定的形态和功能。"
+            },
+            {
+                question: "2. 下列哪个不是干细胞的基本特征？",
+                options: [
+                    "A. 自我更新能力",
+                    "B. 多向分化潜能",
+                    "C. 高度分化状态",
+                    "D. 相对未分化状态"
+                ],
+                correct: 2,
+                explanation: "干细胞的基本特征包括自我更新能力、多向分化潜能和相对未分化状态。高度分化状态是分化细胞的特征，与干细胞的未分化特性相反。"
+            },
+            {
+                question: "3. 管家基因的主要特点是什么？",
+                options: [
+                    "A. 只在特定组织中表达",
+                    "B. 在所有细胞中持续表达",
+                    "C. 只在胚胎期表达",
+                    "D. 表达水平极低"
+                ],
+                correct: 1,
+                explanation: "管家基因在所有细胞中都持续表达，编码维持细胞基本生命活动所必需的蛋白质，如呼吸酶、核糖体蛋白等。这与组织特异性基因形成对比。"
+            },
+            {
+                question: "4. Yamanaka因子包括以下哪些转录因子？",
+                options: [
+                    "A. Oct4, Sox2, Klf4, c-Myc",
+                    "B. Oct4, Nanog, Sox2, Lin28",
+                    "C. Sox2, Klf4, Nanog, c-Myc",
+                    "D. Oct4, Sox2, Nanog, c-Myc"
+                ],
+                correct: 0,
+                explanation: "Yamanaka因子是指Oct4、Sox2、Klf4和c-Myc这四个转录因子，由日本科学家Yamanaka(山中伸弥)发现，能够将成体细胞重编程为诱导性多能干细胞（iPS细胞）。"
+            },
+            {
+                question: "5. 胚胎干细胞主要来源于囊胚的哪个部分？",
+                options: [
+                    "A. 滋养层",
+                    "B. 内细胞团",
+                    "C. 透明带",
+                    "D. 囊胚腔"
+                ],
+                correct: 1,
+                explanation: "胚胎干细胞主要来源于囊胚期胚胎的内细胞团（Inner Cell Mass, ICM）。内细胞团具有多能性，能够分化为三胚层的所有细胞类型。"
+            },
+            {
+                question: "6. 造血干细胞的重要标志分子组合是什么？",
+                options: [
+                    "A. CD34+, CD38+, Lin+",
+                    "B. CD34+, CD38-, Lin-",
+                    "C. CD34-, CD38+, Lin-",
+                    "D. CD34-, CD38-, Lin+"
+                ],
+                correct: 1,
+                explanation: "造血干细胞的典型标志分子组合是CD34+、CD38-、Lin-。CD34是造血干细胞的经典标志，CD38阴性表示处于原始状态，Lin阴性表示不表达分化细胞的谱系标志。"
+            },
+            {
+                question: "7. 肠干细胞的重要标志分子是什么？",
+                options: [
+                    "A. Nestin",
+                    "B. Lgr5",
+                    "C. GFAP",
+                    "D. Sox2"
+                ],
+                correct: 1,
+                explanation: "Lgr5是肠干细胞的重要标志分子。Lgr5阳性的细胞位于小肠隐窝底部，具有干细胞特性，能够产生肠道上皮的所有细胞类型。"
+            },
+            {
+                question: "8. 干细胞巢的主要功能是什么？",
+                options: [
+                    "A. 促进干细胞快速分化",
+                    "B. 维持干细胞的自我更新和调节分化",
+                    "C. 阻止干细胞增殖",
+                    "D. 诱导干细胞凋亡"
+                ],
+                correct: 1,
+                explanation: "干细胞巢是为干细胞提供特殊微环境的解剖结构，其主要功能是通过细胞-细胞接触、分泌因子等方式维持干细胞的自我更新能力，同时调节其分化过程。"
+            },
+            {
+                question: "9. 化学诱导多能干细胞（CiPS）技术的主要优势是什么？",
+                options: [
+                    "A. 重编程效率最高",
+                    "B. 操作简便且无基因组整合风险",
+                    "C. 只能用于小鼠细胞",
+                    "D. 分化潜能有限"
+                ],
+                correct: 1,
+                explanation: "CiPS技术使用化学小分子代替转录因子进行重编程，主要优势包括操作简便灵活、时空调控性强、作用可逆、无基因组整合风险、易于标准化生产等。"
+            },
+            {
+                question: "10. 表观遗传修饰在细胞分化中的作用不包括什么？",
+                options: [
+                    "A. DNA甲基化调节基因表达",
+                    "B. 组蛋白修饰改变染色质结构",
+                    "C. 改变DNA序列",
+                    "D. 建立稳定的基因表达模式"
+                ],
+                correct: 2,
+                explanation: "表观遗传修饰不改变DNA序列，而是通过DNA甲基化、组蛋白修饰、染色质重塑等机制调节基因表达，在细胞分化过程中建立稳定的基因表达模式。"
+            },
+            {
+                question: "11. 成体干细胞的分裂模式包括哪些？",
+                options: [
+                    "A. 只有对称分裂",
+                    "B. 只有不对称分裂",
+                    "C. 对称分裂和不对称分裂",
+                    "D. 随机分裂"
+                ],
+                correct: 2,
+                explanation: "成体干细胞具有两种分裂模式：对称分裂产生两个相同的干细胞，用于干细胞池的扩增；不对称分裂产生一个干细胞和一个分化细胞，维持干细胞数量稳定。"
+            },
+            {
+                question: "12. Oct4转录因子在干细胞中的主要作用是什么？",
+                options: [
+                    "A. 促进细胞分化",
+                    "B. 维持多能性状态",
+                    "C. 诱导细胞凋亡",
+                    "D. 调节细胞周期"
+                ],
+                correct: 1,
+                explanation: "Oct4是多能性维持的核心转录因子，在胚胎干细胞和iPS细胞中高表达，与Sox2、Nanog等协同维持干细胞的多能性状态，阻止细胞向特定谱系分化。"
+            },
+            {
+                question: "13. 神经干细胞主要位于成体大脑的哪些区域？",
+                options: [
+                    "A. 大脑皮层和小脑",
+                    "B. 脑室下区和海马齿状回",
+                    "C. 脑干和丘脑",
+                    "D. 基底神经节和杏仁核"
+                ],
+                correct: 1,
+                explanation: "成体神经干细胞主要位于脑室下区（SVZ）和海马齿状回的颗粒下区（SGZ）。这两个区域在成体大脑中仍保持神经发生能力。"
+            },
+            {
+                question: "14. 类器官技术的主要优势是什么？",
+                options: [
+                    "A. 完全替代动物实验",
+                    "B. 模拟体内器官的部分结构和功能",
+                    "C. 只能用于基础研究",
+                    "D. 培养成本极低"
+                ],
+                correct: 1,
+                explanation: "类器官技术的主要优势是能够在体外模拟体内器官的部分结构和功能特征，为疾病研究、药物筛选和个体化医疗提供更接近体内环境的模型系统。"
+            },
+            {
+                question: "15. Wnt信号通路在干细胞调控中的主要作用是什么？",
+                options: [
+                    "A. 促进干细胞分化",
+                    "B. 促进干细胞自我更新",
+                    "C. 诱导干细胞凋亡",
+                    "D. 抑制干细胞增殖"
+                ],
+                correct: 1,
+                explanation: "Wnt信号通路在多种干细胞类型中都起到促进自我更新的作用，通过激活β-catenin和相关转录因子，维持干细胞的未分化状态和增殖能力。"
+             },
+            {
+                question: "16. 转分化是指什么过程？",
+                options: [
+                    "A. 干细胞向分化细胞的转变",
+                    "B. 一种分化细胞直接转变为另一种分化细胞",
+                    "C. 分化细胞逆转为干细胞",
+                    "D. 细胞的程序性死亡"
+                ],
+                correct: 1,
+                explanation: "转分化是指一种已分化的细胞类型直接转变为另一种分化细胞类型的过程，无需经过干细胞的中间状态，是细胞可塑性的重要体现。"
+            },
+            {
+                question: "17. BMP信号通路在干细胞调控中通常起什么作用？",
+                options: [
+                    "A. 维持干细胞状态",
+                    "B. 促进干细胞分化",
+                    "C. 促进干细胞增殖",
+                    "D. 阻止细胞凋亡"
+                ],
+                correct: 1,
+                explanation: "BMP（骨形态发生蛋白）信号通路通常促进干细胞的分化，与Wnt信号通路的作用相反。在神经干细胞中，BMP信号促进胶质细胞分化。"
+            },
+            {
+                question: "18. 邓宏魁团队开发的CiPS技术主要使用什么方法？",
+                options: [
+                    "A. 病毒载体导入基因",
+                    "B. 化学小分子诱导",
+                    "C. 物理刺激",
+                    "D. 基因编辑技术"
+                ],
+                correct: 1,
+                explanation: "中国科学家邓宏魁团队开发的CiPS技术使用化学小分子代替转录因子进行细胞重编程，首次实现了人成体细胞的化学重编程。"
+            },
+            {
+                question: "19. 胚胎干细胞的多能性标志分子不包括哪个？",
+                options: [
+                    "A. Oct4",
+                    "B. Sox2",
+                    "C. Nanog",
+                    "D. Lgr5"
+                ],
+                correct: 3,
+                explanation: "Oct4、Sox2、Nanog都是胚胎干细胞多能性的重要标志分子。而Lgr5是肠干细胞的特异性标志分子，不是多能性标志。"
+            },
+            {
+                question: "20. 造血干细胞主要位于成体的哪个部位？",
+                options: [
+                    "A. 脾脏",
+                    "B. 淋巴结",
+                    "C. 骨髓",
+                    "D. 胸腺"
+                ],
+                correct: 2,
+                explanation: "造血干细胞主要位于骨髓中，在骨髓微环境（干细胞巢）的调控下维持自我更新和分化，产生所有血细胞类型。"
+             },
+            {
+                question: "21. 组合调控机制的主要特点是什么？",
+                options: [
+                    "A. 单个转录因子控制基因表达",
+                    "B. 多个转录因子协同作用控制基因表达",
+                    "C. 只在胚胎期起作用",
+                    "D. 不涉及表观遗传修饰"
+                ],
+                correct: 1,
+                explanation: "组合调控机制是指多个转录因子协同作用，精确控制特定基因的表达。不同转录因子组合产生不同的调控效果，实现基因表达的精细调节。"
+            },
+            {
+                question: "22. 细胞记忆主要通过什么机制实现？",
+                options: [
+                    "A. DNA序列突变",
+                    "B. 表观遗传修饰",
+                    "C. 蛋白质合成",
+                    "D. 细胞分裂"
+                ],
+                correct: 1,
+                explanation: "细胞记忆主要通过表观遗传修饰机制实现，包括DNA甲基化、组蛋白修饰等，这些修饰能够在细胞分裂过程中稳定维持，保持细胞的决定状态。"
+            },
+            {
+                question: "23. LIF/STAT3通路主要调节哪种干细胞？",
+                options: [
+                    "A. 人胚胎干细胞",
+                    "B. 小鼠胚胎干细胞",
+                    "C. 造血干细胞",
+                    "D. 神经干细胞"
+                ],
+                correct: 1,
+                explanation: "LIF/STAT3通路主要维持小鼠胚胎干细胞的多能性。而人胚胎干细胞主要依赖FGF/ERK通路进行自我更新调节。"
+            },
+            {
+                question: "24. 全能性干细胞与多能性干细胞的主要区别是什么？",
+                options: [
+                    "A. 分化速度不同",
+                    "B. 全能性干细胞能发育成完整个体",
+                    "C. 多能性干细胞更稳定",
+                    "D. 来源组织不同"
+                ],
+                correct: 1,
+                explanation: "全能性干细胞能够分化为所有细胞类型并发育成完整个体，如受精卵；而多能性干细胞虽能分化为多种细胞类型，但不能发育成完整个体。"
+            },
+            {
+                question: "25. Notch信号通路在干细胞中的主要作用是什么？",
+                options: [
+                    "A. 促进细胞凋亡",
+                    "B. 维持干细胞状态",
+                    "C. 促进细胞增殖",
+                    "D. 调节细胞迁移"
+                ],
+                correct: 1,
+                explanation: "Notch信号通路在维持干细胞状态中起关键作用，通过抑制分化相关基因的表达，保持干细胞的未分化状态和自我更新能力。"
+             },
+            {
+                question: "26. 管家基因的主要特征是什么？",
+                options: [
+                    "A. 只在特定组织中表达",
+                    "B. 在所有细胞中持续表达",
+                    "C. 只在胚胎期表达",
+                    "D. 表达水平变化很大"
+                ],
+                correct: 1,
+                explanation: "管家基因(housekeeping genes)在所有细胞中持续表达，编码维持细胞基本生命活动所必需的蛋白质，如代谢酶、结构蛋白等。"
+            },
+            {
+                question: "27. 细胞谱系追踪技术的主要目的是什么？",
+                options: [
+                    "A. 检测基因突变",
+                    "B. 追踪细胞分化过程",
+                    "C. 测量细胞大小",
+                    "D. 分析蛋白质结构"
+                ],
+                correct: 1,
+                explanation: "细胞谱系追踪技术用于追踪细胞在发育过程中的分化轨迹，了解细胞如何从一种类型转变为另一种类型，是研究细胞分化的重要工具。"
+            },
+            {
+                question: "28. 表观遗传修饰在细胞分化中的作用机制是什么？",
+                options: [
+                    "A. 改变DNA序列",
+                    "B. 调节基因表达而不改变DNA序列",
+                    "C. 促进DNA复制",
+                    "D. 增加基因突变率"
+                ],
+                correct: 1,
+                explanation: "表观遗传修饰通过DNA甲基化、组蛋白修饰等方式调节基因表达，而不改变DNA序列本身，是细胞分化过程中基因表达调控的重要机制。"
+            },
+            {
+                question: "29. 干细胞巢(niche)的主要功能是什么？",
+                options: [
+                    "A. 促进干细胞凋亡",
+                    "B. 维持干细胞特性和调节其行为",
+                    "C. 阻止干细胞分裂",
+                    "D. 加速干细胞分化"
+                ],
+                correct: 1,
+                explanation: "干细胞巢是干细胞所处的特殊微环境，通过提供信号分子、细胞外基质等，维持干细胞的未分化状态和自我更新能力，调节其分化时机。"
+            },
+            {
+                question: "30. 类器官(organoids)技术的主要优势是什么？",
+                options: [
+                    "A. 完全替代动物实验",
+                    "B. 模拟器官结构和功能用于研究",
+                    "C. 只能用于癌症研究",
+                    "D. 成本极低"
+                ],
+                correct: 1,
+                explanation: "类器官技术能够在体外培养出具有器官特征的三维结构，模拟器官的结构和功能，为疾病建模、药物筛选和再生医学研究提供重要平台。"
+             }
+         ];
+
+         // 随机选择15道题
+         function getRandomQuestions() {
+             const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+             return shuffled.slice(0, 15);
+         }
+
+         // 渲染题目
+         function renderQuestions() {
+             const selectedQuestions = getRandomQuestions();
+             const container = document.getElementById('questions-container');
+             
+             selectedQuestions.forEach((q, index) => {
+                 const questionDiv = document.createElement('div');
+                 questionDiv.className = 'question';
+                 questionDiv.innerHTML = `
+                     <h4>${index + 1}. ${q.question.replace(/^\d+\.\s*/, '')}</h4>
+                     ${q.options.map((option, i) => `
+                         <label class="option">
+                             <input type="radio" name="q${index}" value="${i}">
+                             ${option}
+                         </label>
+                     `).join('')}
+                 `;
+                 container.appendChild(questionDiv);
+             });
+             
+             // 存储正确答案
+             window.correctAnswers = selectedQuestions.map(q => q.correct);
+             window.explanations = selectedQuestions.map(q => q.explanation);
+             window.questionTexts = selectedQuestions.map(q => q.question);
+             window.questionOptions = selectedQuestions.map(q => q.options);
+         }
+
+         // 提交答案
+         function submitAnswers() {
+             const form = document.getElementById('quiz-form');
+             const formData = new FormData(form);
+             let score = 0;
+             const results = [];
+             
+             for (let i = 0; i < 15; i++) {
+                 const userAnswer = formData.get(`q${i}`);
+                 const correct = window.correctAnswers[i];
+                 const isCorrect = parseInt(userAnswer) === correct;
+                 
+                 if (isCorrect) score++;
+                 
+                 results.push({
+                     question: window.questionTexts[i],
+                     options: window.questionOptions[i],
+                     userAnswer: parseInt(userAnswer),
+                     correctAnswer: correct,
+                     isCorrect: isCorrect,
+                     explanation: window.explanations[i]
+                 });
+             }
+             
+             displayResults(score, results);
+         }
+
+         // 显示结果
+         function displayResults(score, results) {
+             const container = document.getElementById('results-container');
+             const percentage = Math.round((score / 15) * 100);
+             
+             let html = `
+                 <h3>测试结果</h3>
+                 <p class="score">得分：${score}/15 (${percentage}%)</p>
+                 <div class="detailed-results">
+             `;
+             
+             results.forEach((result, index) => {
+                 const bgColor = result.isCorrect ? '#d4edda' : '#f8d7da';
+                 const textColor = result.isCorrect ? '#155724' : '#721c24';
+                 
+                 html += `
+                     <div class="result-item" style="background-color: ${bgColor}; color: ${textColor}; margin: 10px 0; padding: 15px; border-radius: 5px;">
+                         <h4>${index + 1}. ${result.question.replace(/^\d+\.\s*/, '')}</h4>
+                         <div class="options-review">
+                             ${result.options.map((option, i) => {
+                                 let style = '';
+                                 if (i === result.correctAnswer) {
+                                     style = 'font-weight: bold; color: #28a745;';
+                                 } else if (i === result.userAnswer && !result.isCorrect) {
+                                     style = 'font-weight: bold; color: #dc3545;';
+                                 }
+                                 return `<p style="${style}">${option} ${i === result.userAnswer ? '(您的选择)' : ''} ${i === result.correctAnswer ? '(正确答案)' : ''}</p>`;
+                             }).join('')}
+                         </div>
+                         <p><strong>解析：</strong>${result.explanation}</p>
+                     </div>
+                 `;
+             });
+             
+             html += '</div>';
+             container.innerHTML = html;
+             container.style.display = 'block';
+         }
+
+         // 页面加载时渲染题目
+         document.addEventListener('DOMContentLoaded', renderQuestions);
+     </script>
+     
+     </div> <!-- 闭合 content div -->
+     </div> <!-- 闭合 container div -->
+ </body>
+ </html>

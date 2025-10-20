@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞衰老与细胞程序性死亡 - 考研复习笔记</title>
+    <style>
+        /* 基础样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            font-size: 16px;
+        }
+
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(44, 62, 80, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 标题样式 */
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 段落和文本样式 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* 强调文本样式 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .important {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .definition {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background-color: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background-color: #ffffff;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background-color: #ffffff;
+            border: 2px solid #ecf0f1;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        /* 反馈样式 */
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .score-display {
+            background-color: #e3f2fd;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background-color: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .thinking-answer {
+            background-color: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            .option {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        /* 目录样式 */
+        .toc {
+            background-color: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .toc h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>细胞衰老与细胞程序性死亡</h1>
+        <p style="text-align: center; font-style: italic; color: #7f8c8d; margin-bottom: 30px;">基于《细胞生物学》第五版（丁明孝主编）的考研复习笔记</p>
+        
+        <!-- 目录 -->
+        <div class="toc">
+            <h3>📚 目录导航</h3>
+            <ul>
+                <li><a href="#cell-aging">一、细胞衰老</a></li>
+                <li><a href="#programmed-death">二、细胞程序性死亡</a></li>
+                <li><a href="#terminology">三、名词解释库</a></li>
+                <li><a href="#quiz">四、选择题测试</a></li>
+                <li><a href="#thinking">五、深度思考题</a></li>
+            </ul>
+        </div>
+
+        <!-- 核心内容：细胞衰老 -->
+        <section id="cell-aging">
+            <h2>一、细胞衰老</h2>
+            
+            <h3>1.1 细胞衰老的概念与特征</h3>
+            <p>细胞衰老是指细胞在生长发育过程中，由于内在遗传程序的调控和外界环境因素的影响，逐渐失去分裂增殖能力，出现一系列衰老相关的形态、结构和功能变化的过程。这是一个复杂的、多因素调控的生物学过程。</p>
+            
+            <h4>1.1.1 形态结构变化</h4>
+            <ul>
+                <li><span class="emphasis">细胞体积增大</span>：衰老细胞通常比年轻细胞体积更大，形态不规则</li>
+                <li><span class="emphasis">细胞核变化</span>：核体积增大，核质比例失调，染色质凝聚程度增加</li>
+                <li><span class="emphasis">细胞膜变化</span>：膜流动性降低，选择性通透性下降，膜受体数量和活性减少</li>
+                <li><span class="emphasis">细胞器变化</span>：线粒体数量减少且功能下降，内质网和高尔基体结构紊乱</li>
+                <li><span class="emphasis">色素沉积</span>：脂褐素(lipofuscin)等衰老色素在细胞质中积累</li>
+            </ul>
+            
+            <h4>1.1.2 分子特征</h4>
+            <ul>
+                <li><span class="emphasis">端粒缩短</span>：每次细胞分裂后端粒长度逐渐缩短，最终触发衰老程序</li>
+                <li><span class="emphasis">DNA损伤积累</span>：氧化性DNA损伤、DNA甲基化异常等遗传物质损伤增加</li>
+                <li><span class="emphasis">蛋白质修饰异常</span>：蛋白质氧化、糖化、聚集等异常修饰增多</li>
+                <li><span class="emphasis">酶活性变化</span>：抗氧化酶活性下降，DNA修复酶效率降低</li>
+                <li><span class="emphasis">基因表达改变</span>：衰老相关基因表达上调，细胞周期调控基因表达异常</li>
+            </ul>
+            
+            <h3>1.2 细胞衰老的分子机制</h3>
+            
+            <h4>1.2.1 端粒学说</h4>
+            <p>端粒学说是目前解释细胞衰老机制最重要的理论之一。端粒(telomere)是位于真核生物染色体末端的DNA-蛋白质复合结构，由富含鸟嘌呤的重复序列组成。</p>
+            
+            <div class="important">
+                <strong>端粒的结构与功能：</strong>
+                <ul>
+                    <li>人类端粒序列：5'-TTAGGG-3'的串联重复</li>
+                    <li>长度：新生儿约10-15kb，成人约5-10kb</li>
+                    <li>功能：保护染色体末端，防止染色体融合和降解</li>
+                </ul>
+            </div>
+            
+            <p><span class="emphasis">端粒酶(telomerase)</span>是负责端粒延长的关键酶，由催化亚基TERT(Telomerase Reverse Transcriptase)和RNA模板亚基TERC(Telomerase RNA Component)组成。在大多数体细胞中，端粒酶活性很低或缺失，导致端粒随细胞分裂逐渐缩短。</p>
+            
+            <h4>1.2.2 自由基学说</h4>
+            <p>自由基学说认为，细胞在正常代谢过程中产生的活性氧(ROS)和活性氮(RNS)等自由基会损伤细胞内的生物大分子，导致细胞功能逐渐衰退。</p>
+            
+            <ul>
+                <li><span class="emphasis">ROS的来源</span>：线粒体呼吸链、NADPH氧化酶、黄嘌呤氧化酶等</li>
+                <li><span class="emphasis">损伤机制</span>：脂质过氧化、蛋白质氧化、DNA氧化损伤</li>
+                <li><span class="emphasis">抗氧化防御</span>：SOD、CAT、GPx等抗氧化酶系统，维生素C、E等抗氧化剂</li>
+            </ul>
+            
+            <h4>1.2.3 信号通路调控</h4>
+            <p>多条信号通路参与细胞衰老的调控过程：</p>
+            
+            <ul>
+                <li><span class="emphasis">p53-p21通路</span>：DNA损伤激活p53，上调p21表达，阻滞细胞周期</li>
+                <li><span class="emphasis">p16-Rb通路</span>：p16抑制CDK4/6，使Rb蛋白去磷酸化，阻止G1/S转换</li>
+                <li><span class="emphasis">mTOR通路</span>：营养感受通路，过度激活促进衰老</li>
+                <li><span class="emphasis">SIRT1通路</span>：NAD+依赖性去乙酰化酶，延缓衰老</li>
+            </ul>
+            
+            <h3>1.3 细胞衰老与个体衰老的关系</h3>
+            <p>细胞衰老是个体衰老的基础，但两者之间的关系复杂。个体衰老不仅仅是细胞衰老的简单累积，还涉及组织、器官和系统水平的变化。</p>
+            
+            <div class="important">
+                <strong>细胞衰老对个体的影响：</strong>
+                <ul>
+                    <li>组织再生能力下降</li>
+                    <li>器官功能逐渐衰退</li>
+                    <li>免疫功能减弱</li>
+                    <li>疾病易感性增加</li>
+                    <li>寿命缩短</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 核心内容：细胞程序性死亡 -->
+        <section id="programmed-death">
+            <h2>二、细胞程序性死亡</h2>
+            
+            <h3>2.1 细胞程序性死亡概述</h3>
+            <p>细胞程序性死亡(Programmed Cell Death, PCD)是指在特定生理或病理条件下，细胞通过激活内在的死亡程序而发生的主动性、有序性死亡过程。这是一个高度调控的过程，对维持组织稳态、胚胎发育和机体防御具有重要意义。</p>
+            
+            <h3>2.2 细胞凋亡(Apoptosis)</h3>
+            
+            <h4>2.2.1 凋亡的形态学特征</h4>
+            <ul>
+                <li><span class="emphasis">细胞收缩</span>：细胞体积缩小，与周围细胞失去接触</li>
+                <li><span class="emphasis">核染色质凝聚</span>：染色质边聚，形成新月形或块状结构</li>
+                <li><span class="emphasis">DNA片段化</span>：DNA被切割成180-200bp的片段</li>
+                <li><span class="emphasis">凋亡小体形成</span>：细胞膜出芽，形成含有细胞器和核片段的凋亡小体</li>
+                <li><span class="emphasis">吞噬清除</span>：凋亡小体被巨噬细胞或邻近细胞吞噬</li>
+            </ul>
+            
+            <h4>2.2.2 Caspase级联反应</h4>
+            <p><span class="emphasis">Caspase(Cysteinyl Aspartate Specific Protease)</span>是细胞凋亡的关键执行分子，属于半胱氨酸蛋白酶家族。</p>
+            
+            <div class="important">
+                <strong>Caspase分类：</strong>
+                <ul>
+                    <li><strong>启动型Caspase</strong>：Caspase-8, -9, -10, -12</li>
+                    <li><strong>执行型Caspase</strong>：Caspase-3, -6, -7</li>
+                    <li><strong>炎症型Caspase</strong>：Caspase-1, -4, -5, -11</li>
+                </ul>
+            </div>
+            
+            <h4>2.2.3 凋亡信号通路</h4>
+            
+            <h5>外源性通路(死亡受体通路)</h5>
+            <ul>
+                <li><span class="emphasis">死亡受体</span>：Fas(CD95)、TNF-R1、TRAIL-R等</li>
+                <li><span class="emphasis">死亡配体</span>：FasL、TNF-α、TRAIL等</li>
+                <li><span class="emphasis">信号传导</span>：配体结合→受体三聚化→DISC形成→Caspase-8激活</li>
+                <li><span class="emphasis">下游效应</span>：Caspase-8直接激活Caspase-3或通过Bid激活内源性通路</li>
+            </ul>
+            
+            <h5>内源性通路(线粒体通路)</h5>
+            <ul>
+                <li><span class="emphasis">触发因素</span>：DNA损伤、氧化应激、营养缺乏等</li>
+                <li><span class="emphasis">线粒体变化</span>：膜电位下降，通透性增加</li>
+                <li><span class="emphasis">细胞色素c释放</span>：从线粒体膜间隙释放到细胞质</li>
+                <li><span class="emphasis">凋亡小体形成</span>：细胞色素c + Apaf-1 + ATP/dATP + Caspase-9</li>
+                <li><span class="emphasis">Caspase级联</span>：Caspase-9激活Caspase-3执行凋亡</li>
+            </ul>
+            
+            <h4>2.2.4 凋亡调控</h4>
+            
+            <h5>Bcl-2家族蛋白</h5>
+            <ul>
+                <li><span class="emphasis">抗凋亡蛋白</span>：Bcl-2、Bcl-xL、Mcl-1等，抑制细胞色素c释放</li>
+                <li><span class="emphasis">促凋亡蛋白</span>：Bax、Bak、Bad、Bid等，促进线粒体膜通透</li>
+                <li><span class="emphasis">调控机制</span>：通过蛋白质相互作用调节线粒体膜稳定性</li>
+            </ul>
+            
+            <h5>p53肿瘤抑制因子</h5>
+            <ul>
+                <li><span class="emphasis">DNA损伤检测</span>：感受DNA损伤信号</li>
+                <li><span class="emphasis">转录调控</span>：上调促凋亡基因(PUMA、Bax等)表达</li>
+                <li><span class="emphasis">细胞周期阻滞</span>：激活p21，阻止DNA损伤细胞继续分裂</li>
+            </ul>
+            
+            <h3>2.3 细胞程序性坏死</h3>
+            
+            <h4>2.3.1 Necroptosis(程序性坏死)</h4>
+            <p>Necroptosis是一种Caspase非依赖性的程序性细胞死亡方式，具有坏死的形态学特征但受到严格的分子调控。</p>
+            
+            <ul>
+                <li><span class="emphasis">关键分子</span>：RIP1、RIP3、MLKL</li>
+                <li><span class="emphasis">激活条件</span>：TNF-α刺激且Caspase-8被抑制</li>
+                <li><span class="emphasis">信号通路</span>：RIP1-RIP3复合体形成→MLKL磷酸化→膜通透性增加</li>
+                <li><span class="emphasis">生物学意义</span>：在病原体感染时作为凋亡的备用死亡机制</li>
+            </ul>
+            
+            <h4>2.3.2 细胞焦亡(Pyroptosis)</h4>
+            <p>细胞焦亡是一种炎症性程序性细胞死亡，主要由炎症小体激活引起。</p>
+            
+            <ul>
+                <li><span class="emphasis">炎症小体</span>：NLRP3、AIM2、NLRC4等多蛋白复合体</li>
+                <li><span class="emphasis">关键酶</span>：Caspase-1、Caspase-11(小鼠)、Caspase-4/5(人)</li>
+                <li><span class="emphasis">效应分子</span>：Gasdermin D(GSDMD)形成膜孔</li>
+                <li><span class="emphasis">炎症因子</span>：IL-1β、IL-18等成熟炎症因子释放</li>
+            </ul>
+            
+            <h3>2.4 植物细胞程序性死亡</h3>
+            <p>植物细胞程序性死亡在植物发育、防御和适应环境变化中发挥重要作用。</p>
+            
+            <h4>2.4.1 特点</h4>
+            <ul>
+                <li><span class="emphasis">细胞壁存在</span>：死亡细胞保持细胞壁结构</li>
+                <li><span class="emphasis">液泡破裂</span>：液泡膜破裂，释放水解酶</li>
+                <li><span class="emphasis">DNA降解</span>：核酸酶激活，DNA片段化</li>
+                <li><span class="emphasis">细胞器消解</span>：叶绿体、线粒体等细胞器逐渐消失</li>
+            </ul>
+            
+            <h4>2.4.2 调控机制</h4>
+            <ul>
+                <li><span class="emphasis">转录调控</span>：特异性转录因子调控死亡相关基因</li>
+                <li><span class="emphasis">激素调节</span>：乙烯、脱落酸等植物激素参与调控</li>
+                <li><span class="emphasis">蛋白酶激活</span>：类Caspase蛋白酶(metacaspase)参与执行</li>
+            </ul>
+            
+            <h3>2.5 细胞衰老与程序性死亡的关系</h3>
+            <p>细胞衰老和程序性死亡是细胞命运的两种不同结局，但在分子机制上存在密切联系。</p>
+            
+            <div class="important">
+                <strong>相互关系：</strong>
+                <ul>
+                    <li><strong>共同调控因子</strong>：p53、p21等同时调控衰老和凋亡</li>
+                    <li><strong>应激反应</strong>：轻度应激导致衰老，重度应激引发死亡</li>
+                    <li><strong>端粒功能</strong>：端粒过度缩短可触发凋亡程序</li>
+                    <li><strong>衰老细胞清除</strong>：衰老细胞最终通过凋亡被清除</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 名词解释库 -->
+        <section id="terminology">
+            <h2>三、名词解释库</h2>
+            
+            <div class="definition">
+                <div class="term">细胞衰老(Cellular Senescence)</div>
+                <p>细胞在生长发育过程中，由于内在遗传程序和外界环境因素影响，逐渐失去分裂增殖能力，出现形态、结构和功能变化的过程。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">端粒(Telomere)</div>
+                <p>位于真核生物染色体末端的DNA-蛋白质复合结构，由富含鸟嘌呤的重复序列(人类为TTAGGG)组成，具有保护染色体末端的功能。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">端粒酶(Telomerase)</div>
+                <p>负责端粒延长的核糖核蛋白酶，由催化亚基TERT和RNA模板亚基TERC组成，在大多数体细胞中活性很低。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">程序性细胞死亡(Programmed Cell Death, PCD)</div>
+                <p>在特定生理或病理条件下，细胞通过激活内在死亡程序而发生的主动性、有序性死亡过程。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">细胞凋亡(Apoptosis)</div>
+                <p>一种程序性细胞死亡方式，特征为细胞收缩、核染色质凝聚、DNA片段化、凋亡小体形成，不引起炎症反应。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">Caspase</div>
+                <p>半胱氨酸天冬氨酸蛋白酶，细胞凋亡的关键执行分子，分为启动型、执行型和炎症型三类。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">Bcl-2家族蛋白</div>
+                <p>调控细胞凋亡的关键蛋白家族，包括抗凋亡蛋白(Bcl-2、Bcl-xL等)和促凋亡蛋白(Bax、Bak等)。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">细胞焦亡(Pyroptosis)</div>
+                <p>一种炎症性程序性细胞死亡，由炎症小体激活Caspase-1等引起，伴随炎症因子释放。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">程序性坏死(Necroptosis)</div>
+                <p>一种Caspase非依赖性的程序性细胞死亡，由RIP1-RIP3-MLKL信号通路调控，具有坏死形态学特征。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">活性氧(Reactive Oxygen Species, ROS)</div>
+                <p>细胞代谢过程中产生的含氧自由基和过氧化物，包括超氧阴离子、羟基自由基、过氧化氢等。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">脂褐素(Lipofuscin)</div>
+                <p>衰老细胞中积累的黄褐色色素，主要由氧化的蛋白质和脂质组成，是细胞衰老的重要标志。</p>
+            </div>
+            
+            <div class="definition">
+                <div class="term">凋亡小体(Apoptotic Body)</div>
+                <p>凋亡细胞膜出芽形成的膜包裹结构，含有细胞器片段和核染色质，可被巨噬细胞吞噬清除。</p>
+            </div>
+        </section>
+
+        <!-- 选择题测试 -->
+        <section id="quiz">
+            <h2>四、选择题测试</h2>
+            <div class="quiz-container">
+                <p style="text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 20px;">📝 随机抽取15道题进行测试</p>
+                <div id="quiz-questions"></div>
+                <button class="btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-results"></div>
+            </div>
+        </section>
+
+        <!-- 深度思考题 -->
+        <section id="thinking">
+            <h2>五、深度思考题</h2>
+            
+            <div class="thinking-question">
+                <h4>思考题1：试分析端粒学说在解释细胞衰老机制中的作用，并讨论端粒酶激活在抗衰老和肿瘤发生中的双重作用。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>端粒学说的核心机制：</strong>端粒是染色体末端的保护结构，每次细胞分裂后端粒长度缩短50-200bp。当端粒缩短到临界长度时，触发DNA损伤检查点，激活p53-p21通路，导致细胞周期阻滞和衰老。这一机制解释了体细胞分裂次数的限制(Hayflick极限)，为细胞衰老提供了分子钟模型。</li>
+                        <li><strong>端粒酶的抗衰老作用：</strong>端粒酶能够在染色体末端添加端粒DNA序列，维持端粒长度，延长细胞寿命。在干细胞和生殖细胞中，端粒酶活性较高，使这些细胞具有较强的增殖能力。人工激活端粒酶可以延缓细胞衰老，提高细胞的分裂潜能。</li>
+                        <li><strong>端粒酶与肿瘤发生的关系：</strong>约85-90%的肿瘤细胞中端粒酶被异常激活，使癌细胞获得无限增殖能力。端粒酶激活是肿瘤细胞逃避衰老和凋亡的重要机制之一。这种激活通常涉及TERT启动子突变、转录因子异常表达等多种机制。</li>
+                        <li><strong>治疗应用的挑战：</strong>端粒酶激活的双重作用给抗衰老治疗带来挑战。一方面，适度激活端粒酶可能延缓衰老；另一方面，过度激活可能增加肿瘤风险。因此，需要精确调控端粒酶活性，实现抗衰老与抗肿瘤的平衡。</li>
+                        <li><strong>未来研究方向：</strong>开发组织特异性端粒酶激活策略，探索端粒酶活性的精确调控机制，以及寻找端粒酶替代靶点，为安全有效的抗衰老治疗提供新思路。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>思考题2：比较分析细胞凋亡的内源性和外源性通路，并阐述这两条通路在疾病发生发展中的作用。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>外源性通路的特点与机制：</strong>外源性通路由细胞表面死亡受体介导，主要包括Fas/FasL、TNF-α/TNF-R1、TRAIL/TRAIL-R等系统。配体与受体结合后，受体发生三聚化，募集FADD等接头蛋白形成死亡诱导信号复合体(DISC)，直接激活Caspase-8，进而激活下游执行型Caspase。这一通路反应迅速，主要参与免疫调节和组织稳态维持。</li>
+                        <li><strong>内源性通路的特点与机制：</strong>内源性通路以线粒体为中心，由细胞内应激信号触发。DNA损伤、氧化应激等因素激活p53，上调促凋亡蛋白Bax、PUMA等表达。这些蛋白作用于线粒体外膜，导致细胞色素c释放，与Apaf-1、ATP形成凋亡小体，激活Caspase-9，最终激活执行型Caspase。此通路反应相对缓慢，但调控更为精细。</li>
+                        <li><strong>两条通路的相互作用：</strong>外源性和内源性通路并非完全独立，存在交叉调控。Caspase-8可以切割Bid蛋白，形成tBid，后者作用于线粒体，放大凋亡信号。某些细胞类型(如肝细胞)主要依赖这种放大机制完成凋亡。此外，两条通路都受到IAP家族蛋白、Bcl-2家族蛋白等的调控。</li>
+                        <li><strong>在肿瘤发生中的作用：</strong>凋亡通路异常是肿瘤发生的重要机制。p53突变导致内源性通路缺陷，使DNA损伤细胞逃避凋亡；Fas受体表达下调或FasL表达异常影响外源性通路，帮助肿瘤细胞逃避免疫监视。抗凋亡蛋白Bcl-2过表达、促凋亡蛋白Bax缺失等也常见于肿瘤中。</li>
+                        <li><strong>在神经退行性疾病中的作用：</strong>神经退行性疾病中凋亡通路过度激活导致神经元丢失。阿尔茨海默病中Aβ蛋白激活内源性凋亡通路；帕金森病中α-突触核蛋白聚集引起线粒体功能障碍；ALS中SOD1突变导致运动神经元凋亡。这些疾病的治疗策略包括抑制凋亡通路、保护线粒体功能等。</li>
+                        <li><strong>治疗意义与药物开发：</strong>基于凋亡通路的药物开发包括：促凋亡药物(如Bcl-2抑制剂)用于肿瘤治疗；抗凋亡药物(如Caspase抑制剂)用于神经保护；调节凋亡平衡的药物用于自身免疫性疾病治疗。精确调控凋亡通路是现代精准医学的重要方向。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>思考题3：分析细胞程序性死亡的不同类型(凋亡、坏死、焦亡)在机体防御和疾病中的作用，并讨论其调控的异同点。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>凋亡在机体防御中的作用：</strong>凋亡是一种"安静"的死亡方式，不引起炎症反应，主要用于清除受损、感染或不需要的细胞。在免疫系统中，凋亡负责清除自反应性淋巴细胞，维持免疫耐受；在发育过程中，凋亡塑造器官形态，如指间细胞凋亡形成手指；在肿瘤监视中，凋亡清除DNA损伤严重的细胞，防止癌变。</li>
+                        <li><strong>程序性坏死的防御功能：</strong>当凋亡通路被病原体抑制时，程序性坏死作为备用死亡机制发挥作用。RIP1-RIP3-MLKL通路介导的坏死能够快速杀死被感染的细胞，阻止病原体复制和传播。这种"同归于尽"的策略在抗病毒感染中尤为重要，如HSV、CMV等病毒感染时的宿主防御反应。</li>
+                        <li><strong>细胞焦亡的炎症防御作用：</strong>焦亡是一种高度炎症性的死亡方式，通过炎症小体激活Caspase-1，切割GSDMD形成膜孔，导致细胞裂解和炎症因子释放。这种死亡方式能够快速募集免疫细胞，启动强烈的炎症反应，对抗细菌、真菌等病原体感染。IL-1β和IL-18的释放进一步放大免疫反应。</li>
+                        <li><strong>调控机制的共同点：</strong>三种死亡方式都受到严格的分子调控，涉及特异性的蛋白酶激活。它们都具有信号感受、信号传导和执行三个基本环节。p53、NF-κB等转录因子在多种死亡方式中都发挥调控作用。此外，线粒体在这些死亡过程中都扮演重要角色，无论是细胞色素c释放、ROS产生还是ATP耗竭。</li>
+                        <li><strong>调控机制的差异：</strong>凋亡主要依赖Caspase-3/7执行，过程相对缓慢且可逆；程序性坏死依赖RIP激酶和MLKL，过程快速且不可逆；焦亡依赖炎症型Caspase和Gasdermin蛋白，伴随强烈炎症反应。在信号感受方面，凋亡主要感受DNA损伤和生长因子缺乏，坏死主要感受TNF-α等死亡信号，焦亡主要感受病原体相关分子模式(PAMPs)。</li>
+                        <li><strong>疾病中的异常表现：</strong>凋亡不足导致肿瘤和自身免疫病，凋亡过度导致神经退行性疾病；程序性坏死异常激活参与缺血再灌注损伤、神经炎症等；焦亡过度激活导致脓毒症、炎症性肠病等。理解这些死亡方式的调控机制为疾病治疗提供了新的靶点和策略。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>思考题4：从进化角度分析细胞衰老和程序性死亡的生物学意义，并讨论它们在维持多细胞生物稳态中的作用。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>细胞衰老的进化意义：</strong>细胞衰老机制的进化可能源于对肿瘤发生的防御需要。端粒缩短和衰老程序限制了细胞的分裂次数，防止细胞无限增殖而癌变。这种"牺牲个体细胞保护整体"的策略在多细胞生物进化中具有重要选择优势。同时，衰老也促进了组织更新和适应性，为新生细胞让出空间和资源。</li>
+                        <li><strong>程序性死亡的进化起源：</strong>程序性死亡可能起源于单细胞生物的应激反应机制。在多细胞生物中，这一机制被精细化和多样化，发展出凋亡、坏死、焦亡等不同类型。每种死亡方式都适应特定的生理需求：凋亡适应发育塑造和稳态维持，坏死适应快速防御，焦亡适应炎症免疫反应。</li>
+                        <li><strong>在发育中的作用：</strong>程序性死亡是多细胞生物发育的关键机制。胚胎发育过程中，大量细胞通过凋亡被清除，塑造器官形态和功能。如神经系统发育中50%以上的神经元凋亡，确保神经连接的精确性；免疫系统发育中自反应性淋巴细胞的凋亡，建立免疫耐受。这种"雕塑式"发育模式比"建构式"模式更加精确和经济。</li>
+                        <li><strong>在组织稳态维持中的作用：</strong>成体组织中，细胞死亡与增殖保持动态平衡，维持组织结构和功能稳定。造血系统每天产生和清除数十亿个细胞；肠道上皮每3-5天完全更新；皮肤表皮持续脱落和再生。这种高效的细胞更新机制确保了组织的年轻化和功能维持，同时清除了受损和衰老的细胞。</li>
+                        <li><strong>在免疫防御中的协调作用：</strong>不同类型的细胞死亡在免疫防御中发挥协调作用。凋亡维持免疫耐受，防止自身免疫；焦亡启动先天免疫反应，快速清除病原体；程序性坏死在凋亡被抑制时提供备用防御机制。这种多层次、多类型的死亡机制构成了完整的免疫防御网络。</li>
+                        <li><strong>衰老与死亡的权衡：</strong>细胞衰老和死亡之间存在精妙的权衡关系。轻度损伤导致衰老，细胞停止分裂但保持代谢活性，可能分泌有益因子；重度损伤导致死亡，彻底清除有害细胞。这种分级响应机制最大化了组织的适应性和稳定性。然而，衰老细胞的积累也可能产生负面效应，如SASP(衰老相关分泌表型)导致的慢性炎症，这可能是衰老相关疾病的重要机制。</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 选择题题库(30道题)
+        const questionBank = [
+            {
+                question: "关于细胞衰老的形态学特征，下列哪项描述是错误的？",
+                options: [
+                    "A. 细胞体积增大，形态不规则",
+                    "B. 细胞核体积缩小，核质比例增加",
+                    "C. 细胞膜流动性降低",
+                    "D. 脂褐素等衰老色素积累"
+                ],
+                correct: 1,
+                explanation: "细胞衰老时细胞核体积是增大的，不是缩小，核质比例实际上是失调的，通常表现为核相对增大。其他选项都是细胞衰老的正确特征。"
+            },
+            {
+                question: "端粒酶的组成包括哪两个主要亚基？",
+                options: [
+                    "A. TERT和TERC",
+                    "B. TERT和TRF1",
+                    "C. TERC和TRF2",
+                    "D. TRF1和TRF2"
+                ],
+                correct: 0,
+                explanation: "端粒酶由催化亚基TERT(Telomerase Reverse Transcriptase)和RNA模板亚基TERC(Telomerase RNA Component)组成。TRF1和TRF2是端粒结合蛋白，不是端粒酶的组成成分。"
+            },
+            {
+                question: "人类端粒的重复序列是：",
+                options: [
+                    "A. 5'-TTGGGG-3'",
+                    "B. 5'-TTAGGG-3'",
+                    "C. 5'-TTAAGG-3'",
+                    "D. 5'-TTAGGC-3'"
+                ],
+                correct: 1,
+                explanation: "人类端粒的重复序列是5'-TTAGGG-3'，这是一个富含鸟嘌呤的六核苷酸重复序列，在染色体末端串联重复数千次。"
+            },
+            {
+                question: "关于自由基学说，下列哪项是错误的？",
+                options: [
+                    "A. ROS主要来源于线粒体呼吸链",
+                    "B. 自由基只能造成DNA损伤",
+                    "C. SOD是重要的抗氧化酶",
+                    "D. 自由基可引起脂质过氧化"
+                ],
+                correct: 1,
+                explanation: "自由基不仅能造成DNA损伤，还能引起蛋白质氧化、脂质过氧化等多种损伤。自由基攻击细胞内各种生物大分子，是细胞衰老的重要机制之一。"
+            },
+            {
+                question: "细胞凋亡过程中，DNA片段化的典型大小是：",
+                options: [
+                    "A. 100-120bp",
+                    "B. 180-200bp",
+                    "C. 250-300bp",
+                    "D. 500-600bp"
+                ],
+                correct: 1,
+                explanation: "细胞凋亡过程中，DNA被核酸酶切割成180-200bp的片段，这个大小对应于核小体之间的连接区域，形成特征性的DNA梯状电泳图谱。"
+            },
+            {
+                question: "下列哪个Caspase属于启动型Caspase？",
+                options: [
+                    "A. Caspase-3",
+                    "B. Caspase-6",
+                    "C. Caspase-7",
+                    "D. Caspase-9"
+                ],
+                correct: 3,
+                explanation: "Caspase-9是启动型Caspase，在内源性凋亡通路中被凋亡小体激活。Caspase-3、6、7都是执行型Caspase，负责切割细胞内的关键蛋白质。"
+            },
+            {
+                question: "外源性凋亡通路的关键死亡受体不包括：",
+                options: [
+                    "A. Fas(CD95)",
+                    "B. TNF-R1",
+                    "C. TRAIL-R",
+                    "D. Bcl-2"
+                ],
+                correct: 3,
+                explanation: "Bcl-2是抗凋亡蛋白，不是死亡受体。外源性凋亡通路的主要死亡受体包括Fas、TNF-R1、TRAIL-R等，它们结合相应配体后激活凋亡信号。"
+            },
+            {
+                question: "内源性凋亡通路中，凋亡小体的组成不包括：",
+                options: [
+                    "A. 细胞色素c",
+                    "B. Apaf-1",
+                    "C. ATP/dATP",
+                    "D. Caspase-8"
+                ],
+                correct: 3,
+                explanation: "凋亡小体由细胞色素c、Apaf-1、ATP/dATP和Caspase-9组成。Caspase-8是外源性通路的启动型Caspase，不参与凋亡小体的形成。"
+            },
+            {
+                question: "Bcl-2家族中，下列哪个蛋白具有促凋亡作用？",
+                options: [
+                    "A. Bcl-2",
+                    "B. Bcl-xL",
+                    "C. Bax",
+                    "D. Mcl-1"
+                ],
+                correct: 2,
+                explanation: "Bax是促凋亡蛋白，能够在凋亡信号刺激下转位到线粒体外膜，形成孔道，促进细胞色素c释放。Bcl-2、Bcl-xL、Mcl-1都是抗凋亡蛋白。"
+            },
+            {
+                question: "p53蛋白在细胞凋亡中的主要作用是：",
+                options: [
+                    "A. 直接激活Caspase-3",
+                    "B. 转录调控促凋亡基因表达",
+                    "C. 形成死亡受体复合体",
+                    "D. 抑制线粒体功能"
+                ],
+                correct: 1,
+                explanation: "p53作为转录因子，主要通过转录调控发挥作用，上调PUMA、Bax、p21等促凋亡基因的表达，同时下调抗凋亡基因的表达。"
+            },
+            {
+                question: "程序性坏死(Necroptosis)的关键调控蛋白不包括：",
+                options: [
+                    "A. RIP1",
+                    "B. RIP3",
+                    "C. MLKL",
+                    "D. GSDMD"
+                ],
+                correct: 3,
+                explanation: "GSDMD是细胞焦亡的关键效应蛋白，不参与程序性坏死。程序性坏死主要由RIP1-RIP3-MLKL信号通路调控。"
+            },
+            {
+                question: "细胞焦亡的主要特征是：",
+                options: [
+                    "A. 细胞收缩和凋亡小体形成",
+                    "B. 细胞肿胀和膜破裂",
+                    "C. 细胞肿胀、膜破裂和炎症因子释放",
+                    "D. 细胞自噬和溶酶体激活"
+                ],
+                correct: 2,
+                explanation: "细胞焦亡的特征是细胞肿胀、膜破裂和大量炎症因子(如IL-1β、IL-18)释放，这是一种高度炎症性的程序性细胞死亡。"
+            },
+            {
+                question: "炎症小体激活的下游效应分子是：",
+                options: [
+                    "A. Caspase-3",
+                    "B. Caspase-8",
+                    "C. Caspase-9",
+                    "D. Caspase-1"
+                ],
+                correct: 3,
+                explanation: "炎症小体激活Caspase-1，后者切割pro-IL-1β和pro-IL-18形成成熟的炎症因子，同时切割GSDMD形成膜孔，导致细胞焦亡。"
+            },
+            {
+                question: "NLRP3炎症小体的激活需要哪两个信号？",
+                options: [
+                    "A. 启动信号和激活信号",
+                    "B. 转录信号和翻译信号",
+                    "C. 内源信号和外源信号",
+                    "D. 正调控信号和负调控信号"
+                ],
+                correct: 0,
+                explanation: "NLRP3炎症小体的激活需要两个信号：启动信号(如TLR激活)上调NLRP3和pro-IL-1β表达；激活信号(如ATP、尿酸结晶等)触发炎症小体组装。"
+            },
+            {
+                question: "植物细胞程序性死亡的特点不包括：",
+                options: [
+                    "A. 细胞壁保持完整",
+                    "B. 液泡膜破裂",
+                    "C. 凋亡小体形成",
+                    "D. DNA片段化"
+                ],
+                correct: 2,
+                explanation: "植物细胞由于细胞壁的存在，不会形成典型的凋亡小体。植物细胞程序性死亡的特点包括细胞壁保持、液泡破裂、DNA降解等。"
+            },
+            {
+                question: "关于端粒长度与细胞分裂的关系，正确的是：",
+                options: [
+                    "A. 端粒长度与分裂次数无关",
+                    "B. 每次分裂端粒延长50-200bp",
+                    "C. 每次分裂端粒缩短50-200bp",
+                    "D. 端粒长度在分裂过程中保持不变"
+                ],
+                correct: 2,
+                explanation: "由于DNA聚合酶无法完全复制线性DNA的末端，每次细胞分裂后端粒缩短50-200bp，这是细胞衰老的重要机制。"
+            },
+            {
+                question: "Hayflick极限是指：",
+                options: [
+                    "A. 细胞的最大体积",
+                    "B. 细胞的分裂次数限制",
+                    "C. 细胞的代谢速率上限",
+                    "D. 细胞的存活时间上限"
+                ],
+                correct: 1,
+                explanation: "Hayflick极限是指正常体细胞在体外培养条件下能够分裂的次数限制，人类成纤维细胞约为50-60次，与端粒缩短密切相关。"
+            },
+            {
+                question: "关于线粒体在细胞凋亡中的作用，错误的是：",
+                options: [
+                    "A. 释放细胞色素c",
+                    "B. 膜电位下降",
+                    "C. 通透性转换孔开放",
+                    "D. ATP产生增加"
+                ],
+                correct: 3,
+                explanation: "细胞凋亡过程中线粒体功能受损，ATP产生减少而不是增加。线粒体在凋亡中主要释放促凋亡因子如细胞色素c。"
+            },
+            {
+                question: "IAP家族蛋白的主要功能是：",
+                options: [
+                    "A. 激活Caspase",
+                    "B. 抑制Caspase",
+                    "C. 促进DNA损伤",
+                    "D. 激活p53"
+                ],
+                correct: 1,
+                explanation: "IAP(Inhibitor of Apoptosis Protein)家族蛋白通过直接结合和抑制Caspase活性来阻止细胞凋亡，是重要的凋亡调控因子。"
+            },
+            {
+                question: "关于细胞衰老与程序性死亡的关系，错误的是：",
+                options: [
+                    "A. 都受p53调控",
+                    "B. 都涉及DNA损伤反应",
+                    "C. 衰老细胞不会发生凋亡",
+                    "D. 都参与组织稳态维持"
+                ],
+                correct: 2,
+                explanation: "衰老细胞在某些条件下仍可发生凋亡，这是机体清除衰老细胞的重要机制。衰老和凋亡在分子机制上存在交叉调控。"
+            },
+            {
+                question: "SASP(衰老相关分泌表型)的主要特征是：",
+                options: [
+                    "A. 分泌抗炎因子",
+                    "B. 分泌促炎因子和基质金属蛋白酶",
+                    "C. 分泌生长抑制因子",
+                    "D. 停止所有分泌活动"
+                ],
+                correct: 1,
+                explanation: "SASP是衰老细胞的重要特征，主要分泌促炎因子(如IL-6、IL-8)、基质金属蛋白酶等，可能促进组织老化和疾病发生。"
+            },
+            {
+                question: "关于端粒酶在不同细胞中的活性，正确的是：",
+                options: [
+                    "A. 所有细胞中活性相同",
+                    "B. 干细胞和生殖细胞中活性较高",
+                    "C. 分化细胞中活性最高",
+                    "D. 衰老细胞中活性增强"
+                ],
+                correct: 1,
+                explanation: "端粒酶在干细胞、生殖细胞和某些高增殖组织中活性较高，在大多数体细胞中活性很低或缺失，这解释了不同细胞类型的增殖能力差异。"
+            },
+            {
+                question: "细胞凋亡与细胞坏死的主要区别不包括：",
+                options: [
+                    "A. 是否引起炎症反应",
+                    "B. 细胞膜的完整性",
+                    "C. 是否消耗ATP",
+                    "D. 是否涉及DNA损伤"
+                ],
+                correct: 3,
+                explanation: "凋亡和坏死都可能涉及DNA损伤。主要区别在于：凋亡不引起炎症、膜保持完整、需要ATP；坏死引起炎症、膜破裂、不需要ATP。"
+            },
+            {
+                question: "关于自噬与细胞死亡的关系，正确的是：",
+                options: [
+                    "A. 自噬总是导致细胞死亡",
+                    "B. 自噬只有保护作用",
+                    "C. 自噬既可保护细胞也可导致死亡",
+                    "D. 自噬与细胞死亡无关"
+                ],
+                correct: 2,
+                explanation: "自噬具有双重作用：适度自噬可清除受损细胞器和蛋白质，保护细胞；过度自噬可导致细胞死亡(自噬性细胞死亡)。"
+            },
+            {
+                question: "p16-Rb通路在细胞衰老中的作用机制是：",
+                options: [
+                    "A. p16激活CDK4/6",
+                    "B. p16抑制CDK4/6，使Rb去磷酸化",
+                    "C. p16直接激活p53",
+                    "D. p16促进端粒酶活性"
+                ],
+                correct: 1,
+                explanation: "p16通过抑制CDK4/6激酶活性，阻止Rb蛋白磷酸化，使Rb保持活性状态，阻滞细胞周期G1/S转换，导致细胞衰老。"
+            },
+            {
+                question: "关于线粒体DNA(mtDNA)与衰老的关系，错误的是：",
+                options: [
+                    "A. mtDNA突变随年龄增加",
+                    "B. mtDNA缺乏组蛋白保护",
+                    "C. mtDNA修复能力强于核DNA",
+                    "D. mtDNA损伤影响呼吸链功能"
+                ],
+                correct: 2,
+                explanation: "mtDNA的修复能力实际上弱于核DNA，缺乏组蛋白保护，更容易受到ROS攻击，突变率较高，这是线粒体功能衰退和细胞衰老的重要原因。"
+            }
+        ];
+
+        // 随机选择15道题进行测试
+        let selectedQuestions = [];
+        let userAnswers = [];
+        let currentQuizQuestions = [];
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function generateQuiz() {
+            const shuffled = shuffleArray(questionBank);
+            currentQuizQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const quizContainer = document.getElementById('quiz-questions');
+            quizContainer.innerHTML = '';
+            
+            currentQuizQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optionIndex) => `
+                        <label class="option">
+                            <input type="radio" name="question${index}" value="${optionIndex}" 
+                                   onchange="userAnswers[${index}] = ${optionIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            const results = document.getElementById('quiz-results');
+            let resultHTML = '<div class="score-display">测试结果</div>';
+            
+            currentQuizQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                if (isCorrect) score++;
+                
+                resultHTML += `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        <strong>第${index + 1}题：</strong>${q.question}<br>
+                        <strong>您的答案：</strong>${userAnswers[index] >= 0 ? q.options[userAnswers[index]] : '未作答'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / 15) * 100);
+            resultHTML = `
+                <div class="score-display">
+                    <h3>测试完成！</h3>
+                    <p>您的得分：${score}/15 (${percentage}%)</p>
+                    <p>评价：${getScoreComment(percentage)}</p>
+                </div>
+            ` + resultHTML;
+            
+            results.innerHTML = resultHTML;
+            results.style.display = 'block';
+            
+            // 滚动到结果区域
+            results.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function getScoreComment(percentage) {
+            if (percentage >= 90) return '优秀！您对细胞衰老与程序性死亡的知识掌握得非常好！';
+            if (percentage >= 80) return '良好！您已经很好地理解了相关概念，继续加油！';
+            if (percentage >= 70) return '中等！还需要进一步加强对细节知识的掌握。';
+            if (percentage >= 60) return '及格！建议重新复习相关章节内容。';
+            return '需要努力！请仔细阅读教材并重点复习薄弱环节。';
+        }
+
+        function resetQuiz() {
+            generateQuiz();
+            document.getElementById('quiz-results').style.display = 'none';
+        }
+
+        // 页面加载时生成题目
+        document.addEventListener('DOMContentLoaded', function() {
+            generateQuiz();
+            
+            // 添加重新测试按钮
+            const quizContainer = document.querySelector('.quiz-container');
+            const resetButton = document.createElement('button');
+            resetButton.className = 'btn';
+            resetButton.textContent = '重新测试';
+            resetButton.onclick = resetQuiz;
+            resetButton.style.marginLeft = '10px';
+            
+            const submitButton = quizContainer.querySelector('button');
+            submitButton.parentNode.insertBefore(resetButton, submitButton.nextSibling);
+        });
+    </script>
+</body>
+</html>

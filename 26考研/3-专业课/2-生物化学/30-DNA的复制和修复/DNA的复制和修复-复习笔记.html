@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA的复制和修复 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .important {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e17055;
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: "KaiTi", "楷体", cursive;
+            border: 2px dashed #3498db;
+        }
+
+        /* 名词解释样式 - 参考29章设计优化 */
+        .terms-container {
+            margin: 20px 0;
+        }
+
+        .term {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            /* 保持块状布局，每个术语独立一块 */
+        }
+
+        .term:hover {
+            background: #e9ecef;
+            border-color: #3498db;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: block;
+            /* 中文名称单独一行，突出显示 */
+        }
+
+        .term-english {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 0.95em;
+            /* 英文名称单独一行，字体稍小 */
+        }
+
+        .term-definition {
+            color: #495057;
+            line-height: 1.6;
+            text-align: justify;
+            /* 定义部分单独一行，两端对齐 */
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 8px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 15px;
+            background: #f1f3f4;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .thinking-question h4 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .thinking-answer {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .thinking-answer ol {
+            counter-reset: item;
+        }
+
+        .thinking-answer ol li {
+            display: block;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .thinking-answer ol li:before {
+            content: counter(item) ". ";
+            counter-increment: item;
+            font-weight: bold;
+            color: #e74c3c;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 5px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .quiz-container {
+                padding: 15px;
+            }
+            
+            .terms-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section h2 {
+                font-size: 1.5em;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DNA的复制和修复</h1>
+            <p>《生物化学》第四版 第30章 考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、DNA复制的基本概念与特点</h2>
+                
+                <h3>1. DNA复制的基本概念</h3>
+                <p>DNA复制是指以亲代DNA为模板，合成子代DNA的过程。这是遗传信息从亲代传递给子代的分子基础。</p>
+                
+                <div class="highlight">
+                    <strong>核心要点：</strong>DNA复制是生物遗传信息传递的关键步骤，确保遗传信息的准确传递。
+                </div>
+
+                <h3>2. DNA复制的基本特点</h3>
+                <ul>
+                    <li><strong>半保留复制：</strong>新合成的DNA分子中，一条链来自亲代DNA（保留链），另一条链是新合成的（新链）</li>
+                    <li><strong>半不连续复制：</strong>前导链连续合成，滞后链不连续合成（冈崎片段）</li>
+                    <li><strong>双向复制：</strong>从复制起点向两个方向同时进行</li>
+                    <li><strong>高保真性：</strong>通过多种校对机制确保复制的准确性</li>
+                </ul>
+
+                <div class="important">
+                    <strong>重要实验：</strong>Meselson-Stahl实验证明了DNA的半保留复制方式。使用¹⁵N标记的大肠杆菌在¹⁴N培养基中生长，通过密度梯度离心证明了半保留复制。
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>二、DNA复制的分子机制</h2>
+                
+                <h3>1. 复制的基本要素</h3>
+                <h4>(1) 复制子(Replicon)</h4>
+                <p>从复制起始点开始直到终点为止的DNA单位。原核生物通常只有一个复制子，真核生物有多个复制子。</p>
+                
+                <h4>(2) 复制叉(Replication Fork)</h4>
+                <p>DNA双链解开形成的叉状结构，是DNA复制进行的场所。</p>
+                
+                <h4>(3) 复制体(Replisome)</h4>
+                <p>与DNA复制有关的30多种酶和蛋白质因子在复制叉上形成的复合物。</p>
+
+                <h3>2. 参与DNA复制的主要酶类</h3>
+                <h4>(1) DNA聚合酶</h4>
+                <ul>
+                    <li><strong>DNA聚合酶Ⅰ：</strong>具有5'→3'外切酶活性，负责切除引物和修复</li>
+                    <li><strong>DNA聚合酶Ⅱ：</strong>主要参与DNA修复</li>
+                    <li><strong>DNA聚合酶Ⅲ：</strong>主要的复制酶，具有高度的持续合成能力</li>
+                </ul>
+                
+                <div class="formula">
+                    DNA聚合酶催化反应：<br>
+                    (dNMP)ₙ + dNTP → (dNMP)ₙ₊₁ + PPᵢ
+                </div>
+
+                <h4>(2) 其他重要酶类</h4>
+                <ul>
+                    <li><strong>解旋酶(Helicase)：</strong>解开DNA双链</li>
+                    <li><strong>引物酶(Primase)：</strong>合成RNA引物</li>
+                    <li><strong>拓扑异构酶：</strong>缓解DNA解旋产生的张力</li>
+                    <li><strong>DNA连接酶：</strong>连接DNA片段</li>
+                    <li><strong>单链结合蛋白(SSB)：</strong>保护单链DNA</li>
+                </ul>
+
+                <h3>3. 复制过程</h3>
+                <h4>(1) 起始阶段</h4>
+                <ul>
+                    <li>DnaA蛋白识别并结合复制起点(oriC)</li>
+                    <li>解旋酶在DnaB和DnaC蛋白帮助下解开双链</li>
+                    <li>引物酶合成RNA引物</li>
+                </ul>
+
+                <h4>(2) 延伸阶段</h4>
+                <ul>
+                    <li><strong>前导链：</strong>连续合成，方向与复制叉移动方向一致</li>
+                    <li><strong>滞后链：</strong>不连续合成，形成冈崎片段（1000-2000个核苷酸）</li>
+                </ul>
+
+                <h4>(3) 终止阶段</h4>
+                <ul>
+                    <li>复制叉在终止区相遇</li>
+                    <li>Tus蛋白结合终止位点，阻止解旋酶活性</li>
+                    <li>拓扑异构酶解开连锁体</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、真核生物与原核生物DNA复制的比较</h2>
+                
+                <h3>1. 相同点</h3>
+                <ul>
+                    <li>都分为起始、延伸、终止三个过程</li>
+                    <li>都需要RNA引物提供3'-OH基团</li>
+                    <li>都是半保留、半不连续、双向复制</li>
+                    <li>都需要多种酶和蛋白质因子参与</li>
+                </ul>
+
+                <h3>2. 不同点</h3>
+                <div class="highlight">
+                    <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                        <tr style="background: #3498db; color: white;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">特征</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">原核生物</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">真核生物</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">DNA结构</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">环形，单一复制起点</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">线形，多个复制起点</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">复制时期</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">整个细胞周期</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">仅在S期</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">主要聚合酶</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">DNA聚合酶Ⅲ</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">DNA聚合酶α、δ、ε</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">末端问题</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">无末端问题</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">端粒酶解决末端问题</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>3. 真核生物特有的端粒问题</h3>
+                <p>由于DNA聚合酶只能从5'→3'方向合成，线形DNA的末端无法完全复制。端粒酶通过以自身携带的RNA为模板，延长端粒序列，解决这一问题。</p>
+                
+                <div class="important">
+                    <strong>临床意义：</strong>端粒酶在正常体细胞中活性很低，但在癌细胞中活性很高，这是癌细胞能够无限增殖的重要原因之一。
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>四、DNA损伤与修复机制</h2>
+                
+                <h3>1. DNA损伤的类型与原因</h3>
+                <h4>(1) 损伤原因</h4>
+                <ul>
+                    <li><strong>物理因素：</strong>紫外线、电离辐射</li>
+                    <li><strong>化学因素：</strong>烷化剂、碱基类似物、嵌入染料</li>
+                    <li><strong>生物因素：</strong>自发性脱氨、氧化损伤</li>
+                </ul>
+
+                <h4>(2) 损伤类型</h4>
+                <ul>
+                    <li>嘧啶二聚体</li>
+                    <li>碱基修饰</li>
+                    <li>DNA链断裂</li>
+                    <li>碱基错配</li>
+                    <li>碱基缺失</li>
+                </ul>
+
+                <h3>2. DNA修复机制</h3>
+                <h4>(1) 直接修复</h4>
+                <ul>
+                    <li><strong>光复活修复：</strong>光复活酶在可见光激活下分解嘧啶二聚体</li>
+                    <li><strong>甲基转移酶修复：</strong>直接去除甲基化损伤</li>
+                </ul>
+                
+                <div class="highlight">
+                    <strong>注意：</strong>高等哺乳动物缺乏光复活酶，主要依靠暗修复机制。
+                </div>
+
+                <h4>(2) 切除修复</h4>
+                <ul>
+                    <li><strong>碱基切除修复(BER)：</strong>糖苷酶识别并切除损伤碱基</li>
+                    <li><strong>核苷酸切除修复(NER)：</strong>切除包含损伤的核苷酸片段</li>
+                </ul>
+                
+                <div class="formula">
+                    切除修复过程：<br>
+                    识别损伤 → 切除损伤 → DNA聚合酶填补 → DNA连接酶连接
+                </div>
+
+                <h4>(3) 错配修复</h4>
+                <p>通过MutS、MutL、MutH等蛋白识别错配，根据甲基化程度区分新旧链，切除新链上的错误碱基并重新合成。</p>
+
+                <h4>(4) 重组修复</h4>
+                <p>当复制叉遇到未修复的损伤时，通过同源重组机制进行修复，避免复制叉崩溃。</p>
+
+                <h4>(5) SOS反应与易错修复</h4>
+                <ul>
+                    <li><strong>SOS反应：</strong>DNA严重损伤时的应急反应</li>
+                    <li><strong>易错修复：</strong>高错误率的修复，以生存为代价</li>
+                    <li><strong>生物学意义：</strong>虽然突变率高，但能使部分细胞存活</li>
+                </ul>
+
+                <h3>3. 转录偶联修复</h3>
+                <p>转录过程中RNA聚合酶遇到DNA损伤时停止，招募修复酶系统进行优先修复，确保重要基因的正常表达。</p>
+            </div>
+
+            <div class="section">
+                <h2>五、基因突变与诱变</h2>
+                
+                <h3>1. 突变类型</h3>
+                <h4>(1) 按结构改变分类</h4>
+                <ul>
+                    <li><strong>点突变：</strong>单个碱基的改变</li>
+                    <li><strong>移码突变：</strong>碱基的插入或缺失导致读码框改变</li>
+                    <li><strong>大片段突变：</strong>大段DNA的缺失、插入或重排</li>
+                </ul>
+
+                <h4>(2) 按功能影响分类</h4>
+                <ul>
+                    <li><strong>同义突变：</strong>不改变氨基酸序列</li>
+                    <li><strong>错义突变：</strong>改变氨基酸序列</li>
+                    <li><strong>无义突变：</strong>产生终止密码子</li>
+                </ul>
+
+                <h3>2. 诱变剂</h3>
+                <h4>(1) 碱基类似物</h4>
+                <p>如5-溴尿嘧啶(5-BrU)，能够与胸腺嘧啶竞争掺入DNA，引起转换突变。</p>
+
+                <h4>(2) 碱基修饰剂</h4>
+                <p>如亚硝酸，能够使胞嘧啶脱氨基变成尿嘧啶，导致C→T转换。</p>
+
+                <h4>(3) 嵌入染料</h4>
+                <p>如吖啶橙，嵌入DNA双链间，导致移码突变。</p>
+
+                <h3>3. 突变检测</h3>
+                <h4>(1) Ames试验</h4>
+                <p>利用组氨酸营养缺陷型沙门氏菌的回复突变检测诱变剂，广泛用于致癌物筛选。</p>
+
+                <h4>(2) Devoret试验</h4>
+                <p>利用细菌噬菌体溶原株的SOS反应检测致癌剂。</p>
+                
+                <div class="important">
+                    <strong>重要关联：</strong>大多数致癌剂同时也是诱变剂，这为致癌物的快速筛选提供了重要手段。
+                </div>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>六、重要名词解释</h2>
+                <div class="terms-container">
+                    <div class="term">
+                        <div class="term-name">半保留复制</div>
+                        <div class="term-english">Semiconservative Replication</div>
+                        <div class="term-definition">DNA复制时，新合成的DNA分子中一条链来自亲代DNA（保留链），另一条链是新合成的，这种复制方式称为半保留复制。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">冈崎片段</div>
+                        <div class="term-english">Okazaki Fragment</div>
+                        <div class="term-definition">DNA复制时在滞后链上不连续合成的短DNA片段，长度约1000-2000个核苷酸，最后由DNA连接酶连接成完整的链。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">复制子</div>
+                        <div class="term-english">Replicon</div>
+                        <div class="term-definition">从复制起始点开始直到终点为止的DNA复制单位。原核生物通常只有一个复制子，真核生物有多个复制子。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">复制叉</div>
+                        <div class="term-english">Replication Fork</div>
+                        <div class="term-definition">DNA双链解开时形成的叉状结构，是DNA复制进行的场所，包含前导链和滞后链的合成机制。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">复制体</div>
+                        <div class="term-english">Replisome</div>
+                        <div class="term-definition">与DNA复制有关的30多种酶和蛋白质因子在复制叉上形成的复合物，协调进行高精度的DNA复制。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">端粒酶</div>
+                        <div class="term-english">Telomerase</div>
+                        <div class="term-definition">一种具有反转录酶活性的核蛋白酶，以自身携带的RNA为模板合成端粒DNA，解决线形DNA末端复制问题。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">拓扑异构酶</div>
+                        <div class="term-english">Topoisomerase</div>
+                        <div class="term-definition">能够改变DNA拓扑结构的酶。I型切开一条链缓解张力，II型切开双链并需要ATP参与。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">SOS反应</div>
+                        <div class="term-english">SOS Response</div>
+                        <div class="term-definition">细胞DNA受到严重损伤时的应急反应，包括DNA修复、诱变效应、细胞分裂抑制等一系列复杂的诱导效应。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">错配修复</div>
+                        <div class="term-english">Mismatch Repair</div>
+                        <div class="term-definition">修复DNA复制过程中产生的碱基错配的机制，通过识别甲基化程度区分新旧链并修复错误。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">切除修复</div>
+                        <div class="term-english">Excision Repair</div>
+                        <div class="term-definition">通过切除DNA损伤部分并重新合成来修复DNA的机制，包括碱基切除修复(BER)和核苷酸切除修复(NER)。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">引物酶</div>
+                        <div class="term-english">Primase</div>
+                        <div class="term-definition">合成RNA引物的酶，为DNA聚合酶提供3'-OH基团，是DNA复制起始的必需酶。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">单链结合蛋白</div>
+                        <div class="term-english">Single-Strand DNA-Binding Protein, SSB</div>
+                        <div class="term-definition">结合并保护单链DNA的蛋白质，防止单链DNA形成二级结构或被核酸酶降解。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>七、选择题测试</h2>
+                <div class="quiz-container" id="quizContainer">
+                    <p style="text-align: center; font-size: 1.1em; color: #7f8c8d; margin-bottom: 20px;">正在加载题目...</p>
+                </div>
+                <button class="submit-btn" id="submitBtn" onclick="submitQuiz()" style="display: none;">提交答案</button>
+                <div id="result" class="result"></div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>八、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试分析DNA复制的半保留特性对遗传信息传递的重要意义，并结合Meselson-Stahl实验说明如何证明这一特性。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>遗传信息保真性保障：</strong>半保留复制确保每个子代DNA分子都含有一条来自亲代的完整链，这条保留链作为"模板"和"校对标准"，大大降低了遗传信息传递过程中的错误率。即使新合成链出现错误，保留链仍能提供正确的遗传信息。</li>
+                            <li><strong>进化稳定性与适应性的平衡：</strong>半保留复制在保持遗传稳定性的同时，允许适度的变异发生。这种机制既保证了物种的基本特征得以传承，又为进化提供了原材料，是生物适应环境变化的重要基础。</li>
+                            <li><strong>Meselson-Stahl实验设计精妙性：</strong>该实验巧妙地利用了同位素标记技术，通过¹⁵N和¹⁴N的密度差异，在分子水平上直接观察DNA复制过程。实验设计包括：长期¹⁵N标记建立重链DNA、转移到¹⁴N环境观察复制、密度梯度离心分离不同密度的DNA。</li>
+                            <li><strong>实验结果的决定性意义：</strong>第一代复制后出现的中等密度DNA带，明确排除了保守复制和分散复制的可能性，为半保留复制提供了直接证据。这一发现不仅验证了Watson-Crick模型的预测，更为后续分子生物学研究奠定了坚实基础。</li>
+                            <li><strong>现代分子生物学意义：</strong>半保留复制机制的确立，为理解DNA修复、重组、突变等过程提供了理论框架，也为基因工程、PCR技术等现代生物技术的发展提供了重要的理论支撑。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较分析原核生物和真核生物DNA复制机制的异同，并探讨这些差异的进化意义和生物学后果。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>复制起点与复制子组织的差异：</strong>原核生物单一复制起点的简单模式适应了其快速繁殖的需求，而真核生物多复制起点的复杂模式则是应对大基因组和精确调控的必然选择。多复制子系统允许真核生物在有限的S期内完成大量DNA的复制，同时提供了更精细的时空调控可能。</li>
+                            <li><strong>复制酶系统的复杂化：</strong>真核生物拥有更多种类的DNA聚合酶（α、β、γ、δ、ε），每种酶都有特定的功能分工，这种专业化分工提高了复制的精确性和效率。相比之下，原核生物的三种聚合酶系统虽然简单，但足以满足其生存需求。</li>
+                            <li><strong>端粒问题的进化解决方案：</strong>真核生物线形染色体的端粒问题催生了端粒酶系统的进化。端粒酶的活性调控与细胞衰老、癌症发生密切相关，这一机制既保护了染色体完整性，又提供了细胞寿命调控的分子开关。</li>
+                            <li><strong>时间调控的精密化：</strong>真核生物将DNA复制限制在S期，配合细胞周期检查点机制，确保了基因组稳定性。这种严格的时间调控虽然降低了繁殖速度，但大大提高了遗传信息传递的可靠性，适应了多细胞生物复杂的发育需求。</li>
+                            <li><strong>进化压力与适应策略：</strong>原核生物面临的主要进化压力是快速繁殖和环境适应，因此其DNA复制机制追求速度和效率；真核生物则需要平衡基因组稳定性与细胞分化的需求，因此发展出更加精密和可调控的复制系统。这些差异反映了不同生物在进化过程中对环境挑战的不同应对策略。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 深入分析DNA修复机制的多样性及其生物学意义，并探讨修复机制缺陷与人类疾病的关系。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>修复机制的层次化防御体系：</strong>细胞建立了从直接修复到SOS反应的多层次防御体系。直接修复（如光复活）针对特定损伤类型，效率高且无错误；切除修复系统处理多种损伤类型，适应性强；错配修复确保复制保真性；重组修复处理复杂损伤；SOS反应作为最后防线，虽然错误率高但能保证细胞存活。</li>
+                            <li><strong>修复机制的进化保守性与特化：</strong>基本的修复机制在从细菌到人类的进化过程中高度保守，说明DNA完整性对生命的重要性。同时，不同物种又发展出特化的修复系统，如哺乳动物缺乏光复活酶但发展出更强大的切除修复系统，体现了进化的适应性。</li>
+                            <li><strong>修复效率与基因表达的偶联：</strong>转录偶联修复机制优先修复活跃转录基因中的损伤，体现了细胞资源分配的智慧。这种机制确保重要基因的正常表达，同时节约了修复资源，是细胞适应环境压力的重要策略。</li>
+                            <li><strong>修复缺陷与人类疾病的分子机制：</strong>DNA修复基因的突变导致多种遗传性疾病，如着色性干皮病（XP）患者缺乏核苷酸切除修复能力，对紫外线极度敏感；遗传性非息肉性结直肠癌（HNPCC）与错配修复基因缺陷相关；BRCA1/BRCA2基因缺陷影响同源重组修复，增加乳腺癌和卵巢癌风险。</li>
+                            <li><strong>修复机制在癌症治疗中的双重作用：</strong>DNA修复机制既是癌症发生的防护屏障，也可能成为癌症治疗的阻碍。许多化疗药物通过损伤DNA发挥作用，而癌细胞的修复能力增强会导致耐药性。因此，靶向DNA修复通路的治疗策略（如PARP抑制剂）成为精准医学的重要方向，体现了基础研究向临床应用转化的重要价值。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 结合端粒酶的结构功能特点，分析其在细胞衰老、癌症发生和干细胞维持中的作用机制。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>端粒酶的独特结构与催化机制：</strong>端粒酶是一种特殊的反转录酶，由蛋白质组分（TERT）和RNA组分（TERC/TR）组成。其RNA组分作为模板，指导端粒DNA的合成，这种"内置模板"的设计巧妙地解决了线形DNA末端复制的难题。端粒酶的这种结构特点使其能够在没有外源DNA模板的情况下延长染色体末端。</li>
+                            <li><strong>细胞衰老的分子钟机制：</strong>在大多数体细胞中，端粒酶活性极低，导致端粒随细胞分裂逐渐缩短。当端粒长度降至临界值时，触发DNA损伤反应和细胞周期阻滞，最终导致细胞衰老或凋亡。这种机制实际上构成了细胞的"分子钟"，限制了细胞的增殖潜能，是机体防止细胞无限增殖的重要保护机制。</li>
+                            <li><strong>癌症发生中的端粒酶激活：</strong>约85-90%的癌细胞重新激活端粒酶，获得无限增殖能力。这种激活通常涉及端粒酶催化亚基TERT的转录上调，可能通过多种机制实现，包括转录因子异常激活、表观遗传修饰改变等。端粒酶的重新激活是癌细胞获得"永生化"特征的关键步骤，也是癌症治疗的重要靶点。</li>
+                            <li><strong>干细胞自我更新的分子基础：</strong>胚胎干细胞、造血干细胞等具有高端粒酶活性，这是其维持自我更新能力的重要分子基础。端粒酶不仅维持端粒长度，还可能通过非经典功能参与基因表达调控、DNA修复等过程，全面支持干细胞的多能性维持。</li>
+                            <li><strong>端粒酶调控的治疗应用前景：</strong>基于端粒酶的治疗策略具有双向性：一方面，可以通过激活端粒酶治疗与衰老相关的疾病，延缓组织器官功能衰退；另一方面，可以通过抑制端粒酶活性或免疫靶向端粒酶阳性细胞来治疗癌症。这种双向调控策略为抗衰老和抗癌治疗提供了新的思路，但也需要精确控制以避免不良后果。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 从系统生物学角度分析DNA复制保真性的多重保障机制，并探讨这些机制在维持基因组稳定性中的协同作用。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>多层次校对系统的协同效应：</strong>DNA复制保真性通过多个层次的质量控制实现：DNA聚合酶的3'→5'外切酶活性提供即时校对，错配修复系统进行复制后校对，细胞周期检查点确保复制完整性。这种多层次系统的协同作用将复制错误率从10⁻⁵降低到10⁻⁹-10⁻¹⁰，体现了生物系统冗余设计的重要性。</li>
+                            <li><strong>时空耦合的质量控制网络：</strong>DNA复制过程中，各种质量控制机制在时间和空间上紧密耦合。复制体中的校对功能与合成功能物理上相邻，错配修复与复制在时间上紧密相连，细胞周期检查点在特定时期发挥监控作用。这种时空耦合确保了质量控制的高效性和准确性。</li>
+                            <li><strong>动态平衡与适应性调节：</strong>基因组稳定性维持是一个动态平衡过程，需要在保真性和适应性之间找到平衡点。过度的保真性可能限制进化适应能力，而保真性不足则威胁生存。细胞通过调节各种修复系统的活性，在不同环境条件下实现最优的稳定性-适应性平衡。</li>
+                            <li><strong>网络鲁棒性与脆弱性的双重特征：</strong>DNA复制保真性系统具有高度的鲁棒性，能够应对多种类型的损伤和错误。然而，这个系统也存在脆弱性，关键节点的失效可能导致系统性崩溃。例如，p53等关键调节因子的缺失会导致多个质量控制机制的失效，增加基因组不稳定性和癌症风险。</li>
+                            <li><strong>进化优化与系统整合：</strong>DNA复制保真性机制是长期进化优化的结果，不同组分之间高度整合，形成了高效的质量控制系统。这种系统级的整合不仅体现在分子水平的相互作用，还体现在细胞水平的协调调控和个体水平的适应性响应。理解这种系统性特征对于开发新的治疗策略和预防措施具有重要意义。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "DNA复制的方式是：",
+                options: ["保守复制", "半保留复制", "分散复制", "随机复制"],
+                correct: 1,
+                explanation: "Meselson-Stahl实验证明DNA复制是半保留复制，即新合成的DNA分子中一条链来自亲代，另一条链是新合成的。"
+            },
+            {
+                question: "原核生物DNA复制的主要酶是：",
+                options: ["DNA聚合酶Ⅰ", "DNA聚合酶Ⅱ", "DNA聚合酶Ⅲ", "RNA聚合酶"],
+                correct: 2,
+                explanation: "DNA聚合酶Ⅲ是原核生物DNA复制的主要酶，具有高度的持续合成能力和3'→5'外切酶活性。"
+            },
+            {
+                question: "冈崎片段是指：",
+                options: ["前导链上的DNA片段", "滞后链上的短DNA片段", "RNA引物片段", "蛋白质片段"],
+                correct: 1,
+                explanation: "冈崎片段是DNA复制时在滞后链上不连续合成的短DNA片段，长度约1000-2000个核苷酸。"
+            },
+            {
+                question: "DNA聚合酶催化DNA合成的方向是：",
+                options: ["3'→5'", "5'→3'", "双向", "任意方向"],
+                correct: 1,
+                explanation: "所有DNA聚合酶都只能催化5'→3'方向的DNA合成，这是由酶的结构特点决定的。"
+            },
+            {
+                question: "真核生物解决线形DNA末端复制问题的酶是：",
+                options: ["DNA聚合酶", "端粒酶", "连接酶", "解旋酶"],
+                correct: 1,
+                explanation: "端粒酶是一种反转录酶，以自身携带的RNA为模板合成端粒DNA，解决线形DNA末端复制问题。"
+            },
+            {
+                question: "拓扑异构酶Ⅰ的作用是：",
+                options: ["切开DNA双链", "切开DNA单链缓解张力", "连接DNA片段", "合成RNA引物"],
+                correct: 1,
+                explanation: "拓扑异构酶Ⅰ通过切开DNA的一条链来缓解DNA解旋过程中产生的张力，不需要ATP参与。"
+            },
+            {
+                question: "DNA复制起始需要：",
+                options: ["DNA模板", "RNA引物", "DNA聚合酶", "以上都需要"],
+                correct: 3,
+                explanation: "DNA复制起始需要DNA模板提供遗传信息，RNA引物提供3'-OH基团，DNA聚合酶催化合成反应。"
+            },
+            {
+                question: "错配修复系统识别新旧链的依据是：",
+                options: ["链的长度", "甲基化程度", "碱基组成", "蛋白质结合"],
+                correct: 1,
+                explanation: "在原核生物中，错配修复系统通过GATC序列的甲基化程度来区分新合成链（未甲基化）和模板链（甲基化）。"
+            },
+            {
+                question: "光复活修复主要修复：",
+                options: ["碱基错配", "嘧啶二聚体", "DNA断裂", "碱基缺失"],
+                correct: 1,
+                explanation: "光复活修复是一种直接修复方式，光复活酶在可见光激活下专门分解紫外线引起的嘧啶二聚体。"
+            },
+            {
+                question: "SOS反应的特点是：",
+                options: ["高保真修复", "易错修复", "无错修复", "选择性修复"],
+                correct: 1,
+                explanation: "SOS反应是细胞在DNA严重损伤时的应急反应，包括易错修复，虽然突变率高但能使部分细胞存活。"
+            },
+            {
+                question: "Ames试验用于检测：",
+                options: ["DNA修复能力", "诱变剂", "DNA聚合酶活性", "端粒酶活性"],
+                correct: 1,
+                explanation: "Ames试验利用组氨酸营养缺陷型沙门氏菌的回复突变来检测诱变剂，广泛用于致癌物筛选。"
+            },
+            {
+                question: "DNA复制中前导链的特点是：",
+                options: ["不连续合成", "连续合成", "需要多个引物", "合成速度慢"],
+                correct: 1,
+                explanation: "前导链的合成方向与复制叉移动方向一致，可以连续合成，只需要一个RNA引物。"
+            },
+            {
+                question: "真核生物DNA聚合酶α的主要功能是：",
+                options: ["主要复制酶", "修复酶", "引发复制", "线粒体复制"],
+                correct: 2,
+                explanation: "DNA聚合酶α具有引物合成酶活性，主要功能是合成RNA引物和起始DNA(iDNA)，引发DNA复制。"
+            },
+            {
+                question: "单链结合蛋白(SSB)的作用是：",
+                options: ["切开DNA双链", "保护单链DNA", "合成DNA", "连接DNA片段"],
+                correct: 1,
+                explanation: "单链结合蛋白(SSB)结合并保护单链DNA，防止其形成二级结构或被核酸酶降解。"
+            },
+            {
+                question: "DNA复制的半不连续性是指：",
+                options: ["两条链都连续合成", "两条链都不连续合成", "一条链连续，一条链不连续", "复制过程时断时续"],
+                correct: 2,
+                explanation: "由于DNA聚合酶只能5'→3'合成，前导链连续合成，滞后链不连续合成，故称半不连续复制。"
+            },
+            {
+                question: "原核生物复制起点oriC的特征包括：",
+                options: ["富含GC", "富含AT", "只有蛋白质结合位点", "没有特定序列"],
+                correct: 1,
+                explanation: "oriC富含AT序列，容易解开双链，同时含有DnaA蛋白结合的重复序列，是复制起始的关键位点。"
+            },
+            {
+                question: "切除修复包括：",
+                options: ["只有碱基切除修复", "只有核苷酸切除修复", "碱基切除修复和核苷酸切除修复", "只有错配修复"],
+                correct: 2,
+                explanation: "切除修复包括碱基切除修复(BER)和核苷酸切除修复(NER)两种主要类型，分别处理不同类型的DNA损伤。"
+            },
+            {
+                question: "DNA连接酶的作用是：",
+                options: ["解开DNA双链", "合成DNA", "连接DNA片段", "修饰DNA"],
+                correct: 2,
+                explanation: "DNA连接酶催化DNA片段间磷酸二酯键的形成，将冈崎片段连接成完整的DNA链。"
+            },
+            {
+                question: "真核生物DNA复制发生在细胞周期的：",
+                options: ["G1期", "S期", "G2期", "M期"],
+                correct: 1,
+                explanation: "真核生物DNA复制严格限制在细胞周期的S期进行，这是细胞周期调控的重要特征。"
+            },
+            {
+                question: "移码突变是由于：",
+                options: ["碱基置换", "碱基插入或缺失", "大片段缺失", "染色体重排"],
+                correct: 1,
+                explanation: "移码突变是由于碱基的插入或缺失（非3的倍数）导致读码框改变，影响后续所有氨基酸的编码。"
+            },
+            {
+                question: "重组修复发生在：",
+                options: ["复制前", "复制过程中遇到损伤时", "复制后", "任何时候"],
+                correct: 1,
+                explanation: "重组修复发生在DNA复制过程中复制叉遇到未修复的损伤时，通过同源重组机制进行修复。"
+            },
+            {
+                question: "端粒的功能是：",
+                options: ["启动复制", "保护染色体末端", "终止复制", "调节基因表达"],
+                correct: 1,
+                explanation: "端粒位于真核生物线形染色体末端，具有保护DNA双链末端免遭降解和融合的重要功能。"
+            },
+            {
+                question: "DNA聚合酶的校对功能来自：",
+                options: ["5'→3'外切酶活性", "3'→5'外切酶活性", "5'→3'聚合酶活性", "RNA酶活性"],
+                correct: 1,
+                explanation: "DNA聚合酶的3'→5'外切酶活性提供校对功能，能够切除错误掺入的核苷酸，提高复制保真性。"
+            },
+            {
+                question: "转录偶联修复的特点是：",
+                options: ["修复所有基因", "优先修复转录活跃基因", "只修复沉默基因", "随机修复"],
+                correct: 1,
+                explanation: "转录偶联修复优先修复转录活跃基因中的DNA损伤，确保重要基因的正常表达。"
+            },
+            {
+                question: "5-溴尿嘧啶(5-BrU)的诱变机制是：",
+                options: ["直接损伤DNA", "与胸腺嘧啶竞争掺入", "抑制DNA聚合酶", "破坏DNA结构"],
+                correct: 1,
+                explanation: "5-溴尿嘧啶是胸腺嘧啶的类似物，能够竞争性掺入DNA，引起碱基配对错误和转换突变。"
+            },
+            {
+                question: "大肠杆菌DNA复制终止的调节蛋白是：",
+                options: ["DnaA", "DnaB", "Tus", "SSB"],
+                correct: 2,
+                explanation: "Tus蛋白结合在终止位点ter上，阻止解旋酶DnaB的活性，导致DNA复制终止。"
+            },
+            {
+                question: "真核生物DNA聚合酶δ的主要功能是：",
+                options: ["合成前导链", "合成滞后链", "DNA修复", "线粒体DNA复制"],
+                correct: 1,
+                explanation: "DNA聚合酶δ主要负责合成滞后链，具有高保真性和3'→5'外切酶活性。"
+            },
+            {
+                question: "PCNA的作用是：",
+                options: ["DNA解旋", "增强聚合酶持续合成能力", "连接DNA片段", "合成引物"],
+                correct: 1,
+                explanation: "PCNA(增殖细胞核抗原)是DNA聚合酶δ的辅助因子，显著增强其持续合成能力。"
+            },
+            {
+                question: "DNA损伤检查点的作用是：",
+                options: ["加速细胞分裂", "阻止细胞分裂直到损伤修复", "促进DNA复制", "激活端粒酶"],
+                correct: 1,
+                explanation: "DNA损伤检查点监测DNA完整性，在损伤未修复时阻止细胞周期进程，防止损伤传递给子代细胞。"
+            },
+            {
+                question: "同源重组修复需要的条件是：",
+                options: ["单链DNA", "同源DNA序列", "RNA引物", "特殊蛋白质"],
+                correct: 1,
+                explanation: "同源重组修复需要同源DNA序列作为模板，通过链交换和DNA合成来修复双链断裂等严重损伤。"
+            }
+        ];
+
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quizContainer');
+            
+            let html = '';
+            selectedQuestions.forEach((q, index) => {
+                html += `
+                    <div class="question">
+                        <h4>${index + 1}. ${q.question}</h4>
+                        ${q.options.map((option, optIndex) => `
+                            <label class="option">
+                                <input type="radio" name="q${index}" value="${optIndex}">
+                                ${String.fromCharCode(65 + optIndex)}. ${option}
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            document.getElementById('submitBtn').style.display = 'block';
+            
+            // 存储当前题目以供检查答案使用
+            window.currentQuestions = selectedQuestions;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const questions = window.currentQuestions;
+            let score = 0;
+            let resultHtml = '<h3>测试结果</h3>';
+            
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                const selectedValue = selectedOption ? parseInt(selectedOption.value) : -1;
+                const isCorrect = selectedValue === q.correct;
+                
+                if (isCorrect) score++;
+                
+                const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
+                const textColor = isCorrect ? '#155724' : '#721c24';
+                
+                resultHtml += `
+                    <div style="background: ${bgColor}; color: ${textColor}; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid ${isCorrect ? '#28a745' : '#dc3545'};">
+                        <h4>${index + 1}. ${q.question}</h4>
+                        <p><strong>你的答案：</strong>${selectedValue >= 0 ? String.fromCharCode(65 + selectedValue) + '. ' + q.options[selectedValue] : '未选择'}</p>
+                        <p><strong>正确答案：</strong>${String.fromCharCode(65 + q.correct)}. ${q.options[q.correct]}</p>
+                        <div class="explanation">
+                            <strong>解析：</strong>${q.explanation}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / questions.length) * 100);
+            resultHtml = `<div style="text-align: center; font-size: 1.2em; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;"><strong>得分：${score}/${questions.length} (${percentage}%)</strong></div>` + resultHtml;
+            
+            document.getElementById('result').innerHTML = resultHtml;
+            document.getElementById('result').style.display = 'block';
+            
+            // 滚动到结果区域
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载完成后自动生成题目
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

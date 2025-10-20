@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基因工程、蛋白质工程及相关技术 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .important {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #e17055;
+            font-weight: bold;
+        }
+
+        .term {
+            background: #e8f4f8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .quiz-container {
+            background: #f1f2f6;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        .option.correct {
+            background: #27ae60;
+            color: white;
+            border-color: #229954;
+        }
+
+        .option.incorrect {
+            background: #e74c3c;
+            color: white;
+            border-color: #c0392b;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .result {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+
+        .result.correct {
+            border-left-color: #27ae60;
+            background: #d5f4e6;
+        }
+
+        .result.incorrect {
+            border-left-color: #e74c3c;
+            background: #fdeaea;
+        }
+
+        .score {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .thinking-question {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #9b59b6;
+        }
+
+        .thinking-question h4 {
+            color: #8e44ad;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: white;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .answer h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        ol, ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .process-step {
+            background: #e8f5e8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .process-step h5 {
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>基因工程、蛋白质工程及相关技术</h1>
+            <p>考研生物化学复习笔记 - 第35章</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、基因工程概述</h2>
+                
+                <h3>1.1 基因工程的定义与意义</h3>
+                <div class="highlight">
+                    <p><strong>基因工程</strong>（Gene Engineering）是指在分子水平上对基因进行操作的综合性技术，包括基因的分离、克隆、改造和表达等。它是现代生物技术的核心，为生物医学、农业、工业等领域提供了强有力的技术支撑。</p>
+                </div>
+                
+                <h3>1.2 基因工程的基本原理</h3>
+                <p>基因工程的基本原理是利用DNA重组技术，将外源基因导入受体细胞，使其在新的遗传背景下表达，从而获得具有新性状的重组体。</p>
+                
+                <div class="important">
+                    <p><strong>核心要素：</strong>目的基因、载体、宿主细胞、相关酶类（限制酶、连接酶等）</p>
+                </div>
+
+                <h3>1.3 DNA分子克隆的基本步骤</h3>
+                <div class="process-step">
+                    <h5>步骤一：目的基因的获取</h5>
+                    <p>通过PCR扩增、cDNA合成、基因组DNA提取等方法获得目的基因。</p>
+                </div>
+                
+                <div class="process-step">
+                    <h5>步骤二：载体的选择和处理</h5>
+                    <p>选择合适的载体（质粒、噬菌体、病毒载体等），用限制酶切割产生兼容性末端。</p>
+                </div>
+                
+                <div class="process-step">
+                    <h5>步骤三：目的基因与载体的连接</h5>
+                    <p>利用DNA连接酶将目的基因与载体连接，形成重组DNA分子。</p>
+                </div>
+                
+                <div class="process-step">
+                    <h5>步骤四：转化</h5>
+                    <p>将重组DNA导入宿主细胞，常用方法包括化学转化、电转化、显微注射等。</p>
+                </div>
+                
+                <div class="process-step">
+                    <h5>步骤五：筛选和鉴定</h5>
+                    <p>通过选择标记、蓝白斑筛选、PCR检测、测序等方法筛选和鉴定重组子。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>二、基因工程的关键技术</h2>
+                
+                <h3>2.1 限制酶技术</h3>
+                <p>限制酶是基因工程的重要工具酶，能够识别特定的DNA序列并在特定位点切割DNA。</p>
+                
+                <h4>限制酶的分类：</h4>
+                <ul>
+                    <li><strong>Ⅰ型限制酶：</strong>识别序列与切割位点不同，产生随机长度的DNA片段</li>
+                    <li><strong>Ⅱ型限制酶：</strong>识别序列与切割位点相同或相近，是基因工程中最常用的类型</li>
+                    <li><strong>Ⅲ型限制酶：</strong>需要ATP参与，切割位点距离识别序列较远</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>同裂酶与同尾酶：</strong></p>
+                    <ul>
+                        <li><strong>同裂酶（Isoschizomers）：</strong>识别相同序列但切割位点可能不同的限制酶</li>
+                        <li><strong>同尾酶（Neoschizomers）：</strong>识别相同序列且产生相同末端的限制酶</li>
+                    </ul>
+                </div>
+
+                <h3>2.2 载体系统</h3>
+                
+                <h4>2.2.1 质粒载体</h4>
+                <p>质粒是最常用的克隆载体，具有自主复制能力。理想的质粒载体应具备：</p>
+                <ul>
+                    <li>复制起点（ori）</li>
+                    <li>选择标记基因（如抗生素抗性基因）</li>
+                    <li>多克隆位点（MCS）</li>
+                    <li>适当的大小（通常2-10kb）</li>
+                </ul>
+                
+                <h4>2.2.2 噬菌体载体</h4>
+                <p>λ噬菌体载体适合克隆较大的DNA片段（15-20kb），包装效率高，但构建相对复杂。</p>
+                
+                <h4>2.2.3 黏粒载体</h4>
+                <p>结合了质粒和噬菌体的优点，既能自主复制又能进行噬菌体包装，适合克隆中等大小的DNA片段。</p>
+
+                <h3>2.3 PCR技术</h3>
+                <div class="highlight">
+                    <p><strong>聚合酶链式反应（PCR）</strong>是一种体外DNA扩增技术，通过温度循环实现DNA的指数级扩增。</p>
+                </div>
+                
+                <h4>PCR的基本原理：</h4>
+                <ol>
+                    <li><strong>变性（Denaturation）：</strong>94-96°C，DNA双链解开</li>
+                    <li><strong>退火（Annealing）：</strong>50-65°C，引物与模板结合</li>
+                    <li><strong>延伸（Extension）：</strong>72°C，DNA聚合酶合成新链</li>
+                </ol>
+                
+                <h4>PCR引物设计原则：</h4>
+                <ul>
+                    <li>长度通常为18-25个核苷酸</li>
+                    <li>GC含量40-60%</li>
+                    <li>Tm值相近（相差不超过5°C）</li>
+                    <li>避免形成二级结构</li>
+                    <li>3'端避免互补</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、蛋白质工程</h2>
+                
+                <h3>3.1 蛋白质工程概述</h3>
+                <p>蛋白质工程是通过基因工程技术改造蛋白质的结构，从而改善或创造蛋白质功能的技术。</p>
+                
+                <h3>3.2 蛋白质改造策略</h3>
+                
+                <h4>3.2.1 定点诱变</h4>
+                <p>通过改变特定氨基酸残基来研究蛋白质结构与功能的关系，或改善蛋白质性质。</p>
+                
+                <h4>3.2.2 定向进化</h4>
+                <p>模拟自然进化过程，通过随机诱变和筛选获得具有改良性质的蛋白质变体。</p>
+                
+                <h4>3.2.3 理性设计</h4>
+                <p>基于蛋白质结构和功能的理解，有目的地设计和改造蛋白质。</p>
+
+                <h3>3.3 蛋白质表达系统</h3>
+                
+                <h4>3.3.1 原核表达系统</h4>
+                <div class="highlight">
+                    <p><strong>优点：</strong>生长快速、成本低、遗传背景清楚</p>
+                    <p><strong>缺点：</strong>缺乏翻译后修饰、可能形成包涵体</p>
+                </div>
+                
+                <h4>3.3.2 真核表达系统</h4>
+                <ul>
+                    <li><strong>酵母表达系统：</strong>具有翻译后修饰能力，分泌表达</li>
+                    <li><strong>昆虫细胞表达系统：</strong>适合复杂蛋白质表达</li>
+                    <li><strong>哺乳动物细胞表达系统：</strong>最接近天然蛋白质</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、基因工程的应用</h2>
+                
+                <h3>4.1 医学应用</h3>
+                <ul>
+                    <li>重组蛋白药物生产（胰岛素、生长激素、干扰素等）</li>
+                    <li>基因治疗</li>
+                    <li>疫苗开发</li>
+                    <li>诊断试剂</li>
+                </ul>
+                
+                <h3>4.2 农业应用</h3>
+                <ul>
+                    <li>转基因作物（抗虫、抗除草剂、营养强化）</li>
+                    <li>分子标记辅助育种</li>
+                    <li>动物转基因技术</li>
+                </ul>
+                
+                <h3>4.3 工业应用</h3>
+                <ul>
+                    <li>工业酶的生产和改造</li>
+                    <li>生物燃料</li>
+                    <li>环境生物修复</li>
+                    <li>生物材料</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">基因工程</div>
+                    <div class="term-english">Gene Engineering / Genetic Engineering</div>
+                    <div class="term-definition">在分子水平上对基因进行操作的综合性技术，包括基因的分离、克隆、改造和表达等过程。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">DNA重组技术</div>
+                    <div class="term-english">Recombinant DNA Technology</div>
+                    <div class="term-definition">将来自不同来源的DNA片段在体外连接形成重组DNA分子的技术。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">限制性内切酶</div>
+                    <div class="term-english">Restriction Endonuclease</div>
+                    <div class="term-definition">能够识别特定DNA序列并在特定位点切割双链DNA的酶类。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">DNA连接酶</div>
+                    <div class="term-english">DNA Ligase</div>
+                    <div class="term-definition">催化DNA片段之间磷酸二酯键形成的酶，用于连接DNA片段。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">载体</div>
+                    <div class="term-english">Vector</div>
+                    <div class="term-definition">能够携带外源DNA片段并在宿主细胞中复制的DNA分子，如质粒、噬菌体等。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">转化</div>
+                    <div class="term-english">Transformation</div>
+                    <div class="term-definition">将外源DNA导入受体细胞的过程。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">聚合酶链式反应</div>
+                    <div class="term-english">Polymerase Chain Reaction, PCR</div>
+                    <div class="term-definition">一种体外DNA扩增技术，通过温度循环实现特定DNA片段的指数级扩增。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">基因文库</div>
+                    <div class="term-english">Gene Library / Genomic Library</div>
+                    <div class="term-definition">包含某一生物体全部基因信息的克隆集合。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">cDNA文库</div>
+                    <div class="term-english">Complementary DNA Library, cDNA Library</div>
+                    <div class="term-definition">以mRNA为模板合成的互补DNA克隆集合，只包含编码序列。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">蛋白质工程</div>
+                    <div class="term-english">Protein Engineering</div>
+                    <div class="term-definition">通过基因工程技术改造蛋白质结构，从而改善或创造蛋白质功能的技术。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">定点诱变</div>
+                    <div class="term-english">Site-directed Mutagenesis</div>
+                    <div class="term-definition">在DNA特定位点引入突变的技术，用于研究基因功能或改造蛋白质性质。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">包涵体</div>
+                    <div class="term-english">Inclusion Body</div>
+                    <div class="term-definition">在原核细胞中高表达的重组蛋白质形成的不溶性聚集体。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">融合蛋白</div>
+                    <div class="term-english">Fusion Protein</div>
+                    <div class="term-definition">将目的蛋白与其他蛋白或肽段融合表达的重组蛋白质。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">启动子</div>
+                    <div class="term-english">Promoter</div>
+                    <div class="term-definition">调控基因转录起始的DNA序列，RNA聚合酶结合的位点。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">选择标记</div>
+                    <div class="term-english">Selection Marker</div>
+                    <div class="term-definition">用于筛选含有重组DNA的细胞的基因，如抗生素抗性基因。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>选择题测试</h2>
+                <div class="quiz-container" id="quizContainer">
+                    <div id="questionsContainer"></div>
+                    <button class="submit-btn" id="submitBtn" onclick="submitQuiz()">提交答案</button>
+                    <div id="resultsContainer"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 比较分析原核和真核表达系统在重组蛋白生产中的优缺点，并说明如何根据目标蛋白的特点选择合适的表达系统。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>原核表达系统（如大肠杆菌）的特点：</strong>
+                                <ul>
+                                    <li>优点：生长速度快、培养成本低、遗传背景清楚、易于大规模培养、表达水平高</li>
+                                    <li>缺点：缺乏翻译后修饰系统、容易形成包涵体、内毒素污染、密码子使用偏好性差异</li>
+                                </ul>
+                            </li>
+                            <li><strong>真核表达系统的特点：</strong>
+                                <ul>
+                                    <li>酵母系统：具有翻译后修饰能力、可分泌表达、成本相对较低、但糖基化模式与哺乳动物不同</li>
+                                    <li>昆虫细胞系统：翻译后修饰接近哺乳动物、适合复杂蛋白、但培养成本高、表达周期长</li>
+                                    <li>哺乳动物细胞系统：翻译后修饰最完整、蛋白质活性最高、但成本最高、表达水平相对较低</li>
+                                </ul>
+                            </li>
+                            <li><strong>选择原则：</strong>
+                                <ul>
+                                    <li>简单蛋白质或不需要翻译后修饰的蛋白质：选择原核系统</li>
+                                    <li>需要糖基化但对糖基化模式要求不严格：选择酵母系统</li>
+                                    <li>复杂蛋白质或需要特定翻译后修饰：选择昆虫细胞或哺乳动物细胞系统</li>
+                                    <li>用于治疗的蛋白质药物：优先考虑哺乳动物细胞系统</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 详细阐述PCR技术的原理、关键要素及其在基因工程中的应用，并分析影响PCR扩增效率和特异性的主要因素。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>PCR技术原理：</strong>
+                                <ul>
+                                    <li>基于DNA双链的热变性和复性特性，通过温度循环实现DNA的体外扩增</li>
+                                    <li>每个循环包括变性、退火、延伸三个步骤，理论上每个循环DNA量翻倍</li>
+                                    <li>经过n个循环后，目标DNA片段扩增2^n倍</li>
+                                </ul>
+                            </li>
+                            <li><strong>关键要素：</strong>
+                                <ul>
+                                    <li>模板DNA：含有目标序列的DNA分子</li>
+                                    <li>引物：与目标序列两端互补的短DNA片段</li>
+                                    <li>DNA聚合酶：耐热性DNA聚合酶（如Taq酶）</li>
+                                    <li>dNTPs：四种脱氧核苷三磷酸</li>
+                                    <li>缓冲液：维持适宜的pH和离子强度</li>
+                                </ul>
+                            </li>
+                            <li><strong>在基因工程中的应用：</strong>
+                                <ul>
+                                    <li>目标基因的扩增和获取</li>
+                                    <li>基因克隆的筛选和鉴定</li>
+                                    <li>定点诱变</li>
+                                    <li>基因表达分析</li>
+                                    <li>DNA测序前的模板制备</li>
+                                </ul>
+                            </li>
+                            <li><strong>影响因素：</strong>
+                                <ul>
+                                    <li>引物设计：长度、GC含量、Tm值、特异性</li>
+                                    <li>退火温度：影响引物结合的特异性</li>
+                                    <li>循环数：过多循环可能导致非特异性扩增</li>
+                                    <li>模板质量和浓度：影响扩增效率</li>
+                                    <li>酶的活性和浓度：影响扩增效率和保真性</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 论述基因工程在现代生物技术产业中的重要地位，分析其在医药、农业、工业等领域的应用前景及面临的挑战。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>在生物技术产业中的重要地位：</strong>
+                                <ul>
+                                    <li>核心技术地位：基因工程是现代生物技术的基础和核心</li>
+                                    <li>产业驱动力：推动了生物医药、农业生物技术、工业生物技术等产业的快速发展</li>
+                                    <li>经济价值：创造了巨大的经济价值和就业机会</li>
+                                    <li>技术平台：为其他生物技术提供了重要的技术平台和工具</li>
+                                </ul>
+                            </li>
+                            <li><strong>医药领域应用前景：</strong>
+                                <ul>
+                                    <li>重组蛋白药物：胰岛素、生长激素、单克隆抗体等</li>
+                                    <li>基因治疗：遗传病治疗、肿瘤治疗、免疫治疗</li>
+                                    <li>个性化医疗：基于基因型的精准治疗</li>
+                                    <li>疫苗开发：重组疫苗、DNA疫苗、mRNA疫苗</li>
+                                </ul>
+                            </li>
+                            <li><strong>农业领域应用前景：</strong>
+                                <ul>
+                                    <li>作物改良：抗病虫害、抗逆境、营养强化</li>
+                                    <li>动物育种：转基因动物、基因编辑育种</li>
+                                    <li>生物农药：微生物农药、植物源农药</li>
+                                    <li>可持续农业：减少化学农药和肥料使用</li>
+                                </ul>
+                            </li>
+                            <li><strong>工业领域应用前景：</strong>
+                                <ul>
+                                    <li>工业酶：洗涤剂酶、食品酶、纺织酶</li>
+                                    <li>生物燃料：乙醇、生物柴油、氢气</li>
+                                    <li>生物材料：生物塑料、生物纤维</li>
+                                    <li>环境治理：生物修复、废物处理</li>
+                                </ul>
+                            </li>
+                            <li><strong>面临的挑战：</strong>
+                                <ul>
+                                    <li>技术挑战：基因编辑精度、载体安全性、表达调控</li>
+                                    <li>安全性问题：生物安全、环境风险评估</li>
+                                    <li>伦理问题：基因编辑伦理、转基因食品争议</li>
+                                    <li>法规监管：标准制定、审批流程、国际协调</li>
+                                    <li>公众接受度：科普教育、风险沟通</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 分析蛋白质工程中定点诱变和定向进化两种策略的原理、优缺点及适用范围，并举例说明其在蛋白质改造中的应用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>定点诱变策略：</strong>
+                                <ul>
+                                    <li>原理：基于对蛋白质结构和功能的理解，有目的地改变特定氨基酸残基</li>
+                                    <li>优点：目标明确、效率高、可预测性强、适合精细调节</li>
+                                    <li>缺点：需要详细的结构信息、可能忽略远程效应、创新性有限</li>
+                                    <li>适用范围：已知结构的蛋白质、特定功能位点的改造、机理研究</li>
+                                    <li>应用实例：T4溶菌酶的热稳定性改造、酶活性中心的优化</li>
+                                </ul>
+                            </li>
+                            <li><strong>定向进化策略：</strong>
+                                <ul>
+                                    <li>原理：模拟自然进化过程，通过随机诱变和高通量筛选获得改良变体</li>
+                                    <li>优点：不需要详细结构信息、可发现意外的有益突变、适合复杂性状改造</li>
+                                    <li>缺点：工作量大、筛选系统要求高、可能产生有害突变</li>
+                                    <li>适用范围：结构未知的蛋白质、复杂性状改造、全新功能创造</li>
+                                    <li>应用实例：枯草杆菌蛋白酶的洗涤剂适应性改造、绿色荧光蛋白的光谱特性改造</li>
+                                </ul>
+                            </li>
+                            <li><strong>两种策略的结合应用：</strong>
+                                <ul>
+                                    <li>半理性设计：结合结构信息和随机诱变</li>
+                                    <li>迭代优化：先定向进化再定点诱变精细调节</li>
+                                    <li>智能文库设计：基于结构信息设计突变文库</li>
+                                    <li>计算辅助设计：利用计算机模拟预测有益突变</li>
+                                </ul>
+                            </li>
+                            <li><strong>技术发展趋势：</strong>
+                                <ul>
+                                    <li>高通量筛选技术的发展</li>
+                                    <li>计算生物学方法的应用</li>
+                                    <li>基因编辑技术的整合</li>
+                                    <li>人工智能在蛋白质设计中的应用</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "基因工程中最常用的限制酶类型是：",
+                options: ["Ⅰ型限制酶", "Ⅱ型限制酶", "Ⅲ型限制酶", "Ⅳ型限制酶"],
+                correct: 1,
+                explanation: "Ⅱ型限制酶识别序列与切割位点相同或相近，切割位点固定，是基因工程中最常用的类型。"
+            },
+            {
+                question: "DNA连接酶催化形成的化学键是：",
+                options: ["氢键", "离子键", "磷酸二酯键", "糖苷键"],
+                correct: 2,
+                explanation: "DNA连接酶催化相邻核苷酸之间磷酸二酯键的形成，连接DNA片段。"
+            },
+            {
+                question: "PCR技术中，变性步骤的温度通常是：",
+                options: ["50-65°C", "72°C", "94-96°C", "37°C"],
+                correct: 2,
+                explanation: "PCR变性步骤需要94-96°C的高温来打开DNA双链结构。"
+            },
+            {
+                question: "理想的PCR引物长度通常是：",
+                options: ["10-15个核苷酸", "18-25个核苷酸", "30-40个核苷酸", "50个核苷酸以上"],
+                correct: 1,
+                explanation: "PCR引物长度通常为18-25个核苷酸，既保证特异性又保证结合效率。"
+            },
+            {
+                question: "质粒载体必须具备的基本要素不包括：",
+                options: ["复制起点", "选择标记基因", "多克隆位点", "终止密码子"],
+                correct: 3,
+                explanation: "质粒载体的基本要素包括复制起点、选择标记基因和多克隆位点，终止密码子不是必需的。"
+            },
+            {
+                question: "cDNA文库与基因组文库的主要区别是：",
+                options: ["载体不同", "宿主细胞不同", "cDNA文库不含内含子", "构建方法完全不同"],
+                correct: 2,
+                explanation: "cDNA文库以mRNA为模板合成，不含内含子和调控序列，只包含编码序列。"
+            },
+            {
+                question: "蛋白质在原核细胞中高表达时容易形成：",
+                options: ["分泌蛋白", "膜蛋白", "包涵体", "糖蛋白"],
+                correct: 2,
+                explanation: "重组蛋白在原核细胞中高表达时，由于折叠不当容易形成不溶性的包涵体。"
+            },
+            {
+                question: "tac启动子是由哪两个启动子融合而成的：",
+                options: ["trp和lac", "ara和mal", "gal和lac", "trp和ara"],
+                correct: 0,
+                explanation: "tac启动子是由trp启动子的-35区和lac启动子的-10区融合而成的强启动子。"
+            },
+            {
+                question: "IPTG在基因表达中的作用是：",
+                options: ["抑制转录", "诱导转录", "终止转录", "增强翻译"],
+                correct: 1,
+                explanation: "IPTG是lac操纵子的诱导剂，能够诱导lac启动子控制的基因转录。"
+            },
+            {
+                question: "同裂酶是指：",
+                options: ["切割位点相同的酶", "识别序列相同的酶", "来源相同的酶", "功能相同的酶"],
+                correct: 1,
+                explanation: "同裂酶是指识别相同DNA序列的限制酶，但切割位点可能不同。"
+            },
+            {
+                question: "基因工程中，转化是指：",
+                options: ["基因突变", "基因重组", "外源DNA导入细胞", "蛋白质变性"],
+                correct: 2,
+                explanation: "转化是指将外源DNA（如重组质粒）导入受体细胞的过程。"
+            },
+            {
+                question: "λ噬菌体载体适合克隆的DNA片段大小是：",
+                options: ["1-5kb", "5-10kb", "15-20kb", "50-100kb"],
+                correct: 2,
+                explanation: "λ噬菌体载体适合克隆15-20kb的较大DNA片段，包装效率高。"
+            },
+            {
+                question: "蛋白质工程中，定点诱变的主要目的是：",
+                options: ["随机改变蛋白质结构", "特定位点的精确改造", "大规模蛋白质生产", "蛋白质纯化"],
+                correct: 1,
+                explanation: "定点诱变是在特定位点引入精确突变，用于研究结构功能关系或改善蛋白质性质。"
+            },
+            {
+                question: "PCR引物设计时，GC含量通常应控制在：",
+                options: ["20-30%", "40-60%", "70-80%", "90%以上"],
+                correct: 1,
+                explanation: "PCR引物的GC含量通常控制在40-60%，保证适宜的熔解温度和结合稳定性。"
+            },
+            {
+                question: "基因文库是指：",
+                options: ["基因序列数据库", "包含全部基因信息的克隆集合", "基因表达谱", "蛋白质数据库"],
+                correct: 1,
+                explanation: "基因文库是包含某一生物体全部或部分基因信息的重组克隆集合。"
+            },
+            {
+                question: "原位杂交技术主要用于：",
+                options: ["DNA测序", "基因定位", "蛋白质分析", "酶活性检测"],
+                correct: 1,
+                explanation: "原位杂交技术用于检测特定DNA或RNA序列在细胞或组织中的位置。"
+            },
+            {
+                question: "重组PCR的主要用途是：",
+                options: ["DNA扩增", "基因克隆", "构建融合基因", "DNA测序"],
+                correct: 2,
+                explanation: "重组PCR（SOE-PCR）主要用于构建融合基因或引入特定突变。"
+            },
+            {
+                question: "酵母表达系统相比原核系统的主要优势是：",
+                options: ["生长速度更快", "成本更低", "具有翻译后修饰能力", "表达水平更高"],
+                correct: 2,
+                explanation: "酵母作为真核生物，具有翻译后修饰能力，能产生更接近天然状态的蛋白质。"
+            },
+            {
+                question: "蓝白斑筛选的原理基于：",
+                options: ["抗生素抗性", "β-半乳糖苷酶活性", "荧光蛋白表达", "细胞毒性"],
+                correct: 1,
+                explanation: "蓝白斑筛选基于lacZ基因编码的β-半乳糖苷酶活性，插入外源DNA会破坏酶活性。"
+            },
+            {
+                question: "基因工程中，选择标记基因的作用是：",
+                options: ["提高表达水平", "筛选重组子", "稳定蛋白质结构", "促进细胞生长"],
+                correct: 1,
+                explanation: "选择标记基因（如抗生素抗性基因）用于筛选含有重组DNA的细胞。"
+            },
+            {
+                question: "T7 DNA聚合酶测序法的主要优点是：",
+                options: ["成本低", "速度快", "准确性高", "操作简单"],
+                correct: 2,
+                explanation: "T7 DNA聚合酶具有高保真性和强的3'-5'外切酶活性，测序准确性高。"
+            },
+            {
+                question: "植物基因工程中，农杆菌转化法的特点是：",
+                options: ["只适用于单子叶植物", "转化效率低", "能整合大片段DNA", "需要电击处理"],
+                correct: 2,
+                explanation: "农杆菌介导的转化能够整合较大的DNA片段，是植物转基因的重要方法。"
+            },
+            {
+                question: "融合蛋白表达的主要优点是：",
+                options: ["提高表达水平", "便于纯化", "增强稳定性", "以上都是"],
+                correct: 3,
+                explanation: "融合蛋白表达可以提高表达水平、便于纯化、增强蛋白质稳定性。"
+            },
+            {
+                question: "基因工程中，报告基因的作用是：",
+                options: ["提供选择压力", "监测基因表达", "增强转录", "稳定质粒"],
+                correct: 1,
+                explanation: "报告基因用于监测和检测目标基因的表达情况。"
+            },
+            {
+                question: "PCR扩增未知序列常用的方法是：",
+                options: ["RT-PCR", "巢式PCR", "锚定PCR", "实时PCR"],
+                correct: 2,
+                explanation: "锚定PCR（Anchored PCR）用于扩增一端序列已知、另一端序列未知的DNA片段。"
+            },
+            {
+                question: "限制酶切割DNA后产生的末端类型不包括：",
+                options: ["5'突出末端", "3'突出末端", "平末端", "环状末端"],
+                correct: 3,
+                explanation: "限制酶切割DNA产生5'突出末端、3'突出末端或平末端，不产生环状末端。"
+            },
+            {
+                question: "基因工程安全性评价的主要内容不包括：",
+                options: ["宿主安全性", "载体安全性", "产品安全性", "成本效益分析"],
+                correct: 3,
+                explanation: "基因工程安全性评价主要关注宿主、载体和产品的生物安全性，不包括成本效益。"
+            },
+            {
+                question: "差别杂交技术主要用于：",
+                options: ["基因定位", "筛选差异表达基因", "DNA测序", "蛋白质分析"],
+                correct: 1,
+                explanation: "差别杂交技术用于筛选在不同条件下差异表达的基因。"
+            },
+            {
+                question: "金属螯合柱纯化蛋白质的原理是：",
+                options: ["疏水相互作用", "离子交换", "分子筛", "金属离子配位"],
+                correct: 3,
+                explanation: "金属螯合柱利用组氨酸标签与金属离子（如Ni²⁺）的配位作用纯化蛋白质。"
+            },
+            {
+                question: "植物细胞全能性是指：",
+                options: ["抗逆性强", "生长速度快", "单个细胞发育成完整植株的能力", "基因表达水平高"],
+                correct: 2,
+                explanation: "植物细胞全能性是指单个植物细胞具有发育成完整植株的潜能。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+        let quizSubmitted = false;
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option" onclick="selectAnswer(${index}, ${optIndex})">
+                            <input type="radio" name="q${index}" value="${optIndex}" style="display: none;">
+                            ${String.fromCharCode(65 + optIndex)}. ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function selectAnswer(questionIndex, optionIndex) {
+            if (quizSubmitted) return;
+            
+            userAnswers[questionIndex] = optionIndex;
+            
+            // 更新选项样式
+            const question = document.querySelectorAll('.question')[questionIndex];
+            const options = question.querySelectorAll('.option');
+            
+            options.forEach((option, index) => {
+                option.classList.remove('selected');
+                if (index === optionIndex) {
+                    option.classList.add('selected');
+                }
+            });
+        }
+
+        function submitQuiz() {
+            if (quizSubmitted) return;
+            
+            // 检查是否所有题目都已回答
+            if (userAnswers.includes(-1)) {
+                alert('请回答所有题目后再提交！');
+                return;
+            }
+            
+            quizSubmitted = true;
+            document.getElementById('submitBtn').disabled = true;
+            
+            // 计算得分
+            let correctCount = 0;
+            selectedQuestions.forEach((q, index) => {
+                if (userAnswers[index] === q.correct) {
+                    correctCount++;
+                }
+            });
+            
+            // 显示结果
+            showResults(correctCount);
+        }
+
+        function showResults(correctCount) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            const percentage = Math.round((correctCount / 15) * 100);
+            
+            let resultsHTML = `
+                <div class="score">
+                    您的得分：${correctCount}/15 (${percentage}%)
+                </div>
+            `;
+            
+            selectedQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                const resultClass = isCorrect ? 'correct' : 'incorrect';
+                
+                resultsHTML += `
+                    <div class="result ${resultClass}">
+                        <div class="question-text">${index + 1}. ${q.question}</div>
+                        <p><strong>您的答案：</strong>${String.fromCharCode(65 + userAnswers[index])}. ${q.options[userAnswers[index]]}</p>
+                        <p><strong>正确答案：</strong>${String.fromCharCode(65 + q.correct)}. ${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultsContainer.innerHTML = resultsHTML;
+            
+            // 更新题目选项颜色
+            const questions = document.querySelectorAll('.question');
+            questions.forEach((question, qIndex) => {
+                const options = question.querySelectorAll('.option');
+                options.forEach((option, oIndex) => {
+                    if (oIndex === selectedQuestions[qIndex].correct) {
+                        option.classList.add('correct');
+                    } else if (oIndex === userAnswers[qIndex] && userAnswers[qIndex] !== selectedQuestions[qIndex].correct) {
+                        option.classList.add('incorrect');
+                    }
+                    option.style.pointerEvents = 'none';
+                });
+            });
+        }
+    </script>
+</body>
+</html>

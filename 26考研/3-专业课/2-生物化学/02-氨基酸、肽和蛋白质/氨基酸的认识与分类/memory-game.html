@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>氨基酸记忆消消乐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container memory-game-page">
+        <div class="header">
+            <h1>氨基酸记忆消消乐</h1>
+            <a href="index.html" class="back-btn">返回主菜单</a>
+        </div>
+        <p class="instruction">连续点击三个表示同一种氨基酸的方块进行消除，再次点击可取消选中</p>
+        
+        <div class="top-controls">
+            <div class="difficulty-selector">
+                <span>难度选择：</span>
+                <button id="easyMode" class="difficulty-btn active">简单模式</button>
+                <button id="hardMode" class="difficulty-btn">困难模式</button>
+            </div>
+            
+            <div class="game-info">
+                <div class="score">已选择: <span id="selectedCount">0</span>/3</div>
+                <div class="remaining">剩余方块: <span id="remainingTiles">60</span></div>
+            </div>
+            
+            <div class="controls">
+                <button id="resetBtn">重新开始</button>
+            </div>
+        </div>
+        
+        <div class="game-layout">
+            <div class="memory-game-container">
+                <div id="memoryGame" class="memory-game"></div>
+            </div>
+            
+            <div class="reference-table-container">
+                <h3>氨基酸参考表</h3>
+                <table id="referenceTable" class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th class="easy-only">三字母符号</th>
+                            <th class="easy-only">单字母符号</th>
+                        </tr>
+                    </thead>
+                    <tbody id="referenceTableBody">
+                        <!-- 表格内容将由JavaScript动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>恭喜！</h2>
+            <p>你已成功消除所有氨基酸方块！</p>
+            <button id="playAgainBtn">再玩一次</button>
+        </div>
+    </div>
+
+    <script src="memory-game.js"></script>
+</body>
+</html> 

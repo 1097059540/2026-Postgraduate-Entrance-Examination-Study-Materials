@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光合作用 - 考研复习笔记</title>
+    <style>
+        /* 全局样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        /* 章节标题 */
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        /* 段落和列表 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px dashed #3498db;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .diagram-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #7f8c8d;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        /* 名词解释库样式 */
+        .term-library {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .term-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            margin: 8px 0;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #2980b9, #1f4e79);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* 结果显示 */
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-summary {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .result-details {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .answer-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+
+        .answer-correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .answer-wrong {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .thinking-answer {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        .thinking-answer h5 {
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>光合作用</h1>
+            <p>生物化学考研复习笔记 | 第23章</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <section id="core-content">
+                <h2>一、光合作用概述</h2>
+                
+                <h3>1.1 光合作用的定义与意义</h3>
+                <p><span class="highlight">光合作用</span>是指绿色植物、藻类和某些细菌利用叶绿素等光合色素，在光照条件下，将二氧化碳和水转化为有机物，并释放氧气的生物化学过程。这是地球上最重要的生物化学反应之一。</p>
+                
+                <div class="diagram">
+                    <svg width="600" height="200" viewBox="0 0 600 200">
+                        <!-- 光合作用总反应式图解 -->
+                        <rect x="50" y="80" width="80" height="40" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="5"/>
+                        <text x="90" y="105" text-anchor="middle" font-size="14" fill="#1976d2">6CO₂</text>
+                        
+                        <text x="150" y="105" text-anchor="middle" font-size="16" fill="#333">+</text>
+                        
+                        <rect x="170" y="80" width="80" height="40" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="5"/>
+                        <text x="210" y="105" text-anchor="middle" font-size="14" fill="#1976d2">6H₂O</text>
+                        
+                        <!-- 光能箭头 -->
+                        <path d="M 270 100 L 330 100" stroke="#ff9800" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <text x="300" y="90" text-anchor="middle" font-size="12" fill="#ff9800">光能</text>
+                        <text x="300" y="120" text-anchor="middle" font-size="12" fill="#4caf50">叶绿素</text>
+                        
+                        <rect x="350" y="80" width="100" height="40" fill="#e8f5e8" stroke="#4caf50" stroke-width="2" rx="5"/>
+                        <text x="400" y="105" text-anchor="middle" font-size="14" fill="#4caf50">C₆H₁₂O₆</text>
+                        
+                        <text x="470" y="105" text-anchor="middle" font-size="16" fill="#333">+</text>
+                        
+                        <rect x="490" y="80" width="80" height="40" fill="#ffebee" stroke="#f44336" stroke-width="2" rx="5"/>
+                        <text x="530" y="105" text-anchor="middle" font-size="14" fill="#f44336">6O₂</text>
+                        
+                        <!-- 箭头标记定义 -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#ff9800"/>
+                            </marker>
+                        </defs>
+                        
+                        <text x="300" y="160" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">光合作用总反应式</text>
+                    </svg>
+                    <div class="diagram-caption">图1：光合作用总反应式示意图</div>
+                </div>
+
+                <p>光合作用的<span class="important">生物学意义</span>包括：</p>
+                <ul>
+                    <li>为地球上几乎所有生物提供有机物和能量来源</li>
+                    <li>维持大气中氧气和二氧化碳的平衡</li>
+                    <li>是生物圈物质循环和能量流动的基础</li>
+                    <li>为人类提供食物、燃料和工业原料</li>
+                </ul>
+
+                <h3>1.2 光合作用的基本过程</h3>
+                <p>光合作用可分为两个相互关联的阶段：</p>
+                
+                <h4>（1）光反应阶段（光依赖反应）</h4>
+                <p>发生在<span class="highlight">类囊体膜</span>上，需要光照。主要过程包括：</p>
+                <ul>
+                    <li><strong>光能吸收：</strong>叶绿素等色素吸收光能</li>
+                    <li><strong>水的光解：</strong>H₂O → 2H⁺ + ½O₂ + 2e⁻</li>
+                    <li><strong>ATP合成：</strong>光合磷酸化产生ATP</li>
+                    <li><strong>NADPH生成：</strong>NADP⁺被还原为NADPH</li>
+                </ul>
+
+                <h4>（2）碳反应阶段（暗反应/Calvin循环）</h4>
+                <p>发生在<span class="highlight">叶绿体基质</span>中，不直接需要光照。主要过程包括：</p>
+                <ul>
+                    <li><strong>CO₂固定：</strong>CO₂与RuBP结合形成3-磷酸甘油酸</li>
+                    <li><strong>还原反应：</strong>利用ATP和NADPH还原3-磷酸甘油酸</li>
+                    <li><strong>RuBP再生：</strong>部分产物用于再生RuBP</li>
+                </ul>
+
+                <h2>二、光反应的分子机理</h2>
+                
+                <h3>2.1 光合色素系统</h3>
+                <p>光合作用中的色素主要包括：</p>
+                <ul>
+                    <li><strong>叶绿素a：</strong>主要吸收红光和蓝紫光，是光反应中心的主要色素</li>
+                    <li><strong>叶绿素b：</strong>辅助色素，扩大光能吸收范围</li>
+                    <li><strong>胡萝卜素：</strong>吸收蓝绿光，具有保护作用</li>
+                    <li><strong>叶黄素：</strong>吸收蓝紫光，参与光保护</li>
+                </ul>
+
+                <h3>2.2 光系统I和光系统II</h3>
+                <p>光反应通过两个光系统协同完成：</p>
+                
+                <h4>光系统II（PSII）</h4>
+                <ul>
+                    <li>反应中心：P680（叶绿素a的特殊形式）</li>
+                    <li>主要功能：水的光解，产生O₂、H⁺和电子</li>
+                    <li>电子传递：P680 → 质体醌 → 细胞色素b₆f复合体</li>
+                </ul>
+
+                <h4>光系统I（PSI）</h4>
+                <ul>
+                    <li>反应中心：P700</li>
+                    <li>主要功能：NADP⁺的还原，产生NADPH</li>
+                    <li>电子传递：P700 → 铁硫蛋白 → NADP⁺还原酶</li>
+                </ul>
+
+                <h3>2.3 电子传递链与ATP合成</h3>
+                <p>光反应中的<span class="highlight">非循环电子传递</span>过程：</p>
+                <ol>
+                    <li>PSII吸收光能，P680被激发失去电子</li>
+                    <li>失去的电子由水分子提供，同时产生O₂和H⁺</li>
+                    <li>电子经质体醌、细胞色素b₆f复合体传递到PSI</li>
+                    <li>PSI吸收光能，P700被激发</li>
+                    <li>电子最终传递给NADP⁺，形成NADPH</li>
+                    <li>质子梯度驱动ATP合酶合成ATP</li>
+                </ol>
+
+                <div class="diagram">
+                    <svg width="700" height="300" viewBox="0 0 700 300">
+                        <!-- Z型电子传递链示意图 -->
+                        <!-- 水分子 -->
+                        <circle cx="50" cy="200" r="20" fill="#2196f3" stroke="#1976d2" stroke-width="2"/>
+                        <text x="50" y="205" text-anchor="middle" font-size="12" fill="white">H₂O</text>
+                        
+                        <!-- PSII -->
+                        <rect x="120" y="180" width="60" height="40" fill="#4caf50" stroke="#388e3c" stroke-width="2" rx="5"/>
+                        <text x="150" y="205" text-anchor="middle" font-size="12" fill="white">PSII</text>
+                        <text x="150" y="240" text-anchor="middle" font-size="10" fill="#333">P680</text>
+                        
+                        <!-- 质体醌 -->
+                        <circle cx="250" cy="150" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+                        <text x="250" y="155" text-anchor="middle" font-size="10" fill="white">PQ</text>
+                        
+                        <!-- 细胞色素复合体 -->
+                        <rect x="320" y="130" width="80" height="40" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2" rx="5"/>
+                        <text x="360" y="155" text-anchor="middle" font-size="10" fill="white">Cyt b₆f</text>
+                        
+                        <!-- 质体蓝素 -->
+                        <circle cx="450" cy="120" r="20" fill="#00bcd4" stroke="#0097a7" stroke-width="2"/>
+                        <text x="450" y="125" text-anchor="middle" font-size="10" fill="white">PC</text>
+                        
+                        <!-- PSI -->
+                        <rect x="520" y="100" width="60" height="40" fill="#4caf50" stroke="#388e3c" stroke-width="2" rx="5"/>
+                        <text x="550" y="125" text-anchor="middle" font-size="12" fill="white">PSI</text>
+                        <text x="550" y="160" text-anchor="middle" font-size="10" fill="#333">P700</text>
+                        
+                        <!-- NADP+ -->
+                        <circle cx="650" cy="80" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+                        <text x="650" y="85" text-anchor="middle" font-size="10" fill="white">NADP⁺</text>
+                        
+                        <!-- 电子传递箭头 -->
+                        <path d="M 70 200 L 120 200" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                        <path d="M 180 190 L 225 160" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                        <path d="M 275 150 L 320 150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                        <path d="M 400 140 L 430 130" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                        <path d="M 470 120 L 520 120" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                        <path d="M 580 110 L 625 90" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                        
+                        <!-- 光能箭头 -->
+                        <path d="M 150 150 L 150 180" stroke="#ffeb3b" stroke-width="3" marker-end="url(#lightarrow)"/>
+                        <text x="150" y="140" text-anchor="middle" font-size="10" fill="#ff9800">光能</text>
+                        
+                        <path d="M 550 70 L 550 100" stroke="#ffeb3b" stroke-width="3" marker-end="url(#lightarrow)"/>
+                        <text x="550" y="60" text-anchor="middle" font-size="10" fill="#ff9800">光能</text>
+                        
+                        <!-- 产物标注 -->
+                        <text x="50" y="260" text-anchor="middle" font-size="12" fill="#f44336">O₂ + H⁺</text>
+                        <text x="650" y="120" text-anchor="middle" font-size="12" fill="#4caf50">NADPH</text>
+                        
+                        <!-- 箭头定义 -->
+                        <defs>
+                            <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+                            </marker>
+                            <marker id="lightarrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                <polygon points="0 0, 8 3, 0 6" fill="#ffeb3b"/>
+                            </marker>
+                        </defs>
+                        
+                        <text x="350" y="280" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">Z型电子传递链</text>
+                    </svg>
+                    <div class="diagram-caption">图2：光反应中的Z型电子传递链</div>
+                </div>
+
+                <h2>三、Calvin循环（碳反应）</h2>
+                
+                <h3>3.1 Calvin循环的三个阶段</h3>
+                
+                <h4>阶段一：CO₂固定</h4>
+                <p>关键酶：<span class="highlight">RuBisCO</span>（1,5-二磷酸核酮糖羧化酶/加氧酶）</p>
+                <p>反应：RuBP + CO₂ → 2分子 3-磷酸甘油酸（3-PGA）</p>
+                
+                <h4>阶段二：还原反应</h4>
+                <p>利用光反应产生的ATP和NADPH：</p>
+                <ul>
+                    <li>3-PGA + ATP → 1,3-二磷酸甘油酸</li>
+                    <li>1,3-二磷酸甘油酸 + NADPH → 甘油醛-3-磷酸（G3P）</li>
+                </ul>
+                
+                <h4>阶段三：RuBP再生</h4>
+                <p>部分G3P通过复杂的重排反应再生RuBP，消耗ATP。</p>
+
+                <h3>3.2 Calvin循环的化学计量</h3>
+                <p>固定3分子CO₂，产生1分子G3P（可用于合成葡萄糖）需要：</p>
+                <ul>
+                    <li><strong>ATP：</strong>9分子</li>
+                    <li><strong>NADPH：</strong>6分子</li>
+                    <li><strong>RuBP：</strong>3分子（循环再生）</li>
+                </ul>
+
+                <h2>四、光合作用的调节</h2>
+                
+                <h3>4.1 光强度的影响</h3>
+                <p>光合作用速率与光强度的关系呈现<span class="highlight">光饱和现象</span>：</p>
+                <ul>
+                    <li><strong>光限制阶段：</strong>光强度低时，光反应限制整个过程</li>
+                    <li><strong>光饱和阶段：</strong>光强度足够时，暗反应成为限制因子</li>
+                    <li><strong>光抑制阶段：</strong>光强度过高时，可能损伤光合器官</li>
+                </ul>
+
+                <h3>4.2 CO₂浓度的影响</h3>
+                <p>CO₂是Calvin循环的底物，其浓度直接影响碳固定效率。</p>
+
+                <h3>4.3 温度的影响</h3>
+                <p>温度主要影响酶活性，特别是RuBisCO的活性和专一性。</p>
+
+                <h2>五、C₄途径和CAM途径</h2>
+                
+                <h3>5.1 C₄途径</h3>
+                <p>某些植物（如玉米、甘蔗）发展出的<span class="highlight">CO₂浓缩机制</span>：</p>
+                <ul>
+                    <li>在叶肉细胞中，CO₂首先与PEP结合形成C₄化合物</li>
+                    <li>C₄化合物转运到维管束鞘细胞</li>
+                    <li>在维管束鞘细胞中释放CO₂，进入Calvin循环</li>
+                    <li>提高了CO₂浓度，减少了光呼吸</li>
+                </ul>
+
+                <h3>5.2 CAM途径</h3>
+                <p><span class="highlight">景天酸代谢</span>（CAM）是干旱环境植物的适应机制：</p>
+                <ul>
+                    <li>夜间开放气孔，固定CO₂形成苹果酸</li>
+                    <li>白天关闭气孔，分解苹果酸释放CO₂</li>
+                    <li>减少水分损失，适应干旱环境</li>
+                </ul>
+
+                <h2>六、光呼吸</h2>
+                
+                <h3>6.1 光呼吸的机理</h3>
+                <p><span class="highlight">光呼吸</span>是RuBisCO的加氧酶活性导致的副反应：</p>
+                <ul>
+                    <li>RuBP + O₂ → 磷酸乙醇酸 + 3-磷酸甘油酸</li>
+                    <li>磷酸乙醇酸经过复杂途径最终产生CO₂</li>
+                    <li>消耗ATP，降低光合效率</li>
+                </ul>
+
+                <h3>6.2 光呼吸的生物学意义</h3>
+                <ul>
+                    <li>可能具有光保护作用</li>
+                    <li>参与氮代谢</li>
+                    <li>在进化上可能是适应高氧环境的结果</li>
+                </ul>
+            </section>
+
+            <!-- 名词解释库 -->
+            <section id="term-library">
+                <h2>名词解释库</h2>
+                <div class="term-library">
+                    <div class="term-item">
+                        <div class="term-name">光合作用</div>
+                        <div class="term-english">(Photosynthesis)</div>
+                        <div class="term-definition">绿色植物、藻类和某些细菌利用光能，将CO₂和H₂O转化为有机物并释放O₂的生物化学过程。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">叶绿素</div>
+                        <div class="term-english">(Chlorophyll)</div>
+                        <div class="term-definition">植物中主要的光合色素，能够吸收光能并参与光反应。主要包括叶绿素a和叶绿素b。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">类囊体</div>
+                        <div class="term-english">(Thylakoid)</div>
+                        <div class="term-definition">叶绿体内的膜结构，光反应发生的场所，含有光系统I和光系统II。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">光系统I</div>
+                        <div class="term-english">(Photosystem I, PSI)</div>
+                        <div class="term-definition">以P700为反应中心的光合单位，主要功能是还原NADP⁺生成NADPH。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">光系统II</div>
+                        <div class="term-english">(Photosystem II, PSII)</div>
+                        <div class="term-definition">以P680为反应中心的光合单位，主要功能是分解水分子，产生O₂、H⁺和电子。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">Calvin循环</div>
+                        <div class="term-english">(Calvin Cycle)</div>
+                        <div class="term-definition">光合作用的碳反应阶段，在叶绿体基质中进行，将CO₂固定并还原为有机物。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">RuBisCO</div>
+                        <div class="term-english">(Ribulose-1,5-bisphosphate carboxylase/oxygenase)</div>
+                        <div class="term-definition">1,5-二磷酸核酮糖羧化酶/加氧酶，Calvin循环中CO₂固定的关键酶，也是光呼吸的关键酶。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">光合磷酸化</div>
+                        <div class="term-english">(Photophosphorylation)</div>
+                        <div class="term-definition">利用光反应产生的质子梯度驱动ATP合酶合成ATP的过程。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">Z型电子传递链</div>
+                        <div class="term-english">(Z-scheme)</div>
+                        <div class="term-definition">光反应中电子从水分子传递到NADP⁺的途径，因其能量变化图形似Z字而得名。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">C₄途径</div>
+                        <div class="term-english">(C₄ Pathway)</div>
+                        <div class="term-definition">某些植物的CO₂浓缩机制，先形成C₄化合物，再释放CO₂进入Calvin循环，提高光合效率。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">CAM途径</div>
+                        <div class="term-english">(Crassulacean Acid Metabolism)</div>
+                        <div class="term-definition">景天酸代谢，干旱植物的适应机制，夜间固定CO₂，白天进行Calvin循环。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">光呼吸</div>
+                        <div class="term-english">(Photorespiration)</div>
+                        <div class="term-definition">RuBisCO的加氧酶活性导致的过程，消耗O₂产生CO₂，降低光合效率。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">质体醌</div>
+                        <div class="term-english">(Plastoquinone, PQ)</div>
+                        <div class="term-definition">类囊体膜中的电子载体，在光系统II和细胞色素b₆f复合体之间传递电子。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">质体蓝素</div>
+                        <div class="term-english">(Plastocyanin, PC)</div>
+                        <div class="term-definition">含铜的电子载体蛋白，在细胞色素b₆f复合体和光系统I之间传递电子。</div>
+                    </div>
+                    
+                    <div class="term-item">
+                        <div class="term-name">3-磷酸甘油酸</div>
+                        <div class="term-english">(3-Phosphoglycerate, 3-PGA)</div>
+                        <div class="term-definition">Calvin循环中CO₂固定的第一个稳定产物，由RuBP和CO₂结合形成。</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 选择题测试 -->
+            <section id="quiz-section">
+                <h2>选择题测试</h2>
+                <div class="quiz-section">
+                    <p><strong>说明：</strong>本测试从30道题库中随机抽取15道题，完成后可查看详细解析。每次刷新页面都会生成不同的题目组合。</p>
+                    
+                    <div id="quiz-container"></div>
+                    
+                    <button class="btn" onclick="submitQuiz()">提交答案</button>
+                    <button class="btn" onclick="retakeQuiz()">重新测试</button>
+                    
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </section>
+
+            <!-- 深度思考题 -->
+            <section id="thinking-section">
+                <h2>深度思考题</h2>
+                <div class="thinking-section">
+                    <div class="thinking-question">
+                        <h4>1. 比较分析光反应和暗反应的异同点，并阐述两者之间的相互关系。</h4>
+                        <div class="thinking-answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>相同点：</strong>都是光合作用的重要组成部分，都需要酶的催化，都涉及能量转换，都对光合作用的总效率有重要影响。两个阶段在时间和空间上紧密联系，共同完成CO₂到有机物的转化过程。</li>
+                                <li><strong>不同点：</strong>光反应发生在类囊体膜上，直接需要光照，主要进行能量转换（光能→化学能），产生ATP和NADPH，同时分解水产生氧气。暗反应发生在叶绿体基质中，不直接需要光照，主要进行物质转换（CO₂→有机物），消耗ATP和NADPH，通过Calvin循环固定和还原CO₂。</li>
+                                <li><strong>相互关系：</strong>光反应为暗反应提供ATP和NADPH这两种高能化合物，暗反应消耗这些高能化合物并产生ADP、Pi和NADP⁺，后者又可被光反应重新利用。这种循环利用保证了光合作用的连续进行。光反应的效率直接影响暗反应的进行速度，而暗反应的速度也会反过来影响光反应产物的消耗。</li>
+                                <li><strong>调节机制：</strong>两个阶段通过多种调节机制保持平衡，包括ATP/ADP比值调节、NADPH/NADP⁺比值调节、以及关键酶活性的调节等。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>2. 分析RuBisCO酶的双重功能及其对植物光合效率的影响，并说明C₄植物是如何解决这一问题的。</h4>
+                        <div class="thinking-answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>RuBisCO的双重功能：</strong>RuBisCO既具有羧化酶活性（催化CO₂与RuBP结合），又具有加氧酶活性（催化O₂与RuBP结合）。羧化酶活性是光合作用所需的，而加氧酶活性则导致光呼吸，降低光合效率。这种双重功能是由于RuBisCO的活性位点既能结合CO₂也能结合O₂。</li>
+                                <li><strong>对光合效率的影响：</strong>当O₂浓度高、CO₂浓度低或温度高时，RuBisCO的加氧酶活性增强，导致光呼吸增加。光呼吸消耗ATP和还原力，释放CO₂，不产生有用的产物，严重降低光合效率。在正常大气条件下，光呼吸可使光合效率降低20-50%。</li>
+                                <li><strong>C₄植物的解决策略：</strong>C₄植物通过空间分离和CO₂浓缩机制解决这一问题。在叶肉细胞中，PEP羧化酶（对CO₂专一性高）催化CO₂与PEP结合形成C₄化合物（如苹果酸）。C₄化合物转运到维管束鞘细胞后分解释放CO₂，在维管束鞘细胞中形成高CO₂浓度环境，使RuBisCO主要发挥羧化酶活性，大大减少光呼吸。</li>
+                                <li><strong>进化意义：</strong>C₄途径是植物适应高温、强光、干旱环境的重要进化策略，特别适合热带和亚热带地区的植物，如玉米、甘蔗、高粱等。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>3. 阐述光合作用中能量转换的全过程，并分析其在生物圈能量流动中的重要地位。</h4>
+                        <div class="thinking-answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>光能捕获与转换：</strong>叶绿素等色素分子吸收太阳光能，电子被激发到高能级状态。这是将光能转换为电子激发能的第一步，为后续的化学能转换奠定基础。</li>
+                                <li><strong>电化学能转换：</strong>激发的电子通过Z型电子传递链，将光能转换为电化学势能。在这个过程中，水分子被分解提供电子，同时在类囊体内外形成质子梯度，储存了大量的电化学势能。</li>
+                                <li><strong>化学能合成：</strong>质子梯度驱动ATP合酶合成ATP，电子最终还原NADP⁺形成NADPH。这一步将电化学势能转换为稳定的化学键能，形成了生物体可直接利用的高能化合物。</li>
+                                <li><strong>有机物合成：</strong>ATP和NADPH在Calvin循环中被消耗，将CO₂还原固定为有机物。这是将化学键能转换为稳定有机分子中化学键能的过程，形成了可长期储存的能量形式。</li>
+                                <li><strong>生物圈地位：</strong>光合作用是地球上几乎所有生态系统的能量基础，每年固定约1000亿吨碳，转换的能量约为人类年消耗能量的10倍。它不仅为食物链提供能量来源，还维持了大气中O₂和CO₂的平衡，是生物圈物质循环和能量流动的核心环节。</li>
+                                <li><strong>环境意义：</strong>光合作用调节全球碳循环，影响气候变化，为人类提供食物、燃料、纤维等资源，是维持地球生态平衡的关键过程。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>4. 比较C₃、C₄和CAM三种光合途径的特点，并分析它们各自的生态适应意义。</h4>
+                        <div class="thinking-answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>C₃途径特点：</strong>最基本的光合途径，CO₂直接进入Calvin循环，第一个稳定产物是3-磷酸甘油酸（C₃化合物）。结构简单，但在高温、强光、低CO₂条件下效率较低，容易发生光呼吸。适应温带、湿润环境，如水稻、小麦、大豆等。</li>
+                                <li><strong>C₄途径特点：</strong>具有CO₂浓缩机制，在叶肉细胞中先形成C₄化合物，然后在维管束鞘细胞中释放CO₂进入Calvin循环。具有空间分离特征，能有效抑制光呼吸，在高温、强光条件下效率高。但需要额外的ATP消耗，结构复杂。适应热带、亚热带环境，如玉米、甘蔗、高粱等。</li>
+                                <li><strong>CAM途径特点：</strong>具有时间分离特征，夜间开放气孔固定CO₂形成苹果酸储存，白天关闭气孔分解苹果酸释放CO₂进行Calvin循环。能极大减少水分损失，但光合效率相对较低。适应干旱、半干旱环境，如仙人掌、凤梨、景天等。</li>
+                                <li><strong>生态适应意义：</strong>三种途径代表了植物对不同环境条件的适应策略。C₃途径适合温和湿润环境，结构简单能耗低；C₄途径适合高温强光环境，能有效利用强光和高温；CAM途径适合干旱环境，能最大限度节约水分。这种多样性使植物能够占据地球上几乎所有的生态位。</li>
+                                <li><strong>进化和农业意义：</strong>了解这些途径有助于作物改良和农业生产优化，例如在不同气候区选择适宜的作物品种，或通过基因工程改善作物的光合效率。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>5. 分析环境因子（光照、温度、CO₂浓度）对光合作用的影响机理，并说明如何在农业生产中应用这些原理。</h4>
+                        <div class="thinking-answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>光照强度影响：</strong>光照强度直接影响光反应的进行。在光限制阶段，光合速率与光强成正比；达到光饱和点后，光合速率不再增加，此时暗反应成为限制因子；光强过高时可能发生光抑制，损伤光合器官。机理是光照影响叶绿素的激发和电子传递链的效率。</li>
+                                <li><strong>温度影响：</strong>温度主要影响酶活性，特别是RuBisCO等关键酶。适宜温度下酶活性高，光合效率高；温度过低时酶活性下降；温度过高时酶变性失活，同时高温促进光呼吸，降低净光合速率。不同植物的最适温度不同，反映了其生态适应性。</li>
+                                <li><strong>CO₂浓度影响：</strong>CO₂是Calvin循环的底物，其浓度直接影响碳固定效率。在CO₂限制范围内，光合速率与CO₂浓度成正比；达到CO₂饱和点后，其他因子成为限制因子。高CO₂浓度还能抑制光呼吸，提高光合效率。</li>
+                                <li><strong>农业应用原理：</strong>在温室栽培中，可通过人工补光、温度控制、CO₂施肥等措施优化光合条件。例如，冬季补光延长光照时间，夏季遮阴防止光抑制，通过通风或CO₂发生器调节CO₂浓度，使用加温或降温设备维持适宜温度。</li>
+                                <li><strong>综合管理策略：</strong>根据作物特性和生长阶段，综合调控各环境因子，实现光合作用的最优化。同时考虑成本效益，选择最经济有效的调控措施。现代精准农业中，利用传感器实时监测环境参数，自动调节温室环境，实现智能化管理。</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "光反应中水分子分解的直接作用是：",
+                options: ["A. 产生ATP", "B. 提供电子和质子", "C. 合成NADPH", "D. 固定CO₂"],
+                correct: 1,
+                explanation: "水分子在光系统II中被分解，为失去电子的P680提供电子，同时产生质子用于建立质子梯度，氧气作为副产物释放。"
+            },
+            {
+                question: "质体醌在光反应中的作用是：",
+                options: ["A. 吸收光能", "B. 传递电子", "C. 合成ATP", "D. 固定CO₂"],
+                correct: 1,
+                explanation: "质体醌（PQ）是类囊体膜中的电子载体，在光系统II和细胞色素b₆f复合体之间传递电子，同时参与质子的跨膜转运。"
+            },
+            {
+                question: "RuBP的全称是：",
+                options: ["A. 核糖-1,5-二磷酸", "B. 1,5-二磷酸核酮糖", "C. 核糖-5-磷酸", "D. 磷酸烯醇式丙酮酸"],
+                correct: 1,
+                explanation: "RuBP是1,5-二磷酸核酮糖（Ribulose-1,5-bisphosphate），是Calvin循环中CO₂固定反应的受体分子。"
+            },
+            {
+                question: "光合作用中，NADPH的主要作用是：",
+                options: ["A. 提供能量", "B. 提供还原力", "C. 传递电子", "D. 吸收光能"],
+                correct: 1,
+                explanation: "NADPH在Calvin循环中作为还原剂，提供还原力将3-磷酸甘油酸还原为甘油醛-3-磷酸，是碳固定过程中的关键还原性辅酶。"
+            },
+            {
+                question: "叶绿体基质中进行的主要过程是：",
+                options: ["A. 光反应", "B. Calvin循环", "C. 电子传递", "D. 光合磷酸化"],
+                correct: 1,
+                explanation: "叶绿体基质是Calvin循环（暗反应）进行的场所，包含RuBisCO等暗反应所需的酶系统。"
+            },
+            {
+                question: "C₄植物中，PEP羧化酶的特点是：",
+                options: ["A. 对O₂亲和力高", "B. 对CO₂专一性高", "C. 只在夜间活跃", "D. 位于维管束鞘细胞"],
+                correct: 1,
+                explanation: "PEP羧化酶对CO₂的专一性很高，不会与O₂结合，因此不会发生类似RuBisCO的加氧反应，这是C₄植物减少光呼吸的关键。"
+            },
+            {
+                question: "光系统I主要吸收的光波长是：",
+                options: ["A. 680nm", "B. 700nm", "C. 650nm", "D. 750nm"],
+                correct: 1,
+                explanation: "光系统I的反应中心P700主要吸收700nm波长的红光，这也是P700名称的由来。"
+            },
+            {
+                question: "光合作用中，氧气释放发生在：",
+                options: ["A. 光系统I", "B. 光系统II", "C. Calvin循环", "D. 电子传递链"],
+                correct: 1,
+                explanation: "氧气的释放发生在光系统II中水分子的光解过程，这是光反应的重要组成部分。"
+            },
+            {
+                question: "影响光合作用效率的主要环境因子不包括：",
+                options: ["A. 光照强度", "B. 温度", "C. CO₂浓度", "D. 土壤pH值"],
+                correct: 3,
+                explanation: "光照强度、温度和CO₂浓度是直接影响光合作用效率的三大环境因子。土壤pH值主要影响根部营养吸收，对光合作用的直接影响较小。"
+            },
+            {
+                question: "3-磷酸甘油酸在Calvin循环中的作用是：",
+                options: ["A. CO₂受体", "B. CO₂固定的第一个产物", "C. 最终产物", "D. 酶的辅因子"],
+                correct: 1,
+                explanation: "3-磷酸甘油酸（3-PGA）是CO₂与RuBP结合后形成的第一个稳定产物，随后被还原为甘油醛-3-磷酸。"
+            },
+            {
+                question: "光反应和暗反应的联系主要通过：",
+                options: ["A. 共同的酶系统", "B. ATP和NADPH", "C. 相同的反应场所", "D. 都需要光照"],
+                correct: 1,
+                explanation: "光反应产生的ATP和NADPH是连接光反应和暗反应的关键物质，为暗反应提供能量和还原力。"
+            },
+            {
+                question: "细胞色素b₆f复合体的主要功能是：",
+                options: ["A. 吸收光能", "B. 传递电子并泵出质子", "C. 合成NADPH", "D. 分解水分子"],
+                correct: 1,
+                explanation: "细胞色素b₆f复合体在电子传递过程中将质子从叶绿体基质泵入类囊体腔，建立质子梯度，同时传递电子。"
+            },
+            {
+                question: "光饱和现象说明：",
+                options: ["A. 光反应达到最大速率", "B. 暗反应成为限制因子", "C. 植物不再需要光照", "D. 光合作用停止"],
+                correct: 1,
+                explanation: "当光强度达到一定程度后，光反应不再是限制因子，此时暗反应的速率限制了整个光合作用过程，出现光饱和现象。"
+            },
+            {
+                question: "CAM植物适应的环境特点是：",
+                options: ["A. 低温", "B. 高湿度", "C. 干旱", "D. 弱光"],
+                correct: 2,
+                explanation: "CAM植物通过夜间固定CO₂、白天关闭气孔的策略，最大限度减少水分损失，是对干旱环境的适应。"
+            },
+            {
+                question: "RuBisCO酶活性的调节因子包括：",
+                options: ["A. 只有CO₂浓度", "B. 只有温度", "C. CO₂浓度、O₂浓度和温度", "D. 只有光照强度"],
+                correct: 2,
+                explanation: "RuBisCO的活性受多种因子调节，包括CO₂浓度（底物）、O₂浓度（竞争性抑制剂）、温度（影响酶活性）等。"
+            },
+            {
+                question: "光合作用的进化意义主要体现在：",
+                options: ["A. 产生有机物", "B. 改变大气成分", "C. 提供能量", "D. 以上都是"],
+                correct: 3,
+                explanation: "光合作用的进化意义是多方面的：产生有机物为生物提供食物，释放氧气改变大气成分，为生物圈提供能量，是地球生命演化的关键事件。"
+            }
+        ];
+
+        // 当前测试的题目
+        let currentQuiz = [];
+        let userAnswers = [];
+
+        // 页面加载时自动生成测试题目
+        document.addEventListener('DOMContentLoaded', function() {
+            generateQuiz();
+        });
+
+        // 生成测试题目（从30道中随机选15道）
+        function generateQuiz() {
+            // 重置
+            currentQuiz = [];
+            userAnswers = [];
+            
+            // 随机选择15道题
+            const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+            currentQuiz = shuffled.slice(0, 15);
+            
+            // 渲染题目
+            renderQuiz();
+            
+            // 隐藏结果
+            document.getElementById('quiz-result').classList.remove('show');
+        }
+
+        // 渲染题目到页面
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            let html = '';
+            
+            currentQuiz.forEach((q, index) => {
+                html += `
+                    <div class="question">
+                        <div class="question-text">${index + 1}. ${q.question}</div>
+                        <div class="options">`;
+                
+                q.options.forEach((option, optIndex) => {
+                    html += `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>`;
+                });
+                
+                html += `
+                        </div>
+                    </div>`;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // 提交答案并显示结果
+        function submitQuiz() {
+            // 收集用户答案
+            userAnswers = [];
+            let allAnswered = true;
+            
+            for (let i = 0; i < currentQuiz.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    userAnswers[i] = parseInt(selected.value);
+                } else {
+                    userAnswers[i] = -1; // 未回答
+                    allAnswered = false;
+                }
+            }
+            
+            if (!allAnswered) {
+                alert('请完成所有题目后再提交！');
+                return;
+            }
+            
+            // 计算得分
+            let correctCount = 0;
+            for (let i = 0; i < currentQuiz.length; i++) {
+                if (userAnswers[i] === currentQuiz[i].correct) {
+                    correctCount++;
+                }
+            }
+            
+            const score = Math.round((correctCount / currentQuiz.length) * 100);
+            
+            // 生成结果HTML
+            let summaryHTML = `
+                <div class="result-summary">
+                    <h3>📊 测试结果</h3>
+                    <p><strong>得分：${score}分</strong> (${correctCount}/${currentQuiz.length})</p>
+                    <p>${getScoreComment(score)}</p>
+                </div>`;
+            
+            let detailsHTML = '<div class="result-details"><h4>📝 详细解析</h4>';
+            
+            currentQuiz.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                const userChoice = userAnswers[index] >= 0 ? q.options[userAnswers[index]] : '未作答';
+                const correctChoice = q.options[q.correct];
+                
+                detailsHTML += `
+                    <div class="answer-item ${isCorrect ? 'answer-correct' : 'answer-wrong'}">
+                        <p><strong>第${index + 1}题：</strong>${q.question}</p>
+                        <p><strong>你的答案：</strong>${userChoice} ${isCorrect ? '✅' : '❌'}</p>
+                        <p><strong>正确答案：</strong>${correctChoice}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>`;
+            });
+            
+            detailsHTML += '</div>';
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.innerHTML = summaryHTML + detailsHTML;
+            resultDiv.classList.add('show');
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 根据得分给出评价
+        function getScoreComment(score) {
+            if (score >= 90) {
+                return '🎉 优秀！你对光合作用的理解非常深入！';
+            } else if (score >= 80) {
+                return '👍 良好！基本概念掌握得不错，继续加油！';
+            } else if (score >= 70) {
+                return '📚 中等！还需要加强对细节知识的理解。';
+            } else if (score >= 60) {
+                return '⚠️ 及格！建议重新复习相关章节内容。';
+            } else {
+                return '📖 需要努力！请仔细阅读教材并多做练习。';
+            }
+        }
+
+        // 重新测试
+        function retakeQuiz() {
+            generateQuiz();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞信号传导 - 考研复习笔记</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+
+        /* 强调文本 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+            border: 1px solid #ffeaa7;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #e8f4fd;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #6c757d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            line-height: 1.7;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-success {
+            background: #27ae60;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+        }
+
+        /* 结果显示 */
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .explanation {
+            background: #e8f4fd;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff3e0;
+            border: 1px solid #ffcc02;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: #f3e5f5;
+            border: 1px solid #ce93d8;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .answer h5 {
+            color: #4a148c;
+            margin-bottom: 10px;
+        }
+
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .diagram-caption {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>细胞信号传导</h1>
+            <p>Cell Signal Transduction - 考研专业课复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、细胞信号传导概述</h2>
+                
+                <h3>1.1 基本概念</h3>
+                <p>细胞信号传导（Cell Signal Transduction）是指<span class="emphasis">细胞感受、传递和响应环境信息的过程</span>，是细胞与细胞之间、细胞与环境之间进行信息交流的基本方式。这一过程使得多细胞生物能够协调各种生理活动，维持内环境稳态。</p>
+                
+                <h3>1.2 细胞通信的类型</h3>
+                <ul>
+                    <li><span class="highlight">内分泌信号传递（Endocrine Signaling）</span>：信号分子通过血液循环传递到远距离的靶细胞</li>
+                    <li><span class="highlight">旁分泌信号传递（Paracrine Signaling）</span>：信号分子作用于邻近细胞</li>
+                    <li><span class="highlight">自分泌信号传递（Autocrine Signaling）</span>：细胞产生的信号分子作用于自身</li>
+                    <li><span class="highlight">突触信号传递（Synaptic Signaling）</span>：神经元之间的特殊信号传递方式</li>
+                    <li><span class="highlight">接触依赖性信号传递（Contact-dependent Signaling）</span>：细胞表面分子直接接触传递信号</li>
+                </ul>
+
+                <h3>1.3 信号转导的基本过程</h3>
+                <ol>
+                    <li><span class="emphasis">信号识别</span>：受体蛋白识别并结合特定的信号分子</li>
+                    <li><span class="emphasis">信号转换</span>：受体构象改变，激活胞内信号转导级联反应</li>
+                    <li><span class="emphasis">信号放大</span>：通过酶级联反应实现信号的放大效应</li>
+                    <li><span class="emphasis">细胞响应</span>：激活转录因子，调节基因表达或酶活性</li>
+                    <li><span class="emphasis">信号终止</span>：通过负反馈机制终止信号传递</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>二、信号分子与受体</h2>
+                
+                <h3>2.1 信号分子的分类</h3>
+                <h4>按化学性质分类：</h4>
+                <ul>
+                    <li><span class="highlight">脂溶性信号分子</span>：类固醇激素、甲状腺激素等，可穿透细胞膜</li>
+                    <li><span class="highlight">水溶性信号分子</span>：蛋白质激素、神经递质等，需要膜受体介导</li>
+                    <li><span class="highlight">气体信号分子</span>：NO、CO、H₂S等，可自由穿透膜结构</li>
+                </ul>
+
+                <h3>2.2 受体的类型和功能</h3>
+                <h4>按定位分类：</h4>
+                <ul>
+                    <li><span class="emphasis">细胞表面受体</span>：
+                        <ul>
+                            <li>G蛋白偶联受体（GPCR）</li>
+                            <li>受体酪氨酸激酶（RTK）</li>
+                            <li>离子通道型受体</li>
+                            <li>细胞因子受体</li>
+                        </ul>
+                    </li>
+                    <li><span class="emphasis">胞内受体</span>：
+                        <ul>
+                            <li>核受体超家族</li>
+                            <li>胞质受体</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、第二信使系统</h2>
+                
+                <h3>3.1 cAMP信号系统</h3>
+                <p><span class="emphasis">环腺苷酸（cAMP）</span>是最重要的第二信使之一。当G蛋白偶联受体激活Gₛ蛋白时，激活腺苷酸环化酶，催化ATP生成cAMP。</p>
+                
+                <h4>cAMP-PKA信号通路：</h4>
+                <ol>
+                    <li>cAMP浓度升高</li>
+                    <li>cAMP结合PKA调节亚基</li>
+                    <li>PKA催化亚基释放并激活</li>
+                    <li>磷酸化下游靶蛋白</li>
+                    <li>调节酶活性和基因转录</li>
+                </ol>
+
+                <h3>3.2 cGMP信号系统</h3>
+                <p><span class="emphasis">环鸟苷酸（cGMP）</span>主要通过激活蛋白激酶G（PKG）发挥作用，在血管舒张、视觉传导等过程中起重要作用。</p>
+
+                <h3>3.3 钙离子信号系统</h3>
+                <p><span class="emphasis">Ca²⁺</span>是最重要的第二信使之一，胞内Ca²⁺浓度的变化可以激活多种Ca²⁺结合蛋白。</p>
+                
+                <h4>钙信号的特点：</h4>
+                <ul>
+                    <li><span class="highlight">钙火花</span>：局部Ca²⁺浓度的瞬时升高</li>
+                    <li><span class="highlight">钙波</span>：Ca²⁺信号在细胞内的传播</li>
+                    <li><span class="highlight">钙振荡</span>：Ca²⁺浓度的周期性变化</li>
+                </ul>
+
+                <h4>钙调蛋白（Calmodulin, CaM）：</h4>
+                <p>钙调蛋白是细胞内最重要的Ca²⁺结合蛋白，可调节多种酶的活性：</p>
+                <ul>
+                    <li>钙调蛋白依赖性蛋白激酶（CaMK）</li>
+                    <li>钙调蛋白依赖性磷酸酶（Calcineurin）</li>
+                    <li>腺苷酸环化酶</li>
+                    <li>磷酸二酯酶</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、G蛋白偶联受体信号转导</h2>
+                
+                <h3>4.1 GPCR的结构特征</h3>
+                <p>G蛋白偶联受体具有<span class="emphasis">七次跨膜结构域</span>，是细胞表面受体中数量最多的一类。</p>
+                
+                <h3>4.2 G蛋白的分类和功能</h3>
+                <ul>
+                    <li><span class="highlight">Gₛ蛋白</span>：激活腺苷酸环化酶，升高cAMP水平</li>
+                    <li><span class="highlight">Gᵢ/Gₒ蛋白</span>：抑制腺苷酸环化酶，降低cAMP水平</li>
+                    <li><span class="highlight">Gq/G₁₁蛋白</span>：激活磷脂酶C，产生IP₃和DAG</li>
+                    <li><span class="highlight">G₁₂/G₁₃蛋白</span>：激活Rho信号通路</li>
+                </ul>
+
+                <h3>4.3 磷脂酶C介导的信号通路</h3>
+                <p>当Gq蛋白激活磷脂酶C（PLC）时，PLC催化PIP₂分解产生两个第二信使：</p>
+                <ul>
+                    <li><span class="emphasis">IP₃（肌醇1,4,5-三磷酸）</span>：激活内质网Ca²⁺释放</li>
+                    <li><span class="emphasis">DAG（二酰甘油）</span>：激活蛋白激酶C（PKC）</li>
+                </ul>
+
+                <h4>PKC信号通路的生物学效应：</h4>
+                <ul>
+                    <li>调节基因转录</li>
+                    <li>影响细胞增殖和分化</li>
+                    <li>调节离子通道活性</li>
+                    <li>参与学习记忆过程</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>五、酶联受体信号转导</h2>
+                
+                <h3>5.1 受体酪氨酸激酶（RTK）</h3>
+                <p>RTK是一类重要的细胞表面受体，配体结合后发生<span class="emphasis">二聚化和自磷酸化</span>。</p>
+                
+                <h4>RTK的激活机制：</h4>
+                <ol>
+                    <li>配体结合导致受体二聚化</li>
+                    <li>激酶结构域相互磷酸化</li>
+                    <li>磷酸化酪氨酸作为停靠位点</li>
+                    <li>招募含SH2结构域的信号蛋白</li>
+                </ol>
+
+                <h3>5.2 Ras-MAPK信号通路</h3>
+                <p>这是RTK下游最重要的信号通路之一，参与细胞增殖、分化和凋亡的调节。</p>
+                
+                <h4>信号传递过程：</h4>
+                <ol>
+                    <li><span class="emphasis">RTK激活</span> → Grb2-SOS复合物招募</li>
+                    <li><span class="emphasis">SOS激活Ras</span> → Ras-GTP形成</li>
+                    <li><span class="emphasis">Ras激活Raf</span> → MAPK级联启动</li>
+                    <li><span class="emphasis">Raf → MEK → ERK</span> → 磷酸化级联</li>
+                    <li><span class="emphasis">ERK入核</span> → 磷酸化转录因子</li>
+                </ol>
+
+                <h3>5.3 PI3K-Akt信号通路</h3>
+                <p>PI3K-Akt通路是调节细胞存活、代谢和增殖的关键信号通路。</p>
+                
+                <h4>信号转导机制：</h4>
+                <ol>
+                    <li>RTK激活招募PI3K</li>
+                    <li>PI3K催化PIP₂生成PIP₃</li>
+                    <li>PIP₃招募PDK1和Akt</li>
+                    <li>PDK1磷酸化激活Akt</li>
+                    <li>Akt磷酸化多个下游靶点</li>
+                </ol>
+
+                <h4>Akt的主要靶蛋白：</h4>
+                <ul>
+                    <li><span class="highlight">mTOR</span>：调节蛋白质合成和细胞生长</li>
+                    <li><span class="highlight">Bad</span>：抑制细胞凋亡</li>
+                    <li><span class="highlight">GSK3β</span>：调节糖原合成</li>
+                    <li><span class="highlight">FoxO</span>：调节基因转录</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>六、细胞因子受体信号转导</h2>
+                
+                <h3>6.1 JAK-STAT信号通路</h3>
+                <p>JAK-STAT通路是细胞因子受体介导的主要信号转导途径，参与免疫反应、细胞分化等过程。</p>
+                
+                <h4>信号转导过程：</h4>
+                <ol>
+                    <li><span class="emphasis">细胞因子结合</span> → 受体二聚化</li>
+                    <li><span class="emphasis">JAK激活</span> → 相互磷酸化</li>
+                    <li><span class="emphasis">受体磷酸化</span> → STAT招募</li>
+                    <li><span class="emphasis">STAT磷酸化</span> → 二聚化</li>
+                    <li><span class="emphasis">STAT入核</span> → 调节基因转录</li>
+                </ol>
+
+                <h3>6.2 TGF-β/Smad信号通路</h3>
+                <p>TGF-β超家族通过Smad蛋白介导信号转导，调节细胞增殖、分化、凋亡和胚胎发育。</p>
+                
+                <h4>Smad蛋白的分类：</h4>
+                <ul>
+                    <li><span class="highlight">R-Smad</span>（Smad1,2,3,5,8）：受体调节的Smad</li>
+                    <li><span class="highlight">Co-Smad</span>（Smad4）：共同介导的Smad</li>
+                    <li><span class="highlight">I-Smad</span>（Smad6,7）：抑制性Smad</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>七、其他重要信号通路</h2>
+                
+                <h3>7.1 Wnt信号通路</h3>
+                <p>Wnt信号通路在胚胎发育、干细胞维持和肿瘤发生中起重要作用。</p>
+                
+                <h4>经典Wnt/β-catenin通路：</h4>
+                <ul>
+                    <li>无Wnt信号时：β-catenin被降解复合物磷酸化降解</li>
+                    <li>有Wnt信号时：降解复合物失活，β-catenin积累入核</li>
+                </ul>
+
+                <h3>7.2 Hedgehog信号通路</h3>
+                <p>Hedgehog通路在胚胎发育模式形成和成体组织稳态维持中发挥关键作用。</p>
+
+                <h3>7.3 Notch信号通路</h3>
+                <p>Notch通路是细胞间直接接触的信号传递方式，调节细胞命运决定和分化。</p>
+
+                <h3>7.4 NF-κB信号通路</h3>
+                <p>NF-κB是重要的转录因子，在炎症反应、免疫应答和细胞存活中起关键作用。</p>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>八、重要名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">信号转导</div>
+                    <div class="term-english">Signal Transduction</div>
+                    <div class="term-definition">细胞感受外界信号并将其转换为胞内生化反应的过程，包括信号识别、转换、放大和响应等步骤。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">G蛋白偶联受体</div>
+                    <div class="term-english">G Protein-Coupled Receptor, GPCR</div>
+                    <div class="term-definition">具有七次跨膜结构域的膜受体，通过激活G蛋白介导信号转导，是药物作用的重要靶点。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">受体酪氨酸激酶</div>
+                    <div class="term-english">Receptor Tyrosine Kinase, RTK</div>
+                    <div class="term-definition">具有内在酪氨酸激酶活性的跨膜受体，配体结合后发生二聚化和自磷酸化，激活下游信号通路。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">第二信使</div>
+                    <div class="term-english">Second Messenger</div>
+                    <div class="term-definition">由第一信使（配体）激活产生的胞内小分子信号分子，如cAMP、cGMP、IP₃、DAG和Ca²⁺等。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">蛋白激酶A</div>
+                    <div class="term-english">Protein Kinase A, PKA</div>
+                    <div class="term-definition">cAMP依赖性蛋白激酶，由调节亚基和催化亚基组成，cAMP结合调节亚基后释放活性催化亚基。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">蛋白激酶C</div>
+                    <div class="term-english">Protein Kinase C, PKC</div>
+                    <div class="term-definition">DAG和Ca²⁺依赖性蛋白激酶，参与细胞增殖、分化和凋亡的调节。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">钙调蛋白</div>
+                    <div class="term-english">Calmodulin, CaM</div>
+                    <div class="term-definition">细胞内重要的Ca²⁺结合蛋白，结合Ca²⁺后构象改变，调节多种酶的活性。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">Ras蛋白</div>
+                    <div class="term-english">Ras Protein</div>
+                    <div class="term-definition">小分子GTP酶，在RTK信号转导中起关键作用，是重要的原癌基因产物。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">MAPK级联</div>
+                    <div class="term-english">MAPK Cascade</div>
+                    <div class="term-definition">丝裂原激活蛋白激酶级联反应，包括MAPKKK→MAPKK→MAPK的磷酸化级联。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">PI3K</div>
+                    <div class="term-english">Phosphoinositide 3-Kinase</div>
+                    <div class="term-definition">磷脂酰肌醇3-激酶，催化PIP₂生成PIP₃，激活Akt信号通路。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">Akt/PKB</div>
+                    <div class="term-english">Akt/Protein Kinase B</div>
+                    <div class="term-definition">丝氨酸/苏氨酸蛋白激酶，调节细胞存活、代谢和增殖，是PI3K的重要下游效应器。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">JAK激酶</div>
+                    <div class="term-english">Janus Kinase, JAK</div>
+                    <div class="term-definition">双面神激酶，与细胞因子受体结合，激活后磷酸化STAT蛋白。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">STAT蛋白</div>
+                    <div class="term-english">Signal Transducer and Activator of Transcription</div>
+                    <div class="term-definition">信号转导和转录激活因子，被JAK磷酸化后二聚化入核调节基因转录。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">Smad蛋白</div>
+                    <div class="term-english">Smad Protein</div>
+                    <div class="term-definition">TGF-β信号通路的关键转录因子，分为R-Smad、Co-Smad和I-Smad三类。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">β-catenin</div>
+                    <div class="term-english">β-catenin</div>
+                    <div class="term-definition">Wnt信号通路的关键效应分子，既参与细胞黏附又作为转录共激活因子。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">NF-κB</div>
+                    <div class="term-english">Nuclear Factor κB</div>
+                    <div class="term-definition">核因子κB，重要的转录因子家族，调节炎症、免疫和细胞存活相关基因的表达。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">SH2结构域</div>
+                    <div class="term-english">Src Homology 2 Domain</div>
+                    <div class="term-definition">Src同源结构域2，特异性识别磷酸化酪氨酸残基的蛋白质结构域。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">PH结构域</div>
+                    <div class="term-english">Pleckstrin Homology Domain</div>
+                    <div class="term-definition">血小板凝集素同源结构域，结合磷脂酰肌醇磷酸化产物，介导蛋白质膜定位。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">GEF</div>
+                    <div class="term-english">Guanine Nucleotide Exchange Factor</div>
+                    <div class="term-definition">鸟嘌呤核苷酸交换因子，催化小G蛋白从GDP结合态转换为GTP结合态。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">GAP</div>
+                    <div class="term-english">GTPase-Activating Protein</div>
+                    <div class="term-definition">GTP酶激活蛋白，激活小G蛋白的GTP酶活性，促进GTP水解。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">磷酸二酯酶</div>
+                    <div class="term-english">Phosphodiesterase, PDE</div>
+                    <div class="term-definition">水解cAMP和cGMP的酶类，终止第二信使信号。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">腺苷酸环化酶</div>
+                    <div class="term-english">Adenylyl Cyclase, AC</div>
+                    <div class="term-definition">催化ATP生成cAMP的酶，是Gs蛋白的重要效应器。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">磷脂酶C</div>
+                    <div class="term-english">Phospholipase C, PLC</div>
+                    <div class="term-definition">催化PIP₂分解产生IP₃和DAG的酶，是Gq蛋白的重要效应器。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">IP₃受体</div>
+                    <div class="term-english">IP₃ Receptor</div>
+                    <div class="term-definition">内质网膜上的Ca²⁺通道，被IP₃激活后释放内质网储存的Ca²⁺。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">钙火花</div>
+                    <div class="term-english">Calcium Spark</div>
+                    <div class="term-definition">细胞内局部区域Ca²⁺浓度的瞬时升高现象，持续时间短暂但幅度较大。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">mTOR</div>
+                    <div class="term-english">Mechanistic Target of Rapamycin</div>
+                    <div class="term-definition">雷帕霉素靶蛋白，调节细胞生长、增殖和代谢的关键激酶。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转录因子</div>
+                    <div class="term-english">Transcription Factor</div>
+                    <div class="term-definition">能够结合DNA特定序列并调节基因转录的蛋白质。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号整合</div>
+                    <div class="term-english">Signal Integration</div>
+                    <div class="term-definition">细胞同时接收多个信号并进行综合处理，产生适当响应的过程。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号放大</div>
+                    <div class="term-english">Signal Amplification</div>
+                    <div class="term-definition">通过酶级联反应将微弱的初始信号放大成强烈的细胞响应。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">负反馈调节</div>
+                    <div class="term-english">Negative Feedback Regulation</div>
+                    <div class="term-definition">信号通路的产物抑制该通路的活性，维持信号强度的稳态。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">去敏化</div>
+                    <div class="term-english">Desensitization</div>
+                    <div class="term-definition">受体在持续刺激下活性逐渐降低的现象，是信号终止的重要机制。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>九、选择题测试</h2>
+                <p>以下是随机抽取的15道选择题，请选择最佳答案：</p>
+                
+                <div class="quiz-container" id="quizContainer">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="btn" onclick="submitQuiz()">提交答案</button>
+                <button class="btn" onclick="resetQuiz()">重新开始</button>
+                
+                <div class="result" id="quizResult">
+                    <!-- 结果将通过JavaScript显示 -->
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>十、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试分析G蛋白偶联受体信号转导的分子机制，并阐述其在疾病发生中的作用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>GPCR信号转导的分子机制：</strong>GPCR具有七次跨膜结构域，配体结合后发生构象改变，激活与其偶联的G蛋白。G蛋白由α、β、γ三个亚基组成，激活后α亚基与GTP结合并解离，进而激活下游效应器如腺苷酸环化酶、磷脂酶C等，产生第二信使cAMP、IP₃、DAG等，最终调节细胞功能。</li>
+                            <li><strong>信号放大效应：</strong>一个激活的GPCR可以激活多个G蛋白分子，每个G蛋白又可激活多个效应器分子，通过级联放大实现信号的显著放大，使细胞能够对微弱的外界刺激产生强烈响应。</li>
+                            <li><strong>信号特异性：</strong>不同的GPCR偶联不同类型的G蛋白（Gs、Gi/o、Gq/11等），激活不同的信号通路，产生特异性的生物学效应，体现了信号转导的精确性和多样性。</li>
+                            <li><strong>疾病相关性：</strong>GPCR功能异常与多种疾病相关，如视紫红质突变导致视网膜色素变性、甲状腺刺激激素受体突变引起甲状腺功能异常、多巴胺受体异常与帕金森病和精神分裂症相关。</li>
+                            <li><strong>药物靶点价值：</strong>约40%的现代药物以GPCR为靶点，如β受体阻滞剂治疗高血压、抗组胺药治疗过敏反应等，体现了GPCR在药物开发中的重要地位。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较分析RTK-Ras-MAPK通路和PI3K-Akt通路的异同点，并说明它们在肿瘤发生中的作用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>相同点：</strong>两条通路都由RTK激活，都参与细胞增殖、分化和存活的调节，都是重要的原癌基因通路，在多种肿瘤中异常激活。两条通路都涉及蛋白质磷酸化级联反应，都能调节转录因子活性。</li>
+                            <li><strong>不同点：</strong>Ras-MAPK通路主要调节细胞增殖和分化，通过ERK磷酸化转录因子如c-Fos、c-Jun等；而PI3K-Akt通路主要调节细胞存活和代谢，通过Akt磷酸化Bad、FoxO、mTOR等蛋白。前者更多影响基因转录，后者更多影响蛋白质功能。</li>
+                            <li><strong>信号传递机制差异：</strong>Ras-MAPK通路通过小G蛋白Ras激活，经历三级激酶级联（Raf-MEK-ERK）；PI3K-Akt通路通过脂质激酶PI3K产生PIP₃，招募并激活Akt。</li>
+                            <li><strong>肿瘤发生中的作用：</strong>Ras-MAPK通路异常激活促进细胞过度增殖，Ras基因突变见于30%的人类肿瘤；PI3K-Akt通路异常激活抑制细胞凋亡，促进肿瘤细胞存活，PI3K和PTEN突变在多种肿瘤中常见。</li>
+                            <li><strong>治疗靶点：</strong>两条通路的关键分子都是肿瘤治疗的重要靶点，如MEK抑制剂、PI3K抑制剂、mTOR抑制剂等已用于临床肿瘤治疗。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 阐述钙离子作为第二信使的特点，并分析钙信号在细胞生理功能中的重要作用。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>钙离子的独特性质：</strong>Ca²⁺是最重要的第二信使之一，具有浓度梯度大（胞外~1mM，胞内~100nM）、结合蛋白多样、信号快速可逆等特点。Ca²⁺可以产生钙火花、钙波、钙振荡等复杂的时空信号模式。</li>
+                            <li><strong>钙信号的产生机制：</strong>主要通过两个途径：一是IP₃激活内质网IP₃受体释放储存的Ca²⁺；二是膜去极化或配体门控激活质膜Ca²⁺通道。钙诱导钙释放（CICR）机制可以放大钙信号。</li>
+                            <li><strong>钙结合蛋白的作用：</strong>钙调蛋白是最重要的Ca²⁺结合蛋白，结合Ca²⁺后构象改变，激活CaMK、钙调神经磷酸酶等多种酶。其他Ca²⁺结合蛋白如troponin C、parvalbumin等在特定组织中发挥作用。</li>
+                            <li><strong>生理功能的多样性：</strong>肌肉收缩（激活肌钙蛋白）、神经传递（触发囊泡释放）、基因转录调节（激活CREB等转录因子）、细胞分裂（调节纺锤体形成）、细胞凋亡（激活钙依赖性蛋白酶）等。</li>
+                            <li><strong>钙稳态的维持：</strong>细胞通过Ca²⁺-ATPase、Na⁺/Ca²⁺交换体等机制维持胞内Ca²⁺稳态。钙稳态失调与多种疾病相关，如心律失常、神经退行性疾病、肌肉疾病等。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析JAK-STAT信号通路的调节机制，并讨论其在免疫反应中的重要性。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>JAK-STAT通路的基本机制：</strong>细胞因子结合受体导致受体二聚化，招募并激活JAK激酶，JAK相互磷酸化激活，进而磷酸化受体酪氨酸残基，为STAT蛋白提供停靠位点。STAT被磷酸化后二聚化并转位入核，调节靶基因转录。</li>
+                            <li><strong>多层次调节机制：</strong>正调节包括细胞因子刺激、JAK激活、STAT磷酸化等；负调节包括SOCS蛋白抑制JAK活性、蛋白酪氨酸磷酸酶去磷酸化STAT、PIAS蛋白抑制STAT转录活性等，形成精密的调控网络。</li>
+                            <li><strong>信号特异性：</strong>不同的JAK（JAK1-3、TYK2）和STAT（STAT1-6）组合产生特异性信号，如IFN-γ激活JAK1/JAK2-STAT1，IL-4激活JAK1/JAK3-STAT6，实现对不同细胞因子的特异性响应。</li>
+                            <li><strong>免疫反应中的关键作用：</strong>调节T细胞分化（Th1、Th2、Th17、Treg）、B细胞活化和抗体产生、巨噬细胞极化、NK细胞功能、干扰素抗病毒反应等，是适应性和固有免疫的核心调节通路。</li>
+                            <li><strong>疾病相关性和治疗意义：</strong>JAK-STAT通路异常与自身免疫病、免疫缺陷、血液肿瘤等密切相关。JAK抑制剂如托法替尼已用于类风湿关节炎治疗，体现了该通路的重要临床价值。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 论述信号转导网络的整合特性，并分析信号通路间的相互作用对细胞命运决定的影响。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>信号网络的复杂性：</strong>细胞内存在数百条信号通路，它们不是独立运行的，而是形成复杂的相互作用网络。同一信号分子可激活多条通路，同一通路可被多种信号调节，形成信号的汇聚和分散。</li>
+                            <li><strong>信号整合的分子基础：</strong>共同的信号分子（如Ca²⁺、cAMP）、蛋白质间相互作用（如SH2、SH3结构域介导）、转录因子的协同作用、microRNA的调节等，使不同通路在分子水平上相互影响。</li>
+                            <li><strong>时空动态调节：</strong>不同信号通路具有不同的激活动力学和空间分布，通过时间和空间的精确调控实现信号整合。如ERK的瞬时激活促进增殖，持续激活促进分化。</li>
+                            <li><strong>细胞命运决定的机制：</strong>细胞增殖、分化、凋亡等命运决定需要多个信号通路的协调作用。如神经干细胞分化需要Notch（维持干性）、Wnt（促进增殖）、BMP（促进分化）等通路的平衡。</li>
+                            <li><strong>病理意义和治疗启示：</strong>信号网络失衡是疾病发生的重要机制，如肿瘤中多条促增殖通路激活而促凋亡通路失活。理解信号网络有助于开发多靶点治疗策略，提高治疗效果并减少耐药性。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "G蛋白偶联受体的结构特征是：",
+                options: ["A. 五次跨膜结构域", "B. 六次跨膜结构域", "C. 七次跨膜结构域", "D. 八次跨膜结构域"],
+                correct: 2,
+                explanation: "G蛋白偶联受体（GPCR）具有七次跨膜结构域，这是其最重要的结构特征。七次跨膜螺旋形成配体结合位点，并与胞内G蛋白相互作用。"
+            },
+            {
+                question: "下列哪种分子不是第二信使？",
+                options: ["A. cAMP", "B. IP₃", "C. 胰岛素", "D. Ca²⁺"],
+                correct: 2,
+                explanation: "胰岛素是蛋白质激素，属于第一信使（配体），而不是第二信使。第二信使是由第一信使激活产生的胞内小分子信号分子。"
+            },
+            {
+                question: "PKA的激活需要：",
+                options: ["A. Ca²⁺", "B. cAMP", "C. DAG", "D. IP₃"],
+                correct: 1,
+                explanation: "蛋白激酶A（PKA）是cAMP依赖性蛋白激酶，当cAMP浓度升高时，cAMP结合PKA的调节亚基，释放出具有活性的催化亚基。"
+            },
+            {
+                question: "Ras蛋白属于：",
+                options: ["A. 受体蛋白", "B. G蛋白", "C. 小G蛋白", "D. 转录因子"],
+                correct: 2,
+                explanation: "Ras蛋白是小分子GTP酶（小G蛋白），在RTK信号转导中起关键作用，是重要的分子开关蛋白。"
+            },
+            {
+                question: "磷脂酶C的作用是：",
+                options: ["A. 催化ATP生成cAMP", "B. 催化PIP₂生成IP₃和DAG", "C. 催化GTP水解", "D. 催化蛋白质磷酸化"],
+                correct: 1,
+                explanation: "磷脂酶C（PLC）催化磷脂酰肌醇4,5-二磷酸（PIP₂）分解，产生两个重要的第二信使：肌醇1,4,5-三磷酸（IP₃）和二酰甘油（DAG）。"
+            },
+            {
+                question: "JAK-STAT通路主要由哪类受体激活？",
+                options: ["A. GPCR", "B. RTK", "C. 细胞因子受体", "D. 离子通道受体"],
+                correct: 2,
+                explanation: "JAK-STAT信号通路主要由细胞因子受体激活。细胞因子结合受体后，招募并激活JAK激酶，进而磷酸化STAT转录因子。"
+            },
+            {
+                question: "钙调蛋白的功能是：",
+                options: ["A. 储存Ca²⁺", "B. 转运Ca²⁺", "C. 结合Ca²⁺并调节酶活性", "D. 降解Ca²⁺"],
+                correct: 2,
+                explanation: "钙调蛋白（Calmodulin）是重要的Ca²⁺结合蛋白，结合Ca²⁺后发生构象改变，进而调节多种酶的活性，如CaMK、钙调神经磷酸酶等。"
+            },
+            {
+                question: "PI3K-Akt通路的主要功能是：",
+                options: ["A. 调节细胞分裂", "B. 调节细胞存活和代谢", "C. 调节基因转录", "D. 调节蛋白质合成"],
+                correct: 1,
+                explanation: "PI3K-Akt信号通路主要调节细胞存活、代谢和增殖。Akt磷酸化多个下游靶点，如Bad（抗凋亡）、mTOR（促进蛋白质合成）、GSK3β（调节糖原合成）等。"
+            },
+            {
+                question: "MAPK级联反应的正确顺序是：",
+                options: ["A. MAPK→MAPKK→MAPKKK", "B. MAPKKK→MAPKK→MAPK", "C. MAPKK→MAPKKK→MAPK", "D. MAPK→MAPKKK→MAPKK"],
+                correct: 1,
+                explanation: "MAPK级联反应的顺序是MAPKKK（如Raf）→MAPKK（如MEK）→MAPK（如ERK），这是一个三级激酶磷酸化级联反应。"
+            },
+            {
+                question: "β-catenin主要参与哪个信号通路？",
+                options: ["A. Wnt通路", "B. Hedgehog通路", "C. Notch通路", "D. TGF-β通路"],
+                correct: 0,
+                explanation: "β-catenin是Wnt信号通路的关键效应分子，在无Wnt信号时被降解，有Wnt信号时稳定并入核调节基因转录。"
+            },
+            {
+                question: "SH2结构域的功能是：",
+                options: ["A. 结合DNA", "B. 识别磷酸化酪氨酸", "C. 结合脂质", "D. 催化磷酸化反应"],
+                correct: 1,
+                explanation: "SH2结构域（Src同源结构域2）特异性识别和结合磷酸化的酪氨酸残基，是蛋白质间相互作用的重要结构域。"
+            },
+            {
+                question: "cAMP的降解酶是：",
+                options: ["A. 腺苷酸环化酶", "B. 磷酸二酯酶", "C. 蛋白激酶A", "D. 磷脂酶C"],
+                correct: 1,
+                explanation: "磷酸二酯酶（PDE）催化cAMP和cGMP的水解，是终止第二信使信号的重要酶类。"
+            },
+            {
+                question: "Smad蛋白参与哪个信号通路？",
+                options: ["A. Wnt通路", "B. TGF-β通路", "C. Hedgehog通路", "D. JAK-STAT通路"],
+                correct: 1,
+                explanation: "Smad蛋白是TGF-β信号通路的关键转录因子，分为R-Smad、Co-Smad和I-Smad三类。"
+            },
+            {
+                question: "IP₃的作用靶点是：",
+                options: ["A. 质膜Ca²⁺通道", "B. 内质网IP₃受体", "C. 线粒体Ca²⁺载体", "D. 胞质Ca²⁺结合蛋白"],
+                correct: 1,
+                explanation: "IP₃结合内质网膜上的IP₃受体，激活Ca²⁺通道，释放内质网储存的Ca²⁺到胞质中。"
+            },
+            {
+                question: "mTOR蛋白的主要功能是：",
+                options: ["A. 调节细胞凋亡", "B. 调节蛋白质合成和细胞生长", "C. 调节DNA复制", "D. 调节离子转运"],
+                correct: 1,
+                explanation: "mTOR（雷帕霉素靶蛋白）是调节细胞生长、增殖和代谢的关键激酶，主要调节蛋白质合成。"
+            },
+            {
+                question: "NF-κB的主要功能是：",
+                options: ["A. 调节细胞周期", "B. 调节炎症和免疫反应", "C. 调节细胞黏附", "D. 调节细胞迁移"],
+                correct: 1,
+                explanation: "NF-κB是重要的转录因子，主要调节炎症反应、免疫应答和细胞存活相关基因的表达。"
+            },
+            {
+                question: "PKC的激活需要：",
+                options: ["A. cAMP和Ca²⁺", "B. DAG和Ca²⁺", "C. IP₃和cGMP", "D. ATP和Mg²⁺"],
+                correct: 1,
+                explanation: "蛋白激酶C（PKC）的激活需要二酰甘油（DAG）和Ca²⁺，这两个分子都是磷脂酶C激活后产生的。"
+            },
+            {
+                question: "Ras蛋白的激活状态是：",
+                options: ["A. 结合GDP时", "B. 结合GTP时", "C. 磷酸化时", "D. 去磷酸化时"],
+                correct: 1,
+                explanation: "Ras蛋白是小G蛋白，结合GTP时处于激活状态，结合GDP时处于失活状态。GEF促进GDP-GTP交换，GAP促进GTP水解。"
+            },
+            {
+                question: "细胞因子受体的特点是：",
+                options: ["A. 具有内在激酶活性", "B. 需要JAK激酶激活", "C. 是离子通道", "D. 具有七次跨膜结构"],
+                correct: 1,
+                explanation: "细胞因子受体本身不具有内在激酶活性，需要与JAK激酶结合，通过JAK的激活来传递信号。"
+            },
+            {
+                question: "PTEN蛋白的功能是：",
+                options: ["A. 激活PI3K", "B. 抑制PI3K通路", "C. 激活Akt", "D. 激活mTOR"],
+                correct: 1,
+                explanation: "PTEN是磷酸酶，催化PIP₃去磷酸化生成PIP₂，从而抑制PI3K-Akt信号通路，是重要的肿瘤抑制基因。"
+            },
+            {
+                question: "钙火花的特征是：",
+                options: ["A. 持续时间长", "B. 局部Ca²⁺浓度瞬时升高", "C. 全细胞Ca²⁺升高", "D. Ca²⁺浓度持续下降"],
+                correct: 1,
+                explanation: "钙火花是细胞内局部区域Ca²⁺浓度的瞬时升高现象，持续时间短暂（几十毫秒）但幅度较大。"
+            },
+            {
+                question: "GEF的作用是：",
+                options: ["A. 激活GTP酶活性", "B. 促进GDP-GTP交换", "C. 抑制G蛋白", "D. 降解GTP"],
+                correct: 1,
+                explanation: "GEF（鸟嘌呤核苷酸交换因子）催化小G蛋白从GDP结合态转换为GTP结合态，从而激活G蛋白。"
+            },
+            {
+                question: "STAT蛋白激活后的去向是：",
+                options: ["A. 留在胞质", "B. 转位到细胞核", "C. 转位到线粒体", "D. 分泌到胞外"],
+                correct: 1,
+                explanation: "STAT蛋白被JAK磷酸化后形成二聚体，转位到细胞核内，结合DNA调节靶基因的转录。"
+            },
+            {
+                question: "腺苷酸环化酶的激活因子是：",
+                options: ["A. Gi蛋白", "B. Gs蛋白", "C. Gq蛋白", "D. G12蛋白"],
+                correct: 1,
+                explanation: "腺苷酸环化酶被Gs蛋白激活，催化ATP生成cAMP。而Gi蛋白则抑制腺苷酸环化酶的活性。"
+            },
+            {
+                question: "RTK激活的第一步是：",
+                options: ["A. 自磷酸化", "B. 配体结合", "C. 二聚化", "D. 构象改变"],
+                correct: 1,
+                explanation: "RTK激活的第一步是配体结合，然后导致受体二聚化，接着发生自磷酸化和下游信号传递。"
+            },
+            {
+                question: "cGMP主要激活：",
+                options: ["A. PKA", "B. PKC", "C. PKG", "D. CaMK"],
+                correct: 2,
+                explanation: "cGMP主要激活蛋白激酶G（PKG），在血管舒张、视觉传导等过程中发挥重要作用。"
+            },
+            {
+                question: "信号转导的放大效应主要通过：",
+                options: ["A. 受体数量增加", "B. 酶级联反应", "C. 配体浓度增加", "D. 受体亲和力增加"],
+                correct: 1,
+                explanation: "信号转导的放大效应主要通过酶级联反应实现，一个激活的酶可以激活多个下游酶分子，实现信号的指数级放大。"
+            },
+            {
+                question: "Notch信号通路的特点是：",
+                options: ["A. 远距离信号传递", "B. 细胞间直接接触信号传递", "C. 胞内信号传递", "D. 自分泌信号传递"],
+                correct: 1,
+                explanation: "Notch信号通路是细胞间直接接触的信号传递方式，需要相邻细胞表面的配体-受体相互作用。"
+            },
+            {
+                question: "SOCS蛋白的作用是：",
+                options: ["A. 激活JAK", "B. 抑制JAK-STAT通路", "C. 激活STAT", "D. 促进细胞因子产生"],
+                correct: 1,
+                explanation: "SOCS（细胞因子信号抑制因子）蛋白是JAK-STAT通路的负调节因子，通过抑制JAK活性来终止信号传递。"
+            },
+            {
+                question: "PH结构域的功能是：",
+                options: ["A. 结合磷酸化蛋白", "B. 结合磷脂分子", "C. 催化磷酸化", "D. 结合DNA"],
+                correct: 1,
+                explanation: "PH结构域（血小板凝集素同源结构域）特异性结合磷脂酰肌醇磷酸化产物，介导蛋白质的膜定位。"
+            }
+        ];
+
+        // 当前测试的题目
+        let currentQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时自动生成测试题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        // 生成测试题
+        function generateQuiz() {
+            // 从30道题中随机选择15道
+            currentQuestions = getRandomQuestions(questionBank, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}" onchange="recordAnswer(${index}, ${optIndex})">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 随机选择题目
+        function getRandomQuestions(bank, count) {
+            const shuffled = [...bank].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        // 记录用户答案
+        function recordAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        // 提交测试
+        function submitQuiz() {
+            let correctCount = 0;
+            let resultHTML = '<h3>测试结果</h3>';
+            
+            currentQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+                
+                resultHTML += `
+                    <div class="explanation">
+                        <strong>第${index + 1}题：</strong>${q.question}<br>
+                        <strong>您的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未作答'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        <strong>结果：</strong><span style="color: ${isCorrect ? 'green' : 'red'}">${isCorrect ? '正确' : '错误'}</span><br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const accuracy = (correctCount / 15 * 100).toFixed(1);
+            resultHTML = `<p><strong>正确率：${accuracy}% (${correctCount}/15)</strong></p>` + resultHTML;
+            
+            const resultDiv = document.getElementById('quizResult');
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.className = `result ${accuracy >= 60 ? 'success' : 'error'}`;
+            resultDiv.style.display = 'block';
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 重新开始测试
+        function resetQuiz() {
+            generateQuiz();
+            document.getElementById('quizResult').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

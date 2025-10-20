@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛋白质二级结构学习</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入Three.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <!-- 引入OrbitControls用于3D交互控制 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- 引入TWEEN.js用于动画效果 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+<body>
+    <header>
+        <h1>蛋白质的二级结构</h1>
+        <nav>
+            <ul>
+                <li><a href="#alpha-helix" class="nav-link active">α螺旋</a></li>
+                <li><a href="#beta-sheet" class="nav-link">β折叠</a></li>
+                <li><a href="#beta-turn" class="nav-link">β转角</a></li>
+                <li><a href="#super-secondary" class="nav-link">超二级结构</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="alpha-helix" class="structure-section active">
+            <div class="content-wrapper">
+                <div class="model-container">
+                    <div id="alpha-helix-model" class="model"></div>
+                    <div class="model-controls">
+                        <button id="alpha-rotate">自动旋转</button>
+                        <button id="alpha-reset">重置视图</button>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h2>α螺旋 (Alpha Helix)</h2>
+                    <div class="info-content">
+                        <p>α螺旋是蛋白质中最常见的二级结构之一，具有以下特点：</p>
+                        <ul>
+                            <li><strong>右手螺旋结构</strong>：沿着螺旋轴顺时针方向盘旋</li>
+                            <li><strong>周期性</strong>：每3.6个氨基酸完成一个完整螺旋周期</li>
+                            <li><strong>螺距</strong>：每个完整螺旋的轴向距离为0.54nm</li>
+                            <li><strong>氨基酸高度</strong>：每个氨基酸在轴向上的高度为0.15nm</li>
+                            <li><strong>氢键稳定</strong>：每个氨基酸的C=O与其前第4位的N-H形成氢键</li>
+                            <li><strong>侧链朝外</strong>：氨基酸的R基团指向螺旋外侧</li>
+                        </ul>
+                        <p>α螺旋在蛋白质中起到重要的结构支撑作用，常见于球状蛋白和跨膜蛋白中。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beta-sheet" class="structure-section">
+            <div class="content-wrapper">
+                <div class="model-container">
+                    <div id="beta-sheet-model" class="model"></div>
+                    <div class="model-controls">
+                        <button id="beta-rotate">自动旋转</button>
+                        <button id="beta-reset">重置视图</button>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h2>β折叠 (Beta Sheet)</h2>
+                    <div class="info-content">
+                        <p>β折叠是蛋白质中另一种重要的二级结构，具有以下特点：</p>
+                        <ul>
+                            <li><strong>平行与反平行</strong>：相邻肽链可以同向（平行）或反向（反平行）排列</li>
+                            <li><strong>伸展构象</strong>：肽链呈现伸展状态，不像α螺旋那样紧密盘绕</li>
+                            <li><strong>氢键连接</strong>：相邻肽链间通过氢键连接稳定结构</li>
+                            <li><strong>折叠形态</strong>：整体呈现褶皱状的"折叠床单"形态</li>
+                            <li><strong>侧链交替朝向</strong>：R基团在折叠平面的上下两侧交替排列</li>
+                            <li><strong>距离特征</strong>：相邻氨基酸残基间距约为0.35nm</li>
+                        </ul>
+                        <p>β折叠常见于蛋白质的核心区域，对蛋白质的稳定性和功能至关重要。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beta-turn" class="structure-section">
+            <div class="content-wrapper">
+                <div class="model-container">
+                    <div id="beta-turn-model" class="model"></div>
+                    <div class="model-controls">
+                        <button id="turn-rotate">自动旋转</button>
+                        <button id="turn-reset">重置视图</button>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h2>β转角 (Beta Turn)</h2>
+                    <div class="info-content">
+                        <p>β转角是连接蛋白质二级结构元件的重要结构，具有以下特点：</p>
+                        <ul>
+                            <li><strong>紧密转折</strong>：通常由4个氨基酸残基组成的紧密转折结构</li>
+                            <li><strong>方向改变</strong>：使肽链方向发生约180°的改变</li>
+                            <li><strong>类型多样</strong>：根据二面角不同分为I型、II型、I'型、II'型等多种类型</li>
+                            <li><strong>特定氨基酸偏好</strong>：脯氨酸和甘氨酸常出现在转角位置</li>
+                            <li><strong>氢键稳定</strong>：第一个残基的C=O与第四个残基的N-H之间形成氢键</li>
+                        </ul>
+                        <p>β转角在蛋白质折叠中起到关键的"转向"作用，常连接相邻的β折叠链。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="super-secondary" class="structure-section">
+            <div class="content-wrapper">
+                <div class="model-container">
+                    <div id="super-secondary-model" class="model"></div>
+                    <div class="model-controls">
+                        <button id="super-rotate">自动旋转</button>
+                        <button id="super-reset">重置视图</button>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h2>超二级结构与结构域</h2>
+                    <div class="info-content">
+                        <p>超二级结构是由多个二级结构元件组合形成的稳定结构模式：</p>
+                        <ul>
+                            <li><strong>βαβ单元</strong>：两个平行β折叠通过一个α螺旋连接</li>
+                            <li><strong>β发夹</strong>：两个反平行β折叠通过一个短转角连接</li>
+                            <li><strong>α-α发夹</strong>：两个反平行α螺旋通过一个短连接肽连接</li>
+                            <li><strong>β-α-β-α重复单元</strong>：在TIM桶结构中常见的重复模式</li>
+                        </ul>
+                        <p>结构域是蛋白质中具有独立折叠能力的功能单元：</p>
+                        <ul>
+                            <li><strong>独立折叠</strong>：可以独立折叠成稳定的三维结构</li>
+                            <li><strong>功能单元</strong>：通常具有特定的生物学功能</li>
+                            <li><strong>大小范围</strong>：通常包含40-200个氨基酸残基</li>
+                            <li><strong>模块化</strong>：多结构域蛋白质中的不同结构域可以有不同的功能</li>
+                        </ul>
+                        <p>超二级结构和结构域是理解蛋白质高级结构和功能的重要概念。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 蛋白质二级结构学习平台 | 细胞生物学辅助工具</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

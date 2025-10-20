@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核糖体 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #3498db;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 16px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .note {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #28a745;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #dc3545;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .glossary {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .glossary h2 {
+            color: #2c3e50;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .glossary-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .glossary-definition {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .quiz-section h2 {
+            color: #2c3e50;
+            border-left: 5px solid #f39c12;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option {
+            background-color: #f8f9fa;
+            margin: 8px 0;
+            padding: 12px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option.selected {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        .option.correct {
+            background-color: #28a745;
+            color: white;
+            border-color: #1e7e34;
+        }
+
+        .option.incorrect {
+            background-color: #dc3545;
+            color: white;
+            border-color: #c82333;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .submit-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .result.good {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .result.average {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .result.poor {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .explanation {
+            background-color: #e8f4f8;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .thinking-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .thinking-section h2 {
+            color: #2c3e50;
+            border-left: 5px solid #9b59b6;
+        }
+
+        .thinking-question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #9b59b6;
+        }
+
+        .thinking-question h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .thinking-answer {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .thinking-answer h4 {
+            color: #9b59b6;
+            margin-bottom: 10px;
+        }
+
+        .structure-diagram {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .diagram-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            .table-container {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>核糖体（Ribosome）</h1>
+        
+        <!-- 核心内容板块 -->
+        <h2>一、核糖体概述</h2>
+        <p>核糖体是细胞内进行<span class="highlight">蛋白质合成的场所</span>，是一种无膜细胞器。它由<span class="important">大小两个亚基</span>组成，主要包含<span class="highlight">核糖体RNA（rRNA）</span>和<span class="highlight">核糖体蛋白质</span>。核糖体广泛分布于原核细胞的细质中和真核细胞的胞质、内质网表面以及线粒体、叶绿体等细胞器中。</p>
+        
+        <div class="note">
+            <strong>重要提示：</strong>核糖体是<span class="important">核酶</span>的重要例证，其催化活性主要由rRNA提供，而非蛋白质成分。
+        </div>
+
+        <h2>二、核糖体的结构组成</h2>
+        
+        <h3>2.1 原核生物核糖体（70S）</h3>
+        <p>原核生物核糖体的沉降系数为<span class="highlight">70S</span>，由30S小亚基和50S大亚基组成。</p>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>亚基</th>
+                        <th>rRNA组成</th>
+                        <th>蛋白质数量</th>
+                        <th>主要功能</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>30S小亚基</strong></td>
+                        <td>16S rRNA（1540个核苷酸）</td>
+                        <td>约21种蛋白质</td>
+                        <td>识别mRNA，解码功能</td>
+                    </tr>
+                    <tr>
+                        <td><strong>50S大亚基</strong></td>
+                        <td>23S rRNA（2900个核苷酸）<br>5S rRNA（120个核苷酸）</td>
+                        <td>约34种蛋白质</td>
+                        <td>肽键形成，肽酰转移酶活性</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>2.2 真核生物核糖体（80S）</h3>
+        <p>真核生物核糖体的沉降系数为<span class="highlight">80S</span>，由40S小亚基和60S大亚基组成。<mcreference link="https://zh.wikipedia.org/zh-hans/核糖体" index="3">3</mcreference></p>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>亚基</th>
+                        <th>rRNA组成</th>
+                        <th>蛋白质数量</th>
+                        <th>主要功能</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>40S小亚基</strong></td>
+                        <td>18S rRNA（1900个核苷酸）</td>
+                        <td>约33种蛋白质</td>
+                        <td>识别mRNA，解码功能</td>
+                    </tr>
+                    <tr>
+                        <td><strong>60S大亚基</strong></td>
+                        <td>28S rRNA（4700个核苷酸）<br>5.8S rRNA（160个核苷酸）<br>5S rRNA（120个核苷酸）</td>
+                        <td>约49种蛋白质</td>
+                        <td>肽键形成，肽酰转移酶活性</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>2.3 rRNA的功能特点</h3>
+        <ul>
+            <li><strong>16S rRNA：</strong>能够与mRNA、50S亚基以及P位和A位的tRNA的反密码子直接作用 <mcreference link="https://baike.baidu.com/item/核糖体RNA/3752312" index="4">4</mcreference></li>
+            <li><strong>23S rRNA：</strong>核糖体大亚基的主要成分，<span class="important">催化肽键的形成</span>，具有肽酰转移酶活性</li>
+            <li><strong>28S rRNA：</strong>是23S rRNA的同源RNA，在真核生物中发挥类似功能 <mcreference link="https://zh.wikipedia.org/zh-hans/核糖體核糖核酸" index="1">1</mcreference></li>
+            <li><strong>5S rRNA：</strong>存在两个保守序列，一个与tRNA相互识别，一个与大亚基互补</li>
+        </ul>
+
+        <h2>三、核糖体的功能位点</h2>
+        <p>核糖体具有<span class="highlight">三个tRNA结合位点</span>，每个位点都横跨核糖体的两个亚基：</p>
+        
+        <ul>
+            <li><strong>A位点（氨酰位）：</strong>新的氨酰-tRNA进入的位点</li>
+            <li><strong>P位点（肽酰位）：</strong>携带正在延长的肽链的肽酰-tRNA结合的位点</li>
+            <li><strong>E位点（排出位）：</strong>释放已经卸载了氨基酸的tRNA的位点（<span class="important">真核生物核糖体无E位点</span>）</li>
+        </ul>
+        
+        <div class="note">
+            <strong>tRNA移动顺序：</strong>A位 → P位 → E位，这个过程需要消耗GTP提供能量。
+        </div>
+
+        <h2>四、多聚核糖体（Polyribosome）</h2>
+        <p><span class="highlight">多聚核糖体</span>是指多个核糖体同时在一条mRNA上进行翻译形成的复合物。这种结构具有重要的生物学意义：</p>
+        
+        <ul>
+            <li><strong>提高翻译效率：</strong>一条mRNA可以同时被多个核糖体翻译，大大提高蛋白质合成效率</li>
+            <li><strong>节约资源：</strong>充分利用mRNA模板，避免资源浪费</li>
+            <li><strong>快速响应：</strong>在需要大量特定蛋白质时，多聚核糖体能够快速响应</li>
+        </ul>
+
+        <h2>五、核糖体的生物合成</h2>
+        
+        <h3>5.1 原核生物核糖体合成</h3>
+        <p>在细菌细胞中，核糖体通过对多个rDNA操纵子的转录在细胞质中合成。编码细菌三种rRNA的基因常按<span class="highlight">16S-23S-5S</span>的顺序组合在同一操纵子中共同转录。</p>
+        
+        <h3>5.2 真核生物核糖体合成</h3>
+        <p>真核细胞中，核糖体的合成主要发生在<span class="highlight">细胞核的核仁</span>中：</p>
+        <ol>
+            <li>rDNA转录产生45S rRNA前体</li>
+            <li>45S rRNA前体与蛋白质结合形成80S rRNP前体</li>
+            <li>经过加工剪切成32S rRNP和20S rRNP</li>
+            <li>分别装配成60S和40S亚基</li>
+            <li>大小亚基经核孔进入细胞质装配成完整核糖体</li>
+        </ol>
+
+        <h2>六、核糖体与蛋白质合成</h2>
+        
+        <h3>6.1 翻译过程概述</h3>
+        <p>蛋白质合成（翻译）包括三个主要阶段：</p>
+        <ul>
+            <li><strong>起始：</strong>核糖体识别mRNA起始密码子，形成翻译起始复合物</li>
+            <li><strong>延伸：</strong>氨基酸逐个添加到肽链中，核糖体沿mRNA移动</li>
+            <li><strong>终止：</strong>遇到终止密码子，肽链释放，核糖体解离</li>
+        </ul>
+        
+        <h3>6.2 核糖体的核酶本质</h3>
+        <p>核糖体的<span class="important">肽酰转移酶活性主要由rRNA提供</span>，特别是23S rRNA（原核）或28S rRNA（真核），这证明了RNA具有催化活性，支持了<span class="highlight">"RNA世界"假说</span>。</p>
+
+        <!-- 名词解释库 -->
+        <div class="glossary">
+            <h2>名词解释库</h2>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">核糖体（Ribosome）</div>
+                <div class="glossary-definition">细胞内进行蛋白质合成的场所，由大小两个亚基组成，含有rRNA和蛋白质。原核生物为70S，真核生物为80S。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">核糖体RNA（Ribosomal RNA, rRNA）</div>
+                <div class="glossary-definition">构成核糖体的主要RNA成分，具有催化活性，是核酶的重要例证。包括16S、23S、5S（原核）和18S、28S、5.8S、5S（真核）。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">多聚核糖体（Polyribosome, Polysome）</div>
+                <div class="glossary-definition">多个核糖体同时在一条mRNA上进行翻译形成的复合物，能显著提高蛋白质合成效率。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">肽酰转移酶（Peptidyl Transferase）</div>
+                <div class="glossary-definition">催化肽键形成的酶活性，主要由核糖体大亚基中的rRNA提供，是核糖体的核心催化功能。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">沉降系数（Sedimentation Coefficient）</div>
+                <div class="glossary-definition">用S表示，反映颗粒在超速离心中的沉降速度，与颗粒大小和密度相关。核糖体的分类依据。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">核仁（Nucleolus）</div>
+                <div class="glossary-definition">真核细胞核内的特殊区域，是rRNA合成和核糖体亚基组装的主要场所。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">rDNA操纵子</div>
+                <div class="glossary-definition">编码rRNA的基因簇，在原核生物中按16S-23S-5S顺序排列，可共同转录。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">核酶（Ribozyme）</div>
+                <div class="glossary-definition">具有催化活性的RNA分子，核糖体是最重要的核酶之一，其催化活性主要由rRNA提供。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">翻译（Translation）</div>
+                <div class="glossary-definition">以mRNA为模板，在核糖体上合成蛋白质的过程，包括起始、延伸和终止三个阶段。</div>
+            </div>
+            
+            <div class="glossary-item">
+                <div class="glossary-term">RNA世界假说（RNA World Hypothesis）</div>
+                <div class="glossary-definition">认为在生命早期，RNA既能储存遗传信息又能催化生化反应，核糖体的核酶活性支持这一假说。</div>
+            </div>
+        </div>
+
+        <!-- 选择题测试板块 -->
+        <div class="quiz-section">
+            <h2>选择题测试</h2>
+            <p>以下题目从30道题库中随机抽取15道，测试你对核糖体的掌握程度：</p>
+            
+            <div id="quiz-container"></div>
+            
+            <button class="submit-btn" id="submit-quiz" onclick="submitQuiz()">提交答案</button>
+            
+            <div id="quiz-result"></div>
+        </div>
+
+        <!-- 深度思考题板块 -->
+        <div class="thinking-section">
+            <h2>深度思考题</h2>
+            
+            <div class="thinking-question">
+                <h3>1. 分析核糖体作为核酶的意义及其对"RNA世界"假说的支持</h3>
+                <div class="thinking-answer">
+                    <h4>参考答案：</h4>
+                    <ol>
+                        <li><strong>核酶的发现意义：</strong>核糖体的发现打破了传统认为只有蛋白质才具有催化活性的观念，证明了RNA分子同样具有复杂的催化功能。核糖体的肽酰转移酶活性主要由23S rRNA（原核）或28S rRNA（真核）提供，而非蛋白质成分。</li>
+                        <li><strong>结构与功能关系：</strong>rRNA通过复杂的二级和三级结构形成活性位点，能够精确定位底物分子，降低反应活化能，催化肽键形成。这种结构-功能关系展示了RNA的催化潜能。</li>
+                        <li><strong>对RNA世界假说的支持：</strong>RNA世界假说认为在生命早期，RNA既是遗传信息的载体又是催化反应的酶。核糖体作为现存最重要的核酶，保留了这种古老的催化机制，为该假说提供了强有力的证据。</li>
+                        <li><strong>进化意义：</strong>核糖体的核酶特性可能代表了从RNA世界向DNA-蛋白质世界过渡的中间阶段，反映了生命进化的历史轨迹。</li>
+                        <li><strong>现代意义：</strong>核糖体核酶的研究为开发新型催化剂、理解酶催化机理以及设计人工核酶提供了重要启示。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h3>2. 比较原核生物和真核生物核糖体的结构差异及其生物学意义</h3>
+                <div class="thinking-answer">
+                    <h4>参考答案：</h4>
+                    <ol>
+                        <li><strong>基本结构差异：</strong>原核生物核糖体为70S（30S+50S），含有3种rRNA；真核生物核糖体为80S（40S+60S），含有4种rRNA。这种差异反映了细胞复杂性的增加和功能的精细化。</li>
+                        <li><strong>rRNA组成差异：</strong>真核生物多了5.8S rRNA，28S rRNA比23S rRNA更大更复杂，这些差异使真核核糖体具有更精细的调控能力和更高的翻译保真度。</li>
+                        <li><strong>蛋白质组成差异：</strong>真核核糖体含有更多的蛋白质成分（约82种 vs 55种），这些额外的蛋白质参与更复杂的调控机制和质量控制过程。</li>
+                        <li><strong>合成与组装差异：</strong>真核核糖体在核仁中组装，经历更复杂的加工过程，包括rRNA的化学修饰和精确的折叠，这保证了更高的功能稳定性。</li>
+                        <li><strong>药物靶点意义：</strong>结构差异使得某些抗生素能够特异性抑制原核核糖体而不影响真核核糖体，这是抗菌药物选择性的分子基础。</li>
+                        <li><strong>进化意义：</strong>从70S到80S的进化反映了从简单到复杂的生命进化趋势，体现了真核细胞对精确基因表达调控的需求。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h3>3. 阐述多聚核糖体的形成机制、生物学意义及其调控</h3>
+                <div class="thinking-answer">
+                    <h4>参考答案：</h4>
+                    <ol>
+                        <li><strong>形成机制：</strong>当第一个核糖体开始翻译并沿mRNA移动后，起始密码子重新暴露，第二个核糖体可以结合并开始翻译。这个过程重复进行，形成多个核糖体串联在同一mRNA上的多聚核糖体结构。</li>
+                        <li><strong>结构特征：</strong>多聚核糖体呈念珠状排列，核糖体间距约80-100个核苷酸，每个核糖体都在不同的翻译阶段，同时合成相同的蛋白质。</li>
+                        <li><strong>效率提升：</strong>多聚核糖体使一条mRNA能够同时指导多条相同肽链的合成，将翻译效率提高数倍到数十倍，这对于需要大量合成的蛋白质尤为重要。</li>
+                        <li><strong>资源优化：</strong>充分利用mRNA模板，减少转录负担，节约细胞能量和资源，提高基因表达的经济性。</li>
+                        <li><strong>快速响应：</strong>在应激条件下或特定发育阶段，细胞可以通过调节多聚核糖体的形成来快速调整蛋白质合成水平。</li>
+                        <li><strong>调控机制：</strong>多聚核糖体的形成受到翻译起始效率、mRNA稳定性、核糖体可用性等多种因素调控，是基因表达调控的重要环节。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h3>4. 分析核糖体在细胞内的分布特点及其与功能的关系</h3>
+                <div class="thinking-answer">
+                    <h4>参考答案：</h4>
+                    <ol>
+                        <li><strong>游离核糖体：</strong>分布在胞质中，主要合成胞质蛋白、核蛋白、线粒体蛋白等。这些蛋白质在合成后直接释放到胞质中发挥功能或转运到特定细胞器。</li>
+                        <li><strong>结合核糖体：</strong>附着在内质网表面，形成粗糙内质网，主要合成分泌蛋白、膜蛋白和溶酶体蛋白。这种定位使新合成的蛋白质能够直接进入内质网腔进行加工。</li>
+                        <li><strong>细胞器核糖体：</strong>线粒体和叶绿体含有自己的70S核糖体，合成部分细胞器蛋白质，体现了内共生起源的进化历史。</li>
+                        <li><strong>功能分工：</strong>不同位置的核糖体合成不同类型的蛋白质，实现了蛋白质合成的空间分工，提高了细胞内蛋白质定位的效率和准确性。</li>
+                        <li><strong>动态调节：</strong>核糖体在游离和结合状态间可以相互转换，根据细胞需求动态调整不同类型蛋白质的合成比例。</li>
+                        <li><strong>疾病相关性：</strong>核糖体分布异常与多种疾病相关，如内质网应激、蛋白质折叠病等，体现了正确分布对细胞功能的重要性。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库数据
+        const questionBank = [
+            {
+                question: "原核生物核糖体的沉降系数是：",
+                options: ["A. 60S", "B. 70S", "C. 80S", "D. 90S"],
+                correct: 1,
+                explanation: "原核生物核糖体为70S，由30S小亚基和50S大亚基组成。真核生物核糖体为80S。"
+            },
+            {
+                question: "真核生物核糖体大亚基含有的rRNA种类数是：",
+                options: ["A. 2种", "B. 3种", "C. 4种", "D. 5种"],
+                correct: 1,
+                explanation: "真核生物60S大亚基含有28S、5.8S、5S三种rRNA，而40S小亚基含有18S rRNA。"
+            },
+            {
+                question: "核糖体的肽酰转移酶活性主要由什么提供：",
+                options: ["A. 核糖体蛋白质", "B. rRNA", "C. mRNA", "D. tRNA"],
+                correct: 1,
+                explanation: "核糖体的肽酰转移酶活性主要由23S rRNA（原核）或28S rRNA（真核）提供，这是RNA具有催化活性的重要例证。"
+            },
+            {
+                question: "核糖体的三个tRNA结合位点按tRNA移动顺序排列是：",
+                options: ["A. P-A-E", "B. A-P-E", "C. E-P-A", "D. A-E-P"],
+                correct: 1,
+                explanation: "tRNA在核糖体上的移动顺序是：A位（氨酰位）→ P位（肽酰位）→ E位（排出位）。"
+            },
+            {
+                question: "真核生物核糖体与原核生物核糖体的主要区别不包括：",
+                options: ["A. 沉降系数不同", "B. rRNA种类不同", "C. 蛋白质数量不同", "D. 都有E位点"],
+                correct: 3,
+                explanation: "真核生物核糖体没有E位点，脱酰基tRNA直接从P位点离开核糖体，这是与原核生物核糖体的重要区别。"
+            },
+            {
+                question: "多聚核糖体的主要生物学意义是：",
+                options: ["A. 降低翻译效率", "B. 提高翻译效率", "C. 抑制翻译", "D. 促进转录"],
+                correct: 1,
+                explanation: "多聚核糖体是多个核糖体同时在一条mRNA上翻译，可以同时合成多条相同的多肽链，显著提高翻译效率。"
+            },
+            {
+                question: "真核细胞中核糖体亚基的组装主要发生在：",
+                options: ["A. 胞质", "B. 内质网", "C. 核仁", "D. 线粒体"],
+                correct: 2,
+                explanation: "真核细胞中，rRNA的合成和核糖体亚基的组装主要发生在核仁中，然后大小亚基分别转运到胞质。"
+            },
+            {
+                question: "16S rRNA主要存在于：",
+                options: ["A. 原核生物大亚基", "B. 原核生物小亚基", "C. 真核生物大亚基", "D. 真核生物小亚基"],
+                correct: 1,
+                explanation: "16S rRNA是原核生物30S小亚基的主要成分，能够与mRNA、tRNA等直接作用，参与翻译起始。"
+            },
+            {
+                question: "下列关于核糖体的描述，错误的是：",
+                options: ["A. 是蛋白质合成的场所", "B. 由rRNA和蛋白质组成", "C. 具有膜结构", "D. 具有催化活性"],
+                correct: 2,
+                explanation: "核糖体是无膜细胞器，不具有膜结构。它由rRNA和蛋白质组成，是蛋白质合成的场所，具有肽酰转移酶等催化活性。"
+            },
+            {
+                question: "原核生物rDNA操纵子中基因的排列顺序是：",
+                options: ["A. 5S-16S-23S", "B. 16S-23S-5S", "C. 23S-16S-5S", "D. 16S-5S-23S"],
+                correct: 1,
+                explanation: "原核生物中编码三种rRNA的基因按16S-23S-5S的顺序排列在同一操纵子中，可以共同转录。"
+            },
+            {
+                question: "核糖体作为核酶的意义在于：",
+                options: ["A. 证明只有蛋白质有催化活性", "B. 支持RNA世界假说", "C. 否定酶的催化作用", "D. 证明DNA的催化活性"],
+                correct: 1,
+                explanation: "核糖体的催化活性主要由rRNA提供，证明了RNA具有催化能力，为RNA世界假说提供了重要证据。"
+            },
+            {
+                question: "真核生物核糖体大亚基不含有的rRNA是：",
+                options: ["A. 28S rRNA", "B. 18S rRNA", "C. 5.8S rRNA", "D. 5S rRNA"],
+                correct: 1,
+                explanation: "18S rRNA存在于真核生物40S小亚基中，而60S大亚基含有28S、5.8S、5S三种rRNA。"
+            },
+            {
+                question: "核糖体在蛋白质合成中的主要功能不包括：",
+                options: ["A. 识别mRNA", "B. 催化肽键形成", "C. 合成mRNA", "D. 结合tRNA"],
+                correct: 2,
+                explanation: "核糖体不参与mRNA的合成，mRNA是在转录过程中由RNA聚合酶合成的。核糖体的功能是识别mRNA、结合tRNA、催化肽键形成。"
+            },
+            {
+                question: "下列关于5S rRNA的描述，正确的是：",
+                options: ["A. 只存在于原核生物", "B. 只存在于真核生物", "C. 原核和真核生物都有", "D. 只存在于古菌"],
+                correct: 2,
+                explanation: "5S rRNA在原核生物和真核生物中都存在，是核糖体大亚基的重要组成成分，具有保守的功能。"
+            },
+            {
+                question: "核糖体亚基解离和重新组装的调控主要依赖于：",
+                options: ["A. ATP", "B. GTP", "C. 起始因子和释放因子", "D. 氨基酸"],
+                correct: 2,
+                explanation: "核糖体亚基的解离和重新组装主要由起始因子（如IF-3）和释放因子调控，这是翻译调控的重要机制。"
+            },
+            {
+                question: "线粒体和叶绿体中的核糖体类型是：",
+                options: ["A. 80S", "B. 70S", "C. 60S", "D. 90S"],
+                correct: 1,
+                explanation: "线粒体和叶绿体中含有70S核糖体，这支持了内共生学说，表明这些细胞器起源于被吞噬的细菌。"
+            },
+            {
+                question: "rRNA的主要功能不包括：",
+                options: ["A. 构成核糖体骨架", "B. 催化肽键形成", "C. 编码蛋白质", "D. 识别tRNA"],
+                correct: 2,
+                explanation: "rRNA不编码蛋白质，它的主要功能是构成核糖体的结构骨架、催化肽键形成、识别和结合tRNA等。"
+            },
+            {
+                question: "核糖体的P位点主要功能是：",
+                options: ["A. 结合新的氨酰-tRNA", "B. 结合肽酰-tRNA", "C. 释放空载tRNA", "D. 识别终止密码子"],
+                correct: 1,
+                explanation: "P位点（肽酰位）主要结合携带正在延长的肽链的肽酰-tRNA，是肽链延伸的关键位点。"
+            },
+            {
+                question: "真核生物45S rRNA前体经加工后产生：",
+                options: ["A. 18S、28S、5S", "B. 18S、28S、5.8S", "C. 16S、23S、5S", "D. 所有四种rRNA"],
+                correct: 1,
+                explanation: "45S rRNA前体经加工后产生18S、28S、5.8S三种rRNA，而5S rRNA由独立的基因转录产生。"
+            },
+            {
+                question: "核糖体结合到内质网形成粗糙内质网的信号是：",
+                options: ["A. 起始密码子", "B. 终止密码子", "C. 信号肽", "D. poly(A)尾"],
+                correct: 2,
+                explanation: "新生蛋白质的信号肽被信号识别颗粒（SRP）识别后，引导核糖体结合到内质网膜上，形成粗糙内质网。"
+            },
+            {
+                question: "下列关于核糖体进化的描述，正确的是：",
+                options: ["A. 真核核糖体比原核核糖体简单", "B. 所有生物的核糖体都相同", "C. 核糖体结构高度保守", "D. 核糖体不参与进化"],
+                correct: 2,
+                explanation: "核糖体结构在进化中高度保守，这反映了其在蛋白质合成中的核心地位，但也存在从原核到真核的复杂化趋势。"
+            },
+            {
+                question: "核糖体的催化中心主要位于：",
+                options: ["A. 小亚基", "B. 大亚基", "C. 亚基交界面", "D. 核糖体蛋白质"],
+                correct: 1,
+                explanation: "核糖体的肽酰转移酶催化中心主要位于大亚基中，由23S rRNA（原核）或28S rRNA（真核）的特定区域构成。"
+            },
+            {
+                question: "多聚核糖体形成的前提条件是：",
+                options: ["A. mRNA足够长", "B. 核糖体数量充足", "C. 翻译起始效率高", "D. 以上都是"],
+                correct: 3,
+                explanation: "多聚核糖体的形成需要mRNA足够长以容纳多个核糖体、有足够的核糖体可用、以及较高的翻译起始效率。"
+            },
+            {
+                question: "核糖体的组装过程中，最后加入的组分通常是：",
+                options: ["A. rRNA", "B. 核糖体蛋白质", "C. 5S rRNA", "D. 大亚基蛋白质"],
+                correct: 2,
+                explanation: "在核糖体组装过程中，5S rRNA通常是最后加入大亚基的组分，这对于大亚基的最终成熟和功能获得至关重要。"
+            },
+            {
+                question: "核糖体在细胞分裂时的行为是：",
+                options: ["A. 完全降解", "B. 保持不变", "C. 重新分配给子细胞", "D. 只分配给一个子细胞"],
+                correct: 2,
+                explanation: "细胞分裂时，核糖体会重新分配给两个子细胞，确保每个子细胞都有足够的蛋白质合成机器。"
+            },
+            {
+                question: "rRNA基因的特点是：",
+                options: ["A. 单拷贝存在", "B. 多拷贝串联重复", "C. 随机分布", "D. 只在特定细胞表达"],
+                correct: 1,
+                explanation: "rRNA基因以多拷贝串联重复的形式存在，这保证了细胞能够快速大量合成rRNA以满足核糖体组装的需求。"
+            },
+            {
+                question: "核糖体功能的调控主要通过：",
+                options: ["A. 改变rRNA序列", "B. 修饰核糖体蛋白质", "C. 调节核糖体数量和活性", "D. 改变核糖体结构"],
+                correct: 2,
+                explanation: "细胞主要通过调节核糖体的数量、活性状态以及与其他因子的相互作用来调控蛋白质合成水平。"
+            },
+            {
+                question: "核糖体与抗生素作用的特点是：",
+                options: ["A. 所有抗生素都作用于核糖体", "B. 抗生素对原核和真核核糖体作用相同", "C. 某些抗生素特异性作用于原核核糖体", "D. 抗生素不影响核糖体功能"],
+                correct: 2,
+                explanation: "许多抗生素如链霉素、氯霉素等特异性作用于原核生物核糖体，而对真核生物核糖体影响较小，这是其选择性抗菌的基础。"
+            },
+            {
+                question: "核糖体在蛋白质质量控制中的作用包括：",
+                options: ["A. 检测错误折叠", "B. 监控翻译保真度", "C. 降解错误蛋白质", "D. 修复蛋白质损伤"],
+                correct: 1,
+                explanation: "核糖体通过多种机制监控翻译过程的保真度，包括校对tRNA的正确性、检测翻译停滞等，是蛋白质质量控制的第一道防线。"
+            },
+            {
+                question: "核糖体生物发生的调控与以下哪个因素关系最密切：",
+                options: ["A. 细胞周期", "B. 营养状况", "C. 温度变化", "D. 光照条件"],
+                correct: 1,
+                explanation: "核糖体的生物发生主要受细胞营养状况调控，营养充足时核糖体合成增加，营养缺乏时核糖体合成减少，这是细胞适应环境的重要机制。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+        let quizSubmitted = false;
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            renderQuiz();
+        };
+
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    <ul class="options">
+                        ${q.options.map((option, optIndex) => `
+                            <li class="option" onclick="selectOption(${index}, ${optIndex})" data-question="${index}" data-option="${optIndex}">
+                                ${option}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="explanation" id="explanation-${index}">
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            if (quizSubmitted) return;
+
+            // 清除该题目的其他选项的选中状态
+            const options = document.querySelectorAll(`[data-question="${questionIndex}"]`);
+            options.forEach(option => option.classList.remove('selected'));
+
+            // 设置当前选项为选中状态
+            const selectedOption = document.querySelector(`[data-question="${questionIndex}"][data-option="${optionIndex}"]`);
+            selectedOption.classList.add('selected');
+
+            // 记录用户答案
+            userAnswers[questionIndex] = optionIndex;
+        }
+
+        function submitQuiz() {
+            if (quizSubmitted) return;
+
+            // 检查是否所有题目都已回答
+            const unanswered = userAnswers.findIndex(answer => answer === -1);
+            if (unanswered !== -1) {
+                alert(`请回答第${unanswered + 1}题后再提交！`);
+                return;
+            }
+
+            quizSubmitted = true;
+
+            // 计算得分
+            let correctCount = 0;
+            selectedQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                if (isCorrect) correctCount++;
+
+                // 显示正确答案和解析
+                const options = document.querySelectorAll(`[data-question="${index}"]`);
+                options.forEach((option, optIndex) => {
+                    if (optIndex === q.correct) {
+                        option.classList.add('correct');
+                    } else if (optIndex === userAnswers[index] && !isCorrect) {
+                        option.classList.add('incorrect');
+                    }
+                });
+
+                // 显示解析
+                document.getElementById(`explanation-${index}`).classList.add('show');
+            });
+
+            // 显示结果
+            const percentage = Math.round((correctCount / 15) * 100);
+            const resultDiv = document.getElementById('quiz-result');
+            let resultClass = 'poor';
+            let resultText = '需要加强学习，建议重新阅读相关内容。';
+
+            if (percentage >= 80) {
+                resultClass = 'good';
+                resultText = '优秀！你对核糖体掌握得很好！';
+            } else if (percentage >= 60) {
+                resultClass = 'average';
+                resultText = '良好，还需要进一步复习。';
+            }
+
+            resultDiv.innerHTML = `
+                <div class="result ${resultClass}">
+                    <h3>测试结果</h3>
+                    <p>正确率：${percentage}% (${correctCount}/15)</p>
+                    <p>${resultText}</p>
+                </div>
+            `;
+
+            // 禁用提交按钮
+            document.getElementById('submit-quiz').disabled = true;
+        }
+    </script>
+</body>
+</html>

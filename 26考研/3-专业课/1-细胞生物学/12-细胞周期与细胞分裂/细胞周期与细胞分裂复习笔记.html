@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞周期与细胞分裂 - 考研复习笔记</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .important {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #6c757d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            color: #495057;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* 结果样式 */
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .score {
+            font-size: 1.3em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .thinking-answer {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>细胞周期与细胞分裂</h1>
+            <p>考研专业课复习笔记 | 基于《细胞生物学》第五版</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2 class="section-title">核心知识点</h2>
+                
+                <h2>一、细胞周期概述</h2>
+                <p>细胞周期是指细胞从一次分裂完成开始到下一次分裂完成为止的整个过程，是细胞生命活动的重要特征之一。</p>
+                
+                <h3>1. 细胞周期的意义</h3>
+                <ul>
+                    <li><span class="emphasis">生物繁育基础</span>：单细胞生物通过细胞增殖直接增加个体数量</li>
+                    <li><span class="emphasis">生长发育基础</span>：多细胞生物从受精卵发育需要无数次细胞增殖</li>
+                    <li><span class="emphasis">组织修复</span>：损伤组织通过细胞增殖进行修复和再生</li>
+                </ul>
+
+                <h3>2. 细胞周期的时相划分</h3>
+                <p>完整的细胞周期分为两个主要阶段：</p>
+                <ul>
+                    <li><strong>分裂间期（Interphase）</strong>：占细胞周期的90%以上
+                        <ul>
+                            <li><strong>G₁期（Gap 1）</strong>：DNA合成前期，细胞生长，合成蛋白质、酶类等</li>
+                            <li><strong>S期（Synthesis）</strong>：DNA合成期，DNA复制和组蛋白合成</li>
+                            <li><strong>G₂期（Gap 2）</strong>：DNA合成后期，为分裂做准备</li>
+                        </ul>
+                    </li>
+                    <li><strong>分裂期（M期，Mitosis）</strong>：包括核分裂和胞质分裂</li>
+                </ul>
+
+                <div class="important">
+                    <strong>重要提示：</strong>细胞周期时间长短主要取决于G₁期，而S期、G₂期和M期的时间相对恒定。M期通常仅持续半小时左右。
+                </div>
+
+                <h3>3. 细胞群体分类</h3>
+                <ul>
+                    <li><strong>周期中细胞</strong>：持续进行细胞周期，不断分裂</li>
+                    <li><strong>G₀期细胞</strong>：暂时脱离细胞周期的静止期细胞，可重新进入周期</li>
+                    <li><strong>终末分化细胞</strong>：高度分化，终生不再分裂的细胞</li>
+                </ul>
+
+                <h2>二、细胞周期调控</h2>
+                
+                <h3>1. 细胞周期检查点</h3>
+                <ul>
+                    <li><strong>G₁/S检查点（限制点R点）</strong>：位于G₁期末，决定细胞是否进入S期</li>
+                    <li><strong>G₂/M检查点</strong>：检查DNA复制是否完成</li>
+                    <li><strong>纺锤体检查点</strong>：确保所有染色体正确附着于纺锤体</li>
+                </ul>
+
+                <h3>2. 细胞周期同步化</h3>
+                <ul>
+                    <li><strong>天然同步化</strong>：某些组织细胞自然同步分裂</li>
+                    <li><strong>人工选择同步化</strong>：通过物理方法选择特定时相细胞</li>
+                    <li><strong>人工诱导同步化</strong>：使用化学试剂阻断细胞周期</li>
+                </ul>
+
+                <h2>三、有丝分裂过程</h2>
+                
+                <h3>1. 前期（Prophase）</h3>
+                <ul>
+                    <li><strong>染色体凝缩</strong>：染色质螺旋化、折叠，形成可见染色体</li>
+                    <li><strong>中心体复制分离</strong>：建立两极纺锤体，确保分裂对称性</li>
+                    <li><strong>纺锤体装配开始</strong>：微管开始组装</li>
+                </ul>
+
+                <h3>2. 前中期（Prometaphase）</h3>
+                <ul>
+                    <li><strong>核膜崩解</strong>：与核纤层蛋白磷酸化相关</li>
+                    <li><strong>纺锤体装配完成</strong>：形成完整的有丝分裂器</li>
+                    <li><strong>染色体整列</strong>：Mad和Bub蛋白参与动粒敏化</li>
+                </ul>
+
+                <h3>3. 中期（Metaphase）</h3>
+                <ul>
+                    <li><strong>染色体排列</strong>：所有染色体排列在赤道面上</li>
+                    <li><strong>纺锤体成熟</strong>：呈现典型纺锤形结构</li>
+                    <li><strong>检查点激活</strong>：确保所有染色体正确附着</li>
+                </ul>
+
+                <h3>4. 后期（Anaphase）</h3>
+                <ul>
+                    <li><strong>后期A</strong>：姐妹染色单体分离，向两极运动</li>
+                    <li><strong>后期B</strong>：纺锤体极间距离增加</li>
+                    <li><strong>微管动力学</strong>：动粒微管缩短，极微管延长</li>
+                </ul>
+
+                <h3>5. 末期（Telophase）</h3>
+                <ul>
+                    <li><strong>染色体去凝缩</strong>：染色体逐渐展开</li>
+                    <li><strong>核膜重组</strong>：核纤层蛋白去磷酸化，核膜重新形成</li>
+                    <li><strong>核仁重建</strong>：RNA合成功能恢复</li>
+                </ul>
+
+                <h3>6. 胞质分裂（Cytokinesis）</h3>
+                <ul>
+                    <li><strong>分裂沟形成</strong>：细胞表面环形缢缩</li>
+                    <li><strong>收缩环作用</strong>：肌动蛋白-肌球蛋白收缩</li>
+                    <li><strong>细胞分离</strong>：最终形成两个子细胞</li>
+                </ul>
+
+                <h2>四、减数分裂过程</h2>
+                
+                <h3>1. 减数分裂的特点</h3>
+                <ul>
+                    <li><strong>染色体数目减半</strong>：从二倍体变为单倍体</li>
+                    <li><strong>基因重组</strong>：增加遗传多样性</li>
+                    <li><strong>两次连续分裂</strong>：减数分裂Ⅰ和减数分裂Ⅱ</li>
+                </ul>
+
+                <h3>2. 减数分裂前期Ⅰ的五个阶段</h3>
+                <ul>
+                    <li><strong>细线期</strong>：染色质开始凝缩</li>
+                    <li><strong>偶线期</strong>：同源染色体配对（联会）</li>
+                    <li><strong>粗线期</strong>：交叉重组发生，合成P-DNA</li>
+                    <li><strong>双线期</strong>：同源染色体分离，四分体结构清晰</li>
+                    <li><strong>终变期</strong>：染色体进一步凝缩，交叉端化</li>
+                </ul>
+
+                <h3>3. 联会复合体</h3>
+                <p>联会复合体是减数分裂特有的蛋白质结构，由侧元件、中央元件和横丝组成，介导同源染色体的精确配对和基因重组。</p>
+
+                <h2>五、有丝分裂与减数分裂的比较</h2>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <tr style="background-color: #f8f9fa;">
+                        <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">比较项目</th>
+                        <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">有丝分裂</th>
+                        <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">减数分裂</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">分裂次数</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">1次</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">2次连续分裂</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">染色体数目</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">保持不变</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">减半</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">同源染色体配对</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">不配对</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">配对（联会）</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">基因重组</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">不发生</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">发生交叉重组</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">生物学意义</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">生长发育、组织修复</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">产生配子、增加遗传多样性</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2 class="section-title">名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">细胞周期<span class="term-english">(Cell Cycle)</span></div>
+                    <div class="term-definition">指细胞从一次分裂完成开始到下一次分裂完成为止的整个过程，包括分裂间期和分裂期两个阶段。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">G₁期<span class="term-english">(Gap 1 Phase)</span></div>
+                    <div class="term-definition">DNA合成前期，细胞主要进行生长，合成细胞生长所需的各种蛋白质、糖类、脂质等，但不合成DNA。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">S期<span class="term-english">(Synthesis Phase)</span></div>
+                    <div class="term-definition">DNA合成期，细胞进行DNA复制，同时合成新的组蛋白，是细胞周期中DNA含量发生变化的时期。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">G₂期<span class="term-english">(Gap 2 Phase)</span></div>
+                    <div class="term-definition">DNA合成后期，细胞继续生长并为即将到来的细胞分裂做准备，合成分裂所需的蛋白质。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">限制点<span class="term-english">(Restriction Point, R Point)</span></div>
+                    <div class="term-definition">位于G₁期末的细胞周期检查点，决定细胞是否继续进入S期进行DNA复制，是细胞分化与增殖的关键控制点。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">有丝分裂器<span class="term-english">(Mitotic Apparatus)</span></div>
+                    <div class="term-definition">在细胞有丝分裂过程中，由纺锤体、中心体、染色体组成的复合细胞器，专门执行有丝分裂功能。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">纺锤体<span class="term-english">(Spindle Apparatus)</span></div>
+                    <div class="term-definition">细胞分裂过程中与染色体分离直接相关的细胞器，由微管组成，负责牵引染色体向两极移动。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">动粒<span class="term-english">(Kinetochore)</span></div>
+                    <div class="term-definition">位于染色体着丝粒处的蛋白质复合体，是纺锤体微管附着的部位，在染色体分离中起关键作用。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">联会<span class="term-english">(Synapsis)</span></div>
+                    <div class="term-definition">减数分裂前期Ⅰ偶线期发生的同源染色体配对过程，通过联会复合体介导，是基因重组的前提。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">联会复合体<span class="term-english">(Synaptonemal Complex, SC)</span></div>
+                    <div class="term-definition">减数分裂特有的蛋白质结构，由侧元件、中央元件和横丝组成，介导同源染色体的精确配对。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">二价体<span class="term-english">(Bivalent)</span></div>
+                    <div class="term-definition">减数分裂前期Ⅰ中配对的两条同源染色体形成的复合结构，含有4条染色单体，又称四分体。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">交叉<span class="term-english">(Crossing Over)</span></div>
+                    <div class="term-definition">减数分裂前期Ⅰ粗线期发生的同源染色体间DNA片段交换过程，是基因重组的分子基础。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">重组节<span class="term-english">(Recombination Nodule)</span></div>
+                    <div class="term-definition">联会复合体上进行基因重组的特殊结构，含有重组所需的酶类，是交叉发生的部位。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">黏连蛋白<span class="term-english">(Cohesin)</span></div>
+                    <div class="term-definition">维持姐妹染色单体结合的蛋白质复合体，在细胞分裂后期被分离酶切割，使染色单体分离。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">凝缩蛋白<span class="term-english">(Condensin)</span></div>
+                    <div class="term-definition">参与染色体凝缩的SMC蛋白家族成员，通过ATP水解驱动染色体的螺旋化和压缩。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2 class="section-title">选择题测试</h2>
+                <div class="quiz-container">
+                    <p style="margin-bottom: 20px; font-weight: bold; color: #2c3e50;">以下是从题库中随机抽取的15道选择题，请选择最佳答案：</p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2 class="section-title">深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h3>1. 试述细胞周期检查点的分子机制及其在肿瘤发生中的作用</h3>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>G₁/S检查点机制：</strong>该检查点主要由p53蛋白介导，当检测到DNA损伤时，p53被激活并诱导p21蛋白表达，p21结合并抑制CDK2-cyclin E复合体，阻止细胞进入S期。同时，Rb蛋白保持低磷酸化状态，继续结合E2F转录因子，阻止S期基因的转录。</li>
+                            <li><strong>G₂/M检查点机制：</strong>主要检查DNA复制是否完整和DNA损伤修复是否完成。ATM和ATR激酶检测DNA损伤，激活Chk1和Chk2激酶，进而抑制CDC25磷酸酶活性，维持CDK1的磷酸化抑制状态，阻止细胞进入M期。</li>
+                            <li><strong>纺锤体检查点机制：</strong>由Mad2、BubR1、Bub3等蛋白组成的纺锤体检查点复合体监控染色体与纺锤体的正确结合。未正确附着的动粒会产生"等待"信号，抑制APC/C的活性，阻止分离酶的激活，确保所有染色体正确分离。</li>
+                            <li><strong>在肿瘤发生中的作用：</strong>检查点功能缺陷是肿瘤发生的重要机制。p53基因突变导致G₁/S检查点失效，使细胞在DNA损伤情况下仍能继续分裂；纺锤体检查点缺陷导致染色体不稳定性，促进肿瘤进展；这些缺陷使细胞逃脱正常的生长控制，获得无限增殖能力。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h3>2. 分析减数分裂中基因重组的分子机制及其生物学意义</h3>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>重组的分子机制：</strong>基因重组始于SPO11蛋白介导的DNA双链断裂，形成3'单链突出端。RAD51和DMC1蛋白介导同源搜索和链侵入，形成D-loop结构。随后发生DNA合成和第二端捕获，形成双Holliday连接点。最终通过分辨酶的切割，产生交叉型或非交叉型重组产物。</li>
+                            <li><strong>联会复合体的作用：</strong>联会复合体为重组提供结构支架，其中央元件含有重组节，集中了重组所需的酶类。侧元件结合染色体轴心，维持同源染色体的正确配对。SYCP1、SYCP2、SYCP3等蛋白是联会复合体的主要组成成分。</li>
+                            <li><strong>重组的调控：</strong>重组频率和分布受到严格调控。交叉干扰确保每对同源染色体至少有一个交叉，保证正确分离。重组热点的存在使重组在特定区域更容易发生。组蛋白修饰和染色质结构也影响重组的发生。</li>
+                            <li><strong>生物学意义：</strong>基因重组增加了配子的遗传多样性，为自然选择提供原材料；促进有利基因组合的形成，提高物种适应性；打破基因间的连锁关系，增加进化的灵活性；在医学上，重组异常与某些遗传疾病和不育症相关。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h3>3. 比较分析植物细胞和动物细胞在细胞分裂过程中的异同点</h3>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>纺锤体形成的差异：</strong>动物细胞具有中心体，形成有星纺锤体，中心体复制和分离确立分裂极；植物细胞缺乏中心体，形成无星纺锤体，通过分散的微管组织中心(MTOC)组装纺锤体。尽管结构不同，但都能有效介导染色体分离。</li>
+                            <li><strong>胞质分裂机制的差异：</strong>动物细胞通过肌动蛋白-肌球蛋白收缩环从外向内收缩，形成分裂沟；植物细胞则通过细胞板的形成从内向外分裂，涉及高尔基体衍生的囊泡融合和纤维素沉积，最终形成新的细胞壁。</li>
+                            <li><strong>细胞壁的影响：</strong>植物细胞的细胞壁限制了细胞形状的改变，使其无法像动物细胞那样通过收缩进行分裂。细胞板的形成需要精确的囊泡运输和膜融合过程，涉及胼胝质的暂时沉积和纤维素的最终形成。</li>
+                            <li><strong>共同的分子机制：</strong>两者在DNA复制、染色体凝缩、纺锤体检查点、细胞周期调控等方面具有高度保守的分子机制。CDK-cyclin复合体、检查点蛋白、DNA修复机制等在植物和动物中都发挥重要作用，体现了细胞分裂的基本原理的普遍性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h3>4. 论述细胞周期调控异常与疾病发生的关系</h3>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>肿瘤与细胞周期失控：</strong>肿瘤细胞的核心特征是细胞周期调控的丧失。原癌基因(如cyclin、CDK)的过度表达促进细胞增殖；抑癌基因(如p53、Rb)的失活使检查点失效；DNA修复基因的缺陷导致基因组不稳定性。这些异常使细胞获得无限增殖能力，逃脱凋亡和衰老。</li>
+                            <li><strong>遗传性疾病与细胞分裂缺陷：</strong>某些遗传性疾病源于细胞分裂相关基因的突变。如着色性干皮病由DNA修复基因缺陷引起；早衰症与DNA损伤检查点异常相关；某些智力发育障碍与纺锤体蛋白突变有关，导致神经元分裂异常。</li>
+                            <li><strong>不育症与减数分裂异常：</strong>减数分裂过程的异常是导致不育的重要原因。联会复合体蛋白缺陷导致配对失败；重组异常影响配子形成；纺锤体检查点缺陷导致非整倍体配子产生。这些异常不仅影响生育能力，还可能导致后代染色体异常。</li>
+                            <li><strong>衰老与细胞周期调控：</strong>细胞衰老与细胞周期的永久性阻滞密切相关。端粒缩短、DNA损伤积累、氧化应激等因素激活p53-p21通路，导致细胞周期阻滞。衰老细胞的积累与多种年龄相关疾病的发生有关，如心血管疾病、神经退行性疾病等。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h3>5. 分析现代细胞分裂研究技术及其在基础研究和临床应用中的价值</h3>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>活细胞成像技术：</strong>荧光蛋白标记技术结合高分辨率显微镜，使研究者能够实时观察细胞分裂过程。GFP标记的组蛋白可追踪染色体动态；荧光标记的微管蛋白揭示纺锤体装配过程。这些技术为理解细胞分裂的动态机制提供了直观证据，并有助于发现新的调控因子。</li>
+                            <li><strong>单细胞测序技术：</strong>单细胞RNA测序和单细胞ATAC测序技术揭示了细胞周期不同阶段的基因表达谱和染色质可及性变化。这些技术帮助识别细胞周期特异性基因，理解细胞分裂的转录调控网络，并为肿瘤异质性研究提供新视角。</li>
+                            <li><strong>基因编辑技术：</strong>CRISPR-Cas9系统使精确的基因编辑成为可能，研究者可以特异性敲除或修饰细胞周期相关基因，研究其功能。在临床上，基因编辑技术为治疗遗传性疾病提供了新途径，如修复DNA修复基因缺陷。</li>
+                            <li><strong>临床应用价值：</strong>这些技术在肿瘤诊断和治疗中具有重要价值。细胞周期分析可用于评估肿瘤细胞的增殖活性；靶向细胞周期的药物(如CDK抑制剂)为肿瘤治疗提供新策略；生殖医学中，这些技术有助于评估配子质量和改善辅助生殖技术的成功率。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "细胞周期中，决定一个细胞是分化还是增殖的控制点（R点）位于：",
+                options: ["A. G₁期末", "B. G₂期末", "C. M期末", "D. G₀期末"],
+                correct: 0,
+                explanation: "限制点（R点）位于G₁期的晚期阶段，是决定细胞是否进入S期的关键检查点。通过这个点后，细胞将不可逆地进入细胞分裂过程。"
+            },
+            {
+                question: "细胞中DNA的量开始增加的时期发生在：",
+                options: ["A. M期", "B. G₁期", "C. G₂期", "D. S期"],
+                correct: 3,
+                explanation: "S期是DNA合成期，细胞在此期间进行DNA复制，因此DNA含量开始增加。这是细胞周期中唯一DNA含量发生变化的时期。"
+            },
+            {
+                question: "有丝分裂前期核膜崩解和末期核膜重组，与下列哪种蛋白磷酸化和去磷酸化有关？",
+                options: ["A. H1组蛋白", "B. 核纤层蛋白", "C. 微管蛋白", "D. 核仁蛋白"],
+                correct: 1,
+                explanation: "核膜的崩解与重组与核纤层蛋白的磷酸化状态密切相关。磷酸化导致核纤层解体和核膜崩解，去磷酸化则促进核膜重新组装。"
+            },
+            {
+                question: "人体中具有增殖潜能但暂时不能增殖的细胞称为：",
+                options: ["A. G₀期细胞", "B. G₁期细胞", "C. G₂期细胞", "D. S期细胞"],
+                correct: 0,
+                explanation: "G₀期细胞是暂时脱离细胞周期的静止期细胞，具有增殖潜能但暂时不分裂。在适当刺激下可重新进入细胞周期。"
+            },
+            {
+                question: "核膜崩解发生在有丝分裂的哪个时期？",
+                options: ["A. 前期", "B. 后期", "C. 前中期", "D. 中期"],
+                correct: 2,
+                explanation: "核膜崩解是前中期的标志性事件之一。在前中期，核膜完全崩解，纺锤体装配完成，染色体开始整列。"
+            },
+            {
+                question: "有丝分裂器是指：",
+                options: ["A. 由微管、微丝、中间纤维构成的复合细胞器", "B. 由基粒、纺锤体、中心粒构成的复合细胞器", "C. 由纺锤体、中心体、染色体组成的复合细胞器", "D. 由着丝粒、中心体、染色体组成的复合细胞器"],
+                correct: 2,
+                explanation: "有丝分裂器是在细胞有丝分裂过程中，由纺锤体、中心体、染色体组成的复合细胞器，专门执行有丝分裂的功能。"
+            },
+            {
+                question: "新的组蛋白的合成是在细胞周期中的哪个时期？",
+                options: ["A. G₀期", "B. G₁期", "C. G₂期", "D. S期"],
+                correct: 3,
+                explanation: "新的组蛋白主要在S期合成，与DNA复制同步进行，以满足新形成的染色质对组蛋白的需求。"
+            },
+            {
+                question: "减数分裂中，同源染色体联会发生在哪一时期？",
+                options: ["A. 细线期", "B. 偶线期", "C. 粗线期", "D. 双线期"],
+                correct: 1,
+                explanation: "同源染色体联会（配对）发生在减数分裂前期Ⅰ的偶线期，通过联会复合体介导同源染色体的精确配对。"
+            },
+            {
+                question: "有丝分裂器在细胞周期的哪个时期形成？",
+                options: ["A. 前期", "B. 前中期", "C. 中期", "D. 后期"],
+                correct: 1,
+                explanation: "有丝分裂器在前中期形成，此时核膜崩解，纺锤体装配完成，与染色体一起构成完整的有丝分裂器。"
+            },
+            {
+                question: "决定细胞增殖周期长短的关键时期是：",
+                options: ["A. G₀期", "B. G₁期", "C. G₂期", "D. S期"],
+                correct: 1,
+                explanation: "细胞周期时间长短主要取决于G₁期的长短，而S期、G₂期和M期的时间相对恒定。不同细胞类型的G₁期长短差异很大。"
+            },
+            {
+                question: "线粒体DNA的复制主要发生在：",
+                options: ["A. S期", "B. M期", "C. G₁期", "D. S期和G₂期"],
+                correct: 3,
+                explanation: "线粒体DNA主要在细胞周期的S期及G₂期进行复制，与核DNA复制有所不同，复制时间更加灵活。"
+            },
+            {
+                question: "有丝分裂中，被人们较多接受的关于染色体向两极移动的机理是：",
+                options: ["A. 纺锤丝微管滑动说", "B. 微管集散说", "C. 肌动蛋白-微管相互作用说", "D. 电磁场说"],
+                correct: 1,
+                explanation: "微管集散说是用微管的集合和解聚机理来说明有丝分裂后期染色体向两极移动的学说，是目前被较多接受的机理。"
+            },
+            {
+                question: "在电镜下可见中心粒的每个短筒状小体：",
+                options: ["A. 由9组二联微管环状斜向排列", "B. 由9组单管微管环状斜向排列", "C. 由9组三联微管环状斜向排列", "D. 由9组外围微管和一个中央微管排列"],
+                correct: 2,
+                explanation: "中心粒的横切面显示每个短筒状小体是由9组微管三联体结构呈风车状排列的，这是中心粒的典型超微结构特征。"
+            },
+            {
+                question: "细胞按其分裂的潜能可分为：",
+                options: ["A. 周期中细胞、G₀期细胞、终末分化细胞", "B. 干细胞、祖细胞、成熟细胞", "C. 增殖细胞、静止细胞、死亡细胞", "D. 正常细胞、癌细胞、衰老细胞"],
+                correct: 0,
+                explanation: "按分裂潜能可将细胞群体分为三类：周期中细胞（持续分裂）、G₀期细胞（暂时脱离周期）、终末分化细胞（终生不再分裂）。"
+            },
+            {
+                question: "间期核中，染色质可分为：",
+                options: ["A. 常染色质和异染色质", "B. 活性染色质和非活性染色质", "C. 凝缩染色质和松散染色质", "D. 转录染色质和非转录染色质"],
+                correct: 0,
+                explanation: "间期核中染色质按形态特征、活性状态和染色性能分为常染色质和异染色质两种类型，异染色质又分为结构异染色质和兼性异染色质。"
+            },
+            {
+                question: "细胞周期分为哪两个阶段？",
+                options: ["A. 分裂间期和分裂期", "B. 生长期和分裂期", "C. DNA合成期和蛋白质合成期", "D. 准备期和执行期"],
+                correct: 0,
+                explanation: "细胞周期最初从形态变化考虑，简单地划分为分裂间期和分裂期两个相互延续的时期。"
+            },
+            {
+                question: "下面各时期不属于减数分裂前期Ⅰ的是：",
+                options: ["A. 终变期", "B. 细线期", "C. 偶线期", "D. 粗线期"],
+                correct: 0,
+                explanation: "减数分裂前期Ⅰ包括细线期、偶线期、粗线期、双线期和终变期五个阶段。题目中的'终末期'是错误的，应该是'终变期'。"
+            },
+            {
+                question: "染色质可以被DNase I降解成小片段，下列哪种物质对DNase I的耐受性强？",
+                options: ["A. 具有转录活性的染色质", "B. 没有转录活性的染色质", "C. 正在转录的基因", "D. 具有潜在转录活性而未转录的基因"],
+                correct: 1,
+                explanation: "有基因表达活性的染色质DNA对DNase I的降解作用比没有转录活性的染色质DNA要敏感得多，因此没有转录活性的染色质对DNase I耐受性强。"
+            },
+            {
+                question: "二价体含有多少条DNA分子？",
+                options: ["A. 2条", "B. 4条", "C. 6条", "D. 8条"],
+                correct: 1,
+                explanation: "二价体由两条同源染色体构成，每条染色体含有两条姐妹染色单体，因此共含有4条DNA分子，又称为四分体。"
+            },
+            {
+                question: "植物细胞分裂时形成的纺锤体类型是：",
+                options: ["A. 有星纺锤体", "B. 无星纺锤体", "C. 不形成纺锤体", "D. 半星纺锤体"],
+                correct: 1,
+                explanation: "植物细胞不含中心体，但能形成无星纺锤体介导植物细胞的核分裂，通过分散的微管组织中心组装纺锤体。"
+            },
+            {
+                question: "粗线期合成的特殊DNA称为：",
+                options: ["A. Z-DNA", "B. P-DNA", "C. B-DNA", "D. A-DNA"],
+                correct: 1,
+                explanation: "在减数分裂前期Ⅰ粗线期，合成一小部分尚未合成的DNA，称为P-DNA，大小为100-200bp，编码与DNA剪切和修复有关的酶类。"
+            },
+            {
+                question: "细胞分裂过程中，姐妹染色单体分离发生在：",
+                options: ["A. 前期", "B. 中期", "C. 后期", "D. 末期"],
+                correct: 2,
+                explanation: "姐妹染色单体分离是后期的标志性事件，在后期A阶段，黏连蛋白被分离酶切割，姐妹染色单体分离并向两极移动。"
+            },
+            {
+                question: "联会复合体的主要功能是：",
+                options: ["A. 促进DNA复制", "B. 介导同源染色体配对", "C. 调控基因转录", "D. 维持染色体结构"],
+                correct: 1,
+                explanation: "联会复合体是减数分裂特有的蛋白质结构，主要功能是介导同源染色体的精确配对和基因重组，为交叉重组提供结构支架。"
+            },
+            {
+                question: "细胞周期检查点的主要作用是：",
+                options: ["A. 加速细胞分裂", "B. 监控细胞分裂过程的准确性", "C. 促进DNA合成", "D. 调节蛋白质合成"],
+                correct: 1,
+                explanation: "细胞周期检查点的主要作用是监控细胞分裂过程的准确性，确保DNA复制完整、染色体正确分离等，防止错误传递给子代细胞。"
+            },
+            {
+                question: "胞质分裂在动物细胞中的机制是：",
+                options: ["A. 细胞板形成", "B. 收缩环收缩", "C. 细胞壁合成", "D. 膜泡融合"],
+                correct: 1,
+                explanation: "动物细胞胞质分裂通过肌动蛋白-肌球蛋白收缩环从外向内收缩实现，形成分裂沟，最终将细胞分为两个子细胞。"
+            },
+            {
+                question: "减数分裂的生物学意义不包括：",
+                options: ["A. 维持物种染色体数目恒定", "B. 增加遗传多样性", "C. 促进有利基因组合", "D. 加速细胞增殖"],
+                correct: 3,
+                explanation: "减数分裂的主要意义是维持物种染色体数目恒定、通过基因重组增加遗传多样性、促进有利基因组合形成，而不是加速细胞增殖。"
+            },
+            {
+                question: "Mad和Bub蛋白的主要功能是：",
+                options: ["A. 促进DNA复制", "B. 参与染色体整列检查", "C. 调控基因转录", "D. 维持细胞形态"],
+                correct: 1,
+                explanation: "Mad和Bub蛋白是纺锤体检查点的关键组分，参与染色体整列的监控，确保所有染色体正确附着于纺锤体后才允许进入后期。"
+            },
+            {
+                question: "细胞周期中DNA含量为4C的时期是：",
+                options: ["A. G₁期", "B. S期初", "C. G₂期和M期", "D. 仅M期"],
+                correct: 2,
+                explanation: "DNA复制完成后，细胞的DNA含量为4C，这发生在G₂期和M期。G₁期为2C，S期从2C逐渐增加到4C。"
+            },
+            {
+                question: "同源染色体交叉重组主要发生在：",
+                options: ["A. 细线期", "B. 偶线期", "C. 粗线期", "D. 双线期"],
+                correct: 2,
+                explanation: "同源染色体交叉重组主要发生在减数分裂前期Ⅰ的粗线期，此时同源染色体紧密配对，发生DNA片段交换和基因重组。"
+            },
+            {
+                question: "细胞分裂过程中微管的主要作用是：",
+                options: ["A. 维持细胞形态", "B. 牵引染色体移动", "C. 合成蛋白质", "D. 储存遗传信息"],
+                correct: 1,
+                explanation: "在细胞分裂过程中，微管组成纺锤体，主要作用是捕获和牵引染色体，确保染色体准确分离到两个子细胞中。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            displayQuestions();
+        };
+
+        // 随机选择15道题
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+        }
+
+        // 显示题目
+        function displayQuestions() {
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                let optionsHTML = '';
+                q.options.forEach((option, optionIndex) => {
+                    optionsHTML += `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optionIndex}" onchange="selectAnswer(${index}, ${optionIndex})">
+                            ${option}
+                        </label>`;
+                });
+
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${optionsHTML}
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 记录用户选择的答案
+        function selectAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        // 提交答案并显示结果
+        function submitQuiz() {
+            let correctCount = 0;
+            const resultContainer = document.getElementById('quiz-result');
+            let resultHTML = '';
+
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+
+                const resultClass = isCorrect ? 'correct' : 'incorrect';
+                const resultText = isCorrect ? '✓ 正确' : '✗ 错误';
+                
+                resultHTML += `
+                    <div class="question ${resultClass}" style="margin: 15px 0; padding: 15px; border-radius: 8px;">
+                        <div class="question-text">${index + 1}. ${q.question}</div>
+                        <div style="margin: 10px 0;">
+                            <strong>您的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未选择'} ${resultText}
+                        </div>
+                        <div style="margin: 10px 0;">
+                            <strong>正确答案：</strong>${q.options[q.correct]}
+                        </div>
+                        <div style="margin: 10px 0; color: #495057;">
+                            <strong>解析：</strong>${q.explanation}
+                        </div>
+                    </div>
+                `;
+            });
+
+            const score = Math.round((correctCount / 15) * 100);
+            const scoreHTML = `
+                <div class="score">
+                    您的得分：${correctCount}/15 (${score}%)
+                </div>
+            `;
+
+            resultContainer.innerHTML = scoreHTML + resultHTML;
+            resultContainer.style.display = 'block';
+            
+            // 滚动到结果区域
+            resultContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

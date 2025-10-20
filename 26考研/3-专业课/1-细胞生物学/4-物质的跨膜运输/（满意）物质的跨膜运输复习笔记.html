@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物质的跨膜运输 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .terminology {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .term {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 5px;
+            color: #34495e;
+        }
+
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 12px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            display: none;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 5px solid #3498db;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.pass {
+            border-left-color: #27ae60;
+            background-color: #d5f4e6;
+        }
+
+        .result.fail {
+            border-left-color: #e74c3c;
+            background-color: #fadbd8;
+        }
+
+        .explanation {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #3498db;
+        }
+
+        .thinking-section {
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .thinking-question {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .thinking-answer {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .thinking-answer ol {
+            padding-left: 20px;
+        }
+
+        .thinking-answer li {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+            text-align: center;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .image-placeholder {
+            background-color: #ecf0f1;
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            color: #7f8c8d;
+        }
+
+        .footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .comparison-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>物质的跨膜运输</h1>
+            <p>考研细胞生物学复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心知识内容 -->
+            <div class="section">
+                <h2>一、膜转运蛋白</h2>
+                
+                <h3>1. 载体蛋白（Carrier Proteins）</h3>
+                <p><strong>结构特点：</strong>载体蛋白具有特异性结合位点，能够识别和结合特定的底物分子。蛋白质在转运过程中发生构象变化，通过"交替通路模型"完成物质转运。</p>
+                
+                <p><strong>功能特征：</strong></p>
+                <ul>
+                    <li><strong>饱和动力学：</strong>转运速率随底物浓度增加而增加，但存在最大转运速率（Vmax）</li>
+                    <li><strong>特异性：</strong>对底物具有高度选择性</li>
+                    <li><strong>竞争性抑制：</strong>结构相似的分子可以竞争结合位点</li>
+                    <li><strong>构象变化：</strong>结合底物后发生构象改变，实现跨膜转运</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>经典实例：</strong></p>
+                    <ul>
+                        <li><strong>葡萄糖转运器（Glut1）：</strong>红细胞膜上的葡萄糖载体，Km值约为1.5mM，保证在生理葡萄糖浓度下的高效转运</li>
+                        <li><strong>Na⁺-葡萄糖共转运器（SGLT1）：</strong>小肠上皮细胞，利用Na⁺梯度驱动葡萄糖逆梯度转运</li>
+                    </ul>
+                </div>
+
+                <h3>2. 通道蛋白（Channel Proteins）</h3>
+                <p><strong>结构特点：</strong>通道蛋白形成跨膜的水性通道，允许特定离子或小分子快速通过。通道具有选择性过滤器和门控机制。</p>
+                
+                <p><strong>功能特征：</strong></p>
+                <ul>
+                    <li><strong>高转运速率：</strong>每秒可转运10⁶-10⁸个离子</li>
+                    <li><strong>选择性：</strong>基于离子大小、电荷和水合能</li>
+                    <li><strong>门控机制：</strong>电压门控、配体门控、机械门控</li>
+                    <li><strong>不饱和动力学：</strong>转运速率与浓度梯度成正比</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>经典实例：</strong></p>
+                    <ul>
+                        <li><strong>水通道蛋白（AQP1）：</strong>每秒转运3×10⁹个水分子，严格排斥质子和其他溶质</li>
+                        <li><strong>电压门控Na⁺通道：</strong>动作电位的分子基础，具有激活门和失活门</li>
+                        <li><strong>K⁺漏漏通道：</strong>维持静息电位的重要通道</li>
+                    </ul>
+                </div>
+
+                <table class="comparison-table">
+                    <tr>
+                        <th>特征</th>
+                        <th>载体蛋白</th>
+                        <th>通道蛋白</th>
+                    </tr>
+                    <tr>
+                        <td>转运速率</td>
+                        <td>较慢（10²-10⁴/秒）</td>
+                        <td>很快（10⁶-10⁸/秒）</td>
+                    </tr>
+                    <tr>
+                        <td>动力学特征</td>
+                        <td>饱和动力学</td>
+                        <td>不饱和动力学</td>
+                    </tr>
+                    <tr>
+                        <td>构象变化</td>
+                        <td>显著构象变化</td>
+                        <td>微小构象变化</td>
+                    </tr>
+                    <tr>
+                        <td>选择性</td>
+                        <td>高度特异性</td>
+                        <td>相对特异性</td>
+                    </tr>
+                    <tr>
+                        <td>抑制剂敏感性</td>
+                        <td>竞争性抑制</td>
+                        <td>通道阻断剂</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>二、小分子和离子的跨膜运输</h2>
+                
+                <h3>1. 被动运输（Passive Transport）</h3>
+                
+                <h4>（1）简单扩散（Simple Diffusion）</h4>
+                <p>小的非极性分子（如O₂、CO₂、N₂）和小的不带电极性分子（如H₂O、尿素、乙醇）可以直接通过脂双分子层进行扩散。</p>
+                
+                <p><strong>影响因素：</strong></p>
+                <ul>
+                    <li>浓度梯度：驱动力</li>
+                    <li>膜的通透性：取决于分子的脂溶性</li>
+                    <li>膜面积和厚度</li>
+                    <li>温度：影响分子运动速度</li>
+                </ul>
+
+                <h4>（2）促进扩散（Facilitated Diffusion）</h4>
+                <p>大的极性分子和离子需要借助膜蛋白进行跨膜运输，包括载体介导的促进扩散和通道介导的促进扩散。</p>
+                
+                <div class="important">
+                    <p><strong>重要特征：</strong></p>
+                    <ul>
+                        <li>顺浓度梯度或电化学梯度</li>
+                        <li>不消耗ATP</li>
+                        <li>需要特异性载体蛋白或通道蛋白</li>
+                        <li>具有饱和性和竞争性抑制（载体蛋白）</li>
+                    </ul>
+                </div>
+
+                <h3>2. 主动运输（Active Transport）</h3>
+                
+                <h4>（1）直接主动运输（Primary Active Transport）</h4>
+                <p>直接利用ATP水解释放的能量驱动物质逆浓度梯度转运。</p>
+                
+                <p><strong>ATP驱动泵的分类：</strong></p>
+                <ul>
+                    <li><strong>P型ATP酶：</strong>转运过程中形成磷酸化中间体
+                        <ul>
+                            <li>Na⁺-K⁺ ATP酶：维持细胞内外Na⁺、K⁺梯度</li>
+                            <li>Ca²⁺ ATP酶：维持细胞内低Ca²⁺浓度</li>
+                            <li>H⁺-K⁺ ATP酶：胃壁细胞分泌胃酸</li>
+                        </ul>
+                    </li>
+                    <li><strong>V型ATP酶：</strong>主要转运H⁺，存在于液泡、内体、溶酶体</li>
+                    <li><strong>F型ATP酶：</strong>ATP合酶，可逆性工作</li>
+                    <li><strong>ABC转运器：</strong>ATP结合盒转运器，转运多种底物</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>Na⁺-K⁺泵的生理意义：</strong></p>
+                    <ul>
+                        <li>维持细胞体积：防止细胞过度膨胀</li>
+                        <li>建立电化学梯度：为次级主动运输提供驱动力</li>
+                        <li>维持静息电位：产生电位差</li>
+                        <li>调节细胞内离子浓度：维持细胞内环境稳定</li>
+                    </ul>
+                </div>
+
+                <h4>（2）间接主动运输（Secondary Active Transport）</h4>
+                <p>利用一种离子的电化学梯度驱动另一种物质的逆梯度转运。</p>
+                
+                <p><strong>共转运器类型：</strong></p>
+                <ul>
+                    <li><strong>同向转运器（Symporter）：</strong>两种物质同方向转运
+                        <ul>
+                            <li>Na⁺-葡萄糖共转运器（SGLT）</li>
+                            <li>Na⁺-氨基酸共转运器</li>
+                        </ul>
+                    </li>
+                    <li><strong>反向转运器（Antiporter）：</strong>两种物质反方向转运
+                        <ul>
+                            <li>Na⁺-Ca²⁺反向转运器</li>
+                            <li>Na⁺-H⁺反向转运器</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、大分子物质的跨膜运输</h2>
+                
+                <h3>1. 胞吞作用（Endocytosis）</h3>
+                
+                <h4>（1）吞噬作用（Phagocytosis）</h4>
+                <p>细胞摄取大颗粒物质（>0.5μm）的过程，主要由专业吞噬细胞（如巨噬细胞、中性粒细胞）执行。</p>
+                
+                <p><strong>过程：</strong>识别和结合 → 膜包围 → 形成吞噬体 → 与溶酶体融合 → 消化降解</p>
+
+                <h4>（2）胞饮作用（Pinocytosis）</h4>
+                <p>细胞摄取胞外液体及其中溶解物质的过程，根据机制不同分为多种类型：</p>
+                
+                <ul>
+                    <li><strong>网格蛋白依赖性胞吞：</strong>
+                        <ul>
+                            <li>受体介导的胞吞，具有高度选择性</li>
+                            <li>经典实例：LDL受体介导的胆固醇摄取</li>
+                            <li>过程：受体结合配体 → 聚集到网格蛋白包被小窝 → 形成包被囊泡 → 脱去包被 → 与内体融合</li>
+                        </ul>
+                    </li>
+                    <li><strong>小窝蛋白依赖性胞吞：</strong>
+                        <ul>
+                            <li>与脂筏结构相关，参与信号转导</li>
+                            <li>小窝蛋白形成特殊的膜内陷结构</li>
+                        </ul>
+                    </li>
+                    <li><strong>巨胞饮作用：</strong>
+                        <ul>
+                            <li>非特异性摄取大量胞外液</li>
+                            <li>不需要特异性受体</li>
+                        </ul>
+                    </li>
+                    <li><strong>非网格蛋白/非小窝蛋白依赖性胞吞：</strong>
+                        <ul>
+                            <li>多种不同的机制</li>
+                            <li>参与病原体入侵等过程</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>2. 胞吐作用（Exocytosis）</h3>
+                
+                <h4>（1）组成型胞吐（Constitutive Exocytosis）</h4>
+                <p>连续进行的胞吐过程，主要用于：</p>
+                <ul>
+                    <li>分泌细胞外基质成分</li>
+                    <li>补充质膜成分</li>
+                    <li>分泌血浆蛋白（如白蛋白）</li>
+                </ul>
+
+                <h4>（2）调节型胞吐（Regulated Exocytosis）</h4>
+                <p>受信号调节的胞吐过程，特点：</p>
+                <ul>
+                    <li>物质储存在分泌囊泡中</li>
+                    <li>需要特定信号触发</li>
+                    <li>快速释放大量物质</li>
+                    <li>实例：神经递质释放、激素分泌、酶原分泌</li>
+                </ul>
+
+                <div class="important">
+                    <p><strong>胞吞与信号转导的关系：</strong></p>
+                    <ul>
+                        <li><strong>信号下调：</strong>受体胞吞可终止信号传递（如EGF受体）</li>
+                        <li><strong>信号激活：</strong>某些信号需要胞吞过程激活（如Notch信号）</li>
+                        <li><strong>信号平台：</strong>内体可作为信号传递的平台</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>四、离子转运与膜电位</h2>
+                
+                <h3>1. 静息电位（Resting Potential）</h3>
+                <p>细胞在静息状态下膜内外的电位差，通常为-60到-90mV。</p>
+                
+                <p><strong>形成机制：</strong></p>
+                <ul>
+                    <li><strong>K⁺外流：</strong>细胞内K⁺浓度高，K⁺顺梯度外流，带走正电荷</li>
+                    <li><strong>Na⁺-K⁺泵：</strong>3Na⁺出/2K⁺进，产生净负电荷</li>
+                    <li><strong>大分子阴离子：</strong>蛋白质、核酸等不能透过膜的阴离子</li>
+                </ul>
+
+                <h3>2. 动作电位（Action Potential）</h3>
+                <p>可兴奋细胞受刺激后产生的快速、短暂的膜电位变化。</p>
+                
+                <p><strong>过程：</strong></p>
+                <ol>
+                    <li><strong>去极化：</strong>电压门控Na⁺通道开放，Na⁺内流</li>
+                    <li><strong>复极化：</strong>Na⁺通道失活，K⁺通道开放，K⁺外流</li>
+                    <li><strong>超极化：</strong>K⁺通道延迟关闭，膜电位低于静息电位</li>
+                    <li><strong>恢复：</strong>Na⁺-K⁺泵作用，恢复离子梯度</li>
+                </ol>
+
+                <div class="highlight">
+                    <p><strong>电压门控离子通道的特点：</strong></p>
+                    <ul>
+                        <li><strong>电压敏感性：</strong>膜电位变化引起构象改变</li>
+                        <li><strong>选择性：</strong>对特定离子具有选择性</li>
+                        <li><strong>失活机制：</strong>开放后自动失活，需要复极化才能重新激活</li>
+                        <li><strong>药理学特性：</strong>可被特异性毒素或药物阻断</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>五、重要名词解释</h2>
+                <div class="terminology">
+                    <div class="term">
+                        <div class="term-name">载体蛋白<span class="term-english">(Carrier Protein, Transport Protein)</span></div>
+                        <div class="term-definition">一类膜转运蛋白，通过与底物结合并发生构象变化来实现物质的跨膜转运，具有饱和动力学特征和高度底物特异性。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">通道蛋白<span class="term-english">(Channel Protein)</span></div>
+                        <div class="term-definition">形成跨膜水性通道的膜蛋白，允许特定离子或小分子快速通过，具有门控机制和高转运速率。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">促进扩散<span class="term-english">(Facilitated Diffusion)</span></div>
+                        <div class="term-definition">借助载体蛋白或通道蛋白，顺浓度梯度进行的被动运输过程，不消耗ATP。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">主动运输<span class="term-english">(Active Transport)</span></div>
+                        <div class="term-definition">消耗能量（ATP或离子梯度）驱动物质逆浓度梯度转运的过程，分为直接主动运输和间接主动运输。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">Na⁺-K⁺泵<span class="term-english">(Na⁺-K⁺ ATPase, Sodium-Potassium Pump)</span></div>
+                        <div class="term-definition">P型ATP酶，每消耗1个ATP将3个Na⁺泵出细胞，2个K⁺泵入细胞，维持细胞内外离子梯度和膜电位。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">ABC转运器<span class="term-english">(ATP-Binding Cassette Transporter)</span></div>
+                        <div class="term-definition">ATP结合盒转运器，利用ATP水解驱动多种底物的跨膜转运，包括多药耐药蛋白（MDR）等。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">同向转运器<span class="term-english">(Symporter, Cotransporter)</span></div>
+                        <div class="term-definition">将两种或多种物质同方向转运的载体蛋白，如Na⁺-葡萄糖共转运器。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">反向转运器<span class="term-english">(Antiporter, Exchanger)</span></div>
+                        <div class="term-definition">将两种物质反方向转运的载体蛋白，如Na⁺-Ca²⁺反向转运器。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">胞吞作用<span class="term-english">(Endocytosis)</span></div>
+                        <div class="term-definition">细胞通过膜内陷形成囊泡来摄取胞外物质的过程，包括吞噬作用和胞饮作用。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">网格蛋白<span class="term-english">(Clathrin)</span></div>
+                        <div class="term-definition">参与受体介导胞吞的蛋白质，在质膜胞质面形成多面体笼状结构，包被内陷的膜囊泡。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">小窝蛋白<span class="term-english">(Caveolin)</span></div>
+                        <div class="term-definition">脂筏相关蛋白，形成小窝结构参与胞吞作用和信号转导。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">胞吐作用<span class="term-english">(Exocytosis)</span></div>
+                        <div class="term-definition">细胞内囊泡与质膜融合，将囊泡内容物释放到胞外的过程，分为组成型和调节型胞吐。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">转胞作用<span class="term-english">(Transcytosis)</span></div>
+                        <div class="term-definition">物质通过胞吞-胞吐过程从细胞一侧转运到另一侧，如血脑屏障的物质转运。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">静息电位<span class="term-english">(Resting Potential)</span></div>
+                        <div class="term-definition">细胞在静息状态下膜内外的电位差，主要由K⁺外流和Na⁺-K⁺泵活动形成。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">动作电位<span class="term-english">(Action Potential)</span></div>
+                        <div class="term-definition">可兴奋细胞受刺激后产生的快速、短暂的膜电位变化，由电压门控离子通道介导。</div>
+                    </div>
+                    
+                    <div class="term">
+                        <div class="term-name">电压门控通道<span class="term-english">(Voltage-Gated Channel)</span></div>
+                        <div class="term-definition">对膜电位变化敏感的离子通道，膜电位改变引起通道构象变化和开放状态改变。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>六、选择题测试</h2>
+                <div class="quiz-section">
+                    <h3>随机测试（15题）</h3>
+                    <p>以下题目从30道题库中随机抽取15道，测试您对物质跨膜运输知识的掌握程度。</p>
+                    
+                    <div id="quiz-questions"></div>
+                    
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>七、深度思考题</h2>
+                <div class="thinking-section">
+                    <div class="thinking-question">
+                        <h4>1. 比较分析载体蛋白和通道蛋白在结构、功能和调节机制方面的异同，并结合具体实例说明它们在细胞生理活动中的重要作用。</h4>
+                        <div class="thinking-answer">
+                            <ol>
+                                <li><strong>结构差异：</strong>载体蛋白具有特异性结合位点，转运过程中发生显著构象变化，采用"交替通路模型"；通道蛋白形成连续的水性通道，具有选择性过滤器和门控结构域，转运时仅发生微小构象变化。</li>
+                                <li><strong>功能特征对比：</strong>载体蛋白转运速率较慢但特异性极高，表现为饱和动力学，可进行主动运输；通道蛋白转运速率极快但选择性相对较低，遵循不饱和动力学，主要进行被动运输。</li>
+                                <li><strong>调节机制：</strong>载体蛋白主要通过磷酸化、变构调节和表达调控；通道蛋白主要通过门控机制（电压门控、配体门控、机械门控）和失活机制调节。</li>
+                                <li><strong>生理意义：</strong>载体蛋白如Na⁺-K⁺泵维持细胞基本离子梯度，葡萄糖转运器保证细胞能量供应；通道蛋白如电压门控Na⁺通道介导神经信号传导，水通道蛋白调节细胞水平衡。</li>
+                                <li><strong>病理相关性：</strong>载体蛋白异常可导致囊性纤维化（CFTR缺陷）、多药耐药（MDR过表达）；通道蛋白异常可引起癫痫（Na⁺通道突变）、肌无力（乙酰胆碱受体缺陷）等疾病。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>2. 详细阐述Na⁺-K⁺泵的分子机制、生理功能及其在维持细胞稳态中的核心作用，并分析其异常对细胞功能的影响。</h4>
+                        <div class="thinking-answer">
+                            <ol>
+                                <li><strong>分子机制：</strong>Na⁺-K⁺泵属于P型ATP酶，具有α和β亚基。工作循环包括：ATP结合→Na⁺结合→磷酸化→构象变化→Na⁺释放→K⁺结合→去磷酸化→K⁺释放，每个循环消耗1个ATP，转运3个Na⁺出细胞、2个K⁺入细胞。</li>
+                                <li><strong>离子梯度维持：</strong>建立和维持细胞内外Na⁺和K⁺的浓度梯度，细胞内K⁺浓度约为140mM，Na⁺浓度约为10mM；细胞外Na⁺浓度约为145mM，K⁺浓度约为5mM。</li>
+                                <li><strong>膜电位形成：</strong>由于3:2的不等比转运，每个循环产生净负电荷，直接贡献膜电位约-10mV；同时维持的K⁺梯度通过K⁺外流间接贡献膜电位约-60mV。</li>
+                                <li><strong>细胞体积调节：</strong>通过控制细胞内Na⁺浓度调节渗透压，防止细胞过度膨胀或收缩，维持细胞形态和完整性。</li>
+                                <li><strong>次级主动运输驱动：</strong>建立的Na⁺梯度为多种次级主动运输提供驱动力，如Na⁺-葡萄糖共转运、Na⁺-氨基酸共转运、Na⁺-Ca²⁺反向转运等。</li>
+                                <li><strong>异常影响：</strong>泵活性降低导致细胞内Na⁺积累、K⁺丢失，引起细胞膨胀、膜电位去极化、兴奋性改变，最终可能导致细胞死亡；在心肌细胞中可引起心律失常，在神经细胞中可影响信号传导。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>3. 分析受体介导的胞吞作用的分子机制，并探讨其在信号转导调节中的双重作用（信号终止与信号激活）。</h4>
+                        <div class="thinking-answer">
+                            <ol>
+                                <li><strong>分子机制概述：</strong>受体介导的胞吞是一个高度有序的过程，涉及配体-受体结合、受体聚集、网格蛋白包被囊泡形成、囊泡脱包被、与内体融合等步骤，整个过程受到多种调节蛋白的精确控制。</li>
+                                <li><strong>网格蛋白包被机制：</strong>适配蛋白AP-2识别受体胞质尾部的内化信号，招募网格蛋白形成三脚架结构，dynamin介导囊泡颈部收缩和断裂，auxilin和Hsp70介导包被脱除。</li>
+                                <li><strong>信号终止机制：</strong>以EGF受体为例，EGF结合后受体二聚化激活酪氨酸激酶，随后受体被磷酸化并招募内化机器，通过胞吞移除膜表面受体，终止信号传递；受体在内体中可被去磷酸化回收或转运至溶酶体降解。</li>
+                                <li><strong>信号激活机制：</strong>Notch信号通路中，配体Delta结合Notch受体后，两者都发生胞吞，胞吞过程中的机械力促进Notch受体的蛋白水解切割，释放胞内结构域进入细胞核激活转录。</li>
+                                <li><strong>内体信号平台：</strong>早期内体不仅是分选站点，还可作为信号传递平台，某些受体在内体中继续发出信号，如TGF-β受体、Wnt信号成分等，内体的酸性环境和特殊脂质组成为特定信号提供微环境。</li>
+                                <li><strong>病理意义：</strong>胞吞异常可导致信号失调，如肿瘤细胞中生长因子受体胞吞缺陷导致信号持续激活促进增殖；神经退行性疾病中tau蛋白影响胞吞过程，导致神经元功能异常。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>4. 从进化和比较生物学角度分析不同类型ATP驱动泵的结构特点、功能分化及其在不同生物体中的分布意义。</h4>
+                        <div class="thinking-answer">
+                            <ol>
+                                <li><strong>进化起源：</strong>ATP驱动泵可能起源于原始的ATP结合蛋白，通过基因重复、结构域重组和功能分化形成现在的四大家族（P型、V型、F型、ABC型），反映了生物体对精确离子调节和物质转运的进化需求。</li>
+                                <li><strong>P型ATP酶特征：</strong>具有保守的磷酸化结构域，形成磷酸化中间体，主要转运阳离子；在真核细胞中高度保守，如Na⁺-K⁺泵维持细胞基本功能，Ca²⁺泵调节信号转导，H⁺-K⁺泵适应特殊生理需求（胃酸分泌）。</li>
+                                <li><strong>V型ATP酶分布：</strong>主要存在于内膜系统（液泡、内体、溶酶体），负责维持细胞器内酸性环境；在植物液泡中尤为重要，参与渗透调节和离子稳态；在某些极端环境微生物中参与pH稳态维持。</li>
+                                <li><strong>F型ATP酶的双重性：</strong>在线粒体和叶绿体中主要合成ATP，在某些细菌中可逆向工作建立质子梯度；其旋转催化机制代表了分子机器的精妙设计，体现了能量转换的高效性。</li>
+                                <li><strong>ABC转运器多样性：</strong>是最大的转运蛋白家族，底物范围极广，从离子到大分子都能转运；在细菌中参与营养摄取和毒素排出，在真核细胞中参与脂质转运、多药耐药等，体现了适应性进化的成功。</li>
+                                <li><strong>生物学意义：</strong>不同ATP泵的分化反映了细胞区室化的进化优势，使得不同细胞器能够维持特异的离子环境和pH，为特定生化反应提供最适条件，这种精细调节是复杂生命形式存在的基础。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>5. 结合膜脂组成和膜蛋白相互作用，分析脂筏结构在膜转运和信号转导中的作用机制及其调节意义。</h4>
+                        <div class="thinking-answer">
+                            <ol>
+                                <li><strong>脂筏结构基础：</strong>脂筏是富含胆固醇、鞘脂和饱和脂肪酸的膜微区域，具有较高的有序性和较低的流动性；这种特殊的脂质组成为特定膜蛋白提供了优化的脂质环境，影响蛋白质的构象和功能。</li>
+                                <li><strong>膜转运调节：</strong>小窝蛋白依赖性胞吞发生在脂筏区域，小窝蛋白与胆固醇结合形成小窝结构；脂筏的刚性结构有利于膜弯曲和囊泡形成；某些载体蛋白和通道蛋白在脂筏中活性更高，如某些K⁺通道需要胆固醇维持正常功能。</li>
+                                <li><strong>信号转导平台：</strong>脂筏作为信号分子的聚集平台，促进受体、酶和信号分子的相互作用；GPI锚定蛋白、某些受体酪氨酸激酶、G蛋白偶联受体等优先分布在脂筏中；脂筏的动态性允许信号复合物的快速组装和解散。</li>
+                                <li><strong>膜融合调节：</strong>脂筏参与膜融合过程，如病毒入侵、胞吐作用等；脂筏的特殊脂质组成影响膜的融合能力和融合孔的形成；某些融合蛋白需要脂筏环境才能发挥最佳功能。</li>
+                                <li><strong>病理相关性：</strong>脂筏异常与多种疾病相关，如阿尔茨海默病中APP在脂筏中的异常加工、癌症中脂筏组成改变影响细胞迁移和侵袭；胆固醇代谢异常影响脂筏结构，进而影响膜蛋白功能。</li>
+                                <li><strong>调节机制：</strong>细胞可通过调节胆固醇合成、脂质修饰酶活性、膜脂组成等方式调节脂筏结构；脂筏的动态性使得细胞能够根据生理需要调整膜的功能区域，这种调节为细胞适应环境变化提供了重要机制。</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 考研细胞生物学复习笔记 - 物质的跨膜运输</p>
+            <p>基于权威教材整理，结合最新研究进展</p>
+        </div>
+    </div>
+
+    <script>
+        // 题库（30道题）
+        const questionBank = [
+            {
+                question: "关于载体蛋白的特征，错误的是：",
+                options: [
+                    "A. 具有饱和动力学特征",
+                    "B. 对底物具有特异性",
+                    "C. 转运过程中发生构象变化",
+                    "D. 转运速率与通道蛋白相当"
+                ],
+                correct: 3,
+                explanation: "载体蛋白的转运速率（10²-10⁴个分子/秒）远低于通道蛋白（10⁶-10⁸个离子/秒）。载体蛋白需要结合底物并发生构象变化，这限制了其转运速率。"
+            },
+            {
+                question: "Na⁺-K⁺泵每个工作循环的结果是：",
+                options: [
+                    "A. 3个Na⁺进入细胞，2个K⁺离开细胞",
+                    "B. 3个Na⁺离开细胞，2个K⁺进入细胞",
+                    "C. 2个Na⁺离开细胞，3个K⁺进入细胞",
+                    "D. 等量的Na⁺和K⁺交换"
+                ],
+                correct: 1,
+                explanation: "Na⁺-K⁺泵每消耗1个ATP，将3个Na⁺泵出细胞外，同时将2个K⁺泵入细胞内，这种不等比转运产生净负电荷，有助于维持膜电位。"
+            },
+            {
+                question: "关于简单扩散的描述，正确的是：",
+                options: [
+                    "A. 需要载体蛋白参与",
+                    "B. 可以逆浓度梯度进行",
+                    "C. 小的脂溶性分子可以直接通过脂双分子层",
+                    "D. 具有饱和性"
+                ],
+                correct: 2,
+                explanation: "简单扩散是小的脂溶性分子（如O₂、CO₂、乙醇）直接通过脂双分子层的过程，不需要载体蛋白，顺浓度梯度进行，不具有饱和性。"
+            },
+            {
+                question: "水通道蛋白（AQP1）的主要特点是：",
+                options: [
+                    "A. 可以转运离子",
+                    "B. 严格排斥质子通过",
+                    "C. 需要ATP提供能量",
+                    "D. 具有电压门控特性"
+                ],
+                correct: 1,
+                explanation: "水通道蛋白AQP1专门转运水分子，其结构特点使其严格排斥质子和其他溶质的通过，防止质子泄漏破坏质子梯度。"
+            },
+            {
+                question: "ABC转运器的特征包括：",
+                options: [
+                    "A. 只能进行被动运输",
+                    "B. 具有ATP结合结构域",
+                    "C. 不具有底物特异性",
+                    "D. 主要转运离子"
+                ],
+                correct: 1,
+                explanation: "ABC转运器（ATP-binding cassette transporter）具有特征性的ATP结合结构域，利用ATP水解提供能量进行主动运输，可转运多种底物。"
+            },
+            {
+                question: "关于受体介导的胞吞，错误的是：",
+                options: [
+                    "A. 具有高度选择性",
+                    "B. 需要网格蛋白参与",
+                    "C. 不消耗ATP",
+                    "D. LDL摄取是典型实例"
+                ],
+                correct: 2,
+                explanation: "受体介导的胞吞虽然不直接水解ATP，但需要消耗ATP维持离子梯度、提供膜融合能量、驱动囊泡运输等过程。"
+            },
+            {
+                question: "静息电位的主要形成机制是：",
+                options: [
+                    "A. Na⁺的内流",
+                    "B. K⁺的外流",
+                    "C. Ca²⁺的内流",
+                    "D. Cl⁻的外流"
+                ],
+                correct: 1,
+                explanation: "静息电位主要由K⁺的外流形成。细胞内K⁺浓度高，K⁺顺浓度梯度外流，带走正电荷，使细胞内相对于细胞外呈负电位。"
+            },
+            {
+                question: "关于电压门控Na⁺通道，正确的是：",
+                options: [
+                    "A. 只有激活门，没有失活门",
+                    "B. 失活后需要超极化才能重新激活",
+                    "C. 对所有阳离子都有通透性",
+                    "D. 不受局部麻醉剂影响"
+                ],
+                correct: 1,
+                explanation: "电压门控Na⁺通道具有激活门和失活门。失活后的通道需要膜复极化（超极化）才能从失活状态恢复到关闭状态，然后才能重新激活。"
+            },
+            {
+                question: "同向转运器的工作原理是：",
+                options: [
+                    "A. 两种物质反方向转运",
+                    "B. 利用一种物质的梯度驱动另一种物质同方向转运",
+                    "C. 直接消耗ATP",
+                    "D. 只能转运离子"
+                ],
+                correct: 1,
+                explanation: "同向转运器（symporter）利用一种物质（通常是Na⁺）的电化学梯度驱动另一种物质同方向跨膜转运，如Na⁺-葡萄糖共转运器。"
+            },
+            {
+                question: "关于小窝蛋白依赖性胞吞，正确的是：",
+                options: [
+                    "A. 形成网格蛋白包被囊泡",
+                    "B. 与脂筏结构相关",
+                    "C. 主要摄取大颗粒物质",
+                    "D. 不具有选择性"
+                ],
+                correct: 1,
+                explanation: "小窝蛋白依赖性胞吞与脂筏结构密切相关，小窝蛋白在脂筏区域形成小窝结构，参与信号转导和特异性物质摄取。"
+            },
+            {
+                question: "F型ATP酶的主要功能是：",
+                options: [
+                    "A. 只能水解ATP",
+                    "B. 只能合成ATP",
+                    "C. 可以双向工作",
+                    "D. 转运Na⁺和K⁺"
+                ],
+                correct: 2,
+                explanation: "F型ATP酶（ATP合酶）可以双向工作：在有质子梯度时合成ATP；在需要建立质子梯度时水解ATP。"
+            },
+            {
+                question: "关于载体蛋白饱和动力学的意义，正确的是：",
+                options: [
+                    "A. 转运速率与底物浓度呈线性关系",
+                    "B. 载体蛋白数量有限，存在最大转运速率",
+                    "C. 不受载体蛋白数量影响",
+                    "D. 只在主动运输中出现"
+                ],
+                correct: 1,
+                explanation: "载体蛋白具有饱和动力学特征，因为载体蛋白数量有限，当底物浓度很高时，所有载体蛋白都被占据，达到最大转运速率Vmax。"
+            },
+            {
+                question: "巨胞饮作用的特点是：",
+                options: [
+                    "A. 高度特异性摄取",
+                    "B. 只摄取固体颗粒",
+                    "C. 非特异性摄取大量液体",
+                    "D. 需要特异性受体参与"
+                ],
+                correct: 2,
+                explanation: "巨胞饮作用是一种非特异性的胞饮方式，细胞摄取大量胞外液体及其中溶解的物质，不需要特异性受体，不具有选择性。"
+            },
+            {
+                question: "关于P型ATP酶的特点，错误的是：",
+                options: [
+                    "A. 在催化过程中会发生磷酸化",
+                    "B. Na⁺-K⁺泵属于P型ATP酶",
+                    "C. 主要存在于液泡膜上",
+                    "D. Ca²⁺泵也属于P型ATP酶"
+                ],
+                correct: 2,
+                explanation: "P型ATP酶主要存在于质膜上，如Na⁺-K⁺泵、Ca²⁺泵等。液泡膜上主要是V型ATP酶（质子泵）。P型ATP酶的特点是在催化过程中会发生磷酸化。"
+            },
+            {
+                question: "关于协助扩散和简单扩散的比较，正确的是：",
+                options: [
+                    "A. 都需要载体蛋白参与",
+                    "B. 都具有饱和性",
+                    "C. 都不消耗ATP",
+                    "D. 都可以逆浓度梯度进行"
+                ],
+                correct: 2,
+                explanation: "协助扩散和简单扩散都是被动运输，都不消耗ATP，都顺浓度梯度进行。但简单扩散不需要载体蛋白，协助扩散需要；简单扩散无饱和性，协助扩散有饱和性。"
+            },
+            {
+                question: "电压门控K⁺通道在动作电位中的作用是：",
+                options: [
+                    "A. 引起去极化",
+                    "B. 引起复极化",
+                    "C. 维持静息电位",
+                    "D. 阻止动作电位传播"
+                ],
+                correct: 1,
+                explanation: "电压门控K⁺通道在动作电位的复极化阶段开放，K⁺外流使膜电位恢复到负值，实现复极化。Na⁺通道负责去极化。"
+            },
+            {
+                question: "关于V型ATP酶的描述，正确的是：",
+                options: [
+                    "A. 主要存在于质膜上",
+                    "B. 主要功能是转运Na⁺和K⁺",
+                    "C. 主要存在于液泡膜和内膜系统",
+                    "D. 不需要消耗ATP"
+                ],
+                correct: 2,
+                explanation: "V型ATP酶主要存在于液泡膜、内体膜、溶酶体膜等内膜系统，主要功能是利用ATP水解驱动H⁺转运，维持这些细胞器的酸性环境。"
+            }
+        ];
+
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 生成题目HTML
+        function generateQuizHTML() {
+            const selectedQuestions = getRandomQuestions();
+            const questionsContainer = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="question${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                questionsContainer.appendChild(questionDiv);
+            });
+            
+            // 存储正确答案和解释
+            window.quizData = selectedQuestions;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const resultDiv = document.getElementById('quiz-result');
+            let score = 0;
+            let resultHTML = '';
+            
+            window.quizData.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                const userAnswer = selectedOption ? parseInt(selectedOption.value) : -1;
+                const isCorrect = userAnswer === q.correct;
+                
+                if (isCorrect) score++;
+                
+                resultHTML += `
+                    <div class="explanation">
+                        <strong>第${index + 1}题：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const percentage = (score / window.quizData.length * 100).toFixed(1);
+            const passClass = percentage >= 60 ? 'pass' : 'fail';
+            
+            resultDiv.innerHTML = `
+                <h4>测试结果</h4>
+                <p><strong>得分：${score}/${window.quizData.length} (${percentage}%)</strong></p>
+                <p>${percentage >= 60 ? '恭喜通过！' : '需要继续努力！'}</p>
+                ${resultHTML}
+            `;
+            
+            resultDiv.className = `result show ${passClass}`;
+        }
+
+        // 页面加载时生成题目
+        document.addEventListener('DOMContentLoaded', function() {
+            generateQuizHTML();
+        });
+    </script>
+</body>
+</html>

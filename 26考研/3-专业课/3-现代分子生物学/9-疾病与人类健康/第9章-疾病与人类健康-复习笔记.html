@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>现代分子生物学第9章：疾病与人类健康 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #3498db;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .section h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+
+        .definition {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .definition strong {
+            color: #0c5460;
+            font-size: 1.1em;
+        }
+
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-options li {
+            background: #f8f9fa;
+            margin: 8px 0;
+            padding: 12px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-options li:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .quiz-options li.selected {
+            background: #3498db;
+            color: white;
+        }
+
+        .quiz-options li.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-options li.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .submit-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .quiz-result {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #3498db;
+        }
+
+        .thinking-questions {
+            background: #fff3cd;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .thinking-question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .answer-section {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .term-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .term-definition {
+            color: #34495e;
+            line-height: 1.5;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .image-caption {
+            margin-top: 15px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .code {
+            font-family: Consolas, monospace;
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #2c3e50;
+        }
+
+        /* 选择题样式 - 块级布局设计 */
+        .quiz-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .question-item {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .question-item h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+
+        .options {
+            margin: 15px 0;
+        }
+
+        /* 选项样式 - 一行一选项，悬停高亮，圆角设计 */
+        .option {
+            display: block;
+            width: 100%;
+            padding: 8px 12px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.5;
+        }
+
+        /* 悬停效果 - 淡蓝色背景 */
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+            transform: translateX(2px);
+        }
+
+        /* 选中状态 */
+        .option input[type="radio"]:checked + .option-text,
+        .option:has(input[type="radio"]:checked) {
+            background: #d4edda;
+            border-color: #27ae60;
+            font-weight: bold;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 8px;
+            transform: scale(1.2);
+        }
+
+        .option-text {
+            display: inline;
+        }
+
+        /* 提交按钮样式 */
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #2980b9, #1f5f8b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+
+        /* 结果显示样式 */
+        .quiz-result {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 1px solid #dee2e6;
+        }
+
+        .quiz-result h3 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .score {
+            font-size: 2em;
+            font-weight: bold;
+            color: #27ae60;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(39, 174, 96, 0.2);
+        }
+
+        .detailed-results {
+            margin-top: 25px;
+        }
+
+        .result-item {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .result-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .result-item.correct {
+            border-left: 6px solid #27ae60;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        }
+
+        .result-item.incorrect {
+            border-left: 6px solid #e74c3c;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+        }
+
+        .result-item h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-icon {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .status-icon.correct {
+            color: #27ae60;
+        }
+
+        .status-icon.incorrect {
+            color: #e74c3c;
+        }
+
+        .options-review {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+        }
+
+        .options-review p {
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .correct-option {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            font-weight: bold;
+            border: 1px solid #27ae60;
+        }
+
+        .wrong-option {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            color: #721c24;
+            font-weight: bold;
+            border: 1px solid #e74c3c;
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #3498db;
+            font-style: italic;
+            color: #495057;
+        }
+
+        .explanation strong {
+            color: #2c3e50;
+        }
+
+        .retry-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 25px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .retry-btn:hover {
+            background: linear-gradient(135deg, #2980b9, #1f5f8b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>现代分子生物学第9章</h1>
+            <p>疾病与人类健康 - 考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>第一部分：核心知识体系</h2>
+                
+                <h3>一、肿瘤与癌症</h3>
+                <div class="highlight">
+                    <h4>1. 基本概念</h4>
+                    <p><span class="emphasis">肿瘤</span>是机体在各种致瘤因素作用下，局部组织的细胞在基因水平上失去对其生长的正常调控，导致异常增生而形成的新生物。</p>
+                    <p><span class="emphasis">癌症</span>是恶性肿瘤的统称，具有细胞分化和增殖异常、生长失去控制、浸润性和转移性等生物学特征。</p>
+                </div>
+
+                <h4>2. 癌基因与抑癌基因</h4>
+                <ul>
+                    <li><strong>原癌基因</strong>：细胞内与细胞增殖相关的基因，对维持机体正常生命活动必需</li>
+                    <li><strong>癌基因</strong>：能够潜在地诱导细胞发生癌变的基因，分为病毒癌基因和细胞转化基因</li>
+                    <li><strong>抑癌基因</strong>：又称肿瘤抑制基因，正常时起抑制细胞增殖和肿瘤发生的作用</li>
+                </ul>
+
+                <div class="important">
+                    <h4>原癌基因激活机制</h4>
+                    <ol>
+                        <li><strong>点突变</strong>：单个碱基替换，改变蛋白质结构</li>
+                        <li><strong>LTR插入</strong>：长末端重复序列插入，影响基因表达</li>
+                        <li><strong>基因重排</strong>：原癌基因间或与非原癌基因间的重排</li>
+                        <li><strong>缺失</strong>：负调控序列缺失或突变</li>
+                        <li><strong>基因扩增</strong>：基因拷贝数增加，导致过量表达</li>
+                    </ol>
+                </div>
+
+                <h3>二、病毒感染与疾病</h3>
+                
+                <h4>1. HIV（人类免疫缺陷病毒）</h4>
+                <div class="definition">
+                    <p><strong>结构特征</strong>：属反转录病毒科，球状、20面体对称，直径约100nm，基因组由两条单链正链RNA组成</p>
+                    <p><strong>主要基因</strong>：gag（结构蛋白）、pol（酶蛋白）、env（外膜蛋白）</p>
+                </div>
+
+                <div class="highlight">
+                    <h4>HIV致病机理</h4>
+                    <ul>
+                        <li>主要攻击CD4⁺T淋巴细胞</li>
+                        <li>病毒在细胞内增殖，干扰正常代谢</li>
+                        <li>形成多核巨细胞导致细胞死亡</li>
+                        <li>诱导自身免疫应答</li>
+                        <li>编码超级抗原过度激活T细胞</li>
+                    </ul>
+                </div>
+
+                <h4>2. HBV（乙型肝炎病毒）</h4>
+                <div class="definition">
+                    <p><strong>基因组特征</strong>：环状双链DNA分子，有部分单链区，两条单链长度不同</p>
+                    <p><strong>cccDNA</strong>：共价闭合环状DNA，是乙肝病毒前基因组RNA复制的原始模板</p>
+                </div>
+
+                <h4>3. 禽流感病毒（AIV）</h4>
+                <div class="highlight">
+                    <h4>感染人类的机制</h4>
+                    <ul>
+                        <li><strong>HA受体结合位点突变</strong>：使病毒易于感染人类细胞</li>
+                        <li><strong>PB2蛋白627位氨基酸突变</strong>：增强病毒复制能力</li>
+                        <li><strong>NS1第92位氨基酸突变</strong>：显著增强致病能力</li>
+                    </ul>
+                </div>
+
+                <h4>4. SARS-CoV（严重急性呼吸综合征冠状病毒）</h4>
+                <p>主要通过近距离飞沫传播和直接接触传播，相比人禽流感更易控制，因为可通过隔离有效切断传播途径。</p>
+
+                <h3>三、基因治疗</h3>
+                
+                <div class="definition">
+                    <p><strong>基因治疗</strong>：通过一定方式将人正常基因或有治疗作用的DNA片段导入人体靶细胞以矫正或置换致病基因的治疗方法。</p>
+                </div>
+
+                <h4>1. 基因治疗策略</h4>
+                <ol>
+                    <li><strong>基因置换</strong>：用正常基因替换致病基因</li>
+                    <li><strong>基因修复</strong>：对致病基因进行精确修复</li>
+                    <li><strong>基因增补</strong>：插入正常基因而不删除突变基因</li>
+                    <li><strong>基因沉默</strong>：抑制致病基因的异常表达</li>
+                    <li><strong>自杀基因治疗</strong>：诱导肿瘤细胞"自杀"</li>
+                </ol>
+
+                <h4>2. 基因治疗途径</h4>
+                <ul>
+                    <li><strong>ex vivo途径</strong>：体外导入基因后输回人体</li>
+                    <li><strong>in vivo途径</strong>：直接将基因导入人体内</li>
+                </ul>
+
+                <h4>3. 载体系统</h4>
+                <div class="highlight">
+                    <h4>病毒载体 vs 非病毒载体</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                        <tr style="background: #3498db; color: white;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">载体类型</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">优点</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">缺点</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>病毒载体</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">转化效率高、宿主范围广、易于制备</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">随机整合风险、免疫原性高、安全性问题</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>非病毒载体</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">毒性低、免疫反应小、使用简单、无大小限制</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">转导效率低、表达短暂、易被降解</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>四、肿瘤免疫治疗</h3>
+                
+                <h4>CAR-T细胞疗法</h4>
+                <div class="definition">
+                    <p><strong>CAR-T细胞疗法</strong>：通过基因修饰获得携带识别肿瘤抗原特异性受体T细胞的个性化治疗方法。</p>
+                </div>
+
+                <div class="highlight">
+                    <h4>优点</h4>
+                    <ul>
+                        <li>治疗更精准，克服肿瘤免疫逃脱</li>
+                        <li>多靶向，不受MHC限制</li>
+                        <li>杀瘤范围广，可广泛使用</li>
+                        <li>效果持久，具有免疫记忆功能</li>
+                    </ul>
+                </div>
+
+                <div class="important">
+                    <h4>缺点与风险</h4>
+                    <ul>
+                        <li><span class="emphasis">细胞因子风暴</span>：可导致高烧、低压、休克甚至死亡</li>
+                        <li>毒副作用：感染、发热、乏力等</li>
+                        <li>疾病复发问题</li>
+                        <li>对实体瘤效果有限</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 图片展示区域 -->
+            <div class="image-container">
+                <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- HIV病毒结构示意图 -->
+                    <defs>
+                        <radialGradient id="virusGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+                        </radialGradient>
+                        <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#f39c12;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+                        </radialGradient>
+                    </defs>
+                    
+                    <!-- 病毒外膜 -->
+                    <circle cx="300" cy="200" r="120" fill="url(#virusGrad)" stroke="#2c3e50" stroke-width="2"/>
+                    
+                    <!-- 表面糖蛋白 -->
+                    <g>
+                        <circle cx="220" cy="140" r="8" fill="#3498db"/>
+                        <circle cx="380" cy="160" r="8" fill="#3498db"/>
+                        <circle cx="350" cy="120" r="8" fill="#3498db"/>
+                        <circle cx="250" cy="280" r="8" fill="#3498db"/>
+                        <circle cx="370" cy="270" r="8" fill="#3498db"/>
+                        <circle cx="200" cy="220" r="8" fill="#3498db"/>
+                        <circle cx="400" cy="210" r="8" fill="#3498db"/>
+                    </g>
+                    
+                    <!-- 病毒核心 -->
+                    <circle cx="300" cy="200" r="60" fill="url(#coreGrad)" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <!-- RNA基因组 -->
+                    <path d="M 260 180 Q 280 160 300 180 Q 320 200 340 180 Q 360 160 380 180" 
+                          stroke="#27ae60" stroke-width="3" fill="none"/>
+                    <path d="M 260 220 Q 280 240 300 220 Q 320 200 340 220 Q 360 240 380 220" 
+                          stroke="#27ae60" stroke-width="3" fill="none"/>
+                    
+                    <!-- 逆转录酶 -->
+                    <rect x="285" y="190" width="30" height="20" rx="5" fill="#9b59b6"/>
+                    
+                    <!-- 标注 -->
+                    <text x="450" y="50" font-family="SimSun" font-size="16" font-weight="bold" fill="#2c3e50">HIV病毒结构</text>
+                    
+                    <!-- 图例 -->
+                    <g>
+                        <circle cx="450" cy="80" r="8" fill="#3498db"/>
+                        <text x="470" y="85" font-family="SimSun" font-size="12" fill="#2c3e50">表面糖蛋白(gp120/gp41)</text>
+                        
+                        <line x1="440" y1="110" x2="460" y2="110" stroke="#27ae60" stroke-width="3"/>
+                        <text x="470" y="115" font-family="SimSun" font-size="12" fill="#2c3e50">RNA基因组</text>
+                        
+                        <rect x="442" y="130" width="16" height="10" rx="2" fill="#9b59b6"/>
+                        <text x="470" y="140" font-family="SimSun" font-size="12" fill="#2c3e50">逆转录酶</text>
+                        
+                        <circle cx="450" cy="160" r="15" fill="url(#coreGrad)" stroke="#2c3e50" stroke-width="1"/>
+                        <text x="470" y="165" font-family="SimSun" font-size="12" fill="#2c3e50">病毒核心</text>
+                        
+                        <circle cx="450" cy="190" r="20" fill="url(#virusGrad)" stroke="#2c3e50" stroke-width="1" fill-opacity="0.5"/>
+                        <text x="480" y="195" font-family="SimSun" font-size="12" fill="#2c3e50">病毒外膜</text>
+                    </g>
+                </svg>
+                <div class="image-caption">图1：HIV病毒结构示意图</div>
+            </div>
+
+            <div class="image-container">
+                <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 基因治疗流程图 -->
+                    <defs>
+                        <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 标题 -->
+                    <text x="300" y="30" font-family="SimSun" font-size="18" font-weight="bold" fill="#2c3e50" text-anchor="middle">基因治疗流程</text>
+                    
+                    <!-- 步骤1：基因克隆 -->
+                    <rect x="50" y="60" width="100" height="60" rx="10" fill="url(#flowGrad)"/>
+                    <text x="100" y="85" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">目标基因</text>
+                    <text x="100" y="105" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">克隆</text>
+                    
+                    <!-- 箭头1 -->
+                    <path d="M 150 90 L 190 90" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 步骤2：载体构建 -->
+                    <rect x="200" y="60" width="100" height="60" rx="10" fill="url(#flowGrad)"/>
+                    <text x="250" y="85" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">载体</text>
+                    <text x="250" y="105" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">构建</text>
+                    
+                    <!-- 箭头2 -->
+                    <path d="M 300 90 L 340 90" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 步骤3：基因导入 -->
+                    <rect x="350" y="60" width="100" height="60" rx="10" fill="url(#flowGrad)"/>
+                    <text x="400" y="85" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">基因</text>
+                    <text x="400" y="105" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">导入</text>
+                    
+                    <!-- 箭头3 -->
+                    <path d="M 400 120 L 400 160" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 步骤4：基因表达 -->
+                    <rect x="350" y="170" width="100" height="60" rx="10" fill="url(#flowGrad)"/>
+                    <text x="400" y="195" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">基因</text>
+                    <text x="400" y="215" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">表达</text>
+                    
+                    <!-- 箭头4 -->
+                    <path d="M 350 200 L 310 200" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- 步骤5：治疗效果 -->
+                    <rect x="200" y="170" width="100" height="60" rx="10" fill="#27ae60"/>
+                    <text x="250" y="195" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">治疗</text>
+                    <text x="250" y="215" font-family="SimSun" font-size="12" fill="white" text-anchor="middle">效果</text>
+                    
+                    <!-- 载体类型说明 -->
+                    <g>
+                        <text x="100" y="280" font-family="SimSun" font-size="14" font-weight="bold" fill="#2c3e50">载体类型：</text>
+                        
+                        <rect x="50" y="290" width="80" height="30" rx="5" fill="#e74c3c" fill-opacity="0.8"/>
+                        <text x="90" y="310" font-family="SimSun" font-size="11" fill="white" text-anchor="middle">病毒载体</text>
+                        
+                        <rect x="140" y="290" width="80" height="30" rx="5" fill="#3498db" fill-opacity="0.8"/>
+                        <text x="180" y="310" font-family="SimSun" font-size="11" fill="white" text-anchor="middle">非病毒载体</text>
+                        
+                        <text x="250" y="305" font-family="SimSun" font-size="12" fill="#2c3e50">效率高但安全性低 vs 安全但效率低</text>
+                    </g>
+                    
+                    <!-- 箭头定义 -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+                        </marker>
+                    </defs>
+                </svg>
+                <div class="image-caption">图2：基因治疗基本流程示意图</div>
+            </div>
+
+            <div class="image-container">
+                <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- CAR-T细胞治疗机制图 -->
+                    <defs>
+                        <radialGradient id="cellGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#3498db;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+                        </radialGradient>
+                        <radialGradient id="tumorGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+                        </radialGradient>
+                    </defs>
+                    
+                    <!-- 标题 -->
+                    <text x="300" y="30" font-family="SimSun" font-size="18" font-weight="bold" fill="#2c3e50" text-anchor="middle">CAR-T细胞治疗机制</text>
+                    
+                    <!-- 正常T细胞 -->
+                    <circle cx="100" cy="100" r="30" fill="url(#cellGrad)" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="100" y="105" font-family="SimSun" font-size="10" fill="white" text-anchor="middle">T细胞</text>
+                    
+                    <!-- 基因修饰箭头 -->
+                    <path d="M 130 100 L 170 100" stroke="#27ae60" stroke-width="3" marker-end="url(#greenArrow)"/>
+                    <text x="150" y="90" font-family="SimSun" font-size="10" fill="#27ae60" text-anchor="middle">基因修饰</text>
+                    
+                    <!-- CAR-T细胞 -->
+                    <circle cx="200" cy="100" r="30" fill="url(#cellGrad)" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="200" y="105" font-family="SimSun" font-size="9" fill="white" text-anchor="middle">CAR-T</text>
+                    
+                    <!-- CAR受体 -->
+                    <rect x="225" y="95" width="15" height="10" rx="2" fill="#f39c12"/>
+                    <text x="240" y="90" font-family="SimSun" font-size="8" fill="#2c3e50">CAR</text>
+                    
+                    <!-- 体外扩增 -->
+                    <path d="M 200 130 L 200 170" stroke="#9b59b6" stroke-width="3" marker-end="url(#purpleArrow)"/>
+                    <text x="220" y="150" font-family="SimSun" font-size="10" fill="#9b59b6">体外扩增</text>
+                    
+                    <!-- 扩增后的CAR-T细胞群 -->
+                    <g>
+                        <circle cx="180" cy="200" r="20" fill="url(#cellGrad)" stroke="#2c3e50" stroke-width="1"/>
+                        <circle cx="200" cy="180" r="20" fill="url(#cellGrad)" stroke="#2c3e50" stroke-width="1"/>
+                        <circle cx="220" cy="200" r="20" fill="url(#cellGrad)" stroke="#2c3e50" stroke-width="1"/>
+                        <circle cx="200" cy="220" r="20" fill="url(#cellGrad)" stroke="#2c3e50" stroke-width="1"/>
+                    </g>
+                    
+                    <!-- 回输箭头 -->
+                    <path d="M 240 200 L 320 200" stroke="#e67e22" stroke-width="3" marker-end="url(#orangeArrow)"/>
+                    <text x="280" y="190" font-family="SimSun" font-size="10" fill="#e67e22" text-anchor="middle">回输患者体内</text>
+                    
+                    <!-- 肿瘤细胞 -->
+                    <circle cx="400" cy="150" r="25" fill="url(#tumorGrad)" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="400" y="155" font-family="SimSun" font-size="9" fill="white" text-anchor="middle">肿瘤细胞</text>
+                    
+                    <!-- 肿瘤抗原 -->
+                    <rect x="420" y="145" width="12" height="8" rx="2" fill="#f1c40f"/>
+                    <text x="435" y="140" font-family="SimSun" font-size="8" fill="#2c3e50">抗原</text>
+                    
+                    <!-- CAR-T攻击肿瘤 -->
+                    <circle cx="350" cy="200" r="20" fill="url(#cellGrad)" stroke="#2c3e50" stroke-width="1"/>
+                    <path d="M 365 185 L 385 165" stroke="#e74c3c" stroke-width="3" marker-end="url(#redArrow)"/>
+                    <text x="375" y="175" font-family="SimSun" font-size="8" fill="#e74c3c">攻击</text>
+                    
+                    <!-- 细胞因子释放 -->
+                    <g>
+                        <circle cx="320" cy="250" r="3" fill="#27ae60"/>
+                        <circle cx="330" cy="260" r="3" fill="#27ae60"/>
+                        <circle cx="340" cy="245" r="3" fill="#27ae60"/>
+                        <circle cx="350" cy="265" r="3" fill="#27ae60"/>
+                        <text x="335" y="280" font-family="SimSun" font-size="10" fill="#27ae60" text-anchor="middle">细胞因子</text>
+                    </g>
+                    
+                    <!-- 治疗效果说明 -->
+                    <g>
+                        <text x="100" y="320" font-family="SimSun" font-size="14" font-weight="bold" fill="#2c3e50">治疗优势：</text>
+                        <text x="100" y="340" font-family="SimSun" font-size="12" fill="#2c3e50">• 精准识别肿瘤抗原</text>
+                        <text x="100" y="355" font-family="SimSun" font-size="12" fill="#2c3e50">• 不受MHC限制</text>
+                        <text x="100" y="370" font-family="SimSun" font-size="12" fill="#2c3e50">• 具有免疫记忆功能</text>
+                        
+                        <text x="350" y="320" font-family="SimSun" font-size="14" font-weight="bold" fill="#e74c3c">主要风险：</text>
+                        <text x="350" y="340" font-family="SimSun" font-size="12" fill="#e74c3c">• 细胞因子风暴</text>
+                        <text x="350" y="355" font-family="SimSun" font-size="12" fill="#e74c3c">• 脱靶效应</text>
+                        <text x="350" y="370" font-family="SimSun" font-size="12" fill="#e74c3c">• 免疫排斥反应</text>
+                    </g>
+                    
+                    <!-- 箭头定义 -->
+                    <defs>
+                        <marker id="greenArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+                        </marker>
+                        <marker id="purpleArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#9b59b6" />
+                        </marker>
+                        <marker id="orangeArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#e67e22" />
+                        </marker>
+                        <marker id="redArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+                        </marker>
+                    </defs>
+                </svg>
+                <div class="image-caption">图3：CAR-T细胞治疗机制示意图</div>
+            </div>
+
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>第二部分：重要名词解释库</h2>
+                
+                <div class="terms-grid">
+                    <div class="term-card">
+                        <div class="term-name">肿瘤</div>
+                        <div class="term-english">Tumor/Neoplasm</div>
+                        <div class="term-definition">机体在各种致瘤因素作用下，局部组织的细胞在基因水平上失去对其生长的正常调控，导致异常增生而形成的新生物。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">原癌基因</div>
+                        <div class="term-english">Proto-oncogene</div>
+                        <div class="term-definition">细胞内与细胞增殖相关的基因，对于维持机体正常生命活动来说是必需的，是具有转变成癌基因潜力的正常基因，在进化过程中高度保守。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">癌基因</div>
+                        <div class="term-english">Oncogene</div>
+                        <div class="term-definition">一种能够潜在地诱导它所存在的细胞发生癌变的基因，分为病毒癌基因(V-onc)和细胞转化基因(C-onc)。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">抑癌基因</div>
+                        <div class="term-english">Tumor Suppressor Gene</div>
+                        <div class="term-definition">又称抗癌基因，抑癌基因的存在使其在被激活情况下具有抑制细胞增殖作用，但在一定情况下被抑制或丢失后可减弱甚至消除抑癌作用。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">基因治疗</div>
+                        <div class="term-english">Gene Therapy</div>
+                        <div class="term-definition">通过一定方式将人正常基因或有治疗作用的DNA片段导入人体靶细胞以矫正或置换致病基因的治疗方法，是一种以改变人遗传物质为基础的生物医学治疗手段。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">基因诊断</div>
+                        <div class="term-english">Genetic Diagnosis</div>
+                        <div class="term-definition">又称DNA诊断或分子诊断，是指利用分子生物学技术和方法直接检测基因结构及其表达水平是否正常，从而对疾病作出诊断的方法。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">逆转录酶</div>
+                        <div class="term-english">Reverse Transcriptase</div>
+                        <div class="term-definition">又称RNA指导的DNA聚合酶，是存在于一部分RNA病毒中具有逆转录活性的一种特殊的DNA聚合酶。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">cccDNA</div>
+                        <div class="term-english">Covalently Closed Circular DNA</div>
+                        <div class="term-definition">共价闭合环状DNA，是在乙肝病毒的复制过程中，病毒DNA进入宿主细胞核，在DNA聚合酶的作用下，两条链的缺口均被补齐，形成超螺旋的共价、闭合、环状DNA分子。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">基因领域效应</div>
+                        <div class="term-english">Gene Territory Effect</div>
+                        <div class="term-definition">同一DNA链上两个具有相同转录方向的基因间隔小于一定长度时，影响有效转录所必需的染色质结构的形成，从而使这两个基因中的一个或两个不能转录或转录活性显著降低的现象。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">CAR-T细胞疗法</div>
+                        <div class="term-english">Chimeric Antigen Receptor T-cell Therapy</div>
+                        <div class="term-definition">通过基因修饰获得携带识别肿瘤抗原特异性受体T细胞的个性化治疗方法。提取患者外周血T细胞，通过基因重组赋予T细胞特异性识别肿瘤抗原的能力。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">细胞因子风暴</div>
+                        <div class="term-english">Cytokine Storm</div>
+                        <div class="term-definition">当CAR-T细胞快速杀死癌细胞时，产生的大量细胞因子会对宿主其他组织器官发起攻击，导致高烧、低压、休克甚至死亡的严重免疫反应。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">病毒载体</div>
+                        <div class="term-english">Viral Vector</div>
+                        <div class="term-definition">经过改造的病毒，删除其致病基因，保留感染和基因表达能力，用于将治疗基因导入靶细胞的载体系统。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="quiz-section">
+                <h2>第三部分：选择题测试（随机15题）</h2>
+                <p style="margin-bottom: 20px; color: #7f8c8d;">以下题目从30道题库中随机抽取15道，请选择最佳答案：</p>
+                
+                <div id="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="submit-btn" id="submit-quiz" onclick="submitAnswers()">提交答案</button>
+                
+                <div id="quiz-results" style="display: none;">
+                    <h3 style="color: #2c3e50; margin: 20px 0;">测试结果</h3>
+                    <div id="score-display"></div>
+                    <div id="detailed-results"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "下列关于肿瘤的描述，错误的是：",
+                options: [
+                    "A. 肿瘤是机体在致瘤因素作用下形成的新生物",
+                    "B. 所有肿瘤都具有转移能力",
+                    "C. 肿瘤细胞在基因水平上失去正常调控",
+                    "D. 肿瘤分为良性和恶性两大类"
+                ],
+                correct: 1,
+                explanation: "B选项错误。只有恶性肿瘤（癌症）具有转移能力，良性肿瘤不具备转移能力，只在局部生长。"
+            },
+            {
+                question: "原癌基因激活成为癌基因的机制不包括：",
+                options: [
+                    "A. 点突变",
+                    "B. 基因重排",
+                    "C. 基因扩增",
+                    "D. 基因甲基化"
+                ],
+                correct: 3,
+                explanation: "D选项正确。基因甲基化通常导致基因沉默，是抑癌基因失活的机制，而非原癌基因激活的机制。"
+            },
+            {
+                question: "HIV病毒的基因组特征是：",
+                options: [
+                    "A. 单链DNA",
+                    "B. 双链DNA",
+                    "C. 单链RNA",
+                    "D. 双链RNA"
+                ],
+                correct: 2,
+                explanation: "C选项正确。HIV属于反转录病毒，基因组由两条单链正链RNA组成。"
+            },
+            {
+                question: "CAR-T细胞疗法最严重的副作用是：",
+                options: [
+                    "A. 发热",
+                    "B. 细胞因子风暴",
+                    "C. 乏力",
+                    "D. 恶心呕吐"
+                ],
+                correct: 1,
+                explanation: "B选项正确。细胞因子风暴是CAR-T细胞疗法最严重的副作用，可导致高烧、低压、休克甚至死亡。"
+            },
+            {
+                question: "下列关于基因治疗载体的描述，正确的是：",
+                options: [
+                    "A. 病毒载体安全性高但效率低",
+                    "B. 非病毒载体效率高但安全性低",
+                    "C. 病毒载体效率高但安全性相对较低",
+                    "D. 两种载体效率和安全性都相同"
+                ],
+                correct: 2,
+                 explanation: "C选项正确。病毒载体转导效率高但存在免疫原性和安全性问题；非病毒载体安全性高但转导效率相对较低。"
+             },
+             {
+                 question: "HBV病毒基因组的特征是：",
+                 options: [
+                     "A. 线性双链DNA",
+                     "B. 环状双链DNA，有部分单链区",
+                     "C. 环状单链DNA",
+                     "D. 线性单链RNA"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。HBV基因组是环状双链DNA分子，但有部分单链区，两条单链长度不同。"
+             },
+             {
+                 question: "禽流感病毒感染人类的关键突变不包括：",
+                 options: [
+                     "A. HA受体结合位点突变",
+                     "B. PB2蛋白627位氨基酸突变",
+                     "C. NS1第92位氨基酸突变",
+                     "D. M蛋白第100位氨基酸突变"
+                 ],
+                 correct: 3,
+                 explanation: "D选项正确。M蛋白第100位氨基酸突变不是禽流感病毒感染人类的关键突变。"
+             },
+             {
+                 question: "基因治疗的ex vivo途径是指：",
+                 options: [
+                     "A. 直接将基因导入人体内",
+                     "B. 体外导入基因后输回人体",
+                     "C. 通过口服给药",
+                     "D. 通过皮肤给药"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。ex vivo途径是指将细胞取出体外，导入目标基因后再输回人体的治疗方式。"
+             },
+             {
+                 question: "抑癌基因突变通常表现为隐性突变的原因是：",
+                 options: [
+                     "A. 一个拷贝突变即可失去功能",
+                     "B. 需要两个拷贝都突变才失去功能",
+                     "C. 基因表达水平很低",
+                     "D. 蛋白质不稳定"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。抑癌基因通常需要两个等位基因拷贝都失活才会失去抑制肿瘤的功能，因此表现为隐性突变。"
+             },
+             {
+                 question: "cccDNA的全称是：",
+                 options: [
+                     "A. Circular Complementary DNA",
+                     "B. Covalently Closed Circular DNA",
+                     "C. Complementary Circular DNA",
+                     "D. Closed Complementary Circular DNA"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。cccDNA是共价闭合环状DNA，是乙肝病毒复制的重要中间产物。"
+             },
+             {
+                 question: "HIV主要攻击的细胞类型是：",
+                 options: [
+                     "A. CD8+T细胞",
+                     "B. CD4+T细胞",
+                     "C. B细胞",
+                     "D. NK细胞"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。HIV主要攻击CD4+T淋巴细胞，导致免疫系统功能缺陷。"
+             },
+             {
+                 question: "基因领域效应是指：",
+                 options: [
+                     "A. 基因在染色体上的位置效应",
+                     "B. 同一DNA链上相邻基因的相互影响",
+                     "C. 基因的剂量效应",
+                     "D. 基因的时序表达效应"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。基因领域效应是指同一DNA链上两个具有相同转录方向的基因间隔过小时相互影响转录的现象。"
+             },
+             {
+                 question: "下列关于SARS-CoV传播特点的描述，正确的是：",
+                 options: [
+                     "A. 主要通过血液传播",
+                     "B. 主要通过近距离飞沫传播",
+                     "C. 主要通过昆虫媒介传播",
+                     "D. 主要通过食物传播"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。SARS-CoV主要通过近距离飞沫传播和直接接触传播。"
+             },
+             {
+                 question: "病毒致癌基因的意义不包括：",
+                 options: [
+                     "A. 为肿瘤的基因治疗提供靶点",
+                     "B. 揭示肿瘤发生的分子机制",
+                     "C. 为肿瘤诊断提供分子标志",
+                     "D. 直接用于肿瘤疫苗制备"
+                 ],
+                 correct: 3,
+                 explanation: "D选项正确。病毒致癌基因不能直接用于肿瘤疫苗制备，其主要意义在于研究肿瘤发生机制和提供治疗靶点。"
+             },
+             {
+                 question: "T4淋巴细胞治疗障碍的主要原因是：",
+                 options: [
+                     "A. 细胞数量不足",
+                     "B. 细胞活性低下",
+                     "C. 免疫排斥反应",
+                     "D. 以上都是"
+                 ],
+                 correct: 3,
+                 explanation: "D选项正确。T4淋巴细胞治疗面临细胞数量不足、活性低下、免疫排斥等多重障碍。"
+             },
+             {
+                 question: "HIV变异快速的主要原因是：",
+                 options: [
+                     "A. 逆转录酶缺乏校正功能",
+                     "B. 病毒复制速度快",
+                     "C. 免疫选择压力",
+                     "D. 以上都是"
+                 ],
+                 correct: 3,
+                 explanation: "D选项正确。HIV变异快速是由于逆转录酶缺乏校正功能、病毒复制速度快、免疫选择压力等多种因素共同作用的结果。"
+             },
+             {
+                 question: "基因治疗中自杀基因治疗的原理是：",
+                 options: [
+                     "A. 增强免疫系统功能",
+                     "B. 诱导肿瘤细胞凋亡",
+                     "C. 修复缺陷基因",
+                     "D. 抑制基因表达"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。自杀基因治疗是通过导入特定基因诱导肿瘤细胞发生程序性死亡（凋亡）。"
+             },
+             {
+                 question: "下列关于癌细胞特性的描述，错误的是：",
+                 options: [
+                     "A. 生长失去控制",
+                     "B. 具有浸润性",
+                     "C. 分化程度高",
+                     "D. 具有转移能力"
+                 ],
+                 correct: 2,
+                 explanation: "C选项错误。癌细胞的特征是分化程度低，而不是分化程度高。"
+             },
+             {
+                 question: "HIV对人类和猩猩危害不同的主要原因是：",
+                 options: [
+                     "A. 病毒结构不同",
+                     "B. 宿主免疫系统差异",
+                     "C. 病毒复制能力不同",
+                     "D. 感染途径不同"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。HIV对人类和猩猩危害不同主要是由于两种宿主的免疫系统存在差异。"
+             },
+             {
+                 question: "基因治疗载体的可行性分析不包括：",
+                 options: [
+                     "A. 转导效率",
+                     "B. 安全性评估",
+                     "C. 免疫原性",
+                     "D. 载体成本"
+                 ],
+                 correct: 3,
+                 explanation: "D选项正确。基因治疗载体的可行性分析主要考虑转导效率、安全性和免疫原性，载体成本不是主要的可行性指标。"
+             },
+             {
+                 question: "禽流感病毒预防的关键措施不包括：",
+                 options: [
+                     "A. 加强禽类监测",
+                     "B. 规范活禽市场管理",
+                     "C. 完全禁止养殖业",
+                     "D. 及时疫苗接种"
+                 ],
+                 correct: 2,
+                 explanation: "C选项正确。完全禁止养殖业不现实也不必要，关键是加强监测、规范管理和疫苗接种。"
+             },
+             {
+                 question: "病毒潜伏期差异的主要影响因素是：",
+                 options: [
+                     "A. 病毒类型",
+                     "B. 宿主免疫状态",
+                     "C. 感染剂量",
+                     "D. 以上都是"
+                 ],
+                 correct: 3,
+                 explanation: "D选项正确。病毒潜伏期受病毒类型、宿主免疫状态、感染剂量等多种因素影响。"
+             },
+             {
+                 question: "CAR-T细胞疗法的主要缺点是：",
+                 options: [
+                     "A. 治疗效果差",
+                     "B. 细胞毒性反应",
+                     "C. 制备简单",
+                     "D. 成本低廉"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。CAR-T细胞疗法的主要缺点包括可能引起严重的细胞毒性反应。"
+             },
+             {
+                 question: "非典和人禽流感流行控制的关键差异在于：",
+                 options: [
+                     "A. 传播途径不同",
+                     "B. 病原体类型不同",
+                     "C. 控制策略相同",
+                     "D. 疫苗研发难度"
+                 ],
+                 correct: 0,
+                 explanation: "A选项正确。非典主要通过人际传播，而人禽流感主要通过禽类传播，传播途径的差异决定了不同的控制策略。"
+             },
+             {
+                 question: "基因诊断技术不包括：",
+                 options: [
+                     "A. PCR技术",
+                     "B. 基因芯片",
+                     "C. DNA测序",
+                     "D. 蛋白质合成"
+                 ],
+                 correct: 3,
+                 explanation: "D选项正确。蛋白质合成不属于基因诊断技术，基因诊断主要包括PCR、基因芯片、DNA测序等技术。"
+             },
+             {
+                 question: "肿瘤免疫治疗的机制是：",
+                 options: [
+                     "A. 直接杀死肿瘤细胞",
+                     "B. 激活免疫系统攻击肿瘤",
+                     "C. 阻断肿瘤血管生成",
+                     "D. 修复DNA损伤"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。肿瘤免疫治疗的核心机制是激活或增强机体免疫系统识别和攻击肿瘤细胞的能力。"
+             },
+             {
+                 question: "HBV病毒基因组的特殊结构是：",
+                 options: [
+                     "A. 线性单链DNA",
+                     "B. 环形双链DNA",
+                     "C. 线性双链DNA",
+                     "D. 环形单链RNA"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。HBV病毒基因组为环形双链DNA，这是其独特的结构特征。"
+             },
+             {
+                 question: "基因治疗ex vivo途径的特点是：",
+                 options: [
+                     "A. 直接体内给药",
+                     "B. 体外细胞处理后回输",
+                     "C. 口服给药",
+                     "D. 静脉注射"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。Ex vivo途径是指将患者细胞取出，在体外进行基因修饰后再回输到患者体内。"
+             },
+             {
+                 question: "原癌基因的正常功能是：",
+                 options: [
+                     "A. 抑制细胞生长",
+                     "B. 促进细胞凋亡",
+                     "C. 调控细胞正常生长分化",
+                     "D. 修复DNA损伤"
+                 ],
+                 correct: 2,
+                 explanation: "C选项正确。原癌基因在正常情况下调控细胞的正常生长、分化和凋亡过程。"
+             },
+             {
+                 question: "病毒载体相比非病毒载体的主要优势是：",
+                 options: [
+                     "A. 安全性更高",
+                     "B. 转导效率更高",
+                     "C. 制备更简单",
+                     "D. 成本更低"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。病毒载体的主要优势是具有较高的转导效率，能够有效地将目的基因导入靶细胞。"
+             },
+             {
+                 question: "抑癌基因突变为隐性突变的原因是：",
+                 options: [
+                     "A. 基因表达量低",
+                     "B. 需要两个等位基因同时失活",
+                     "C. 蛋白质不稳定",
+                     "D. 基因位置特殊"
+                 ],
+                 correct: 1,
+                 explanation: "B选项正确。抑癌基因突变为隐性突变是因为通常需要两个等位基因同时失活才能导致肿瘤发生。"
+             },
+             {
+                 question: "基因治疗尚未解决的主要问题不包括：",
+                 options: [
+                     "A. 载体安全性",
+                     "B. 靶向性不足",
+                     "C. 理论基础不足",
+                     "D. 免疫反应"
+                 ],
+                 correct: 2,
+                 explanation: "C选项正确。基因治疗的理论基础已经比较成熟，主要问题在于技术实现层面。"
+             },
+             {
+                 question: "HIV结构中负责与宿主细胞结合的是：",
+                 options: [
+                     "A. 核心蛋白",
+                     "B. 逆转录酶",
+                     "C. 包膜糖蛋白",
+                     "D. 整合酶"
+                 ],
+                 correct: 2,
+                 explanation: "C选项正确。HIV包膜糖蛋白gp120负责与宿主细胞表面受体结合，介导病毒入侵。"
+             },
+             {
+                 question: "癌症药物评价的金标准是：",
+                 options: [
+                     "A. 体外细胞实验",
+                     "B. 动物模型实验",
+                     "C. 临床试验",
+                     "D. 计算机模拟"
+                 ],
+                 correct: 2,
+                 explanation: "C选项正确。临床试验是癌症药物评价的金标准，能够真实反映药物在人体中的安全性和有效性。"
+             }
+         ];
+
+         // 随机选择15道题
+         function getRandomQuestions() {
+             const shuffled = questionBank.sort(() => 0.5 - Math.random());
+             return shuffled.slice(0, 15);
+         }
+
+         // 渲染题目
+         function renderQuestions() {
+             const selectedQuestions = getRandomQuestions();
+             const container = document.getElementById('quiz-container');
+             
+             selectedQuestions.forEach((q, index) => {
+                 const questionDiv = document.createElement('div');
+                 questionDiv.className = 'question-item';
+                 questionDiv.innerHTML = `
+                     <h4>第${index + 1}题：${q.question}</h4>
+                     <div class="options">
+                         ${q.options.map((option, optIndex) => `
+                             <label class="option">
+                                 <input type="radio" name="q${index}" value="${optIndex}">
+                                 <span class="option-text">${option}</span>
+                             </label>
+                         `).join('')}
+                     </div>
+                 `;
+                 container.appendChild(questionDiv);
+             });
+             
+             // 存储当前题目用于评分
+             window.currentQuestions = selectedQuestions;
+         }
+
+         // 提交答案并显示结果
+         function submitAnswers() {
+             const questions = window.currentQuestions;
+             let score = 0;
+             const results = [];
+             
+             questions.forEach((q, index) => {
+                 const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                 const userAnswer = selected ? parseInt(selected.value) : -1;
+                 const isCorrect = userAnswer === q.correct;
+                 
+                 if (isCorrect) score++;
+                 
+                 results.push({
+                     question: q.question,
+                     options: q.options,
+                     userAnswer: userAnswer,
+                     correctAnswer: q.correct,
+                     isCorrect: isCorrect,
+                     explanation: q.explanation
+                 });
+             });
+             
+             displayResults(score, questions.length, results);
+         }
+
+         // 显示结果
+         function displayResults(score, total, results) {
+             const container = document.getElementById('quiz-container');
+             const percentage = Math.round((score / total) * 100);
+             
+             // 根据得分设置不同的颜色和消息
+             let scoreColor = '#e74c3c'; // 红色
+             let scoreMessage = '需要加强复习！';
+             if (percentage >= 90) {
+                 scoreColor = '#27ae60'; // 绿色
+                 scoreMessage = '优秀！掌握得很好！';
+             } else if (percentage >= 80) {
+                 scoreColor = '#f39c12'; // 橙色
+                 scoreMessage = '良好！继续保持！';
+             } else if (percentage >= 60) {
+                 scoreColor = '#3498db'; // 蓝色
+                 scoreMessage = '及格！还需努力！';
+             }
+             
+             let resultHTML = `
+                 <div class="quiz-result">
+                     <h3>📊 测试结果</h3>
+                     <div class="score" style="color: ${scoreColor}">
+                         ${score}/${total} (${percentage}%)<br>
+                         <small style="font-size: 0.6em; margin-top: 10px; display: block;">${scoreMessage}</small>
+                     </div>
+                     <div class="detailed-results">
+             `;
+             
+             results.forEach((result, index) => {
+                 const itemClass = result.isCorrect ? 'correct' : 'incorrect';
+                 const statusIcon = result.isCorrect ? '✅' : '❌';
+                 const statusText = result.isCorrect ? '正确' : '错误';
+                 
+                 resultHTML += `
+                     <div class="result-item ${itemClass}">
+                         <h4>
+                             <span class="status-icon ${itemClass}">${statusIcon}</span>
+                             第${index + 1}题：${result.question}
+                             <span style="font-size: 0.9em; color: ${result.isCorrect ? '#27ae60' : '#e74c3c'};">(${statusText})</span>
+                         </h4>
+                         <div class="options-review">
+                             ${result.options.map((option, optIndex) => {
+                                 let optionClass = '';
+                                 if (optIndex === result.correctAnswer) {
+                                     optionClass = 'correct-option';
+                                 } else if (optIndex === result.userAnswer && !result.isCorrect) {
+                                     optionClass = 'wrong-option';
+                                 }
+                                 return `<p class="${optionClass}">${String.fromCharCode(65 + optIndex)}. ${option}</p>`;
+                             }).join('')}
+                         </div>
+                         <div style="margin-top: 15px;">
+                             <p style="color: #2c3e50; font-weight: bold;">💡 正确答案：${String.fromCharCode(65 + result.correctAnswer)}. ${result.options[result.correctAnswer]}</p>
+                         </div>
+                         <div class="explanation">
+                             <strong>📝 详细解析：</strong>${result.explanation}
+                         </div>
+                     </div>
+                 `;
+             });
+             
+             resultHTML += `
+                     </div>
+                     <button onclick="location.reload()" class="retry-btn">🔄 重新测试</button>
+                 </div>
+             `;
+             
+             container.innerHTML = resultHTML;
+             
+             // 平滑滚动到结果区域
+             setTimeout(() => {
+                 container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+             }, 100);
+         }
+
+         // 页面加载时自动生成题目
+         document.addEventListener('DOMContentLoaded', function() {
+             renderQuestions();
+         });
+     </script>
+
+     <!-- 深度思考题部分 -->
+     <section class="thinking-questions">
+         <h2>🤔 深度思考题</h2>
+         
+         <div class="thinking-item">
+             <h3>1. 试分析原癌基因激活成为癌基因的分子机制，并讨论这些机制在肿瘤发生发展中的作用。</h3>
+             <div class="thinking-answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>点突变机制：</strong>原癌基因编码序列发生点突变，导致蛋白质结构改变，功能异常激活。如ras基因的点突变导致其编码的GTP酶活性丧失，持续激活细胞增殖信号。这种机制在多种肿瘤中都有发现，是肿瘤发生的重要分子基础。</li>
+                     <li><strong>基因重排机制：</strong>染色体易位、倒位等重排事件使原癌基因与强启动子或增强子结合，导致基因过度表达。典型例子是Burkitt淋巴瘤中c-myc基因与免疫球蛋白重链基因重排，导致c-myc过度表达，促进细胞无限增殖。</li>
+                     <li><strong>基因扩增机制：</strong>原癌基因拷贝数增加，导致基因产物过量表达。如乳腺癌中HER2基因扩增，导致生长因子受体过度表达，细胞对生长信号过度敏感，失去正常的生长控制。</li>
+                     <li><strong>插入激活机制：</strong>病毒DNA或转座子插入原癌基因附近，激活其表达。这种机制在病毒致癌过程中尤为重要，病毒整合位点的选择性决定了肿瘤发生的类型和特征。</li>
+                     <li><strong>表观遗传修饰：</strong>DNA甲基化、组蛋白修饰等表观遗传变化影响原癌基因表达调控，导致异常激活。这种机制的可逆性为肿瘤治疗提供了新的靶点和策略。</li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="thinking-item">
+             <h3>2. 基因治疗作为新兴的医疗技术，面临哪些主要挑战？请从技术、安全性和伦理角度进行全面分析。</h3>
+             <div class="thinking-answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>技术挑战：</strong>载体系统的转导效率有限，难以实现精确的组织特异性靶向。病毒载体存在包装容量限制，非病毒载体转导效率低。基因表达的时空调控困难，难以模拟内源基因的精确表达模式。这些技术瓶颈限制了基因治疗的临床应用效果。</li>
+                     <li><strong>安全性问题：</strong>载体的免疫原性可能引起严重免疫反应，甚至危及生命。插入突变风险可能激活癌基因或失活抑癌基因，导致肿瘤发生。基因表达的不可控性可能产生意想不到的生物学效应。长期安全性评估困难，需要长期随访观察。</li>
+                     <li><strong>伦理考量：</strong>生殖细胞基因编辑涉及后代遗传，存在伦理争议。基因增强与基因治疗的界限模糊，可能导致社会不公。知情同意的复杂性，患者难以完全理解潜在风险。基因信息的隐私保护和歧视防范问题。</li>
+                     <li><strong>监管挑战：</strong>缺乏统一的国际监管标准，不同国家法规差异较大。临床试验设计复杂，评价标准不统一。成本效益分析困难，医疗资源分配的公平性问题。</li>
+                     <li><strong>社会接受度：</strong>公众对基因治疗的认知不足，存在恐惧和误解。媒体报道的影响，可能放大风险或过度宣传效果。医患沟通的挑战，需要专业的遗传咨询服务。</li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="thinking-item">
+             <h3>3. HIV作为获得性免疫缺陷病毒，其致病机理复杂多样。请详细分析HIV感染、复制及致病的分子机制。</h3>
+             <div class="thinking-answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>病毒结构与感染机制：</strong>HIV为逆转录病毒，具有包膜结构。gp120糖蛋白识别并结合CD4受体和CCR5/CXCR4共受体，gp41介导膜融合过程。病毒进入细胞后，逆转录酶将RNA基因组逆转录为DNA，整合酶将病毒DNA整合到宿主染色体中，形成前病毒。</li>
+                     <li><strong>复制周期特点：</strong>HIV复制依赖宿主细胞的转录机制，但逆转录酶缺乏校正功能，导致高突变率。病毒可在潜伏感染和活跃复制间转换，潜伏感染使病毒逃避免疫监视和药物作用。复制过程中产生大量病毒颗粒，持续破坏免疫细胞。</li>
+                     <li><strong>免疫系统破坏机制：</strong>HIV主要感染CD4+ T细胞、巨噬细胞和树突状细胞，直接杀伤效应导致免疫细胞数量减少。病毒蛋白干扰细胞正常功能，影响免疫应答的启动和维持。慢性免疫激活导致免疫系统功能紊乱和衰竭。</li>
+                     <li><strong>变异与耐药机制：</strong>逆转录酶的高错误率和病毒的快速复制导致基因组高度变异。选择压力下产生耐药突变株，单一药物治疗容易失败。病毒准种的存在使得完全清除病毒极其困难。</li>
+                     <li><strong>临床表现的分子基础：</strong>免疫缺陷导致机会性感染和肿瘤发生。病毒直接作用和免疫反应共同导致器官损伤。神经系统感染引起AIDS痴呆综合征。慢性炎症状态导致心血管疾病等并发症增加。</li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="thinking-item">
+             <h3>4. 肿瘤免疫治疗代表了癌症治疗的新方向。请分析当前主要的肿瘤免疫治疗策略及其作用机制。</h3>
+             <div class="thinking-answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>免疫检查点抑制剂：</strong>PD-1/PD-L1和CTLA-4抑制剂通过阻断免疫抑制信号，重新激活T细胞的抗肿瘤活性。这些检查点分子正常情况下防止免疫过度激活，但肿瘤细胞利用这一机制逃避免疫监视。抑制剂的应用解除了免疫"刹车"，使T细胞能够有效识别和杀伤肿瘤细胞。</li>
+                     <li><strong>CAR-T细胞治疗：</strong>通过基因工程技术改造患者T细胞，使其表达嵌合抗原受体，特异性识别肿瘤抗原。CAR结构包括胞外抗原识别域、跨膜域和胞内信号域，能够绕过MHC限制直接识别肿瘤细胞。治疗过程包括T细胞采集、体外改造扩增和回输，在血液肿瘤治疗中显示出显著疗效。</li>
+                     <li><strong>肿瘤疫苗：</strong>通过呈递肿瘤特异性抗原激活免疫系统产生特异性免疫应答。包括多肽疫苗、DNA疫苗、病毒载体疫苗等多种形式。个体化新抗原疫苗基于患者肿瘤的基因突变谱设计，理论上具有更好的特异性和安全性。</li>
+                     <li><strong>过继性细胞治疗：</strong>包括肿瘤浸润淋巴细胞(TIL)治疗、TCR-T细胞治疗等。TIL治疗利用肿瘤组织中已经识别肿瘤抗原的T细胞，体外扩增后回输。TCR-T细胞治疗通过导入高亲和力TCR增强T细胞的肿瘤识别能力。</li>
+                     <li><strong>免疫调节剂：</strong>细胞因子如白介素-2、干扰素等能够增强免疫细胞功能。免疫佐剂如TLR激动剂能够激活先天免疫，促进适应性免疫应答的产生。单克隆抗体如抗CD20、抗HER2等通过抗体依赖的细胞毒作用杀伤肿瘤细胞。</li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="thinking-item">
+             <h3>5. 病毒在人类疾病中扮演重要角色。请比较分析DNA病毒和RNA病毒的致病特点，并讨论病毒感染的预防控制策略。</h3>
+             <div class="thinking-answer">
+                 <h4>参考答案：</h4>
+                 <ol>
+                     <li><strong>DNA病毒致病特点：</strong>基因组相对稳定，突变率较低，感染后容易建立持续感染。如HBV能够形成cccDNA，在肝细胞核内长期存在，导致慢性感染。HPV感染可导致宫颈癌，病毒DNA整合到宿主基因组中，干扰细胞周期调控。疱疹病毒具有潜伏感染特性，在免疫抑制时重新激活。</li>
+                     <li><strong>RNA病毒致病特点：</strong>基因组不稳定，突变率高，容易产生新的变异株。流感病毒的抗原漂移和抗原转换导致季节性流行和大流行。HIV的高变异率使其能够逃避免疫监视和产生耐药性。SARS-CoV-2的变异导致传播力和致病力的改变，影响疫苗效果。</li>
+                     <li><strong>疫苗预防策略：</strong>预防性疫苗是最有效的预防手段，通过激活免疫记忆提供长期保护。活疫苗免疫效果好但安全性相对较低，灭活疫苗安全性高但免疫效果相对较弱。mRNA疫苗代表了疫苗技术的新发展，能够快速应对新发病毒。</li>
+                     <li><strong>抗病毒药物治疗：</strong>核苷类似物如阿昔洛韦、利巴韦林等干扰病毒DNA/RNA合成。蛋白酶抑制剂如洛匹那韦阻断病毒蛋白质加工。神经氨酸酶抑制剂如奥司他韦阻止流感病毒释放。广谱抗病毒药物的研发是当前重点方向。</li>
+                     <li><strong>公共卫生措施：</strong>监测系统能够及时发现和报告病毒感染病例，为防控决策提供依据。隔离和检疫措施能够阻断传播链，控制疫情扩散。个人防护措施如戴口罩、手卫生等简单有效。健康教育提高公众的防病意识和能力。国际合作对于控制跨境传播的病毒感染至关重要。</li>
+                 </ol>
+             </div>
+         </div>
+     </section>
+
+ </body>
+ </html>

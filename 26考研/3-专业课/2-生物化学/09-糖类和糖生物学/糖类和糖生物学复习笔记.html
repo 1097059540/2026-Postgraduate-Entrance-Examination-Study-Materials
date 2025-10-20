@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糖类和糖生物学 - 考研复习笔记</title>
+    <style>
+        /* 整体样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+        
+        /* 章节标题 */
+        h2 {
+            color: #2c3e50;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin: 30px 0 20px 0;
+            font-size: 1.8em;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin: 20px 0 15px 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        
+        /* 段落和列表 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* 强调文本 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        /* 名词解释样式 */
+        .term-definition {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+        
+        /* 选择题样式 */
+        .quiz-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .options li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .options li:hover {
+            background: #e9ecef;
+        }
+        
+        .options li.selected {
+            background: #3498db;
+            color: white;
+        }
+        
+        .options li.correct {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .options li.incorrect {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            margin: 10px 5px;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        /* 结果显示 */
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .explanation {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #e8f4fd;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .thinking-answer {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            display: none;
+        }
+        
+        /* 图片样式 */
+        .structure-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .img-caption {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 10px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>糖类和糖生物学</h1>
+            <p>考研生物化学复习笔记 | 基于《生物化学》第四版（朱圣庚、徐长法主编）</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <h2>一、糖类概述与分类</h2>
+            
+            <h3>1.1 糖类的化学本质</h3>
+            <p>糖类（Carbohydrates）是<span class="highlight">多羟基醛或多羟基酮及其缩聚物和某些衍生物的总称</span>。<mcreference link="https://baike.baidu.com/item/糖类/1513051" index="1">1</mcreference> 主要由碳、氢、氧三种元素组成，分子通式为(CH₂O)ₙ，但并非所有符合此通式的化合物都是糖类。</p>
+            
+            <p>糖类具有以下重要特征：</p>
+            <ul>
+                <li><span class="important">结构多样性</span>：包括单糖、寡糖、多糖等不同层次的结构</li>
+                <li><span class="important">立体异构性</span>：存在多种立体异构体，如α-异构体和β-异构体</li>
+                <li><span class="important">功能多样性</span>：既是能源物质，又是结构成分和信息分子</li>
+            </ul>
+            
+            <h3>1.2 糖类的分类体系</h3>
+            <p>根据分子大小和复杂程度，糖类可分为三大类：</p>
+            
+            <ol>
+                <li><strong>单糖（Monosaccharides）</strong>：不能水解的最简单糖类
+                    <ul>
+                        <li>醛糖：含醛基的单糖，如葡萄糖、甘露糖、半乳糖</li>
+                        <li>酮糖：含酮基的单糖，如果糖、核酮糖</li>
+                    </ul>
+                </li>
+                <li><strong>寡糖（Oligosaccharides）</strong>：由2-10个单糖分子连接而成
+                    <ul>
+                        <li>双糖：蔗糖、乳糖、麦芽糖</li>
+                        <li>三糖：棉子糖、松三糖</li>
+                    </ul>
+                </li>
+                <li><strong>多糖（Polysaccharides）</strong>：由多个单糖分子连接而成
+                    <ul>
+                        <li>同多糖：淀粉、糖原、纤维素</li>
+                        <li>杂多糖：透明质酸、硫酸软骨素</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <!-- ATP结构图 -->
+            <svg class="structure-img" width="400" height="300" viewBox="0 0 400 300">
+                <!-- ATP分子结构简化图 -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+                    </marker>
+                </defs>
+                
+                <!-- 腺嘌呤环 -->
+                <polygon points="50,80 80,60 110,80 110,120 80,140 50,120" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                <text x="80" y="105" text-anchor="middle" font-size="12" fill="white">腺嘌呤</text>
+                
+                <!-- 核糖 -->
+                <polygon points="130,90 160,80 180,110 160,140 130,130" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                <text x="155" y="115" text-anchor="middle" font-size="12" fill="white">核糖</text>
+                
+                <!-- 磷酸基团 -->
+                <circle cx="220" cy="110" r="25" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+                <text x="220" y="115" text-anchor="middle" font-size="10" fill="white">PO₄³⁻</text>
+                
+                <circle cx="270" cy="110" r="25" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+                <text x="270" y="115" text-anchor="middle" font-size="10" fill="white">PO₄³⁻</text>
+                
+                <circle cx="320" cy="110" r="25" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+                <text x="320" y="115" text-anchor="middle" font-size="10" fill="white">PO₄³⁻</text>
+                
+                <!-- 连接线 -->
+                <line x1="110" y1="100" x2="130" y2="100" stroke="#2c3e50" stroke-width="3"/>
+                <line x1="180" y1="110" x2="195" y2="110" stroke="#2c3e50" stroke-width="3"/>
+                <line x1="245" y1="110" x2="245" y2="110" stroke="#2c3e50" stroke-width="3"/>
+                <line x1="295" y1="110" x2="295" y2="110" stroke="#2c3e50" stroke-width="3"/>
+                
+                <!-- 标签 -->
+                <text x="80" y="50" text-anchor="middle" font-size="14" font-weight="bold">腺苷三磷酸 (ATP)</text>
+                <text x="155" y="170" text-anchor="middle" font-size="12">腺苷</text>
+                <text x="270" y="170" text-anchor="middle" font-size="12">三磷酸基团</text>
+                
+                <!-- 高能磷酸键标记 -->
+                <text x="260" y="90" text-anchor="middle" font-size="12" fill="#e74c3c">~</text>
+                <text x="310" y="90" text-anchor="middle" font-size="12" fill="#e74c3c">~</text>
+                <text x="285" y="75" text-anchor="middle" font-size="10" fill="#e74c3c">高能键</text>
+            </svg>
+            <p class="img-caption">图1：ATP分子结构示意图（含核糖成分）</p>
+            
+            <h2>二、单糖的结构与性质</h2>
+            
+            <h3>2.1 单糖的立体化学</h3>
+            <p>单糖分子具有<span class="highlight">手性碳原子</span>，因此存在立体异构现象。根据分子中距羰基碳最远的手性碳原子上羟基的位置，可将单糖分为D型和L型。</p>
+            
+            <p><span class="important">重要概念</span>：</p>
+            <ul>
+                <li><strong>对映异构体</strong>：分子式相同但空间构型互为镜像的异构体</li>
+                <li><strong>差向异构体</strong>：仅在一个手性碳原子上构型不同的异构体</li>
+                <li><strong>异头异构体</strong>：环状结构中仅在异头碳原子上构型不同的异构体</li>
+            </ul>
+            
+            <h3>2.2 单糖的环状结构</h3>
+            <p>单糖在水溶液中主要以<span class="highlight">环状半缩醛形式</span>存在。六碳糖形成吡喃环，五碳糖形成呋喃环。环状结构的形成产生了新的手性碳原子——异头碳原子，从而产生α-异构体和β-异构体。</p>
+            
+            <!-- 葡萄糖环状结构图 -->
+            <svg class="structure-img" width="500" height="250" viewBox="0 0 500 250">
+                <!-- α-D-葡萄糖 -->
+                <g transform="translate(50,50)">
+                    <polygon points="50,50 100,30 150,50 150,100 100,120 50,100" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    <!-- 碳原子标记 -->
+                    <circle cx="50" cy="75" r="3" fill="#2c3e50"/>
+                    <circle cx="75" cy="40" r="3" fill="#2c3e50"/>
+                    <circle cx="125" cy="40" r="3" fill="#2c3e50"/>
+                    <circle cx="150" cy="75" r="3" fill="#2c3e50"/>
+                    <circle cx="125" cy="110" r="3" fill="#2c3e50"/>
+                    <circle cx="75" cy="110" r="3" fill="#2c3e50"/>
+                    
+                    <!-- 羟基 -->
+                    <text x="30" y="80" font-size="12">OH</text>
+                    <text x="75" y="25" font-size="12">OH</text>
+                    <text x="125" y="25" font-size="12">OH</text>
+                    <text x="170" y="80" font-size="12">CH₂OH</text>
+                    <text x="125" y="130" font-size="12">OH</text>
+                    <text x="75" y="130" font-size="12">OH</text>
+                    
+                    <!-- 异头羟基（α构型） -->
+                    <text x="30" y="60" font-size="12" fill="#e74c3c">α-OH</text>
+                    
+                    <text x="100" y="160" text-anchor="middle" font-size="14" font-weight="bold">α-D-葡萄糖</text>
+                </g>
+                
+                <!-- β-D-葡萄糖 -->
+                <g transform="translate(300,50)">
+                    <polygon points="50,50 100,30 150,50 150,100 100,120 50,100" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    <!-- 碳原子标记 -->
+                    <circle cx="50" cy="75" r="3" fill="#2c3e50"/>
+                    <circle cx="75" cy="40" r="3" fill="#2c3e50"/>
+                    <circle cx="125" cy="40" r="3" fill="#2c3e50"/>
+                    <circle cx="150" cy="75" r="3" fill="#2c3e50"/>
+                    <circle cx="125" cy="110" r="3" fill="#2c3e50"/>
+                    <circle cx="75" cy="110" r="3" fill="#2c3e50"/>
+                    
+                    <!-- 羟基 -->
+                    <text x="30" y="95" font-size="12" fill="#e74c3c">β-OH</text>
+                    <text x="75" y="25" font-size="12">OH</text>
+                    <text x="125" y="25" font-size="12">OH</text>
+                    <text x="170" y="80" font-size="12">CH₂OH</text>
+                    <text x="125" y="130" font-size="12">OH</text>
+                    <text x="75" y="130" font-size="12">OH</text>
+                    
+                    <text x="100" y="160" text-anchor="middle" font-size="14" font-weight="bold">β-D-葡萄糖</text>
+                </g>
+                
+                <!-- 变旋现象箭头 -->
+                <path d="M 200 125 Q 250 100 300 125" fill="none" stroke="#3498db" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <path d="M 300 135 Q 250 160 200 135" fill="none" stroke="#3498db" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <text x="250" y="115" text-anchor="middle" font-size="12" fill="#3498db">变旋现象</text>
+            </svg>
+            <p class="img-caption">图2：葡萄糖的α和β异构体及变旋现象</p>
+            
+            <h3>2.3 重要的单糖及其衍生物</h3>
+            <p>生物体内重要的单糖包括：</p>
+            <ul>
+                <li><strong>葡萄糖</strong>：生命活动的主要能源物质，血糖的主要成分</li>
+                <li><strong>果糖</strong>：水果中的主要糖类，甜度最高的天然糖</li>
+                <li><strong>半乳糖</strong>：乳糖的组成成分，参与糖脂和糖蛋白的合成</li>
+                <li><strong>核糖</strong>：RNA的组成成分</li>
+                <li><strong>脱氧核糖</strong>：DNA的组成成分</li>
+            </ul>
+            
+            <p>重要的单糖衍生物：</p>
+            <ul>
+                <li><strong>氨基糖</strong>：如葡糖胺、半乳糖胺，是糖胺聚糖的组成单位</li>
+                <li><strong>糖醛酸</strong>：如葡糖醛酸，参与解毒反应</li>
+                <li><strong>糖醇</strong>：如山梨醇、甘露醇，具有甜味但不被代谢</li>
+            </ul>
+            
+            <h2>三、寡糖与多糖</h2>
+            
+            <h3>3.1 重要的双糖</h3>
+            <p>双糖通过<span class="highlight">糖苷键</span>连接两个单糖分子形成。根据是否保留还原性，可分为还原性双糖和非还原性双糖。</p>
+            
+            <div class="term-definition">
+                <div class="term-name">蔗糖 <span class="term-english">(Sucrose)</span></div>
+                <p>由α-D-葡萄糖和β-D-果糖通过α(1→2)糖苷键连接形成的非还原性双糖。是植物中最重要的转运糖类。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">乳糖 <span class="term-english">(Lactose)</span></div>
+                <p>由β-D-半乳糖和D-葡萄糖通过β(1→4)糖苷键连接形成的还原性双糖。是哺乳动物乳汁中的主要糖类。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">麦芽糖 <span class="term-english">(Maltose)</span></div>
+                <p>由两个D-葡萄糖分子通过α(1→4)糖苷键连接形成的还原性双糖。是淀粉水解的主要产物。</p>
+            </div>
+            
+            <h3>3.2 重要的多糖</h3>
+            
+            <h4>3.2.1 储能多糖</h4>
+            <ul>
+                <li><strong>淀粉</strong>：植物的储能多糖，包括直链淀粉和支链淀粉
+                    <ul>
+                        <li>直链淀粉：α(1→4)糖苷键连接，呈螺旋结构</li>
+                        <li>支链淀粉：主链为α(1→4)，分支点为α(1→6)糖苷键</li>
+                    </ul>
+                </li>
+                <li><strong>糖原</strong>：动物的储能多糖，结构类似支链淀粉但分支更多</li>
+            </ul>
+            
+            <h4>3.2.2 结构多糖</h4>
+            <ul>
+                <li><strong>纤维素</strong>：植物细胞壁的主要成分，β(1→4)糖苷键连接</li>
+                <li><strong>几丁质</strong>：节肢动物外骨骼和真菌细胞壁的成分</li>
+                <li><strong>肽聚糖</strong>：细菌细胞壁的主要成分</li>
+            </ul>
+            
+            <h2>四、糖缀合物</h2>
+            
+            <h3>4.1 糖蛋白</h3>
+            <p>糖蛋白是<span class="highlight">糖类与蛋白质通过共价键结合形成的复合分子</span>。<mcreference link="https://www.thermofisher.com/us/en/home/life-science/protein-biology/protein-biology-learning-center/protein-biology-resource-library/pierce-protein-methods/protein-glycosylation.html" index="2">2</mcreference> 根据连接方式可分为：</p>
+            
+            <ul>
+                <li><strong>N-连接糖蛋白</strong>：糖链通过N-糖苷键与天冬酰胺残基连接</li>
+                <li><strong>O-连接糖蛋白</strong>：糖链通过O-糖苷键与丝氨酸或苏氨酸残基连接</li>
+            </ul>
+            
+            <p><span class="important">糖蛋白的生物学功能</span>：</p>
+            <ol>
+                <li>参与细胞识别和细胞间相互作用</li>
+                <li>维持蛋白质的正确折叠和稳定性</li>
+                <li>调节蛋白质的生物活性</li>
+                <li>参与免疫反应和炎症过程</li>
+            </ol>
+            
+            <h3>4.2 糖脂</h3>
+            <p>糖脂是<span class="highlight">糖类与脂质通过糖苷键连接形成的复合分子</span>。<mcreference link="https://zh.wikipedia.org/zh-hans/糖脂" index="3">3</mcreference> 主要分为：</p>
+            
+            <ul>
+                <li><strong>鞘糖脂</strong>：以鞘氨醇为脂质骨架，在神经系统中含量丰富</li>
+                <li><strong>甘油糖脂</strong>：以甘油为脂质骨架，主要存在于植物和细菌中</li>
+            </ul>
+            
+            <p>糖脂主要分布在<span class="highlight">细胞膜的外侧</span>，参与细胞识别、膜稳定性维持等重要功能。</p>
+            
+            <h3>4.3 糖胺聚糖和蛋白聚糖</h3>
+            <p>糖胺聚糖是由氨基糖和糖醛酸交替连接形成的长链多糖，主要包括：</p>
+            <ul>
+                <li><strong>透明质酸</strong>：由N-乙酰葡糖胺和葡糖醛酸组成</li>
+                <li><strong>硫酸软骨素</strong>：含有硫酸基团的糖胺聚糖</li>
+                <li><strong>肝素</strong>：具有抗凝血作用的糖胺聚糖</li>
+            </ul>
+            
+            <h2>五、糖类的生物学功能</h2>
+            
+            <h3>5.1 能量代谢功能</h3>
+            <p>糖类是生物体内<span class="important">最主要的能源物质</span>：</p>
+            <ul>
+                <li>葡萄糖氧化分解释放能量，1mol葡萄糖完全氧化产生38mol ATP</li>
+                <li>糖原和淀粉作为储能物质，在需要时快速动员</li>
+                <li>糖类代谢为其他生物分子的合成提供碳骨架</li>
+            </ul>
+            
+            <h3>5.2 结构功能</h3>
+            <p>糖类是重要的结构成分：</p>
+            <ul>
+                <li><strong>植物</strong>：纤维素构成细胞壁骨架，提供机械支撑</li>
+                <li><strong>动物</strong>：糖胺聚糖构成细胞外基质，维持组织结构</li>
+                <li><strong>微生物</strong>：肽聚糖构成细菌细胞壁，几丁质构成真菌细胞壁</li>
+            </ul>
+            
+            <h3>5.3 信息识别功能</h3>
+            <p>糖类作为<span class="highlight">生物信息分子</span>参与多种识别过程：</p>
+            <ul>
+                <li><strong>细胞识别</strong>：糖蛋白和糖脂参与细胞表面识别</li>
+                <li><strong>免疫识别</strong>：抗原决定簇常含有糖类成分</li>
+                <li><strong>血型识别</strong>：ABO血型由红细胞表面的寡糖链决定</li>
+                <li><strong>病原体识别</strong>：病毒、细菌通过识别宿主细胞表面糖类实现感染</li>
+            </ul>
+            
+            <!-- 名词解释库 -->
+            <h2>六、重要名词解释库</h2>
+            
+            <div class="term-definition">
+                <div class="term-name">变旋现象 <span class="term-english">(Mutarotation)</span></div>
+                <p>新配制的单糖溶液旋光度随时间发生变化的现象。由于α-异构体和β-异构体在溶液中可以相互转化，最终达到平衡状态。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">糖苷键 <span class="term-english">(Glycosidic Bond)</span></div>
+                <p>单糖分子间通过脱水缩合形成的共价键。根据连接方式分为α-糖苷键和β-糖苷键，根据连接位置标记为(1→4)、(1→6)等。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">还原糖 <span class="term-english">(Reducing Sugar)</span></div>
+                <p>具有自由异头碳原子，能够还原费林试剂或本尼迪特试剂的糖类。包括所有单糖和大部分双糖（除蔗糖外）。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">糖被 <span class="term-english">(Glycocalyx)</span></div>
+                <p>细胞膜外表面由糖蛋白和糖脂的糖链组成的糖类外壳，参与细胞识别、保护和信号转导等功能。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">凝集素 <span class="term-english">(Lectin)</span></div>
+                <p>能够特异性结合糖类的蛋白质，广泛存在于植物、动物和微生物中，参与细胞识别和免疫反应。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">糖基化 <span class="term-english">(Glycosylation)</span></div>
+                <p>糖基共价结合到蛋白质或脂质上的翻译后修饰过程，是最复杂的蛋白质修饰方式之一。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">异头碳 <span class="term-english">(Anomeric Carbon)</span></div>
+                <p>单糖形成环状结构时，原来的羰基碳原子变成的新的手性碳原子，决定α-异构体和β-异构体的构型。</p>
+            </div>
+            
+            <div class="term-definition">
+                <div class="term-name">糖原磷酸化酶 <span class="term-english">(Glycogen Phosphorylase)</span></div>
+                <p>催化糖原分解的关键酶，从糖原的非还原端逐个切除葡萄糖-1-磷酸，受到精密的变构调节。</p>
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <h2>七、选择题测试</h2>
+            <div class="quiz-section">
+                <p><strong>说明：</strong>以下15道题目已从题库中随机抽取，请认真作答。完成后点击"提交答案"查看结果和详细解析。</p>
+                
+                <div id="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="btn" onclick="submitQuiz()" id="submit-btn">提交答案</button>
+                <button class="btn" onclick="resetQuiz()" id="reset-btn" style="display:none;">重新测试</button>
+                
+                <div id="quiz-result" class="result"></div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <h2>八、深度思考题</h2>
+            
+            <div class="thinking-question">
+                <h3>思考题1：糖类结构与功能的关系</h3>
+                <p><strong>题目：</strong>分析纤维素和淀粉都是由葡萄糖组成的多糖，但在结构和功能上存在显著差异的原因。从分子水平解释这种差异如何影响它们在生物体内的作用。</p>
+                <button class="btn" onclick="toggleAnswer('answer1')">查看答案</button>
+                <div id="answer1" class="thinking-answer">
+                    <ol>
+                        <li><strong>糖苷键类型差异：</strong>纤维素由β(1→4)糖苷键连接，形成线性分子链，分子间可形成大量氢键，构成致密的纤维结构，具有很高的机械强度。淀粉由α(1→4)糖苷键连接，形成螺旋结构，分子间作用力较弱，易于水解。</li>
+                        <li><strong>空间构象差异：</strong>β-糖苷键使纤维素分子呈伸展的带状构象，便于平行排列形成纤维；α-糖苷键使淀粉分子呈螺旋构象，内部可容纳碘分子，形成蓝色络合物。</li>
+                        <li><strong>酶特异性差异：</strong>动物体内缺乏β-1,4-葡聚糖酶（纤维素酶），无法消化纤维素；但含有α-淀粉酶，能够水解淀粉。这种酶的特异性决定了两者不同的生物学命运。</li>
+                        <li><strong>功能分化：</strong>纤维素的结构特点使其成为理想的结构材料，为植物提供机械支撑；淀粉的结构特点使其成为优良的储能物质，便于快速动员和利用。</li>
+                        <li><strong>进化意义：</strong>这种结构-功能关系体现了生物分子在长期进化过程中的精确适应，同一种单糖通过不同的连接方式实现了功能的多样化。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h3>思考题2：糖蛋白在细胞识别中的作用机制</h3>
+                <p><strong>题目：</strong>详细阐述糖蛋白如何参与细胞识别过程，并分析其在免疫反应、血型识别和病原体感染中的具体作用机制。</p>
+                <button class="btn" onclick="toggleAnswer('answer2')">查看答案</button>
+                <div id="answer2" class="thinking-answer">
+                    <ol>
+                        <li><strong>分子识别基础：</strong>糖蛋白的糖链部分具有高度的结构多样性，可以形成特异性的三维构象，作为分子识别的"密码"。不同细胞表面的糖蛋白糖链结构不同，形成了细胞的"身份标识"。</li>
+                        <li><strong>凝集素-糖链相互作用：</strong>细胞表面或胞外的凝集素能够特异性识别和结合特定的糖链结构。这种相互作用具有高度的特异性和可逆性，是细胞识别的分子基础。</li>
+                        <li><strong>免疫反应中的作用：</strong>T细胞和B细胞表面的糖蛋白参与抗原识别；主要组织相容性复合体(MHC)分子的糖基化影响其抗原呈递功能；补体系统中的甘露糖结合凝集素识别病原体表面的糖类。</li>
+                        <li><strong>血型识别机制：</strong>ABO血型由红细胞表面糖蛋白和糖脂上的寡糖链决定。A型血含有N-乙酰半乳糖胺末端，B型血含有半乳糖末端，O型血缺乏这些糖基。血清中的相应抗体识别异型糖链引起凝集反应。</li>
+                        <li><strong>病原体感染机制：</strong>许多病毒（如流感病毒）通过识别宿主细胞表面的糖蛋白实现附着和侵入；细菌毒素（如霍乱毒素）特异性结合细胞表面的糖脂受体；这种识别的特异性决定了病原体的组织嗜性和致病性。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h3>思考题3：糖类代谢与其他代谢途径的关系</h3>
+                <p><strong>题目：</strong>分析糖类代谢如何与脂质代谢、蛋白质代谢相互关联，并讨论糖类在维持机体代谢平衡中的核心作用。</p>
+                <button class="btn" onclick="toggleAnswer('answer3')">查看答案</button>
+                <div id="answer3" class="thinking-answer">
+                    <ol>
+                        <li><strong>糖脂代谢关联：</strong>葡萄糖通过糖酵解产生的丙酮酸可转化为乙酰辅酶A，进入脂肪酸合成途径；反之，脂肪酸β氧化产生的乙酰辅酶A可通过糖异生途径转化为葡萄糖。胰岛素和胰高血糖素协调调节这两个过程。</li>
+                        <li><strong>糖蛋白代谢关联：</strong>氨基酸可通过脱氨基作用转化为糖类（糖异生）；糖类代谢产生的α-酮酸可作为氨基酸合成的碳骨架；某些氨基酸（如丙氨酸）是重要的糖异生前体物质。</li>
+                        <li><strong>能量代谢枢纽：</strong>糖类是机体最主要和最快速的能源，ATP的产生主要依赖葡萄糖氧化；在饥饿状态下，糖异生维持血糖稳定，保证大脑等器官的能量需求；糖原作为能量储备，在短期内快速动员。</li>
+                        <li><strong>代谢调节中心：</strong>血糖水平是机体代谢状态的重要指标，通过胰岛素、胰高血糖素等激素的调节，协调糖类、脂质、蛋白质的合成与分解；糖类代谢的关键酶（如磷酸果糖激酶）受到多种代谢物的变构调节。</li>
+                        <li><strong>病理生理意义：</strong>糖尿病等代谢性疾病往往涉及糖类代谢异常，进而影响脂质和蛋白质代谢，说明糖类在维持代谢平衡中的核心地位；糖类代谢异常是许多疾病的共同特征和治疗靶点。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h3>思考题4：糖生物学在现代医学中的应用前景</h3>
+                <p><strong>题目：</strong>结合糖类的结构特点和生物学功能，分析糖生物学在疾病诊断、药物开发和治疗方法创新中的应用前景和挑战。</p>
+                <button class="btn" onclick="toggleAnswer('answer4')">查看答案</button>
+                <div id="answer4" class="thinking-answer">
+                    <ol>
+                        <li><strong>疾病诊断应用：</strong>糖蛋白标志物（如糖化血红蛋白HbA1c）用于糖尿病监测；肿瘤相关糖抗原（如CA125、CEA）用于癌症筛查；糖链结构异常可作为遗传性疾病的诊断指标；糖组学分析有望发现新的疾病生物标志物。</li>
+                        <li><strong>药物开发前景：</strong>糖苷酶抑制剂（如阿卡波糖）用于糖尿病治疗；肝素等糖胺聚糖用作抗凝药物；糖类疫苗（如肺炎球菌多糖疫苗）用于感染性疾病预防；糖类药物载体系统提高药物的靶向性和生物利用度。</li>
+                        <li><strong>治疗方法创新：</strong>糖工程技术改造治疗性蛋白质的糖基化模式，提高药效和稳定性；糖类仿生材料用于组织工程和再生医学；基于糖-蛋白相互作用的靶向治疗策略；糖代谢重编程作为肿瘤治疗的新靶点。</li>
+                        <li><strong>技术挑战：</strong>糖类结构的复杂性和微观不均一性给分析检测带来困难；糖类合成的非模板性使得人工合成复杂糖类困难；糖-蛋白相互作用的低亲和力和高特异性要求精确的检测方法；糖组学数据的标准化和数据库建设仍不完善。</li>
+                        <li><strong>发展趋势：</strong>高通量糖组学技术的发展将加速糖类功能的解析；人工智能在糖类结构预测和功能分析中的应用；个性化糖医学基于个体糖组学特征制定治疗方案；糖类纳米医学在精准治疗中的应用前景广阔。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 题库数据（30道题）
+        const questionBank = [
+            {
+                question: "下列关于糖类分子通式(CH₂O)ₙ的叙述，正确的是：",
+                options: ["A. 所有符合此通式的化合物都是糖类", "B. 所有糖类都符合此通式", "C. 此通式只适用于单糖", "D. 大多数糖类符合此通式，但存在例外"],
+                correct: 3,
+                explanation: "糖类的分子通式(CH₂O)ₙ只是一个概括性的表示，并非所有糖类都严格符合此通式。例如，脱氧核糖的分子式为C₅H₁₀O₄，不符合通式。同时，一些非糖类化合物如甲醛(CH₂O)也符合此通式但不是糖类。"
+            },
+            {
+                question: "判断单糖D型和L型构型的依据是：",
+                options: ["A. 分子的旋光方向", "B. 距羰基碳最远的手性碳上羟基的位置", "C. 分子的甜度", "D. 分子的溶解度"],
+                correct: 1,
+                explanation: "单糖的D型和L型构型是根据分子中距羰基碳最远的手性碳原子上羟基的位置来判断的。如果羟基在右侧（Fischer投影式中），则为D型；如果在左侧，则为L型。这与分子的旋光方向无关。"
+            },
+            {
+                question: "下列双糖中，属于非还原性糖的是：",
+                options: ["A. 麦芽糖", "B. 乳糖", "C. 蔗糖", "D. 纤维二糖"],
+                correct: 2,
+                explanation: "蔗糖是由α-D-葡萄糖的C1与β-D-果糖的C2通过α(1→2)糖苷键连接形成的，两个单糖的异头碳都参与了糖苷键的形成，因此没有自由的异头碳，不具有还原性。其他选项都保留有自由的异头碳，具有还原性。"
+            },
+            {
+                question: "纤维素分子中葡萄糖单位之间的连接方式是：",
+                options: ["A. α(1→4)糖苷键", "B. β(1→4)糖苷键", "C. α(1→6)糖苷键", "D. β(1→6)糖苷键"],
+                correct: 1,
+                explanation: "纤维素是由D-葡萄糖通过β(1→4)糖苷键连接形成的线性多糖。这种连接方式使纤维素分子呈伸展的带状构象，分子间可形成氢键，构成具有高机械强度的纤维结构。"
+            },
+            {
+                question: "糖原的分支点是通过什么糖苷键连接的：",
+                options: ["A. α(1→4)糖苷键", "B. β(1→4)糖苷键", "C. α(1→6)糖苷键", "D. β(1→6)糖苷键"],
+                correct: 2,
+                explanation: "糖原是高度分支的多糖，主链由α(1→4)糖苷键连接，分支点通过α(1→6)糖苷键连接。这种分支结构使糖原具有更多的非还原端，便于快速动员和释放葡萄糖。"
+            },
+            {
+                question: "下列关于变旋现象的叙述，错误的是：",
+                options: ["A. 是由于α-异构体和β-异构体相互转化引起的", "B. 新配制的葡萄糖溶液会发生变旋现象", "C. 变旋是指旋光方向从右旋变成左旋", "D. 最终会达到平衡状态"],
+                correct: 2,
+                explanation: "变旋现象是指糖溶液的旋光度随时间发生变化，最终达到平衡的现象。这是由于α-异构体和β-异构体在溶液中相互转化造成的。变旋不是指旋光方向的改变，而是旋光度数值的变化。"
+            },
+            {
+                question: "血型物质的分类依据是：",
+                options: ["A. 蛋白质的类型", "B. 脂质的类型", "C. 寡糖链的类型", "D. 核酸的类型"],
+                correct: 2,
+                explanation: "ABO血型是根据红细胞表面糖蛋白和糖脂上寡糖链的不同结构来分类的。A型血含有N-乙酰半乳糖胺末端，B型血含有半乳糖末端，O型血缺乏这些特异性糖基。"
+            },
+            {
+                question: "下列糖类中，不具有还原性的是：",
+                options: ["A. 葡萄糖", "B. 果糖", "C. 蔗糖", "D. 麦芽糖"],
+                correct: 2,
+                explanation: "还原性糖必须具有自由的异头碳原子。蔗糖的两个单糖分子都通过异头碳参与糖苷键的形成，没有自由的异头碳，因此不具有还原性。其他选项都有自由的异头碳，具有还原性。"
+            },
+            {
+                question: "糖蛋白中糖链与蛋白质的连接方式不包括：",
+                options: ["A. N-糖苷键连接", "B. O-糖苷键连接", "C. 二硫键连接", "D. 糖肽键连接"],
+                correct: 2,
+                explanation: "糖蛋白中糖链与蛋白质主要通过两种方式连接：N-糖苷键（与天冬酰胺连接）和O-糖苷键（与丝氨酸或苏氨酸连接）。二硫键是蛋白质分子内或分子间的连接方式，不是糖链与蛋白质的连接方式。"
+            },
+            {
+                question: "透明质酸的组成单位是：",
+                options: ["A. 葡萄糖和果糖", "B. N-乙酰葡糖胺和葡糖醛酸", "C. 半乳糖和葡萄糖", "D. 甘露糖和葡萄糖"],
+                correct: 1,
+                explanation: "透明质酸是一种重要的糖胺聚糖，由N-乙酰葡糖胺和D-葡糖醛酸交替连接形成。它是细胞外基质的重要组成成分，具有保水、润滑等功能。"
+            },
+            {
+                question: "下列关于几丁质的叙述，正确的是：",
+                options: ["A. 是植物细胞壁的主要成分", "B. 由N-乙酰氨基葡萄糖组成", "C. 通过α(1→4)糖苷键连接", "D. 是动物的储能多糖"],
+                correct: 1,
+                explanation: "几丁质是由N-乙酰氨基葡萄糖通过β(1→4)糖苷键连接形成的多糖，是节肢动物外骨骼和真菌细胞壁的主要成分。它不是植物细胞壁成分，也不是储能多糖。"
+            },
+            {
+                question: "糖原磷酸化酶的作用是：",
+                options: ["A. 合成糖原", "B. 分解糖原产生葡萄糖", "C. 分解糖原产生葡萄糖-1-磷酸", "D. 将葡萄糖转化为糖原"],
+                correct: 2,
+                explanation: "糖原磷酸化酶催化糖原的磷酸解反应，从糖原的非还原端逐个切除葡萄糖单位，产生葡萄糖-1-磷酸。这是糖原分解的第一步，产物不是游离的葡萄糖。"
+            },
+            {
+                question: "下列关于淀粉的叙述，错误的是：",
+                options: ["A. 包括直链淀粉和支链淀粉", "B. 是植物的储能多糖", "C. 遇碘呈蓝色", "D. 所有淀粉都遇碘呈蓝色"],
+                correct: 3,
+                explanation: "只有直链淀粉遇碘呈蓝色，这是因为直链淀粉的螺旋结构可以包容碘分子形成络合物。支链淀粉由于分支较多，螺旋结构不完整，遇碘呈紫红色。糖原遇碘呈棕红色。"
+            },
+            {
+                question: "脱氧核糖与核糖的区别在于：",
+                options: ["A. 脱氧核糖少一个羟基", "B. 脱氧核糖多一个羟基", "C. 脱氧核糖少一个氢原子", "D. 脱氧核糖多一个甲基"],
+                correct: 0,
+                explanation: "脱氧核糖在C2'位置缺少一个羟基，只有氢原子，而核糖在C2'位置有羟基。这个结构差异使DNA比RNA更稳定，不易被碱性条件水解。"
+            },
+            {
+                question: "下列关于糖脂的叙述，正确的是：",
+                options: ["A. 主要分布在细胞膜内侧", "B. 主要分布在细胞膜外侧", "C. 在膜内外均匀分布", "D. 只存在于胞内膜系统"],
+                correct: 1,
+                explanation: "糖脂主要分布在细胞膜的外侧，糖链朝向细胞外，参与细胞识别、膜稳定性维持等功能。这种不对称分布是膜结构的重要特征。"
+            },
+            {
+                question: "肝素的主要生物学功能是：",
+                options: ["A. 储存能量", "B. 抗凝血", "C. 结构支撑", "D. 信息传递"],
+                correct: 1,
+                explanation: "肝素是一种高度硫酸化的糖胺聚糖，具有强烈的抗凝血作用。它通过激活抗凝血酶III来发挥抗凝作用，广泛用于临床抗凝治疗。"
+            },
+            {
+                question: "糖被的主要组成成分是：",
+                options: ["A. 蛋白质和脂质", "B. 糖蛋白和糖脂", "C. 多糖和蛋白质", "D. 核酸和糖类"],
+                correct: 1,
+                explanation: "糖被是细胞膜外表面的糖类外壳，主要由糖蛋白和糖脂的糖链部分组成。它参与细胞识别、保护和信号转导等重要功能。"
+            },
+            {
+                question: "下列单糖中，属于酮糖的是：",
+                options: ["A. 葡萄糖", "B. 半乳糖", "C. 果糖", "D. 甘露糖"],
+                correct: 2,
+                explanation: "果糖是六碳酮糖，在C2位置含有酮基。其他选项都是醛糖，含有醛基。果糖是自然界中甜度最高的单糖。"
+            },
+            {
+                question: "乳糖不耐受的原因是：",
+                options: ["A. 缺乏蔗糖酶", "B. 缺乏乳糖酶", "C. 缺乏麦芽糖酶", "D. 缺乏淀粉酶"],
+                correct: 1,
+                explanation: "乳糖不耐受是由于小肠黏膜缺乏乳糖酶，无法将乳糖分解为葡萄糖和半乳糖，导致乳糖在肠道内发酵产生气体和有机酸，引起腹胀、腹泻等症状。"
+            },
+            {
+                question: "糖原合成的关键酶是：",
+                options: ["A. 糖原磷酸化酶", "B. 糖原合酶", "C. 葡萄糖激酶", "D. 磷酸葡萄糖变位酶"],
+                correct: 1,
+                explanation: "糖原合酶是糖原合成的关键限速酶，催化UDP-葡萄糖与糖原引物结合形成α(1→4)糖苷键。该酶受到胰岛素等激素的调节。"
+            },
+            {
+                question: "下列关于凝集素的叙述，错误的是：",
+                options: ["A. 能特异性结合糖类", "B. 广泛存在于生物体内", "C. 只存在于植物中", "D. 参与细胞识别"],
+                correct: 2,
+                explanation: "凝集素广泛存在于植物、动物和微生物中，不仅限于植物。它们能够特异性识别和结合特定的糖链结构，参与细胞识别、免疫反应等多种生物学过程。"
+            },
+            {
+                question: "糖化血红蛋白(HbA1c)反映的是：",
+                options: ["A. 当前血糖水平", "B. 过去2-3个月的平均血糖水平", "C. 胰岛素水平", "D. 糖耐量状况"],
+                correct: 1,
+                explanation: "糖化血红蛋白是葡萄糖与血红蛋白非酶性结合的产物，由于红细胞寿命约120天，HbA1c能够反映过去2-3个月的平均血糖水平，是糖尿病监测的重要指标。"
+            },
+            {
+                question: "纤维素不能被人体消化的原因是：",
+                options: ["A. 分子量太大", "B. 人体缺乏β-1,4-葡聚糖酶", "C. 结构太复杂", "D. 不溶于水"],
+                correct: 1,
+                explanation: "人体消化道内缺乏能够水解β(1→4)糖苷键的纤维素酶，因此无法消化纤维素。虽然纤维素不能被消化，但作为膳食纤维对维持肠道健康有重要作用。"
+            },
+            {
+                question: "下列关于糖苷键的叙述，正确的是：",
+                options: ["A. 只能在酸性条件下水解", "B. α-糖苷键比β-糖苷键更稳定", "C. 形成时伴随脱水反应", "D. 只存在于多糖中"],
+                correct: 2,
+                explanation: "糖苷键是通过脱水缩合反应形成的共价键，连接两个单糖分子。它可以在酸性或酶催化条件下水解，α-糖苷键和β-糖苷键的稳定性相似，糖苷键不仅存在于多糖中，也存在于双糖中。"
+            },
+            {
+                question: "ATP分子中含有的糖类成分是：",
+                options: ["A. 葡萄糖", "B. 果糖", "C. 核糖", "D. 脱氧核糖"],
+                correct: 2,
+                explanation: "ATP(腺苷三磷酸)分子由腺嘌呤、核糖和三个磷酸基团组成。其中核糖是五碳糖，为ATP提供糖类骨架结构。"
+            },
+            {
+                question: "下列多糖中，分支度最高的是：",
+                options: ["A. 直链淀粉", "B. 支链淀粉", "C. 糖原", "D. 纤维素"],
+                correct: 2,
+                explanation: "糖原的分支度最高，大约每8-12个葡萄糖残基就有一个α(1→6)分支点，而支链淀粉的分支度较低，约每20-25个葡萄糖残基有一个分支点。直链淀粉和纤维素都是线性分子，无分支。"
+            },
+            {
+                question: "糖蛋白糖基化主要发生在：",
+                options: ["A. 细胞质中", "B. 内质网和高尔基体", "C. 线粒体中", "D. 细胞核中"],
+                correct: 1,
+                explanation: "蛋白质的糖基化主要在内质网（N-连接糖基化的起始）和高尔基体（糖链的修饰和O-连接糖基化）中进行。这是蛋白质翻译后修饰的重要过程。"
+            },
+            {
+                question: "下列关于异头异构体的叙述，正确的是：",
+                options: ["A. 只在异头碳构型上不同", "B. 具有相同的旋光性", "C. 不能相互转化", "D. 只存在于酮糖中"],
+                correct: 0,
+                explanation: "异头异构体是指仅在异头碳原子上构型不同的立体异构体，如α-D-葡萄糖和β-D-葡萄糖。它们可以通过变旋现象相互转化，具有不同的旋光性。"
+            },
+            {
+                question: "硫酸软骨素属于：",
+                options: ["A. 糖蛋白", "B. 糖脂", "C. 糖胺聚糖", "D. 寡糖"],
+                correct: 2,
+                explanation: "硫酸软骨素是一种重要的糖胺聚糖，由N-乙酰半乳糖胺和葡糖醛酸交替连接并含有硫酸基团。它是软骨基质的重要组成成分。"
+            },
+            {
+                question: "下列关于单糖Fischer投影式的叙述，错误的是：",
+                options: ["A. 垂直线代表伸向纸面后方的键", "B. 水平线代表伸向纸面前方的键", "C. 羰基碳在顶端或接近顶端", "D. 所有碳原子都在同一平面上"],
+                correct: 3,
+                explanation: "Fischer投影式是三维分子结构的平面表示方法，垂直线代表伸向纸面后方的键，水平线代表伸向纸面前方的键。分子实际上是三维的，不是所有碳原子都在同一平面上。"
+            }
+        ];
+        
+        let currentQuiz = [];
+        let userAnswers = [];
+        let quizSubmitted = false;
+        
+        // 页面加载时自动生成15道随机题目
+        window.onload = function() {
+            generateRandomQuiz();
+        };
+        
+        // 从题库中随机选择15道题
+        function generateRandomQuiz() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuiz = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            renderQuiz();
+        }
+        
+        // 渲染题目到页面
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            currentQuiz.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    <ul class="options">
+                        ${q.options.map((option, optIndex) => 
+                            `<li onclick="selectOption(${index}, ${optIndex})" id="q${index}_opt${optIndex}">${option}</li>`
+                        ).join('')}
+                    </ul>
+                    <div id="explanation_${index}" class="explanation"></div>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+        
+        // 选择答案
+        function selectOption(questionIndex, optionIndex) {
+            if (quizSubmitted) return;
+            
+            // 清除该题目的其他选项的选中状态
+            for (let i = 0; i < 4; i++) {
+                const opt = document.getElementById(`q${questionIndex}_opt${i}`);
+                opt.classList.remove('selected');
+            }
+            
+            // 标记当前选项为选中
+            document.getElementById(`q${questionIndex}_opt${optionIndex}`).classList.add('selected');
+            userAnswers[questionIndex] = optionIndex;
+        }
+        
+        // 提交答案
+        function submitQuiz() {
+            if (quizSubmitted) return;
+            
+            let correctCount = 0;
+            
+            currentQuiz.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const correctAnswer = q.correct;
+                
+                // 显示正确答案和用户答案
+                for (let i = 0; i < 4; i++) {
+                    const opt = document.getElementById(`q${index}_opt${i}`);
+                    opt.classList.remove('selected');
+                    
+                    if (i === correctAnswer) {
+                        opt.classList.add('correct');
+                    } else if (i === userAnswer && userAnswer !== correctAnswer) {
+                        opt.classList.add('incorrect');
+                    }
+                }
+                
+                // 显示解析
+                const explanationDiv = document.getElementById(`explanation_${index}`);
+                explanationDiv.innerHTML = `<strong>解析：</strong>${q.explanation}`;
+                explanationDiv.style.display = 'block';
+                
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
+                }
+            });
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((correctCount / 15) * 100);
+            resultDiv.innerHTML = `
+                <h3>测试结果</h3>
+                <p>您答对了 <strong>${correctCount}</strong> 道题，共 <strong>15</strong> 道题</p>
+                <p>正确率：<strong>${percentage}%</strong></p>
+                <p>${getScoreComment(percentage)}</p>
+            `;
+            resultDiv.style.display = 'block';
+            
+            // 更新按钮状态
+            document.getElementById('submit-btn').style.display = 'none';
+            document.getElementById('reset-btn').style.display = 'inline-block';
+            
+            quizSubmitted = true;
+        }
+        
+        // 根据分数给出评价
+        function getScoreComment(percentage) {
+            if (percentage >= 90) {
+                return "优秀！您对糖类和糖生物学的知识掌握得非常好！";
+            } else if (percentage >= 80) {
+                return "良好！您的基础知识比较扎实，继续加油！";
+            } else if (percentage >= 70) {
+                return "中等！还需要进一步复习和巩固相关知识点。";
+            } else if (percentage >= 60) {
+                return "及格！建议重点复习错题涉及的知识点。";
+            } else {
+                return "需要加强！建议系统复习糖类和糖生物学的基础知识。";
+            }
+        }
+        
+        // 重新测试
+        function resetQuiz() {
+            quizSubmitted = false;
+            generateRandomQuiz();
+            
+            // 隐藏结果
+            document.getElementById('quiz-result').style.display = 'none';
+            
+            // 更新按钮状态
+            document.getElementById('submit-btn').style.display = 'inline-block';
+            document.getElementById('reset-btn').style.display = 'none';
+        }
+        
+        // 切换深度思考题答案显示
+        function toggleAnswer(answerId) {
+            const answerDiv = document.getElementById(answerId);
+            if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'block';
+            } else {
+                answerDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

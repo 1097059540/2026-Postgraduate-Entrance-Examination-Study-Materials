@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核酸的结构和功能 - 考研复习笔记</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 强调文本 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            line-height: 1.7;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .option {
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e8f4fd;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-success {
+            background: #27ae60;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+        }
+
+        /* 结果显示 */
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+
+        .result-danger {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #27ae60;
+        }
+
+        /* 图片样式 */
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .figure svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .figure-caption {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>核酸的结构和功能</h1>
+            <p>考研生物化学复习笔记 | 基于《生物化学》第四版（朱圣庚、徐长法主编）</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、核酸的历史发现与重要意义</h2>
+                
+                <h3>1.1 重要历史节点</h3>
+                <ul>
+                    <li><span class="emphasis">1869年</span>：瑞士生物化学家<span class="highlight">米歇尔（Miescher）</span>首次从白细胞核中分离出核酸</li>
+                    <li><span class="emphasis">1944年</span>：<span class="highlight">艾弗里（Avery）</span>等证明DNA是遗传物质</li>
+                    <li><span class="emphasis">1950年</span>：<span class="highlight">查戈夫（Chargaff）</span>发现查戈夫定则：[A]=[T]，[G]=[C]</li>
+                    <li><span class="emphasis">1953年</span>：<span class="highlight">沃森（Watson）和克里克（Crick）</span>提出DNA双螺旋结构模型</li>
+                    <li><span class="emphasis">1958年</span>：<span class="highlight">中心法则</span>的提出：DNA→RNA→蛋白质</li>
+                </ul>
+
+                <h3>1.2 核酸的基本分类</h3>
+                <p>核酸根据所含戊糖的不同分为两大类：</p>
+                <ul>
+                    <li><span class="emphasis">脱氧核糖核酸（DNA）</span>：含脱氧核糖，主要负责遗传信息的储存和传递</li>
+                    <li><span class="emphasis">核糖核酸（RNA）</span>：含核糖，参与遗传信息的表达和蛋白质合成</li>
+                </ul>
+            </div>
+
+            <!-- 化学组成 -->
+            <div class="section">
+                <h2>二、核酸的化学组成</h2>
+                
+                <h3>2.1 基本组成单位</h3>
+                <p>核酸的基本组成单位是<span class="emphasis">核苷酸（nucleotide）</span>，每个核苷酸由三部分组成：</p>
+                
+                <h4>（1）含氮碱基</h4>
+                <ul>
+                    <li><span class="emphasis">嘌呤碱基</span>：腺嘌呤（A）、鸟嘌呤（G）</li>
+                    <li><span class="emphasis">嘧啶碱基</span>：胞嘧啶（C）、胸腺嘧啶（T，仅存在于DNA）、尿嘧啶（U，仅存在于RNA）</li>
+                </ul>
+                
+                <h4>（2）戊糖</h4>
+                <ul>
+                    <li><span class="emphasis">脱氧核糖</span>：DNA中的戊糖，2'位缺少羟基</li>
+                    <li><span class="emphasis">核糖</span>：RNA中的戊糖，2'位和3'位都有羟基</li>
+                </ul>
+                
+                <h4>（3）磷酸基团</h4>
+                <p>连接相邻核苷酸，形成核酸的骨架结构。</p>
+
+                <h3>2.2 DNA与RNA的组成差异</h3>
+                <table>
+                    <tr>
+                        <th>组成成分</th>
+                        <th>DNA</th>
+                        <th>RNA</th>
+                    </tr>
+                    <tr>
+                        <td>戊糖</td>
+                        <td>脱氧核糖</td>
+                        <td>核糖</td>
+                    </tr>
+                    <tr>
+                        <td>嘌呤碱基</td>
+                        <td>腺嘌呤（A）、鸟嘌呤（G）</td>
+                        <td>腺嘌呤（A）、鸟嘌呤（G）</td>
+                    </tr>
+                    <tr>
+                        <td>嘧啶碱基</td>
+                        <td>胞嘧啶（C）、胸腺嘧啶（T）</td>
+                        <td>胞嘧啶（C）、尿嘧啶（U）</td>
+                    </tr>
+                    <tr>
+                        <td>磷酸基团</td>
+                        <td>磷酸</td>
+                        <td>磷酸</td>
+                    </tr>
+                    <tr>
+                        <td>链数</td>
+                        <td>双链</td>
+                        <td>单链</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 结构层次 -->
+            <div class="section">
+                <h2>三、核酸的结构层次</h2>
+                
+                <h3>3.1 一级结构（Primary Structure）</h3>
+                <p>核酸的一级结构是指<span class="emphasis">核苷酸的排列顺序</span>，即碱基序列。核苷酸之间通过<span class="highlight">3',5'-磷酸二酯键</span>连接，形成具有方向性的多核苷酸链。</p>
+                
+                <h4>重要特点：</h4>
+                <ul>
+                    <li>具有方向性：5'端→3'端</li>
+                    <li>磷酸二酯键连接相邻核苷酸的3'碳和5'碳</li>
+                    <li>碱基序列决定遗传信息</li>
+                </ul>
+
+                <h3>3.2 二级结构（Secondary Structure）</h3>
+                
+                <h4>3.2.1 DNA的二级结构 - 双螺旋结构</h4>
+                <p>1953年沃森和克里克提出的DNA双螺旋结构模型具有以下特点：</p>
+                
+                <h5>基本特征：</h5>
+                <ul>
+                    <li><span class="emphasis">反向平行</span>：两条链方向相反（5'→3'和3'→5'）</li>
+                    <li><span class="emphasis">右手螺旋</span>：螺旋方向为右手螺旋</li>
+                    <li><span class="emphasis">碱基配对</span>：A与T配对（2个氢键），G与C配对（3个氢键）</li>
+                    <li><span class="emphasis">碱基堆积</span>：同一链上相邻碱基间的疏水相互作用</li>
+                </ul>
+                
+                <h5>结构参数（B-DNA）：</h5>
+                <ul>
+                    <li>螺旋直径：<span class="highlight">2.0 nm</span></li>
+                    <li>螺距：<span class="highlight">3.4 nm</span></li>
+                    <li>每圈碱基对数：<span class="highlight">10对</span></li>
+                    <li>相邻碱基对间距：<span class="highlight">0.34 nm</span></li>
+                    <li>碱基对转角：<span class="highlight">36°</span></li>
+                </ul>
+
+                <h5>DNA的多态性：</h5>
+                <table>
+                    <tr>
+                        <th>DNA构象</th>
+                        <th>螺旋方向</th>
+                        <th>存在条件</th>
+                        <th>特点</th>
+                    </tr>
+                    <tr>
+                        <td>A-DNA</td>
+                        <td>右手螺旋</td>
+                        <td>低湿度（75%）</td>
+                        <td>螺旋更紧密，碱基对倾斜</td>
+                    </tr>
+                    <tr>
+                        <td>B-DNA</td>
+                        <td>右手螺旋</td>
+                        <td>生理条件（92%湿度）</td>
+                        <td>最常见形式，碱基对垂直于螺旋轴</td>
+                    </tr>
+                    <tr>
+                        <td>Z-DNA</td>
+                        <td>左手螺旋</td>
+                        <td>高盐浓度，GC富集区</td>
+                        <td>"之"字形骨架，可能参与基因调控</td>
+                    </tr>
+                </table>
+
+                <h4>3.2.2 RNA的二级结构</h4>
+                <p>RNA通常为单链分子，但可通过分子内碱基配对形成复杂的二级结构：</p>
+                <ul>
+                    <li><span class="emphasis">发夹结构（Hairpin）</span>：短的回文序列形成的茎环结构</li>
+                    <li><span class="emphasis">三叶草结构</span>：tRNA的典型二级结构</li>
+                    <li><span class="emphasis">假结（Pseudoknot）</span>：复杂的折叠结构</li>
+                </ul>
+
+                <h3>3.3 三级结构（Tertiary Structure）</h3>
+                
+                <h4>3.3.1 DNA的三级结构</h4>
+                <ul>
+                    <li><span class="emphasis">超螺旋结构</span>：DNA双螺旋的进一步扭曲，多为负超螺旋</li>
+                    <li><span class="emphasis">核小体</span>：DNA缠绕组蛋白八聚体形成的基本包装单位</li>
+                    <li><span class="emphasis">染色质纤维</span>：核小体进一步压缩形成的高级结构</li>
+                </ul>
+                
+                <h4>3.3.2 RNA的三级结构</h4>
+                <p>以tRNA为例：</p>
+                <ul>
+                    <li><span class="emphasis">倒L型结构</span>：tRNA的三维空间构象</li>
+                    <li><span class="emphasis">功能区域</span>：氨基酸结合臂、反密码子臂等</li>
+                </ul>
+            </div>
+
+            <!-- 功能 -->
+            <div class="section">
+                <h2>四、核酸的生物学功能</h2>
+                
+                <h3>4.1 DNA的主要功能</h3>
+                <ul>
+                    <li><span class="emphasis">遗传信息储存</span>：以碱基序列形式储存遗传信息</li>
+                    <li><span class="emphasis">遗传信息传递</span>：通过DNA复制实现遗传信息的垂直传递</li>
+                    <li><span class="emphasis">基因表达调控</span>：调控序列参与基因表达的时空调控</li>
+                </ul>
+                
+                <h3>4.2 RNA的多样化功能</h3>
+                
+                <h4>4.2.1 经典功能</h4>
+                <ul>
+                    <li><span class="emphasis">信使RNA（mRNA）</span>：携带遗传信息，作为蛋白质合成的模板</li>
+                    <li><span class="emphasis">转移RNA（tRNA）</span>：转运氨基酸，参与蛋白质合成</li>
+                    <li><span class="emphasis">核糖体RNA（rRNA）</span>：构成核糖体，催化肽键形成</li>
+                </ul>
+                
+                <h4>4.2.2 调控功能</h4>
+                <ul>
+                    <li><span class="emphasis">微小RNA（miRNA）</span>：调控基因表达</li>
+                    <li><span class="emphasis">小干扰RNA（siRNA）</span>：参与RNA干扰</li>
+                    <li><span class="emphasis">长链非编码RNA（lncRNA）</span>：多种调控功能</li>
+                </ul>
+                
+                <h4>4.2.3 催化功能</h4>
+                <ul>
+                    <li><span class="emphasis">核酶（Ribozyme）</span>：具有催化活性的RNA分子</li>
+                    <li>例如：肽基转移酶、RNase P、自剪接内含子等</li>
+                </ul>
+
+                <h3>4.3 中心法则与遗传信息流</h3>
+                <div class="figure">
+                    <svg width="600" height="200" viewBox="0 0 600 200">
+                        <!-- DNA复制 -->
+                        <rect x="50" y="50" width="80" height="40" fill="#3498db" rx="5"/>
+                        <text x="90" y="75" text-anchor="middle" fill="white" font-weight="bold">DNA</text>
+                        <path d="M 90 50 Q 90 20 90 50" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                        <text x="90" y="15" text-anchor="middle" font-size="12" fill="#e74c3c">复制</text>
+                        
+                        <!-- 转录 -->
+                        <path d="M 130 70 L 220 70" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="175" y="65" text-anchor="middle" font-size="12" fill="#27ae60">转录</text>
+                        
+                        <!-- RNA -->
+                        <rect x="250" y="50" width="80" height="40" fill="#e67e22" rx="5"/>
+                        <text x="290" y="75" text-anchor="middle" fill="white" font-weight="bold">RNA</text>
+                        
+                        <!-- 翻译 -->
+                        <path d="M 330 70 L 420 70" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="375" y="65" text-anchor="middle" font-size="12" fill="#9b59b6">翻译</text>
+                        
+                        <!-- 蛋白质 -->
+                        <rect x="450" y="50" width="80" height="40" fill="#34495e" rx="5"/>
+                        <text x="490" y="75" text-anchor="middle" fill="white" font-weight="bold">蛋白质</text>
+                        
+                        <!-- 箭头定义 -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="currentColor"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- 标题 -->
+                        <text x="300" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">中心法则：遗传信息流向</text>
+                    </svg>
+                    <div class="figure-caption">图1：中心法则示意图 - 遗传信息从DNA到RNA再到蛋白质的流向</div>
+                </div>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>五、重要名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">核苷酸</div>
+                    <div class="term-english">Nucleotide</div>
+                    <div class="term-definition">核酸的基本组成单位，由含氮碱基、戊糖和磷酸基团组成。是构成DNA和RNA的基本结构单元。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">核苷</div>
+                    <div class="term-english">Nucleoside</div>
+                    <div class="term-definition">由含氮碱基和戊糖通过糖苷键结合形成的化合物，不含磷酸基团。核苷加上磷酸基团即为核苷酸。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">查戈夫定则</div>
+                    <div class="term-english">Chargaff's Rules</div>
+                    <div class="term-definition">在双链DNA中，腺嘌呤的数量等于胸腺嘧啶的数量（[A]=[T]），鸟嘌呤的数量等于胞嘧啶的数量（[G]=[C]）。这一定则为DNA双螺旋结构的提出提供了重要依据。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">双螺旋结构</div>
+                    <div class="term-english">Double Helix Structure</div>
+                    <div class="term-definition">DNA的二级结构，由两条反向平行的多核苷酸链围绕同一中心轴相互缠绕形成的右手螺旋结构。碱基通过氢键配对，维持结构稳定。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">碱基配对</div>
+                    <div class="term-english">Base Pairing</div>
+                    <div class="term-definition">DNA双链中互补碱基之间通过氢键结合的现象。腺嘌呤与胸腺嘧啶配对（A-T，2个氢键），鸟嘌呤与胞嘧啶配对（G-C，3个氢键）。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">超螺旋</div>
+                    <div class="term-english">Supercoiling</div>
+                    <div class="term-definition">DNA双螺旋的进一步扭曲形成的三级结构。生物体内多为负超螺旋，有利于DNA的复制、转录等过程中双链的解开。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">核小体</div>
+                    <div class="term-english">Nucleosome</div>
+                    <div class="term-definition">真核细胞染色质的基本结构单位，由约147个碱基对的DNA缠绕组蛋白八聚体（H2A、H2B、H3、H4各2个）形成，呈现"串珠"状结构。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">中心法则</div>
+                    <div class="term-english">Central Dogma</div>
+                    <div class="term-definition">描述遗传信息流向的基本规律：DNA→RNA→蛋白质。即遗传信息从DNA转录到RNA，再从RNA翻译成蛋白质。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">核酶</div>
+                    <div class="term-english">Ribozyme</div>
+                    <div class="term-definition">具有催化活性的RNA分子，能够催化特定的生化反应。证明了RNA不仅能储存遗传信息，还具有催化功能。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">反密码子</div>
+                    <div class="term-english">Anticodon</div>
+                    <div class="term-definition">tRNA分子上与mRNA密码子互补配对的三个连续碱基序列，决定tRNA携带的氨基酸种类。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">变性</div>
+                    <div class="term-english">Denaturation</div>
+                    <div class="term-definition">在高温、极端pH或化学试剂作用下，DNA双链分离成单链的过程。变性过程是可逆的，条件适宜时可发生复性。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">熔解温度</div>
+                    <div class="term-english">Melting Temperature, Tm</div>
+                    <div class="term-definition">DNA双链50%解离时的温度。Tm值与GC含量正相关，因为G-C碱基对比A-T碱基对多一个氢键，更稳定。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>六、选择题自测（随机15题）</h2>
+                <div class="quiz-container" id="quizContainer">
+                    <div id="questionsContainer"></div>
+                    <button class="btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quizResult" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>七、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述DNA双螺旋结构的发现过程及其科学意义，并分析该模型如何解释遗传信息的储存、复制和传递机制。</h4>
+                    <div class="answer">
+                        <h5>答案要点：</h5>
+                        <ol>
+                            <li><strong>发现过程</strong>：
+                                <ul>
+                                    <li>查戈夫定则的发现为碱基配对提供了化学基础</li>
+                                    <li>富兰克林的X射线衍射数据（照片51）提供了结构证据</li>
+                                    <li>沃森和克里克整合多方面信息，提出双螺旋模型</li>
+                                    <li>模型的提出是多学科协作的典型范例</li>
+                                </ul>
+                            </li>
+                            <li><strong>科学意义</strong>：
+                                <ul>
+                                    <li>奠定了分子生物学的基础，开启了分子生物学时代</li>
+                                    <li>为理解遗传现象提供了分子基础</li>
+                                    <li>推动了基因工程、生物技术等领域的发展</li>
+                                    <li>为疾病诊断和治疗提供了新思路</li>
+                                </ul>
+                            </li>
+                            <li><strong>遗传信息储存机制</strong>：
+                                <ul>
+                                    <li>碱基序列作为遗传信息的载体</li>
+                                    <li>四种碱基的不同排列组合产生巨大的信息容量</li>
+                                    <li>双链结构提供了信息的冗余保护</li>
+                                </ul>
+                            </li>
+                            <li><strong>复制机制</strong>：
+                                <ul>
+                                    <li>半保留复制方式确保遗传信息的准确传递</li>
+                                    <li>碱基配对规则保证复制的忠实性</li>
+                                    <li>反向平行结构为复制提供了模板</li>
+                                </ul>
+                            </li>
+                            <li><strong>传递机制</strong>：
+                                <ul>
+                                    <li>转录过程将DNA信息转移到RNA</li>
+                                    <li>翻译过程将RNA信息转化为蛋白质</li>
+                                    <li>中心法则描述了信息流的基本方向</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较分析DNA和RNA在结构、功能和生物学意义方面的异同，并讨论RNA世界假说的科学依据。</h4>
+                    <div class="answer">
+                        <h5>答案要点：</h5>
+                        <ol>
+                            <li><strong>结构差异</strong>：
+                                <ul>
+                                    <li>戊糖：DNA含脱氧核糖，RNA含核糖</li>
+                                    <li>碱基：DNA含T，RNA含U</li>
+                                    <li>链数：DNA通常为双链，RNA通常为单链</li>
+                                    <li>稳定性：DNA更稳定，RNA相对不稳定</li>
+                                </ul>
+                            </li>
+                            <li><strong>功能差异</strong>：
+                                <ul>
+                                    <li>DNA主要负责遗传信息的长期储存</li>
+                                    <li>RNA参与遗传信息的表达和调控</li>
+                                    <li>RNA具有催化功能（核酶）</li>
+                                    <li>RNA在蛋白质合成中起关键作用</li>
+                                </ul>
+                            </li>
+                            <li><strong>相同点</strong>：
+                                <ul>
+                                    <li>都是核苷酸聚合物</li>
+                                    <li>都能储存遗传信息</li>
+                                    <li>都遵循碱基配对规则</li>
+                                    <li>都具有方向性（5'→3'）</li>
+                                </ul>
+                            </li>
+                            <li><strong>RNA世界假说的科学依据</strong>：
+                                <ul>
+                                    <li>RNA同时具有信息储存和催化功能</li>
+                                    <li>核酶的发现证明RNA的催化能力</li>
+                                    <li>RNA可以自我复制（某些病毒）</li>
+                                    <li>蛋白质合成的核心步骤由RNA催化</li>
+                                    <li>许多辅酶含有核苷酸成分</li>
+                                </ul>
+                            </li>
+                            <li><strong>进化意义</strong>：
+                                <ul>
+                                    <li>RNA可能是最早的遗传物质</li>
+                                    <li>DNA的出现提高了遗传信息的稳定性</li>
+                                    <li>蛋白质的出现扩展了催化功能</li>
+                                    <li>形成了现代的DNA-RNA-蛋白质体系</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 分析核酸的不同结构层次（一级、二级、三级）及其生物学功能的关系，并举例说明结构与功能的统一性。</h4>
+                    <div class="answer">
+                        <h5>答案要点：</h5>
+                        <ol>
+                            <li><strong>一级结构与功能</strong>：
+                                <ul>
+                                    <li>碱基序列决定遗传信息的内容</li>
+                                    <li>序列的特异性决定基因的功能</li>
+                                    <li>突变改变序列可导致功能异常</li>
+                                    <li>例如：血红蛋白基因突变导致镰刀型细胞贫血</li>
+                                </ul>
+                            </li>
+                            <li><strong>二级结构与功能</strong>：
+                                <ul>
+                                    <li>DNA双螺旋结构保护遗传信息</li>
+                                    <li>碱基配对确保复制的准确性</li>
+                                    <li>RNA的发夹结构参与调控功能</li>
+                                    <li>例如：tRNA的三叶草结构决定其转运功能</li>
+                                </ul>
+                            </li>
+                            <li><strong>三级结构与功能</strong>：
+                                <ul>
+                                    <li>DNA超螺旋调节基因表达</li>
+                                    <li>染色质结构影响基因可及性</li>
+                                    <li>RNA的三维结构决定催化活性</li>
+                                    <li>例如：核酶的活性位点由三级结构形成</li>
+                                </ul>
+                            </li>
+                            <li><strong>结构层次间的相互关系</strong>：
+                                <ul>
+                                    <li>一级结构是基础，决定高级结构的形成</li>
+                                    <li>二级结构是一级结构的空间表现</li>
+                                    <li>三级结构是功能实现的关键</li>
+                                    <li>各层次结构相互依存，共同决定功能</li>
+                                </ul>
+                            </li>
+                            <li><strong>结构与功能统一性的实例</strong>：
+                                <ul>
+                                    <li>tRNA：L型三级结构使氨基酸结合位点和反密码子分离</li>
+                                    <li>核糖体RNA：复杂的三级结构形成肽基转移酶活性中心</li>
+                                    <li>DNA拓扑结构：负超螺旋有利于转录起始</li>
+                                    <li>miRNA：茎环结构决定其调控特异性</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 论述核酸在现代生物技术中的应用，并分析其发展前景和潜在挑战。</h4>
+                    <div class="answer">
+                        <h5>答案要点：</h5>
+                        <ol>
+                            <li><strong>基因工程技术</strong>：
+                                <ul>
+                                    <li>重组DNA技术：构建表达载体，生产重组蛋白</li>
+                                    <li>基因克隆：获得目的基因，研究基因功能</li>
+                                    <li>转基因技术：改良作物性状，生产药用蛋白</li>
+                                    <li>应用实例：胰岛素、生长激素的工业化生产</li>
+                                </ul>
+                            </li>
+                            <li><strong>基因诊断与治疗</strong>：
+                                <ul>
+                                    <li>PCR技术：快速检测病原体，诊断遗传病</li>
+                                    <li>基因芯片：大规模基因表达分析</li>
+                                    <li>基因治疗：纠正缺陷基因，治疗遗传病</li>
+                                    <li>个性化医疗：根据基因型制定治疗方案</li>
+                                </ul>
+                            </li>
+                            <li><strong>新兴技术</strong>：
+                                <ul>
+                                    <li>CRISPR-Cas9：精确基因编辑技术</li>
+                                    <li>RNA干扰：基因沉默技术</li>
+                                    <li>合成生物学：设计人工生物系统</li>
+                                    <li>纳米生物技术：DNA纳米结构的构建</li>
+                                </ul>
+                            </li>
+                            <li><strong>发展前景</strong>：
+                                <ul>
+                                    <li>精准医疗：基于基因组信息的个体化治疗</li>
+                                    <li>基因编辑：治疗更多遗传性疾病</li>
+                                    <li>合成生物学：创造新的生物功能</li>
+                                    <li>生物计算：DNA作为信息存储介质</li>
+                                </ul>
+                            </li>
+                            <li><strong>潜在挑战</strong>：
+                                <ul>
+                                    <li>伦理问题：基因编辑的道德边界</li>
+                                    <li>安全性：基因治疗的副作用</li>
+                                    <li>技术限制：递送系统的效率</li>
+                                    <li>社会接受度：公众对基因技术的认知</li>
+                                    <li>法律法规：相关政策的完善</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "首次从细胞核中分离出核酸的科学家是：",
+                options: ["A. 沃森", "B. 克里克", "C. 米歇尔", "D. 查戈夫"],
+                correct: 2,
+                explanation: "1869年，瑞士生物化学家米歇尔首次从白细胞核中分离出核酸，这是核酸研究的开端。"
+            },
+            {
+                question: "DNA双螺旋结构模型是在哪一年提出的？",
+                options: ["A. 1950年", "B. 1953年", "C. 1958年", "D. 1962年"],
+                correct: 1,
+                explanation: "1953年，沃森和克里克在《自然》杂志上发表了DNA双螺旋结构模型，这是分子生物学史上的里程碑。"
+            },
+            {
+                question: "查戈夫定则描述的是：",
+                options: ["A. [A]=[G]，[T]=[C]", "B. [A]=[T]，[G]=[C]", "C. [A]=[C]，[T]=[G]", "D. [A]=[U]，[G]=[C]"],
+                correct: 1,
+                explanation: "查戈夫定则指出在双链DNA中，腺嘌呤的数量等于胸腺嘧啶的数量，鸟嘌呤的数量等于胞嘧啶的数量。"
+            },
+            {
+                question: "RNA中特有的碱基是：",
+                options: ["A. 腺嘌呤", "B. 鸟嘌呤", "C. 胞嘧啶", "D. 尿嘧啶"],
+                correct: 3,
+                explanation: "尿嘧啶（U）是RNA中特有的碱基，在RNA中取代了DNA中的胸腺嘧啶（T）。"
+            },
+            {
+                question: "DNA和RNA的主要区别不包括：",
+                options: ["A. 戊糖的种类", "B. 碱基的种类", "C. 磷酸基团", "D. 链的数目"],
+                correct: 2,
+                explanation: "DNA和RNA都含有磷酸基团，这是它们的共同组成成分。主要区别在于戊糖、碱基和链数。"
+            },
+            {
+                question: "B-DNA的螺距是：",
+                options: ["A. 2.0 nm", "B. 3.4 nm", "C. 0.34 nm", "D. 10 nm"],
+                correct: 1,
+                explanation: "B-DNA的螺距为3.4 nm，即双螺旋完整转过一周沿螺旋轴升高的距离。"
+            },
+            {
+                question: "G-C碱基对比A-T碱基对多几个氢键？",
+                options: ["A. 0个", "B. 1个", "C. 2个", "D. 3个"],
+                correct: 1,
+                explanation: "G-C碱基对有3个氢键，A-T碱基对有2个氢键，因此G-C比A-T多1个氢键。"
+            },
+            {
+                question: "核小体的核心组蛋白包括：",
+                options: ["A. H1, H2A, H2B, H3", "B. H2A, H2B, H3, H4", "C. H1, H3, H4", "D. H2A, H2B, H4"],
+                correct: 1,
+                explanation: "核小体的核心由H2A、H2B、H3、H4四种组蛋白各两个分子组成八聚体，DNA缠绕其外。"
+            },
+            {
+                question: "tRNA的二级结构被称为：",
+                options: ["A. 双螺旋结构", "B. 三叶草结构", "C. 倒L型结构", "D. 发夹结构"],
+                correct: 1,
+                explanation: "tRNA的二级结构呈三叶草形，包含四个臂：氨基酸臂、D臂、反密码子臂和TψC臂。"
+            },
+            {
+                question: "中心法则描述的信息流向是：",
+                options: ["A. RNA→DNA→蛋白质", "B. DNA→蛋白质→RNA", "C. DNA→RNA→蛋白质", "D. 蛋白质→RNA→DNA"],
+                correct: 2,
+                explanation: "中心法则描述遗传信息从DNA转录到RNA，再从RNA翻译成蛋白质的基本流向。"
+            },
+            {
+                question: "DNA变性是指：",
+                options: ["A. DNA分子降解", "B. DNA双链分离", "C. DNA突变", "D. DNA甲基化"],
+                correct: 1,
+                explanation: "DNA变性是指在高温、极端pH或化学试剂作用下，DNA双链分离成单链的过程。"
+            },
+            {
+                question: "熔解温度（Tm）与什么因素正相关？",
+                options: ["A. A-T含量", "B. G-C含量", "C. DNA长度", "D. pH值"],
+                correct: 1,
+                explanation: "熔解温度与G-C含量正相关，因为G-C碱基对比A-T碱基对多一个氢键，更稳定。"
+            },
+            {
+                question: "核酶是指：",
+                options: ["A. 核内的酶", "B. 具有催化活性的RNA", "C. 核苷酸合成酶", "D. 核酸分解酶"],
+                correct: 1,
+                explanation: "核酶是具有催化活性的RNA分子，证明了RNA不仅能储存信息，还具有催化功能。"
+            },
+            {
+                question: "DNA超螺旋多为：",
+                options: ["A. 正超螺旋", "B. 负超螺旋", "C. 无超螺旋", "D. 随机超螺旋"],
+                correct: 1,
+                explanation: "生物体内的DNA多为负超螺旋，这种结构有利于DNA复制、转录等过程中双链的解开。"
+            },
+            {
+                question: "mRNA的5'端帽子结构的作用不包括：",
+                options: ["A. 保护mRNA不被降解", "B. 促进翻译起始", "C. 编码氨基酸", "D. 核质转运"],
+                correct: 2,
+                explanation: "5'端帽子结构主要起保护、促进翻译和转运作用，但不编码氨基酸。"
+            },
+            {
+                question: "Z-DNA的特点是：",
+                options: ["A. 右手螺旋", "B. 左手螺旋", "C. 无螺旋结构", "D. 三股螺旋"],
+                correct: 1,
+                explanation: "Z-DNA是左手螺旋结构，与常见的B-DNA（右手螺旋）相反，可能参与基因调控。"
+            },
+            {
+                question: "反密码子位于：",
+                options: ["A. mRNA上", "B. tRNA上", "C. rRNA上", "D. DNA上"],
+                correct: 1,
+                explanation: "反密码子位于tRNA分子上，与mRNA上的密码子互补配对，决定tRNA携带的氨基酸种类。"
+            },
+            {
+                question: "核苷酸之间的连接键是：",
+                options: ["A. 氢键", "B. 离子键", "C. 3',5'-磷酸二酯键", "D. 糖苷键"],
+                correct: 2,
+                explanation: "核苷酸之间通过3',5'-磷酸二酯键连接，形成核酸的骨架结构。"
+            },
+            {
+                question: "稀有碱基主要存在于：",
+                options: ["A. DNA", "B. mRNA", "C. tRNA", "D. rRNA"],
+                correct: 2,
+                explanation: "稀有碱基（修饰碱基）主要存在于tRNA中，如假尿嘧啶、次黄嘌呤等。"
+            },
+            {
+                question: "DNA复制的方式是：",
+                options: ["A. 全保留复制", "B. 半保留复制", "C. 分散复制", "D. 随机复制"],
+                correct: 1,
+                explanation: "DNA采用半保留复制方式，每条新链都以原有的一条链为模板合成。"
+            },
+            {
+                question: "真核细胞mRNA的特点不包括：",
+                options: ["A. 有5'帽子结构", "B. 有3' poly(A)尾", "C. 多顺反子", "D. 需要剪接"],
+                correct: 2,
+                explanation: "真核细胞mRNA是单顺反子的，只编码一个蛋白质；多顺反子mRNA主要存在于原核细胞中。"
+            },
+            {
+                question: "维持DNA双螺旋结构的主要作用力是：",
+                options: ["A. 离子键", "B. 氢键和碱基堆积力", "C. 共价键", "D. 范德华力"],
+                correct: 1,
+                explanation: "维持DNA双螺旋结构的主要作用力是碱基间的氢键和碱基堆积力。"
+            },
+            {
+                question: "人类基因组中编码蛋白质的基因约占：",
+                options: ["A. 50%", "B. 25%", "C. 2%", "D. 75%"],
+                correct: 2,
+                explanation: "人类基因组中编码蛋白质的基因仅占约2%，大部分为非编码序列。"
+            },
+            {
+                question: "RNA聚合酶II主要转录：",
+                options: ["A. rRNA", "B. tRNA", "C. mRNA", "D. snRNA"],
+                correct: 2,
+                explanation: "RNA聚合酶II主要负责转录mRNA前体和大部分非编码RNA。"
+            },
+            {
+                question: "DNA的大沟和小沟中，蛋白质主要结合在：",
+                options: ["A. 大沟", "B. 小沟", "C. 两者都有", "D. 都不结合"],
+                correct: 0,
+                explanation: "DNA结合蛋白主要结合在大沟中，因为大沟更宽，能提供更多的接触面积。"
+            },
+            {
+                question: "核糖体的催化中心主要由什么组成？",
+                options: ["A. 蛋白质", "B. rRNA", "C. mRNA", "D. tRNA"],
+                correct: 1,
+                explanation: "核糖体的肽基转移酶活性中心主要由rRNA组成，这是核酶活性的重要例证。"
+            },
+            {
+                question: "PCR技术的原理基于：",
+                options: ["A. DNA变性和复性", "B. RNA转录", "C. 蛋白质翻译", "D. 基因重组"],
+                correct: 0,
+                explanation: "PCR技术利用DNA的变性和复性特性，通过温度循环实现DNA的指数扩增。"
+            },
+            {
+                question: "miRNA的主要功能是：",
+                options: ["A. 编码蛋白质", "B. 调控基因表达", "C. 催化反应", "D. 储存遗传信息"],
+                correct: 1,
+                explanation: "miRNA主要通过与目标mRNA结合来调控基因表达，是重要的转录后调控因子。"
+            },
+            {
+                question: "Hoogsteen碱基对的特点是：",
+                options: ["A. 标准Watson-Crick配对", "B. 非标准氢键配对", "C. 共价键连接", "D. 离子键结合"],
+                correct: 1,
+                explanation: "Hoogsteen碱基对是一种非标准的氢键配对方式，常见于三链DNA结构中。"
+            },
+            {
+                question: "DNA指纹技术的原理基于：",
+                options: ["A. DNA序列的个体差异", "B. RNA表达差异", "C. 蛋白质多态性", "D. 染色体数目"],
+                correct: 0,
+                explanation: "DNA指纹技术利用个体间DNA序列的差异，特别是短串联重复序列的多态性进行个体识别。"
+            },
+            {
+                question: "核酸酶的分类不包括：",
+                options: ["A. 核酸内切酶", "B. 核酸外切酶", "C. 核酸连接酶", "D. 核酸聚合酶"],
+                correct: 3,
+                explanation: "核酸聚合酶是合成核酸的酶，不属于核酸酶。核酸酶主要包括内切酶、外切酶和连接酶。"
+            }
+        ];
+
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('questionsContainer');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    <div class="options">
+                        ${q.options.map((option, i) => `
+                            <div class="option">
+                                <input type="radio" name="q${index}" value="${i}" id="q${index}_${i}">
+                                <label for="q${index}_${i}">${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 保存题目数据供检查答案使用
+            window.currentQuestions = selectedQuestions;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const questions = window.currentQuestions;
+            let score = 0;
+            let results = [];
+            
+            questions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                const isCorrect = userAnswer === q.correct;
+                
+                if (isCorrect) score++;
+                
+                results.push({
+                    question: q.question,
+                    userAnswer: userAnswer,
+                    correctAnswer: q.correct,
+                    isCorrect: isCorrect,
+                    explanation: q.explanation,
+                    options: q.options
+                });
+            });
+            
+            displayResults(score, results);
+        }
+
+        // 显示结果
+        function displayResults(score, results) {
+            const resultDiv = document.getElementById('quizResult');
+            const percentage = Math.round((score / results.length) * 100);
+            
+            let resultClass = 'result-danger';
+            if (percentage >= 80) resultClass = 'result-success';
+            else if (percentage >= 60) resultClass = 'result-warning';
+            
+            let resultHTML = `
+                <div class="${resultClass}">
+                    <h4>测试结果</h4>
+                    <p><strong>得分：${score}/${results.length} (${percentage}%)</strong></p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <h4>详细解析：</h4>
+            `;
+            
+            results.forEach((result, index) => {
+                const statusIcon = result.isCorrect ? '✓' : '✗';
+                const statusColor = result.isCorrect ? '#27ae60' : '#e74c3c';
+                
+                resultHTML += `
+                    <div style="border: 1px solid #ddd; margin: 10px 0; padding: 15px; border-radius: 5px;">
+                        <p><strong style="color: ${statusColor};">${statusIcon} 第${index + 1}题：${result.question}</strong></p>
+                        <p>你的答案：${result.userAnswer >= 0 ? result.options[result.userAnswer] : '未选择'}</p>
+                        <p>正确答案：${result.options[result.correctAnswer]}</p>
+                        <p><strong>解析：</strong>${result.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            resultHTML += '</div>';
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.classList.add('show');
+        }
+
+        // 页面加载时自动生成题目
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

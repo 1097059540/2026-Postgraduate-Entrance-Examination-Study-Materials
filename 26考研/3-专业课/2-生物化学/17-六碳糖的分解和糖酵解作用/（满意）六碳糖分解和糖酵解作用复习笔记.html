@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六碳糖的分解和糖酵解作用 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .important {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .formula {
+            background-color: #e8f4fd;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: Consolas, monospace;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        .term-definition {
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .result.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e8f4fd;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .thinking-answer {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .thinking-answer ol {
+            counter-reset: item;
+        }
+        
+        .thinking-answer li {
+            display: block;
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+        
+        .thinking-answer li:before {
+            content: counter(item, decimal) ". ";
+            counter-increment: item;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .diagram-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #7f8c8d;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>六碳糖的分解和糖酵解作用</h1>
+            <p>考研生物化学复习笔记 | 基于《生物化学》第四版 朱圣庚、徐长法主编</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、糖酵解概述</h2>
+                
+                <h3>1.1 糖酵解的定义</h3>
+                <p>糖酵解（Glycolysis）是指在细胞质中，葡萄糖在一系列酶的催化下，逐步分解为丙酮酸的代谢途径。这是一个古老而保守的代谢途径，几乎存在于所有生物体中。</p>
+                
+                <div class="highlight">
+                    <p><strong>关键特点：</strong></p>
+                    <ul>
+                        <li>发生部位：细胞质（胞浆）</li>
+                        <li>起始物质：葡萄糖（或其他六碳糖）</li>
+                        <li>终产物：丙酮酸（有氧条件）或乳酸（无氧条件）</li>
+                        <li>能量产出：净产生2分子ATP</li>
+                        <li>不需要氧气参与</li>
+                    </ul>
+                </div>
+                
+                <h3>1.2 糖酵解的生物学意义</h3>
+                <p>糖酵解途径在细胞能量代谢中占据重要地位，特别是在以下情况下：</p>
+                <ul>
+                    <li><strong>无氧条件：</strong>当细胞缺氧时，糖酵解是ATP产生的主要途径</li>
+                    <li><strong>快速供能：</strong>糖酵解反应速度快，能迅速提供ATP</li>
+                    <li><strong>特殊组织：</strong>红细胞、肌肉等组织高度依赖糖酵解</li>
+                    <li><strong>病理状态：</strong>肿瘤细胞常表现出糖酵解增强（Warburg效应）</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>二、糖酵解的详细步骤</h2>
+                
+                <p>糖酵解途径包含10个连续的酶促反应，可分为两个阶段：</p>
+                
+                <h3>2.1 第一阶段：准备阶段（消耗ATP）</h3>
+                <p>前5个反应步骤，消耗2分子ATP，将葡萄糖转化为两分子甘油醛-3-磷酸。</p>
+                
+                <h4>步骤1：葡萄糖磷酸化</h4>
+                <div class="formula">
+                    葡萄糖 + ATP → 葡萄糖-6-磷酸 + ADP + H⁺
+                    <br>催化酶：己糖激酶（Hexokinase）
+                </div>
+                <div class="important">
+                    <p><strong>调节要点：</strong>己糖激酶受产物葡萄糖-6-磷酸反馈抑制，这是糖酵解的第一个调节点。</p>
+                </div>
+                
+                <h4>步骤2：葡萄糖-6-磷酸异构化</h4>
+                <div class="formula">
+                    葡萄糖-6-磷酸 ⇌ 果糖-6-磷酸
+                    <br>催化酶：葡萄糖磷酸异构酶
+                </div>
+                
+                <h4>步骤3：果糖-6-磷酸磷酸化</h4>
+                <div class="formula">
+                    果糖-6-磷酸 + ATP → 果糖-1,6-二磷酸 + ADP + H⁺
+                    <br>催化酶：磷酸果糖激酶（PFK-1）
+                </div>
+                <div class="important">
+                    <p><strong>关键调节点：</strong>PFK-1是糖酵解的限速酶和主要调节点，受ATP抑制，受AMP、ADP激活。</p>
+                </div>
+                
+                <h4>步骤4：果糖-1,6-二磷酸裂解</h4>
+                <div class="formula">
+                    果糖-1,6-二磷酸 → 甘油醛-3-磷酸 + 磷酸二羟丙酮
+                    <br>催化酶：醛缩酶
+                </div>
+                
+                <h4>步骤5：磷酸二羟丙酮异构化</h4>
+                <div class="formula">
+                    磷酸二羟丙酮 ⇌ 甘油醛-3-磷酸
+                    <br>催化酶：磷酸丙糖异构酶
+                </div>
+                
+                <h3>2.2 第二阶段：回收阶段（产生ATP）</h3>
+                <p>后5个反应步骤，产生4分子ATP，将两分子甘油醛-3-磷酸转化为两分子丙酮酸。</p>
+                
+                <h4>步骤6：甘油醛-3-磷酸氧化磷酸化</h4>
+                <div class="formula">
+                    甘油醛-3-磷酸 + NAD⁺ + Pi → 1,3-二磷酸甘油酸 + NADH + H⁺
+                    <br>催化酶：甘油醛-3-磷酸脱氢酶
+                </div>
+                
+                <h4>步骤7：第一次底物水平磷酸化</h4>
+                <div class="formula">
+                    1,3-二磷酸甘油酸 + ADP → 3-磷酸甘油酸 + ATP
+                    <br>催化酶：磷酸甘油酸激酶
+                </div>
+                
+                <h4>步骤8：3-磷酸甘油酸异构化</h4>
+                <div class="formula">
+                    3-磷酸甘油酸 ⇌ 2-磷酸甘油酸
+                    <br>催化酶：磷酸甘油酸变位酶
+                </div>
+                
+                <h4>步骤9：2-磷酸甘油酸脱水</h4>
+                <div class="formula">
+                    2-磷酸甘油酸 → 磷酸烯醇式丙酮酸 + H₂O
+                    <br>催化酶：烯醇化酶
+                </div>
+                
+                <h4>步骤10：第二次底物水平磷酸化</h4>
+                <div class="formula">
+                    磷酸烯醇式丙酮酸 + ADP → 丙酮酸 + ATP
+                    <br>催化酶：丙酮酸激酶
+                </div>
+                <div class="important">
+                    <p><strong>调节要点：</strong>丙酮酸激酶受ATP抑制，受果糖-1,6-二磷酸激活，是糖酵解的第三个调节点。</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>三、糖酵解的调节机制</h2>
+                
+                <h3>3.1 变构调节</h3>
+                <p>糖酵解途径的三个关键酶受到精密的变构调节：</p>
+                
+                <h4>己糖激酶调节</h4>
+                <ul>
+                    <li><strong>抑制剂：</strong>葡萄糖-6-磷酸（产物抑制）</li>
+                    <li><strong>生理意义：</strong>防止葡萄糖过度磷酸化，维持细胞内葡萄糖-6-磷酸浓度稳定</li>
+                </ul>
+                
+                <h4>磷酸果糖激酶-1（PFK-1）调节</h4>
+                <ul>
+                    <li><strong>抑制剂：</strong>ATP、柠檬酸、H⁺（低pH）</li>
+                    <li><strong>激活剂：</strong>AMP、ADP、果糖-2,6-二磷酸、Pi</li>
+                    <li><strong>生理意义：</strong>感受细胞能量状态，调节糖酵解速率</li>
+                </ul>
+                
+                <h4>丙酮酸激酶调节</h4>
+                <ul>
+                    <li><strong>抑制剂：</strong>ATP、丙氨酸、脂肪酸</li>
+                    <li><strong>激活剂：</strong>果糖-1,6-二磷酸（前馈激活）</li>
+                    <li><strong>生理意义：</strong>确保糖酵解途径的协调进行</li>
+                </ul>
+                
+                <h3>3.2 共价修饰调节</h3>
+                <p>某些糖酵解酶受到磷酸化/去磷酸化调节，特别是在肝脏中：</p>
+                <ul>
+                    <li><strong>丙酮酸激酶：</strong>磷酸化后活性降低</li>
+                    <li><strong>调节机制：</strong>胰高血糖素促进磷酸化（抑制糖酵解），胰岛素促进去磷酸化（激活糖酵解）</li>
+                </ul>
+                
+                <h3>3.3 酶含量调节</h3>
+                <p>长期调节通过改变酶的合成量实现：</p>
+                <ul>
+                    <li><strong>胰岛素：</strong>促进糖酵解酶基因转录</li>
+                    <li><strong>胰高血糖素：</strong>抑制糖酵解酶基因转录</li>
+                    <li><strong>缺氧：</strong>通过HIF-1α转录因子激活糖酵解酶基因</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>四、其他六碳糖进入糖酵解途径</h2>
+                
+                <h3>4.1 果糖的代谢</h3>
+                <h4>肝脏中的果糖代谢</h4>
+                <ul>
+                    <li><strong>果糖激酶途径：</strong>果糖 → 果糖-1-磷酸 → 甘油醛 + 磷酸二羟丙酮</li>
+                    <li><strong>特点：</strong>绕过PFK-1调节点，代谢速度快</li>
+                    <li><strong>临床意义：</strong>过量果糖摄入可能导致脂肪合成增加</li>
+                </ul>
+                
+                <h4>肌肉中的果糖代谢</h4>
+                <ul>
+                    <li><strong>己糖激酶途径：</strong>果糖 → 果糖-6-磷酸 → 进入糖酵解</li>
+                    <li><strong>特点：</strong>受己糖激酶调节，代谢速度较慢</li>
+                </ul>
+                
+                <h3>4.2 半乳糖的代谢</h3>
+                <p>半乳糖通过Leloir途径进入糖酵解：</p>
+                <ol>
+                    <li>半乳糖 + ATP → 半乳糖-1-磷酸 + ADP（半乳糖激酶）</li>
+                    <li>半乳糖-1-磷酸 + UDP-葡萄糖 → 葡萄糖-1-磷酸 + UDP-半乳糖（半乳糖-1-磷酸尿苷转移酶）</li>
+                    <li>UDP-半乳糖 → UDP-葡萄糖（UDP-半乳糖-4-差向异构酶）</li>
+                    <li>葡萄糖-1-磷酸 → 葡萄糖-6-磷酸 → 进入糖酵解</li>
+                </ol>
+                
+                <div class="important">
+                    <p><strong>临床意义：</strong>半乳糖血症是由于Leloir途径中酶缺陷导致的遗传性疾病，需要限制半乳糖摄入。</p>
+                </div>
+                
+                <h3>4.3 甘露糖的代谢</h3>
+                <ul>
+                    <li><strong>代谢途径：</strong>甘露糖 → 甘露糖-6-磷酸 → 果糖-6-磷酸 → 进入糖酵解</li>
+                    <li><strong>关键酶：</strong>己糖激酶、磷酸甘露糖异构酶</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>五、糖酵解的能量计算</h2>
+                
+                <h3>5.1 ATP的产生和消耗</h3>
+                <div class="highlight">
+                    <p><strong>ATP消耗（准备阶段）：</strong></p>
+                    <ul>
+                        <li>步骤1：己糖激酶反应消耗1分子ATP</li>
+                        <li>步骤3：磷酸果糖激酶反应消耗1分子ATP</li>
+                        <li><strong>总消耗：2分子ATP</strong></li>
+                    </ul>
+                    
+                    <p><strong>ATP产生（回收阶段）：</strong></p>
+                    <ul>
+                        <li>步骤7：磷酸甘油酸激酶反应产生2分子ATP（每分子甘油醛-3-磷酸产生1分子）</li>
+                        <li>步骤10：丙酮酸激酶反应产生2分子ATP</li>
+                        <li><strong>总产生：4分子ATP</strong></li>
+                    </ul>
+                    
+                    <p><strong>净ATP产出：4 - 2 = 2分子ATP</strong></p>
+                </div>
+                
+                <h3>5.2 NADH的产生</h3>
+                <ul>
+                    <li><strong>产生部位：</strong>步骤6（甘油醛-3-磷酸脱氢酶反应）</li>
+                    <li><strong>产生量：</strong>2分子NADH（每分子葡萄糖）</li>
+                    <li><strong>后续利用：</strong>有氧条件下进入电子传递链产生ATP，无氧条件下用于乳酸发酵</li>
+                </ul>
+                
+                <h3>5.3 总体能量平衡</h3>
+                <div class="formula">
+                    葡萄糖 + 2NAD⁺ + 2ADP + 2Pi → 2丙酮酸 + 2NADH + 2H⁺ + 2ATP + 2H₂O
+                </div>
+            </div>
+            
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>六、重要名词解释</h2>
+                
+                <div class="term">
+                    <div class="term-name">糖酵解</div>
+                    <div class="term-english">Glycolysis</div>
+                    <div class="term-definition">在细胞质中，葡萄糖在一系列酶的催化下逐步分解为丙酮酸的代谢途径，是细胞获得ATP的重要方式，不需要氧气参与。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">己糖激酶</div>
+                    <div class="term-english">Hexokinase, HK</div>
+                    <div class="term-definition">催化葡萄糖磷酸化为葡萄糖-6-磷酸的酶，是糖酵解的第一个酶，受产物葡萄糖-6-磷酸反馈抑制。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">磷酸果糖激酶-1</div>
+                    <div class="term-english">Phosphofructokinase-1, PFK-1</div>
+                    <div class="term-definition">催化果糖-6-磷酸磷酸化为果糖-1,6-二磷酸的酶，是糖酵解的限速酶和主要调节点，受ATP抑制，受AMP激活。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">丙酮酸激酶</div>
+                    <div class="term-english">Pyruvate Kinase, PK</div>
+                    <div class="term-definition">催化磷酸烯醇式丙酮酸转化为丙酮酸并产生ATP的酶，是糖酵解的最后一个酶，受ATP抑制，受果糖-1,6-二磷酸激活。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">底物水平磷酸化</div>
+                    <div class="term-english">Substrate-level Phosphorylation</div>
+                    <div class="term-definition">通过高能磷酸化合物直接将磷酸基团转移给ADP生成ATP的过程，不依赖电子传递链，糖酵解中有两次底物水平磷酸化。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">变构调节</div>
+                    <div class="term-english">Allosteric Regulation</div>
+                    <div class="term-definition">调节分子结合到酶的变构位点，引起酶构象改变，从而改变酶活性的调节机制，是糖酵解调节的重要方式。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">Warburg效应</div>
+                    <div class="term-english">Warburg Effect</div>
+                    <div class="term-definition">肿瘤细胞即使在有氧条件下也主要依赖糖酵解产生ATP的现象，表现为糖酵解增强和乳酸产生增加。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">Leloir途径</div>
+                    <div class="term-english">Leloir Pathway</div>
+                    <div class="term-definition">半乳糖代谢的主要途径，通过三个酶促反应将半乳糖转化为葡萄糖-1-磷酸，进而进入糖酵解途径。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">果糖-2,6-二磷酸</div>
+                    <div class="term-english">Fructose-2,6-bisphosphate, F-2,6-BP</div>
+                    <div class="term-definition">磷酸果糖激酶-1的强效激活剂，由磷酸果糖激酶-2合成，是糖酵解和糖异生之间转换的重要调节分子。</div>
+                </div>
+                
+                <div class="term">
+                    <div class="term-name">半乳糖血症</div>
+                    <div class="term-english">Galactosemia</div>
+                    <div class="term-definition">由于Leloir途径中酶缺陷导致的遗传性疾病，患者不能正常代谢半乳糖，需要限制乳制品摄入。</div>
+                </div>
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>七、选择题测试</h2>
+                <div class="quiz-container">
+                    <p style="text-align: center; font-size: 1.2em; color: #2c3e50; margin-bottom: 20px;">
+                        <strong>以下是从题库中随机抽取的15道选择题，请认真作答：</strong>
+                    </p>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-results"></div>
+                </div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>八、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 分析糖酵解途径的调节机制，说明细胞如何通过多层次调节确保糖酵解与细胞能量需求相匹配。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>变构调节层面：</strong>糖酵解途径的三个关键酶（己糖激酶、磷酸果糖激酶-1、丙酮酸激酶）都受到变构调节。磷酸果糖激酶-1是最重要的调节点，当细胞ATP充足时，ATP结合到变构位点抑制酶活性，减缓糖酵解；当细胞能量不足时，AMP和ADP激活该酶，加速糖酵解。这种调节机制能够快速响应细胞能量状态的变化，实现精确的代谢调控。</li>
+                            <li><strong>共价修饰调节：</strong>某些糖酵解酶受到磷酸化/去磷酸化调节，特别是丙酮酸激酶。在肝脏中，胰高血糖素激活蛋白激酶A，磷酸化丙酮酸激酶使其失活，从而抑制糖酵解并促进糖异生；胰岛素则通过激活磷酸酶促进去磷酸化，激活糖酵解。这种调节方式响应激素信号，协调全身代谢。</li>
+                            <li><strong>酶含量调节：</strong>长期调节通过改变酶的合成量实现。胰岛素促进糖酵解酶基因的转录，增加酶蛋白含量；缺氧条件下，HIF-1α转录因子激活糖酵解酶基因表达，适应无氧代谢需求。这种调节方式适应长期的代谢状态改变。</li>
+                            <li><strong>代谢物浓度调节：</strong>关键代谢物的浓度变化直接影响糖酵解速率。例如，葡萄糖-6-磷酸对己糖激酶的产物抑制，防止葡萄糖过度磷酸化；果糖-1,6-二磷酸对丙酮酸激酶的前馈激活，确保途径的协调进行。</li>
+                            <li><strong>区室化调节：</strong>糖酵解发生在细胞质中，与线粒体内的柠檬酸循环在空间上分离，这种区室化有利于代谢途径的独立调节。柠檬酸从线粒体输出到细胞质后抑制磷酸果糖激酶-1，实现糖酵解与柠檬酸循环的协调。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较分析肿瘤细胞的糖酵解特点（Warburg效应），探讨其生物学意义和临床应用价值。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>Warburg效应的特征：</strong>肿瘤细胞即使在有氧条件下也主要依赖糖酵解产生ATP，表现为葡萄糖摄取增加、糖酵解酶活性增强、乳酸产生增多。这与正常细胞在有氧条件下主要依赖氧化磷酸化产生ATP的方式截然不同。肿瘤细胞的糖酵解速率可比正常细胞高10-100倍。</li>
+                            <li><strong>分子机制：</strong>肿瘤细胞中多种糖酵解酶表达上调，包括葡萄糖转运蛋白GLUT1、己糖激酶、磷酸果糖激酶、丙酮酸激酶M2型等。转录因子如HIF-1α、c-Myc等在肿瘤中异常激活，促进糖酵解酶基因表达。此外，肿瘤抑制基因p53的失活也会导致糖酵解增强。</li>
+                            <li><strong>生物学优势：</strong>虽然糖酵解的ATP产率低于氧化磷酸化，但对肿瘤细胞具有多重优势：快速产生ATP满足增殖需求；产生的代谢中间产物可用于生物合成；适应肿瘤组织的缺氧微环境；乳酸的产生有利于肿瘤侵袭和转移；减少对氧气的依赖性。</li>
+                            <li><strong>临床诊断价值：</strong>PET-CT扫描利用肿瘤细胞对葡萄糖的高摄取特性，通过18F-FDG示踪剂检测肿瘤。血清乳酸脱氢酶（LDH）水平升高常提示肿瘤进展。某些糖酵解酶如己糖激酶II可作为肿瘤标志物。</li>
+                            <li><strong>治疗靶点：</strong>糖酵解途径的关键酶成为抗肿瘤药物的重要靶点。例如，2-脱氧葡萄糖可抑制己糖激酶；3-溴丙酮酸可抑制己糖激酶II；二氯乙酸可激活丙酮酸脱氢酶，促进丙酮酸进入柠檬酸循环。这些策略旨在破坏肿瘤细胞的能量代谢，选择性杀伤肿瘤细胞。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 分析不同组织器官对糖酵解的依赖性差异，说明这种差异的生理基础和适应意义。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>红细胞的绝对依赖：</strong>成熟红细胞缺乏细胞核和线粒体，无法进行氧化磷酸化，完全依赖糖酵解产生ATP。红细胞的糖酵解不仅提供ATP维持细胞膜完整性和离子泵功能，还产生2,3-二磷酸甘油酸调节血红蛋白的氧亲和力。这种代谢特化使红细胞能够专注于氧气运输功能。</li>
+                            <li><strong>骨骼肌的快速供能：</strong>骨骼肌在剧烈运动时氧气供应不足，糖酵解成为主要的ATP来源。快肌纤维（白肌）富含糖酵解酶，能够快速分解糖原产生ATP，适应爆发性运动需求。慢肌纤维（红肌）则富含线粒体，主要依赖氧化代谢，适应持久性运动。</li>
+                            <li><strong>脑组织的葡萄糖依赖：</strong>脑组织虽然富含线粒体，但在正常情况下几乎完全依赖葡萄糖作为能源。脑组织的糖酵解为神经元提供快速的ATP供应，特别是在神经传导和突触传递过程中。此外，糖酵解产生的丙酮酸是神经递质合成的重要前体。</li>
+                            <li><strong>肾髓质的缺氧适应：</strong>肾髓质由于血流量相对较少，处于相对缺氧状态，主要依赖糖酵解产生ATP。这种代谢特点使肾髓质能够在低氧环境下维持正常的浓缩功能，对尿液浓缩至关重要。</li>
+                            <li><strong>胚胎组织的发育需求：</strong>胚胎发育早期血管系统尚未完善，氧气供应有限，胚胎细胞主要依赖糖酵解。糖酵解不仅提供ATP，其代谢中间产物还参与细胞分裂和分化过程中的生物合成。随着发育进程，细胞逐渐转向氧化代谢。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 从进化角度分析糖酵解途径的保守性，探讨其在生命起源和进化中的重要作用。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>古老的代谢途径：</strong>糖酵解是地球上最古老的代谢途径之一，在所有生命形式中都高度保守。从细菌到人类，糖酵解的基本步骤和关键酶几乎完全相同，这表明该途径在生命早期就已经确立并被自然选择所保留。糖酵解的保守性反映了其在细胞能量代谢中的核心地位。</li>
+                            <li><strong>无氧环境的适应：</strong>地球早期大气中缺乏氧气，原始生命必须在无氧条件下获得能量。糖酵解不需要氧气参与，能够在厌氧环境中有效运行，为早期生命提供了重要的能量来源。这种无氧代谢能力使生命能够在氧气出现之前就建立复杂的生物化学网络。</li>
+                            <li><strong>快速能量供应：</strong>糖酵解反应速度快，能够迅速响应细胞的能量需求。在进化过程中，这种快速供能能力为生物体应对环境变化和生存压力提供了重要优势。即使在氧化磷酸化进化出来之后，糖酵解仍然保持其在应急供能中的重要作用。</li>
+                            <li><strong>代谢网络的基础：</strong>糖酵解不仅产生ATP，其中间产物还是多种生物合成途径的起始原料。例如，葡萄糖-6-磷酸可进入磷酸戊糖途径产生NADPH和核糖；3-磷酸甘油酸是丝氨酸和甘氨酸合成的前体；丙酮酸是脂肪酸和氨基酸合成的重要原料。这种代谢网络的中心地位使糖酵解成为细胞代谢的枢纽。</li>
+                            <li><strong>调节机制的进化：</strong>随着生物体复杂性的增加，糖酵解的调节机制也不断进化完善。从简单的产物抑制到复杂的变构调节，从单一酶调节到多层次网络调节，糖酵解调节机制的进化反映了生物体对精确代谢控制需求的增加。这种调节机制的进化为多细胞生物的出现和复杂生理功能的实现奠定了基础。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "糖酵解途径的限速酶是：",
+                options: ["A. 己糖激酶", "B. 磷酸果糖激酶-1", "C. 丙酮酸激酶", "D. 甘油醛-3-磷酸脱氢酶"],
+                correct: 1,
+                explanation: "磷酸果糖激酶-1（PFK-1）是糖酵解途径的限速酶和主要调节点。它催化果糖-6-磷酸磷酸化为果糖-1,6-二磷酸，受ATP抑制，受AMP、ADP和果糖-2,6-二磷酸激活，是糖酵解调节的关键环节。"
+            },
+            {
+                question: "糖酵解过程中，每分子葡萄糖净产生ATP的数量是：",
+                options: ["A. 1分子", "B. 2分子", "C. 3分子", "D. 4分子"],
+                correct: 1,
+                explanation: "糖酵解过程中消耗2分子ATP（己糖激酶和磷酸果糖激酶反应），产生4分子ATP（磷酸甘油酸激酶和丙酮酸激酶反应各产生2分子），净产生2分子ATP。"
+            },
+            {
+                question: "糖酵解途径发生的细胞部位是：",
+                options: ["A. 线粒体基质", "B. 线粒体内膜", "C. 细胞质", "D. 内质网"],
+                correct: 2,
+                explanation: "糖酵解途径的所有反应都发生在细胞质（胞浆）中，不需要线粒体参与。这使得糖酵解能够在无氧条件下进行，为细胞提供快速的ATP供应。"
+            },
+            {
+                question: "下列哪个化合物是磷酸果糖激酶-1的激活剂：",
+                options: ["A. ATP", "B. 柠檬酸", "C. AMP", "D. 葡萄糖-6-磷酸"],
+                correct: 2,
+                explanation: "AMP是磷酸果糖激酶-1的激活剂，当细胞能量不足时，AMP浓度升高，激活PFK-1，加速糖酵解产生ATP。ATP和柠檬酸是其抑制剂，葡萄糖-6-磷酸是己糖激酶的抑制剂。"
+            },
+            {
+                question: "糖酵解过程中产生NADH的反应是：",
+                options: ["A. 葡萄糖→葡萄糖-6-磷酸", "B. 果糖-6-磷酸→果糖-1,6-二磷酸", "C. 甘油醛-3-磷酸→1,3-二磷酸甘油酸", "D. 磷酸烯醇式丙酮酸→丙酮酸"],
+                correct: 2,
+                explanation: "甘油醛-3-磷酸脱氢酶催化甘油醛-3-磷酸氧化为1,3-二磷酸甘油酸的反应中产生NADH。这是糖酵解中唯一的氧化反应，每分子葡萄糖产生2分子NADH。"
+            },
+            {
+                question: "果糖在肝脏中的代谢特点是：",
+                options: ["A. 通过己糖激酶磷酸化", "B. 绕过磷酸果糖激酶调节", "C. 代谢速度很慢", "D. 不能进入糖酵解"],
+                correct: 1,
+                explanation: "果糖在肝脏中通过果糖激酶磷酸化为果糖-1-磷酸，然后裂解为甘油醛和磷酸二羟丙酮，绕过了磷酸果糖激酶的调节点，因此代谢速度很快。"
+            },
+            {
+                question: "半乳糖进入糖酵解的途径称为：",
+                options: ["A. Embden-Meyerhof途径", "B. Leloir途径", "C. 磷酸戊糖途径", "D. 糖异生途径"],
+                correct: 1,
+                explanation: "Leloir途径是半乳糖代谢的主要途径，通过半乳糖激酶、半乳糖-1-磷酸尿苷转移酶和UDP-半乳糖-4-差向异构酶三个酶将半乳糖转化为葡萄糖-1-磷酸。"
+            },
+            {
+                question: "丙酮酸激酶的激活剂是：",
+                options: ["A. ATP", "B. 丙氨酸", "C. 果糖-1,6-二磷酸", "D. 脂肪酸"],
+                correct: 2,
+                explanation: "果糖-1,6-二磷酸是丙酮酸激酶的激活剂，这是一种前馈激活机制，确保糖酵解途径的协调进行。ATP、丙氨酸和脂肪酸都是丙酮酸激酶的抑制剂。"
+            },
+            {
+                question: "糖酵解中第一次底物水平磷酸化发生在：",
+                options: ["A. 己糖激酶反应", "B. 磷酸果糖激酶反应", "C. 磷酸甘油酸激酶反应", "D. 丙酮酸激酶反应"],
+                correct: 2,
+                explanation: "磷酸甘油酸激酶催化1,3-二磷酸甘油酸转化为3-磷酸甘油酸并产生ATP，这是糖酵解中第一次底物水平磷酸化。第二次是丙酮酸激酶反应。"
+            },
+            {
+                question: "红细胞主要依赖糖酵解的原因是：",
+                options: ["A. 缺乏葡萄糖转运蛋白", "B. 缺乏线粒体", "C. 缺乏糖酵解酶", "D. 氧气浓度过高"],
+                correct: 1,
+                explanation: "成熟红细胞缺乏细胞核和线粒体，无法进行氧化磷酸化，因此完全依赖糖酵解产生ATP维持细胞功能。"
+            },
+            {
+                question: "Warburg效应是指：",
+                options: ["A. 正常细胞的有氧呼吸", "B. 肿瘤细胞的糖酵解增强", "C. 肌肉细胞的无氧呼吸", "D. 肝细胞的糖异生"],
+                correct: 1,
+                explanation: "Warburg效应是指肿瘤细胞即使在有氧条件下也主要依赖糖酵解产生ATP的现象，表现为糖酵解增强和乳酸产生增加。"
+            },
+            {
+                question: "糖酵解途径中不可逆的反应有：",
+                options: ["A. 1个", "B. 2个", "C. 3个", "D. 4个"],
+                correct: 2,
+                explanation: "糖酵解途径中有3个不可逆反应：己糖激酶反应、磷酸果糖激酶反应和丙酮酸激酶反应。这些反应也是糖酵解的主要调节点。"
+            },
+            {
+                question: "果糖-2,6-二磷酸的作用是：",
+                options: ["A. 抑制磷酸果糖激酶-1", "B. 激活磷酸果糖激酶-1", "C. 抑制己糖激酶", "D. 激活丙酮酸激酶"],
+                correct: 1,
+                explanation: "果糖-2,6-二磷酸是磷酸果糖激酶-1的强效激活剂，由磷酸果糖激酶-2合成，是糖酵解和糖异生之间转换的重要调节分子。"
+            },
+            {
+                question: "甘油醛-3-磷酸脱氢酶反应的辅酶是：",
+                options: ["A. FAD", "B. NAD+", "C. NADP+", "D. CoA"],
+                correct: 1,
+                explanation: "甘油醛-3-磷酸脱氢酶使用NAD+作为辅酶，催化甘油醛-3-磷酸氧化为1,3-二磷酸甘油酸，同时产生NADH。"
+            },
+            {
+                question: "糖酵解在无氧条件下的最终产物是：",
+                options: ["A. 丙酮酸", "B. 乳酸", "C. 乙醇", "D. 乙酰CoA"],
+                correct: 1,
+                explanation: "在无氧条件下，丙酮酸被乳酸脱氢酶还原为乳酸，同时消耗NADH再生NAD+，使糖酵解能够持续进行。"
+            },
+            {
+                question: "己糖激酶的产物抑制剂是：",
+                options: ["A. 葡萄糖", "B. ATP", "C. 葡萄糖-6-磷酸", "D. 果糖-6-磷酸"],
+                correct: 2,
+                explanation: "葡萄糖-6-磷酸是己糖激酶的产物抑制剂，当细胞内葡萄糖-6-磷酸浓度过高时，会抑制己糖激酶活性，防止葡萄糖过度磷酸化。"
+            },
+            {
+                question: "磷酸戊糖途径的起始物质是：",
+                options: ["A. 葡萄糖", "B. 葡萄糖-6-磷酸", "C. 果糖-6-磷酸", "D. 甘油醛-3-磷酸"],
+                correct: 1,
+                explanation: "磷酸戊糖途径以葡萄糖-6-磷酸为起始物质，通过葡萄糖-6-磷酸脱氢酶催化开始，产生NADPH和核糖-5-磷酸。"
+            },
+            {
+                question: "糖酵解中消耗ATP的步骤有：",
+                options: ["A. 1个", "B. 2个", "C. 3个", "D. 4个"],
+                correct: 1,
+                explanation: "糖酵解中有2个步骤消耗ATP：步骤1的己糖激酶反应和步骤3的磷酸果糖激酶反应，每个步骤消耗1分子ATP。"
+            },
+            {
+                question: "醛缩酶催化的反应是：",
+                options: ["A. 果糖-6-磷酸→果糖-1,6-二磷酸", "B. 果糖-1,6-二磷酸→甘油醛-3-磷酸+磷酸二羟丙酮", "C. 甘油醛-3-磷酸→1,3-二磷酸甘油酸", "D. 丙酮酸→乳酸"],
+                correct: 1,
+                explanation: "醛缩酶催化果糖-1,6-二磷酸裂解为甘油醛-3-磷酸和磷酸二羟丙酮，这是糖酵解第4步反应。"
+            },
+            {
+                question: "糖酵解调节的特点不包括：",
+                options: ["A. 变构调节", "B. 共价修饰调节", "C. 酶含量调节", "D. 转录后调节"],
+                correct: 3,
+                explanation: "糖酵解主要通过变构调节、共价修饰调节和酶含量调节（转录水平调节）进行调控，转录后调节不是其主要调节方式。"
+            },
+            {
+                question: "半乳糖血症的病因是：",
+                options: ["A. 己糖激酶缺陷", "B. Leloir途径酶缺陷", "C. 磷酸果糖激酶缺陷", "D. 丙酮酸激酶缺陷"],
+                correct: 1,
+                explanation: "半乳糖血症是由于Leloir途径中的酶缺陷导致的遗传性疾病，患者不能正常代谢半乳糖，需要限制乳制品摄入。"
+            },
+            {
+                question: "磷酸甘油酸变位酶催化的反应是：",
+                options: ["A. 3-磷酸甘油酸→2-磷酸甘油酸", "B. 2-磷酸甘油酸→磷酸烯醇式丙酮酸", "C. 1,3-二磷酸甘油酸→3-磷酸甘油酸", "D. 磷酸烯醇式丙酮酸→丙酮酸"],
+                correct: 0,
+                explanation: "磷酸甘油酸变位酶催化3-磷酸甘油酸异构化为2-磷酸甘油酸，这是糖酵解第8步反应。"
+            },
+            {
+                question: "烯醇化酶的作用是：",
+                options: ["A. 磷酸化反应", "B. 脱水反应", "C. 异构化反应", "D. 氧化反应"],
+                correct: 1,
+                explanation: "烯醇化酶催化2-磷酸甘油酸脱水形成磷酸烯醇式丙酮酸，这是一个脱水反应，产生高能磷酸化合物。"
+            },
+            {
+                question: "糖酵解在肿瘤治疗中的应用基础是：",
+                options: ["A. 肿瘤细胞糖酵解减弱", "B. 肿瘤细胞糖酵解增强", "C. 肿瘤细胞不进行糖酵解", "D. 肿瘤细胞只进行氧化磷酸化"],
+                correct: 1,
+                explanation: "肿瘤细胞表现出糖酵解增强（Warburg效应），这为抗肿瘤治疗提供了靶点，可以通过抑制糖酵解酶来选择性杀伤肿瘤细胞。"
+            },
+            {
+                question: "葡萄糖磷酸异构酶催化的反应类型是：",
+                options: ["A. 磷酸化", "B. 异构化", "C. 氧化", "D. 裂解"],
+                correct: 1,
+                explanation: "葡萄糖磷酸异构酶催化葡萄糖-6-磷酸异构化为果糖-6-磷酸，改变分子内原子的排列，属于异构化反应。"
+            },
+            {
+                question: "糖酵解产生的NADH在无氧条件下的去向是：",
+                options: ["A. 进入电子传递链", "B. 用于乳酸发酵", "C. 用于脂肪酸合成", "D. 储存在细胞内"],
+                correct: 1,
+                explanation: "在无氧条件下，糖酵解产生的NADH被乳酸脱氢酶用于将丙酮酸还原为乳酸，再生NAD+以维持糖酵解的持续进行。"
+            },
+            {
+                question: "磷酸丙糖异构酶的作用是：",
+                options: ["A. 磷酸二羟丙酮→甘油醛-3-磷酸", "B. 甘油醛-3-磷酸→磷酸二羟丙酮", "C. 两者之间的可逆转化", "D. 都不正确"],
+                correct: 2,
+                explanation: "磷酸丙糖异构酶催化磷酸二羟丙酮和甘油醛-3-磷酸之间的可逆转化，使醛缩酶产生的两个三碳化合物都能进入糖酵解下游反应。"
+            },
+            {
+                question: "糖酵解途径的英文名称是：",
+                options: ["A. Gluconeogenesis", "B. Glycolysis", "C. Glycogenesis", "D. Glycogenolysis"],
+                correct: 1,
+                explanation: "糖酵解的英文名称是Glycolysis，来源于希腊语glyco（糖）和lysis（分解），意为糖的分解。"
+            },
+            {
+                question: "PET-CT检查利用的原理是：",
+                options: ["A. 肿瘤细胞氧气消耗增加", "B. 肿瘤细胞葡萄糖摄取增加", "C. 肿瘤细胞蛋白质合成增加", "D. 肿瘤细胞脂肪代谢增加"],
+                correct: 1,
+                explanation: "PET-CT使用18F-FDG示踪剂检测肿瘤，利用的是肿瘤细胞对葡萄糖摄取增加的特点（Warburg效应）。"
+            },
+            {
+                question: "果糖激酶的特点是：",
+                options: ["A. 受葡萄糖-6-磷酸抑制", "B. 不受产物抑制", "C. 活性很低", "D. 只存在于肌肉中"],
+                correct: 1,
+                explanation: "果糖激酶主要存在于肝脏，不受产物果糖-1-磷酸的抑制，因此果糖代谢速度很快，容易导致脂肪合成。"
+            }
+        ];
+        
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+        
+        // 渲染题目
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option" onclick="selectOption(${index}, ${optIndex})">
+                            <input type="radio" name="q${index}" value="${optIndex}" style="display: none;">
+                            ${option}
+                        </label>
+                    `).join('')}
+                    <div class="result" id="result-${index}"></div>
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储题目数据供后续使用
+            window.currentQuestions = selectedQuestions;
+        }
+        
+        // 选择选项
+        function selectOption(questionIndex, optionIndex) {
+            const question = document.querySelectorAll('.question')[questionIndex];
+            const options = question.querySelectorAll('.option');
+            
+            // 清除之前的选择
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // 添加新选择
+            options[optionIndex].classList.add('selected');
+            
+            // 设置radio值
+            const radio = options[optionIndex].querySelector('input');
+            radio.checked = true;
+        }
+        
+        // 提交答案
+        function submitQuiz() {
+            const questions = document.querySelectorAll('.question');
+            let correctCount = 0;
+            
+            questions.forEach((question, index) => {
+                const selectedRadio = question.querySelector('input[type="radio"]:checked');
+                const resultDiv = question.querySelector('.result');
+                const currentQ = window.currentQuestions[index];
+                
+                if (selectedRadio) {
+                    const selectedAnswer = parseInt(selectedRadio.value);
+                    const isCorrect = selectedAnswer === currentQ.correct;
+                    
+                    if (isCorrect) {
+                        correctCount++;
+                        resultDiv.className = 'result correct show';
+                        resultDiv.innerHTML = `
+                            <strong>✓ 正确！</strong>
+                            <div class="explanation">
+                                <strong>解析：</strong>${currentQ.explanation}
+                            </div>
+                        `;
+                    } else {
+                        resultDiv.className = 'result incorrect show';
+                        resultDiv.innerHTML = `
+                            <strong>✗ 错误</strong><br>
+                            <strong>正确答案：</strong>${currentQ.options[currentQ.correct]}
+                            <div class="explanation">
+                                <strong>解析：</strong>${currentQ.explanation}
+                            </div>
+                        `;
+                    }
+                } else {
+                    resultDiv.className = 'result incorrect show';
+                    resultDiv.innerHTML = `
+                        <strong>未作答</strong><br>
+                        <strong>正确答案：</strong>${currentQ.options[currentQ.correct]}
+                        <div class="explanation">
+                            <strong>解析：</strong>${currentQ.explanation}
+                        </div>
+                    `;
+                }
+            });
+            
+            // 显示总体结果
+            const resultsContainer = document.getElementById('quiz-results');
+            const accuracy = (correctCount / 15 * 100).toFixed(1);
+            resultsContainer.innerHTML = `
+                <div style="background: #e8f4fd; border: 2px solid #3498db; border-radius: 10px; padding: 20px; margin-top: 20px; text-align: center;">
+                    <h3 style="color: #2c3e50; margin-bottom: 10px;">测试结果</h3>
+                    <p style="font-size: 1.2em; margin: 10px 0;">
+                        <strong>正确题数：</strong>${correctCount}/15 题
+                    </p>
+                    <p style="font-size: 1.2em; margin: 10px 0;">
+                        <strong>准确率：</strong>${accuracy}%
+                    </p>
+                    <p style="color: #7f8c8d; margin-top: 15px;">
+                        ${accuracy >= 80 ? '🎉 优秀！继续保持！' : accuracy >= 60 ? '👍 良好，还需加强练习！' : '💪 需要更多复习，加油！'}
+                    </p>
+                </div>
+            `;
+            
+            // 滚动到结果区域
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

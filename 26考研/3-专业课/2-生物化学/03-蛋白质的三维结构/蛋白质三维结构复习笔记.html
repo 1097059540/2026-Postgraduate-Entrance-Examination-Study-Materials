@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛋白质三维结构 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .formula {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-family: "KaiTi", "楷体", cursive;
+            font-size: 1.1em;
+            margin: 20px 0;
+            border: 1px solid #3498db;
+        }
+        
+        .glossary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .term-entry {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .term-entry:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
+        }
+        
+        .term-entry h4 {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        .term-entry p {
+            margin: 0;
+            color: #34495e;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        /* 结构示意图样式 */
+        .structure-diagrams {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .structure-diagrams h3 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .diagram-container {
+            margin: 25px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .diagram-container h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            background-color: #ffffff;
+        }
+        
+        .diagram-caption {
+            margin-top: 10px;
+            color: #6c757d;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* 选择题样式 */
+        #quiz-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .option span {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        #submit-quiz {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit-quiz:hover {
+            background: #2980b9;
+        }
+
+        /* 测试结果样式 */
+        #quiz-results {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .result-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+
+        .result-item.correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .result-item.incorrect {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .result-item h4 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .result-item.correct h4 {
+            color: #155724;
+        }
+
+        .result-item.incorrect h4 {
+            color: #721c24;
+        }
+
+        .result-item p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-questions {
+            margin-top: 20px;
+        }
+
+        .question-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .question-item h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .answer {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .answer ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .answer li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .answer li strong {
+            color: #2c3e50;
+        }
+
+        .term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .english {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .options li:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .options li.selected {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: #e8f4fd;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .thinking-question {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .thinking-question h4 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .answer-toggle {
+            background: #e74c3c;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 20px;
+            background: #fdf2f2;
+            border-radius: 5px;
+            border: 1px solid #e74c3c;
+        }
+
+        .answer-content.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>蛋白质三维结构</h1>
+            <p>考研生物化学复习笔记 | 基于权威教材整理</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、蛋白质构象与稳定化力</h2>
+                
+                <h3>1.1 蛋白质构象的概念</h3>
+                <p><span class="term">蛋白质构象</span>是指蛋白质分子中所有原子在三维空间的排列位置，即蛋白质的空间结构。构象与构型的区别：</p>
+                <ul>
+                    <li><strong>构象</strong>：通过单键自由旋转形成，不涉及共价键断裂，无光学活性变化</li>
+                    <li><strong>构型</strong>：涉及共价键断裂重组，伴随光学活性变化（D型、L型转换）</li>
+                </ul>
+                
+                <h3>1.2 稳定蛋白质构象的作用力</h3>
+                <h4>1.2.1 弱相互作用</h4>
+                <ul>
+                    <li><strong>氢键</strong>：主要存在于C=O···H-N之间，是维持二级结构的主要力量，键能约20kJ/mol</li>
+                    <li><strong>范德华力</strong>：原子间的弱相互作用，距离依赖性强，作用距离约0.3-0.4nm</li>
+                    <li><strong>疏水作用力</strong>：疏水基团避开水分子而相互聚集，<span class="term">熵驱动的自发过程</span></li>
+                    <li><strong>盐键（离子键）</strong>：带电基团间的静电相互作用，在生理pH下较为重要</li>
+                </ul>
+                
+                <h4>1.2.2 共价键</h4>
+                <ul>
+                    <li><strong>二硫键</strong>：半胱氨酸残基间形成的共价键，键能约250kJ/mol，对蛋白质稳定性至关重要</li>
+                    <li><strong>肽键</strong>：连接氨基酸的主要共价键，具有部分双键性质，不能自由旋转</li>
+                </ul>
+                
+                <div class="highlight">
+                    <strong>重要提示：</strong>疏水作用是蛋白质折叠的主要驱动力，在生理温度范围内随温度升高而加强，但超过50-60℃后会减弱。这是因为高温破坏了水分子的氢键网络结构。
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>二、肽键的性质与蛋白质骨架</h2>
+                
+                <h3>2.1 肽键的结构特征</h3>
+                <ul>
+                    <li><strong>平面性</strong>：肽键具有40%的双键性质，C-N键不能自由旋转</li>
+                    <li><strong>反式构象</strong>：除脯氨酸外，肽键主要以反式存在（>99%）</li>
+                    <li><strong>键长</strong>：C-N键长0.132nm，介于单键（0.147nm）和双键（0.127nm）之间</li>
+                </ul>
+                
+                <h3>2.2 二面角与Ramachandran图</h3>
+                <ul>
+                    <li><strong>φ角</strong>：围绕Cα-N键的旋转角</li>
+                    <li><strong>ψ角</strong>：围绕Cα-C键的旋转角</li>
+                    <li><strong>Ramachandran图</strong>：显示允许的φ-ψ角组合，用于验证蛋白质结构的合理性</li>
+                </ul>
+                
+                <div class="formula">
+                     α-螺旋：φ = -57°，ψ = -47°<br>
+                     β-折叠：φ = -139°，ψ = +135°
+                 </div>
+                 
+                 <!-- 蛋白质结构示意图 -->
+                 <div class="structure-diagrams">
+                     <h3>蛋白质结构示意图</h3>
+                     
+                     <div class="diagram-container">
+                         <h4>α-螺旋结构</h4>
+                         <svg width="300" height="200" viewBox="0 0 300 200">
+                             <!-- α-螺旋主体 -->
+                             <defs>
+                                 <linearGradient id="helixGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                     <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                                     <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+                                 </linearGradient>
+                             </defs>
+                             
+                             <!-- 螺旋骨架 -->
+                             <path d="M50 180 Q80 160 110 140 Q140 120 170 100 Q200 80 230 60 Q260 40 290 20" 
+                                   stroke="#3498db" stroke-width="8" fill="none" stroke-linecap="round"/>
+                             
+                             <!-- 氢键 -->
+                             <line x1="70" y1="170" x2="130" y2="130" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5"/>
+                             <line x1="100" y1="150" x2="160" y2="110" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5"/>
+                             <line x1="130" y1="130" x2="190" y2="90" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5"/>
+                             <line x1="160" y1="110" x2="220" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5"/>
+                             
+                             <!-- 侧链 -->
+                             <circle cx="60" cy="175" r="4" fill="#27ae60"/>
+                             <circle cx="90" cy="155" r="4" fill="#27ae60"/>
+                             <circle cx="120" cy="135" r="4" fill="#27ae60"/>
+                             <circle cx="150" cy="115" r="4" fill="#27ae60"/>
+                             <circle cx="180" cy="95" r="4" fill="#27ae60"/>
+                             <circle cx="210" cy="75" r="4" fill="#27ae60"/>
+                             <circle cx="240" cy="55" r="4" fill="#27ae60"/>
+                             
+                             <!-- 标注 -->
+                             <text x="10" y="190" font-family="SimSun" font-size="12" fill="#2c3e50">C端</text>
+                             <text x="270" y="15" font-family="SimSun" font-size="12" fill="#2c3e50">N端</text>
+                             <text x="150" y="195" font-family="SimSun" font-size="10" fill="#e74c3c">氢键</text>
+                         </svg>
+                         <p class="diagram-caption">α-螺旋：右手螺旋，3.6个氨基酸/圈，氢键维持结构稳定</p>
+                     </div>
+                     
+                     <div class="diagram-container">
+                         <h4>β-折叠结构</h4>
+                         <svg width="300" height="200" viewBox="0 0 300 200">
+                             <!-- β-折叠片 -->
+                             <rect x="30" y="80" width="240" height="8" fill="#3498db" rx="4"/>
+                             <rect x="30" y="100" width="240" height="8" fill="#3498db" rx="4"/>
+                             <rect x="30" y="120" width="240" height="8" fill="#3498db" rx="4"/>
+                             
+                             <!-- 链间氢键 -->
+                             <line x1="50" y1="88" x2="50" y2="100" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="80" y1="88" x2="80" y2="100" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="110" y1="88" x2="110" y2="100" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="140" y1="88" x2="140" y2="100" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="170" y1="88" x2="170" y2="100" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="200" y1="88" x2="200" y2="100" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="230" y1="88" x2="230" y2="100" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="250" y1="88" x2="250" y2="100" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             
+                             <line x1="50" y1="108" x2="50" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="80" y1="108" x2="80" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="110" y1="108" x2="110" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="140" y1="108" x2="140" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="170" y1="108" x2="170" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="200" y1="108" x2="200" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="230" y1="108" x2="230" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             <line x1="250" y1="108" x2="250" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                             
+                             <!-- 侧链 -->
+                             <circle cx="50" cy="70" r="3" fill="#27ae60"/>
+                             <circle cx="80" cy="135" r="3" fill="#27ae60"/>
+                             <circle cx="110" cy="70" r="3" fill="#27ae60"/>
+                             <circle cx="140" cy="135" r="3" fill="#27ae60"/>
+                             <circle cx="170" cy="70" r="3" fill="#27ae60"/>
+                             <circle cx="200" cy="135" r="3" fill="#27ae60"/>
+                             <circle cx="230" cy="70" r="3" fill="#27ae60"/>
+                             <circle cx="250" cy="135" r="3" fill="#27ae60"/>
+                             
+                             <!-- 方向箭头 -->
+                             <polygon points="25,84 35,84 30,79" fill="#2c3e50"/>
+                             <polygon points="275,104 265,104 270,109" fill="#2c3e50"/>
+                             <polygon points="25,124 35,124 30,119" fill="#2c3e50"/>
+                             
+                             <!-- 标注 -->
+                             <text x="10" y="75" font-family="SimSun" font-size="10" fill="#2c3e50">N→C</text>
+                             <text x="275" y="115" font-family="SimSun" font-size="10" fill="#2c3e50">C→N</text>
+                             <text x="10" y="135" font-family="SimSun" font-size="10" fill="#2c3e50">N→C</text>
+                             <text x="120" y="160" font-family="SimSun" font-size="10" fill="#e74c3c">链间氢键</text>
+                         </svg>
+                         <p class="diagram-caption">β-折叠：反平行排列，链间氢键，锯齿状伸展构象</p>
+                     </div>
+                     
+                     <div class="diagram-container">
+                         <h4>蛋白质三级结构示意</h4>
+                         <svg width="300" height="200" viewBox="0 0 300 200">
+                             <!-- 疏水核心 -->
+                             <ellipse cx="150" cy="100" rx="80" ry="60" fill="#f39c12" opacity="0.3" stroke="#e67e22" stroke-width="2" stroke-dasharray="5,5"/>
+                             
+                             <!-- α-螺旋区域 -->
+                             <path d="M80 60 Q90 50 100 60 Q110 70 120 60 Q130 50 140 60" stroke="#3498db" stroke-width="6" fill="none" stroke-linecap="round"/>
+                             <path d="M180 140 Q190 130 200 140 Q210 150 220 140" stroke="#3498db" stroke-width="6" fill="none" stroke-linecap="round"/>
+                             
+                             <!-- β-折叠区域 -->
+                             <rect x="60" y="120" width="40" height="4" fill="#9b59b6" rx="2"/>
+                             <rect x="60" y="130" width="40" height="4" fill="#9b59b6" rx="2"/>
+                             <rect x="200" y="70" width="40" height="4" fill="#9b59b6" rx="2"/>
+                             <rect x="200" y="80" width="40" height="4" fill="#9b59b6" rx="2"/>
+                             
+                             <!-- 无规卷曲 -->
+                             <path d="M140 60 Q160 80 180 70 Q200 60 220 80" stroke="#95a5a6" stroke-width="4" fill="none"/>
+                             <path d="M100 130 Q120 110 140 120 Q160 130 180 140" stroke="#95a5a6" stroke-width="4" fill="none"/>
+                             
+                             <!-- 二硫键 -->
+                             <line x1="90" y1="80" x2="210" y2="120" stroke="#f1c40f" stroke-width="3"/>
+                             <circle cx="90" cy="80" r="4" fill="#f1c40f"/>
+                             <circle cx="210" cy="120" r="4" fill="#f1c40f"/>
+                             
+                             <!-- 亲水表面 -->
+                             <circle cx="70" cy="40" r="6" fill="#3498db" opacity="0.7"/>
+                             <circle cx="250" cy="50" r="6" fill="#3498db" opacity="0.7"/>
+                             <circle cx="50" cy="160" r="6" fill="#3498db" opacity="0.7"/>
+                             <circle cx="260" cy="150" r="6" fill="#3498db" opacity="0.7"/>
+                             <circle cx="150" cy="30" r="6" fill="#3498db" opacity="0.7"/>
+                             <circle cx="150" cy="170" r="6" fill="#3498db" opacity="0.7"/>
+                             
+                             <!-- 标注 -->
+                             <text x="10" y="15" font-family="SimSun" font-size="10" fill="#3498db">亲水基团</text>
+                             <text x="110" y="15" font-family="SimSun" font-size="10" fill="#f39c12">疏水核心</text>
+                             <text x="210" y="15" font-family="SimSun" font-size="10" fill="#f1c40f">二硫键</text>
+                             <text x="10" y="190" font-family="SimSun" font-size="10" fill="#3498db">α-螺旋</text>
+                             <text x="80" y="190" font-family="SimSun" font-size="10" fill="#9b59b6">β-折叠</text>
+                             <text x="150" y="190" font-family="SimSun" font-size="10" fill="#95a5a6">无规卷曲</text>
+                         </svg>
+                         <p class="diagram-caption">蛋白质三级结构：疏水核心，亲水表面，多种二级结构组合</p>
+                     </div>
+                 </div>
+             </div>
+            
+            <div class="section">
+                <h2>三、蛋白质二级结构</h2>
+                
+                <h3>3.1 α-螺旋</h3>
+                <ul>
+                    <li><strong>结构特征</strong>：右手螺旋，每3.6个氨基酸旋转一周，螺距0.54nm</li>
+                    <li><strong>氢键模式</strong>：第n个氨基酸的C=O与第(n+4)个氨基酸的N-H形成氢键</li>
+                    <li><strong>几何参数</strong>：每个氨基酸残基高度0.15nm，螺旋半径0.23nm</li>
+                    <li><strong>影响因素</strong>：
+                        <ul>
+                            <li>有利氨基酸：Ala、Glu、Leu、Met</li>
+                            <li>不利氨基酸：Pro（螺旋断路器）、Gly（过于柔性）</li>
+                            <li>连续带电氨基酸产生静电排斥</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>3.2 β-折叠</h3>
+                <ul>
+                    <li><strong>结构特征</strong>：伸展的锯齿状构象，多肽链平行或反平行排列</li>
+                    <li><strong>氢键模式</strong>：相邻肽链间的C=O与N-H形成链间氢键</li>
+                    <li><strong>类型</strong>：
+                        <ul>
+                            <li>平行β-折叠：肽链方向相同</li>
+                            <li>反平行β-折叠：肽链方向相反（更稳定）</li>
+                        </ul>
+                    </li>
+                    <li><strong>常见氨基酸</strong>：Gly、Ala、Phe、Tyr出现概率最高</li>
+                </ul>
+                
+                <h3>3.3 β-转角与无规卷曲</h3>
+                <ul>
+                    <li><strong>β-转角</strong>：180°回折结构，由4个氨基酸残基构成，第2个残基常为Pro或Gly</li>
+                    <li><strong>无规卷曲</strong>：无规律排列的构象，连接其他二级结构元件，约占蛋白质结构的30-40%</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>四、蛋白质三级结构测定方法</h2>
+                
+                <h3>4.1 X射线晶体学</h3>
+                <ul>
+                    <li><strong>原理</strong>：X射线被蛋白质晶体中的电子散射，产生衍射图样</li>
+                    <li><strong>优点</strong>：可获得原子分辨率的结构信息（1-3Å）</li>
+                    <li><strong>局限性</strong>：需要高质量晶体，静态结构，无法观察动态变化</li>
+                </ul>
+                
+                <h3>4.2 核磁共振（NMR）</h3>
+                <ul>
+                    <li><strong>原理</strong>：利用原子核在磁场中的共振现象</li>
+                    <li><strong>优点</strong>：可在溶液中测定，观察动态结构</li>
+                    <li><strong>局限性</strong>：分子量限制（通常<40kDa），分辨率较低</li>
+                </ul>
+                
+                <h3>4.3 圆二色谱（CD）</h3>
+                <ul>
+                    <li><strong>原理</strong>：测量左旋和右旋圆偏振光的吸收差异</li>
+                    <li><strong>应用</strong>：定量分析二级结构含量，监测结构变化</li>
+                    <li><strong>特征波长</strong>：α-螺旋在208nm和222nm有特征负峰</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>五、纤维状蛋白质</h2>
+                
+                <h3>5.1 α-角蛋白</h3>
+                <ul>
+                    <li><strong>结构</strong>：主要由α-螺旋组成，富含半胱氨酸（10-14%）</li>
+                    <li><strong>特点</strong>：具有弹性，湿热条件下可转变为β-构象</li>
+                    <li><strong>实例</strong>：毛发、羊毛、指甲、角质层</li>
+                    <li><strong>分子组装</strong>：螺旋→原纤维→微纤维→纤维</li>
+                </ul>
+                
+                <h3>5.2 胶原蛋白</h3>
+                <ul>
+                    <li><strong>结构</strong>：三股螺旋结构，每三个氨基酸中必有一个甘氨酸</li>
+                    <li><strong>序列特征</strong>：Gly-X-Y重复序列，X常为Pro（28%），Y常为Hyp（38%）</li>
+                    <li><strong>稳定因素</strong>：
+                        <ul>
+                            <li>链间氢键</li>
+                            <li>羟脯氨酸和羟赖氨酸的羟基</li>
+                            <li>甘氨酸的小侧链允许紧密堆积</li>
+                        </ul>
+                    </li>
+                    <li><strong>翻译后修饰</strong>：脯氨酸和赖氨酸的羟基化（需维生素C）</li>
+                </ul>
+                
+                <h3>5.3 丝心蛋白</h3>
+                <ul>
+                    <li><strong>结构</strong>：主要由β-折叠组成，形成β-折叠片层</li>
+                    <li><strong>特点</strong>：结构稳定，抗拉强度高，不易变形</li>
+                    <li><strong>实例</strong>：蚕丝、蜘蛛丝</li>
+                    <li><strong>氨基酸组成</strong>：富含Gly（44%）、Ala（25%）、Ser（12%）</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>六、蛋白质三级和四级结构</h2>
+                
+                <h3>6.1 超二级结构与结构域</h3>
+                <ul>
+                    <li><strong>超二级结构（Motif）</strong>：相邻二级结构单元的组合
+                        <ul>
+                            <li>αα：两个α-螺旋的组合</li>
+                            <li>βαβ：β-折叠-α-螺旋-β-折叠</li>
+                            <li>ββ：两个β-折叠的组合</li>
+                            <li>β-发夹：反平行β-折叠间的短环</li>
+                        </ul>
+                    </li>
+                    <li><strong>结构域（Domain）</strong>：独立折叠的结构单元
+                        <ul>
+                            <li>大小：通常100-200个氨基酸</li>
+                            <li>功能：可承担特定的生物学功能</li>
+                            <li>进化：可作为进化的基本单元</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>6.2 三级结构</h3>
+                <ul>
+                    <li><strong>定义</strong>：整个多肽链的三维空间排列</li>
+                    <li><strong>稳定因素</strong>：疏水作用力是主要驱动力（约60%贡献）</li>
+                    <li><strong>特征</strong>：
+                        <ul>
+                            <li>亲水基团在外表面</li>
+                            <li>疏水基团在内部形成疏水核心</li>
+                            <li>二硫键提供额外稳定性</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>6.3 四级结构</h3>
+                <ul>
+                    <li><strong>定义</strong>：多个亚基的空间排列和相互作用</li>
+                    <li><strong>亚基间作用力</strong>：主要为非共价键
+                        <ul>
+                            <li>氢键</li>
+                            <li>盐键</li>
+                            <li>疏水作用</li>
+                            <li>范德华力</li>
+                        </ul>
+                    </li>
+                    <li><strong>实例</strong>：
+                        <ul>
+                            <li>血红蛋白：α2β2四聚体</li>
+                            <li>乳酸脱氢酶：四聚体</li>
+                            <li>天冬氨酸转氨甲酰酶：十二聚体</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>七、蛋白质变性、复性与折叠</h2>
+                
+                <h3>7.1 蛋白质变性</h3>
+                <ul>
+                    <li><strong>定义</strong>：天然构象被破坏，生物活性丧失</li>
+                    <li><strong>实质</strong>：次级键破坏，一级结构保持完整</li>
+                    <li><strong>变性因素</strong>：
+                        <ul>
+                            <li>物理因素：高温、高压、超声波、紫外线</li>
+                            <li>化学因素：极端pH、有机溶剂、变性剂（尿素、胍盐酸）</li>
+                            <li>生物因素：蛋白酶、某些酶</li>
+                        </ul>
+                    </li>
+                    <li><strong>变性特征</strong>：
+                        <ul>
+                            <li>生物活性丧失</li>
+                            <li>溶解度改变</li>
+                            <li>粘度增加</li>
+                            <li>光学性质改变</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>7.2 蛋白质复性与折叠</h3>
+                <ul>
+                    <li><strong>Anfinsen实验</strong>：证明一级结构决定三级结构
+                        <ul>
+                            <li>实验对象：核糖核酸酶</li>
+                            <li>实验过程：8M尿素变性→透析复性→活性恢复</li>
+                            <li>重要结论：蛋白质折叠信息完全包含在氨基酸序列中</li>
+                        </ul>
+                    </li>
+                    <li><strong>折叠热力学</strong>：
+                        <ul>
+                            <li>天然构象是自由能最低的状态</li>
+                            <li>折叠过程：ΔG < 0（自发过程）</li>
+                            <li>稳定性：通常ΔG = -20到-60 kJ/mol</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>7.3 蛋白质折叠辅助因子</h3>
+                <ul>
+                    <li><strong>分子伴侣（Chaperones）</strong>：
+                        <ul>
+                            <li>功能：协助折叠，不参与最终结构</li>
+                            <li>机制：结合疏水区域，防止聚集</li>
+                            <li>类型：Hsp70、Hsp60、Hsp90等</li>
+                            <li>ATP依赖性：某些伴侣需要ATP提供能量</li>
+                        </ul>
+                    </li>
+                    <li><strong>肽基脯氨酸异构酶（PPIase）</strong>：
+                        <ul>
+                            <li>功能：催化脯氨酸肽键的顺反异构</li>
+                            <li>重要性：脯氨酸异构是折叠的限速步骤</li>
+                        </ul>
+                    </li>
+                    <li><strong>蛋白质二硫键异构酶（PDI）</strong>：
+                        <ul>
+                            <li>功能：催化二硫键的形成和重排</li>
+                            <li>位置：主要在内质网</li>
+                            <li>机制：通过活性位点的半胱氨酸残基</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="highlight">
+                    <strong>重要概念：</strong>蛋白质折叠是一个热力学有利的过程，主要由疏水作用驱动，伴随着体系熵的增加。在细胞内，分子伴侣等辅助因子提高折叠效率和准确性。
+                </div>
+            </div>
+        </div>
+        
+        <!-- 名词解释库板块 -->
+        <div class="section">
+            <h2>名词解释库</h2>
+            <div class="glossary">
+                <div class="term-entry">
+                    <h4>蛋白质构象（Protein Conformation）</h4>
+                    <p>蛋白质分子中所有原子在三维空间的排列位置，即蛋白质的空间结构。通过单键自由旋转形成，不涉及共价键断裂。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>α-螺旋（Alpha Helix）</h4>
+                    <p>蛋白质二级结构的一种，呈右手螺旋状，每3.6个氨基酸旋转一周，螺距0.54nm。第n个氨基酸的C=O与第(n+4)个氨基酸的N-H形成氢键。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>β-折叠（Beta Sheet）</h4>
+                    <p>蛋白质二级结构的一种，呈伸展的锯齿状构象，多肽链平行或反平行排列，相邻肽链间形成链间氢键。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>超二级结构（Supersecondary Structure/Motif）</h4>
+                    <p>相邻二级结构单元的特定组合，如αα、βαβ、ββ等，是介于二级结构和三级结构之间的结构层次。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>结构域（Domain）</h4>
+                    <p>蛋白质中独立折叠的结构单元，通常包含100-200个氨基酸，可承担特定的生物学功能，是蛋白质进化的基本单元。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>疏水作用力（Hydrophobic Interaction）</h4>
+                    <p>疏水基团为避开水分子而相互聚集的作用力，是熵驱动的自发过程，是蛋白质折叠的主要驱动力。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>二硫键（Disulfide Bond）</h4>
+                    <p>两个半胱氨酸残基的巯基（-SH）之间形成的共价键，键能约250kJ/mol，对蛋白质稳定性至关重要。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>肽键（Peptide Bond）</h4>
+                    <p>连接氨基酸的酰胺键，具有40%的双键性质，呈平面结构，C-N键不能自由旋转，键长0.132nm。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>Ramachandran图（Ramachandran Plot）</h4>
+                    <p>显示蛋白质主链二面角φ和ψ的允许组合的图表，用于验证蛋白质结构的立体化学合理性。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>X射线晶体学（X-ray Crystallography）</h4>
+                    <p>利用X射线在蛋白质晶体中的衍射现象测定蛋白质三维结构的方法，可获得原子分辨率（1-3Å）的结构信息。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>核磁共振（Nuclear Magnetic Resonance, NMR）</h4>
+                    <p>利用原子核在磁场中的共振现象测定蛋白质结构的方法，可在溶液中观察蛋白质的动态结构变化。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>圆二色谱（Circular Dichroism, CD）</h4>
+                    <p>测量左旋和右旋圆偏振光吸收差异的光谱技术，用于定量分析蛋白质二级结构含量和监测结构变化。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>α-角蛋白（Alpha-Keratin）</h4>
+                    <p>主要由α-螺旋组成的纤维状蛋白质，富含半胱氨酸（10-14%），具有弹性，存在于毛发、羊毛、指甲等组织中。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>胶原蛋白（Collagen）</h4>
+                    <p>具有三股螺旋结构的纤维状蛋白质，氨基酸序列为Gly-X-Y重复，其中X常为脯氨酸，Y常为羟脯氨酸。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>丝心蛋白（Fibroin）</h4>
+                    <p>主要由β-折叠组成的纤维状蛋白质，形成β-折叠片层结构，具有高抗拉强度，存在于蚕丝、蜘蛛丝中。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>蛋白质变性（Protein Denaturation）</h4>
+                    <p>蛋白质天然构象被破坏，生物活性丧失的过程。实质是次级键破坏，一级结构保持完整。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>蛋白质复性（Protein Renaturation）</h4>
+                    <p>变性蛋白质在适当条件下重新折叠成天然构象，恢复生物活性的过程。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>Anfinsen实验（Anfinsen's Experiment）</h4>
+                    <p>用核糖核酸酶证明蛋白质一级结构决定三级结构的经典实验。8M尿素变性后透析复性，活性完全恢复。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>分子伴侣（Molecular Chaperones）</h4>
+                    <p>协助蛋白质正确折叠的辅助蛋白质，如Hsp70、Hsp60等。结合疏水区域，防止蛋白质聚集，但不参与最终结构。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>肽基脯氨酸异构酶（Peptidyl Prolyl Isomerase, PPIase）</h4>
+                    <p>催化脯氨酸肽键顺反异构的酶，脯氨酸异构是蛋白质折叠的限速步骤。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>蛋白质二硫键异构酶（Protein Disulfide Isomerase, PDI）</h4>
+                    <p>催化二硫键形成和重排的酶，主要存在于内质网中，通过活性位点的半胱氨酸残基发挥作用。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>热休克蛋白（Heat Shock Proteins, HSPs）</h4>
+                    <p>一类在应激条件下表达增加的分子伴侣蛋白，按分子量分为Hsp60、Hsp70、Hsp90等，协助蛋白质折叠和修复。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>β-转角（Beta Turn）</h4>
+                    <p>180°回折的二级结构，由4个氨基酸残基构成，第2个残基常为脯氨酸或甘氨酸，连接其他二级结构元件。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>无规卷曲（Random Coil）</h4>
+                    <p>无规律排列的蛋白质构象，连接其他二级结构元件，约占蛋白质结构的30-40%，具有较大的构象灵活性。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>四级结构（Quaternary Structure）</h4>
+                    <p>多个亚基的空间排列和相互作用，亚基间主要通过非共价键结合，如血红蛋白的α2β2四聚体结构。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>羟脯氨酸（Hydroxyproline, Hyp）</h4>
+                    <p>脯氨酸的羟基化产物，主要存在于胶原蛋白中，羟基化需要维生素C参与，对胶原蛋白稳定性至关重要。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>范德华力（Van der Waals Forces）</h4>
+                    <p>原子间的弱相互作用力，距离依赖性强，作用距离约0.3-0.4nm，是维持蛋白质构象的重要作用力之一。</p>
+                </div>
+                
+                <div class="term-entry">
+                    <h4>盐键（Salt Bridge/Ionic Bond）</h4>
+                    <p>带正电和带负电基团间的静电相互作用，在生理pH下较为重要，如赖氨酸与天冬氨酸间的相互作用。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择题测试板块 -->
+    <div class="section">
+        <h2>四、选择题测试</h2>
+        <div id="quiz-container">
+            <div id="quiz-questions"></div>
+            <button id="submit-quiz" onclick="submitQuiz()">提交答案</button>
+            <div id="quiz-results" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- 深度思考题板块 -->
+    <div class="section">
+        <h2>五、深度思考题</h2>
+        <div class="thinking-questions">
+            <div class="question-item">
+                <h3>1. 试分析蛋白质折叠的热力学和动力学机制，并解释Levinthal悖论及其解决方案。</h3>
+                <div class="answer">
+                    <ol>
+                        <li><strong>热力学机制</strong>：蛋白质折叠是一个自发的热力学过程，驱动力来自于折叠态相对于去折叠态的自由能降低。这种自由能降低主要源于：(1)疏水作用力的形成，疏水氨基酸侧链聚集在蛋白质内部，减少与水的接触面积；(2)氢键和静电相互作用的建立；(3)范德华力的优化；(4)构象熵的损失被焓的降低所补偿。</li>
+                        <li><strong>动力学机制</strong>：蛋白质折叠遵循漏斗状能量景观模型，从高能的去折叠态通过多条路径向低能的天然态折叠。折叠过程包括：(1)初级折叠核的形成；(2)二级结构元件的快速形成；(3)三级结构的组装和优化；(4)最终的精细调整。整个过程可能涉及中间态的形成和消失。</li>
+                        <li><strong>Levinthal悖论</strong>：如果蛋白质随机搜索所有可能的构象，即使对于一个100个氨基酸的小蛋白质，也需要10^47年才能找到正确的折叠构象，但实际上蛋白质在秒到分钟内就能完成折叠。</li>
+                        <li><strong>悖论的解决</strong>：(1)折叠路径不是随机的，而是沿着特定的折叠路径进行；(2)局部结构首先形成，然后组装成整体结构；(3)分子伴侣的辅助作用；(4)共翻译折叠，即在翻译过程中同时进行折叠；(5)折叠漏斗模型表明存在多条平行的折叠路径。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <h3>2. 比较分析纤维状蛋白质和球状蛋白质的结构特点、功能差异及其生物学意义。</h3>
+                <div class="answer">
+                    <ol>
+                        <li><strong>结构特点对比</strong>：纤维状蛋白质具有高度延伸的线性结构，长径比大，主要由重复的二级结构单元组成，如α-角蛋白的α-螺旋、胶原蛋白的三股螺旋、丝心蛋白的β-折叠。球状蛋白质则呈现紧密折叠的球形或椭球形结构，包含多种二级结构元件，具有明确的疏水核心和亲水表面。</li>
+                        <li><strong>溶解性差异</strong>：纤维状蛋白质通常不溶于水或难溶于水，因为其疏水区域暴露在表面，分子间容易形成强烈的相互作用。球状蛋白质则易溶于水，因为亲水基团分布在分子表面，疏水基团埋藏在内部。</li>
+                        <li><strong>功能差异</strong>：纤维状蛋白质主要承担结构和保护功能，如角蛋白构成毛发和指甲，胶原蛋白提供结缔组织的机械强度，丝心蛋白赋予蚕丝优异的机械性能。球状蛋白质则主要执行催化、运输、调节等动态功能，如酶、载体蛋白、激素等。</li>
+                        <li><strong>生物学意义</strong>：这种结构-功能关系体现了生物进化的精妙设计。纤维状蛋白质的稳定结构适应了其承重和保护的需要，而球状蛋白质的灵活性则满足了其执行复杂生物化学反应的要求。两者的共存保证了生物体既有稳定的结构支撑，又有高效的生化功能。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <h3>3. 详细阐述分子伴侣在蛋白质折叠中的作用机制，并分析其在疾病发生中的意义。</h3>
+                <div class="answer">
+                    <ol>
+                        <li><strong>分子伴侣的分类和功能</strong>：分子伴侣主要包括Hsp70家族（协助新生肽链折叠，防止聚集）、Hsp60家族（提供折叠腔室，如GroEL/GroES系统）、Hsp90家族（协助信号蛋白的成熟）、小分子量热休克蛋白（维持蛋白质稳定性）等。它们不提供折叠信息，而是创造有利的折叠环境。</li>
+                        <li><strong>作用机制</strong>：(1)防止错误折叠和聚集：通过结合疏水区域防止蛋白质分子间的非特异性相互作用；(2)提供折叠空间：如GroEL提供隔离的折叠腔室；(3)协助重折叠：帮助错误折叠的蛋白质重新获得正确构象；(4)质量控制：识别并处理无法正确折叠的蛋白质。</li>
+                        <li><strong>ATP依赖性机制</strong>：大多数分子伴侣需要ATP提供能量来驱动构象变化，实现底物蛋白的结合和释放循环。这种能量依赖性保证了折叠过程的方向性和效率。</li>
+                        <li><strong>疾病相关性</strong>：分子伴侣功能异常与多种疾病相关：(1)神经退行性疾病：如阿尔茨海默病、帕金森病中蛋白质错误折叠和聚集；(2)癌症：Hsp90过表达促进肿瘤蛋白稳定；(3)遗传性疾病：分子伴侣基因突变导致的蛋白质折叠缺陷；(4)衰老：分子伴侣活性下降导致蛋白质稳态失衡。</li>
+                        <li><strong>治疗意义</strong>：分子伴侣已成为重要的药物靶点，如Hsp90抑制剂用于癌症治疗，分子伴侣激活剂用于神经保护等。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <h3>4. 从结构生物学角度分析X射线晶体学、NMR和冷冻电镜在蛋白质结构研究中的优势、局限性及互补性。</h3>
+                <div class="answer">
+                    <ol>
+                        <li><strong>X射线晶体学</strong>：优势包括高分辨率（可达原子级别，0.1-0.2nm）、适用于大分子复合物、结构信息详细准确。局限性在于需要高质量晶体、静态结构信息、晶体环境可能影响天然构象、膜蛋白结晶困难。主要适用于稳定的球状蛋白质和蛋白质复合物的精确结构测定。</li>
+                        <li><strong>核磁共振（NMR）</strong>：优势包括溶液状态下的结构信息、动态信息丰富、可研究蛋白质-配体相互作用、无需结晶。局限性在于分子量限制（通常<50kDa）、分辨率相对较低、实验时间长、对样品纯度要求高。特别适用于小蛋白质的动态结构研究和药物筛选。</li>
+                        <li><strong>冷冻电镜（Cryo-EM）</strong>：优势包括接近天然状态、适用于大分子复合物、无需结晶、可观察构象变化。局限性在于分辨率仍在提高中、对小蛋白质效果有限、数据处理复杂、设备昂贵。特别适用于膜蛋白、大分子机器和动态复合物的结构研究。</li>
+                        <li><strong>互补性应用</strong>：(1)结构验证：不同方法获得的结构相互验证；(2)多尺度研究：从原子级别到分子机器级别的全面理解；(3)动静结合：静态高分辨率结构与动态信息的结合；(4)功能关联：结构信息与功能研究的整合。现代结构生物学越来越依赖多种技术的联合应用。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <h3>5. 结合Anfinsen实验，深入分析蛋白质结构与功能关系的分子基础，并讨论其在蛋白质工程中的应用。</h3>
+                <div class="answer">
+                    <ol>
+                        <li><strong>Anfinsen实验的核心发现</strong>：通过核糖核酸酶的变性-复性实验，Anfinsen证明了蛋白质的氨基酸序列包含了其三维结构的全部信息，即"序列决定结构"的基本原理。在适当条件下，完全变性的蛋白质能够自发重折叠为具有生物活性的天然构象，表明蛋白质折叠是一个热力学控制的过程。</li>
+                        <li><strong>结构-功能关系的分子基础</strong>：(1)活性位点的精确几何：酶的催化活性依赖于活性位点氨基酸的精确空间排列；(2)构象变化与功能调节：蛋白质通过构象变化实现功能调节，如别构效应；(3)结合位点的特异性：蛋白质与配体的特异性结合依赖于结合位点的形状和化学环境；(4)动态平衡：蛋白质在多种构象间的动态平衡决定其功能状态。</li>
+                        <li><strong>蛋白质工程的理论基础</strong>：基于结构-功能关系，可以通过改变氨基酸序列来设计具有新功能或改良功能的蛋白质。这包括：(1)定点突变改变特定性质；(2)结构域重组创造新功能；(3)从头设计全新蛋白质；(4)定向进化优化蛋白质性能。</li>
+                        <li><strong>实际应用案例</strong>：(1)酶工程：改善酶的稳定性、特异性和催化效率；(2)抗体工程：设计特异性更强的治疗性抗体；(3)蛋白质药物：开发具有改良药代动力学性质的蛋白质药物；(4)生物传感器：设计能够检测特定分子的蛋白质传感器。</li>
+                        <li><strong>挑战与前景</strong>：尽管我们对结构-功能关系有了深入理解，但蛋白质设计仍面临挑战，如长程相互作用的预测、动态性质的控制等。随着计算生物学和人工智能的发展，蛋白质工程正朝着更加精确和高效的方向发展。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "α-螺旋结构中，第n个氨基酸的C=O与哪个氨基酸的N-H形成氢键？",
+                options: ["第(n+1)个", "第(n+2)个", "第(n+3)个", "第(n+4)个"],
+                correct: 3,
+                explanation: "在α-螺旋中，第n个氨基酸的羰基氧与第(n+4)个氨基酸的酰胺氢形成氢键，这种氢键模式使螺旋结构稳定，每3.6个氨基酸完成一个螺旋周期。"
+            },
+            {
+                question: "下列哪种氨基酸被称为'螺旋断路器'？",
+                options: ["甘氨酸", "脯氨酸", "丙氨酸", "亮氨酸"],
+                correct: 1,
+                explanation: "脯氨酸由于其侧链与主链氮原子形成五元环结构，限制了φ角的旋转，破坏了α-螺旋的规则几何，因此被称为'螺旋断路器'。"
+            },
+            {
+                question: "β-折叠结构中，相邻肽链间的氢键形成在哪些原子之间？",
+                options: ["侧链之间", "主链C=O与N-H之间", "侧链与主链之间", "主链C-N之间"],
+                correct: 1,
+                explanation: "β-折叠结构的稳定性来源于相邻肽链主链上羰基氧原子与酰胺氢原子之间形成的链间氢键，这些氢键垂直于肽链方向。"
+            },
+            {
+                question: "Ramachandran图主要用于分析蛋白质的什么性质？",
+                options: ["氨基酸组成", "二级结构合理性", "疏水性", "分子量"],
+                correct: 1,
+                explanation: "Ramachandran图通过绘制φ-ψ二面角的分布，显示哪些主链构象在立体化学上是允许的，主要用于验证蛋白质二级结构的合理性。"
+            },
+            {
+                question: "蛋白质三级结构的主要稳定力不包括：",
+                options: ["疏水作用力", "氢键", "肽键", "范德华力"],
+                correct: 2,
+                explanation: "肽键是共价键，属于一级结构的组成部分。蛋白质三级结构主要由非共价相互作用稳定，包括疏水作用力、氢键、静电相互作用和范德华力。"
+            },
+            {
+                question: "胶原蛋白的特征氨基酸序列是：",
+                options: ["Gly-Pro-Hyp", "Gly-Ala-Pro", "Pro-Hyp-Gly", "Ala-Gly-Pro"],
+                correct: 0,
+                explanation: "胶原蛋白具有特征性的Gly-Pro-Hyp重复序列，其中甘氨酸的小侧链允许三股螺旋的紧密堆积，脯氨酸和羟脯氨酸提供结构刚性。"
+            },
+            {
+                question: "X射线晶体学测定蛋白质结构的主要限制是：",
+                options: ["分辨率低", "需要蛋白质结晶", "只能研究小分子", "无法提供原子坐标"],
+                correct: 1,
+                explanation: "X射线晶体学需要高质量的蛋白质晶体，这是该技术的主要限制。许多蛋白质难以结晶，特别是膜蛋白和柔性蛋白质。"
+            },
+            {
+                question: "蛋白质变性后失去的主要是：",
+                options: ["一级结构", "生物活性", "氨基酸序列", "分子量"],
+                correct: 1,
+                explanation: "蛋白质变性主要破坏高级结构（二级、三级、四级），导致生物活性丧失，但一级结构（氨基酸序列）通常保持不变。"
+            },
+            {
+                question: "Anfinsen实验证明了：",
+                options: ["蛋白质结构的多样性", "氨基酸序列决定蛋白质结构", "蛋白质的催化活性", "蛋白质的分子量"],
+                correct: 1,
+                explanation: "Anfinsen通过核糖核酸酶的变性-复性实验证明，蛋白质的氨基酸序列包含了其三维结构的全部信息，即'序列决定结构'的基本原理。"
+            },
+            {
+                question: "分子伴侣的主要功能是：",
+                options: ["提供折叠信息", "协助蛋白质正确折叠", "催化肽键形成", "降解错误蛋白质"],
+                correct: 1,
+                explanation: "分子伴侣不提供折叠信息，而是通过防止蛋白质聚集、提供折叠环境等方式协助蛋白质获得正确的三维结构。"
+            },
+            {
+                question: "超二级结构是指：",
+                options: ["比二级结构更高级的结构", "二级结构元件的组合模式", "蛋白质的四级结构", "变性蛋白质的结构"],
+                correct: 1,
+                explanation: "超二级结构是指由相邻的二级结构元件（如α-螺旋、β-折叠）组合形成的具有特定几何排列的结构单元，如β-发夹、螺旋-转角-螺旋等。"
+            },
+            {
+                question: "蛋白质结构域的特点是：",
+                options: ["只含有一种二级结构", "独立折叠和功能单元", "只存在于大蛋白质中", "不含疏水核心"],
+                correct: 1,
+                explanation: "结构域是蛋白质中相对独立的折叠单元，通常具有特定的功能，可以独立稳定存在，是蛋白质进化和功能的基本单位。"
+            },
+            {
+                question: "圆二色谱（CD）主要用于检测蛋白质的：",
+                options: ["一级结构", "二级结构含量", "分子量", "等电点"],
+                correct: 1,
+                explanation: "圆二色谱通过测量蛋白质对左旋和右旋圆偏振光的不同吸收，可以定量分析蛋白质中α-螺旋、β-折叠等二级结构的含量。"
+            },
+            {
+                question: "丝心蛋白的主要二级结构是：",
+                options: ["α-螺旋", "β-折叠", "β-转角", "无规卷曲"],
+                correct: 1,
+                explanation: "丝心蛋白主要由反平行β-折叠构成，这种结构使蚕丝具有优异的机械强度和韧性。"
+            },
+            {
+                question: "蛋白质四级结构是指：",
+                options: ["最复杂的蛋白质结构", "多个亚基的空间排列", "蛋白质的最终结构", "包含四个结构域的蛋白质"],
+                correct: 1,
+                explanation: "四级结构是指由两个或多个具有三级结构的多肽链（亚基）通过非共价相互作用形成的多聚体结构。"
+            },
+            {
+                question: "维持蛋白质构象稳定性最重要的作用力是：",
+                options: ["氢键", "疏水作用力", "静电相互作用", "范德华力"],
+                correct: 1,
+                explanation: "疏水作用力是维持蛋白质构象稳定性最重要的作用力，疏水氨基酸侧链聚集在蛋白质内部形成疏水核心，是蛋白质折叠的主要驱动力。"
+            },
+            {
+                question: "蛋白质二硫键主要形成在哪种氨基酸之间？",
+                options: ["甲硫氨酸", "半胱氨酸", "丝氨酸", "苏氨酸"],
+                correct: 1,
+                explanation: "二硫键是两个半胱氨酸残基的巯基（-SH）之间形成的共价键，是稳定蛋白质结构的重要因素，特别是在胞外蛋白质中。"
+            },
+            {
+                question: "核磁共振（NMR）测定蛋白质结构的优势是：",
+                options: ["分辨率最高", "可在溶液中进行", "适用于所有蛋白质", "成本最低"],
+                correct: 1,
+                explanation: "NMR可以在接近生理条件的溶液中测定蛋白质结构，还能提供蛋白质动态信息，这是其相对于X射线晶体学的主要优势。"
+            },
+            {
+                question: "蛋白质折叠的热力学原理是：",
+                options: ["熵增加", "焓增加", "自由能降低", "温度升高"],
+                correct: 2,
+                explanation: "蛋白质折叠是自发过程，遵循自由能最小化原理。虽然折叠导致构象熵降低，但焓的降低（主要来自疏水作用力）使总自由能降低。"
+            },
+            {
+                question: "α-角蛋白的特征结构是：",
+                options: ["三股螺旋", "α-螺旋卷曲螺旋", "β-折叠片", "球状结构"],
+                correct: 1,
+                explanation: "α-角蛋白由α-螺旋组成卷曲螺旋（coiled coil）结构，两条或多条α-螺旋相互缠绕，形成具有机械强度的纤维结构。"
+            },
+            {
+                question: "蛋白质变性剂的作用机制主要是：",
+                options: ["切断肽键", "破坏非共价相互作用", "改变氨基酸序列", "增加分子量"],
+                correct: 1,
+                explanation: "变性剂如尿素、胍盐酸等主要通过破坏维持蛋白质高级结构的非共价相互作用（氢键、疏水作用力等）来使蛋白质变性。"
+            },
+            {
+                question: "Hsp60分子伴侣的工作机制是：",
+                options: ["直接提供折叠模板", "提供隔离的折叠腔室", "催化二硫键形成", "降解错误蛋白质"],
+                correct: 1,
+                explanation: "Hsp60（如GroEL）通过提供隔离的折叠腔室，防止蛋白质在折叠过程中发生聚集，为蛋白质正确折叠创造有利环境。"
+            },
+            {
+                question: "蛋白质的等电点是指：",
+                options: ["蛋白质开始变性的pH", "蛋白质净电荷为零的pH", "蛋白质活性最高的pH", "蛋白质溶解度最大的pH"],
+                correct: 1,
+                explanation: "等电点（pI）是蛋白质分子净电荷为零时的pH值，此时蛋白质不会在电场中迁移，溶解度通常最小。"
+            },
+            {
+                question: "β-转角结构通常由几个氨基酸残基组成？",
+                options: ["2个", "3个", "4个", "5个"],
+                correct: 2,
+                explanation: "β-转角是由4个连续氨基酸残基组成的紧密转角结构，使肽链方向改变约180°，第2个残基常为脯氨酸或甘氨酸。"
+            },
+            {
+                question: "冷冻电镜技术的主要优势是：",
+                options: ["分辨率最高", "成本最低", "无需结晶", "速度最快"],
+                correct: 2,
+                explanation: "冷冻电镜无需蛋白质结晶，可以研究接近天然状态的蛋白质结构，特别适用于大分子复合物和膜蛋白的结构研究。"
+            },
+            {
+                question: "蛋白质复性过程中最关键的因素是：",
+                options: ["温度", "pH值", "去除变性剂的速度", "蛋白质浓度"],
+                correct: 2,
+                explanation: "去除变性剂的速度是蛋白质复性成功的关键因素。缓慢去除变性剂有利于蛋白质正确折叠，快速去除容易导致聚集和错误折叠。"
+            },
+            {
+                question: "胶原蛋白中羟脯氨酸的形成需要哪种维生素参与？",
+                options: ["维生素A", "维生素B", "维生素C", "维生素D"],
+                correct: 2,
+                explanation: "羟脯氨酸的形成需要维生素C作为辅因子参与羟化反应。维生素C缺乏会导致胶原蛋白合成异常，引起坏血病。"
+            },
+            {
+                question: "蛋白质结构预测中最困难的是：",
+                options: ["二级结构预测", "三级结构预测", "四级结构预测", "一级结构预测"],
+                correct: 1,
+                explanation: "三级结构预测是蛋白质结构预测中最困难的，因为需要考虑长程相互作用、侧链构象、溶剂效应等多种复杂因素。"
+            },
+            {
+                question: "下列哪种蛋白质结构测定方法可以提供动态信息？",
+                options: ["X射线晶体学", "核磁共振", "电子显微镜", "质谱法"],
+                correct: 1,
+                explanation: "核磁共振不仅能测定蛋白质的三维结构，还能提供蛋白质在溶液中的动态信息，如构象变化、分子运动等。"
+            },
+            {
+                question: "蛋白质工程中定点突变的主要目的是：",
+                options: ["增加蛋白质大小", "改变特定功能性质", "提高表达量", "简化纯化过程"],
+                correct: 1,
+                explanation: "定点突变通过改变特定位点的氨基酸来研究结构-功能关系或改善蛋白质的特定性质，如稳定性、活性、特异性等。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时自动生成15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <h4>${index + 1}. ${q.question}</h4>
+                    <div class="options">
+                        ${q.options.map((option, i) => `
+                            <label class="option">
+                                <input type="radio" name="q${index}" value="${i}" onchange="recordAnswer(${index}, ${i})">
+                                <span>${String.fromCharCode(65 + i)}. ${option}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function recordAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            const results = document.getElementById('quiz-results');
+            let resultHTML = '<h3>测试结果</h3>';
+            
+            currentQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) score++;
+                
+                resultHTML += `
+                    <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <h4>第${index + 1}题：${isCorrect ? '✓ 正确' : '✗ 错误'}</h4>
+                        <p><strong>题目：</strong>${q.question}</p>
+                        <p><strong>您的答案：</strong>${userAnswer >= 0 ? String.fromCharCode(65 + userAnswer) + '. ' + q.options[userAnswer] : '未作答'}</p>
+                        <p><strong>正确答案：</strong>${String.fromCharCode(65 + q.correct)}. ${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / 15) * 100);
+            resultHTML = `<div class="score">得分：${score}/15 (${percentage}%)</div>` + resultHTML;
+            
+            results.innerHTML = resultHTML;
+            results.style.display = 'block';
+            
+            // 滚动到结果区域
+            results.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

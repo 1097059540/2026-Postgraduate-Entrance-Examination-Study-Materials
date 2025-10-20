@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛋白质的性质、分离纯化和鉴定 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+        
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.1em;
+        }
+        
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        .section li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .important {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e17055;
+            font-weight: bold;
+        }
+        
+        .formula {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: "Consolas", monospace;
+            text-align: center;
+            border: 2px solid #ddd;
+        }
+        
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .term-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .term-definition {
+            color: #34495e;
+            line-height: 1.5;
+        }
+        
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .quiz-header h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .option {
+            background: #f8f9fa;
+            margin: 8px 0;
+            padding: 12px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .result {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .correct {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .incorrect {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .explanation {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .thinking-questions {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .thinking-question {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .answer {
+            background: #f1f2f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .answer h5 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .answer ol {
+            padding-left: 20px;
+        }
+        
+        .answer li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>蛋白质的性质、分离纯化和鉴定</h1>
+            <p>考研生物化学复习笔记 | 基于朱圣庚《生物化学》第四版</p>
+        </div>
+        
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、蛋白质的理化性质</h2>
+                
+                <h3>1. 酸碱性质</h3>
+                <p>蛋白质分子含有氨基和羧基，具有两性电解质的性质，在不同pH环境中表现出不同的电荷状态。</p>
+                
+                <div class="highlight">
+                    <h4>等电点（pI）</h4>
+                    <p>蛋白质分子净电荷为零时溶液的pH值。在等电点时，蛋白质在电场中不发生迁移，溶解度最小，最易沉淀。</p>
+                </div>
+                
+                <ul>
+                    <li><strong>pH < pI：</strong>蛋白质带正电荷，向负极迁移</li>
+                    <li><strong>pH = pI：</strong>蛋白质净电荷为零，不迁移</li>
+                    <li><strong>pH > pI：</strong>蛋白质带负电荷，向正极迁移</li>
+                </ul>
+                
+                <h3>2. 胶体性质</h3>
+                <p>蛋白质分子量大，在水中形成胶体溶液，具有以下特点：</p>
+                <ul>
+                    <li>丁达尔效应：光束通过蛋白质溶液时产生散射现象</li>
+                    <li>布朗运动：蛋白质分子在溶液中不规则运动</li>
+                    <li>电泳现象：在电场作用下发生定向迁移</li>
+                    <li>渗透压低：相同浓度下渗透压比小分子物质低</li>
+                </ul>
+                
+                <h3>3. 沉淀性质</h3>
+                <p>蛋白质可通过多种方法从溶液中沉淀出来：</p>
+                
+                <h4>盐析法</h4>
+                <div class="important">
+                    <p>常用硫酸铵进行盐析，原理是高浓度盐离子破坏蛋白质的水化层，使蛋白质聚集沉淀。盐析是可逆过程，不破坏蛋白质结构。</p>
+                </div>
+                
+                <h4>有机溶剂沉淀法</h4>
+                <p>加入乙醇、丙酮等有机溶剂，降低蛋白质溶解度，使其沉淀。需在低温下进行以防变性。</p>
+                
+                <h4>等电点沉淀法</h4>
+                <p>调节pH至蛋白质等电点，此时溶解度最小，易于沉淀。</p>
+            </div>
+            
+            <div class="section">
+                <h2>二、蛋白质分离纯化方法</h2>
+                
+                <div class="highlight">
+                    <p>蛋白质分离纯化一般分为两个阶段：<strong>粗分离阶段</strong>和<strong>精细纯化阶段</strong>。</p>
+                </div>
+                
+                <h3>1. 根据溶解度差异的分离方法</h3>
+                
+                <h4>盐析法</h4>
+                <p>利用不同蛋白质在不同盐浓度下的溶解度差异进行分离。硫酸铵是最常用的盐析剂，具有溶解度大、对蛋白质无害等优点。</p>
+                
+                <h4>有机溶剂分级沉淀</h4>
+                <p>逐步增加有机溶剂浓度，使不同蛋白质依次沉淀。常用乙醇，需在低温（-5°C）下操作。</p>
+                
+                <h3>2. 根据分子大小的分离方法</h3>
+                
+                <h4>凝胶过滤层析（分子筛）</h4>
+                <div class="important">
+                    <p>原理：利用多孔凝胶珠的分子筛效应，大分子蛋白质无法进入凝胶孔隙，先被洗脱；小分子蛋白质进入孔隙，后被洗脱。</p>
+                </div>
+                
+                <ul>
+                    <li><strong>优点：</strong>条件温和，不使用变性剂，分离效果好</li>
+                    <li><strong>缺点：</strong>分离时间长，样品稀释严重</li>
+                    <li><strong>常用介质：</strong>Sephadex、Sepharose、Bio-Gel等</li>
+                </ul>
+                
+                <h4>超滤法</h4>
+                <p>利用半透膜的选择透过性，根据分子量大小进行分离浓缩。</p>
+                
+                <h3>3. 根据电荷性质的分离方法</h3>
+                
+                <h4>离子交换层析</h4>
+                <div class="highlight">
+                    <p>原理：利用蛋白质表面电荷的差异，使其与离子交换树脂结合，然后通过改变pH或离子强度进行洗脱分离。</p>
+                </div>
+                
+                <ul>
+                    <li><strong>阳离子交换树脂：</strong>结合带正电荷的蛋白质（如CM-纤维素）</li>
+                    <li><strong>阴离子交换树脂：</strong>结合带负电荷的蛋白质（如DEAE-纤维素）</li>
+                </ul>
+                
+                <h4>电泳技术</h4>
+                
+                <h5>聚丙烯酰胺凝胶电泳（PAGE）</h5>
+                <p>根据蛋白质的电荷和分子量进行分离：</p>
+                <ul>
+                    <li><strong>天然PAGE：</strong>保持蛋白质天然结构</li>
+                    <li><strong>SDS-PAGE：</strong>SDS破坏蛋白质二级和三级结构，主要根据分子量分离</li>
+                    <li><strong>尿素-PAGE：</strong>尿素作为变性剂</li>
+                </ul>
+                
+                <h5>等电点聚焦电泳（IEF）</h5>
+                <p>在pH梯度中进行电泳，蛋白质迁移至其等电点位置停止，分辨率极高。</p>
+                
+                <h3>4. 根据生物学特异性的分离方法</h3>
+                
+                <h4>亲和层析</h4>
+                <div class="important">
+                    <p>利用蛋白质与特定配体的特异性结合进行分离，是最高效的蛋白质纯化方法之一。</p>
+                </div>
+                
+                <ul>
+                    <li><strong>酶亲和层析：</strong>利用酶与底物、抑制剂的特异性结合</li>
+                    <li><strong>免疫亲和层析：</strong>利用抗原-抗体反应</li>
+                    <li><strong>金属螯合亲和层析：</strong>利用组氨酸标签与金属离子结合</li>
+                </ul>
+                
+                <h3>5. 根据疏水性质的分离方法</h3>
+                
+                <h4>疏水作用层析（HIC）</h4>
+                <p>利用蛋白质表面疏水区域的差异进行分离。在高盐浓度下，疏水性强的蛋白质与疏水介质结合，然后用低盐缓冲液洗脱。</p>
+                
+                <h4>反相高效液相色谱（RP-HPLC）</h4>
+                <p>利用蛋白质的疏水性差异，在有机溶剂梯度中进行分离，分辨率高但条件较苛刻。</p>
+            </div>
+            
+            <div class="section">
+                <h2>三、蛋白质相对分子质量的测定</h2>
+                
+                <h3>1. 凝胶过滤法</h3>
+                <p>通过测定蛋白质在凝胶过滤柱上的洗脱体积，与标准蛋白质比较确定分子量。适用于天然状态下的蛋白质。</p>
+                
+                <h3>2. SDS-聚丙烯酰胺凝胶电泳法</h3>
+                <div class="formula">
+                    log(分子量) = a × 迁移率 + b
+                </div>
+                <p>通过蛋白质在SDS-PAGE中的迁移距离，与标准分子量蛋白质比较确定分子量。</p>
+                
+                <h3>3. 质谱法</h3>
+                <p>最准确的分子量测定方法：</p>
+                <ul>
+                    <li><strong>MALDI-TOF MS：</strong>基质辅助激光解吸电离飞行时间质谱</li>
+                    <li><strong>ESI-MS：</strong>电喷雾电离质谱</li>
+                </ul>
+                
+                <h3>4. 超速离心法</h3>
+                <p>通过测定蛋白质的沉降系数计算分子量，适用于大分子蛋白质复合物。</p>
+            </div>
+            
+            <div class="section">
+                <h2>四、蛋白质含量测定与纯度鉴定</h2>
+                
+                <h3>1. 蛋白质含量测定方法</h3>
+                
+                <h4>紫外吸收法（A280法）</h4>
+                <div class="formula">
+                    蛋白质浓度 = A280 × 稀释倍数 / 消光系数
+                </div>
+                <p>基于蛋白质中酪氨酸和色氨酸在280nm处的紫外吸收。快速简便，但受核酸干扰。</p>
+                
+                <h4>双缩脲法</h4>
+                <p>蛋白质肽键与Cu²⁺在碱性条件下形成紫色络合物，在540nm处测定吸光度。</p>
+                
+                <h4>Lowry法</h4>
+                <p>结合双缩脲反应和Folin试剂反应，灵敏度高，但操作复杂，易受干扰。</p>
+                
+                <h4>Bradford法</h4>
+                <div class="highlight">
+                    <p>考马斯亮蓝G-250与蛋白质结合后最大吸收峰从465nm移至595nm。操作简便，干扰少，是最常用的方法之一。</p>
+                </div>
+                
+                <h4>BCA法</h4>
+                <p>蛋白质在碱性条件下将Cu²⁺还原为Cu⁺，Cu⁺与BCA形成紫色络合物。兼容性好，重现性佳。</p>
+                
+                <h3>2. 蛋白质纯度鉴定</h3>
+                
+                <h4>电泳分析</h4>
+                <ul>
+                    <li><strong>SDS-PAGE：</strong>检测蛋白质的均一性和分子量</li>
+                    <li><strong>Native-PAGE：</strong>检测天然状态下的蛋白质</li>
+                    <li><strong>等电点聚焦：</strong>检测蛋白质的等电点均一性</li>
+                </ul>
+                
+                <h4>色谱分析</h4>
+                <ul>
+                    <li><strong>HPLC：</strong>高分辨率分析蛋白质纯度</li>
+                    <li><strong>毛细管电泳：</strong>高效分离分析</li>
+                </ul>
+                
+                <h4>质谱分析</h4>
+                <p>最准确的纯度鉴定方法，可检测微量杂质和蛋白质修饰。</p>
+                
+                <h3>3. 蛋白质活性检测</h3>
+                <p>通过测定蛋白质的生物学活性评估其功能完整性：</p>
+                <ul>
+                    <li><strong>酶活性测定：</strong>对于酶蛋白</li>
+                    <li><strong>结合活性测定：</strong>对于结合蛋白</li>
+                    <li><strong>免疫活性测定：</strong>对于抗体蛋白</li>
+                </ul>
+            </div>
+            
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>五、重要名词解释</h2>
+                <div class="terms-grid">
+                    <div class="term-card">
+                        <div class="term-name">等电点</div>
+                        <div class="term-english">(Isoelectric Point, pI)</div>
+                        <div class="term-definition">蛋白质分子净电荷为零时溶液的pH值。在等电点时，蛋白质在电场中不发生迁移，溶解度最小，最容易沉淀析出。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">盐析</div>
+                        <div class="term-english">(Salting Out)</div>
+                        <div class="term-definition">在蛋白质溶液中加入大量中性盐（如硫酸铵），使蛋白质沉淀的方法。盐析是可逆过程，不破坏蛋白质的天然结构。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">凝胶过滤层析</div>
+                        <div class="term-english">(Gel Filtration Chromatography)</div>
+                        <div class="term-definition">又称分子筛层析，利用多孔凝胶珠的分子筛效应，根据分子大小分离蛋白质的方法。大分子先洗脱，小分子后洗脱。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">离子交换层析</div>
+                        <div class="term-english">(Ion Exchange Chromatography)</div>
+                        <div class="term-definition">利用蛋白质表面电荷的差异，使其与离子交换树脂发生可逆结合，然后通过改变pH或离子强度进行洗脱分离的方法。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">SDS-PAGE</div>
+                        <div class="term-english">(SDS-Polyacrylamide Gel Electrophoresis)</div>
+                        <div class="term-definition">十二烷基硫酸钠-聚丙烯酰胺凝胶电泳。SDS破坏蛋白质的二级和三级结构，使蛋白质主要根据分子量大小进行分离。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">等电点聚焦</div>
+                        <div class="term-english">(Isoelectric Focusing, IEF)</div>
+                        <div class="term-definition">在pH梯度凝胶中进行的电泳技术，蛋白质迁移至其等电点位置后停止移动，具有极高的分辨率。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">亲和层析</div>
+                        <div class="term-english">(Affinity Chromatography)</div>
+                        <div class="term-definition">利用蛋白质与特定配体（如底物、抑制剂、抗体等）的特异性结合进行分离纯化的高效方法。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">疏水作用层析</div>
+                        <div class="term-english">(Hydrophobic Interaction Chromatography, HIC)</div>
+                        <div class="term-definition">利用蛋白质表面疏水区域的差异进行分离的方法。在高盐浓度下结合，用低盐缓冲液洗脱。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">Bradford法</div>
+                        <div class="term-english">(Bradford Assay)</div>
+                        <div class="term-definition">利用考马斯亮蓝G-250与蛋白质结合后吸收峰移动的原理测定蛋白质浓度的方法，操作简便，干扰少。</div>
+                    </div>
+                    
+                    <div class="term-card">
+                        <div class="term-name">质谱法</div>
+                        <div class="term-english">(Mass Spectrometry, MS)</div>
+                        <div class="term-definition">通过测定蛋白质的质荷比精确确定分子量的方法，包括MALDI-TOF MS和ESI-MS等技术。</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 选择题测试板块 -->
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h2>选择题测试</h2>
+                    <p>从30道题库中随机抽取15道题进行测试</p>
+                </div>
+                <div id="quiz-questions"></div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-results"></div>
+            </div>
+            
+            <!-- 深度思考题板块 -->
+            <div class="thinking-questions">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 设计一个完整的蛋白质分离纯化方案，从大肠杆菌细胞中纯化一个重组蛋白质。请详细说明每个步骤的原理、操作要点和预期效果。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>细胞破碎与粗提取：</strong>采用超声波破碎或高压匀浆破碎细胞壁，释放胞内蛋白质。离心去除细胞碎片，获得粗蛋白提取液。此步骤的目的是从复杂的细胞环境中初步分离目标蛋白质。</li>
+                            <li><strong>盐析初步分离：</strong>使用硫酸铵分级沉淀，通常在30-70%饱和度范围内收集目标蛋白质。盐析能够去除大部分杂蛋白，同时浓缩目标蛋白质，且不破坏蛋白质的天然结构。</li>
+                            <li><strong>离子交换层析：</strong>根据目标蛋白质的等电点选择合适的离子交换树脂。如果蛋白质pI>7，选择阳离子交换树脂；如果pI<7，选择阴离子交换树脂。通过盐梯度或pH梯度洗脱，可以有效分离电荷相近的蛋白质。</li>
+                            <li><strong>凝胶过滤层析：</strong>根据目标蛋白质的分子量选择合适孔径的凝胶介质，进一步去除分子量差异较大的杂质蛋白，同时实现缓冲液置换。</li>
+                            <li><strong>亲和层析精细纯化：</strong>如果目标蛋白质带有His标签，可使用镍柱亲和层析；如果是酶蛋白，可设计底物类似物亲和柱。亲和层析具有高度特异性，能够实现一步高纯度纯化。</li>
+                            <li><strong>纯度检测与活性验证：</strong>使用SDS-PAGE检测蛋白质纯度和分子量，通过活性测定验证蛋白质功能完整性，确保纯化过程未导致蛋白质失活。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较SDS-PAGE和Native-PAGE的原理、应用场景和各自的优缺点。在什么情况下应该选择哪种电泳方法？</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>SDS-PAGE原理与特点：</strong>SDS（十二烷基硫酸钠）是一种强阴离子去垢剂，能够破坏蛋白质的二级和三级结构，使蛋白质完全变性并带上均匀的负电荷。在还原条件下（加入β-巯基乙醇或DTT），还能断裂二硫键。因此蛋白质主要根据分子量大小进行分离，分离效果好，重现性高。</li>
+                            <li><strong>Native-PAGE原理与特点：</strong>在非变性条件下进行电泳，保持蛋白质的天然结构和电荷状态。蛋白质的迁移率取决于其天然电荷、分子量和形状的综合效应。能够保持蛋白质的生物活性，适用于蛋白质复合物的分析。</li>
+                            <li><strong>应用场景选择：</strong>当需要确定蛋白质亚基组成、分子量或检测蛋白质纯度时，选择SDS-PAGE；当需要保持蛋白质活性、分析蛋白质复合物或进行活性染色时，选择Native-PAGE。</li>
+                            <li><strong>优缺点比较：</strong>SDS-PAGE的优点是分离效果好、重现性高、操作标准化，缺点是破坏蛋白质结构和活性；Native-PAGE的优点是保持蛋白质天然状态和活性，缺点是分离效果相对较差、条件优化复杂。</li>
+                            <li><strong>实际应用考虑：</strong>在蛋白质纯化过程中，通常先用Native-PAGE监测活性蛋白质的纯化效果，再用SDS-PAGE确认分子量和纯度。对于多亚基蛋白质复合物的研究，两种方法常常结合使用以获得完整信息。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 分析影响蛋白质分离纯化效果的主要因素，并提出相应的优化策略。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>pH值的影响：</strong>pH影响蛋白质的电荷状态和稳定性。优化策略包括：选择蛋白质稳定的pH范围，在离子交换层析中合理设计pH梯度，避免在等电点附近操作以防沉淀。对于酸敏感蛋白质，应在中性或弱碱性条件下操作。</li>
+                            <li><strong>离子强度的控制：</strong>离子强度影响蛋白质的溶解度和层析分离效果。在离子交换层析中，起始缓冲液离子强度要低，洗脱时逐渐增加；在疏水层析中则相反。需要根据具体蛋白质特性优化盐浓度梯度。</li>
+                            <li><strong>温度条件：</strong>低温有利于保持蛋白质稳定性和活性，但会降低分离效率。通常在4°C下操作，对于热稳定蛋白质可适当提高温度以改善分离效果。需要在稳定性和效率之间找到平衡点。</li>
+                            <li><strong>蛋白酶抑制剂的使用：</strong>添加蛋白酶抑制剂（如PMSF、EDTA等）防止蛋白质降解。选择合适的抑制剂组合，注意抑制剂的稳定性和与后续纯化步骤的兼容性。</li>
+                            <li><strong>样品预处理：</strong>去除核酸、脂质等杂质，调节样品的pH和离子强度，必要时进行浓缩或稀释。预处理质量直接影响后续分离效果。</li>
+                            <li><strong>层析条件优化：</strong>选择合适的层析介质、柱床高度、流速和梯度条件。流速过快会降低分离效果，过慢会导致蛋白质扩散和活性损失。需要通过实验优化找到最佳条件。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 论述现代蛋白质组学研究中蛋白质鉴定技术的发展趋势和应用前景。</h4>
+                    <div class="answer">
+                        <h5>参考答案：</h5>
+                        <ol>
+                            <li><strong>质谱技术的革命性发展：</strong>从传统的MALDI-TOF发展到高分辨率的Orbitrap和Q-TOF质谱仪，质量精度和分辨率大幅提升。串联质谱（MS/MS）技术使蛋白质序列鉴定更加准确，能够实现大规模蛋白质组的定量分析。</li>
+                            <li><strong>高通量分离技术：</strong>超高效液相色谱（UHPLC）与质谱联用，大大提高了分离效率和检测灵敏度。毛细管电泳-质谱联用技术在单细胞蛋白质组学中显示出巨大潜力。</li>
+                            <li><strong>生物信息学的深度整合：</strong>蛋白质数据库的不断完善和搜索算法的优化，使蛋白质鉴定的准确性和覆盖度显著提高。机器学习和人工智能在蛋白质结构预测和功能注释中发挥越来越重要的作用。</li>
+                            <li><strong>单细胞蛋白质组学：</strong>技术发展使得在单细胞水平进行蛋白质分析成为可能，为理解细胞异质性和疾病机制提供了新的研究手段。这将推动精准医学和个性化治疗的发展。</li>
+                            <li><strong>临床应用前景：</strong>蛋白质生物标志物的发现和验证在疾病诊断、预后评估和药物开发中具有重要价值。蛋白质组学技术在肿瘤、神经退行性疾病等重大疾病研究中展现出巨大潜力。</li>
+                            <li><strong>技术挑战与发展方向：</strong>需要进一步提高检测灵敏度和动态范围，发展更加温和高效的蛋白质分离技术，建立标准化的实验流程和数据分析方法。未来将朝着更高通量、更高精度、更加自动化的方向发展。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 题库（30道题）
+        const questionBank = [
+            {
+                question: "蛋白质在其等电点时具有的特点是：",
+                options: ["A. 带正电荷", "B. 带负电荷", "C. 净电荷为零", "D. 电荷不确定"],
+                correct: 2,
+                explanation: "在等电点时，蛋白质分子的正电荷和负电荷相等，净电荷为零，此时蛋白质在电场中不发生迁移，溶解度最小。"
+            },
+            {
+                question: "下列哪种方法是根据蛋白质分子大小进行分离的？",
+                options: ["A. 离子交换层析", "B. 凝胶过滤层析", "C. 疏水作用层析", "D. 亲和层析"],
+                correct: 1,
+                explanation: "凝胶过滤层析又称分子筛层析，利用多孔凝胶珠的分子筛效应，根据分子大小分离蛋白质，大分子先洗脱，小分子后洗脱。"
+            },
+            {
+                question: "SDS-PAGE中SDS的主要作用是：",
+                options: ["A. 提供缓冲环境", "B. 破坏蛋白质结构并使其带负电荷", "C. 增加凝胶强度", "D. 提高分离精度"],
+                correct: 1,
+                explanation: "SDS是强阴离子去垢剂，能够破坏蛋白质的二级和三级结构，使蛋白质变性并带上均匀的负电荷，从而主要根据分子量进行分离。"
+            },
+            {
+                question: "Bradford法测定蛋白质浓度的原理是：",
+                options: ["A. 蛋白质的紫外吸收", "B. 双缩脲反应", "C. 考马斯亮蓝与蛋白质结合", "D. Folin试剂反应"],
+                correct: 2,
+                explanation: "Bradford法利用考马斯亮蓝G-250与蛋白质结合后，最大吸收峰从465nm移至595nm的原理来测定蛋白质浓度。"
+            },
+            {
+                question: "盐析法分离蛋白质的优点是：",
+                options: ["A. 分离精度高", "B. 不破坏蛋白质结构", "C. 操作复杂", "D. 需要有机溶剂"],
+                correct: 1,
+                explanation: "盐析是可逆过程，不破坏蛋白质的天然结构，同时能够浓缩蛋白质，是蛋白质粗分离的常用方法。"
+            },
+            {
+                question: "等电点聚焦电泳的分离原理是：",
+                options: ["A. 分子量差异", "B. 电荷差异", "C. 等电点差异", "D. 疏水性差异"],
+                correct: 2,
+                explanation: "等电点聚焦电泳在pH梯度中进行，蛋白质迁移至其等电点位置后停止移动，因此是根据等电点差异进行分离。"
+            },
+            {
+                question: "下列哪种层析方法分离精度最高？",
+                options: ["A. 凝胶过滤层析", "B. 离子交换层析", "C. 亲和层析", "D. 疏水作用层析"],
+                correct: 2,
+                explanation: "亲和层析利用蛋白质与特定配体的特异性结合，具有高度的选择性和特异性，是分离精度最高的方法。"
+            },
+            {
+                question: "蛋白质A280法测定的原理基于：",
+                options: ["A. 所有氨基酸的吸收", "B. 酪氨酸和色氨酸的紫外吸收", "C. 肽键的吸收", "D. 蛋白质的荧光"],
+                correct: 1,
+                explanation: "A280法基于蛋白质中酪氨酸和色氨酸残基在280nm处的紫外吸收特性来测定蛋白质浓度。"
+            },
+            {
+                question: "疏水作用层析中，蛋白质的洗脱顺序是：",
+                options: ["A. 疏水性强的先洗脱", "B. 疏水性弱的先洗脱", "C. 分子量大的先洗脱", "D. 电荷多的先洗脱"],
+                correct: 1,
+                explanation: "在疏水作用层析中，疏水性弱的蛋白质与疏水介质结合力弱，容易被洗脱，因此先洗脱出来。"
+            },
+            {
+                question: "Native-PAGE与SDS-PAGE的主要区别是：",
+                options: ["A. 凝胶浓度不同", "B. 电压不同", "C. 是否保持蛋白质天然结构", "D. 缓冲液不同"],
+                correct: 2,
+                explanation: "Native-PAGE在非变性条件下进行，保持蛋白质的天然结构和活性；而SDS-PAGE使用变性剂，破坏蛋白质结构。"
+            },
+            {
+                question: "离子交换层析中，阳离子交换树脂结合的是：",
+                options: ["A. 带负电荷的蛋白质", "B. 带正电荷的蛋白质", "C. 中性蛋白质", "D. 所有蛋白质"],
+                correct: 1,
+                explanation: "阳离子交换树脂带负电荷，能够结合带正电荷的蛋白质；阴离子交换树脂带正电荷，结合带负电荷的蛋白质。"
+            },
+            {
+                question: "质谱法测定蛋白质分子量的优点是：",
+                options: ["A. 操作简单", "B. 成本低廉", "C. 精确度高", "D. 不需要标准品"],
+                correct: 2,
+                explanation: "质谱法是目前测定蛋白质分子量最准确的方法，精确度可达小数点后几位，远高于其他方法。"
+            },
+            {
+                question: "蛋白质在pH < pI时的电荷状态是：",
+                options: ["A. 带负电荷", "B. 带正电荷", "C. 电荷为零", "D. 无法确定"],
+                correct: 1,
+                explanation: "当溶液pH小于蛋白质等电点时，蛋白质质子化程度高，带正电荷，在电场中向负极迁移。"
+            },
+            {
+                question: "凝胶过滤层析中，洗脱顺序是：",
+                options: ["A. 小分子先洗脱", "B. 大分子先洗脱", "C. 带电分子先洗脱", "D. 疏水分子先洗脱"],
+                correct: 1,
+                explanation: "在凝胶过滤层析中，大分子蛋白质无法进入凝胶孔隙，走捷径先被洗脱；小分子进入孔隙，路径长，后洗脱。"
+            },
+            {
+                question: "BCA法测定蛋白质浓度时，显色反应的产物是：",
+                options: ["A. Cu²⁺-BCA络合物", "B. Cu⁺-BCA络合物", "C. 蛋白质-BCA络合物", "D. Cu²⁺-蛋白质络合物"],
+                correct: 1,
+                explanation: "BCA法中，蛋白质在碱性条件下将Cu²⁺还原为Cu⁺，Cu⁺与BCA形成紫色络合物，在562nm处有最大吸收。"
+            },
+            {
+                question: "硫酸铵盐析法中，硫酸铵的作用机理是：",
+                options: ["A. 改变蛋白质结构", "B. 破坏蛋白质水化层", "C. 与蛋白质结合", "D. 改变溶液pH"],
+                correct: 1,
+                explanation: "高浓度的硫酸铵离子破坏蛋白质分子周围的水化层，使蛋白质分子间相互作用增强，从而聚集沉淀。"
+            },
+            {
+                question: "HPLC分离蛋白质的主要优点是：",
+                options: ["A. 成本低", "B. 操作简单", "C. 分辨率高", "D. 样品用量大"],
+                correct: 2,
+                explanation: "高效液相色谱（HPLC）具有高分辨率、高灵敏度、分析速度快等优点，是现代蛋白质分析的重要工具。"
+            },
+            {
+                question: "蛋白质变性后通常失去的是：",
+                options: ["A. 一级结构", "B. 生物活性", "C. 氨基酸组成", "D. 分子量"],
+                correct: 1,
+                explanation: "蛋白质变性主要破坏二级、三级和四级结构，导致生物活性丧失，但一级结构（氨基酸序列）通常保持不变。"
+            },
+            {
+                question: "双缩脲法测定蛋白质的显色基团是：",
+                options: ["A. 氨基", "B. 羧基", "C. 肽键", "D. 芳香环"],
+                correct: 2,
+                explanation: "双缩脲法基于蛋白质分子中的肽键与Cu²⁺在碱性条件下形成紫色络合物的反应原理。"
+            },
+            {
+                question: "等电点聚焦电泳的分辨率比常规电泳高的原因是：",
+                options: ["A. 电压更高", "B. 凝胶浓度更高", "C. 蛋白质聚焦在等电点", "D. 缓冲液不同"],
+                correct: 2,
+                explanation: "在等电点聚焦电泳中，蛋白质迁移到其等电点位置后会聚焦停留，形成极窄的蛋白质带，因此分辨率极高。"
+            },
+            {
+                question: "反相高效液相色谱分离蛋白质的原理是：",
+                options: ["A. 分子量差异", "B. 电荷差异", "C. 疏水性差异", "D. 等电点差异"],
+                correct: 2,
+                explanation: "反相HPLC使用疏水性固定相，根据蛋白质疏水性的差异，在有机溶剂梯度中进行分离。"
+            },
+            {
+                question: "蛋白质纯化过程中，通常第一步采用的方法是：",
+                options: ["A. 亲和层析", "B. 凝胶过滤", "C. 盐析", "D. 离子交换"],
+                correct: 2,
+                explanation: "盐析法操作简单，能够去除大部分杂蛋白并浓缩目标蛋白，通常作为蛋白质纯化的第一步粗分离方法。"
+            },
+            {
+                question: "Lowry法测定蛋白质浓度时，Folin试剂的作用是：",
+                options: ["A. 与肽键反应", "B. 与酪氨酸和色氨酸反应", "C. 提供碱性环境", "D. 稳定颜色"],
+                correct: 1,
+                explanation: "Lowry法结合了双缩脲反应和Folin试剂反应，Folin试剂主要与蛋白质中的酪氨酸和色氨酸残基反应。"
+            },
+            {
+                question: "金属螯合亲和层析主要用于纯化：",
+                options: ["A. 所有蛋白质", "B. 带His标签的重组蛋白", "C. 膜蛋白", "D. 糖蛋白"],
+                correct: 1,
+                explanation: "金属螯合亲和层析利用组氨酸残基与金属离子（如Ni²⁺）的特异性结合，主要用于纯化带His标签的重组蛋白质。"
+            },
+            {
+                question: "蛋白质在凝胶过滤层析中的洗脱体积主要取决于：",
+                options: ["A. 蛋白质浓度", "B. 蛋白质电荷", "C. 蛋白质分子大小", "D. 缓冲液pH"],
+                correct: 2,
+                explanation: "凝胶过滤层析根据分子大小进行分离，蛋白质的洗脱体积主要取决于其分子大小（分子量和形状）。"
+            },
+            {
+                question: "SDS-PAGE中β-巯基乙醇的作用是：",
+                options: ["A. 维持pH稳定", "B. 断裂二硫键", "C. 增加蛋白质溶解度", "D. 防止蛋白质聚集"],
+                correct: 1,
+                explanation: "β-巯基乙醇是还原剂，能够断裂蛋白质分子内和分子间的二硫键，使蛋白质完全变性为单个多肽链。"
+            },
+            {
+                question: "毛细管电泳分离蛋白质的主要优点是：",
+                options: ["A. 样品用量大", "B. 分离速度快，分辨率高", "C. 成本低廉", "D. 操作简单"],
+                correct: 1,
+                explanation: "毛细管电泳具有分离速度快、分辨率高、样品用量少、自动化程度高等优点，是现代蛋白质分析的重要技术。"
+            },
+            {
+                question: "蛋白质纯度鉴定最准确的方法是：",
+                options: ["A. SDS-PAGE", "B. 等电点聚焦", "C. 质谱分析", "D. HPLC"],
+                correct: 2,
+                explanation: "质谱分析能够精确测定蛋白质的分子量，检测微量杂质和蛋白质修饰，是最准确的纯度鉴定方法。"
+            },
+            {
+                question: "免疫亲和层析的分离原理是：",
+                options: ["A. 抗原-抗体特异性结合", "B. 酶-底物结合", "C. 疏水相互作用", "D. 静电相互作用"],
+                correct: 0,
+                explanation: "免疫亲和层析利用抗原与抗体之间高度特异性的结合反应进行蛋白质分离纯化，具有极高的选择性。"
+            },
+            {
+                question: "蛋白质等电点聚焦后，检测蛋白质带的方法通常是：",
+                options: ["A. 紫外检测", "B. 考马斯亮蓝染色", "C. 荧光检测", "D. 放射性检测"],
+                correct: 1,
+                explanation: "等电点聚焦电泳后，通常使用考马斯亮蓝染色来显示蛋白质带，这是最常用和有效的蛋白质检测方法。"
+            }
+        ];
+        
+        let selectedQuestions = [];
+        let userAnswers = [];
+        
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            renderQuestions();
+        };
+        
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+        }
+        
+        function renderQuestions() {
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    <ul class="options">
+                        ${q.options.map((option, optIndex) => `
+                            <li class="option" onclick="selectOption(${index}, ${optIndex})" data-question="${index}" data-option="${optIndex}">
+                                ${option}
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+        
+        function selectOption(questionIndex, optionIndex) {
+            // 清除同一题目的其他选项
+            const options = document.querySelectorAll(`[data-question="${questionIndex}"]`);
+            options.forEach(option => option.classList.remove('selected'));
+            
+            // 选中当前选项
+            const selectedOption = document.querySelector(`[data-question="${questionIndex}"][data-option="${optionIndex}"]`);
+            selectedOption.classList.add('selected');
+            
+            // 记录答案
+            userAnswers[questionIndex] = optionIndex;
+        }
+        
+        function submitQuiz() {
+            let correctCount = 0;
+            const results = [];
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+                
+                results.push({
+                    question: q.question,
+                    userAnswer: userAnswer,
+                    correctAnswer: q.correct,
+                    isCorrect: isCorrect,
+                    explanation: q.explanation,
+                    options: q.options
+                });
+            });
+            
+            displayResults(correctCount, results);
+        }
+        
+        function displayResults(correctCount, results) {
+            const resultsContainer = document.getElementById('quiz-results');
+            const percentage = Math.round((correctCount / 15) * 100);
+            
+            let resultHTML = `
+                <div class="result">
+                    <h3>测试结果</h3>
+                    <p><strong>正确率：${percentage}% (${correctCount}/15)</strong></p>
+                    <hr>
+            `;
+            
+            results.forEach((result, index) => {
+                const statusClass = result.isCorrect ? 'correct' : 'incorrect';
+                const statusText = result.isCorrect ? '✓ 正确' : '✗ 错误';
+                
+                resultHTML += `
+                    <div style="margin-bottom: 20px; padding: 15px; border-left: 4px solid ${result.isCorrect ? '#27ae60' : '#e74c3c'}; background: #f8f9fa;">
+                        <p><strong>第${index + 1}题：</strong>${result.question}</p>
+                        <p><span class="${statusClass}">${statusText}</span></p>
+                        ${result.userAnswer >= 0 ? `<p><strong>您的答案：</strong>${result.options[result.userAnswer]}</p>` : '<p><strong>您的答案：</strong>未作答</p>'}
+                        <p><strong>正确答案：</strong>${result.options[result.correctAnswer]}</p>
+                        <div class="explanation">
+                            <strong>解析：</strong>${result.explanation}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultHTML += '</div>';
+            resultsContainer.innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>

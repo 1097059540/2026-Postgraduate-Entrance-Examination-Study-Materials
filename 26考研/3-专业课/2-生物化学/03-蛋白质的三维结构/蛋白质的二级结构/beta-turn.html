@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>β转角 - 蛋白质二级结构</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入Three.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <!-- 引入OrbitControls用于3D交互控制 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- 引入TWEEN.js用于动画效果 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+<body>
+    <header>
+        <h1>蛋白质的二级结构</h1>
+        <nav>
+            <ul>
+                <li><a href="alpha-helix.html" class="nav-link">α螺旋</a></li>
+                <li><a href="beta-sheet.html" class="nav-link">β折叠</a></li>
+                <li><a href="beta-turn.html" class="nav-link active">β转角</a></li>
+                <li><a href="super-secondary.html" class="nav-link">超二级结构</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="beta-turn" class="structure-section active">
+            <div class="content-wrapper">
+                <div class="model-container">
+                    <div id="beta-turn-model" class="model"></div>
+                    <div class="model-controls">
+                        <button id="beta-turn-rotate">自动旋转</button>
+                        <button id="beta-turn-reset">重置视图</button>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h2>β转角 (Beta Turn)</h2>
+                    <div class="info-content">
+                        <p>β转角是蛋白质中的一种特殊二级结构，具有以下特点：</p>
+                        <ul>
+                            <li><strong>紧密转折</strong>：通常由4个氨基酸残基组成的紧密转折结构</li>
+                            <li><strong>方向改变</strong>：使肽链方向发生180°左右的转向</li>
+                            <li><strong>氢键稳定</strong>：第一个残基的C=O与第四个残基的N-H形成氢键</li>
+                            <li><strong>类型多样</strong>：根据二面角不同分为I型、II型、I'型、II'型等多种类型</li>
+                            <li><strong>特定氨基酸偏好</strong>：甘氨酸和脯氨酸常出现在转角位置</li>
+                            <li><strong>表面暴露</strong>：通常位于蛋白质表面，与溶剂接触</li>
+                        </ul>
+                        <p>β转角在蛋白质折叠中起到关键的连接作用，常连接相邻的β折叠或其他二级结构元件。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 蛋白质二级结构学习平台 | 细胞生物学辅助工具</p>
+    </footer>
+
+    <script src="beta-turn.js"></script>
+</body>
+</html>

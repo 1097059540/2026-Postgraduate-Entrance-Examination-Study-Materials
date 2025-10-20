@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糖原的分解和生物合成 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+        }
+
+        .formula {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            font-family: "KaiTi", "楷体", cursive;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        /* 名词解释样式 */
+        .glossary {
+            background: #f1f8ff;
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .glossary-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .glossary-definition {
+            margin-top: 8px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background: #fff8e1;
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .question {
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid #ddd;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-controls {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .quiz-result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+
+        .answer-feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            background: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+
+        /* 思考题样式 */
+        .thinking-section {
+            background: #f3e5f5;
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .thinking-question {
+            background: white;
+            margin-bottom: 30px;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .thinking-answer {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #6c757d;
+        }
+
+        .thinking-answer h5 {
+            color: #495057;
+            margin-bottom: 15px;
+        }
+
+        .thinking-answer ol {
+            padding-left: 20px;
+        }
+
+        .thinking-answer li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>糖原的分解和生物合成</h1>
+            <p>考研生物化学复习笔记 | 基于《生物化学》第四版（朱圣庚、徐长法 主编）</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、糖原的生物学意义</h2>
+                <p>糖原是动物体内最重要的储能多糖，主要储存在肝脏和肌肉中。肝糖原主要用于维持血糖稳定，肌糖原主要为肌肉收缩提供能量。</p>
+                
+                <div class="highlight">
+                    <strong>糖原的特点：</strong>
+                    <ul>
+                        <li>高度分支的葡萄糖聚合物，分子量可达10⁶-10⁷</li>
+                        <li>α-1,4糖苷键连接主链，α-1,6糖苷键形成分支</li>
+                        <li>分支点约每8-12个葡萄糖残基出现一次</li>
+                        <li>具有一个还原端和多个非还原端</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>二、糖原的分解（糖原酵解）</h2>
+                
+                <h3>2.1 糖原磷酸化酶系统</h3>
+                <p>糖原分解的关键酶是糖原磷酸化酶（Glycogen Phosphorylase, GP），它催化糖原非还原端的α-1,4糖苷键磷酸解，产生1-磷酸葡萄糖。</p>
+                
+                <div class="formula">
+                    (葡萄糖)n + Pi → (葡萄糖)n-1 + 葡萄糖-1-磷酸
+                </div>
+                
+                <h3>2.2 脱分支酶系统</h3>
+                <p>当糖原磷酸化酶作用到距离分支点4个葡萄糖残基时停止，需要脱分支酶系统完成分支的去除：</p>
+                <ul>
+                    <li><strong>转糖基酶活性：</strong>将3个葡萄糖残基转移到另一条链上</li>
+                    <li><strong>α-1,6-葡糖苷酶活性：</strong>水解α-1,6糖苷键，释放游离葡萄糖</li>
+                </ul>
+                
+                <h3>2.3 磷酸葡萄糖变位酶</h3>
+                <p>将1-磷酸葡萄糖转化为6-磷酸葡萄糖，进入糖酵解途径。</p>
+                
+                <div class="formula">
+                    葡萄糖-1-磷酸 ⇌ 葡萄糖-6-磷酸
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>三、糖原的生物合成</h2>
+                
+                <h3>3.1 糖原合成的关键步骤</h3>
+                <ol>
+                    <li><strong>葡萄糖活化：</strong>葡萄糖 → 葡萄糖-6-磷酸 → 葡萄糖-1-磷酸 → UDP-葡萄糖</li>
+                    <li><strong>引物合成：</strong>糖原蛋白（glycogenin）作为引物，自催化形成短链</li>
+                    <li><strong>链延伸：</strong>糖原合酶催化UDP-葡萄糖与糖原非还原端结合</li>
+                    <li><strong>分支形成：</strong>分支酶催化α-1,6糖苷键的形成</li>
+                </ol>
+                
+                <div class="formula">
+                    UDP-葡萄糖 + (葡萄糖)n → UDP + (葡萄糖)n+1
+                </div>
+                
+                <h3>3.2 关键酶类</h3>
+                <ul>
+                    <li><strong>UDP-葡萄糖焦磷酸化酶：</strong>催化UDP-葡萄糖的形成</li>
+                    <li><strong>糖原合酶：</strong>催化α-1,4糖苷键的形成</li>
+                    <li><strong>分支酶：</strong>催化α-1,6糖苷键的形成</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、糖原代谢的调节机制</h2>
+                
+                <h3>4.1 激素调节</h3>
+                
+                <div class="important">
+                    <strong>胰高血糖素/肾上腺素信号通路（促进糖原分解）：</strong>
+                    <p>受体激活 → Gs蛋白 → 腺苷酸环化酶 → cAMP↑ → PKA激活 → 糖原磷酸化酶激酶磷酸化 → 糖原磷酸化酶激活</p>
+                </div>
+                
+                <div class="highlight">
+                    <strong>胰岛素信号通路（促进糖原合成）：</strong>
+                    <p>胰岛素受体 → IRS → PI3K → AKT → GSK3磷酸化失活 → 糖原合酶去磷酸化激活</p>
+                </div>
+                
+                <h3>4.2 共价修饰调节</h3>
+                <ul>
+                    <li><strong>糖原磷酸化酶：</strong>磷酸化激活（a型），去磷酸化失活（b型）</li>
+                    <li><strong>糖原合酶：</strong>磷酸化失活，去磷酸化激活</li>
+                    <li><strong>关键调节点：</strong>GSK3（糖原合酶激酶3）和蛋白磷酸酶1（PP1）</li>
+                </ul>
+                
+                <h3>4.3 变构调节</h3>
+                <ul>
+                    <li><strong>糖原磷酸化酶b：</strong>AMP激活，ATP和葡萄糖-6-磷酸抑制</li>
+                    <li><strong>糖原合酶：</strong>葡萄糖-6-磷酸激活</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section glossary">
+                <h2>五、名词解释库</h2>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">糖原磷酸化酶（Glycogen Phosphorylase, GP）</div>
+                    <div class="glossary-definition">催化糖原α-1,4糖苷键磷酸解的关键酶，产生1-磷酸葡萄糖。存在a型（磷酸化激活）和b型（去磷酸化相对失活）两种形式。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">糖原合酶（Glycogen Synthase, GS）</div>
+                    <div class="glossary-definition">催化UDP-葡萄糖与糖原非还原端结合形成α-1,4糖苷键的酶。磷酸化状态下失活，去磷酸化状态下激活。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">糖原合酶激酶3（Glycogen Synthase Kinase 3, GSK3）</div>
+                    <div class="glossary-definition">磷酸化糖原合酶使其失活的激酶。被AKT磷酸化后失活，是胰岛素促进糖原合成的关键调节点。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">蛋白激酶A（Protein Kinase A, PKA）</div>
+                    <div class="glossary-definition">cAMP依赖性蛋白激酶，由两个调节亚基和两个催化亚基组成。cAMP结合调节亚基后释放活性催化亚基。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">糖原蛋白（Glycogenin）</div>
+                    <div class="glossary-definition">糖原合成的引物蛋白，具有自糖基化活性，能够催化UDP-葡萄糖与自身酪氨酸残基结合，启动糖原合成。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">脱分支酶（Debranching Enzyme）</div>
+                    <div class="glossary-definition">具有转糖基酶和α-1,6-葡糖苷酶双重活性的酶，负责糖原分解过程中分支结构的去除。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">分支酶（Branching Enzyme）</div>
+                    <div class="glossary-definition">催化糖原合成过程中α-1,6糖苷键形成的酶，将约7个葡萄糖残基的链段转移并形成分支结构。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">UDP-葡萄糖（UDP-Glucose）</div>
+                    <div class="glossary-definition">糖原合成的活化形式葡萄糖，由葡萄糖-1-磷酸与UTP在UDP-葡萄糖焦磷酸化酶催化下形成。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">蛋白磷酸酶1（Protein Phosphatase 1, PP1）</div>
+                    <div class="glossary-definition">去磷酸化糖原合酶使其激活的磷酸酶，受多种调节亚基调控，是糖原代谢调节的关键酶。</div>
+                </div>
+                
+                <div class="glossary-item">
+                    <div class="glossary-term">糖原磷酸化酶激酶（Phosphorylase Kinase, PhK）</div>
+                    <div class="glossary-definition">磷酸化糖原磷酸化酶b使其转化为活性a型的激酶，由α、β、γ、δ四种亚基组成，δ亚基为钙调蛋白。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section quiz-section">
+                <h2>六、选择题测试</h2>
+                <p>以下是从30道题库中随机抽取的15道选择题，请选择最佳答案：</p>
+                
+                <div id="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="btn" onclick="submitQuiz()">提交答案</button>
+                    <button class="btn btn-secondary" onclick="resetQuiz()">重新测试</button>
+                    <button class="btn btn-secondary" onclick="toggleAnswers()">显示/隐藏答案</button>
+                </div>
+                
+                <div id="quiz-result" class="quiz-result">
+                    <!-- 结果将通过JavaScript显示 -->
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section thinking-section">
+                <h2>七、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 分析糖原代谢中磷酸化级联放大机制的生物学意义，并说明其如何实现信号的快速响应和精确调控。</h4>
+                    <div class="thinking-answer">
+                        <h5>详细解答：</h5>
+                        <ol>
+                            <li><strong>级联放大的分子机制：</strong>胰高血糖素或肾上腺素结合受体后，通过Gs蛋白激活腺苷酸环化酶，使cAMP水平升高。一个激素分子可激活多个G蛋白，一个腺苷酸环化酶可产生大量cAMP，一个PKA可磷酸化多个糖原磷酸化酶激酶，实现信号的逐级放大。</li>
+                            <li><strong>快速响应的实现：</strong>磷酸化修饰是瞬时可逆的，不需要蛋白质合成，因此能在秒级时间内改变酶活性。糖原的高度分支结构提供了大量非还原端，使得糖原磷酸化酶能同时作用于多个位点，快速释放葡萄糖。</li>
+                            <li><strong>精确调控机制：</strong>通过蛋白磷酸酶的作用，磷酸化修饰可以被迅速逆转。同时，变构调节（如AMP对糖原磷酸化酶b的激活）提供了额外的调控层次，使酶活性能够响应细胞的能量状态。</li>
+                            <li><strong>生物学意义：</strong>这种机制使机体能够在应激状态下（如运动、饥饿）迅速动员糖原储备，维持血糖稳定，满足大脑等重要器官的能量需求，体现了代谢调控的高效性和适应性。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>2. 比较分析肝糖原和肌糖原在代谢调节上的差异，并解释其生理学基础。</h4>
+                    <div class="thinking-answer">
+                        <h5>详细解答：</h5>
+                        <ol>
+                            <li><strong>功能定位差异：</strong>肝糖原主要维持血糖稳定，具有缓冲血糖波动的作用；肌糖原主要为肌肉收缩提供直接能源，不直接参与血糖调节。这种差异决定了两者在代谢调节上的不同特点。</li>
+                            <li><strong>激素敏感性差异：</strong>肝糖原对胰高血糖素高度敏感，因为肝脏是胰高血糖素的主要靶器官；肌糖原主要响应肾上腺素，特别是在运动或应激状态下。胰岛素对两者都有促进合成的作用，但机制略有不同。</li>
+                            <li><strong>酶系差异：</strong>肝脏含有葡萄糖-6-磷酸酶，能将糖原分解产生的葡萄糖-6-磷酸转化为游离葡萄糖释放入血；肌肉缺乏此酶，糖原分解产物只能通过糖酵解途径利用。</li>
+                            <li><strong>调节机制的精细化：</strong>肝糖原的调节更加复杂，涉及营养状态、激素水平、昼夜节律等多重因素；肌糖原的调节主要与运动强度和持续时间相关，体现了组织特异性的代谢适应。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>3. 从分子水平阐述胰岛素如何通过PI3K-AKT信号通路调节糖原合成，并分析该通路异常与糖尿病的关系。</h4>
+                    <div class="thinking-answer">
+                        <h5>详细解答：</h5>
+                        <ol>
+                            <li><strong>信号转导的分子机制：</strong>胰岛素结合胰岛素受体后，受体酪氨酸激酶活性被激活，磷酸化IRS蛋白。磷酸化的IRS招募并激活PI3K，后者催化PIP2转化为PIP3。PIP3招募AKT到质膜并被PDK1磷酸化激活。</li>
+                            <li><strong>AKT对糖原合成的调控：</strong>活化的AKT磷酸化GSK3的Ser21（GSK3α）和Ser9（GSK3β），使其失活。GSK3失活后不能磷酸化糖原合酶，同时PP1去磷酸化糖原合酶，使其激活，促进糖原合成。</li>
+                            <li><strong>双重保险机制：</strong>胰岛素信号同时通过抑制糖原分解（抑制PKA活性）和促进糖原合成（激活糖原合酶）两个途径，确保葡萄糖的有效储存，体现了代谢调控的精密性。</li>
+                            <li><strong>与糖尿病的关系：</strong>在2型糖尿病中，胰岛素抵抗导致PI3K-AKT通路受损，GSK3不能被有效抑制，糖原合酶持续处于磷酸化失活状态，糖原合成受阻，加剧高血糖状态。这为糖尿病的分子机制和治疗靶点提供了重要线索。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="thinking-question">
+                    <h4>4. 分析糖原代谢异常导致的遗传性疾病，并从生化角度解释其发病机制和临床表现。</h4>
+                    <div class="thinking-answer">
+                        <h5>详细解答：</h5>
+                        <ol>
+                            <li><strong>糖原累积病的分类：</strong>根据缺陷酶的不同，糖原累积病分为多种类型。I型（von Gierke病）缺乏葡萄糖-6-磷酸酶，II型（Pompe病）缺乏α-1,4-葡糖苷酶，III型缺乏脱分支酶，V型（McArdle病）缺乏肌肉糖原磷酸化酶等。</li>
+                            <li><strong>生化机制分析：</strong>酶缺陷导致糖原代谢途径阻断，上游代谢物累积，下游产物不足。例如，I型病中葡萄糖-6-磷酸不能转化为葡萄糖，导致严重低血糖和肝脏糖原累积；V型病中肌肉糖原不能有效分解，导致运动不耐受。</li>
+                            <li><strong>临床表现的生化基础：</strong>不同类型疾病的临床表现反映了相应酶缺陷的生化后果。肝型主要表现为低血糖、肝肿大；肌型主要表现为肌无力、运动不耐受；心肌型可导致心肌病和心力衰竭。</li>
+                            <li><strong>治疗策略的生化原理：</strong>治疗主要基于绕过代谢阻断点或补充缺失产物。如I型病通过频繁进食维持血糖，II型病通过酶替代治疗，体现了生化知识在临床应用中的重要价值。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "糖原磷酸化酶催化的反应产物是：",
+                options: ["A. 葡萄糖", "B. 葡萄糖-6-磷酸", "C. 葡萄糖-1-磷酸", "D. UDP-葡萄糖"],
+                correct: 2,
+                explanation: "糖原磷酸化酶催化糖原α-1,4糖苷键的磷酸解，产生葡萄糖-1-磷酸。这是糖原分解的第一步，不同于水解反应产生游离葡萄糖。"
+            },
+            {
+                question: "糖原合成的直接前体是：",
+                options: ["A. 葡萄糖", "B. 葡萄糖-6-磷酸", "C. 葡萄糖-1-磷酸", "D. UDP-葡萄糖"],
+                correct: 3,
+                explanation: "UDP-葡萄糖是糖原合成的活化形式，糖原合酶催化UDP-葡萄糖与糖原非还原端结合，形成新的α-1,4糖苷键。"
+            },
+            {
+                question: "胰高血糖素促进糖原分解的信号通路中，直接激活糖原磷酸化酶的是：",
+                options: ["A. cAMP", "B. PKA", "C. 糖原磷酸化酶激酶", "D. Ca²⁺"],
+                correct: 2,
+                explanation: "糖原磷酸化酶激酶（PhK）直接磷酸化糖原磷酸化酶b，使其转化为活性的a型。PKA磷酸化激活PhK，cAMP激活PKA。"
+            },
+            {
+                question: "糖原合酶的活性调节主要通过：",
+                options: ["A. 磷酸化激活", "B. 去磷酸化激活", "C. 变构激活", "D. 诱导合成"],
+                correct: 1,
+                explanation: "糖原合酶通过去磷酸化激活。胰岛素信号通路中，AKT磷酸化GSK3使其失活，PP1去磷酸化糖原合酶，使其激活。"
+            },
+            {
+                question: "脱分支酶具有的两种酶活性是：",
+                options: ["A. 转糖基酶和磷酸化酶", "B. 转糖基酶和α-1,6-葡糖苷酶", "C. α-1,4-葡糖苷酶和α-1,6-葡糖苷酶", "D. 磷酸化酶和葡糖苷酶"],
+                correct: 1,
+                explanation: "脱分支酶具有转糖基酶活性（转移3个葡萄糖残基）和α-1,6-葡糖苷酶活性（水解分支点），完成糖原分支结构的去除。"
+            },
+            {
+                question: "糖原蛋白（glycogenin）的主要功能是：",
+                options: ["A. 催化糖原分解", "B. 作为糖原合成的引物", "C. 调节糖原合酶活性", "D. 形成糖原分支"],
+                correct: 1,
+                explanation: "糖原蛋白是糖原合成的引物蛋白，具有自糖基化活性，能够催化UDP-葡萄糖与自身酪氨酸残基结合，启动糖原链的合成。"
+            },
+            {
+                question: "肌肉糖原不能直接补充血糖的原因是：",
+                options: ["A. 缺乏糖原磷酸化酶", "B. 缺乏葡萄糖-6-磷酸酶", "C. 缺乏糖原合酶", "D. 缺乏磷酸葡萄糖变位酶"],
+                correct: 1,
+                explanation: "肌肉缺乏葡萄糖-6-磷酸酶，不能将糖原分解产生的葡萄糖-6-磷酸转化为游离葡萄糖释放入血，只能通过糖酵解途径利用。"
+            },
+            {
+                question: "PKA激活后，对糖原代谢的影响是：",
+                options: ["A. 促进糖原合成，抑制糖原分解", "B. 抑制糖原合成，促进糖原分解", "C. 同时促进糖原合成和分解", "D. 对糖原代谢无影响"],
+                correct: 1,
+                explanation: "PKA激活后磷酸化糖原磷酸化酶激酶（促进糖原分解）和糖原合酶（抑制糖原合成），实现糖原分解和合成的协调调节。"
+            },
+            {
+                question: "糖原分支酶催化形成的糖苷键类型是：",
+                options: ["A. α-1,4糖苷键", "B. α-1,6糖苷键", "C. β-1,4糖苷键", "D. β-1,6糖苷键"],
+                correct: 1,
+                explanation: "分支酶催化α-1,6糖苷键的形成，将约7个葡萄糖残基的链段从α-1,4位置转移到α-1,6位置，形成糖原的分支结构。"
+            },
+            {
+                question: "胰岛素促进糖原合成的关键调节点是：",
+                options: ["A. 激活糖原合酶", "B. 抑制GSK3", "C. 激活PP1", "D. 抑制糖原磷酸化酶"],
+                correct: 1,
+                explanation: "胰岛素通过AKT磷酸化GSK3使其失活是关键调节点。GSK3失活后不能磷酸化糖原合酶，使糖原合酶保持活性状态。"
+            },
+            {
+                question: "糖原磷酸化酶b型可被以下哪种分子变构激活：",
+                options: ["A. ATP", "B. AMP", "C. 葡萄糖-6-磷酸", "D. 葡萄糖"],
+                correct: 1,
+                explanation: "AMP是糖原磷酸化酶b型的变构激活剂，反映细胞能量状态。当ATP/AMP比值降低时，AMP增加，激活糖原磷酸化酶，促进糖原分解。"
+            },
+            {
+                question: "UDP-葡萄糖的合成需要消耗：",
+                options: ["A. ATP", "B. UTP", "C. GTP", "D. CTP"],
+                correct: 1,
+                explanation: "UDP-葡萄糖焦磷酸化酶催化葡萄糖-1-磷酸与UTP结合形成UDP-葡萄糖，反应消耗UTP并释放焦磷酸。"
+            },
+            {
+                question: "糖原累积病I型（von Gierke病）的酶缺陷是：",
+                options: ["A. 糖原磷酸化酶", "B. 葡萄糖-6-磷酸酶", "C. 脱分支酶", "D. 糖原合酶"],
+                correct: 1,
+                explanation: "I型糖原累积病缺乏葡萄糖-6-磷酸酶，导致葡萄糖-6-磷酸不能转化为葡萄糖，引起严重低血糖和肝脏糖原累积。"
+            },
+            {
+                question: "糖原磷酸化酶激酶的δ亚基是：",
+                options: ["A. 催化亚基", "B. 调节亚基", "C. 钙调蛋白", "D. G蛋白"],
+                correct: 2,
+                explanation: "糖原磷酸化酶激酶的δ亚基是钙调蛋白，使该酶能够响应Ca²⁺信号，在肌肉收缩等需要Ca²⁺的生理过程中发挥调节作用。"
+            },
+            {
+                question: "肾上腺素对肝糖原分解的作用机制是：",
+                options: ["A. 直接激活糖原磷酸化酶", "B. 通过β受体-cAMP-PKA途径", "C. 通过α受体-IP3-PKC途径", "D. 直接抑制糖原合酶"],
+                correct: 1,
+                explanation: "肾上腺素通过β肾上腺素受体激活Gs蛋白-腺苷酸环化酶-cAMP-PKA信号通路，最终激活糖原磷酸化酶，促进糖原分解。"
+            },
+            {
+                question: "糖原合成过程中，分支形成的频率大约是：",
+                options: ["A. 每4-6个葡萄糖残基", "B. 每8-12个葡萄糖残基", "C. 每15-20个葡萄糖残基", "D. 每25-30个葡萄糖残基"],
+                correct: 1,
+                explanation: "糖原分支大约每8-12个葡萄糖残基出现一次，这种高度分支的结构增加了非还原端的数量，有利于快速的合成和分解。"
+            },
+            {
+                question: "蛋白磷酸酶1（PP1）在糖原代谢中的作用是：",
+                options: ["A. 磷酸化糖原合酶", "B. 去磷酸化糖原合酶", "C. 磷酸化糖原磷酸化酶", "D. 激活GSK3"],
+                correct: 1,
+                explanation: "PP1去磷酸化糖原合酶使其激活，同时去磷酸化糖原磷酸化酶使其失活，是糖原代谢调节的关键磷酸酶。"
+            },
+            {
+                question: "糖原分解过程中，限速步骤是：",
+                options: ["A. 糖原磷酸化酶反应", "B. 脱分支酶反应", "C. 磷酸葡萄糖变位酶反应", "D. 葡萄糖-6-磷酸酶反应"],
+                correct: 0,
+                explanation: "糖原磷酸化酶催化的磷酸解反应是糖原分解的限速步骤，该酶的活性调节决定了糖原分解的速率。"
+            },
+            {
+                question: "McArdle病（糖原累积病V型）的主要临床表现是：",
+                options: ["A. 肝肿大和低血糖", "B. 心肌病", "C. 运动不耐受和肌痛", "D. 智力发育迟缓"],
+                correct: 2,
+                explanation: "McArdle病缺乏肌肉糖原磷酸化酶，肌肉糖原不能有效分解提供能量，导致运动不耐受、肌痛和肌无力等症状。"
+            },
+            {
+                question: "胰岛素信号通路中，AKT的直接底物是：",
+                options: ["A. 糖原合酶", "B. GSK3", "C. PP1", "D. 糖原磷酸化酶"],
+                correct: 1,
+                explanation: "AKT直接磷酸化GSK3的Ser21和Ser9位点，使其失活。GSK3失活后不能磷酸化糖原合酶，间接激活糖原合成。"
+            },
+            {
+                question: "糖原的还原端数量是：",
+                options: ["A. 0个", "B. 1个", "C. 多个", "D. 不确定"],
+                correct: 1,
+                explanation: "每个糖原分子只有一个还原端，位于糖原蛋白上，而非还原端有多个，位于分支的末端，是糖原合成和分解的活性位点。"
+            },
+            {
+                question: "cAMP对糖原代谢的调节作用是：",
+                options: ["A. 促进合成，抑制分解", "B. 抑制合成，促进分解", "C. 同时促进合成和分解", "D. 对糖原代谢无影响"],
+                correct: 1,
+                explanation: "cAMP激活PKA，PKA磷酸化糖原磷酸化酶激酶（促进分解）和糖原合酶（抑制合成），实现糖原分解增加、合成减少。"
+            },
+            {
+                question: "糖原合成需要的辅助因子是：",
+                options: ["A. NAD⁺", "B. FAD", "C. Mg²⁺", "D. Mn²⁺"],
+                correct: 2,
+                explanation: "糖原合酶需要Mg²⁺作为辅助因子，Mg²⁺参与UDP-葡萄糖的结合和催化反应的进行。"
+            },
+            {
+                question: "肝脏糖原的主要生理功能是：",
+                options: ["A. 为肝细胞提供能量", "B. 维持血糖稳定", "C. 合成脂肪酸", "D. 解毒作用"],
+                correct: 1,
+                explanation: "肝糖原的主要功能是维持血糖稳定，在空腹状态下分解释放葡萄糖，在餐后状态下合成储存多余的葡萄糖。"
+            },
+            {
+                question: "糖原磷酸化酶a型和b型的主要区别是：",
+                options: ["A. 分子量不同", "B. 磷酸化状态不同", "C. 底物特异性不同", "D. 细胞定位不同"],
+                correct: 1,
+                explanation: "a型是磷酸化的活性形式，b型是去磷酸化的相对失活形式。磷酸化状态的改变是糖原磷酸化酶活性调节的主要机制。"
+            },
+            {
+                question: "Pompe病（糖原累积病II型）的酶缺陷是：",
+                options: ["A. 糖原磷酸化酶", "B. α-1,4-葡糖苷酶", "C. 脱分支酶", "D. 糖原合酶"],
+                correct: 1,
+                explanation: "Pompe病缺乏溶酶体α-1,4-葡糖苷酶（酸性麦芽糖酶），导致糖原在溶酶体内累积，主要影响心肌和骨骼肌。"
+            },
+            {
+                question: "糖原合成的能量消耗来自：",
+                options: ["A. ATP水解", "B. UTP水解", "C. GTP水解", "D. UDP-葡萄糖水解"],
+                correct: 1,
+                explanation: "糖原合成的能量消耗主要来自UTP水解形成UDP-葡萄糖，以及焦磷酸的进一步水解，使反应向糖原合成方向进行。"
+            },
+            {
+                question: "Ca²⁺对糖原磷酸化酶激酶的作用是：",
+                options: ["A. 抑制其活性", "B. 激活其活性", "C. 无影响", "D. 促进其降解"],
+                correct: 1,
+                explanation: "Ca²⁺通过结合糖原磷酸化酶激酶的δ亚基（钙调蛋白）激活该酶，这在肌肉收缩等需要快速能量供应的情况下特别重要。"
+            },
+            {
+                question: "糖原代谢的组织特异性主要体现在：",
+                options: ["A. 酶的种类不同", "B. 调节机制不同", "C. 糖原结构不同", "D. 代谢产物不同"],
+                correct: 1,
+                explanation: "不同组织的糖原代谢调节机制不同：肝脏主要响应胰高血糖素，肌肉主要响应肾上腺素和Ca²⁺，反映了组织功能的特异性。"
+            },
+            {
+                question: "葡萄糖-6-磷酸对糖原磷酸化酶b的作用是：",
+                options: ["A. 变构激活", "B. 变构抑制", "C. 共价激活", "D. 无影响"],
+                correct: 1,
+                explanation: "葡萄糖-6-磷酸是糖原磷酸化酶b的变构抑制剂，当细胞内葡萄糖-6-磷酸充足时，抑制糖原分解，体现了代谢的反馈调节。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+        let showingAnswers = false;
+
+        // 页面加载时自动生成15道随机题目
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 从30道题中随机选择15道
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <div class="option" onclick="selectOption(${index}, ${optIndex})">
+                            <input type="radio" name="q${index}" value="${optIndex}" id="q${index}_${optIndex}">
+                            <label for="q${index}_${optIndex}">${option}</label>
+                        </div>
+                    `).join('')}
+                    <div class="answer-feedback" id="feedback${index}" style="display: none;"></div>
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 隐藏结果区域
+            document.getElementById('quiz-result').style.display = 'none';
+            showingAnswers = false;
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            userAnswers[questionIndex] = optionIndex;
+            
+            // 更新选中状态
+            const radios = document.querySelectorAll(`input[name="q${questionIndex}"]`);
+            radios.forEach((radio, index) => {
+                radio.checked = (index === optionIndex);
+            });
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            const total = currentQuestions.length;
+            
+            currentQuestions.forEach((q, index) => {
+                const feedback = document.getElementById(`feedback${index}`);
+                const isCorrect = userAnswers[index] === q.correct;
+                
+                if (isCorrect) {
+                    score++;
+                    feedback.innerHTML = `<strong style="color: #28a745;">✓ 正确</strong><br>${q.explanation}`;
+                } else {
+                    const correctOption = q.options[q.correct];
+                    const userOption = userAnswers[index] >= 0 ? q.options[userAnswers[index]] : '未选择';
+                    feedback.innerHTML = `<strong style="color: #e74c3c;">✗ 错误</strong><br>
+                        您的答案：${userOption}<br>
+                        正确答案：${correctOption}<br>
+                        解析：${q.explanation}`;
+                }
+                
+                feedback.style.display = 'block';
+            });
+            
+            const percentage = Math.round((score / total) * 100);
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.innerHTML = `
+                <h3>测试结果</h3>
+                <p><strong>得分：${score}/${total} (${percentage}%)</strong></p>
+                <p>${getScoreComment(percentage)}</p>
+            `;
+            resultDiv.style.display = 'block';
+            
+            showingAnswers = true;
+        }
+
+        function getScoreComment(percentage) {
+            if (percentage >= 90) return '优秀！您对糖原代谢的掌握非常扎实！';
+            if (percentage >= 80) return '良好！您已经很好地理解了糖原代谢的核心概念。';
+            if (percentage >= 70) return '中等！建议重点复习错误的知识点。';
+            if (percentage >= 60) return '及格！需要加强对糖原代谢机制的理解。';
+            return '需要努力！建议系统复习糖原代谢的相关内容。';
+        }
+
+        function resetQuiz() {
+            generateQuiz();
+        }
+
+        function toggleAnswers() {
+            const feedbacks = document.querySelectorAll('.answer-feedback');
+            feedbacks.forEach(feedback => {
+                feedback.style.display = showingAnswers ? 'none' : 'block';
+            });
+            showingAnswers = !showingAnswers;
+            
+            if (showingAnswers && document.getElementById('quiz-result').style.display === 'none') {
+                submitQuiz();
+            }
+        }
+    </script>
+</body>
+</html>

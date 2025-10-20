@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞骨架 - 考研复习笔记</title>
+    <style>
+        /* 全局样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 30px;
+        }
+
+        /* 章节标题 */
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 段落和列表 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本 */
+        .emphasis {
+            font-family: "KaiTi", "楷体", cursive;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .important {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        /* 名词解释样式 */
+        .terminology {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .term {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 5px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 12px;
+            margin: 5px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-success {
+            background-color: #27ae60;
+        }
+
+        .btn-success:hover {
+            background-color: #229954;
+        }
+
+        /* 结果显示样式 */
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result-incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+
+        .feedback-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .feedback-correct {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+
+        .feedback-incorrect {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #dee2e6;
+        }
+
+        .thinking-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .thinking-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        /* 目录样式 */
+        .toc {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>细胞骨架</h1>
+            <p>考研专业课复习笔记 | 细胞生物学第八章</p>
+        </div>
+
+        <div class="content">
+            <!-- 目录 -->
+            <div class="toc">
+                <h2>目录</h2>
+                <ul>
+                    <li><a href="#core-content">一、核心内容</a></li>
+                    <li><a href="#terminology">二、名词解释库</a></li>
+                    <li><a href="#quiz">三、选择题测试</a></li>
+                    <li><a href="#thinking">四、深度思考题</a></li>
+                </ul>
+            </div>
+
+            <!-- 核心内容板块 -->
+            <section id="core-content">
+                <h2>一、核心内容</h2>
+                
+                <h3>（一）细胞骨架概述</h3>
+                <p>细胞骨架是真核细胞内由蛋白质构成的纤维网络结构，是维持细胞形态、承受外力、保持细胞内部结构有序性的重要结构。细胞骨架主要包括<span class="emphasis">微丝（microfilaments）</span>、<span class="emphasis">微管（microtubules）</span>和<span class="emphasis">中间丝（intermediate filaments）</span>三大组分。</p>
+
+                <div class="important">
+                    <strong>重要提示：</strong>细胞骨架不仅维持细胞形态，还参与细胞分裂、物质运输、细胞运动等重要生命活动。
+                </div>
+
+                <h3>（二）微丝与细胞运动</h3>
+                
+                <h4>1. 微丝的组成与结构</h4>
+                <ul>
+                    <li><strong>主要成分：</strong>肌动蛋白（actin），分子量约42kDa</li>
+                    <li><strong>结构特征：</strong>
+                        <ul>
+                            <li>直径约7nm的实心纤维</li>
+                            <li>由球状肌动蛋白（G-actin）聚合成纤维状肌动蛋白（F-actin）</li>
+                            <li>具有明显的极性：尖端（+端）和钝端（-端）</li>
+                            <li>呈双股螺旋结构，螺距约37nm</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>2. 微丝的组装与调节</h4>
+                <ul>
+                    <li><strong>组装条件：</strong>需要ATP、Mg²⁺或K⁺离子</li>
+                    <li><strong>组装过程：</strong>
+                        <ol>
+                            <li>成核阶段：G-actin聚合形成三聚体核心</li>
+                            <li>延伸阶段：G-actin主要在尖端（+端）添加</li>
+                            <li>稳态阶段：达到临界浓度后长度保持稳定</li>
+                        </ol>
+                    </li>
+                    <li><strong>调节蛋白：</strong>
+                        <ul>
+                            <li>肌动蛋白结合蛋白（ABPs）</li>
+                            <li>丝切蛋白（severin）：切断微丝</li>
+                            <li>加帽蛋白（capping protein）：封闭微丝末端</li>
+                            <li>交联蛋白：如α-辅肌动蛋白、纤维蛋白</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>3. 肌球蛋白的结构与功能</h4>
+                <ul>
+                    <li><strong>结构特征：</strong>
+                        <ul>
+                            <li>分子量约520kDa</li>
+                            <li>由两条重链和四条轻链组成</li>
+                            <li>包含球状头部（含ATP酶活性）和纤维状尾部</li>
+                        </ul>
+                    </li>
+                    <li><strong>功能：</strong>
+                        <ul>
+                            <li>ATP酶活性：水解ATP提供能量</li>
+                            <li>与肌动蛋白结合形成横桥</li>
+                            <li>产生收缩力和运动</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>4. 肌细胞收缩机制</h4>
+                <p><strong>肌丝滑动模型：</strong></p>
+                <ol>
+                    <li><strong>静息状态：</strong>肌钙蛋白-原肌球蛋白复合体阻断肌动蛋白结合位点</li>
+                    <li><strong>激活阶段：</strong>Ca²⁺与肌钙蛋白C结合，构象改变，暴露结合位点</li>
+                    <li><strong>横桥循环：</strong>
+                        <ul>
+                            <li>肌球蛋白头部与肌动蛋白结合</li>
+                            <li>ATP水解，肌球蛋白头部摆动</li>
+                            <li>ADP+Pi释放，产生力冲程</li>
+                            <li>新ATP结合，横桥解离</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4>5. 作用于微丝的特异性药物</h4>
+                <ul>
+                    <li><strong>细胞松弛素（Cytochalasin）：</strong>阻断微丝延伸，破坏微丝结构</li>
+                    <li><strong>鬼笔环肽（Phalloidin）：</strong>稳定微丝，防止解聚</li>
+                    <li><strong>拉春库林（Latrunculin）：</strong>与G-actin结合，阻止聚合</li>
+                </ul>
+
+                <h3>（三）微管及其功能</h3>
+
+                <h4>1. 微管的结构组成</h4>
+                <ul>
+                    <li><strong>基本组分：</strong>α-微管蛋白和β-微管蛋白异二聚体</li>
+                    <li><strong>结构特征：</strong>
+                        <ul>
+                            <li>外径25nm，内径15nm的中空管状结构</li>
+                            <li>由13根原纤丝组成</li>
+                            <li>具有明显极性：+端和-端</li>
+                            <li>+端主要进行组装，-端主要进行解聚</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>2. 微管的组装与动态不稳定性</h4>
+                <ul>
+                    <li><strong>组装条件：</strong>需要GTP、Mg²⁺、37℃</li>
+                    <li><strong>动态不稳定性：</strong>
+                        <ul>
+                            <li>依赖于β-微管蛋白上GTP的水解状态</li>
+                            <li>GTP-微管蛋白帽保持微管稳定</li>
+                            <li>GTP水解后形成GDP-微管蛋白，导致快速解聚（灾变）</li>
+                        </ul>
+                    </li>
+                    <li><strong>踏车行为：</strong>一端组装速度等于另一端解聚速度时的动态平衡</li>
+                </ul>
+
+                <h4>3. 微管组织中心（MTOC）</h4>
+                <ul>
+                    <li><strong>中心体：</strong>
+                        <ul>
+                            <li>由两个相互垂直的中心粒组成</li>
+                            <li>每个中心粒由9组三联微管构成</li>
+                            <li>是微管组装的成核中心</li>
+                        </ul>
+                    </li>
+                    <li><strong>γ-微管蛋白：</strong>位于MTOC，提供微管组装的起始核心</li>
+                </ul>
+
+                <h4>4. 微管的功能</h4>
+                <ul>
+                    <li><strong>细胞内物质运输：</strong>
+                        <ul>
+                            <li>驱动蛋白（kinesin）：向+端运动</li>
+                            <li>胞质动力蛋白（dynein）：向-端运动</li>
+                            <li>运输囊泡、细胞器等</li>
+                        </ul>
+                    </li>
+                    <li><strong>纤毛和鞭毛：</strong>
+                        <ul>
+                            <li>轴丝结构：9+2排列（9个二联微管+1对中央微管）</li>
+                            <li>动力蛋白臂介导相邻微管滑动产生弯曲运动</li>
+                            <li>基体结构：9+0排列（9个三联微管）</li>
+                        </ul>
+                    </li>
+                    <li><strong>纺锤体形成：</strong>
+                        <ul>
+                            <li>动力微管：连接中心体和染色体</li>
+                            <li>星体微管：从中心体向外辐射</li>
+                            <li>极微管：连接两个纺锤体极</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>5. 作用于微管的特异性药物</h4>
+                <ul>
+                    <li><strong>秋水仙素（Colchicine）：</strong>与微管蛋白结合，阻止微管聚合</li>
+                    <li><strong>长春花碱（Vinblastine）：</strong>类似秋水仙素，破坏微管</li>
+                    <li><strong>紫杉醇（Taxol）：</strong>稳定微管，防止解聚，破坏动态平衡</li>
+                    <li><strong>诺考达唑（Nocodazole）：</strong>快速解聚微管</li>
+                </ul>
+
+                <h3>（四）中间丝</h3>
+
+                <h4>1. 中间丝的基本特征</h4>
+                <ul>
+                    <li><strong>直径：</strong>约10nm，介于微丝和微管之间</li>
+                    <li><strong>组装特点：</strong>
+                        <ul>
+                            <li>不需要ATP或GTP提供能量</li>
+                            <li>自我组装过程</li>
+                            <li>不具有极性</li>
+                            <li>相对稳定，动态性较低</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>2. 中间丝的组装过程</h4>
+                <ol>
+                    <li><strong>单体形成：</strong>中间丝蛋白单体</li>
+                    <li><strong>二聚体形成：</strong>两个单体平行排列形成双股螺旋</li>
+                    <li><strong>四聚体形成：</strong>两个二聚体反平行、半分子交错排列</li>
+                    <li><strong>原纤维形成：</strong>四聚体首尾相连</li>
+                    <li><strong>中间丝形成：</strong>8根原纤维构成10nm圆柱状纤维</li>
+                </ol>
+
+                <h4>3. 中间丝的主要类型</h4>
+                <ul>
+                    <li><strong>Ⅰ型：</strong>酸性角蛋白（上皮细胞）</li>
+                    <li><strong>Ⅱ型：</strong>中性和碱性角蛋白（上皮细胞）</li>
+                    <li><strong>Ⅲ型：</strong>
+                        <ul>
+                            <li>波形蛋白（vimentin）：间充质细胞</li>
+                            <li>结蛋白（desmin）：肌细胞</li>
+                            <li>胶质纤维酸性蛋白（GFAP）：星形胶质细胞</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ⅳ型：</strong>
+                        <ul>
+                            <li>神经丝蛋白（neurofilament）：神经细胞</li>
+                            <li>α-介连蛋白（α-internexin）：神经细胞</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ⅴ型：</strong>核纤层蛋白（lamin A/C, B1/B2）：核纤层</li>
+                    <li><strong>Ⅵ型：</strong>巢蛋白（nestin）：神经干细胞</li>
+                </ul>
+
+                <h4>4. 中间丝的功能</h4>
+                <ul>
+                    <li><strong>机械支撑：</strong>承受机械应力，维持细胞形态</li>
+                    <li><strong>细胞连接：</strong>通过桥粒连接相邻细胞</li>
+                    <li><strong>核纤层：</strong>支撑核膜，参与核膜组装</li>
+                    <li><strong>信号传导：</strong>参与某些信号传导过程</li>
+                </ul>
+
+                <h3>（五）三种细胞骨架的比较</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <tr style="background-color: #3498db; color: white;">
+                        <th style="border: 1px solid #ddd; padding: 12px; text-align: center;">特征</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; text-align: center;">微丝</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; text-align: center;">微管</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; text-align: center;">中间丝</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">直径</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">7nm</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">25nm</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">10nm</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">主要蛋白</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">肌动蛋白</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">α/β-微管蛋白</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">多种中间丝蛋白</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">结构</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">实心双股螺旋</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">中空管状</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">实心绳索状</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">极性</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">有（+端/-端）</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">有（+端/-端）</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">无</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">能量需求</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">ATP</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">GTP</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">无</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">主要功能</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">细胞运动、收缩</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">物质运输、纺锤体</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">机械支撑</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- 名词解释库 -->
+            <section id="terminology">
+                <h2>二、名词解释库</h2>
+                <div class="terminology">
+                    <div class="term">
+                        <div class="term-name">细胞骨架<span class="term-english">(Cytoskeleton)</span></div>
+                        <div class="term-definition">真核细胞内由蛋白质构成的纤维网络结构，主要包括微丝、微管和中间丝，维持细胞形态、承受外力、参与细胞运动和物质运输等重要生命活动。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">微丝<span class="term-english">(Microfilaments, MF)</span></div>
+                        <div class="term-definition">由肌动蛋白聚合形成的直径约7nm的实心纤维，具有极性，主要参与细胞运动、形态维持和收缩等功能。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">肌动蛋白<span class="term-english">(Actin)</span></div>
+                        <div class="term-definition">分子量约42kDa的球状蛋白，是微丝的主要组成成分，存在G-actin（球状）和F-actin（纤维状）两种形式。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">肌球蛋白<span class="term-english">(Myosin)</span></div>
+                        <div class="term-definition">分子量约520kDa的马达蛋白，具有ATP酶活性，与肌动蛋白相互作用产生收缩力和运动，是肌肉收缩的关键蛋白。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">微管<span class="term-english">(Microtubules, MT)</span></div>
+                        <div class="term-definition">由α/β-微管蛋白异二聚体组成的外径25nm、内径15nm的中空管状结构，具有极性，主要参与细胞内物质运输和纺锤体形成。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">微管蛋白<span class="term-english">(Tubulin)</span></div>
+                        <div class="term-definition">微管的基本组成单位，包括α-微管蛋白和β-微管蛋白，两者结合形成异二聚体，分子量各约55kDa。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">微管组织中心<span class="term-english">(Microtubule Organizing Center, MTOC)</span></div>
+                        <div class="term-definition">细胞内微管组装的起始中心，主要包括中心体，含有γ-微管蛋白，为微管聚合提供成核位点。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">中心体<span class="term-english">(Centrosome)</span></div>
+                        <div class="term-definition">由两个相互垂直的中心粒组成的细胞器，是主要的微管组织中心，参与纺锤体形成和细胞分裂。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">中心粒<span class="term-english">(Centriole)</span></div>
+                        <div class="term-definition">由9组三联微管构成的圆柱状结构，长约0.4μm，直径约0.2μm，是中心体的主要组成部分。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">驱动蛋白<span class="term-english">(Kinesin)</span></div>
+                        <div class="term-definition">沿微管向+端运动的马达蛋白，利用ATP水解提供能量，负责将货物从细胞中心运输到细胞周边。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">胞质动力蛋白<span class="term-english">(Cytoplasmic Dynein)</span></div>
+                        <div class="term-definition">沿微管向-端运动的马达蛋白，负责将货物从细胞周边运输到细胞中心，也参与纺锤体功能。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">中间丝<span class="term-english">(Intermediate Filaments, IF)</span></div>
+                        <div class="term-definition">直径约10nm的纤维状结构，由多种中间丝蛋白组成，不具极性，主要提供机械支撑和维持细胞形态。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">波形蛋白<span class="term-english">(Vimentin)</span></div>
+                        <div class="term-definition">Ⅲ型中间丝蛋白，主要存在于间充质来源的细胞中，是间充质细胞的标志蛋白之一。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">角蛋白<span class="term-english">(Keratin)</span></div>
+                        <div class="term-definition">Ⅰ型和Ⅱ型中间丝蛋白，主要存在于上皮细胞中，提供机械强度，是上皮细胞的特征蛋白。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">核纤层蛋白<span class="term-english">(Lamin)</span></div>
+                        <div class="term-definition">Ⅴ型中间丝蛋白，构成核纤层，位于核膜内侧，支撑核膜结构，参与核膜的组装和解聚。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">动态不稳定性<span class="term-english">(Dynamic Instability)</span></div>
+                        <div class="term-definition">微管特有的性质，指微管在生长和收缩之间快速转换的现象，依赖于GTP的水解状态。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">踏车行为<span class="term-english">(Treadmilling)</span></div>
+                        <div class="term-definition">微丝或微管一端组装速度等于另一端解聚速度时的动态平衡状态，整体长度保持不变但亚基不断更新。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">秋水仙素<span class="term-english">(Colchicine)</span></div>
+                        <div class="term-definition">特异性作用于微管的植物生物碱，与微管蛋白结合阻止微管聚合，常用于研究微管功能。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">细胞松弛素<span class="term-english">(Cytochalasin)</span></div>
+                        <div class="term-definition">特异性作用于微丝的真菌毒素，阻断微丝延伸，破坏微丝网络，常用于研究微丝功能。</div>
+                    </div>
+
+                    <div class="term">
+                        <div class="term-name">轴丝<span class="term-english">(Axoneme)</span></div>
+                        <div class="term-definition">纤毛和鞭毛的核心结构，由微管及其附属蛋白组成，典型的9+2排列（9个二联微管+1对中央微管）。</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 选择题测试 -->
+            <section id="quiz">
+                <h2>三、选择题测试</h2>
+                <div class="quiz-section">
+                    <p><strong>说明：</strong>以下15道题目从30道题库中随机抽取，请选择最佳答案。</p>
+                    <div id="quiz-container"></div>
+                    <button class="btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                    <div id="quiz-feedback" class="feedback" style="display: none;"></div>
+                </div>
+            </section>
+
+            <!-- 深度思考题 -->
+            <section id="thinking">
+                <h2>四、深度思考题</h2>
+                <div class="thinking-section">
+                    <div class="thinking-question">
+                        <div class="thinking-title">1. 试述细胞骨架三大组分在结构、功能和调控机制方面的异同点，并分析它们在细胞生命活动中的协调作用。</div>
+                        <div class="thinking-answer">
+                            <strong>参考答案：</strong>
+                            <ol>
+                                <li><strong>结构异同点：</strong>
+                                    <ul>
+                                        <li>相同点：都是由蛋白质亚基聚合形成的纤维状结构，都具有一定的动态性</li>
+                                        <li>不同点：微丝直径7nm，实心双股螺旋；微管直径25nm，中空管状；中间丝直径10nm，实心绳索状。微丝和微管具有极性，中间丝无极性</li>
+                                    </ul>
+                                </li>
+                                <li><strong>功能异同点：</strong>
+                                    <ul>
+                                        <li>相同点：都参与维持细胞形态，提供机械支撑</li>
+                                        <li>不同点：微丝主要负责细胞运动和收缩；微管主要负责细胞内物质运输和纺锤体形成；中间丝主要提供机械强度和抗张力</li>
+                                    </ul>
+                                </li>
+                                <li><strong>调控机制：</strong>
+                                    <ul>
+                                        <li>微丝：通过肌动蛋白结合蛋白调节，需要ATP</li>
+                                        <li>微管：通过微管相关蛋白调节，具有动态不稳定性，需要GTP</li>
+                                        <li>中间丝：相对稳定，主要通过磷酸化调节组装和解聚</li>
+                                    </ul>
+                                </li>
+                                <li><strong>协调作用：</strong>在细胞分裂、细胞运动、物质运输等过程中，三种骨架相互配合，形成完整的细胞骨架网络，共同维持细胞的结构和功能完整性。</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="thinking-question">
+                        <div class="thinking-title">2. 分析肌丝滑动模型的分子机制，并讨论Ca²⁺在肌肉收缩调控中的作用机理。</div>
+                        <div class="thinking-answer">
+                            <strong>参考答案：</strong>
+                            <ol>
+                                <li><strong>肌丝滑动模型的分子基础：</strong>
+                                    <ul>
+                                        <li>粗肌丝：主要由肌球蛋白组成，具有ATP酶活性的头部和纤维状尾部</li>
+                                        <li>细肌丝：主要由肌动蛋白、肌钙蛋白和原肌球蛋白组成</li>
+                                        <li>横桥：肌球蛋白头部与肌动蛋白的结合位点</li>
+                                    </ul>
+                                </li>
+                                <li><strong>收缩机制：</strong>
+                                    <ul>
+                                        <li>横桥结合：肌球蛋白头部与肌动蛋白结合形成横桥</li>
+                                        <li>力冲程：ATP水解释放的能量驱动肌球蛋白头部摆动，产生滑动力</li>
+                                        <li>横桥解离：新ATP结合使横桥解离，准备下一个循环</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Ca²⁺的调控作用：</strong>
+                                    <ul>
+                                        <li>静息状态：肌钙蛋白-原肌球蛋白复合体阻断肌动蛋白上的肌球蛋白结合位点</li>
+                                        <li>激活状态：Ca²⁺与肌钙蛋白C结合，引起构象变化，原肌球蛋白移位，暴露结合位点</li>
+                                        <li>Ca²⁺浓度下降时，肌钙蛋白释放Ca²⁺，原肌球蛋白重新阻断结合位点，肌肉松弛</li>
+                                    </ul>
+                                </li>
+                                <li><strong>能量代谢：</strong>整个过程需要大量ATP提供能量，ATP不仅用于横桥循环，还用于Ca²⁺的主动转运。</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="thinking-question">
+                        <div class="thinking-title">3. 比较分析微管的动态不稳定性和微丝的踏车行为，并讨论这些动态特性在细胞功能中的生物学意义。</div>
+                        <div class="thinking-answer">
+                            <strong>参考答案：</strong>
+                            <ol>
+                                <li><strong>微管的动态不稳定性：</strong>
+                                    <ul>
+                                        <li>机制：依赖于β-微管蛋白上GTP的水解状态，GTP帽的存在与否决定微管的稳定性</li>
+                                        <li>特点：在生长和快速收缩（灾变）之间转换，具有"救援"现象</li>
+                                        <li>调控：受微管相关蛋白、γ-微管蛋白等调节</li>
+                                    </ul>
+                                </li>
+                                <li><strong>微丝的踏车行为：</strong>
+                                    <ul>
+                                        <li>机制：+端组装速度等于-端解聚速度，整体长度不变但亚基不断更新</li>
+                                        <li>特点：相对温和的动态平衡，不如微管的动态不稳定性剧烈</li>
+                                        <li>调控：受肌动蛋白结合蛋白调节</li>
+                                    </ul>
+                                </li>
+                                <li><strong>生物学意义：</strong>
+                                    <ul>
+                                        <li>快速重组：允许细胞骨架快速响应环境变化和细胞需求</li>
+                                        <li>精确调控：为细胞分裂、运动、形态变化提供精确的时空调控</li>
+                                        <li>能量效率：通过动态平衡实现结构稳定性和功能灵活性的平衡</li>
+                                        <li>搜索机制：微管的动态不稳定性有助于搜索和捕获染色体等细胞结构</li>
+                                    </ul>
+                                </li>
+                                <li><strong>病理意义：</strong>动态性异常可能导致癌症、神经退行性疾病等，因此成为药物作用的重要靶点。</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="thinking-question">
+                        <div class="thinking-title">4. 论述细胞骨架特异性药物的作用机制及其在基础研究和临床治疗中的应用价值。</div>
+                        <div class="thinking-answer">
+                            <strong>参考答案：</strong>
+                            <ol>
+                                <li><strong>微丝特异性药物：</strong>
+                                    <ul>
+                                        <li>细胞松弛素：阻断微丝+端延伸，破坏微丝网络，用于研究微丝功能</li>
+                                        <li>鬼笔环肽：稳定微丝，防止解聚，常用于免疫荧光染色</li>
+                                        <li>拉春库林：与G-actin结合，阻止聚合，用于研究肌动蛋白功能</li>
+                                    </ul>
+                                </li>
+                                <li><strong>微管特异性药物：</strong>
+                                    <ul>
+                                        <li>秋水仙素：与微管蛋白结合，阻止聚合，用于细胞周期阻滞</li>
+                                        <li>长春花碱：类似秋水仙素，临床用于癌症化疗</li>
+                                        <li>紫杉醇：稳定微管，破坏动态平衡，广泛用于癌症治疗</li>
+                                        <li>诺考达唑：快速解聚微管，常用于实验研究</li>
+                                    </ul>
+                                </li>
+                                <li><strong>基础研究应用：</strong>
+                                    <ul>
+                                        <li>功能研究：通过特异性破坏某种细胞骨架成分，研究其功能</li>
+                                        <li>机制探索：揭示细胞骨架在细胞分裂、运动、信号传导中的作用</li>
+                                        <li>动态观察：结合荧光标记技术，实时观察细胞骨架动态变化</li>
+                                    </ul>
+                                </li>
+                                <li><strong>临床治疗价值：</strong>
+                                    <ul>
+                                        <li>癌症治疗：紫杉醇、长春花碱等通过破坏肿瘤细胞纺锤体阻止细胞分裂</li>
+                                        <li>药物开发：为新型抗癌药物设计提供靶点和思路</li>
+                                        <li>个体化治疗：根据肿瘤细胞骨架特征选择合适的药物</li>
+                                        <li>耐药性研究：研究肿瘤细胞对细胞骨架药物的耐药机制</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="thinking-question">
+                        <div class="thinking-title">5. 分析中间丝在不同类型细胞中的表达特异性及其在疾病诊断中的应用价值。</div>
+                        <div class="thinking-answer">
+                            <strong>参考答案：</strong>
+                            <ol>
+                                <li><strong>中间丝的组织特异性表达：</strong>
+                                    <ul>
+                                        <li>角蛋白（Ⅰ/Ⅱ型）：特异性表达于上皮细胞，是上皮来源肿瘤的标志</li>
+                                        <li>波形蛋白（Ⅲ型）：主要表达于间充质细胞，如成纤维细胞、内皮细胞</li>
+                                        <li>结蛋白（Ⅲ型）：特异性表达于肌细胞，包括骨骼肌、心肌和平滑肌</li>
+                                        <li>神经丝蛋白（Ⅳ型）：特异性表达于神经细胞，是神经元的标志蛋白</li>
+                                        <li>GFAP（Ⅲ型）：特异性表达于星形胶质细胞</li>
+                                    </ul>
+                                </li>
+                                <li><strong>疾病诊断中的应用：</strong>
+                                    <ul>
+                                        <li>肿瘤分型：通过检测不同中间丝蛋白确定肿瘤的组织来源</li>
+                                        <li>免疫组化：中间丝蛋白是重要的免疫组化标志物</li>
+                                        <li>转移瘤诊断：帮助确定转移瘤的原发部位</li>
+                                        <li>神经系统疾病：GFAP水平变化反映神经胶质细胞激活状态</li>
+                                    </ul>
+                                </li>
+                                <li><strong>分子机制：</strong>
+                                    <ul>
+                                        <li>转录调控：不同转录因子调控中间丝基因的组织特异性表达</li>
+                                        <li>发育调控：中间丝表达模式在细胞分化过程中发生变化</li>
+                                        <li>病理变化：疾病状态下中间丝表达和组装可能发生异常</li>
+                                    </ul>
+                                </li>
+                                <li><strong>临床意义：</strong>
+                                    <ul>
+                                        <li>诊断价值：提高病理诊断的准确性和特异性</li>
+                                        <li>预后评估：某些中间丝蛋白表达水平与预后相关</li>
+                                        <li>治疗靶点：为靶向治疗提供新的思路和靶点</li>
+                                        <li>生物标志物：在疾病早期诊断和监测中具有重要价值</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "细胞骨架的主要组成成分不包括：",
+                options: ["A. 微丝", "B. 微管", "C. 中间丝", "D. 核糖体"],
+                correct: 3,
+                explanation: "细胞骨架主要由微丝、微管和中间丝三大组分构成。核糖体是蛋白质合成的场所，不属于细胞骨架成分。"
+            },
+            {
+                question: "微丝的主要组成蛋白是：",
+                options: ["A. 微管蛋白", "B. 肌动蛋白", "C. 波形蛋白", "D. 角蛋白"],
+                correct: 1,
+                explanation: "微丝主要由肌动蛋白（actin）聚合形成，肌动蛋白是微丝的基本组成单位。"
+            },
+            {
+                question: "微管的直径约为：",
+                options: ["A. 7nm", "B. 10nm", "C. 25nm", "D. 50nm"],
+                correct: 2,
+                explanation: "微管的外径约为25nm，内径约为15nm，是三种细胞骨架中直径最大的。"
+            },
+            {
+                question: "下列关于中间丝的描述，错误的是：",
+                options: ["A. 直径约10nm", "B. 具有极性", "C. 不需要ATP或GTP", "D. 相对稳定"],
+                correct: 1,
+                explanation: "中间丝不具有极性，这是它与微丝和微管的重要区别之一。微丝和微管都具有明显的极性。"
+            },
+            {
+                question: "秋水仙素的作用机制是：",
+                options: ["A. 稳定微管", "B. 破坏微丝", "C. 阻止微管聚合", "D. 促进中间丝组装"],
+                correct: 2,
+                explanation: "秋水仙素与微管蛋白结合，阻止微管的聚合，从而破坏微管网络，常用于研究微管功能。"
+            },
+            {
+                question: "肌球蛋白具有的酶活性是：",
+                options: ["A. ATP酶", "B. GTP酶", "C. 蛋白酶", "D. 磷酸酶"],
+                correct: 0,
+                explanation: "肌球蛋白头部具有ATP酶活性，能够水解ATP释放能量，为肌肉收缩提供动力。"
+            },
+            {
+                question: "微管组织中心（MTOC）的主要组成是：",
+                options: ["A. 核糖体", "B. 中心体", "C. 线粒体", "D. 内质网"],
+                correct: 1,
+                explanation: "中心体是主要的微管组织中心，由两个相互垂直的中心粒组成，是微管组装的成核中心。"
+            },
+            {
+                question: "纤毛和鞭毛轴丝的典型结构是：",
+                options: ["A. 9+0", "B. 9+1", "C. 9+2", "D. 9+3"],
+                correct: 2,
+                explanation: "纤毛和鞭毛轴丝的典型结构是9+2排列，即9个二联微管围绕1对中央微管排列。"
+            },
+            {
+                question: "驱动蛋白（kinesin）沿微管运动的方向是：",
+                options: ["A. 向+端", "B. 向-端", "C. 双向", "D. 无方向性"],
+                correct: 0,
+                explanation: "驱动蛋白沿微管向+端运动，负责将货物从细胞中心运输到细胞周边。"
+            },
+            {
+                question: "胞质动力蛋白（dynein）的运动方向是：",
+                options: ["A. 向+端", "B. 向-端", "C. 双向", "D. 无方向性"],
+                correct: 1,
+                explanation: "胞质动力蛋白沿微管向-端运动，负责将货物从细胞周边运输到细胞中心。"
+            },
+            {
+                question: "波形蛋白主要存在于：",
+                options: ["A. 上皮细胞", "B. 间充质细胞", "C. 神经细胞", "D. 肌细胞"],
+                correct: 1,
+                explanation: "波形蛋白是Ⅲ型中间丝蛋白，主要存在于间充质来源的细胞中，如成纤维细胞。"
+            },
+            {
+                question: "角蛋白主要存在于：",
+                options: ["A. 上皮细胞", "B. 间充质细胞", "C. 神经细胞", "D. 肌细胞"],
+                correct: 0,
+                explanation: "角蛋白是Ⅰ型和Ⅱ型中间丝蛋白，主要存在于上皮细胞中，是上皮细胞的特征蛋白。"
+            },
+            {
+                question: "细胞松弛素的作用对象是：",
+                options: ["A. 微管", "B. 微丝", "C. 中间丝", "D. 核糖体"],
+                correct: 1,
+                explanation: "细胞松弛素特异性作用于微丝，阻断微丝的延伸，破坏微丝网络结构。"
+            },
+            {
+                question: "紫杉醇的作用机制是：",
+                options: ["A. 阻止微管聚合", "B. 稳定微管", "C. 破坏微丝", "D. 促进中间丝解聚"],
+                correct: 1,
+                explanation: "紫杉醇能够稳定微管，防止其解聚，破坏微管的动态平衡，广泛用于癌症化疗。"
+            },
+            {
+                question: "中心粒的结构特征是：",
+                options: ["A. 9+2排列", "B. 9+0排列", "C. 9个三联微管", "D. 9个二联微管"],
+                correct: 2,
+                explanation: "中心粒由9组三联微管构成圆柱状结构，这与纤毛鞭毛的9+2排列不同。"
+            },
+            {
+                question: "肌动蛋白的分子量约为：",
+                options: ["A. 25kDa", "B. 42kDa", "C. 55kDa", "D. 520kDa"],
+                correct: 1,
+                explanation: "肌动蛋白的分子量约为42kDa，是微丝的基本组成单位。"
+            },
+            {
+                question: "微管蛋白异二聚体由以下组成：",
+                options: ["A. α-微管蛋白和β-微管蛋白", "B. 两个α-微管蛋白", "C. 两个β-微管蛋白", "D. γ-微管蛋白和α-微管蛋白"],
+                correct: 0,
+                explanation: "微管蛋白异二聚体由一个α-微管蛋白和一个β-微管蛋白组成，分子量各约55kDa。"
+            },
+            {
+                question: "神经丝蛋白属于：",
+                options: ["A. Ⅰ型中间丝", "B. Ⅱ型中间丝", "C. Ⅲ型中间丝", "D. Ⅳ型中间丝"],
+                correct: 3,
+                explanation: "神经丝蛋白属于Ⅳ型中间丝蛋白，特异性存在于神经细胞中。"
+            },
+            {
+                question: "核纤层蛋白属于：",
+                options: ["A. Ⅲ型中间丝", "B. Ⅳ型中间丝", "C. Ⅴ型中间丝", "D. Ⅵ型中间丝"],
+                correct: 2,
+                explanation: "核纤层蛋白属于Ⅴ型中间丝蛋白，构成核纤层，支撑核膜结构。"
+            },
+            {
+                question: "微管的动态不稳定性主要依赖于：",
+                options: ["A. ATP的水解", "B. GTP的水解", "C. Ca²⁺浓度", "D. pH值"],
+                correct: 1,
+                explanation: "微管的动态不稳定性主要依赖于β-微管蛋白上GTP的水解状态，GTP帽决定微管稳定性。"
+            },
+            {
+                question: "肌球蛋白的分子量约为：",
+                options: ["A. 42kDa", "B. 55kDa", "C. 220kDa", "D. 520kDa"],
+                correct: 3,
+                explanation: "肌球蛋白的分子量约为520kDa，由两条重链和四条轻链组成。"
+            },
+            {
+                question: "鬼笔环肽的作用是：",
+                options: ["A. 破坏微丝", "B. 稳定微丝", "C. 破坏微管", "D. 稳定微管"],
+                correct: 1,
+                explanation: "鬼笔环肽能够稳定微丝，防止其解聚，常用于免疫荧光染色显示微丝。"
+            },
+            {
+                question: "GFAP主要存在于：",
+                options: ["A. 神经元", "B. 星形胶质细胞", "C. 少突胶质细胞", "D. 小胶质细胞"],
+                correct: 1,
+                explanation: "GFAP（胶质纤维酸性蛋白）主要存在于星形胶质细胞中，是其特征标志蛋白。"
+            },
+            {
+                question: "结蛋白主要存在于：",
+                options: ["A. 上皮细胞", "B. 神经细胞", "C. 肌细胞", "D. 间充质细胞"],
+                correct: 2,
+                explanation: "结蛋白是Ⅲ型中间丝蛋白，主要存在于各种类型的肌细胞中。"
+            },
+            {
+                question: "长春花碱的作用机制类似于：",
+                options: ["A. 秋水仙素", "B. 紫杉醇", "C. 细胞松弛素", "D. 鬼笔环肽"],
+                correct: 0,
+                explanation: "长春花碱的作用机制类似于秋水仙素，都能破坏微管，阻止微管聚合。"
+            },
+            {
+                question: "微丝的踏车行为是指：",
+                options: ["A. 快速生长和收缩", "B. 一端组装另一端解聚的平衡", "C. 螺旋状运动", "D. 分支形成"],
+                correct: 1,
+                explanation: "踏车行为是指微丝一端组装速度等于另一端解聚速度时的动态平衡状态。"
+            },
+            {
+                question: "γ-微管蛋白的主要功能是：",
+                options: ["A. 构成微管壁", "B. 提供微管组装核心", "C. 调节微管稳定性", "D. 连接微管"],
+                correct: 1,
+                explanation: "γ-微管蛋白位于微管组织中心，为微管聚合提供成核位点和组装核心。"
+            },
+            {
+                question: "诺考达唑的作用是：",
+                options: ["A. 稳定微管", "B. 快速解聚微管", "C. 稳定微丝", "D. 破坏中间丝"],
+                correct: 1,
+                explanation: "诺考达唑能够快速解聚微管，常用于实验研究中快速破坏微管网络。"
+            },
+            {
+                question: "拉春库林的作用机制是：",
+                options: ["A. 与F-actin结合", "B. 与G-actin结合", "C. 与肌球蛋白结合", "D. 与微管蛋白结合"],
+                correct: 1,
+                explanation: "拉春库林与G-actin结合，阻止其聚合成F-actin，从而破坏微丝网络。"
+            },
+            {
+                question: "巢蛋白属于：",
+                options: ["A. Ⅳ型中间丝", "B. Ⅴ型中间丝", "C. Ⅵ型中间丝", "D. Ⅶ型中间丝"],
+                correct: 2,
+                explanation: "巢蛋白属于Ⅵ型中间丝蛋白，主要存在于神经干细胞中。"
+            },
+            {
+                question: "肌钙蛋白的作用是：",
+                options: ["A. 提供收缩力", "B. 调节肌肉收缩", "C. 水解ATP", "D. 形成横桥"],
+                correct: 1,
+                explanation: "肌钙蛋白通过结合Ca²⁺调节肌肉收缩，控制肌动蛋白-肌球蛋白相互作用。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                let optionsHtml = '';
+                q.options.forEach((option, optIndex) => {
+                    optionsHtml += `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}" onchange="recordAnswer(${index}, ${optIndex})">
+                            ${option}
+                        </label>
+                    `;
+                });
+
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${optionsHtml}
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function recordAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+            let feedbackHtml = '';
+
+            currentQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                if (isCorrect) correctCount++;
+
+                const userAnswer = userAnswers[index];
+                const correctAnswer = q.correct;
+                
+                feedbackHtml += `
+                    <div class="feedback-item ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}">
+                        <strong>第${index + 1}题：</strong>${q.question}<br>
+                        <strong>你的答案：</strong>${userAnswer >= 0 ? q.options[userAnswer] : '未作答'}<br>
+                        <strong>正确答案：</strong>${q.options[correctAnswer]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+
+            const score = Math.round((correctCount / 15) * 100);
+            const resultDiv = document.getElementById('quiz-result');
+            const feedbackDiv = document.getElementById('quiz-feedback');
+
+            resultDiv.innerHTML = `
+                <h3>测试结果</h3>
+                <p>正确题数：${correctCount}/15</p>
+                <p>得分：${score}分</p>
+                <p class="${score >= 80 ? 'text-success' : score >= 60 ? 'text-warning' : 'text-danger'}">
+                    ${score >= 80 ? '优秀！' : score >= 60 ? '良好，继续努力！' : '需要加强复习！'}
+                </p>
+            `;
+            
+            resultDiv.className = `result show ${score >= 60 ? 'result-correct' : 'result-incorrect'}`;
+            
+            feedbackDiv.innerHTML = `<h3>详细解析</h3>${feedbackHtml}`;
+            feedbackDiv.style.display = 'block';
+
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

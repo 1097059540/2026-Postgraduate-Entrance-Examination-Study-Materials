@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命的分子基础 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 - 学术蓝灰色系 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(44, 62, 80, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .important {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #e17055;
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: "KaiTi", "楷体", cursive;
+            text-align: center;
+            border: 2px dashed #3498db;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .english {
+            font-style: italic;
+            color: #7f8c8d;
+            font-family: "Times New Roman", serif;
+        }
+
+        /* 名词解释库样式 */
+        .glossary {
+            background: #ffffff;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .glossary-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #3498db;
+        }
+
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .glossary-definition {
+            margin-top: 5px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #ffffff;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            margin: 8px 0;
+            padding: 10px 15px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #2980b9, #1f4e79);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.pass {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.fail {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-questions {
+            background: #ffffff;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .thinking-question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .thinking-question h4 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .answer h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>生命的分子基础</h1>
+            <p>考研生物化学复习笔记 - 第一章</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、生命属性与生物化学概述</h2>
+                
+                <h3>1.1 生命的基本特征</h3>
+                <div class="highlight">
+                    <p><strong>生命的基本特征包括：</strong></p>
+                    <ul>
+                        <li><strong>新陈代谢</strong>：生物体内物质和能量的转换过程</li>
+                        <li><strong>生长发育</strong>：从简单到复杂的有序变化</li>
+                        <li><strong>遗传变异</strong>：信息的传递和改变</li>
+                        <li><strong>应激性</strong>：对环境变化的反应能力</li>
+                        <li><strong>稳态调节</strong>：维持内环境相对稳定</li>
+                    </ul>
+                </div>
+
+                <h3>1.2 生物化学的研究内容</h3>
+                <p>生物化学是研究生物体内化学成分和化学反应的科学，主要包括：</p>
+                <ul>
+                    <li>生物分子的结构与功能</li>
+                    <li>物质代谢及其调节</li>
+                    <li>遗传信息的传递与表达</li>
+                    <li>生物能学和生物热力学</li>
+                </ul>
+
+                <div class="important">
+                    <p><strong>重要概念：</strong>生物化学与分子生物学是现代生命科学的核心学科，为理解生命现象的分子机理提供理论基础。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>二、生命物质的化学组成</h2>
+                
+                <h3>2.1 生物体的元素组成</h3>
+                <div class="highlight">
+                    <p><strong>生物体主要元素：</strong></p>
+                    <ul>
+                        <li><strong>大量元素</strong>：C、H、O、N、P、S（占生物体重量的99%以上）</li>
+                        <li><strong>微量元素</strong>：Fe、Zn、Cu、Mn、Mo、I等（含量少但功能重要）</li>
+                    </ul>
+                </div>
+
+                <h4>碳元素的特殊性</h4>
+                <p>碳是生命的核心元素，具有以下特点：</p>
+                <ul>
+                    <li>能形成稳定的共价键</li>
+                    <li>可形成链状、环状等多种结构</li>
+                    <li>价电子数适中，化学性质活泼适度</li>
+                    <li>能与多种元素结合形成官能团</li>
+                </ul>
+
+                <h3>2.2 生物分子的分类</h3>
+                <div class="formula">
+                    <p><strong>生物分子分类体系：</strong></p>
+                    <p>小分子化合物 ← → 生物大分子</p>
+                    <p>（分子量 < 1000Da）&nbsp;&nbsp;&nbsp;&nbsp;（分子量 > 1000Da）</p>
+                </div>
+
+                <h4>小分子化合物</h4>
+                <ul>
+                    <li><strong>单糖</strong>：葡萄糖、果糖、核糖等</li>
+                    <li><strong>氨基酸</strong>：蛋白质的基本单位</li>
+                    <li><strong>核苷酸</strong>：核酸的基本单位</li>
+                    <li><strong>脂肪酸</strong>：脂质的重要组成</li>
+                    <li><strong>维生素</strong>：生物催化剂的辅助因子</li>
+                </ul>
+
+                <h4>生物大分子</h4>
+                <ul>
+                    <li><strong>蛋白质</strong>：由氨基酸聚合而成</li>
+                    <li><strong>核酸</strong>：由核苷酸聚合而成（DNA、RNA）</li>
+                    <li><strong>多糖</strong>：由单糖聚合而成</li>
+                    <li><strong>脂质</strong>：主要包括磷脂、胆固醇等</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、生物分子的三维结构</h2>
+                
+                <h3>3.1 构型与构象</h3>
+                <div class="important">
+                    <p><strong>构型（Configuration）</strong>：分子中原子的空间排列，只能通过化学键的断裂和重新形成来改变。</p>
+                    <p><strong>构象（Conformation）</strong>：分子中原子围绕单键自由旋转产生的不同空间排列。</p>
+                </div>
+
+                <h4>立体异构现象</h4>
+                <ul>
+                    <li><strong>对映异构体</strong>：互为镜像关系的立体异构体</li>
+                    <li><strong>非对映异构体</strong>：非镜像关系的立体异构体</li>
+                    <li><strong>D/L构型</strong>：以甘油醛为标准的构型命名法</li>
+                </ul>
+
+                <h3>3.2 生物分子的手性</h3>
+                <div class="highlight">
+                    <p><strong>生物体中的手性选择性：</strong></p>
+                    <ul>
+                        <li>天然氨基酸几乎都是L型</li>
+                        <li>天然糖类几乎都是D型</li>
+                        <li>这种选择性是生命进化的结果</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>四、生物系统中的非共价相互作用</h2>
+                
+                <h3>4.1 氢键</h3>
+                <div class="formula">
+                    <p><strong>氢键形成条件：</strong></p>
+                    <p>X-H···Y（X、Y为电负性强的原子：N、O、F）</p>
+                </div>
+                
+                <p><strong>氢键的特点：</strong></p>
+                <ul>
+                    <li>具有方向性和饱和性</li>
+                    <li>键能：12-30 kJ/mol</li>
+                    <li>在蛋白质和核酸结构中起重要作用</li>
+                </ul>
+
+                <h3>4.2 范德华力</h3>
+                <p>包括三种类型：</p>
+                <ul>
+                    <li><strong>取向力</strong>：永久偶极间的相互作用</li>
+                    <li><strong>诱导力</strong>：永久偶极诱导瞬时偶极产生的作用力</li>
+                    <li><strong>色散力</strong>：瞬时偶极间的相互作用</li>
+                </ul>
+
+                <h3>4.3 疏水相互作用</h3>
+                <div class="important">
+                    <p><strong>疏水效应</strong>：非极性分子在水中聚集，减少与水分子的接触面积，这是一个熵驱动的过程。</p>
+                </div>
+
+                <h3>4.4 静电相互作用</h3>
+                <p>包括离子键和偶极相互作用，在生物分子的稳定性和功能中发挥重要作用。</p>
+            </div>
+
+            <div class="section">
+                <h2>五、水和生命</h2>
+                
+                <h3>5.1 水的分子结构</h3>
+                <div class="formula">
+                    <p><strong>水分子的几何结构：</strong></p>
+                    <p>H-O-H键角：104.5°</p>
+                    <p>O-H键长：0.96 Å</p>
+                </div>
+
+                <h3>5.2 水的特殊性质</h3>
+                <div class="highlight">
+                    <p><strong>水的重要性质：</strong></p>
+                    <ul>
+                        <li><strong>高沸点和熔点</strong>：由于氢键的存在</li>
+                        <li><strong>高比热容</strong>：温度缓冲作用</li>
+                        <li><strong>高介电常数</strong>：良好的溶剂</li>
+                        <li><strong>密度异常</strong>：冰的密度小于液态水</li>
+                    </ul>
+                </div>
+
+                <h3>5.3 水的生物学功能</h3>
+                <ul>
+                    <li><strong>溶剂作用</strong>：溶解离子和极性分子</li>
+                    <li><strong>反应介质</strong>：许多生化反应的场所</li>
+                    <li><strong>运输载体</strong>：营养物质和代谢产物的运输</li>
+                    <li><strong>温度调节</strong>：维持体温稳定</li>
+                    <li><strong>润滑作用</strong>：关节液、唾液等</li>
+                </ul>
+
+                <h3>5.4 水的电离和pH</h3>
+                <div class="formula">
+                    <p><strong>水的自电离：</strong></p>
+                    <p>H₂O ⇌ H⁺ + OH⁻</p>
+                    <p>Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ (25°C)</p>
+                    <p>pH = -log[H⁺]</p>
+                </div>
+
+                <div class="important">
+                    <p><strong>生物体内pH的重要性：</strong>细胞内pH通常维持在7.0-7.4之间，pH的微小变化都会影响蛋白质结构和酶活性。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>六、生命的基本单位——细胞</h2>
+                
+                <h3>6.1 细胞的基本特征</h3>
+                <ul>
+                    <li>具有细胞膜包围的结构</li>
+                    <li>含有遗传物质DNA</li>
+                    <li>能进行新陈代谢</li>
+                    <li>具有自我复制能力</li>
+                </ul>
+
+                <h3>6.2 原核细胞与真核细胞</h3>
+                <div class="highlight">
+                    <p><strong>主要区别：</strong></p>
+                    <ul>
+                        <li><strong>原核细胞</strong>：无核膜，DNA直接分布在细胞质中</li>
+                        <li><strong>真核细胞</strong>：有核膜，DNA包装在细胞核内</li>
+                    </ul>
+                </div>
+
+                <h3>6.3 细胞的分子组成</h3>
+                <div class="formula">
+                    <p><strong>细胞的化学组成（按重量）：</strong></p>
+                    <p>水：70-85%</p>
+                    <p>蛋白质：10-15%</p>
+                    <p>脂质：2-5%</p>
+                    <p>核酸：1-2%</p>
+                    <p>糖类和其他：1-3%</p>
+                </div>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>七、重要名词解释库</h2>
+                <div class="glossary">
+                    <div class="glossary-item">
+                        <div class="glossary-term">生物化学 <span class="english">(Biochemistry)</span></div>
+                        <div class="glossary-definition">研究生物体内化学成分的组成、结构及其化学反应的科学，是生命科学的重要分支学科。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">分子生物学 <span class="english">(Molecular Biology)</span></div>
+                        <div class="glossary-definition">从分子水平研究生命现象的科学，主要研究蛋白质和核酸等生物大分子的结构与功能关系。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">构型 <span class="english">(Configuration)</span></div>
+                        <div class="glossary-definition">分子中原子的固定空间排列，只能通过化学键的断裂和重新形成来改变。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">构象 <span class="english">(Conformation)</span></div>
+                        <div class="glossary-definition">分子中原子围绕单键自由旋转产生的不同空间排列，可通过分子内旋转改变。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">手性 <span class="english">(Chirality)</span></div>
+                        <div class="glossary-definition">分子与其镜像不能重合的性质，具有手性的分子称为手性分子。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">对映异构体 <span class="english">(Enantiomer)</span></div>
+                        <div class="glossary-definition">互为镜像关系且不能重合的立体异构体，具有相同的物理化学性质但旋光性相反。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">氢键 <span class="english">(Hydrogen Bond)</span></div>
+                        <div class="glossary-definition">氢原子与电负性强的原子（如N、O、F）之间形成的弱相互作用，具有方向性和饱和性。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">疏水相互作用 <span class="english">(Hydrophobic Interaction)</span></div>
+                        <div class="glossary-definition">非极性分子在水溶液中相互聚集以减少与水分子接触的现象，是熵驱动的过程。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">范德华力 <span class="english">(Van der Waals Force)</span></div>
+                        <div class="glossary-definition">分子间的弱相互作用力，包括取向力、诱导力和色散力三种类型。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">两性离子 <span class="english">(Zwitterion)</span></div>
+                        <div class="glossary-definition">同时带有正电荷和负电荷的离子，如氨基酸在等电点时的存在形式。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">等电点 <span class="english">(Isoelectric Point, pI)</span></div>
+                        <div class="glossary-definition">分子净电荷为零时溶液的pH值，此时分子在电场中不发生迁移。</div>
+                    </div>
+                    
+                    <div class="glossary-item">
+                        <div class="glossary-term">缓冲系统 <span class="english">(Buffer System)</span></div>
+                        <div class="glossary-definition">能够抵抗外加酸碱对溶液pH值影响的体系，通常由弱酸及其共轭碱组成。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>八、选择题测试</h2>
+                <div class="quiz-container">
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>九、深度思考题</h2>
+                <div class="thinking-questions">
+                    <div class="thinking-question">
+                        <h4>1. 为什么说水是生命存在的基础？请从分子结构和生物学功能两个角度进行分析。</h4>
+                        <div class="answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>分子结构角度：</strong>水分子具有极性结构，氧原子带部分负电荷，氢原子带部分正电荷，这使得水分子能够形成氢键。水的这种特殊结构赋予了它许多独特的物理化学性质，如高沸点、高比热容、高介电常数等。</li>
+                                <li><strong>生物学功能角度：</strong>水在生物体内发挥多重关键作用：作为优良溶剂溶解各种生物分子；作为反应介质参与生化反应；作为运输载体运送营养物质和代谢产物；通过高比热容维持体温稳定；参与许多代谢反应如水解反应。</li>
+                                <li><strong>进化意义：</strong>生命起源于水环境，生物体的进化过程中始终依赖水环境，细胞内外的水环境为生命活动提供了必需的条件。</li>
+                                <li><strong>结构稳定性：</strong>水分子通过氢键网络维持生物大分子如蛋白质、核酸的三维结构稳定，这对维持其生物活性至关重要。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>2. 生物体为什么选择性地使用L型氨基酸和D型糖？这种手性选择性对生命有什么意义？</h4>
+                        <div class="answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>进化选择结果：</strong>生物体对L型氨基酸和D型糖的选择是长期进化的结果。在生命起源初期，可能存在多种手性形式，但由于某种偶然因素或选择压力，最终固定为现在的形式。</li>
+                                <li><strong>结构一致性：</strong>使用统一的手性形式确保了生物大分子结构的一致性和规律性。蛋白质中全部使用L型氨基酸使得多肽链能够形成规则的二级结构如α螺旋和β折叠。</li>
+                                <li><strong>酶的专一性：</strong>酶对底物具有严格的立体专一性，统一的手性确保了酶与底物的精确识别和结合，提高了生化反应的效率和准确性。</li>
+                                <li><strong>遗传信息传递：</strong>DNA和RNA中使用D型糖确保了遗传信息传递的准确性，双螺旋结构的形成需要统一的糖环构型。</li>
+                                <li><strong>代谢协调性：</strong>统一的手性使得各种代谢途径能够协调进行，避免了不同手性分子间的相互干扰。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>3. 非共价相互作用在生物分子结构和功能中发挥什么作用？请结合具体实例说明。</h4>
+                        <div class="answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>维持蛋白质结构：</strong>氢键维持蛋白质的二级结构（α螺旋、β折叠）；疏水相互作用驱动蛋白质折叠形成紧密的三级结构；静电相互作用稳定蛋白质的整体构象。例如，血红蛋白的四级结构就是通过多种非共价相互作用维持的。</li>
+                                <li><strong>DNA双螺旋结构：</strong>DNA双链间通过氢键配对（A-T形成2个氢键，G-C形成3个氢键），双螺旋的稳定性还依赖于碱基间的π-π堆积作用和疏水相互作用。</li>
+                                <li><strong>酶-底物识别：</strong>酶与底物的结合主要通过氢键、范德华力等非共价相互作用实现，这种结合具有可逆性，有利于产物的释放。</li>
+                                <li><strong>膜结构形成：</strong>磷脂双分子层的形成主要依靠疏水相互作用，磷脂分子的疏水尾部聚集在一起，亲水头部朝向水相。</li>
+                                <li><strong>分子识别：</strong>抗体与抗原的特异性结合、激素与受体的相互作用等都主要依赖非共价相互作用，确保了生物识别的特异性和可逆性。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>4. 从化学角度分析，为什么碳元素成为构成生命的核心元素？</h4>
+                        <div class="answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>化学键特性：</strong>碳原子具有4个价电子，能够形成4个稳定的共价键，既不像氢那样化学性质过于活泼，也不像硅那样过于稳定，化学活性适中。</li>
+                                <li><strong>结构多样性：</strong>碳原子能够形成链状、环状、分支状等多种骨架结构，为构建复杂的生物分子提供了结构基础。碳-碳键的稳定性使得长链分子能够稳定存在。</li>
+                                <li><strong>官能团多样性：</strong>碳能够与氧、氮、硫、磷等多种元素结合形成各种官能团（如羟基、氨基、羧基、磷酸基等），这些官能团赋予了生物分子不同的化学性质和生物活性。</li>
+                                <li><strong>立体化学：</strong>碳原子的四面体构型使得含碳化合物具有丰富的立体化学特性，能够形成对映异构体，为生物分子的精确识别提供了基础。</li>
+                                <li><strong>能量适宜性：</strong>碳-氢键和碳-碳键的键能适中，既能提供足够的稳定性，又能在适宜的条件下发生化学反应，满足了生物体内能量转换的需要。</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="thinking-question">
+                        <h4>5. 生物体内的pH缓冲系统是如何工作的？为什么维持pH稳定对生命如此重要？</h4>
+                        <div class="answer">
+                            <h5>参考答案：</h5>
+                            <ol>
+                                <li><strong>缓冲系统组成：</strong>生物体内主要的缓冲系统包括碳酸-碳酸氢盐缓冲系统（HCO₃⁻/H₂CO₃）、磷酸缓冲系统（HPO₄²⁻/H₂PO₄⁻）、蛋白质缓冲系统等。这些系统由弱酸及其共轭碱组成。</li>
+                                <li><strong>缓冲机理：</strong>当有酸性物质加入时，缓冲系统中的碱性成分会结合H⁺；当有碱性物质加入时，缓冲系统中的酸性成分会释放H⁺，从而维持pH相对稳定。</li>
+                                <li><strong>蛋白质结构稳定性：</strong>蛋白质的三级结构依赖于氢键、静电相互作用等，pH的变化会影响氨基酸侧链的电离状态，进而影响蛋白质的构象和活性。</li>
+                                <li><strong>酶活性调节：</strong>酶的活性中心通常含有可电离基团，pH的变化会影响这些基团的电离状态，从而影响酶的催化活性。大多数酶只在特定的pH范围内具有最佳活性。</li>
+                                <li><strong>膜结构稳定性：</strong>细胞膜的稳定性也受pH影响，pH的剧烈变化可能导致膜结构破坏，影响细胞的正常功能。</li>
+                                <li><strong>代谢过程调节：</strong>许多代谢反应的进行都需要特定的pH环境，pH的稳定确保了代谢过程的正常进行。</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "1. 生物体内含量最多的化学元素是：",
+                options: ["A. 碳", "B. 氢", "C. 氧", "D. 氮"],
+                correct: 2,
+                explanation: "氧元素在生物体内含量最多，主要以水的形式存在。水占生物体重量的70-85%，而水分子中氧原子的质量占89%。"
+            },
+            {
+                question: "2. 下列关于氢键的叙述，错误的是：",
+                options: ["A. 氢键具有方向性", "B. 氢键具有饱和性", "C. 氢键是共价键的一种", "D. 氢键在蛋白质结构中起重要作用"],
+                correct: 2,
+                explanation: "氢键是一种非共价相互作用，不是共价键。氢键确实具有方向性和饱和性，在维持蛋白质和核酸结构中发挥重要作用。"
+            },
+            {
+                question: "3. 生物体中天然氨基酸的构型主要是：",
+                options: ["A. D型", "B. L型", "C. DL混合型", "D. 无手性"],
+                correct: 1,
+                explanation: "生物体中的天然氨基酸（除甘氨酸外）几乎都是L型构型，这是生物进化选择的结果，确保了蛋白质结构的规律性。"
+            },
+            {
+                question: "4. 水分子的几何构型是：",
+                options: ["A. 直线型", "B. 平面三角型", "C. 四面体型", "D. 角型（V型）"],
+                correct: 3,
+                explanation: "水分子呈角型（V型）结构，H-O-H键角约为104.5°，这种结构使水分子具有极性，能够形成氢键。"
+            },
+            {
+                question: "5. 疏水相互作用的本质是：",
+                options: ["A. 焓驱动过程", "B. 熵驱动过程", "C. 焓熵均不变", "D. 化学键作用"],
+                correct: 1,
+                explanation: "疏水相互作用是熵驱动的过程。非极性分子聚集减少了与水分子的接触，释放了被束缚的水分子，增加了系统的熵。"
+            },
+            {
+                question: "6. 下列哪种相互作用力最强：",
+                options: ["A. 氢键", "B. 范德华力", "C. 静电相互作用", "D. 疏水相互作用"],
+                correct: 2,
+                explanation: "静电相互作用（离子键）是最强的非共价相互作用，键能可达400 kJ/mol，远高于氢键（12-30 kJ/mol）和范德华力（0.4-4 kJ/mol）。"
+            },
+            {
+                question: "7. 生物大分子的分子量通常：",
+                options: ["A. 小于100 Da", "B. 100-1000 Da", "C. 大于1000 Da", "D. 大于10000 Da"],
+                correct: 2,
+                explanation: "生物大分子的定义是分子量大于1000 Da的生物分子，包括蛋白质、核酸、多糖等。小于1000 Da的称为小分子化合物。"
+            },
+            {
+                question: "8. 细胞内pH通常维持在：",
+                options: ["A. 6.0-6.5", "B. 7.0-7.4", "C. 8.0-8.5", "D. 9.0-9.5"],
+                correct: 1,
+                explanation: "细胞内pH通常维持在7.0-7.4之间，这个范围对维持蛋白质结构和酶活性至关重要。pH的微小变化都会显著影响生物分子的功能。"
+            },
+            {
+                question: "9. 构型和构象的主要区别在于：",
+                options: ["A. 分子大小不同", "B. 改变方式不同", "C. 化学性质不同", "D. 生物活性不同"],
+                correct: 1,
+                explanation: "构型只能通过化学键的断裂和重新形成来改变，而构象可以通过分子内单键的自由旋转来改变，不需要断裂化学键。"
+            },
+            {
+                question: "10. 下列哪个不是生命的基本特征：",
+                options: ["A. 新陈代谢", "B. 遗传变异", "C. 应激性", "D. 可燃性"],
+                correct: 3,
+                explanation: "可燃性不是生命的基本特征。生命的基本特征包括新陈代谢、生长发育、遗传变异、应激性、稳态调节等。"
+            },
+            {
+                question: "11. 范德华力包括以下哪些类型：",
+                options: ["A. 取向力、诱导力", "B. 色散力、氢键", "C. 取向力、诱导力、色散力", "D. 氢键、离子键"],
+                correct: 2,
+                explanation: "范德华力包括三种类型：取向力（永久偶极间作用）、诱导力（永久偶极诱导瞬时偶极）、色散力（瞬时偶极间作用）。氢键不属于范德华力。"
+            },
+            {
+                question: "12. 生物体选择L型氨基酸的主要原因是：",
+                options: ["A. L型氨基酸更稳定", "B. L型氨基酸活性更高", "C. 进化选择的结果", "D. L型氨基酸更容易合成"],
+                correct: 2,
+                explanation: "生物体选择L型氨基酸是长期进化选择的结果。这种选择确保了蛋白质结构的一致性和规律性，有利于形成稳定的二级结构。"
+            },
+            {
+                question: "13. 水的高比热容对生物体的意义是：",
+                options: ["A. 提高溶解能力", "B. 维持体温稳定", "C. 增强导电性", "D. 提高化学活性"],
+                correct: 1,
+                explanation: "水的高比热容使其能够吸收或释放大量热量而温度变化较小，这对维持生物体体温稳定具有重要意义。"
+            },
+            {
+                question: "14. 下列关于对映异构体的叙述，正确的是：",
+                options: ["A. 物理性质完全不同", "B. 化学性质完全不同", "C. 旋光性相反", "D. 分子式不同"],
+                correct: 2,
+                explanation: "对映异构体具有相同的分子式和相同的物理化学性质，但旋光性相反，一个为右旋，一个为左旋。"
+            },
+            {
+                question: "15. 生物化学研究的主要内容不包括：",
+                options: ["A. 生物分子结构与功能", "B. 物质代谢及调节", "C. 遗传信息传递", "D. 地质构造变化"],
+                correct: 3,
+                explanation: "地质构造变化不属于生物化学的研究范畴。生物化学主要研究生物分子的结构与功能、物质代谢、遗传信息传递等。"
+            },
+            {
+                question: "16. 细胞膜的主要成分是：",
+                options: ["A. 蛋白质", "B. 磷脂", "C. 胆固醇", "D. 糖类"],
+                correct: 1,
+                explanation: "磷脂是细胞膜的主要成分，形成磷脂双分子层结构。蛋白质虽然重要，但在重量上通常少于磷脂。"
+            },
+            {
+                question: "17. 氨基酸的等电点是指：",
+                options: ["A. 氨基酸完全电离的pH", "B. 氨基酸不电离的pH", "C. 氨基酸净电荷为零的pH", "D. 氨基酸溶解度最大的pH"],
+                correct: 2,
+                explanation: "等电点是氨基酸分子净电荷为零时溶液的pH值，此时氨基酸以两性离子形式存在，在电场中不发生迁移。"
+            },
+            {
+                question: "18. 下列哪种元素不是生物体的大量元素：",
+                options: ["A. 碳", "B. 氮", "C. 铁", "D. 磷"],
+                correct: 2,
+                explanation: "铁是微量元素，虽然功能重要但含量很少。生物体的大量元素包括C、H、O、N、P、S，占生物体重量的99%以上。"
+            },
+            {
+                question: "19. DNA双螺旋结构的稳定性主要依靠：",
+                options: ["A. 共价键", "B. 氢键", "C. 离子键", "D. 金属键"],
+                correct: 1,
+                explanation: "DNA双螺旋结构主要通过碱基间的氢键维持稳定，A-T间形成2个氢键，G-C间形成3个氢键。"
+            },
+            {
+                question: "20. 蛋白质变性的主要原因是：",
+                options: ["A. 一级结构改变", "B. 非共价键破坏", "C. 共价键断裂", "D. 分子量改变"],
+                correct: 1,
+                explanation: "蛋白质变性主要是由于维持高级结构的非共价键（氢键、疏水相互作用等）被破坏，而一级结构（肽键）通常不受影响。"
+            },
+            {
+                question: "21. 生物体内最主要的能量载体是：",
+                options: ["A. 葡萄糖", "B. ATP", "C. 脂肪酸", "D. 蛋白质"],
+                correct: 1,
+                explanation: "ATP（三磷酸腺苷）是生物体内最主要的能量载体，被称为'能量货币'，为各种生命活动提供直接的能量。"
+            },
+            {
+                question: "22. 下列关于水的叙述，错误的是：",
+                options: ["A. 水是良好的溶剂", "B. 水分子间能形成氢键", "C. 水的介电常数很小", "D. 水参与许多生化反应"],
+                correct: 2,
+                explanation: "水的介电常数很大（约为81），这使得水成为良好的溶剂，能够溶解离子和极性分子。"
+            },
+            {
+                question: "23. 碳元素成为生命核心元素的主要原因是：",
+                options: ["A. 含量最多", "B. 化学性质活泼", "C. 能形成多样化的化合物", "D. 原子半径最小"],
+                correct: 2,
+                explanation: "碳元素能够形成稳定的共价键，构建链状、环状等多种结构，与多种元素结合形成各种官能团，为构建复杂的生物分子提供了基础。"
+            },
+            {
+                question: "24. 原核细胞与真核细胞的主要区别是：",
+                options: ["A. 细胞大小", "B. 是否有核膜", "C. 是否有细胞壁", "D. 是否有DNA"],
+                correct: 1,
+                explanation: "原核细胞与真核细胞的主要区别在于是否有核膜包围的细胞核。原核细胞无核膜，DNA直接分布在细胞质中。"
+            },
+            {
+                question: "25. 生物分子的手性主要影响：",
+                options: ["A. 分子稳定性", "B. 分子大小", "C. 生物活性", "D. 溶解度"],
+                correct: 2,
+                explanation: "生物分子的手性主要影响其生物活性。酶对底物具有严格的立体专一性，不同的对映异构体可能具有完全不同的生物活性。"
+            },
+            {
+                question: "26. 缓冲系统的作用是：",
+                options: ["A. 提高溶液浓度", "B. 维持pH稳定", "C. 增加溶解度", "D. 提高反应速率"],
+                correct: 1,
+                explanation: "缓冲系统能够抵抗外加酸碱对溶液pH值的影响，维持pH相对稳定，这对维持生物分子的结构和功能至关重要。"
+            },
+            {
+                question: "27. 下列哪种相互作用在蛋白质折叠中起主要作用：",
+                options: ["A. 共价键", "B. 疏水相互作用", "C. 金属键", "D. 配位键"],
+                correct: 1,
+                explanation: "疏水相互作用是驱动蛋白质折叠的主要力量，疏水性氨基酸侧链倾向于聚集在蛋白质内部，远离水环境。"
+            },
+            {
+                question: "28. 生物体内的pH缓冲系统主要包括：",
+                options: ["A. 碳酸-碳酸氢盐系统", "B. 磷酸缓冲系统", "C. 蛋白质缓冲系统", "D. 以上都是"],
+                correct: 3,
+                explanation: "生物体内主要的pH缓冲系统包括碳酸-碳酸氢盐缓冲系统、磷酸缓冲系统和蛋白质缓冲系统，它们共同维持体内pH稳定。"
+            },
+            {
+                question: "29. 分子生物学主要研究：",
+                options: ["A. 细胞形态", "B. 组织结构", "C. 分子水平的生命现象", "D. 器官功能"],
+                correct: 2,
+                explanation: "分子生物学是从分子水平研究生命现象的科学，主要研究蛋白质、核酸等生物大分子的结构与功能关系。"
+            },
+            {
+                question: "30. 下列关于生物大分子的叙述，正确的是：",
+                options: ["A. 都含有氮元素", "B. 分子量都大于10000 Da", "C. 都由小分子单体聚合而成", "D. 都具有催化活性"],
+                correct: 2,
+                explanation: "生物大分子（蛋白质、核酸、多糖）都是由相应的小分子单体（氨基酸、核苷酸、单糖）通过聚合反应形成的。"
+            }
+        ];
+
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            renderQuestions();
+        };
+
+        // 随机选择15道题
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                let optionsHtml = '';
+                q.options.forEach((option, optionIndex) => {
+                    optionsHtml += `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optionIndex}" onchange="selectAnswer(${index}, ${optionIndex})">
+                            ${option}
+                        </label>
+                    `;
+                });
+                
+                questionDiv.innerHTML = `
+                    <div class="question-text">${q.question}</div>
+                    ${optionsHtml}
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 选择答案
+        function selectAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            let correctCount = 0;
+            let resultHtml = '<h3>测试结果</h3>';
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+                
+                resultHtml += `
+                    <div class="explanation">
+                        <strong>第${index + 1}题：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const score = Math.round((correctCount / 15) * 100);
+            const resultDiv = document.getElementById('quiz-result');
+            
+            resultDiv.innerHTML = `
+                <h3>您的成绩：${score}分 (${correctCount}/15)</h3>
+                ${resultHtml}
+            `;
+            
+            resultDiv.className = score >= 80 ? 'result show pass' : 'result show fail';
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

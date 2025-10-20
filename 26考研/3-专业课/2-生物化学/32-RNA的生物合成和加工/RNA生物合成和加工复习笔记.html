@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNA的生物合成和加工 - 考研复习笔记</title>
+    <style>
+        /* 整体样式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .important {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .note {
+            background-color: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #17a2b8;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        /* 名词解释库样式 */
+        .term-library {
+            background-color: #f8f9fa;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .term-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+        
+        .term-definition {
+            margin-top: 8px;
+            color: #34495e;
+        }
+        
+        /* 选择题样式 */
+        .quiz-section {
+            background-color: #f8f9fa;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* 深度思考题样式 */
+        .thinking-section {
+            background-color: #f8f9fa;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .thinking-question {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .thinking-answer {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面头部 -->
+        <div class="header">
+            <h1>RNA的生物合成和加工</h1>
+            <p>考研生物化学专业课复习笔记 | 第32章</p>
+        </div>
+        
+        <!-- 主要内容 -->
+        <div class="content">
+            <h2>一、RNA转录的基本概念与特点</h2>
+            
+            <h3>1.1 转录的基本特点</h3>
+            <ul>
+                <li><strong>选择性：</strong>转录具有时间和空间选择性，只有在特定类型的细胞中或特定发育阶段才能被转录</li>
+                <li><strong>催化酶：</strong>催化转录的酶是RNA聚合酶，属于依赖于DNA的RNA聚合酶</li>
+                <li><strong>DNA解链：</strong>在RNA转录过程中，DNA双链要部分解链，释放出模板链DNA，形成DNA-RNA杂合双链</li>
+                <li><strong>原料：</strong>RNA合成的原料是四种核糖核苷三磷酸(ATP、GTP、CTP、UTP)</li>
+                <li><strong>方向性：</strong>RNA合成方向为5'→3'，模板链读取方向为3'→5'</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>重要提示：</strong>转录过程中，RNA聚合酶沿着DNA模板链的3'→5'方向移动，合成的RNA链方向为5'→3'。
+            </div>
+            
+            <h3>1.2 转录与复制的区别</h3>
+            <ul>
+                <li>转录只需要一条DNA链作为模板，而复制需要两条链</li>
+                <li>转录产物是RNA，复制产物是DNA</li>
+                <li>转录不需要引物，复制需要引物</li>
+                <li>转录具有选择性，复制是全基因组的</li>
+            </ul>
+            
+            <h2>二、RNA聚合酶的结构与功能</h2>
+            
+            <h3>2.1 原核生物RNA聚合酶</h3>
+            <h4>组成结构：</h4>
+            <ul>
+                <li><strong>核心酶：</strong>α₂ββ'ω（分子量约400kDa）</li>
+                <li><strong>全酶：</strong>核心酶 + σ因子</li>
+                <li><strong>各亚基功能：</strong>
+                    <ul>
+                        <li>α亚基：酶组装，结合启动子上游元件</li>
+                        <li>β和β'亚基：形成催化中心</li>
+                        <li>ω亚基：酶组装和稳定</li>
+                        <li>σ因子：识别启动子，赋予转录特异性</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>2.2 真核生物RNA聚合酶</h3>
+            <p>真核生物有三种RNA聚合酶：</p>
+            <ul>
+                <li><strong>RNA聚合酶Ⅰ：</strong>转录大部分rRNA基因(18S、5.8S、28S rRNA)</li>
+                <li><strong>RNA聚合酶Ⅱ：</strong>转录所有mRNA基因和大部分snRNA基因</li>
+                <li><strong>RNA聚合酶Ⅲ：</strong>转录tRNA、5S rRNA和U6 snRNA基因</li>
+            </ul>
+            
+            <div class="important">
+                <strong>考试重点：</strong>真核生物三种RNA聚合酶的功能分工是考试的高频考点，需要准确记忆。
+            </div>
+            
+            <h2>三、启动子与转录起始</h2>
+            
+            <h3>3.1 原核生物启动子</h3>
+            <h4>保守序列：</h4>
+            <ul>
+                <li><strong>-10区(Pribnow盒)：</strong>TATAAT，σ因子结合位点</li>
+                <li><strong>-35区：</strong>TTGACA，σ因子识别序列</li>
+                <li><strong>转录起始点：</strong>通常为嘌呤核苷酸，标记为+1</li>
+            </ul>
+            
+            <h4>转录起始过程：</h4>
+            <ol>
+                <li>RNA聚合酶全酶与启动子结合形成闭合复合物</li>
+                <li>DNA双链解开形成开放复合物</li>
+                <li>开始RNA合成，σ因子解离</li>
+                <li>进入转录延伸阶段</li>
+            </ol>
+            
+            <h3>3.2 真核生物启动子</h3>
+            <h4>RNA聚合酶Ⅱ启动子元件：</h4>
+            <ul>
+                <li><strong>TATA盒：</strong>位于-25至-30位，TFIID结合位点</li>
+                <li><strong>起始子元件(Inr)：</strong>包含转录起始点的序列</li>
+                <li><strong>CAAT盒：</strong>位于-70至-80位，增强转录效率</li>
+                <li><strong>GC盒：</strong>含有GGGCGG序列，Sp1转录因子结合位点</li>
+            </ul>
+            
+            <div class="note">
+                <strong>注意：</strong>真核生物转录起始需要多种转录因子(TFIIA、TFIIB、TFIID、TFIIE、TFIIF、TFIIH)的参与，过程比原核生物复杂。
+            </div>
+            
+            <h2>四、转录终止</h2>
+            
+            <h3>4.1 原核生物转录终止</h3>
+            <h4>内在终止(ρ-独立终止)：</h4>
+            <ul>
+                <li>DNA模板含有回文序列</li>
+                <li>转录产生的RNA形成发夹结构</li>
+                <li>发夹结构后跟随poly(U)序列</li>
+                <li>RNA聚合酶暂停并解离</li>
+            </ul>
+            
+            <h4>ρ-依赖性终止：</h4>
+            <ul>
+                <li>需要ρ蛋白参与</li>
+                <li>ρ蛋白具有ATP酶和解旋酶活性</li>
+                <li>追赶并促使RNA聚合酶解离</li>
+            </ul>
+            
+            <h3>4.2 真核生物转录终止</h3>
+            <p>真核生物转录终止机制较为复杂，涉及多聚腺苷化信号序列(AAUAAA)和下游序列元件的协同作用。</p>
+            
+            <h2>五、RNA转录后加工</h2>
+            
+            <h3>5.1 真核生物mRNA加工</h3>
+            
+            <h4>5'端加帽：</h4>
+            <ul>
+                <li><strong>帽子结构：</strong>7-甲基鸟苷酸通过5'-5'三磷酸键连接</li>
+                <li><strong>功能：</strong>保护mRNA免受5'外切酶降解，促进翻译起始</li>
+                <li><strong>时机：</strong>转录起始后立即进行</li>
+            </ul>
+            
+            <h4>3'端多聚腺苷化：</h4>
+            <ul>
+                <li><strong>信号序列：</strong>AAUAAA(多聚腺苷化信号)</li>
+                <li><strong>切割位点：</strong>信号序列下游10-30个核苷酸处</li>
+                <li><strong>poly(A)尾：</strong>添加约200个腺苷酸残基</li>
+                <li><strong>功能：</strong>增强mRNA稳定性，促进翻译</li>
+            </ul>
+            
+            <h4>RNA剪接：</h4>
+            <ul>
+                <li><strong>内含子：</strong>不编码蛋白质的序列，需要被移除</li>
+                <li><strong>外显子：</strong>编码蛋白质的序列，保留在成熟mRNA中</li>
+                <li><strong>剪接信号：</strong>
+                    <ul>
+                        <li>5'剪接位点：GU(几乎100%保守)</li>
+                        <li>3'剪接位点：AG(几乎100%保守)</li>
+                        <li>分支点：距3'剪接位点20-50个核苷酸的腺苷酸</li>
+                        <li>多嘧啶序列：分支点与3'剪接位点之间</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>GU-AG规则：</strong>几乎所有的内含子都以GU开始，以AG结束，这是RNA剪接的基本规则。
+            </div>
+            
+            <h4>剪接体机制：</h4>
+            <ol>
+                <li>U1 snRNP识别并结合5'剪接位点</li>
+                <li>U2AF蛋白识别3'剪接位点和多嘧啶序列</li>
+                <li>U2 snRNP结合分支点腺苷酸</li>
+                <li>U4/U6·U5 tri-snRNP加入形成剪接体</li>
+                <li>U1和U4 snRNP解离，U6与5'剪接位点结合</li>
+                <li>进行两步转酯反应完成剪接</li>
+            </ol>
+            
+            <h3>5.2 选择性剪接</h3>
+            <p>选择性剪接允许一个基因产生多种mRNA异构体，从而编码不同的蛋白质。这是真核生物增加蛋白质多样性的重要机制。</p>
+            
+            <h4>选择性剪接类型：</h4>
+            <ul>
+                <li><strong>外显子跳跃：</strong>某些外显子被跳过</li>
+                <li><strong>内含子保留：</strong>某些内含子被保留</li>
+                <li><strong>选择性5'或3'剪接位点：</strong>使用不同的剪接位点</li>
+                <li><strong>互斥外显子：</strong>多个外显子中只选择一个</li>
+            </ul>
+            
+            <h3>5.3 tRNA和rRNA加工</h3>
+            
+            <h4>tRNA加工：</h4>
+            <ul>
+                <li>5'端和3'端的切除</li>
+                <li>3'端添加CCA序列</li>
+                <li>碱基修饰(如假尿苷化、甲基化)</li>
+                <li>内含子剪接(某些tRNA)</li>
+            </ul>
+            
+            <h4>rRNA加工：</h4>
+            <ul>
+                <li>从45S前体rRNA加工为18S、5.8S、28S rRNA</li>
+                <li>广泛的化学修饰(甲基化、假尿苷化)</li>
+                <li>与核糖体蛋白组装</li>
+            </ul>
+            
+            <h2>六、逆转录</h2>
+            
+            <h3>6.1 逆转录酶</h3>
+            <ul>
+                <li><strong>来源：</strong>逆转录病毒、逆转座子</li>
+                <li><strong>功能：</strong>以RNA为模板合成DNA</li>
+                <li><strong>特点：</strong>具有RNA依赖的DNA聚合酶活性和RNase H活性</li>
+            </ul>
+            
+            <h3>6.2 逆转录过程</h3>
+            <ol>
+                <li>逆转录酶结合RNA模板和引物</li>
+                <li>合成第一链cDNA</li>
+                <li>RNase H降解RNA模板</li>
+                <li>以第一链cDNA为模板合成第二链DNA</li>
+                <li>形成双链DNA</li>
+            </ol>
+            
+            <h3>6.3 逆转座子</h3>
+            <h4>分类：</h4>
+            <ul>
+                <li><strong>LTR逆转座子：</strong>两端有长末端重复序列</li>
+                <li><strong>非LTR逆转座子：</strong>如LINE和SINE元件</li>
+            </ul>
+            
+            <div class="important">
+                <strong>生物学意义：</strong>逆转座子是基因组进化的重要驱动力，但也可能导致基因突变和疾病。
+            </div>
+        </div>
+        
+        <!-- 名词解释库 -->
+        <div class="term-library">
+            <h2>名词解释库</h2>
+            
+            <div class="term-item">
+                <div class="term-name">转录 <span class="term-english">(Transcription)</span></div>
+                <div class="term-definition">以DNA为模板，在RNA聚合酶催化下合成RNA的过程。是基因表达的第一步，将遗传信息从DNA转移到RNA。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">RNA聚合酶 <span class="term-english">(RNA Polymerase)</span></div>
+                <div class="term-definition">催化RNA合成的酶，以DNA为模板，将核糖核苷三磷酸聚合成RNA链。原核生物有一种，真核生物有三种(Pol I、II、III)。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">启动子 <span class="term-english">(Promoter)</span></div>
+                <div class="term-definition">DNA上能够与RNA聚合酶结合并启动转录的特定序列。包含转录起始所必需的调控元件。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">σ因子 <span class="term-english">(Sigma Factor, σ)</span></div>
+                <div class="term-definition">原核生物RNA聚合酶的亚基，赋予酶识别特定启动子的能力，决定转录的特异性。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">TATA盒 <span class="term-english">(TATA Box)</span></div>
+                <div class="term-definition">真核生物启动子中的保守序列，通常位于转录起始点上游25-30个碱基处，是TFIID结合的位点。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">5'帽子结构 <span class="term-english">(5' Cap Structure)</span></div>
+                <div class="term-definition">真核生物mRNA 5'端的修饰结构，由7-甲基鸟苷酸通过5'-5'三磷酸键连接形成，保护mRNA并促进翻译。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">多聚腺苷化 <span class="term-english">(Polyadenylation)</span></div>
+                <div class="term-definition">在真核生物mRNA 3'端添加多个腺苷酸残基(poly A尾)的过程，增强mRNA稳定性。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">RNA剪接 <span class="term-english">(RNA Splicing)</span></div>
+                <div class="term-definition">从前体mRNA中移除内含子并连接外显子的过程，由剪接体催化完成。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">内含子 <span class="term-english">(Intron)</span></div>
+                <div class="term-definition">基因中不编码蛋白质的序列，在RNA加工过程中被移除。几乎所有内含子都遵循GU-AG规则。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">外显子 <span class="term-english">(Exon)</span></div>
+                <div class="term-definition">基因中编码蛋白质的序列，在RNA剪接后保留在成熟mRNA中。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">剪接体 <span class="term-english">(Spliceosome)</span></div>
+                <div class="term-definition">由小核RNA(snRNA)和蛋白质组成的核糖核蛋白复合物，负责催化RNA剪接反应。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">逆转录酶 <span class="term-english">(Reverse Transcriptase, RT)</span></div>
+                <div class="term-definition">以RNA为模板合成DNA的酶，具有RNA依赖的DNA聚合酶活性，存在于逆转录病毒和逆转座子中。</div>
+            </div>
+            
+            <div class="term-item">
+                <div class="term-name">逆转座子 <span class="term-english">(Retrotransposon)</span></div>
+                <div class="term-definition">通过RNA中间体进行转座的DNA序列，包含逆转录酶基因，是基因组中的可移动元件。</div>
+            </div>
+        </div>
+        
+        <!-- 选择题测试 -->
+        <div class="quiz-section">
+            <h2>选择题测试</h2>
+            <p><strong>说明：</strong>以下15道题目从题库中随机抽取，请选择最佳答案。</p>
+            
+            <div id="quiz-container">
+                <!-- 题目将通过JavaScript动态生成 -->
+            </div>
+            
+            <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+            
+            <div id="quiz-feedback" class="feedback">
+                <!-- 反馈将在这里显示 -->
+            </div>
+        </div>
+        
+        <!-- 深度思考题 -->
+        <div class="thinking-section">
+            <h2>深度思考题</h2>
+            
+            <div class="thinking-question">
+                <h4>1. 比较原核生物和真核生物转录调控的主要特点，并分析其生物学意义。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>转录机制差异：</strong>原核生物使用单一RNA聚合酶转录所有基因，而真核生物使用三种不同的RNA聚合酶分别转录不同类型的基因。这种分工使真核生物能够对不同类型RNA的合成进行精细调控。</li>
+                        <li><strong>启动子结构复杂性：</strong>真核生物启动子包含多种调控元件(TATA盒、CAAT盒、GC盒等)，需要多种转录因子参与，而原核生物启动子相对简单。这反映了真核生物基因表达调控的复杂性和精确性。</li>
+                        <li><strong>转录与翻译的时空分离：</strong>真核生物转录在细胞核进行，翻译在细胞质进行，为RNA加工提供了时间和空间；而原核生物转录和翻译可以同时进行。这种分离使真核生物能够通过RNA加工增加基因产物的多样性。</li>
+                        <li><strong>染色质结构的影响：</strong>真核生物DNA与组蛋白结合形成染色质，转录调控涉及染色质重塑；原核生物DNA相对裸露，转录调控主要通过蛋白质-DNA相互作用实现。</li>
+                        <li><strong>生物学意义：</strong>这些差异反映了生物复杂性的进化趋势，真核生物更复杂的调控机制使其能够适应更复杂的环境和发育过程。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>2. 详细阐述真核生物mRNA转录后加工的三个主要步骤及其生物学功能。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>5'端加帽修饰：</strong>在转录起始后立即进行，7-甲基鸟苷酸通过5'-5'三磷酸键连接到mRNA 5'端。功能包括：保护mRNA免受5'外切酶降解；作为核质转运的信号；在翻译起始时被帽结合蛋白识别，促进核糖体结合和翻译起始。这一修饰确保了mRNA的稳定性和翻译效率。</li>
+                        <li><strong>3'端多聚腺苷化：</strong>识别AAUAAA信号序列，在其下游10-30个核苷酸处切割，然后添加约200个腺苷酸残基形成poly(A)尾。功能包括：增强mRNA稳定性，防止3'外切酶降解；促进mRNA从细胞核转运到细胞质；与poly(A)结合蛋白结合，促进翻译起始和延伸。</li>
+                        <li><strong>RNA剪接：</strong>通过剪接体识别剪接信号(5'端GU、3'端AG、分支点A、多嘧啶序列)，进行两步转酯反应移除内含子，连接外显子。功能包括：移除非编码序列，形成成熟mRNA；通过选择性剪接增加蛋白质多样性；某些内含子具有调控功能；剪接过程中的质量控制确保mRNA的准确性。</li>
+                        <li><strong>整体意义：</strong>这三个步骤协同作用，不仅确保了mRNA的稳定性和功能性，还为基因表达调控提供了多个控制点，是真核生物基因表达精细调控的重要基础。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>3. 分析RNA剪接的分子机制，并讨论选择性剪接在基因表达调控中的作用。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>剪接信号识别：</strong>剪接过程依赖于四个关键信号的识别：5'剪接位点的GU序列、3'剪接位点的AG序列、分支点的腺苷酸残基、以及多嘧啶序列。这些信号的保守性确保了剪接的准确性，GU-AG规则几乎适用于所有内含子。</li>
+                        <li><strong>剪接体组装与催化：</strong>剪接体由五种snRNP(U1、U2、U4、U5、U6)和多种蛋白质因子组成。组装过程包括：U1 snRNP识别5'剪接位点，U2 snRNP结合分支点，U4/U6·U5 tri-snRNP加入，随后U1和U4解离，形成催化活性的剪接体。整个过程是动态的，涉及复杂的RNA-RNA和RNA-蛋白相互作用。</li>
+                        <li><strong>两步转酯反应机制：</strong>第一步，分支点腺苷酸的2'-OH攻击5'剪接位点，形成套索中间体；第二步，5'外显子的3'-OH攻击3'剪接位点，释放内含子套索，连接两个外显子。这种机制确保了剪接的精确性和效率。</li>
+                        <li><strong>选择性剪接的调控机制：</strong>通过剪接增强子(ESE)、剪接抑制子(ESS)、内含子剪接增强子(ISE)和内含子剪接抑制子(ISS)等顺式作用元件，以及SR蛋白、hnRNP等反式作用因子的相互作用，实现对剪接位点选择的精细调控。</li>
+                        <li><strong>选择性剪接的生物学意义：</strong>使一个基因能够产生多种mRNA异构体，极大地增加了蛋白质的多样性；在不同组织、发育阶段或环境条件下产生功能不同的蛋白质异构体；为进化提供了原材料，是蛋白质功能多样化的重要机制；在疾病发生中也起重要作用，许多遗传病与剪接异常相关。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="thinking-question">
+                <h4>4. 论述逆转录在生物学中的意义及其在基因组进化中的作用。</h4>
+                <div class="thinking-answer">
+                    <ol>
+                        <li><strong>逆转录的基本机制：</strong>逆转录酶具有RNA依赖的DNA聚合酶活性和RNase H活性，能够以RNA为模板合成互补DNA(cDNA)。这一过程违背了中心法则的传统方向，展现了遗传信息流动的多样性。逆转录过程包括第一链cDNA合成、RNA模板降解、第二链DNA合成等步骤。</li>
+                        <li><strong>逆转录病毒的生活周期：</strong>逆转录病毒(如HIV)利用逆转录酶将其RNA基因组转化为DNA，整合到宿主细胞基因组中，实现持久感染。这种机制使病毒能够逃避免疫系统的清除，也是某些病毒致癌的重要原因。逆转录病毒的研究推动了分子生物学技术的发展。</li>
+                        <li><strong>逆转座子的转座机制：</strong>逆转座子通过"复制-粘贴"机制进行转座，首先转录为RNA，然后通过逆转录形成DNA拷贝，最后整合到基因组的新位置。这种机制使逆转座子能够在基因组中大量扩增，成为许多生物基因组的重要组成部分。</li>
+                        <li><strong>基因组进化的驱动力：</strong>逆转座子是基因组大小和结构变化的主要驱动力。它们的插入可以导致基因失活、产生新的调控序列、促进基因重排和染色体重组。在人类基因组中，逆转座子及其残余序列占基因组的45%以上，对基因组的进化产生了深远影响。</li>
+                        <li><strong>基因功能的多样化：</strong>逆转座子的插入可以为基因提供新的启动子、增强子或剪接位点，改变基因的表达模式；某些逆转座子序列被宿主基因组"驯化"，成为功能基因的一部分；逆转座子介导的基因重复为新基因功能的进化提供了原材料。</li>
+                        <li><strong>疾病与医学意义：</strong>逆转座子的异常激活与多种疾病相关，包括癌症、神经退行性疾病等；同时，逆转录技术在基因治疗、疫苗开发等医学应用中具有重要价值；逆转录酶抑制剂是治疗HIV感染的重要药物。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "原核生物RNA聚合酶的核心酶组成是：",
+                options: ["α₂ββ'ω", "α₂ββ'σ", "αββ'ω", "α₂β₂ω"],
+                correct: 0,
+                explanation: "原核生物RNA聚合酶核心酶由α₂ββ'ω五个亚基组成，加上σ因子后形成全酶。α₂ββ'σ是全酶的组成。"
+            },
+            {
+                question: "真核生物中负责转录mRNA的RNA聚合酶是：",
+                options: ["RNA聚合酶Ⅰ", "RNA聚合酶Ⅱ", "RNA聚合酶Ⅲ", "所有RNA聚合酶"],
+                correct: 1,
+                explanation: "RNA聚合酶Ⅱ专门负责转录所有的mRNA基因和大部分snRNA基因。RNA聚合酶Ⅰ转录rRNA，RNA聚合酶Ⅲ转录tRNA。"
+            },
+            {
+                question: "原核生物启动子的-10区保守序列是：",
+                options: ["TTGACA", "TATAAT", "AAUAAA", "CAAT"],
+                correct: 1,
+                explanation: "-10区又称Pribnow盒，保守序列为TATAAT，是σ因子的结合位点。TTGACA是-35区序列。"
+            },
+            {
+                question: "真核生物mRNA的5'帽子结构是：",
+                options: ["7-甲基腺苷酸", "7-甲基鸟苷酸", "7-甲基胞苷酸", "7-甲基尿苷酸"],
+                correct: 1,
+                explanation: "5'帽子结构是7-甲基鸟苷酸(m7G)通过5'-5'三磷酸键连接到mRNA 5'端形成的修饰结构。"
+            },
+            {
+                question: "RNA剪接中，几乎所有内含子都遵循的规则是：",
+                options: ["AU-GC规则", "GU-AG规则", "CG-AT规则", "UG-CA规则"],
+                correct: 1,
+                explanation: "GU-AG规则是RNA剪接的基本规则，几乎所有内含子都以GU开始，以AG结束。这是剪接信号识别的基础。"
+            },
+            {
+                question: "逆转录酶具有的酶活性包括：",
+                options: ["只有RNA依赖的DNA聚合酶活性", "只有RNase H活性", "RNA依赖的DNA聚合酶活性和RNase H活性", "DNA依赖的DNA聚合酶活性"],
+                correct: 2,
+                explanation: "逆转录酶具有两种主要酶活性：RNA依赖的DNA聚合酶活性(合成cDNA)和RNase H活性(降解RNA模板)。"
+            },
+            {
+                question: "真核生物多聚腺苷化的信号序列是：",
+                options: ["TATAAT", "AAUAAA", "TTGACA", "CAAT"],
+                correct: 1,
+                explanation: "AAUAAA是真核生物mRNA 3'端多聚腺苷化的信号序列，位于切割位点上游10-30个核苷酸处。"
+            },
+            {
+                question: "原核生物转录终止的ρ-独立终止机制依赖于：",
+                options: ["ρ蛋白", "发夹结构和poly(U)序列", "终止因子", "ATP水解"],
+                correct: 1,
+                explanation: "ρ-独立终止依赖于RNA形成的发夹结构和随后的poly(U)序列，这种结构使RNA聚合酶暂停并解离。"
+            },
+            {
+                question: "剪接体的主要组成成分是：",
+                options: ["只有蛋白质", "只有RNA", "snRNA和蛋白质", "mRNA和蛋白质"],
+                correct: 2,
+                explanation: "剪接体是由小核RNA(snRNA)和蛋白质组成的核糖核蛋白复合物，包含U1、U2、U4、U5、U6等snRNP。"
+            },
+            {
+                question: "转录起始时，RNA合成的方向是：",
+                options: ["3'→5'", "5'→3'", "双向进行", "随机方向"],
+                correct: 1,
+                explanation: "RNA合成总是按5'→3'方向进行，这是所有RNA聚合酶的共同特征，模板链的读取方向为3'→5'。"
+            },
+            {
+                question: "σ因子的主要功能是：",
+                options: ["催化RNA合成", "识别启动子", "终止转录", "RNA加工"],
+                correct: 1,
+                explanation: "σ因子赋予RNA聚合酶识别特定启动子的能力，决定转录的特异性。不同的σ因子识别不同的启动子。"
+            },
+            {
+                question: "真核生物RNA聚合酶Ⅰ主要转录：",
+                options: ["mRNA", "tRNA", "大部分rRNA", "snRNA"],
+                correct: 2,
+                explanation: "RNA聚合酶Ⅰ主要转录大部分rRNA基因，包括18S、5.8S、28S rRNA，但不包括5S rRNA。"
+            },
+            {
+                question: "RNA剪接的分支点通常是：",
+                options: ["鸟苷酸", "腺苷酸", "胞苷酸", "尿苷酸"],
+                correct: 1,
+                explanation: "RNA剪接的分支点通常是距离3'剪接位点20-50个核苷酸的腺苷酸残基，参与第一步转酯反应。"
+            },
+            {
+                question: "逆转座子按结构可分为：",
+                options: ["DNA转座子和RNA转座子", "LTR逆转座子和非LTR逆转座子", "简单转座子和复合转座子", "自主转座子和非自主转座子"],
+                correct: 1,
+                explanation: "逆转座子按结构分为LTR逆转座子(两端有长末端重复序列)和非LTR逆转座子(如LINE和SINE元件)。"
+            },
+            {
+                question: "真核生物TATA盒通常位于转录起始点：",
+                options: ["上游10个碱基", "上游25-30个碱基", "下游10个碱基", "下游25-30个碱基"],
+                correct: 1,
+                explanation: "TATA盒通常位于转录起始点上游25-30个碱基处，是TFIID中TBP(TATA结合蛋白)的结合位点。"
+            },
+            {
+                question: "RNA转录过程中需要的原料是：",
+                options: ["dNTP", "NTP", "氨基酸", "脂肪酸"],
+                correct: 1,
+                explanation: "RNA转录需要四种核糖核苷三磷酸(NTP)：ATP、GTP、CTP、UTP作为原料。"
+            },
+            {
+                question: "选择性剪接的主要生物学意义是：",
+                options: ["节约能量", "增加蛋白质多样性", "加快转录速度", "减少基因数量"],
+                correct: 1,
+                explanation: "选择性剪接允许一个基因产生多种mRNA异构体，从而编码不同的蛋白质，极大地增加了蛋白质的多样性。"
+            },
+            {
+                question: "原核生物转录和翻译的关系是：",
+                options: ["完全分离", "可以同时进行", "翻译先于转录", "互相抑制"],
+                correct: 1,
+                explanation: "原核生物没有核膜，转录和翻译可以在同一时间和空间进行，这与真核生物的时空分离不同。"
+            },
+            {
+                question: "poly(A)尾的主要功能不包括：",
+                options: ["增强mRNA稳定性", "促进翻译", "帮助核质转运", "直接参与转录起始"],
+                correct: 3,
+                explanation: "poly(A)尾的功能包括增强mRNA稳定性、促进翻译和帮助核质转运，但不直接参与转录起始。"
+            },
+            {
+                question: "ρ-依赖性转录终止需要：",
+                options: ["发夹结构", "ρ蛋白和ATP", "σ因子", "多聚腺苷化"],
+                correct: 1,
+                explanation: "ρ-依赖性转录终止需要ρ蛋白参与，ρ蛋白具有ATP酶和解旋酶活性，追赶RNA聚合酶并促使其解离。"
+            },
+            {
+                question: "真核生物基因的外显子是指：",
+                options: ["不转录的序列", "转录但不翻译的序列", "编码蛋白质的序列", "调控序列"],
+                correct: 2,
+                explanation: "外显子是基因中编码蛋白质的序列，在RNA剪接后保留在成熟mRNA中，最终被翻译成蛋白质。"
+            },
+            {
+                question: "snRNA的主要功能是：",
+                options: ["蛋白质合成", "RNA剪接", "DNA复制", "转录调控"],
+                correct: 1,
+                explanation: "小核RNA(snRNA)是剪接体的重要组成成分，参与RNA剪接过程，识别剪接信号并催化剪接反应。"
+            },
+            {
+                question: "转录泡是指：",
+                options: ["RNA聚合酶的结构", "DNA双链解开的区域", "RNA的二级结构", "启动子的一部分"],
+                correct: 1,
+                explanation: "转录泡是转录过程中DNA双链局部解开形成的区域，为RNA合成提供单链DNA模板。"
+            },
+            {
+                question: "真核生物RNA聚合酶Ⅲ主要转录：",
+                options: ["mRNA", "大部分rRNA", "tRNA和5S rRNA", "snRNA"],
+                correct: 2,
+                explanation: "RNA聚合酶Ⅲ主要转录tRNA基因、5S rRNA基因和U6 snRNA基因等小分子RNA。"
+            },
+            {
+                question: "内含子剪接的第一步反应是：",
+                options: ["5'外显子攻击3'剪接位点", "分支点腺苷酸攻击5'剪接位点", "3'外显子攻击5'剪接位点", "剪接体结合内含子"],
+                correct: 1,
+                explanation: "RNA剪接第一步是分支点腺苷酸的2'-OH攻击5'剪接位点，形成套索中间体和游离的5'外显子。"
+            },
+            {
+                question: "逆转录病毒的基因组是：",
+                options: ["双链DNA", "单链DNA", "双链RNA", "单链RNA"],
+                correct: 3,
+                explanation: "逆转录病毒(如HIV)的基因组是单链RNA，通过逆转录酶转化为DNA后整合到宿主基因组中。"
+            },
+            {
+                question: "启动子的核心功能是：",
+                options: ["编码蛋白质", "结合RNA聚合酶并启动转录", "终止转录", "RNA剪接"],
+                correct: 1,
+                explanation: "启动子是DNA上能够与RNA聚合酶结合并启动转录的特定序列，是转录起始的必需元件。"
+            },
+            {
+                question: "真核生物mRNA加工不包括：",
+                options: ["5'端加帽", "3'端多聚腺苷化", "RNA剪接", "密码子识别"],
+                correct: 3,
+                explanation: "真核生物mRNA加工包括5'端加帽、3'端多聚腺苷化和RNA剪接三个主要步骤。密码子识别是翻译过程的一部分。"
+            },
+            {
+                question: "转录因子TFIID的功能是：",
+                options: ["RNA剪接", "识别并结合TATA盒", "DNA复制", "蛋白质合成"],
+                correct: 1,
+                explanation: "TFIID是真核生物转录因子，其中的TBP亚基能够识别并结合TATA盒，是转录起始复合物形成的关键因子。"
+            },
+            {
+                question: "LINE和SINE是：",
+                options: ["转录因子", "RNA聚合酶", "非LTR逆转座子", "剪接因子"],
+                correct: 2,
+                explanation: "LINE(长散在核元件)和SINE(短散在核元件)都是非LTR逆转座子，在哺乳动物基因组中广泛分布。"
+            }
+        ];
+        
+        let selectedQuestions = [];
+        let userAnswers = [];
+        
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            generateQuiz();
+        };
+        
+        function generateQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${String.fromCharCode(65 + optIndex)}. ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+        
+        function submitQuiz() {
+            // 收集用户答案
+            userAnswers = [];
+            for (let i = 0; i < selectedQuestions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                userAnswers[i] = selected ? parseInt(selected.value) : -1;
+            }
+            
+            // 计算得分
+            let correct = 0;
+            for (let i = 0; i < selectedQuestions.length; i++) {
+                if (userAnswers[i] === selectedQuestions[i].correct) {
+                    correct++;
+                }
+            }
+            
+            // 显示反馈
+            showFeedback(correct);
+        }
+        
+        function showFeedback(correct) {
+            const feedbackDiv = document.getElementById('quiz-feedback');
+            const percentage = Math.round((correct / selectedQuestions.length) * 100);
+            
+            let feedbackHTML = `
+                <h3>测试结果</h3>
+                <p><strong>正确率：${correct}/${selectedQuestions.length} (${percentage}%)</strong></p>
+                <hr>
+            `;
+            
+            selectedQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                const userChoice = userAnswers[index] >= 0 ? String.fromCharCode(65 + userAnswers[index]) : '未选择';
+                const correctChoice = String.fromCharCode(65 + q.correct);
+                
+                feedbackHTML += `
+                    <div class="question ${isCorrect ? 'correct' : 'incorrect'}" style="margin: 15px 0; padding: 15px;">
+                        <div><strong>第${index + 1}题：</strong>${q.question}</div>
+                        <div><strong>你的答案：</strong>${userChoice}</div>
+                        <div><strong>正确答案：</strong>${correctChoice}</div>
+                        <div><strong>解析：</strong>${q.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            feedbackDiv.innerHTML = feedbackHTML;
+            feedbackDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

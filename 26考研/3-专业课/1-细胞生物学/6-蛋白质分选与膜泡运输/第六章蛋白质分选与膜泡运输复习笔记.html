@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第六章 蛋白质分选与膜泡运输 - 复习笔记</title>
+    <style>
+        /* 基础样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题样式 */
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #3498db;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        h4 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 段落和列表样式 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调样式 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .note {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        /* 名词解释样式 */
+        .glossary {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .term {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+            color: #34495e;
+        }
+
+        /* 选择题样式 */
+        .quiz-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .question {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option.selected {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback-correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .feedback-incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .thinking-question {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .thinking-question-text {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .thinking-answer {
+            color: #34495e;
+            line-height: 1.8;
+        }
+
+        .thinking-answer ol {
+            padding-left: 20px;
+        }
+
+        .thinking-answer li {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            .option {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>第六章 蛋白质分选与膜泡运输</h1>
+        
+        <!-- 核心内容板块 -->
+        <section id="core-content">
+            <h2>一、蛋白质分选概述</h2>
+            
+            <h3>1. 蛋白质分选的基本概念</h3>
+            <p><span class="highlight">蛋白质分选（Protein Sorting）</span>是指蛋白质合成后必须转运到特定部位才能参与组装细胞结构，发挥其生物学功能的过程，也称为<span class="highlight">蛋白质靶向转运（Protein Targeting）</span>。</p>
+            
+            <div class="note">
+                <strong>重要提示：</strong>在真核细胞中，除少量蛋白质在线粒体和叶绿体内合成外，绝大多数蛋白质都是由核基因编码，或在游离的核糖体上合成，或在糙面内质网膜结合的核糖体上合成。
+            </div>
+
+            <h3>2. 蛋白质分选的四种主要类型</h3>
+            <ol>
+                <li><strong>蛋白质跨膜转运：</strong>蛋白质穿过膜进入细胞器内部</li>
+                <li><strong>膜泡运输：</strong>通过膜泡在细胞器间转运蛋白质</li>
+                <li><strong>选择性的门控转运：</strong>通过核孔等结构的选择性转运</li>
+                <li><strong>细胞质基质中蛋白质的转运：</strong>在细胞质基质内的蛋白质移动</li>
+            </ol>
+
+            <h2>二、信号假说与共翻译转运</h2>
+            
+            <h3>1. 信号假说的提出</h3>
+            <p>Palade(帕拉德)通过实验发现：在游离核糖体上合成的是非分泌蛋白，在附着核糖体上合成的是分泌蛋白。这一发现为<span class="highlight">信号假说（Signal Hypothesis）</span>的提出奠定了基础。</p>
+
+            <h3>2. 信号假说的核心要素</h3>
+            <h4>（1）信号肽（Signal Peptide）</h4>
+            <ul>
+                <li><strong>位置：</strong>位于蛋白质的N端</li>
+                <li><strong>组成：</strong>一般由16-26个氨基酸残基组成</li>
+                <li><strong>结构：</strong>包括疏水核心区、信号肽的C端和N端三部分</li>
+                <li><strong>功能：</strong>作为与糙面内质网膜结合的"引导者"</li>
+                <li><strong>特点：</strong>信号肽似乎没有严格的专一性</li>
+            </ul>
+
+            <h4>（2）信号识别颗粒（SRP, Signal Recognition Particle）</h4>
+            <ul>
+                <li><strong>性质：</strong>核糖核蛋白复合体</li>
+                <li><strong>组成：</strong>6种不同的蛋白质和一条长度约300个核苷酸的7S RNA</li>
+                <li><strong>结构域：</strong>
+                    <ul>
+                        <li>信号肽识别结构域（p54蛋白：包含成簇Met(甲硫氨酸)残基的GTP酶）</li>
+                        <li>核糖体结合结构域（p9和p14蛋白）</li>
+                    </ul>
+                </li>
+                <li><strong>功能：</strong>与信号肽结合后，阻断新生肽链的翻译</li>
+            </ul>
+
+            <h4>（3）SRP受体（停泊蛋白，Docking Protein, DP）</h4>
+            <ul>
+                <li><strong>位置：</strong>内质网膜上的整合蛋白</li>
+                <li><strong>结构：</strong>由α和β亚基组成</li>
+                <li><strong>功能：</strong>可特异地与SRP结合</li>
+                <li><strong>调节：</strong>当SRP的p54亚基和SRP受体的α亚基与GTP结合时，会增进结合强度</li>
+            </ul>
+
+            <h3>3. 共翻译转运过程</h3>
+            <p><span class="highlight">共翻译转运（Co-translational Transport）</span>是指分泌蛋白及整合膜蛋白在信号肽引导下边翻译边跨膜转运的过程。</p>
+
+            <div class="note">
+                <strong>经典实验：</strong>体外无细胞系统中蛋白质的翻译过程与SRP、DP和微粒体的关系实验，清楚地展示了共翻译转运的机制。
+            </div>
+
+            <ol>
+                <li><strong>翻译起始：</strong>蛋白质首先在细胞质基质游离核糖体上起始合成</li>
+                <li><strong>信号肽暴露：</strong>当多肽链延伸至约80个氨基酸残基时，N端的内质网信号肽序列暴露出核糖体</li>
+                <li><strong>SRP结合：</strong>信号肽与SRP结合，导致肽链延伸暂时停止</li>
+                <li><strong>膜结合：</strong>SRP与内质网膜上的SRP受体结合，将核糖体-新生肽复合物附着到内质网膜上</li>
+                <li><strong>移位子结合：</strong>核糖体-新生肽复合物与内质网膜的移位子结合</li>
+                <li><strong>翻译恢复：</strong>SRP脱离，返回细胞质基质重复使用，肽链又开始延伸</li>
+                <li><strong>信号肽切除：</strong>腔面上的信号肽酶切除信号肽并快速降解</li>
+                <li><strong>翻译完成：</strong>肽链继续延伸直至完成，蛋白质进入腔内并折叠</li>
+            </ol>
+
+            <h2>三、膜蛋白的分选与插膜</h2>
+            
+            <h3>1. 内质网膜整合蛋白的特点</h3>
+            <ul>
+                <li><strong>跨膜方式：</strong>均依赖α螺旋跨膜</li>
+                <li><strong>跨膜结构：</strong>一般由20-25个疏水氨基酸残基形成</li>
+                <li><strong>转运途径：</strong>通过共翻译转运途径转运</li>
+            </ul>
+
+            <h3>2. 膜蛋白的拓扑学类型</h3>
+            <h4>Type I：</h4>
+            <ul>
+                <li>N端在内质网腔，C端在胞浆</li>
+                <li>N端含被切割的信号肽序列</li>
+                <li>插膜序列为STA序列（停止转移锚定序列）</li>
+            </ul>
+
+            <h4>Type II：</h4>
+            <ul>
+                <li>C端在内质网腔，N端在胞浆</li>
+                <li>含不可切割的内质网信号序列（SA序列）</li>
+            </ul>
+
+            <h4>Type III：</h4>
+            <ul>
+                <li>N端在内质网腔，C端在胞浆</li>
+                <li>含不可切割的内质网信号序列（SA序列）</li>
+                <li>与Type I的区别：插膜序列为SA序列，无信号肽</li>
+            </ul>
+
+            <h4>Type IV：</h4>
+            <ul>
+                <li>含多个跨膜片段</li>
+                <li>组合使用STA和SA序列</li>
+            </ul>
+
+            <h3>3. 插膜方向的决定因素</h3>
+            <p>插膜方向主要由插膜螺旋上游（N端侧）或下游（C端侧）的<span class="important">带电荷氨基酸的富集度</span>决定，带正电荷的氨基酸倾向于胞浆一侧。</p>
+
+            <h2>四、膜泡运输机制</h2>
+            
+            <h3>1. 膜泡运输的基本概念</h3>
+            <p><span class="highlight">膜泡运输（Vesicular Transport）</span>是蛋白质分选的一种特有方式，普遍存在于真核细胞中。大分子和颗粒物质被运输时并不直接穿过细胞膜，而是由膜包围形成膜泡，通过一系列膜囊泡的形成和融合来完成转运。</p>
+
+            <h3>2. 衣被蛋白的类型与功能</h3>
+            <p>大多数运输小泡在膜的特定区域以出芽方式产生，其表面具有笼状的蛋白质衣被（Coat）。衣被具有两个主要作用：</p>
+            <ol>
+                <li><strong>选择性聚集：</strong>选择性地将特定蛋白聚集在一起，形成运输小泡</li>
+                <li><strong>形状决定：</strong>如同模具一样决定运输小泡的外部特征</li>
+            </ol>
+
+            <h4>（1）网格蛋白（Clathrin）衣被小泡</h4>
+            <ul>
+                <li><strong>结构：</strong>由3个重链和3个轻链组成，形成三支链结构（Triskelion）</li>
+                <li><strong>组装：</strong>36个三叉体组成12个五边形和6个六边形的网格蛋白被膜</li>
+                <li><strong>适配蛋白：</strong>包含不同类型的适配蛋白（AP1、AP2、AP3）</li>
+                <li><strong>功能：</strong>
+                    <ul>
+                        <li>AP1：高尔基体→内体的运输</li>
+                        <li>AP2：质膜→内体的运输</li>
+                        <li>AP3：高尔基体→溶酶体的运输</li>
+                    </ul>
+                </li>
+                <li><strong>掐断机制：</strong>动力蛋白（Dynamin）聚集在颈部，通过GTP水解提供能量掐断小泡</li>
+            </ul>
+
+            <h4>（2）COPII衣被小泡</h4>
+            <ul>
+                <li><strong>组成：</strong>由小GTP酶蛋白Sar1、Sec23/Sec24复合体、Sec13/Sec31复合体组成</li>
+                <li><strong>功能：</strong>介导内质网→高尔基体的转运</li>
+                <li><strong>调节：</strong>受Sar1 GTP酶调节</li>
+                <li><strong>特点：</strong>约三分之一蛋白质的早期分泌途径依赖COPII囊泡运输</li>
+            </ul>
+
+            <h4>（3）COPI衣被小泡</h4>
+            <ul>
+                <li><strong>组成：</strong>由7种外被体蛋白（α、β、β'、γ、δ、ε、ζ）组成</li>
+                <li><strong>亚复合物：</strong>
+                    <ul>
+                        <li>B亚复合物（α、β'、ε）：形成外层组分</li>
+                        <li>F亚复合物（β、γ、δ、ζ）：形成内层组分，负责与靶蛋白结合</li>
+                    </ul>
+                </li>
+                <li><strong>功能：</strong>介导高尔基体→内质网的逆向转运，以及高尔基体膜囊间的转运</li>
+                <li><strong>调节：</strong>受ADP核糖基化因子（ARF）调节</li>
+                <li><strong>多样性：</strong>γ和ζ各有2种亚型，可形成4种不同的COPI囊泡</li>
+            </ul>
+
+            <h3>3. 膜泡的定向运输机制</h3>
+            <h4>（1）马达蛋白系统</h4>
+            <ul>
+                <li><strong>动力蛋白（Dynein）：</strong>向微管负端移动</li>
+                <li><strong>驱动蛋白（Kinesin）：</strong>向微管正端移动</li>
+                <li><strong>肌球蛋白（Myosin）：</strong>向微丝正极运动</li>
+            </ul>
+
+            <h4>（2）膜标志蛋白</h4>
+            <p>细胞器的胞质面具有特殊的膜标志蛋白，不同的膜标志蛋白组合决定膜的表面识别特征，确保膜泡准确运输到靶细胞器。</p>
+
+            <h4>（3）栓系复合物</h4>
+            <p>囊泡栓系复合物参与所有囊泡运输过程，可以远程捕获囊泡。如WDR11栓系复合物可以识别特定的货物蛋白序列（超级酸性簇，SAC）。</p>
+
+            <h2>五、膜泡融合机制</h2>
+            
+            <h3>1. SNARE蛋白系统</h3>
+            <ul>
+                <li><strong>v-SNARE：</strong>分布在运输囊泡上</li>
+                <li><strong>t-SNARE：</strong>分布在目标膜上</li>
+                <li><strong>功能：</strong>介导运输囊泡与目标膜的融合</li>
+                <li><strong>意义：</strong>2013年诺贝尔生理学或医学奖授予了SNARE研究的科学家</li>
+            </ul>
+
+            <h3>2. 膜融合的调节</h3>
+            <ul>
+                <li><strong>Rab蛋白：</strong>调节膜泡运输的特异性和方向性</li>
+                <li><strong>NSF和SNAP：</strong>参与SNARE复合物的解离和循环利用</li>
+                <li><strong>Sec1/Munc18家族：</strong>调节SNARE复合物的组装</li>
+            </ul>
+
+            <h2>六、蛋白质分选的其他途径</h2>
+            
+            <h3>1. 翻译后转运</h3>
+            <p>某些蛋白质在翻译完成后才被转运到目标细胞器，如线粒体蛋白质、叶绿体蛋白质等。</p>
+
+            <h3>2. 核质转运</h3>
+            <p>通过核孔复合物进行的选择性门控转运，依赖核定位信号（NLS）和核输出信号（NES）。</p>
+
+            <h3>3. 过氧化物酶体蛋白质转运</h3>
+            <p>依赖过氧化物酶体靶向信号（PTS1和PTS2）进行的翻译后转运。</p>
+        </section>
+
+        <!-- 名词解释库 -->
+        <section id="glossary">
+            <h2>名词解释库</h2>
+            <div class="glossary">
+                <div class="term">
+                    <div class="term-name">蛋白质分选<span class="term-english">(Protein Sorting)</span></div>
+                    <div class="term-definition">蛋白质合成后必须转运到特定部位才能参与组装细胞结构，发挥其生物学功能的过程，也称为蛋白质靶向转运。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号假说<span class="term-english">(Signal Hypothesis)</span></div>
+                    <div class="term-definition">解释分泌蛋白如何在糙面内质网上合成的理论，涉及信号肽、信号识别颗粒和SRP受体等因子的协同作用。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号肽<span class="term-english">(Signal Peptide)</span></div>
+                    <div class="term-definition">位于蛋白质N端的短肽序列，一般由16-26个氨基酸残基组成，包括疏水核心区、C端和N端三部分，作为蛋白质分选的引导序列。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号识别颗粒<span class="term-english">(Signal Recognition Particle, SRP)</span></div>
+                    <div class="term-definition">由6种蛋白质和一条7S RNA组成的核糖核蛋白复合体，能识别信号肽并暂停翻译，引导核糖体到内质网膜。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">停泊蛋白<span class="term-english">(Docking Protein, DP)</span></div>
+                    <div class="term-definition">内质网膜上的SRP受体，由α和β亚基组成的整合蛋白，可特异性结合SRP。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">共翻译转运<span class="term-english">(Co-translational Transport)</span></div>
+                    <div class="term-definition">分泌蛋白及整合膜蛋白在信号肽引导下边翻译边跨膜转运的过程。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">移位子<span class="term-english">(Translocon)</span></div>
+                    <div class="term-definition">内质网膜上的蛋白质复合物，形成跨膜通道，允许新生肽链穿过膜进入内质网腔。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">膜泡运输<span class="term-english">(Vesicular Transport)</span></div>
+                    <div class="term-definition">蛋白质分选的特有方式，通过膜泡的形成、转运和融合来完成大分子物质在细胞内的定向运输。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">网格蛋白<span class="term-english">(Clathrin)</span></div>
+                    <div class="term-definition">由3个重链和3个轻链组成的衣被蛋白，形成三支链结构，介导多种膜泡运输途径。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">COPII<span class="term-english">(Coat Protein II)</span></div>
+                    <div class="term-definition">由Sar1、Sec23/24和Sec13/31等蛋白组成的衣被复合物，介导内质网到高尔基体的前向运输。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">COPI<span class="term-english">(Coat Protein I)</span></div>
+                    <div class="term-definition">由7种外被体蛋白组成的衣被复合物，介导高尔基体到内质网的逆向运输和高尔基体内的转运。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">适配蛋白<span class="term-english">(Adaptor Protein, AP)</span></div>
+                    <div class="term-definition">介于网格蛋白与膜受体之间的连接蛋白，不同类型的AP决定不同的运输途径。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">动力蛋白<span class="term-english">(Dynamin)</span></div>
+                    <div class="term-definition">一种GTP酶，聚集在膜泡颈部，通过GTP水解提供能量掐断衣被小泡。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">SNARE蛋白<span class="term-english">(SNARE Proteins)</span></div>
+                    <div class="term-definition">包括v-SNARE和t-SNARE，分别位于运输囊泡和目标膜上，介导膜融合过程。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">Rab蛋白<span class="term-english">(Rab Proteins)</span></div>
+                    <div class="term-definition">小GTP酶家族成员，调节膜泡运输的特异性、方向性和时间性。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号肽酶<span class="term-english">(Signal Peptidase)</span></div>
+                    <div class="term-definition">位于内质网腔面的酶，负责切除新生肽链的信号肽序列。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">起始转移序列<span class="term-english">(Start Transfer Sequence)</span></div>
+                    <div class="term-definition">引导新生肽链穿过移位子进入内质网腔的信号序列。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">停止转移序列<span class="term-english">(Stop Transfer Sequence, STA)</span></div>
+                    <div class="term-definition">阻止肽链继续穿过膜的疏水序列，使蛋白质锚定在膜中。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">信号锚定序列<span class="term-english">(Signal Anchor Sequence, SA)</span></div>
+                    <div class="term-definition">既起信号肽作用又起膜锚定作用的序列，不被信号肽酶切除。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">微粒体<span class="term-english">(Microsome)</span></div>
+                    <div class="term-definition">细胞匀浆和差速离心过程中由破碎内质网自我融合形成的膜囊泡结构，保持内质网的基本功能。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">三支链<span class="term-english">(Triskelion)</span></div>
+                    <div class="term-definition">网格蛋白分子的三臂结构，由3个重链和3个轻链组成，是网格蛋白衣被的基本单元。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">膜标志蛋白<span class="term-english">(Membrane Marker Proteins)</span></div>
+                    <div class="term-definition">位于细胞器胞质面的特殊蛋白质，不同组合决定膜的表面识别特征，确保膜泡准确转运。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">栓系复合物<span class="term-english">(Tethering Complex)</span></div>
+                    <div class="term-definition">参与囊泡运输的大型蛋白复合物，能远程捕获囊泡并引导其与目标膜结合。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">马达蛋白<span class="term-english">(Motor Proteins)</span></div>
+                    <div class="term-definition">包括动力蛋白、驱动蛋白和肌球蛋白，为膜泡在细胞骨架上的运输提供动力。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">ADP核糖基化因子<span class="term-english">(ADP Ribosylation Factor, ARF)</span></div>
+                    <div class="term-definition">调节COPI囊泡形成的小GTP酶，参与囊泡的组装和解离过程。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">Sar1蛋白<span class="term-english">(Sar1 Protein)</span></div>
+                    <div class="term-definition">调节COPII囊泡形成的小GTP酶，是COPII囊泡组装的关键调节因子。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">超级酸性簇<span class="term-english">(Super Acidic Cluster, SAC)</span></div>
+                    <div class="term-definition">被WDR11栓系复合物和AP-1/网格蛋白共同识别的特定蛋白质序列，富含酸性氨基酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">NSF<span class="term-english">(N-ethylmaleimide-Sensitive Factor)</span></div>
+                    <div class="term-definition">参与SNARE复合物解离的ATP酶，与SNAP蛋白共同作用，使SNARE蛋白循环利用。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">SNAP<span class="term-english">(Soluble NSF Attachment Protein)</span></div>
+                    <div class="term-definition">可溶性NSF结合蛋白，协助NSF解离SNARE复合物，参与膜融合后的复合物回收。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">核定位信号<span class="term-english">(Nuclear Localization Signal, NLS)</span></div>
+                    <div class="term-definition">引导蛋白质进入细胞核的信号序列，通常富含碱性氨基酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">核输出信号<span class="term-english">(Nuclear Export Signal, NES)</span></div>
+                    <div class="term-definition">引导蛋白质从细胞核输出到细胞质的信号序列，通常富含疏水氨基酸。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">过氧化物酶体靶向信号<span class="term-english">(Peroxisomal Targeting Signal, PTS)</span></div>
+                    <div class="term-definition">引导蛋白质进入过氧化物酶体的信号序列，包括PTS1（C端信号）和PTS2（N端信号）。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">WDR11复合物<span class="term-english">(WDR11 Complex)</span></div>
+                    <div class="term-definition">由WDR11和FAM91A1组成的栓系复合物，在脊椎动物中还包含C17orf75，参与内吞体到反式高尔基体的转运。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">分子伴侣<span class="term-english">(Molecular Chaperone)</span></div>
+                    <div class="term-definition">协助蛋白质正确折叠和组装的蛋白质，如HSP70家族蛋白，参与衣被蛋白的解离过程。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">Sec蛋白家族<span class="term-english">(Sec Proteins)</span></div>
+                    <div class="term-definition">参与COPII囊泡形成和分泌途径的蛋白质家族，包括Sec12、Sec13、Sec16、Sec23、Sec24、Sec31等。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">翻译后转运<span class="term-english">(Post-translational Transport)</span></div>
+                    <div class="term-definition">蛋白质在翻译完成后才被转运到目标细胞器的过程，如线粒体和叶绿体蛋白质的转运。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">门控转运<span class="term-english">(Gated Transport)</span></div>
+                    <div class="term-definition">通过核孔复合物等结构进行的选择性转运，允许特定分子通过而阻止其他分子。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">膜拓扑学<span class="term-english">(Membrane Topology)</span></div>
+                    <div class="term-definition">描述膜蛋白在膜中的取向和跨膜方式，包括N端和C端的位置以及跨膜次数。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">货物蛋白<span class="term-english">(Cargo Proteins)</span></div>
+                    <div class="term-definition">被膜泡运输系统转运的目标蛋白质，通过特定信号序列被识别和包装。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">衣被解离<span class="term-english">(Coat Disassembly)</span></div>
+                    <div class="term-definition">膜泡与目标膜融合前衣被蛋白从膜泡表面脱离的过程，通常需要分子伴侣的参与。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">膜融合<span class="term-english">(Membrane Fusion)</span></div>
+                    <div class="term-definition">两个膜结构合并成一个连续膜的过程，是膜泡运输的最终步骤，主要由SNARE蛋白介导。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 选择题测试 -->
+        <section id="quiz-section">
+            <h2>选择题自测</h2>
+            <div class="quiz-section">
+                <p style="margin-bottom: 20px; font-weight: bold; color: #2c3e50;">
+                    以下是从30道题库中随机抽取的15道选择题，请选择最佳答案：
+                </p>
+                <div id="quiz-container"></div>
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                <div id="quiz-feedback" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- 深度思考题 -->
+        <section id="thinking-questions">
+            <h2>深度思考题</h2>
+            <div class="thinking-section">
+                <div class="thinking-question">
+                    <div class="thinking-question-text">1. 试述信号假说的核心内容，并分析共翻译转运过程中各个步骤的分子机制及其生物学意义。</div>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>信号假说的核心内容：</strong>信号假说由Blobel(布洛贝尔)等提出，解释了分泌蛋白如何在糙面内质网上合成。该假说认为，分泌蛋白的N端含有信号肽序列，这一序列能够被信号识别颗粒(SRP)识别，从而引导核糖体结合到内质网膜上进行翻译。信号假说的提出为理解蛋白质分选机制奠定了重要理论基础。</li>
+                            
+                            <li><strong>共翻译转运的分子机制：</strong>首先，蛋白质在游离核糖体上开始翻译，当信号肽(约16-26个氨基酸)暴露时，被SRP识别并结合。SRP含有p54蛋白(具有GTP酶活性)和p9/p14蛋白复合体，前者识别信号肽，后者阻断翻译。随后，SRP引导核糖体-新生肽复合物与内质网膜上的SRP受体(停泊蛋白)结合。当GTP与SRP和受体结合时，增强了相互作用。接着，核糖体与移位子结合，SRP解离并循环利用，翻译恢复。信号肽引导新生肽链穿过移位子进入内质网腔，同时被信号肽酶切除。</li>
+                            
+                            <li><strong>各步骤的调控机制：</strong>整个过程受到精密调控，GTP的结合和水解调节SRP与受体的相互作用强度，确保核糖体准确定位。移位子的开放和关闭受到信号肽和新生肽链的调节。信号肽酶的及时切除防止信号肽干扰蛋白质的正确折叠。</li>
+                            
+                            <li><strong>生物学意义：</strong>共翻译转运确保了分泌蛋白和膜蛋白的正确定位，避免了这些蛋白质在细胞质中的错误折叠和聚集。这一机制提高了蛋白质转运的效率和准确性，是细胞内蛋白质分选的重要途径。同时，该机制的保守性体现了其在进化中的重要地位。</li>
+                            
+                            <li><strong>临床相关性：</strong>信号假说机制的异常与多种疾病相关，如某些遗传性疾病涉及信号肽的缺陷，导致蛋白质无法正确分选。理解这一机制对于疾病诊断和治疗具有重要意义。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <div class="thinking-question-text">2. 比较分析COPII、COPI和网格蛋白三种衣被蛋白系统的结构组成、功能特点和调控机制，并阐述它们在细胞内膜泡运输中的协调作用。</div>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>COPII系统的特征：</strong>COPII由Sar1 GTP酶、Sec23/Sec24异二聚体和Sec13/Sec31外层复合物组成。Sar1的激活启动COPII组装，Sec23/24负责货物选择和Sar1的GTP酶活性调节，Sec13/31形成外层笼状结构。该系统专门介导内质网到高尔基体的前向运输，是早期分泌途径的关键环节。COPII能够根据货物大小调整囊泡尺寸，适应不同大小蛋白质复合物的运输需求。</li>
+                            
+                            <li><strong>COPI系统的复杂性：</strong>COPI由七个亚基(α、β、β'、γ、δ、ε、ζ)组成，形成B亚复合物(α、β'、ε)和F亚复合物(β、γ、δ、ζ)。B亚复合物形成外层结构，F亚复合物负责货物识别和与ARF GTP酶的相互作用。COPI主要介导高尔基体到内质网的逆向运输和高尔基体内部的转运。γ和ζ亚基的不同亚型(γ1/γ2、ζ1/ζ2)形成功能特化的COPI变体，体现了运输系统的精细调控。</li>
+                            
+                            <li><strong>网格蛋白系统的多样性：</strong>网格蛋白由重链和轻链组成三支链结构，与不同的适配蛋白(AP1、AP2、AP3、AP4)结合形成功能不同的复合物。AP2介导质膜到内体的内吞，AP1参与高尔基体到内体的转运，AP3负责高尔基体到溶酶体的直接转运。动力蛋白(Dynamin)的参与使网格蛋白囊泡能够从膜上有效分离。这一系统在晚期分泌途径和内吞途径中发挥关键作用。</li>
+                            
+                            <li><strong>调控机制的差异：</strong>三个系统都依赖小GTP酶调控，但机制不同。COPII受Sar1调控，COPI受ARF调控，网格蛋白系统也受ARF调控但机制更复杂。GTP的结合促进衣被组装，GTP水解促进衣被解离。此外，磷酸化修饰、蛋白质相互作用和脂质组成都参与调控这些系统的活性。</li>
+                            
+                            <li><strong>协调作用机制：</strong>三个系统在时空上协调工作，形成完整的膜泡运输网络。COPII启动分泌途径，将新合成的蛋白质从内质网运输到高尔基体；COPI维持内质网-高尔基体系统的稳态，回收逃逸的内质网蛋白质；网格蛋白系统完成分泌途径的最后阶段和内吞途径。它们通过共同的调控因子(如ARF、Rab蛋白)和SNARE系统实现协调，确保细胞内物质运输的有序进行。这种协调机制的失调与多种疾病相关，包括神经退行性疾病和代谢性疾病。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <div class="thinking-question-text">3. 膜蛋白的拓扑学类型是如何决定的？请详细分析影响膜蛋白插膜方向的分子机制，并举例说明不同类型膜蛋白的结构特点和功能意义。</div>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>膜蛋白拓扑学的决定因素：</strong>膜蛋白的拓扑学主要由其氨基酸序列中的信号序列和跨膜序列决定。关键因素包括：信号肽的存在与否、信号锚定序列(SA)的位置、停止转移序列(STA)的分布，以及带电荷氨基酸的分布模式。这些序列元件与移位子的相互作用决定了蛋白质在膜中的最终取向。</li>
+                            
+                            <li><strong>电荷分布规律的作用：</strong>Positive-inside规律是膜蛋白拓扑学的重要决定因素，即带正电荷的氨基酸(Lys、Arg)倾向于位于胞质侧。这是因为胞质侧的负电荷环境(由于ATP、磷酸化蛋白等)与正电荷氨基酸形成有利的静电相互作用。跨膜螺旋两侧的电荷分布不对称性直接影响蛋白质的插膜方向，这一规律在进化上高度保守。</li>
+                            
+                            <li><strong>Type I膜蛋白的特征：</strong>Type I膜蛋白(如EGFR、胰岛素受体)具有可切割的N端信号肽和C端的停止转移序列。翻译过程中，信号肽引导N端进入内质网腔并被切除，停止转移序列阻止C端继续穿膜，最终形成N端在腔内、C端在胞质的单次跨膜蛋白。这类蛋白通常是受体蛋白，胞外域负责配体结合，胞内域负责信号转导。</li>
+                            
+                            <li><strong>Type II和Type III膜蛋白的差异：</strong>Type II膜蛋白(如转铁蛋白受体)含有不可切割的N端信号锚定序列，导致N端留在胞质侧，C端进入腔内。Type III膜蛋白也含有信号锚定序列，但取向相反，N端在腔内，C端在胞质侧。这两类蛋白的差异主要在于信号锚定序列的疏水性强度和周围电荷分布的不同，体现了细胞对膜蛋白取向的精确控制。</li>
+                            
+                            <li><strong>Type IV多次跨膜蛋白的复杂性：</strong>Type IV膜蛋白(如GPCR、离子通道)含有多个跨膜螺旋，通过SA和STA序列的交替使用实现多次跨膜。每个跨膜序列的插膜都遵循电荷分布规律，最终形成复杂的三维结构。这类蛋白的拓扑学预测需要考虑多个因素的综合作用，包括疏水性、电荷分布、序列长度等。多次跨膜蛋白通常具有重要的生理功能，如信号转导、物质转运等，其拓扑学结构与功能密切相关。拓扑学的错误可能导致蛋白质功能丧失，与多种疾病相关。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <div class="thinking-question-text">4. SNARE蛋白介导的膜融合机制是细胞内膜泡运输的关键步骤。请详细阐述SNARE蛋白的分类、结构特点、融合机制以及相关调节因子的作用。</div>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>SNARE蛋白的分类和分布：</strong>SNARE蛋白根据其定位分为v-SNARE(囊泡SNARE)和t-SNARE(目标膜SNARE)。v-SNARE主要包括VAMP/synaptobrevin家族，定位于运输囊泡膜上；t-SNARE包括syntaxin家族和SNAP-25家族，定位于目标膜上。根据结构特征，SNARE蛋白还可分为R-SNARE(含精氨酸)和Q-SNARE(含谷氨酰胺)，这种分类更能反映其功能特性。不同细胞器具有特异性的SNARE蛋白组合，确保膜融合的特异性。</li>
+                            
+                            <li><strong>SNARE蛋白的结构特点：</strong>SNARE蛋白的核心结构是SNARE motif，这是一个约60个氨基酸的保守序列，能够形成卷曲螺旋结构。在膜融合过程中，来自不同膜的SNARE蛋白通过其SNARE motif相互作用，形成稳定的四螺旋束结构(SNARE complex)。这种结构的形成释放大量自由能(约65 kJ/mol)，为膜融合提供驱动力。SNARE蛋白还含有跨膜域，将其锚定在膜上，以及调节域，参与蛋白质相互作用的调节。</li>
+                            
+                            <li><strong>膜融合的分子机制：</strong>膜融合过程可分为几个阶段：首先是膜泡的栓系(tethering)，由栓系因子介导膜泡与目标膜的初步接触；然后是SNARE蛋白的配对，v-SNARE和t-SNARE开始相互作用形成trans-SNARE复合物；接着是SNARE复合物的拉链式组装(zippering)，从N端向C端逐步形成稳定的四螺旋束；最后是膜融合的完成，SNARE复合物的形成克服膜融合的能量障碍，导致膜的合并。整个过程是高度协调的，确保融合的准确性和效率。</li>
+                            
+                            <li><strong>调节因子的多样性和功能：</strong>SNARE介导的膜融合受到多种调节因子的精密控制。Sec1/Munc18家族蛋白调节SNARE复合物的组装，既可以抑制也可以促进SNARE相互作用。complexin蛋白调节SNARE复合物的稳定性，在神经元中参与调节神经递质释放的时机。synaptotagmin作为钙离子传感器，在钙依赖的膜融合中发挥关键作用。NSF和α-SNAP负责SNARE复合物的解离，使SNARE蛋白能够循环利用。这些调节因子的协调作用确保了膜融合的时空特异性。</li>
+                            
+                            <li><strong>生理意义和疾病相关性：</strong>SNARE介导的膜融合是细胞内物质运输、神经递质释放、激素分泌等重要生理过程的基础。该机制的发现获得了2013年诺贝尔生理学或医学奖，体现了其重要性。SNARE蛋白功能的异常与多种疾病相关，包括神经系统疾病(如肉毒杆菌中毒、某些癫痫)、代谢性疾病(如糖尿病中胰岛素分泌异常)等。此外，SNARE蛋白也是药物作用的重要靶点，如肉毒毒素通过切割SNARE蛋白阻断神经递质释放，被用于治疗肌肉痉挛等疾病。深入理解SNARE机制对于疾病治疗和药物开发具有重要意义。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <div class="thinking-question-text">5. 分析蛋白质分选系统的进化意义和在细胞生物学研究中的应用前景，并讨论当前该领域面临的主要挑战和发展方向。</div>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>进化意义的深度分析：</strong>蛋白质分选系统的出现是真核细胞进化的关键事件，它使得细胞能够实现功能的区域化和专业化。从原核细胞的简单分泌系统到真核细胞复杂的膜泡运输网络，体现了生物系统复杂性的逐步增加。SNARE蛋白、衣被蛋白等关键组分在不同物种间高度保守，说明这些机制在进化早期就已确立并被严格维持。蛋白质分选系统的进化还与细胞器的起源密切相关，如内质网-高尔基体系统的建立为复杂多细胞生物的出现奠定了基础。</li>
+                            
+                            <li><strong>在疾病研究中的应用：</strong>蛋白质分选异常与多种疾病相关，为疾病机制研究提供了新视角。阿尔茨海默病中APP的异常加工、囊性纤维化中CFTR的错误折叠和降解、某些癌症中肿瘤抑制因子的错误定位等，都涉及蛋白质分选机制的异常。通过研究这些疾病中分选系统的变化，可以开发新的诊断标志物和治疗策略。例如，靶向内质网应激反应的药物、调节自噬-溶酶体系统的化合物等正在成为新的治疗方向。</li>
+                            
+                            <li><strong>在生物技术中的应用潜力：</strong>蛋白质分选机制在生物技术领域具有广阔应用前景。利用信号肽可以将重组蛋白定向到特定细胞器或分泌到胞外，提高蛋白质生产效率。CRISPR-Cas系统与蛋白质分选信号的结合可以实现基因编辑工具的精确定位。合成生物学中，人工设计的分选信号可以构建新的细胞内运输途径。此外，基于膜泡运输机制的药物递送系统正在开发中，有望实现药物的精确靶向。</li>
+                            
+                            <li><strong>当前面临的主要挑战：</strong>尽管对蛋白质分选机制有了深入了解，但仍面临诸多挑战。首先是系统复杂性，细胞内存在数百种不同的分选信号和转运途径，它们之间的相互作用和调控网络极其复杂。其次是动态性研究，传统的生化和结构生物学方法难以捕捉分选过程的动态变化。再次是定量分析的困难，如何准确测量和预测蛋白质分选的效率和特异性仍是挑战。最后是跨物种差异，不同物种间分选机制的差异限制了研究结果的普适性。</li>
+                            
+                            <li><strong>未来发展方向和前景：</strong>未来的研究将更加注重系统性和整合性。单细胞技术的发展将使我们能够在单细胞水平研究蛋白质分选的异质性。人工智能和机器学习的应用将提高分选信号预测的准确性，并发现新的分选规律。结构生物学技术的进步，特别是冷冻电镜技术，将揭示分选复合物的精细结构和动态变化。合成生物学的发展将使我们能够设计和构建人工分选系统，为生物技术应用开辟新途径。此外，与其他学科的交叉融合，如物理学、化学、计算科学等，将为蛋白质分选研究带来新的理论和方法。这些发展将不仅加深我们对生命过程的理解，也将为疾病治疗和生物技术应用提供新的机遇。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 30道选择题题库
+        const questionBank = [
+            {
+                question: "信号肽的典型特征不包括以下哪项？",
+                options: ["A. 位于蛋白质的N端", "B. 含有16-26个氨基酸残基", "C. 具有疏水核心区", "D. 具有严格的序列专一性"],
+                correct: 3,
+                explanation: "信号肽虽然具有共同的结构特征（N端位置、特定长度、疏水核心），但在序列上并没有严格的专一性，不同蛋白质的信号肽序列可以有很大差异。"
+            },
+            {
+                question: "SRP（信号识别颗粒）的组成包括：",
+                options: ["A. 6种蛋白质和7S RNA", "B. 7种蛋白质和6S RNA", "C. 5种蛋白质和8S RNA", "D. 8种蛋白质和5S RNA"],
+                correct: 0,
+                explanation: "SRP是由6种不同的蛋白质和一条长度约300个核苷酸的7S RNA组成的核糖核蛋白复合体。"
+            },
+            {
+                question: "共翻译转运过程中，SRP的主要作用是：",
+                options: ["A. 促进翻译速度", "B. 暂停翻译并引导核糖体到内质网", "C. 切除信号肽", "D. 促进蛋白质折叠"],
+                correct: 1,
+                explanation: "SRP与信号肽结合后会暂停新生肽链的翻译，并引导核糖体-新生肽复合物与内质网膜上的SRP受体结合。"
+            },
+            {
+                question: "Type I膜蛋白的特征是：",
+                options: ["A. N端在胞浆，C端在内质网腔", "B. N端在内质网腔，C端在胞浆", "C. 含有不可切割的信号序列", "D. 具有多个跨膜片段"],
+                correct: 1,
+                explanation: "Type I膜蛋白具有可切割的N端信号肽和C端的停止转移序列，最终形成N端在内质网腔、C端在胞浆的取向。"
+            },
+            {
+                question: "决定膜蛋白插膜方向的主要因素是：",
+                options: ["A. 蛋白质的分子量", "B. 跨膜序列周围带电荷氨基酸的分布", "C. 蛋白质的等电点", "D. 翻译速度"],
+                correct: 1,
+                explanation: "根据positive-inside规律，带正电荷的氨基酸倾向于位于胞质侧，这是决定膜蛋白插膜方向的主要因素。"
+            },
+            {
+                question: "COPII囊泡的主要功能是：",
+                options: ["A. 高尔基体→内质网的运输", "B. 内质网→高尔基体的运输", "C. 高尔基体→质膜的运输", "D. 质膜→内体的运输"],
+                correct: 1,
+                explanation: "COPII囊泡专门介导内质网到高尔基体的前向运输，是早期分泌途径的关键环节。"
+            },
+            {
+                question: "COPI囊泡由几种外被体蛋白组成？",
+                options: ["A. 5种", "B. 6种", "C. 7种", "D. 8种"],
+                correct: 2,
+                explanation: "COPI囊泡由7种外被体蛋白（α、β、β'、γ、δ、ε、ζ）组成，形成B亚复合物和F亚复合物。"
+            },
+            {
+                question: "网格蛋白的基本结构单元是：",
+                options: ["A. 二聚体", "B. 三聚体", "C. 三支链（Triskelion）", "D. 四聚体"],
+                correct: 2,
+                explanation: "网格蛋白由3个重链和3个轻链组成三支链结构（Triskelion），这是网格蛋白衣被的基本单元。"
+            },
+            {
+                question: "动力蛋白（Dynamin）在膜泡运输中的作用是：",
+                options: ["A. 形成衣被结构", "B. 识别货物蛋白", "C. 掐断衣被小泡", "D. 介导膜融合"],
+                correct: 2,
+                explanation: "动力蛋白是一种GTP酶，聚集在膜泡颈部，通过GTP水解提供能量掐断衣被小泡。"
+            },
+            {
+                question: "AP1适配蛋白主要介导哪种运输？",
+                options: ["A. 质膜→内体", "B. 高尔基体→内体", "C. 内质网→高尔基体", "D. 高尔基体→溶酶体"],
+                correct: 1,
+                explanation: "AP1适配蛋白与网格蛋白结合，主要介导高尔基体到内体的运输。"
+            },
+            {
+                question: "SNARE蛋白复合物的形成能释放多少自由能？",
+                options: ["A. 约35 kJ/mol", "B. 约45 kJ/mol", "C. 约65 kJ/mol", "D. 约85 kJ/mol"],
+                correct: 2,
+                explanation: "SNARE蛋白形成稳定的四螺旋束结构时能释放约65 kJ/mol的自由能，为膜融合提供驱动力。"
+            },
+            {
+                question: "v-SNARE和t-SNARE的主要区别是：",
+                options: ["A. 结构不同", "B. 功能不同", "C. 定位不同", "D. 大小不同"],
+                correct: 2,
+                explanation: "v-SNARE定位于运输囊泡膜上，t-SNARE定位于目标膜上，这种定位差异是它们的主要区别。"
+            },
+            {
+                question: "NSF和SNAP的主要功能是：",
+                options: ["A. 促进SNARE复合物形成", "B. 解离SNARE复合物", "C. 识别目标膜", "D. 调节膜融合速度"],
+                correct: 1,
+                explanation: "NSF是ATP酶，与SNAP蛋白共同作用解离SNARE复合物，使SNARE蛋白能够循环利用。"
+            },
+            {
+                question: "Rab蛋白属于哪类调节蛋白？",
+                options: ["A. 蛋白激酶", "B. 蛋白磷酸酶", "C. 小GTP酶", "D. 转录因子"],
+                correct: 2,
+                explanation: "Rab蛋白是小GTP酶家族成员，调节膜泡运输的特异性、方向性和时间性。"
+            },
+            {
+                question: "信号肽酶的作用部位是：",
+                options: ["A. 细胞质基质", "B. 内质网胞质面", "C. 内质网腔面", "D. 高尔基体腔内"],
+                correct: 2,
+                explanation: "信号肽酶位于内质网腔面，负责切除新生肽链的信号肽序列。"
+            },
+            {
+                question: "移位子的主要功能是：",
+                options: ["A. 识别信号肽", "B. 形成跨膜通道", "C. 切除信号肽", "D. 调节翻译速度"],
+                correct: 1,
+                explanation: "移位子是内质网膜上的蛋白质复合物，形成跨膜通道，允许新生肽链穿过膜进入内质网腔。"
+            },
+            {
+                question: "STA序列的全称是：",
+                options: ["A. Signal Transfer Anchor", "B. Stop Transfer Anchor", "C. Start Transfer Anchor", "D. Signal Terminal Anchor"],
+                correct: 1,
+                explanation: "STA是Stop Transfer Anchor（停止转移锚定序列）的缩写，阻止肽链继续穿过膜。"
+            },
+            {
+                question: "SA序列与STA序列的主要区别是：",
+                options: ["A. 长度不同", "B. 疏水性不同", "C. SA序列不被切除", "D. 功能完全不同"],
+                correct: 2,
+                explanation: "SA（信号锚定序列）既起信号肽作用又起膜锚定作用，不被信号肽酶切除，而STA序列主要起停止转移作用。"
+            },
+            {
+                question: "ARF蛋白主要调节哪种囊泡的形成？",
+                options: ["A. COPII囊泡", "B. COPI囊泡", "C. 网格蛋白囊泡", "D. 所有类型囊泡"],
+                correct: 1,
+                explanation: "ARF（ADP核糖基化因子）主要调节COPI囊泡的形成，参与囊泡的组装和解离过程。"
+            },
+            {
+                question: "Sar1蛋白调节哪种囊泡系统？",
+                options: ["A. COPI", "B. COPII", "C. 网格蛋白", "D. 核孔运输"],
+                correct: 1,
+                explanation: "Sar1蛋白是调节COPII囊泡形成的小GTP酶，是COPII囊泡组装的关键调节因子。"
+            },
+            {
+                question: "微粒体是什么？",
+                options: ["A. 细胞器", "B. 蛋白质复合物", "C. 人工制备的膜囊泡", "D. 天然存在的膜结构"],
+                correct: 2,
+                explanation: "微粒体是细胞匀浆和差速离心过程中由破碎内质网自我融合形成的人工膜囊泡结构。"
+            },
+            {
+                question: "positive-inside规律是指：",
+                options: ["A. 正电荷氨基酸倾向于胞外侧", "B. 正电荷氨基酸倾向于胞质侧", "C. 负电荷氨基酸倾向于胞质侧", "D. 电荷分布随机"],
+                correct: 1,
+                explanation: "positive-inside规律指带正电荷的氨基酸（Lys、Arg）倾向于位于胞质侧，这是膜蛋白拓扑学的重要决定因素。"
+            },
+            {
+                question: "栓系复合物的主要功能是：",
+                options: ["A. 形成衣被", "B. 远程捕获囊泡", "C. 切除信号肽", "D. 水解GTP"],
+                correct: 1,
+                explanation: "栓系复合物参与囊泡运输过程，能够远程捕获囊泡并引导其与目标膜结合。"
+            },
+            {
+                question: "WDR11复合物识别的特定序列是：",
+                options: ["A. 信号肽", "B. 核定位信号", "C. 超级酸性簇（SAC）", "D. 疏水序列"],
+                correct: 2,
+                explanation: "WDR11栓系复合物能够识别特定的货物蛋白序列——超级酸性簇（SAC），富含酸性氨基酸。"
+            },
+            {
+                question: "马达蛋白中，向微管负端移动的是：",
+                options: ["A. 驱动蛋白", "B. 动力蛋白", "C. 肌球蛋白", "D. 微管蛋白"],
+                correct: 1,
+                explanation: "动力蛋白（Dynein）向微管负端移动，驱动蛋白（Kinesin）向微管正端移动。"
+            },
+            {
+                question: "翻译后转运主要适用于哪些蛋白质？",
+                options: ["A. 分泌蛋白", "B. 膜蛋白", "C. 线粒体蛋白", "D. 高尔基体蛋白"],
+                correct: 2,
+                explanation: "翻译后转运主要适用于线粒体蛋白质、叶绿体蛋白质等，这些蛋白质在翻译完成后才被转运到目标细胞器。"
+            },
+            {
+                question: "核定位信号（NLS）通常富含哪种氨基酸？",
+                options: ["A. 酸性氨基酸", "B. 碱性氨基酸", "C. 疏水氨基酸", "D. 芳香族氨基酸"],
+                correct: 1,
+                explanation: "核定位信号（NLS）通常富含碱性氨基酸（如赖氨酸、精氨酸），这有助于与核孔复合物的相互作用。"
+            },
+            {
+                question: "过氧化物酶体靶向信号PTS1位于蛋白质的：",
+                options: ["A. N端", "B. C端", "C. 中间区域", "D. 跨膜区"],
+                correct: 1,
+                explanation: "PTS1（过氧化物酶体靶向信号1）位于蛋白质的C端，而PTS2位于N端。"
+            },
+            {
+                question: "SNARE蛋白研究获得诺贝尔奖的年份是：",
+                options: ["A. 2010年", "B. 2012年", "C. 2013年", "D. 2015年"],
+                correct: 2,
+                explanation: "2013年诺贝尔生理学或医学奖授予了SNARE蛋白研究的科学家，表彰他们在膜泡运输机制方面的贡献。"
+            },
+            {
+                question: "信号假说最初是由谁提出的？",
+                options: ["A. Palade(帕拉德)", "B. Blobel(布洛贝尔)", "C. Watson(沃森)", "D. Crick(克里克)"],
+                correct: 1,
+                explanation: "信号假说由Blobel(布洛贝尔)等提出，而Palade(帕拉德)通过实验发现了分泌蛋白在附着核糖体上合成的现象。"
+            }
+        ];
+
+        // 随机选择15道题
+        let selectedQuestions = [];
+        let userAnswers = [];
+
+        function initQuiz() {
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option" onclick="selectOption(${index}, ${optIndex})">
+                            <input type="radio" name="q${index}" value="${optIndex}" style="margin-right: 10px;">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            userAnswers = new Array(15).fill(-1);
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            userAnswers[questionIndex] = optionIndex;
+            
+            // 更新选中状态
+            const question = document.querySelectorAll('.question')[questionIndex];
+            const options = question.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                if (index === optionIndex) {
+                    option.classList.add('selected');
+                    option.querySelector('input').checked = true;
+                } else {
+                    option.classList.remove('selected');
+                    option.querySelector('input').checked = false;
+                }
+            });
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            const feedback = document.getElementById('quiz-feedback');
+            let feedbackHTML = '<h3>测试结果</h3>';
+            
+            selectedQuestions.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.correct;
+                if (isCorrect) score++;
+                
+                const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
+                const textColor = isCorrect ? '#155724' : '#721c24';
+                
+                feedbackHTML += `
+                    <div style="background-color: ${bgColor}; color: ${textColor}; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                        <strong>第${index + 1}题：</strong>${q.question}<br>
+                        <strong>您的答案：</strong>${userAnswers[index] >= 0 ? q.options[userAnswers[index]] : '未作答'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / 15) * 100);
+            feedbackHTML = `<div style="text-align: center; font-size: 1.2em; margin-bottom: 20px; color: #2c3e50;">
+                <strong>得分：${score}/15 (${percentage}%)</strong>
+            </div>` + feedbackHTML;
+            
+            feedback.innerHTML = feedbackHTML;
+            feedback.classList.add('show');
+            feedback.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载时初始化测试
+        document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

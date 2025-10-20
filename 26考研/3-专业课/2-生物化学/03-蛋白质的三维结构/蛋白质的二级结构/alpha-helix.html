@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>α螺旋 - 蛋白质二级结构</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入Three.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <!-- 引入OrbitControls用于3D交互控制 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- 引入TWEEN.js用于动画效果 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+<body>
+    <header>
+        <h1>蛋白质的二级结构</h1>
+        <nav>
+            <ul>
+                <li><a href="alpha-helix.html" class="nav-link active">α螺旋</a></li>
+                <li><a href="beta-sheet.html" class="nav-link">β折叠</a></li>
+                <li><a href="beta-turn.html" class="nav-link">β转角</a></li>
+                <li><a href="super-secondary.html" class="nav-link">超二级结构</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="alpha-helix" class="structure-section active">
+            <div class="content-wrapper">
+                <div class="model-container">
+                    <div id="alpha-helix-model" class="model"></div>
+                    <div class="model-controls">
+                        <button id="alpha-rotate">自动旋转</button>
+                        <button id="alpha-reset">重置视图</button>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h2>α螺旋 (Alpha Helix)</h2>
+                    <div class="info-content">
+                        <p>α螺旋是蛋白质中最常见的二级结构之一，具有以下特点：</p>
+                        <ul>
+                            <li><strong>右手螺旋结构</strong>：沿着螺旋轴顺时针方向盘旋</li>
+                            <li><strong>周期性</strong>：每3.6个氨基酸完成一个完整螺旋周期</li>
+                            <li><strong>螺距</strong>：每个完整螺旋的轴向距离为0.54nm</li>
+                            <li><strong>氨基酸高度</strong>：每个氨基酸在轴向上的高度为0.15nm</li>
+                            <li><strong>氢键稳定</strong>：每个氨基酸的C=O与其前第4位的N-H形成氢键</li>
+                            <li><strong>侧链朝外</strong>：氨基酸的R基团指向螺旋外侧</li>
+                        </ul>
+                        <p>α螺旋在蛋白质中起到重要的结构支撑作用，常见于球状蛋白和跨膜蛋白中。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 蛋白质二级结构学习平台 | 细胞生物学辅助工具</p>
+    </footer>
+
+    <script src="alpha-helix.js"></script>
+</body>
+</html>

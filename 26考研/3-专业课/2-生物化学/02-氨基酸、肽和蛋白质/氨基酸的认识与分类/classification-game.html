@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>氨基酸分类游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>氨基酸分类游戏</h1>
+            <a href="index.html" class="back-btn">返回主菜单</a>
+        </div>
+        <p class="instruction">请将下方的氨基酸拖动到对应的分类区域中</p>
+        
+        <div class="categories">
+            <div class="category" id="categoryA" data-category="A">
+                <h2>A. 非极性脂肪族R基氨基酸</h2>
+                <div class="drop-zone" id="dropA"></div>
+            </div>
+            <div class="category" id="categoryB" data-category="B">
+                <h2>B. 芳香族R基氨基酸</h2>
+                <div class="drop-zone" id="dropB"></div>
+            </div>
+            <div class="category" id="categoryC" data-category="C">
+                <h2>C. 极性、不带电荷的R基氨基酸</h2>
+                <div class="drop-zone" id="dropC"></div>
+            </div>
+            <div class="category" id="categoryD" data-category="D">
+                <h2>D. 带正电荷的(碱性)R基氨基酸</h2>
+                <div class="drop-zone" id="dropD"></div>
+            </div>
+            <div class="category" id="categoryE" data-category="E">
+                <h2>E. 带负电荷的(酸性)R基氨基酸</h2>
+                <div class="drop-zone" id="dropE"></div>
+            </div>
+        </div>
+        
+        <div class="amino-acids-container">
+            <div id="aminoAcids" class="amino-acids"></div>
+        </div>
+        
+        <div class="controls">
+            <button id="resetBtn">重新开始</button>
+        </div>
+    </div>
+    
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>恭喜！</h2>
+            <p>你已成功完成所有氨基酸的分类！</p>
+            <button id="playAgainBtn">再玩一次</button>
+        </div>
+    </div>
+
+    <script src="classification-game.js"></script>
+</body>
+</html> 

@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酶动力学 - 考研复习笔记</title>
+    <style>
+        /* 整体样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .term-definition {
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .option {
+            display: block;
+            margin: 8px 0;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result h3 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+
+        .answer-feedback {
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            background: white;
+            border-left: 4px solid #28a745;
+        }
+
+        .answer-feedback.wrong {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: white;
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #9b59b6;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .thinking-question h4 {
+            color: #9b59b6;
+            margin-bottom: 15px;
+        }
+
+        .thinking-answer {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .thinking-answer ol {
+            margin-left: 20px;
+        }
+
+        .thinking-answer li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        /* 图片样式 */
+        .diagram {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .diagram-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #7f8c8d;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: "Consolas", monospace;
+            text-align: center;
+            margin: 15px 0;
+            border-left: 4px solid #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>酶动力学</h1>
+            <p>生物化学第7章 - 考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心知识体系 -->
+            <div class="section">
+                <h2>核心知识体系</h2>
+                
+                <h3>一、酶促反应动力学基础</h3>
+                <h4>1. 米氏方程（Michaelis-Menten方程）</h4>
+                <div class="formula">
+                    v = (V<sub>max</sub> × [S]) / (K<sub>m</sub> + [S])
+                </div>
+                <p>其中：v为反应初速度，V<sub>max</sub>为最大反应速度，[S]为底物浓度，K<sub>m</sub>为米氏常数。</p>
+                
+                <div class="diagram">
+                    <svg width="500" height="300" viewBox="0 0 500 300">
+                        <!-- 坐标轴 -->
+                        <line x1="50" y1="250" x2="450" y2="250" stroke="#2c3e50" stroke-width="2"/>
+                        <line x1="50" y1="250" x2="50" y2="50" stroke="#2c3e50" stroke-width="2"/>
+                        
+                        <!-- 米氏曲线 -->
+                        <path d="M 60 240 Q 150 180 250 120 Q 350 80 440 70" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                        
+                        <!-- Vmax线 -->
+                        <line x1="50" y1="70" x2="450" y2="70" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="460" y="75" fill="#3498db" font-size="14">V<tspan baseline-shift="sub">max</tspan></text>
+                        
+                        <!-- Vmax/2线 -->
+                        <line x1="50" y1="160" x2="450" y2="160" stroke="#9b59b6" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="460" y="165" fill="#9b59b6" font-size="14">V<tspan baseline-shift="sub">max</tspan>/2</text>
+                        
+                        <!-- Km标记 -->
+                        <line x1="200" y1="250" x2="200" y2="160" stroke="#f39c12" stroke-width="2" stroke-dasharray="3,3"/>
+                        <text x="185" y="270" fill="#f39c12" font-size="14">K<tspan baseline-shift="sub">m</tspan></text>
+                        
+                        <!-- 轴标签 -->
+                        <text x="250" y="290" text-anchor="middle" fill="#2c3e50" font-size="16">[S] (底物浓度)</text>
+                        <text x="25" y="150" text-anchor="middle" fill="#2c3e50" font-size="16" transform="rotate(-90 25 150)">v (反应速度)</text>
+                        
+                        <!-- 标题 -->
+                        <text x="250" y="30" text-anchor="middle" fill="#2c3e50" font-size="18" font-weight="bold">米氏方程曲线</text>
+                    </svg>
+                    <div class="diagram-caption">图1：米氏方程的图形表示，显示反应速度与底物浓度的关系</div>
+                </div>
+
+                <h4>2. 双倒数作图法（Lineweaver-Burk图）</h4>
+                <div class="formula">
+                    1/v = (K<sub>m</sub>/V<sub>max</sub>) × (1/[S]) + 1/V<sub>max</sub>
+                </div>
+                <p>通过作1/v对1/[S]的图，可得到一条直线：</p>
+                <ul>
+                    <li>斜率 = K<sub>m</sub>/V<sub>max</sub></li>
+                    <li>纵轴截距 = 1/V<sub>max</sub></li>
+                    <li>横轴截距 = -1/K<sub>m</sub></li>
+                </ul>
+
+                <div class="diagram">
+                    <svg width="500" height="300" viewBox="0 0 500 300">
+                        <!-- 坐标轴 -->
+                        <line x1="100" y1="250" x2="450" y2="250" stroke="#2c3e50" stroke-width="2"/>
+                        <line x1="100" y1="250" x2="100" y2="50" stroke="#2c3e50" stroke-width="2"/>
+                        
+                        <!-- 双倒数直线 -->
+                        <line x1="50" y1="200" x2="400" y2="80" stroke="#e74c3c" stroke-width="3"/>
+                        
+                        <!-- 截距标记 -->
+                        <circle cx="100" cy="120" r="4" fill="#3498db"/>
+                        <text x="110" y="125" fill="#3498db" font-size="12">1/V<tspan baseline-shift="sub">max</tspan></text>
+                        
+                        <circle cx="80" cy="250" r="4" fill="#f39c12"/>
+                        <text x="60" y="270" fill="#f39c12" font-size="12">-1/K<tspan baseline-shift="sub">m</tspan></text>
+                        
+                        <!-- 轴标签 -->
+                        <text x="275" y="290" text-anchor="middle" fill="#2c3e50" font-size="16">1/[S]</text>
+                        <text x="25" y="150" text-anchor="middle" fill="#2c3e50" font-size="16" transform="rotate(-90 25 150)">1/v</text>
+                        
+                        <!-- 标题 -->
+                        <text x="250" y="30" text-anchor="middle" fill="#2c3e50" font-size="18" font-weight="bold">双倒数作图法</text>
+                    </svg>
+                    <div class="diagram-caption">图2：双倒数作图法，用于精确测定K<sub>m</sub>和V<sub>max</sub></div>
+                </div>
+
+                <h3>二、酶动力学参数</h3>
+                <h4>1. 米氏常数（K<sub>m</sub>）</h4>
+                <ul>
+                    <li><span class="highlight">定义</span>：反应速度达到最大反应速度一半时的底物浓度</li>
+                    <li><span class="highlight">意义</span>：反映酶与底物的亲和力，K<sub>m</sub>越小，亲和力越大</li>
+                    <li><span class="highlight">单位</span>：mol/L或mmol/L</li>
+                    <li><span class="highlight">特点</span>：是酶的特征常数，不随酶浓度改变</li>
+                </ul>
+
+                <h4>2. 最大反应速度（V<sub>max</sub>）</h4>
+                <ul>
+                    <li><span class="highlight">定义</span>：底物浓度趋于无穷大时的反应速度</li>
+                    <li><span class="highlight">关系</span>：V<sub>max</sub> = k<sub>cat</sub> × [E]<sub>t</sub></li>
+                    <li><span class="highlight">特点</span>：与酶浓度成正比</li>
+                </ul>
+
+                <h4>3. 转换数（k<sub>cat</sub>）</h4>
+                <ul>
+                    <li><span class="highlight">定义</span>：每个酶分子在单位时间内转化的底物分子数</li>
+                    <li><span class="highlight">计算</span>：k<sub>cat</sub> = V<sub>max</sub> / [E]<sub>t</sub></li>
+                    <li><span class="highlight">单位</span>：s<sup>-1</sup>或min<sup>-1</sup></li>
+                </ul>
+
+                <h4>4. 催化效率（k<sub>cat</sub>/K<sub>m</sub>）</h4>
+                <ul>
+                    <li><span class="highlight">意义</span>：衡量酶催化效率的指标</li>
+                    <li><span class="highlight">应用</span>：比较酶对不同底物的催化效率</li>
+                    <li><span class="highlight">理论上限</span>：约10<sup>8</sup>-10<sup>9</sup> M<sup>-1</sup>s<sup>-1</sup></li>
+                </ul>
+
+                <h3>三、酶抑制作用</h3>
+                <h4>1. 竞争性抑制</h4>
+                <ul>
+                    <li><span class="highlight">机制</span>：抑制剂与底物竞争酶的活性部位</li>
+                    <li><span class="highlight">特点</span>：抑制剂结构与底物相似</li>
+                    <li><span class="highlight">动力学效应</span>：K<sub>m</sub>增大，V<sub>max</sub>不变</li>
+                    <li><span class="highlight">克服方法</span>：增加底物浓度可减轻抑制</li>
+                </ul>
+
+                <h4>2. 非竞争性抑制</h4>
+                <ul>
+                    <li><span class="highlight">机制</span>：抑制剂结合到酶的非活性部位</li>
+                    <li><span class="highlight">特点</span>：不影响底物与酶的结合</li>
+                    <li><span class="highlight">动力学效应</span>：V<sub>max</sub>减小，K<sub>m</sub>不变</li>
+                    <li><span class="highlight">克服方法</span>：增加底物浓度不能减轻抑制</li>
+                </ul>
+
+                <h4>3. 反竞争性抑制</h4>
+                <ul>
+                    <li><span class="highlight">机制</span>：抑制剂只与ES复合物结合</li>
+                    <li><span class="highlight">动力学效应</span>：K<sub>m</sub>和V<sub>max</sub>都减小，但V<sub>max</sub>/K<sub>m</sub>不变</li>
+                </ul>
+
+                <div class="diagram">
+                    <svg width="600" height="400" viewBox="0 0 600 400">
+                        <!-- 竞争性抑制 -->
+                        <g transform="translate(50, 50)">
+                            <text x="75" y="20" text-anchor="middle" fill="#2c3e50" font-size="16" font-weight="bold">竞争性抑制</text>
+                            
+                            <!-- 酶 -->
+                            <rect x="20" y="40" width="60" height="40" fill="#3498db" rx="5"/>
+                            <text x="50" y="65" text-anchor="middle" fill="white" font-size="14">E</text>
+                            
+                            <!-- 底物 -->
+                            <circle cx="120" cy="60" r="15" fill="#2ecc71"/>
+                            <text x="120" y="65" text-anchor="middle" fill="white" font-size="12">S</text>
+                            
+                            <!-- 抑制剂 -->
+                            <polygon points="120,100 135,115 120,130 105,115" fill="#e74c3c"/>
+                            <text x="120" y="120" text-anchor="middle" fill="white" font-size="12">I</text>
+                            
+                            <!-- 箭头 -->
+                            <path d="M 85 60 L 100 60" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            <path d="M 85 80 L 100 100" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            
+                            <text x="75" y="160" text-anchor="middle" fill="#2c3e50" font-size="12">Km↑, Vmax不变</text>
+                        </g>
+                        
+                        <!-- 非竞争性抑制 -->
+                        <g transform="translate(250, 50)">
+                            <text x="75" y="20" text-anchor="middle" fill="#2c3e50" font-size="16" font-weight="bold">非竞争性抑制</text>
+                            
+                            <!-- 酶 -->
+                            <rect x="20" y="40" width="60" height="40" fill="#3498db" rx="5"/>
+                            <text x="50" y="65" text-anchor="middle" fill="white" font-size="14">E</text>
+                            
+                            <!-- 底物 -->
+                            <circle cx="120" cy="60" r="15" fill="#2ecc71"/>
+                            <text x="120" y="65" text-anchor="middle" fill="white" font-size="12">S</text>
+                            
+                            <!-- 抑制剂（结合到别处） -->
+                            <polygon points="50,100 65,115 50,130 35,115" fill="#e74c3c"/>
+                            <text x="50" y="120" text-anchor="middle" fill="white" font-size="12">I</text>
+                            
+                            <!-- 箭头 -->
+                            <path d="M 85 60 L 100 60" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            <path d="M 50 85 L 50 95" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            
+                            <text x="75" y="160" text-anchor="middle" fill="#2c3e50" font-size="12">Km不变, Vmax↓</text>
+                        </g>
+                        
+                        <!-- 反竞争性抑制 -->
+                        <g transform="translate(450, 50)">
+                            <text x="75" y="20" text-anchor="middle" fill="#2c3e50" font-size="16" font-weight="bold">反竞争性抑制</text>
+                            
+                            <!-- ES复合物 -->
+                            <rect x="20" y="40" width="80" height="40" fill="#9b59b6" rx="5"/>
+                            <text x="60" y="65" text-anchor="middle" fill="white" font-size="14">ES</text>
+                            
+                            <!-- 抑制剂 -->
+                            <polygon points="60,100 75,115 60,130 45,115" fill="#e74c3c"/>
+                            <text x="60" y="120" text-anchor="middle" fill="white" font-size="12">I</text>
+                            
+                            <!-- 箭头 -->
+                            <path d="M 60 85 L 60 95" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            
+                            <text x="75" y="160" text-anchor="middle" fill="#2c3e50" font-size="12">Km↓, Vmax↓</text>
+                        </g>
+                        
+                        <!-- 箭头标记定义 -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- 标题 -->
+                        <text x="300" y="30" text-anchor="middle" fill="#2c3e50" font-size="18" font-weight="bold">酶抑制作用类型</text>
+                    </svg>
+                    <div class="diagram-caption">图3：三种主要的酶抑制作用类型及其动力学特征</div>
+                </div>
+
+                <h3>四、影响酶活性的因素</h3>
+                <h4>1. 底物浓度</h4>
+                <ul>
+                    <li>低浓度时：反应速度与底物浓度成正比（一级反应）</li>
+                    <li>高浓度时：反应速度趋于恒定（零级反应）</li>
+                    <li>饱和现象：当[S]≫K<sub>m</sub>时，酶被底物饱和</li>
+                </ul>
+
+                <h4>2. 酶浓度</h4>
+                <ul>
+                    <li>在底物饱和条件下，反应速度与酶浓度成正比</li>
+                    <li>V<sub>max</sub> = k<sub>cat</sub> × [E]<sub>t</sub></li>
+                </ul>
+
+                <h4>3. pH值</h4>
+                <ul>
+                    <li>影响酶活性部位必需基团的解离状态</li>
+                    <li>影响底物的解离状态</li>
+                    <li>每种酶都有其最适pH值</li>
+                </ul>
+
+                <h4>4. 温度</h4>
+                <ul>
+                    <li>低温：反应速度随温度升高而增加</li>
+                    <li>高温：酶变性失活</li>
+                    <li>最适温度：酶活性最高的温度</li>
+                </ul>
+
+                <h4>5. 激活剂和抑制剂</h4>
+                <ul>
+                    <li>激活剂：增强酶活性的物质（如金属离子、辅酶等）</li>
+                    <li>抑制剂：降低酶活性的物质</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">米氏常数</div>
+                    <div class="term-english">Michaelis constant, K<sub>m</sub></div>
+                    <div class="term-definition">反应速度达到最大反应速度一半时的底物浓度，是酶的特征常数，反映酶与底物的亲和力。K<sub>m</sub>值越小，表示酶与底物的亲和力越大。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">米氏方程</div>
+                    <div class="term-english">Michaelis-Menten equation</div>
+                    <div class="term-definition">描述酶促反应速度与底物浓度关系的方程：v = (V<sub>max</sub> × [S]) / (K<sub>m</sub> + [S])，是酶动力学的基础方程。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">最大反应速度</div>
+                    <div class="term-english">Maximum velocity, V<sub>max</sub></div>
+                    <div class="term-definition">当底物浓度趋于无穷大时的反应速度，此时酶完全被底物饱和。V<sub>max</sub> = k<sub>cat</sub> × [E]<sub>t</sub>，与酶浓度成正比。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转换数</div>
+                    <div class="term-english">Turnover number, k<sub>cat</sub></div>
+                    <div class="term-definition">每个酶分子在单位时间内转化的底物分子数，是衡量酶催化效率的重要参数。k<sub>cat</sub> = V<sub>max</sub> / [E]<sub>t</sub>。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">催化效率</div>
+                    <div class="term-english">Catalytic efficiency, k<sub>cat</sub>/K<sub>m</sub></div>
+                    <div class="term-definition">衡量酶催化效率的指标，用于比较酶对不同底物的催化能力。理论上限约为10<sup>8</sup>-10<sup>9</sup> M<sup>-1</sup>s<sup>-1</sup>。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">双倒数作图法</div>
+                    <div class="term-english">Lineweaver-Burk plot</div>
+                    <div class="term-definition">将米氏方程转化为线性方程的作图方法：1/v = (K<sub>m</sub>/V<sub>max</sub>) × (1/[S]) + 1/V<sub>max</sub>，用于精确测定K<sub>m</sub>和V<sub>max</sub>。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">竞争性抑制</div>
+                    <div class="term-english">Competitive inhibition</div>
+                    <div class="term-definition">抑制剂与底物竞争酶的活性部位的抑制类型。抑制剂结构与底物相似，动力学特征为K<sub>m</sub>增大，V<sub>max</sub>不变。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">非竞争性抑制</div>
+                    <div class="term-english">Non-competitive inhibition</div>
+                    <div class="term-definition">抑制剂结合到酶的非活性部位，不影响底物与酶的结合。动力学特征为V<sub>max</sub>减小，K<sub>m</sub>不变。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">反竞争性抑制</div>
+                    <div class="term-english">Uncompetitive inhibition</div>
+                    <div class="term-definition">抑制剂只与ES复合物结合，不与游离酶结合。动力学特征为K<sub>m</sub>和V<sub>max</sub>都减小，但V<sub>max</sub>/K<sub>m</sub>不变。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">抑制常数</div>
+                    <div class="term-english">Inhibition constant, K<sub>i</sub></div>
+                    <div class="term-definition">抑制剂与酶结合的解离常数，K<sub>i</sub>值越小，表示抑制剂与酶的亲和力越大，抑制效果越强。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">过渡态类似物</div>
+                    <div class="term-english">Transition state analog</div>
+                    <div class="term-definition">化学结构类似于反应过渡态的抑制剂，与酶有很高的亲和力，通常是强效的竞争性抑制剂。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">不可逆抑制</div>
+                    <div class="term-english">Irreversible inhibition</div>
+                    <div class="term-definition">抑制剂与酶共价结合，导致酶永久失活的抑制类型。包括K<sub>m</sub>型和k<sub>cat</sub>型不可逆抑制剂。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">酶饱和</div>
+                    <div class="term-english">Enzyme saturation</div>
+                    <div class="term-definition">当底物浓度足够高时，所有酶分子都与底物结合形成ES复合物的状态。此时反应速度达到V<sub>max</sub>，不再随底物浓度增加而增加。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">最适底物</div>
+                    <div class="term-english">Optimal substrate</div>
+                    <div class="term-definition">对于能催化多种底物的酶，K<sub>m</sub>值最小的底物称为该酶的最适底物，表示酶与该底物的亲和力最大。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">多底物反应机制</div>
+                    <div class="term-english">Multi-substrate reaction mechanism</div>
+                    <div class="term-definition">包括有序反应（底物按特定顺序结合）、随机反应（底物随机结合）和乒乓反应（产物分步释放）三种主要类型。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2>选择题测试</h2>
+                <p>以下是从题库中随机抽取的15道选择题，请选择正确答案：</p>
+                
+                <div class="quiz-container" id="quizContainer">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                
+                <div class="result" id="result">
+                    <!-- 结果将通过JavaScript显示 -->
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2>深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试分析米氏常数K<sub>m</sub>的生物学意义，并说明如何利用K<sub>m</sub>值来判断酶的最适底物。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>K<sub>m</sub>的定义与物理意义</strong>：K<sub>m</sub>是反应速度达到最大反应速度一半时的底物浓度，从分子水平上反映了酶与底物的亲和力。K<sub>m</sub>值越小，说明酶与底物的亲和力越大，酶更容易与底物结合形成ES复合物。</li>
+                            <li><strong>生理学意义</strong>：在生理条件下，大多数酶的底物浓度接近或略高于K<sub>m</sub>值，这使得酶能够对底物浓度的变化做出敏感响应。当底物浓度增加时，反应速度会相应增加；当底物浓度降低时，反应速度也会降低，从而实现代谢调节。</li>
+                            <li><strong>最适底物的判断</strong>：对于能够催化多种底物的酶，K<sub>m</sub>值最小的底物通常被认为是该酶的最适底物。这是因为K<sub>m</sub>值小意味着酶与该底物的亲和力最大，在相同条件下能够更有效地催化该底物的转化。</li>
+                            <li><strong>进化意义</strong>：酶的K<sub>m</sub>值通过长期进化得到优化，使其与细胞内底物的生理浓度相匹配。这种匹配确保了酶在生理条件下能够高效工作，同时保持对底物浓度变化的敏感性。</li>
+                            <li><strong>临床应用</strong>：K<sub>m</sub>值的测定在药物设计和临床诊断中具有重要意义。例如，竞争性抑制剂的设计需要考虑其与天然底物的K<sub>m</sub>值关系，以确保有效的抑制效果。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较竞争性抑制和非竞争性抑制的机制、特点和生物学意义，并举例说明其在医学中的应用。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>竞争性抑制机制</strong>：竞争性抑制剂具有与天然底物相似的化学结构，能够与底物竞争酶的活性部位。抑制剂与酶结合形成EI复合物，但不能转化为产物。这种抑制是可逆的，可以通过增加底物浓度来减轻抑制效果。动力学特征为K<sub>m</sub>表观增大，V<sub>max</sub>保持不变。</li>
+                            <li><strong>非竞争性抑制机制</strong>：非竞争性抑制剂结合到酶分子的变构部位（非活性部位），改变酶的构象，降低酶的催化活性。抑制剂可以与游离酶或ES复合物结合，形成EI或EIS复合物。这种抑制不能通过增加底物浓度来克服。动力学特征为V<sub>max</sub>降低，K<sub>m</sub>保持不变。</li>
+                            <li><strong>医学应用实例</strong>：竞争性抑制的经典例子是磺胺类药物，它们的结构与对氨基苯甲酸相似，能够竞争性抑制细菌的二氢叶酸合成酶，阻断叶酸合成途径，从而抑制细菌生长。非竞争性抑制的例子包括某些重金属离子对酶的抑制作用。</li>
+                            <li><strong>生物学意义</strong>：竞争性抑制在代谢调节中起重要作用，如反馈抑制机制中，代谢终产物常作为竞争性抑制剂调节关键酶的活性。非竞争性抑制则常见于变构调节，允许细胞对多种信号分子做出响应。</li>
+                            <li><strong>药物设计意义</strong>：理解这两种抑制机制对于药物设计至关重要。竞争性抑制剂的设计需要考虑与天然底物的结构相似性和结合亲和力；非竞争性抑制剂的设计则需要识别合适的变构位点，实现特异性调节。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 详细阐述双倒数作图法的原理、优缺点，并说明如何利用该方法区分不同类型的酶抑制作用。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>双倒数作图法原理</strong>：该方法将米氏方程v = V<sub>max</sub>[S]/(K<sub>m</sub> + [S])转化为线性方程1/v = (K<sub>m</sub>/V<sub>max</sub>)(1/[S]) + 1/V<sub>max</sub>。以1/v为纵坐标，1/[S]为横坐标作图，得到一条直线。直线的斜率为K<sub>m</sub>/V<sub>max</sub>，纵轴截距为1/V<sub>max</sub>，横轴截距为-1/K<sub>m</sub>。</li>
+                            <li><strong>方法优点</strong>：能够精确测定K<sub>m</sub>和V<sub>max</sub>值；通过线性回归分析可以减少实验误差；便于比较不同条件下的酶动力学参数；能够直观地区分不同类型的抑制作用。</li>
+                            <li><strong>方法缺点</strong>：对低底物浓度的数据点给予过大权重，可能放大实验误差；需要在很宽的底物浓度范围内进行测定；对于不完全符合米氏动力学的酶系统可能产生误导性结果。</li>
+                            <li><strong>抑制类型的区分</strong>：竞争性抑制时，不同抑制剂浓度的直线相交于纵轴上同一点（1/V<sub>max</sub>不变），斜率增大；非竞争性抑制时，直线相交于横轴上同一点（-1/K<sub>m</sub>不变），纵轴截距增大；反竞争性抑制时，直线平行，斜率不变但截距都增大。</li>
+                            <li><strong>实际应用注意事项</strong>：需要选择合适的底物浓度范围，通常包括K<sub>m</sub>值附近的浓度；实验条件（pH、温度、离子强度等）必须严格控制；数据处理时应考虑实验误差的权重分布；结合其他动力学分析方法验证结果的可靠性。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析影响酶活性的各种因素，并从分子机制角度解释pH和温度对酶活性的影响。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>pH对酶活性的分子机制</strong>：pH主要通过影响酶分子中可解离基团的质子化状态来调节酶活性。酶活性部位的关键氨基酸残基（如His、Asp、Glu、Lys、Arg等）的侧链基团具有特定的pKa值。当环境pH偏离最适值时，这些基团的解离状态发生改变，影响底物结合、催化反应和产物释放。极端pH还可能破坏酶的三级和四级结构，导致不可逆失活。</li>
+                            <li><strong>温度对酶活性的双重效应</strong>：温度升高一方面增加分子运动能量，提高酶-底物碰撞频率和反应速率，符合阿伦尼乌斯方程；另一方面，过高温度会破坏维持酶空间结构的非共价键（氢键、范德华力、疏水相互作用），导致酶变性失活。最适温度是这两种相反效应平衡的结果。</li>
+                            <li><strong>底物和酶浓度的影响</strong>：在低底物浓度时，反应遵循一级动力学，速率与底物浓度成正比；在高底物浓度时，酶被饱和，反应遵循零级动力学。酶浓度在底物饱和条件下与反应速率成正比，这是酶活性测定的理论基础。</li>
+                            <li><strong>激活剂和辅因子的作用</strong>：金属离子激活剂可能参与底物结合、稳定酶构象或直接参与催化反应；辅酶和辅基是某些酶催化反应必需的非蛋白质因子，它们扩展了蛋白质的化学反应能力；变构效应剂通过结合变构位点调节酶活性。</li>
+                            <li><strong>抑制剂的作用机制</strong>：可逆抑制剂通过非共价相互作用与酶结合，包括竞争性、非竞争性和反竞争性抑制；不可逆抑制剂与酶形成共价键，导致永久失活；反馈抑制是细胞调节代谢途径的重要机制，终产物抑制途径中的关键酶。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 从酶工程和药物设计的角度，讨论如何利用酶动力学原理来改造酶的性质和开发新型药物。</h4>
+                    <div class="thinking-answer">
+                        <ol>
+                            <li><strong>酶工程中的动力学优化</strong>：通过定点突变改变活性部位氨基酸残基，可以调节酶的K<sub>m</sub>值和k<sub>cat</sub>值，提高催化效率或改变底物特异性。利用定向进化技术，可以筛选出具有更高催化活性、更好稳定性或新催化功能的酶变体。蛋白质设计软件可以预测突变对酶动力学参数的影响，指导理性设计。</li>
+                            <li><strong>药物设计中的抑制剂开发</strong>：基于酶的三维结构和催化机制，设计具有高亲和力和特异性的抑制剂。过渡态类似物通常是最有效的抑制剂，因为酶对过渡态的亲和力远高于对底物的亲和力。结构-活性关系研究帮助优化先导化合物的结构，提高药物的效力和选择性。</li>
+                            <li><strong>变构调节的应用</strong>：变构位点为药物设计提供了新的靶点，变构调节剂可以实现更精细的酶活性调控。正变构效应剂可以用于治疗酶活性不足的疾病；负变构效应剂可以用于抑制过度活跃的酶。变构调节通常具有更好的选择性和较少的副作用。</li>
+                            <li><strong>多酶系统的协同设计</strong>：在代谢工程中，需要考虑整个代谢途径中各个酶的动力学匹配，避免代谢瓶颈和中间产物积累。通过调节关键酶的表达水平和动力学参数，可以优化整个途径的通量和产物收率。系统生物学方法有助于理解复杂的酶网络相互作用。</li>
+                            <li><strong>个性化医疗的应用前景</strong>：基于个体酶基因多态性的差异，可以预测药物代谢酶的活性变化，指导个性化用药。药物基因组学研究酶动力学参数的个体差异，为精准医疗提供理论基础。新兴的酶替代疗法和基因治疗技术为治疗酶缺陷病提供了新的可能性。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库（30道题）
+        const questionBank = [
+            {
+                question: "催化反应中的底物饱和概念，指的是（）。",
+                options: ["A. 底物和酶的浓度相等", "B. 酶分子都动态的处于ES复合物的状态", "C. 底物的浓度等于米氏常数", "D. 酶促反应的溶液中底物的浓度饱和"],
+                correct: 1,
+                explanation: "底物饱和是指酶分子都动态地处于ES复合物状态，此时反应速度达到最大值V<sub>max</sub>，不再随底物浓度增加而增加。"
+            },
+            {
+                question: "当反应速度达到最大反应速度后再增加底物浓度，反应速度不再增加的原因是（）。",
+                options: ["A. 底物浓度影响酶与底物的结合", "B. 产物生成改变反应的平衡常数", "C. 部分酶活性中心被产物占据", "D. 过量底物抑制酶的催化活性", "E. 酶的活性中心已被底物饱和"],
+                correct: 4,
+                explanation: "当底物浓度足够高时，所有酶的活性中心都被底物占据，形成ES复合物，此时酶已被底物饱和，反应速度达到V<sub>max</sub>。"
+            },
+            {
+                question: "米氏常数K<sub>m</sub>是一个用来度量（）。",
+                options: ["A. 酶和底物亲和力大小的常数", "B. 酶促反应速度大小的常数", "C. 酶被底物饱和程度的常数", "D. 酶的稳定性的常数"],
+                correct: 0,
+                explanation: "米氏常数K<sub>m</sub>反映酶与底物的亲和力，K<sub>m</sub>值越小，表示酶与底物的亲和力越大。"
+            },
+            {
+                question: "米氏方程的推导中假设（）。",
+                options: ["A. V与[ES]成正比", "B. [S]约等于[E]", "C. 由于反应可逆，有些产物被转变为底物", "D. [S]≫[E]", "E. 以上都不对"],
+                correct: 3,
+                explanation: "米氏方程推导的重要假设是底物浓度远大于酶浓度（[S]≫[E]），这样底物浓度在反应过程中基本保持不变。"
+            },
+            {
+                question: "某酶今有4种底物(S)，其K<sub>m</sub>值如下，该酶的最适底物为（）。",
+                options: ["A. S1: K<sub>m</sub> = 5×10<sup>-5</sup>M", "B. S2: K<sub>m</sub> = 1×10<sup>-5</sup>M", "C. S3: K<sub>m</sub> = 10×10<sup>-5</sup>M", "D. S4: K<sub>m</sub> = 0.1×10<sup>-5</sup>M"],
+                correct: 3,
+                explanation: "K<sub>m</sub>值最小的底物是酶的最适底物，因为K<sub>m</sub>值越小，酶与底物的亲和力越大。S4的K<sub>m</sub>值最小。"
+            },
+            {
+                question: "如果要求酶促反应V = V<sub>max</sub> × 90%，则[S]应为K<sub>m</sub>的倍数是（）。",
+                options: ["A. 4.5", "B. 9", "C. 8", "D. 5", "E. 90"],
+                correct: 1,
+                explanation: "根据米氏方程，当v = 0.9V<sub>max</sub>时，0.9 = [S]/(K<sub>m</sub> + [S])，解得[S] = 9K<sub>m</sub>。"
+            },
+            {
+                question: "关于米氏常数K<sub>m</sub>的说法，哪个是正确的（）。",
+                options: ["A. 饱和底物浓度时的速度", "B. 在一定酶浓度下，最大速度的一半", "C. 饱和底物浓度的一半", "D. 速度达最大速度半数时的底物浓度", "E. 降低一半速度时的抑制剂浓度"],
+                correct: 3,
+                explanation: "米氏常数K<sub>m</sub>的定义是反应速度达到最大速度一半时的底物浓度。"
+            },
+            {
+                question: "某一符合米氏方程的酶，当[S] = 2K<sub>m</sub>时，其反应速度V等于（）。",
+                options: ["A. V<sub>max</sub>", "B. 2/3 V<sub>max</sub>", "C. 3/2 V<sub>max</sub>", "D. 2V<sub>max</sub>", "E. 1/2 V<sub>max</sub>"],
+                correct: 1,
+                explanation: "根据米氏方程，当[S] = 2K<sub>m</sub>时，v = V<sub>max</sub> × 2K<sub>m</sub>/(K<sub>m</sub> + 2K<sub>m</sub>) = 2/3 V<sub>max</sub>。"
+            },
+            {
+                question: "存在（）抑制剂时，酶促反应速度达到最大反应速度一半时的底物浓度不变。",
+                options: ["A. 不可逆", "B. 竞争性", "C. 反竞争性", "D. 非竞争性"],
+                correct: 3,
+                explanation: "非竞争性抑制时，K<sub>m</sub>值不变，因此反应速度达到V<sub>max</sub>/2时的底物浓度仍为K<sub>m</sub>。"
+            },
+            {
+                question: "竞争性抑制剂的特点是（）。",
+                options: ["A. 与底物结构无关", "B. 与底物竞争酶的活性中心", "C. 与酶的变构部位结合", "D. 不能被底物逆转"],
+                correct: 1,
+                explanation: "竞争性抑制剂与底物竞争酶的活性中心，通常具有与底物相似的结构，可以被高浓度底物逆转。"
+            },
+            {
+                question: "双倒数作图法中，纵轴截距代表（）。",
+                options: ["A. K<sub>m</sub>", "B. V<sub>max</sub>", "C. 1/K<sub>m</sub>", "D. 1/V<sub>max</sub>"],
+                correct: 3,
+                explanation: "在双倒数作图法中，纵轴截距为1/V<sub>max</sub>，横轴截距为-1/K<sub>m</sub>，斜率为K<sub>m</sub>/V<sub>max</sub>。"
+            },
+            {
+                question: "酶促反应的最适温度是指（）。",
+                options: ["A. 酶最稳定的温度", "B. 酶活性最高的温度", "C. 酶不变性的最高温度", "D. 反应平衡常数最大的温度"],
+                correct: 1,
+                explanation: "最适温度是酶活性最高的温度，是温度对反应速率的促进作用和对酶稳定性的破坏作用平衡的结果。"
+            },
+            {
+                question: "关于酶活性测定，下列说法正确的是（）。",
+                options: ["A. 酶活性与酶浓度无关", "B. 在底物饱和条件下，酶活性与酶浓度成正比", "C. 酶活性只与底物浓度有关", "D. 酶活性不受pH影响"],
+                correct: 1,
+                explanation: "在底物饱和条件下，反应速度与酶浓度成正比，这是酶活性测定的理论基础。"
+            },
+            {
+                question: "转换数k<sub>cat</sub>的含义是（）。",
+                options: ["A. 酶与底物的亲和力", "B. 每个酶分子单位时间内转化的底物分子数", "C. 酶的稳定性常数", "D. 酶的抑制常数"],
+                correct: 1,
+                explanation: "转换数k<sub>cat</sub>表示每个酶分子在单位时间内转化的底物分子数，是衡量酶催化效率的重要参数。"
+            },
+            {
+                question: "催化效率k<sub>cat</sub>/K<sub>m</sub>的理论上限约为（）。",
+                options: ["A. 10<sup>6</sup> M<sup>-1</sup>s<sup>-1</sup>", "B. 10<sup>8</sup>-10<sup>9</sup> M<sup>-1</sup>s<sup>-1</sup>", "C. 10<sup>12</sup> M<sup>-1</sup>s<sup>-1</sup>", "D. 无上限"],
+                correct: 1,
+                explanation: "催化效率k<sub>cat</sub>/K<sub>m</sub>的理论上限约为10<sup>8</sup>-10<sup>9</sup> M<sup>-1</sup>s<sup>-1</sup>，受扩散限制。"
+            },
+            {
+                question: "反竞争性抑制的特点是（）。",
+                options: ["A. K<sub>m</sub>增大，V<sub>max</sub>不变", "B. K<sub>m</sub>不变，V<sub>max</sub>减小", "C. K<sub>m</sub>和V<sub>max</sub>都减小", "D. K<sub>m</sub>和V<sub>max</sub>都增大"],
+                correct: 2,
+                explanation: "反竞争性抑制时，抑制剂只与ES复合物结合，导致K<sub>m</sub>和V<sub>max</sub>都减小，但V<sub>max</sub>/K<sub>m</sub>不变。"
+            },
+            {
+                question: "酶的最适pH主要取决于（）。",
+                options: ["A. 酶的分子量", "B. 底物的性质", "C. 酶活性部位必需基团的解离状态", "D. 反应温度"],
+                correct: 2,
+                explanation: "酶的最适pH主要取决于酶活性部位必需基团的解离状态，不同的解离状态影响酶的催化活性。"
+            },
+            {
+                question: "在米氏方程中，当[S] = K<sub>m</sub>时，反应速度v等于（）。",
+                options: ["A. V<sub>max</sub>", "B. V<sub>max</sub>/2", "C. 2V<sub>max</sub>", "D. V<sub>max</sub>/4"],
+                correct: 1,
+                explanation: "这是米氏常数的定义，当底物浓度等于K<sub>m</sub>时，反应速度等于最大反应速度的一半。"
+            },
+            {
+                question: "过渡态类似物作为酶抑制剂的特点是（）。",
+                options: ["A. 与酶的亲和力很低", "B. 与酶的亲和力很高", "C. 只能进行可逆抑制", "D. 不影响酶活性"],
+                correct: 1,
+                explanation: "过渡态类似物与酶有很高的亲和力，因为酶对过渡态的亲和力远高于对底物的亲和力。"
+            },
+            {
+                question: "多底物反应中，乒乓机制的特点是（）。",
+                options: ["A. 所有底物同时结合酶", "B. 底物按特定顺序结合", "C. 产物分步释放", "D. 底物随机结合"],
+                correct: 2,
+                explanation: "乒乓机制的特点是产物分步释放，第一个产物释放后，第二个底物才结合酶。"
+            },
+            {
+                question: "酶饱和现象说明（）。",
+                options: ["A. 底物浓度过高", "B. 酶的活性中心数量有限", "C. 反应已达平衡", "D. 酶已失活"],
+                correct: 1,
+                explanation: "酶饱和现象说明酶的活性中心数量有限，当所有活性中心都被底物占据时，反应速度不再增加。"
+            },
+            {
+                question: "不可逆抑制剂的作用机制是（）。",
+                options: ["A. 与酶形成氢键", "B. 与酶形成共价键", "C. 改变溶液pH", "D. 竞争底物结合位点"],
+                correct: 1,
+                explanation: "不可逆抑制剂与酶形成共价键，导致酶永久失活，不能通过稀释或透析去除。"
+            },
+            {
+                question: "酶动力学研究中，初速度的概念是指（）。",
+                options: ["A. 反应开始时的瞬时速度", "B. 产物浓度很低时的反应速度", "C. 底物浓度最高时的速度", "D. 酶浓度最低时的速度"],
+                correct: 1,
+                explanation: "初速度是指产物浓度很低、逆反应可忽略时的反应速度，通常在反应开始的几分钟内测定。"
+            },
+            {
+                question: "变构酶的动力学特征是（）。",
+                options: ["A. 遵循米氏方程", "B. 呈现S型曲线", "C. 只有一个活性部位", "D. 不受调节剂影响"],
+                correct: 1,
+                explanation: "变构酶的v-[S]曲线呈现S型（sigmoid），不遵循简单的米氏方程，具有协同效应。"
+            },
+            {
+                question: "酶活性单位的定义是（）。",
+                options: ["A. 每毫克酶蛋白的活性", "B. 在标准条件下每分钟转化1μmol底物的酶量", "C. 酶的分子活性", "D. 酶的比活性"],
+                correct: 1,
+                explanation: "酶活性单位（U）定义为在标准条件下每分钟转化1μmol底物所需的酶量。"
+            },
+            {
+                question: "关于酶的比活性，正确的说法是（）。",
+                options: ["A. 每单位体积的酶活性", "B. 每单位重量蛋白质的酶活性", "C. 酶的总活性", "D. 酶的分子活性"],
+                correct: 1,
+                explanation: "比活性是指每单位重量蛋白质的酶活性，常用U/mg表示，是酶纯度的指标。"
+            },
+            {
+                question: "酶促反应中，产物抑制属于（）。",
+                options: ["A. 竞争性抑制", "B. 非竞争性抑制", "C. 反竞争性抑制", "D. 反馈抑制"],
+                correct: 2,
+                explanation: "产物抑制通常属于反竞争性抑制，因为产物与ES复合物结合，阻止产物释放。"
+            },
+            {
+                question: "双底物反应的有序机制中（）。",
+                options: ["A. 两个底物随机结合", "B. 底物按特定顺序结合和离解", "C. 只有一个底物参与反应", "D. 产物同时释放"],
+                correct: 1,
+                explanation: "有序机制中，底物必须按特定顺序结合酶，产物也按特定顺序释放，不能随机进行。"
+            },
+            {
+                question: "酶的催化效率主要体现在（）。",
+                options: ["A. 降低反应的活化能", "B. 改变反应的平衡常数", "C. 增加反应物浓度", "D. 改变反应的焓变"],
+                correct: 0,
+                explanation: "酶通过降低反应的活化能来提高催化效率，但不改变反应的平衡常数和总的能量变化。"
+            },
+            {
+                question: "在酶动力学实验中，为什么要测定初速度？",
+                options: ["A. 初速度最容易测定", "B. 避免产物抑制和逆反应的影响", "C. 初速度最准确", "D. 节省实验时间"],
+                correct: 1,
+                explanation: "测定初速度是为了避免产物积累导致的产物抑制和逆反应，确保反应条件的一致性。"
+            },
+            {
+                question: "酶的国际分类主要依据（）。",
+                options: ["A. 酶的来源", "B. 酶的结构", "C. 酶催化的反应类型", "D. 酶的分子量"],
+                correct: 2,
+                explanation: "酶的国际分类主要依据酶催化的反应类型，分为氧化还原酶、转移酶、水解酶、裂解酶、异构酶和连接酶六大类。"
+            }
+        ];
+
+        // 存储随机选择的15道题
+        let selectedQuestions = [];
+        // 存储用户答案
+        let userAnswers = [];
+
+        // 页面加载时随机选择15道题
+        window.onload = function() {
+            selectRandomQuestions();
+            renderQuestions();
+        };
+
+        // 随机选择15道题
+        function selectRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 15);
+            userAnswers = new Array(15).fill(-1); // 初始化用户答案数组
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                let optionsHtml = '';
+                q.options.forEach((option, optIndex) => {
+                    optionsHtml += `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}" onchange="saveAnswer(${index}, ${optIndex})">
+                            ${option}
+                        </label>
+                    `;
+                });
+                
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    <div class="options">${optionsHtml}</div>
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 保存用户答案
+        function saveAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        // 提交答案并显示结果
+        function submitQuiz() {
+            let correctCount = 0;
+            let resultHtml = '<h3>测试结果</h3>';
+            
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                if (isCorrect) correctCount++;
+                
+                resultHtml += `
+                    <div class="answer-feedback ${isCorrect ? '' : 'wrong'}">
+                        <strong>第${index + 1}题：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}<br>
+                        <strong>正确答案：</strong>${q.options[q.correct]}<br>
+                        ${userAnswer !== -1 ? `<strong>您的答案：</strong>${q.options[userAnswer]}<br>` : '<strong>您未作答</strong><br>'}
+                        <strong>解析：</strong>${q.explanation}
+                    </div>
+                `;
+            });
+            
+            const accuracy = (correctCount / 15 * 100).toFixed(1);
+            resultHtml = `<h3>测试结果：${correctCount}/15 (${accuracy}%)</h3>` + resultHtml;
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = resultHtml;
+            resultDiv.classList.add('show');
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基因组学及蛋白质组学 - 考研复习笔记</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .section h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* 强调文本 */
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #ffffff;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .term-definition {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #bdc3c7;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            margin: 8px 0;
+            padding: 10px 15px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        /* 结果显示 */
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .result.correct {
+            background: #d5f4e6;
+            border: 1px solid #27ae60;
+            color: #27ae60;
+        }
+
+        .result.incorrect {
+            background: #fadbd8;
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+        }
+
+        .feedback {
+            margin-top: 30px;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #bdc3c7;
+        }
+
+        .feedback-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .feedback-correct {
+            background: #d5f4e6;
+            border-left: 4px solid #27ae60;
+        }
+
+        .feedback-incorrect {
+            background: #fadbd8;
+            border-left: 4px solid #e74c3c;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #ffffff;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .thinking-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* 统计信息样式 */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>基因组学及蛋白质组学</h1>
+            <p>考研生物化学复习笔记 - 第36章</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、基因组学概述</h2>
+                
+                <h3>1.1 基因组学的基本概念</h3>
+                <p><span class="highlight">基因组学（Genomics）</span>是研究生物体全部遗传信息的学科，包括基因组的结构、功能、进化和相互作用。基因组是指<span class="important">一个生物体的一个特定细胞内所有基因分子的总量</span>。</p>
+                
+                <h4>基因组分析的主要内容：</h4>
+                <ul>
+                    <li><strong>遗传图（Genetic Map）：</strong>基于基因间重组频率绘制的基因位置图</li>
+                    <li><strong>物理图（Physical Map）：</strong>基于DNA分子实际距离的基因位置图</li>
+                    <li><strong>转录图（Transcription Map）：</strong>显示基因转录模式的图谱</li>
+                    <li><strong>基因组测序：</strong>确定基因组中所有核苷酸的排列顺序</li>
+                    <li><strong>序列信息的储存与利用：</strong>生物信息学数据库的建立和应用</li>
+                </ul>
+
+                <h3>1.2 人类基因组计划</h3>
+                <p>人类基因组计划是20世纪末21世纪初最重要的生物学项目之一。该计划的主要成果包括：</p>
+                <ul>
+                    <li>人类基因组包含约<span class="highlight">30亿个碱基对</span></li>
+                    <li>编码蛋白质的基因约<span class="highlight">2-3万个</span></li>
+                    <li>发现了大量的<span class="important">非编码序列</span>，占基因组的98%以上</li>
+                    <li>为疾病诊断、药物开发和个性化医疗奠定了基础</li>
+                </ul>
+
+                <h3>1.3 基因组的组成</h3>
+                <h4>（1）编码序列</h4>
+                <p>编码蛋白质的DNA序列，包括外显子和调控元件。在真核生物中，编码序列仅占基因组的很小比例。</p>
+
+                <h4>（2）重复序列</h4>
+                <p>包括<span class="highlight">转座子</span>和其他重复元件。转座子是基因组中可移动的DNA序列，主要分为：</p>
+                <ul>
+                    <li><strong>DNA转座子：</strong>通过DNA中间体进行转座</li>
+                    <li><strong>反转录转座子：</strong>通过RNA中间体进行转座</li>
+                </ul>
+
+                <h4>（3）转录不翻译的非编码序列</h4>
+                <ul>
+                    <li><strong>内含子（Intron）：</strong>与外显子间隔分布，参与基因表达调控</li>
+                    <li><strong>非翻译区（UTR）：</strong>5'UTR和3'UTR，调控mRNA的翻译和稳定性</li>
+                    <li><strong>非编码RNA：</strong>包括miRNA、siRNA、lncRNA等调控RNA</li>
+                </ul>
+
+                <h4>（4）假基因</h4>
+                <p><span class="highlight">假基因</span>与真基因序列相似但不能产生功能性蛋白质。研究发现假基因具有保护真基因的作用，是一种新的基因调节机制。</p>
+            </div>
+
+            <div class="section">
+                <h2>二、功能基因组学</h2>
+                
+                <h3>2.1 功能基因组学的概念</h3>
+                <p><span class="highlight">功能基因组学</span>是在基因组结构研究基础上，研究基因功能、基因表达调控及基因间相互作用的学科。</p>
+
+                <h3>2.2 功能基因组学研究技术</h3>
+                <ul>
+                    <li><strong>RACE技术：</strong>快速扩增cDNA末端技术</li>
+                    <li><strong>RNAi技术：</strong>RNA干扰技术，用于基因功能研究</li>
+                    <li><strong>酵母双杂交技术：</strong>研究蛋白质-蛋白质相互作用</li>
+                    <li><strong>DNA定点突变技术：</strong>研究特定基因位点的功能</li>
+                    <li><strong>基因芯片技术：</strong>大规模基因表达分析</li>
+                    <li><strong>SAGE技术：</strong>基因表达序列分析</li>
+                </ul>
+
+                <h3>2.3 遗传标记技术</h3>
+                <p>在绘制基因组遗传图时，常用的遗传标记包括：</p>
+                <ul>
+                    <li><strong>RFLP技术：</strong>限制性片段长度多态性</li>
+                    <li><strong>STR技术：</strong>短串联重复序列</li>
+                    <li><strong>SNP技术：</strong>单核苷酸多态性</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>三、蛋白质组学</h2>
+                
+                <h3>3.1 蛋白质组学的基本概念</h3>
+                <p><span class="highlight">蛋白质组学（Proteomics）</span>是以蛋白质组为研究对象，研究细胞、组织或生物体蛋白质组成及其变化规律的科学。蛋白质组是指<span class="important">一个基因组内所有基因表达的全部蛋白质</span>。</p>
+
+                <h3>3.2 蛋白质组学的研究内容</h3>
+                <ul>
+                    <li><strong>蛋白质表达水平：</strong>不同条件下蛋白质的表达量变化</li>
+                    <li><strong>翻译后修饰：</strong>磷酸化、糖基化、乙酰化等修饰</li>
+                    <li><strong>蛋白质相互作用：</strong>蛋白质-蛋白质、蛋白质-DNA相互作用</li>
+                    <li><strong>蛋白质定位：</strong>亚细胞定位和组织特异性表达</li>
+                    <li><strong>蛋白质结构：</strong>三维结构和构象变化</li>
+                </ul>
+
+                <h3>3.3 蛋白质组学技术</h3>
+                <h4>（1）蛋白质分离技术</h4>
+                <ul>
+                    <li><strong>二维凝胶电泳：</strong>基于等电点和分子量分离蛋白质</li>
+                    <li><strong>凝胶过滤层析：</strong>根据分子大小分离蛋白质</li>
+                    <li><strong>离子交换层析：</strong>基于电荷差异分离蛋白质</li>
+                    <li><strong>亲和层析：</strong>基于特异性结合分离蛋白质</li>
+                </ul>
+
+                <h4>（2）蛋白质鉴定技术</h4>
+                <ul>
+                    <li><strong>质谱技术：</strong>蛋白质质量和序列分析</li>
+                    <li><strong>N端测序：</strong>Edman降解法测定氨基酸序列</li>
+                    <li><strong>肽指纹图谱：</strong>胰蛋白酶消化后的肽段分析</li>
+                </ul>
+
+                <h4>（3）蛋白质结构研究技术</h4>
+                <ul>
+                    <li><strong>X射线晶体学：</strong>测定蛋白质三维结构的最佳方法</li>
+                    <li><strong>核磁共振（NMR）：</strong>溶液中蛋白质结构分析</li>
+                    <li><strong>冷冻电镜：</strong>大分子复合物结构研究</li>
+                </ul>
+
+                <h3>3.4 蛋白质组学与基因组学的差异</h3>
+                <p>蛋白质组分析比基因组分析更加复杂和困难，主要原因包括：</p>
+                <ul>
+                    <li><strong>多样性：</strong>蛋白质组具有时空特异性，同一基因组在不同条件下表达不同的蛋白质组</li>
+                    <li><strong>动态性：</strong>蛋白质表达水平随环境和发育阶段变化</li>
+                    <li><strong>复杂性：</strong>存在翻译后修饰、蛋白质剪接等现象</li>
+                    <li><strong>技术限制：</strong>蛋白质分析技术相对滞后</li>
+                    <li><strong>相关性问题：</strong>mRNA水平与蛋白质水平相关性较差</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、生物信息学</h2>
+                
+                <h3>4.1 生物信息学概述</h3>
+                <p><span class="highlight">生物信息学</span>是运用数学、计算机科学和统计学方法研究生物学问题的交叉学科，主要处理基因组、蛋白质组等大规模生物数据。</p>
+
+                <h3>4.2 主要研究内容</h3>
+                <ul>
+                    <li><strong>序列分析：</strong>DNA、RNA、蛋白质序列的比对和注释</li>
+                    <li><strong>结构预测：</strong>蛋白质二级和三级结构预测</li>
+                    <li><strong>功能预测：</strong>基于序列和结构预测蛋白质功能</li>
+                    <li><strong>进化分析：</strong>系统发育树构建和进化关系分析</li>
+                    <li><strong>数据库建设：</strong>生物学数据的存储、管理和检索</li>
+                </ul>
+
+                <h3>4.3 重要的生物信息学数据库</h3>
+                <ul>
+                    <li><strong>GenBank：</strong>核酸序列数据库</li>
+                    <li><strong>UniProt：</strong>蛋白质序列和功能数据库</li>
+                    <li><strong>PDB：</strong>蛋白质结构数据库</li>
+                    <li><strong>KEGG：</strong>基因和基因组百科全书</li>
+                    <li><strong>GO：</strong>基因本体数据库</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2>五、名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">基因组学</div>
+                    <div class="term-english">Genomics</div>
+                    <div class="term-definition">研究生物体全部遗传信息的学科，包括基因组的结构、功能、进化和相互作用的综合性研究。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">蛋白质组学</div>
+                    <div class="term-english">Proteomics</div>
+                    <div class="term-definition">以蛋白质组为研究对象，在大规模水平上研究蛋白质的表达、修饰、相互作用等特征的学科。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">功能基因组学</div>
+                    <div class="term-english">Functional Genomics</div>
+                    <div class="term-definition">在基因组结构研究基础上，研究基因功能、表达调控及基因间相互作用的学科分支。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转座子</div>
+                    <div class="term-english">Transposon</div>
+                    <div class="term-definition">基因组中可移动的DNA序列，分为DNA转座子和反转录转座子两类，参与基因组重排和基因表达调控。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">非编码RNA</div>
+                    <div class="term-english">Non-coding RNA, ncRNA</div>
+                    <div class="term-definition">不翻译成蛋白质的RNA分子，包括miRNA、siRNA、lncRNA等，参与基因表达调控。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">限制性片段长度多态性</div>
+                    <div class="term-english">Restriction Fragment Length Polymorphism, RFLP</div>
+                    <div class="term-definition">由于限制酶切位点的碱基改变导致的DNA片段长度差异，常用作遗传标记。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">单核苷酸多态性</div>
+                    <div class="term-english">Single Nucleotide Polymorphism, SNP</div>
+                    <div class="term-definition">基因组中单个核苷酸的变异，是最常见的遗传变异形式，广泛用于遗传学研究。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">二维凝胶电泳</div>
+                    <div class="term-english">Two-dimensional Gel Electrophoresis, 2D-PAGE</div>
+                    <div class="term-definition">先按等电点分离，再按分子量分离的蛋白质分析技术，可同时分离数千种蛋白质。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">酵母双杂交</div>
+                    <div class="term-english">Yeast Two-hybrid System</div>
+                    <div class="term-definition">利用转录因子的DNA结合域和激活域分离的特点，检测蛋白质-蛋白质相互作用的技术。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">免疫共沉淀</div>
+                    <div class="term-english">Co-immunoprecipitation, CoIP</div>
+                    <div class="term-definition">利用抗原-抗体特异性结合原理，检测蛋白质相互作用的经典方法。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">生物信息学</div>
+                    <div class="term-english">Bioinformatics</div>
+                    <div class="term-definition">运用数学、计算机科学和统计学方法研究生物学问题的交叉学科。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">基因芯片</div>
+                    <div class="term-english">Gene Chip, Microarray</div>
+                    <div class="term-definition">在固体表面固定大量DNA探针，用于大规模基因表达分析的技术。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">表观遗传学</div>
+                    <div class="term-english">Epigenetics</div>
+                    <div class="term-definition">研究不改变DNA序列但影响基因表达的遗传现象，如DNA甲基化、组蛋白修饰等。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">假基因</div>
+                    <div class="term-english">Pseudogene</div>
+                    <div class="term-definition">与功能基因序列相似但不能产生功能性蛋白质的DNA序列，具有保护真基因的作用。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">高通量测序</div>
+                    <div class="term-english">High-throughput Sequencing</div>
+                    <div class="term-definition">能够同时对大量DNA分子进行测序的技术，如Illumina测序、边合成边测序等。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>六、选择题测试</h2>
+                <p>以下是从题库中随机抽取的15道选择题，请选择最佳答案：</p>
+                
+                <div id="quiz-container" class="quiz-container">
+                    <!-- 题目将通过JavaScript动态生成 -->
+                </div>
+                
+                <button class="btn" onclick="submitQuiz()">提交答案</button>
+                <button class="btn" onclick="resetQuiz()">重新开始</button>
+                
+                <div id="quiz-result" class="result" style="display: none;"></div>
+                <div id="quiz-feedback" class="feedback" style="display: none;"></div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>七、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 为什么说蛋白质组学研究比基因组学研究更加复杂和困难？请从多个角度详细分析。</h4>
+                    <div class="answer">
+                        <strong>答案：</strong>
+                        <ol>
+                            <li><strong>多样性和动态性：</strong>基因组作为遗传信息载体具有稳定性，而蛋白质组具有时空特异性。不同类型细胞或同一细胞在不同状态下表达的蛋白质组差异很大，这种多样性使得蛋白质组研究需要针对特定条件进行分析。</li>
+                            <li><strong>基因与蛋白质的非线性关系：</strong>一个基因可以通过可变剪接产生多种蛋白质异构体，而且存在假基因、mRNA编辑、蛋白质剪接等现象，使得基因数目与蛋白质种类不存在一一对应关系。</li>
+                            <li><strong>翻译后修饰的复杂性：</strong>蛋白质存在磷酸化、糖基化、乙酰化等多种翻译后修饰，这些修饰极大地增加了蛋白质的多样性和功能复杂性，而这些信息无法从基因组序列中直接获得。</li>
+                            <li><strong>技术方法的限制：</strong>蛋白质分析技术相对于核酸技术更加复杂，蛋白质的理化性质差异很大，难以建立统一的分析方法。二维电泳、质谱等技术虽然强大，但仍存在检测范围和灵敏度的限制。</li>
+                            <li><strong>mRNA与蛋白质水平的相关性问题：</strong>转录水平、翻译水平和翻译后水平的多重调控使得mRNA丰度与蛋白质丰度的相关性较差，特别是对于低丰度蛋白质，这种相关性更差。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 试述功能基因组学的主要研究内容和技术方法，并分析其在现代生物学研究中的重要意义。</h4>
+                    <div class="answer">
+                        <strong>答案：</strong>
+                        <ol>
+                            <li><strong>主要研究内容：</strong>功能基因组学主要研究基因的功能、表达调控模式、基因间相互作用网络以及基因与环境的相互作用。包括基因表达谱分析、基因功能注释、调控网络构建等。</li>
+                            <li><strong>核心技术方法：</strong>包括基因芯片技术用于大规模表达分析、RNAi技术用于基因功能研究、酵母双杂交技术研究蛋白质相互作用、RACE技术扩增cDNA末端、DNA定点突变技术研究特定位点功能等。</li>
+                            <li><strong>生物信息学工具：</strong>利用计算机技术进行序列分析、功能预测、通路分析等，如GO功能注释、KEGG通路分析、蛋白质结构预测等。</li>
+                            <li><strong>重要意义：</strong>功能基因组学将静态的基因组信息转化为动态的功能信息，为理解生命过程的分子机制提供了重要手段。在疾病研究、药物开发、农业育种等领域具有重要应用价值。</li>
+                            <li><strong>发展前景：</strong>随着单细胞测序、空间转录组学等新技术的发展，功能基因组学正向更高分辨率、更精确的方向发展，将为精准医学和系统生物学提供更强大的技术支撑。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 分析转座子在基因组进化和基因表达调控中的作用机制，并讨论其生物学意义。</h4>
+                    <div class="answer">
+                        <strong>答案：</strong>
+                        <ol>
+                            <li><strong>转座子的分类和特征：</strong>转座子分为DNA转座子和反转录转座子两大类。DNA转座子通过DNA中间体转座，而反转录转座子通过RNA中间体转座。它们是基因组中可移动的遗传元件。</li>
+                            <li><strong>基因组进化的推动力：</strong>转座子活动导致基因组重排、染色体断裂和非常规重组，是基因组进化的重要驱动力。通过插入、缺失、重组等方式改变基因组结构，产生新的基因排列和调控模式。</li>
+                            <li><strong>基因表达调控机制：</strong>转座子插入可以改变基因的表达模式，提供新的启动子、增强子或终止子元件。转座子序列中的调控元件可以影响邻近基因的表达水平和时空特异性。</li>
+                            <li><strong>染色体结构的维持：</strong>转座子参与着丝粒、端粒和异染色质区等染色体基本结构的形成和维持，对染色体稳定性具有重要作用。</li>
+                            <li><strong>生物学意义：</strong>转座子虽然常被视为"自私基因"，但实际上为宿主基因组提供了进化的原材料和调控的多样性。在适应性进化、物种分化和基因功能创新中发挥重要作用。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 比较分析基因组学、转录组学、蛋白质组学和代谢组学的研究特点，并阐述多组学整合研究的优势和挑战。</h4>
+                    <div class="answer">
+                        <strong>答案：</strong>
+                        <ol>
+                            <li><strong>各组学特点比较：</strong>基因组学研究相对稳定的遗传信息，转录组学研究动态的基因表达模式，蛋白质组学研究功能执行者的表达和修饰，代谢组学研究最终的生化表型。从上游到下游，动态性和复杂性逐渐增加。</li>
+                            <li><strong>技术平台差异：</strong>基因组学主要依赖测序技术，转录组学使用RNA-seq等技术，蛋白质组学采用质谱和分离技术，代谢组学使用色谱-质谱联用技术。每种组学都有其特定的技术要求和局限性。</li>
+                            <li><strong>多组学整合的优势：</strong>能够提供从基因型到表型的完整信息链，揭示生物系统的整体调控网络，提高生物标志物发现的可靠性，为系统生物学和精准医学提供全面的分子基础。</li>
+                            <li><strong>面临的挑战：</strong>数据标准化和整合困难，不同组学数据的时空尺度不匹配，计算方法和统计模型复杂，需要跨学科的专业知识，成本高昂且技术要求严格。</li>
+                            <li><strong>发展趋势：</strong>随着技术进步和成本降低，多组学研究将成为生命科学研究的主流方向，人工智能和机器学习将在数据整合和模式识别中发挥重要作用。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "人类基因组分析的主要内容不包括（）。",
+                options: ["A. 遗传图", "B. 转录图", "C. 物理图", "D. 蛋白质结构图"],
+                correct: 3,
+                explanation: "人类基因组分析主要包括遗传图、物理图、转录图、基因组测序和序列信息的储存与利用，不包括蛋白质结构图。蛋白质结构图属于蛋白质组学研究范畴。"
+            },
+            {
+                question: "下面可以用于功能基因组研究的技术是（）。",
+                options: ["A. RACE技术", "B. RNAi技术", "C. 酵母双杂交技术", "D. 以上都是"],
+                correct: 3,
+                explanation: "RACE技术用于扩增cDNA末端，RNAi技术用于基因功能研究，酵母双杂交技术用于研究蛋白质相互作用，这些都是功能基因组学的重要研究技术。"
+            },
+            {
+                question: "在绘制基因组遗传图时，可以作为遗传标记的DNA技术包括（）。",
+                options: ["A. RFLP技术", "B. STR技术", "C. SNP技术", "D. 以上都是"],
+                correct: 3,
+                explanation: "RFLP（限制性片段长度多态性）、STR（短串联重复序列）和SNP（单核苷酸多态性）都是常用的遗传标记技术，用于绘制基因组遗传图。"
+            },
+            {
+                question: "基因组是指（）。",
+                options: ["A. 一个生物体内所有基因分子总量", "B. 一个二倍体细胞中的染色体数", "C. 遗传单位", "D. 生物体的一个特定细胞内所有基因的分子的总量"],
+                correct: 3,
+                explanation: "基因组是指生物体的一个特定细胞内所有基因分子的总量，包括核基因组和细胞器基因组。"
+            },
+            {
+                question: "以下哪个编码真核生物蛋白质的核苷酸序列能直接在大肠杆菌中表达（）。",
+                options: ["A. mRNA", "B. cDNA", "C. 基因组基因", "D. 病毒基因"],
+                correct: 1,
+                explanation: "cDNA是去除内含子的编码序列，可以直接在原核生物中表达。而基因组基因含有内含子，mRNA不稳定，病毒基因不一定编码真核蛋白质。"
+            },
+            {
+                question: "限制性长度多态性（RFLP）是由于（）所致。",
+                options: ["A. 碱基改变发生在内含子", "B. 碱基改变发生在外显子", "C. 碱基改变发生在增强子", "D. 碱基改变发生在酶切位点上"],
+                correct: 3,
+                explanation: "RFLP是由于限制酶切位点的碱基改变导致的DNA片段长度差异，因此是碱基改变发生在酶切位点上所致。"
+            },
+            {
+                question: "下列事件中，不属于表观遗传调控的是（）。",
+                options: ["A. DNA甲基化", "B. 组蛋白乙酰化", "C. mRNA加尾", "D. RNA干扰"],
+                correct: 2,
+                explanation: "mRNA加尾是转录后加工过程，不属于表观遗传调控。DNA甲基化、组蛋白乙酰化和RNA干扰都是表观遗传调控机制。"
+            },
+            {
+                question: "生物质谱所用的内肽酶是（）。",
+                options: ["A. CPA", "B. CPB", "C. CPY", "D. Trypsin"],
+                correct: 3,
+                explanation: "胰蛋白酶（Trypsin）是生物质谱分析中最常用的内肽酶，能够特异性切割赖氨酸和精氨酸残基的羧基端。"
+            },
+            {
+                question: "测定小肽氨基酸序列的最好方法是（）。",
+                options: ["A. 2,4-二硝基氟苯法（FDNB法）", "B. 二甲胺基萘磺酰氯法（DNS-Cl法）", "C. 苯异硫氰酸法（PITC法）", "D. 氨肽酶法"],
+                correct: 2,
+                explanation: "苯异硫氰酸法（PITC法）即Edman降解法，是测定小肽氨基酸序列的最佳方法，能够逐个从N端去除氨基酸残基。"
+            },
+            {
+                question: "一项使用X-射线晶体学或NMR测定大量蛋白质结构的计划属于（）新型学科。",
+                options: ["A. 基因组学", "B. 蛋白质组学", "C. 糖组学", "D. 代谢组学"],
+                correct: 1,
+                explanation: "大规模蛋白质结构测定属于结构蛋白质组学的范畴，是蛋白质组学的重要分支。"
+            },
+            {
+                question: "下面选项中，哪些是预测蛋白质功能的方法（）。",
+                options: ["A. 找到结构同源蛋白", "B. 研究蛋白质相互作用", "C. 确定蛋白质等电点", "D. A和B都是"],
+                correct: 3,
+                explanation: "结构同源蛋白分析和蛋白质相互作用研究都是预测蛋白质功能的有效方法。等电点只是蛋白质的理化性质，不能直接预测功能。"
+            },
+            {
+                question: "作为高通量蛋白质分析的一种手段，二维凝胶电泳的主要优势在于（）。",
+                options: ["A. 样品准备和电泳过程连续自动化", "B. 包含数千种蛋白质的等电点和分子大小信息", "C. 适合检测低含量蛋白质", "D. 适合分析疏水蛋白质"],
+                correct: 1,
+                explanation: "二维凝胶电泳的主要优势是能够同时提供蛋白质的等电点和分子量信息，可以分离数千种蛋白质。但它不适合检测低含量和疏水蛋白质。"
+            },
+            {
+                question: "蛋白质芯片技术基本上是基于（）方法中的原理。",
+                options: ["A. Northern blotting", "B. Western blotting", "C. Southern blotting", "D. Eastern blotting"],
+                correct: 1,
+                explanation: "蛋白质芯片技术基于抗原-抗体特异性结合原理，这与Western blotting的基本原理相同。"
+            },
+            {
+                question: "引起疯牛病（牛海绵脑病）的病原体是（）。",
+                options: ["A. 一种DNA", "B. 一种RNA", "C. 一种蛋白质", "D. 一种多糖"],
+                correct: 2,
+                explanation: "疯牛病的病原体是朊病毒（prion），是一种感染性蛋白质，不含核酸成分。"
+            },
+            {
+                question: "根据分子大小分离蛋白质混合物的方法是（）。",
+                options: ["A. 凝胶过滤", "B. 亲和层析", "C. 离子交换层析", "D. 盐析"],
+                correct: 0,
+                explanation: "凝胶过滤层析（也称分子筛层析）是根据分子大小分离蛋白质的方法，大分子先洗脱，小分子后洗脱。"
+            },
+            {
+                question: "研究蛋白质的空间结构时，用下列哪一种方法最好（）。",
+                options: ["A. 荧光光谱", "B. 紫外光谱", "C. X射线衍射", "D. 圆二色性"],
+                correct: 2,
+                explanation: "X射线晶体学是测定蛋白质三维结构的最佳方法，能够提供原子级分辨率的结构信息。"
+            },
+            {
+                question: "免疫沉淀法（immunoprecipitation）一般用于分离（）。",
+                options: ["A. DNA", "B. RNA", "C. 蛋白质", "D. 脂类"],
+                correct: 2,
+                explanation: "免疫沉淀法利用抗原-抗体特异性结合原理，主要用于分离和纯化特定的蛋白质。"
+            },
+            {
+                question: "测定蛋白质在DNA上的结合部位的常用方法是（）。",
+                options: ["A. Western印迹", "B. PCR", "C. 限制性图谱分析", "D. DNaseI保护足迹分析"],
+                correct: 3,
+                explanation: "DNaseI保护足迹分析（footprinting）是测定蛋白质在DNA上结合部位的经典方法，通过保护特定DNA区域免受DNaseI消化来确定结合位点。"
+            },
+            {
+                question: "下列哪种蛋白质组分在280nm处具有最大的光吸收（）。",
+                options: ["A. 色氨酸吲哚基", "B. 酪氨酸苯酚基", "C. 苯丙氨酸苯环", "D. 半胱氨酸的巯基"],
+                correct: 0,
+                explanation: "色氨酸的吲哚基在280nm处具有最强的紫外吸收，是蛋白质280nm吸收的主要贡献者。"
+            },
+            {
+                question: "用于测定蛋白质分子量的层析方法是（）。",
+                options: ["A. 离子交换层析", "B. 凝胶过滤层析", "C. 亲和层析", "D. 疏水层析"],
+                correct: 1,
+                explanation: "凝胶过滤层析根据分子大小分离蛋白质，可以通过标准蛋白质的洗脱体积建立标准曲线来测定未知蛋白质的分子量。"
+            },
+            {
+                question: "高等生物基因组中含有大量的不编码蛋白质的序列，因此基因组的大小与其进化程度（）。",
+                options: ["A. 成正比", "B. 成反比", "C. 并不一一对应", "D. 完全无关"],
+                correct: 2,
+                explanation: "由于高等生物基因组中含有大量非编码序列，基因组大小与生物复杂性或进化程度并不一一对应，这被称为C值悖论。"
+            },
+            {
+                question: "用凝胶过滤柱（如Sephadex G-100）层析分离蛋白质时，总是（）。",
+                options: ["A. 分子质量小的先于分子质量大的下来", "B. 分子质量大的先于分子质量小的下来", "C. 等电点高的先下来", "D. 等电点低的先下来"],
+                correct: 1,
+                explanation: "在凝胶过滤层析中，大分子不能进入凝胶孔隙，沿柱外空间快速流动，因此大分子先洗脱，小分子后洗脱。"
+            },
+            {
+                question: "蛋白质变性后，其构象发生改变而构型（）。",
+                options: ["A. 也发生改变", "B. 不变", "C. 部分改变", "D. 完全破坏"],
+                correct: 1,
+                explanation: "蛋白质变性时，三维构象（空间结构）发生改变，但一级结构（氨基酸序列，即构型）保持不变。"
+            },
+            {
+                question: "Illumina二代高通量测序技术的核心原理是（）。",
+                options: ["A. 链终止法", "B. 边合成边测序", "C. 焦磷酸测序", "D. 纳米孔测序"],
+                correct: 1,
+                explanation: "Illumina技术使用边合成边测序（sequencing by synthesis）的方法，每个碱基在加入时发出特异性荧光信号。"
+            },
+            {
+                question: "酵母双杂交系统的基本原理是（）。",
+                options: ["A. 蛋白质互补", "B. 转录因子重构", "C. 酶活性检测", "D. 荧光共振能量转移"],
+                correct: 1,
+                explanation: "酵母双杂交系统利用转录因子的DNA结合域和激活域分离后可重新组装激活转录的原理来检测蛋白质相互作用。"
+            },
+            {
+                question: "非编码RNA不包括（）。",
+                options: ["A. miRNA", "B. siRNA", "C. lncRNA", "D. mRNA"],
+                correct: 3,
+                explanation: "mRNA是编码RNA，翻译成蛋白质。miRNA、siRNA和lncRNA都是非编码RNA，参与基因表达调控。"
+            },
+            {
+                question: "基因芯片技术主要用于（）。",
+                options: ["A. 蛋白质结构分析", "B. 基因表达分析", "C. DNA测序", "D. 蛋白质相互作用研究"],
+                correct: 1,
+                explanation: "基因芯片技术主要用于大规模基因表达分析，可以同时检测数万个基因的表达水平。"
+            },
+            {
+                question: "转座子对基因组的影响不包括（）。",
+                options: ["A. 改变基因结构", "B. 引起染色体断裂", "C. 参与染色体基本结构形成", "D. 直接编码蛋白质"],
+                correct: 3,
+                explanation: "转座子本身通常不编码功能蛋白质，但可以改变基因结构、引起染色体重排，并参与着丝粒、端粒等染色体结构的形成。"
+            },
+            {
+                question: "蛋白质组学研究的核心内容不包括（）。",
+                options: ["A. 蛋白质表达水平", "B. 翻译后修饰", "C. 蛋白质相互作用", "D. DNA序列分析"],
+                correct: 3,
+                explanation: "蛋白质组学主要研究蛋白质的表达、修饰、相互作用等，DNA序列分析属于基因组学研究范畴。"
+            },
+            {
+                question: "生物信息学的主要任务不包括（）。",
+                options: ["A. 序列比对分析", "B. 蛋白质结构预测", "C. 实验室蛋白质纯化", "D. 功能注释"],
+                correct: 2,
+                explanation: "生物信息学是计算生物学，主要进行数据分析和预测，不包括实际的实验室操作如蛋白质纯化。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+        let quizSubmitted = false;
+
+        // 页面加载时自动生成题目
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        // 从题库中随机选择15道题
+        function generateQuiz() {
+            currentQuestions = [];
+            userAnswers = [];
+            quizSubmitted = false;
+            
+            // 随机选择15道题
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            
+            // 生成HTML
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 隐藏结果
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-feedback').style.display = 'none';
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            if (quizSubmitted) return;
+            
+            userAnswers = [];
+            let allAnswered = true;
+            
+            // 收集答案
+            for (let i = 0; i < currentQuestions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    userAnswers[i] = parseInt(selected.value);
+                } else {
+                    allAnswered = false;
+                    break;
+                }
+            }
+            
+            if (!allAnswered) {
+                alert('请回答所有题目后再提交！');
+                return;
+            }
+            
+            quizSubmitted = true;
+            
+            // 计算得分
+            let correct = 0;
+            for (let i = 0; i < currentQuestions.length; i++) {
+                if (userAnswers[i] === currentQuestions[i].correct) {
+                    correct++;
+                }
+            }
+            
+            // 显示结果
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((correct / currentQuestions.length) * 100);
+            resultDiv.innerHTML = `
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">${correct}</div>
+                        <div class="stat-label">答对题数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">${currentQuestions.length}</div>
+                        <div class="stat-label">总题数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">${percentage}%</div>
+                        <div class="stat-label">正确率</div>
+                    </div>
+                </div>
+                <p><strong>测试完成！</strong> 您答对了 ${correct} 道题，正确率为 ${percentage}%</p>
+            `;
+            resultDiv.className = percentage >= 60 ? 'result correct' : 'result incorrect';
+            resultDiv.style.display = 'block';
+            
+            // 显示详细反馈
+            showFeedback();
+        }
+
+        // 显示答题反馈
+        function showFeedback() {
+            const feedbackDiv = document.getElementById('quiz-feedback');
+            let feedbackHTML = '<h3>详细解析</h3>';
+            
+            for (let i = 0; i < currentQuestions.length; i++) {
+                const q = currentQuestions[i];
+                const userAnswer = userAnswers[i];
+                const isCorrect = userAnswer === q.correct;
+                
+                feedbackHTML += `
+                    <div class="feedback-item ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}">
+                        <h4>第${i + 1}题：${q.question}</h4>
+                        <p><strong>您的答案：</strong>${q.options[userAnswer]}</p>
+                        <p><strong>正确答案：</strong>${q.options[q.correct]}</p>
+                        <p><strong>结果：</strong>${isCorrect ? '✓ 正确' : '✗ 错误'}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            }
+            
+            feedbackDiv.innerHTML = feedbackHTML;
+            feedbackDiv.style.display = 'block';
+        }
+
+        // 重新开始测试
+        function resetQuiz() {
+            generateQuiz();
+        }
+    </script>
+</body>
+</html>

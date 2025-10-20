@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>真核基因表达调控 - 考研复习笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-family: "KaiTi", "楷体", cursive;
+        }
+
+        .section h3 {
+            color: #3498db;
+            font-size: 1.4em;
+            margin: 15px 0 10px 0;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .term {
+            background-color: #e8f4fd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .quiz-container {
+            background-color: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .option {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .thinking-question {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 2px solid #6c757d;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .answer {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #6c757d;
+        }
+
+        .answer ol {
+            padding-left: 20px;
+        }
+
+        .answer li {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            padding-left: 30px;
+            margin: 15px 0;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .pathway-diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .score-display {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>真核基因表达调控</h1>
+            <p>现代分子生物学 · 考研复习笔记</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2>一、真核基因表达调控概述</h2>
+                
+                <div class="highlight">
+                    <p><strong>基因表达调控</strong>是指细胞在特定时间和空间条件下，通过多种分子机制精确控制基因转录、转录后加工、翻译及翻译后修饰等过程，从而调节蛋白质的种类、数量和活性，最终实现细胞功能的精确调控。</p>
+                </div>
+
+                <h3>1.1 真核与原核基因表达调控的差异</h3>
+                <ul>
+                    <li><span class="important">空间分离</span>：真核细胞转录在核内进行，翻译在胞质进行，存在时空分离</li>
+                    <li><span class="important">染色质结构</span>：真核DNA与组蛋白结合形成染色质，调控更加复杂</li>
+                    <li><span class="important">转录后加工</span>：真核mRNA需要经过5'加帽、3'加尾、剪接等加工过程</li>
+                    <li><span class="important">调控元件</span>：真核基因具有更多、更复杂的调控序列</li>
+                    <li><span class="important">表观遗传</span>：DNA甲基化、组蛋白修饰等表观遗传机制参与调控</li>
+                </ul>
+
+                <h3>1.2 真核基因表达调控的层次</h3>
+                <ol>
+                    <li><strong>转录前水平</strong>：染色质重塑、DNA甲基化、组蛋白修饰</li>
+                    <li><strong>转录水平</strong>：启动子、增强子、转录因子的调控</li>
+                    <li><strong>转录后水平</strong>：mRNA剪接、编辑、稳定性调控</li>
+                    <li><strong>翻译水平</strong>：翻译起始、延伸、终止的调控</li>
+                    <li><strong>翻译后水平</strong>：蛋白质修饰、定位、降解</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>二、转录水平调控</h2>
+                
+                <h3>2.1 顺式作用元件</h3>
+                <p>顺式作用元件是基因组中能够调控自身基因表达活性的特异DNA序列，主要包括：</p>
+                
+                <div class="term">
+                    <div class="term-name">启动子 <span class="term-english">(Promoter)</span></div>
+                    <p>位于基因转录起始位点上游的DNA序列，是RNA聚合酶II结合和转录起始的必需序列。核心启动子包含TATA盒、CAAT盒、GC盒等元件。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">增强子 <span class="term-english">(Enhancer)</span></div>
+                    <p>能够增强基因转录活性的DNA序列，可位于基因的上游、下游或内含子中，具有方向性和距离无关性。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">沉默子 <span class="term-english">(Silencer)</span></div>
+                    <p>能够抑制基因转录的DNA序列，与增强子作用相反，同样具有方向性和距离无关性。</p>
+                </div>
+
+                <h3>2.2 反式作用因子</h3>
+                <p>反式作用因子是能够结合在顺式作用元件上调控基因表达的蛋白质或RNA分子。</p>
+
+                <div class="term">
+                    <div class="term-name">转录因子 <span class="term-english">(Transcription Factors, TFs)</span></div>
+                    <p>能够特异性结合DNA序列并调控转录的蛋白质。包括通用转录因子（如TFIIA、TFIIB等）和特异性转录因子。</p>
+                </div>
+
+                <h3>2.3 常见DNA结合结构域</h3>
+                <ul>
+                    <li><strong>螺旋-转角-螺旋</strong>（Helix-Turn-Helix, HTH）</li>
+                    <li><strong>锌指结构</strong>（Zinc Finger）</li>
+                    <li><strong>碱性亮氨酸拉链</strong>（Basic Leucine Zipper, bZIP）</li>
+                    <li><strong>螺旋-环-螺旋</strong>（Helix-Loop-Helix, HLH）</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>碱性亮氨酸拉链结构特点</strong>：由碱性DNA结合区和亮氨酸拉链二聚化区组成。亮氨酸拉链由两个α螺旋组成，每隔7个氨基酸出现一个亮氨酸残基，形成疏水性拉链结构。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>三、表观遗传调控</h2>
+                
+                <div class="term">
+                    <div class="term-name">表观遗传学 <span class="term-english">(Epigenetics)</span></div>
+                    <p>研究在不改变DNA序列的情况下，基因表达发生可遗传改变的学科。主要机制包括DNA甲基化、组蛋白修饰和非编码RNA调控。</p>
+                </div>
+
+                <h3>3.1 DNA甲基化</h3>
+                <div class="term">
+                    <div class="term-name">DNA甲基化 <span class="term-english">(DNA Methylation)</span></div>
+                    <p>在DNA甲基转移酶（DNMT）催化下，甲基基团从S-腺苷甲硫氨酸转移到胞嘧啶的5号碳原子上，形成5-甲基胞嘧啶（5mC）。主要发生在CpG二核苷酸序列上。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">CpG岛 <span class="term-english">(CpG Islands)</span></div>
+                    <p>富含CpG二核苷酸的DNA区域，长度通常为500-2000bp，GC含量>50%，CpG观察值/期望值>0.6。多位于基因启动子区域，正常情况下处于非甲基化状态。</p>
+                </div>
+
+                <p><strong>DNA甲基化的生物学意义：</strong></p>
+                <ul>
+                    <li>基因转录抑制：启动子区CpG岛甲基化导致基因沉默</li>
+                    <li>X染色体失活：雌性哺乳动物X染色体剂量补偿机制</li>
+                    <li>基因组印记：父源或母源特异性基因表达</li>
+                    <li>转座子沉默：维持基因组稳定性</li>
+                </ul>
+
+                <h3>3.2 组蛋白修饰</h3>
+                <p>组蛋白修饰是发生在组蛋白N端尾部的共价修饰，主要包括：</p>
+
+                <div class="term">
+                    <div class="term-name">组蛋白乙酰化 <span class="term-english">(Histone Acetylation)</span></div>
+                    <p>在组蛋白乙酰转移酶（HAT）催化下，乙酰基团结合到组蛋白赖氨酸残基上。乙酰化通常与转录激活相关，因为它能够松散染色质结构。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">组蛋白甲基化 <span class="term-english">(Histone Methylation)</span></div>
+                    <p>在组蛋白甲基转移酶（HMT）催化下，甲基基团结合到组蛋白赖氨酸或精氨酸残基上。不同位点的甲基化具有不同的功能：H3K4me3与转录激活相关，H3K9me3与转录抑制相关。</p>
+                </div>
+
+                <div class="pathway-diagram">
+                    <p><strong>组蛋白修饰的"读写擦"机制</strong></p>
+                    <p>写入酶（Writers）→ 识别酶（Readers）→ 擦除酶（Erasers）</p>
+                    <p>HAT/HMT → 含特定结构域的蛋白 → HDAC/HDM</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>四、非编码RNA调控</h2>
+                
+                <h3>4.1 小干扰RNA（siRNA）</h3>
+                <div class="term">
+                    <div class="term-name">siRNA <span class="term-english">(Small Interfering RNA)</span></div>
+                    <p>长度为20-25个核苷酸的双链RNA分子，通过RNA干扰（RNAi）机制调控基因表达。siRNA与RISC复合体结合，引导mRNA的切割降解。</p>
+                </div>
+
+                <p><strong>siRNA的生物合成过程：</strong></p>
+                <ol>
+                    <li>长双链RNA被Dicer酶切割成siRNA</li>
+                    <li>siRNA双链解开，反义链结合RISC复合体</li>
+                    <li>RISC-siRNA复合体识别互补mRNA</li>
+                    <li>Argonaute蛋白切割目标mRNA</li>
+                </ol>
+
+                <h3>4.2 微小RNA（miRNA）</h3>
+                <div class="term">
+                    <div class="term-name">miRNA <span class="term-english">(MicroRNA)</span></div>
+                    <p>长度约22个核苷酸的单链非编码RNA，通过与目标mRNA的3'UTR结合，抑制翻译或促进mRNA降解。</p>
+                </div>
+
+                <p><strong>miRNA的生物合成过程：</strong></p>
+                <ol>
+                    <li>pri-miRNA在核内由RNA聚合酶II转录</li>
+                    <li>Drosha-DGCR8复合体将pri-miRNA加工成pre-miRNA</li>
+                    <li>pre-miRNA由Exportin-5转运到胞质</li>
+                    <li>Dicer将pre-miRNA加工成成熟miRNA</li>
+                    <li>成熟miRNA结合RISC复合体发挥调控功能</li>
+                </ol>
+
+                <h3>4.3 长链非编码RNA（lncRNA）</h3>
+                <div class="term">
+                    <div class="term-name">lncRNA <span class="term-english">(Long Non-coding RNA)</span></div>
+                    <p>长度超过200个核苷酸的非编码RNA，通过多种机制调控基因表达，包括转录调控、转录后调控、表观遗传调控等。</p>
+                </div>
+
+                <p><strong>lncRNA的作用机制：</strong></p>
+                <ul>
+                    <li><strong>分子诱饵</strong>：结合转录因子或miRNA，阻止其发挥功能</li>
+                    <li><strong>分子支架</strong>：招募多个蛋白质形成功能复合体</li>
+                    <li><strong>转录调控</strong>：调节邻近基因的转录活性</li>
+                    <li><strong>表观遗传调控</strong>：招募染色质修饰酶改变染色质状态</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>五、激素调控与信号转导</h2>
+                
+                <h3>5.1 激素影响基因表达的基本模式</h3>
+                
+                <div class="term">
+                    <div class="term-name">受体流动假说 <span class="term-english">(Receptor Mobility Hypothesis)</span></div>
+                    <p>类固醇激素与胞质受体结合后，激素-受体复合体转位到细胞核，直接结合DNA调控基因转录。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">中介物假说 <span class="term-english">(Mediator Hypothesis)</span></div>
+                    <p>多肽激素通过膜受体激活细胞内信号转导途径，产生第二信使，间接调控基因表达。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">邻位互调假说 <span class="term-english">(Allosteric Hypothesis)</span></div>
+                    <p>激素结合受体后引起受体构象变化，改变受体与DNA或其他蛋白质的相互作用。</p>
+                </div>
+
+                <h3>5.2 第二信使系统</h3>
+                <div class="term">
+                    <div class="term-name">第二信使 <span class="term-english">(Second Messenger)</span></div>
+                    <p>细胞内小分子化合物，将细胞外信号转换为细胞内生化反应。常见的第二信使包括cAMP、cGMP、IP3、DAG、Ca²⁺等。</p>
+                </div>
+
+                <p><strong>cAMP-PKA信号通路：</strong></p>
+                <ol>
+                    <li>激素结合G蛋白偶联受体</li>
+                    <li>激活腺苷酸环化酶，产生cAMP</li>
+                    <li>cAMP激活蛋白激酶A（PKA）</li>
+                    <li>PKA磷酸化CREB转录因子</li>
+                    <li>磷酸化CREB结合CRE序列，激活基因转录</li>
+                </ol>
+            </div>
+
+            <!-- 名词解释库板块 -->
+            <div class="section">
+                <h2>六、重要名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">基因组 <span class="term-english">(Genome)</span></div>
+                    <p>一个生物体细胞核内的全部遗传物质，包括所有的DNA序列和基因信息。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转录组 <span class="term-english">(Transcriptome)</span></div>
+                    <p>特定细胞、组织或发育阶段中所有转录产物（mRNA、tRNA、rRNA、非编码RNA等）的总和。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">染色质重塑 <span class="term-english">(Chromatin Remodeling)</span></div>
+                    <p>通过ATP依赖的蛋白质复合体改变核小体位置和染色质结构，调节DNA的可及性。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">基因印记 <span class="term-english">(Genomic Imprinting)</span></div>
+                    <p>根据基因的亲本来源（父源或母源）决定基因表达的表观遗传现象。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">RNA编辑 <span class="term-english">(RNA Editing)</span></div>
+                    <p>转录后RNA序列发生改变的过程，主要包括C-to-U编辑和A-to-I编辑。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">分子伴侣 <span class="term-english">(Molecular Chaperones)</span></div>
+                    <p>协助蛋白质正确折叠、组装、转运和降解的蛋白质，包括热激蛋白（HSP）家族。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">泛素化 <span class="term-english">(Ubiquitination)</span></div>
+                    <p>泛素蛋白共价结合到目标蛋白质上的翻译后修饰过程，通常标记蛋白质进行降解。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">RISC复合体 <span class="term-english">(RNA-Induced Silencing Complex)</span></div>
+                    <p>由Argonaute蛋白为核心组成的蛋白质复合体，介导siRNA和miRNA的基因沉默功能。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">核小体 <span class="term-english">(Nucleosome)</span></div>
+                    <p>染色质的基本结构单位，由组蛋白八聚体（H2A、H2B、H3、H4各两个）和缠绕其上的147bp DNA组成。</p>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转录起始复合体 <span class="term-english">(Transcription Initiation Complex)</span></div>
+                    <p>由RNA聚合酶II和多种通用转录因子在启动子区域形成的蛋白质复合体，负责转录起始。</p>
+                </div>
+            </div>
+
+            <!-- 选择题测试板块 -->
+            <div class="section">
+                <h2>七、选择题测试</h2>
+                <div class="quiz-container">
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" onclick="submitQuiz()">提交答案</button>
+                    <div id="quiz-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题板块 -->
+            <div class="section">
+                <h2>八、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述DNA甲基化在真核基因表达调控中的作用机制，并分析其在疾病发生中的意义。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>DNA甲基化的分子机制</strong>：DNA甲基转移酶（DNMT1、DNMT3A、DNMT3B）催化S-腺苷甲硫氨酸向胞嘧啶5号碳原子转移甲基基团，形成5-甲基胞嘧啶。这一过程主要发生在CpG二核苷酸序列上，特别是基因启动子区域的CpG岛。</li>
+                            <li><strong>转录抑制机制</strong>：启动子区域的DNA甲基化通过多种方式抑制基因转录：（1）直接阻止转录因子与DNA结合；（2）招募甲基化CpG结合蛋白（如MeCP2），进一步招募组蛋白去乙酰化酶和染色质重塑复合体；（3）形成异染色质结构，使DNA不易被转录机器接近。</li>
+                            <li><strong>表观遗传维持</strong>：DNA甲基化模式在细胞分裂过程中通过DNMT1的维持性甲基化活性得以保持，确保子细胞继承亲代细胞的基因表达模式，这是细胞分化和发育过程中基因表达稳定性的重要保障。</li>
+                            <li><strong>疾病相关性</strong>：异常的DNA甲基化与多种疾病密切相关，特别是癌症。肿瘤抑制基因（如p16、BRCA1、MLH1等）启动子区域的高甲基化导致基因沉默，是癌症发生的重要机制之一。此外，全基因组DNA低甲基化可能导致染色体不稳定性。</li>
+                            <li><strong>治疗靶点价值</strong>：由于DNA甲基化的可逆性，DNA甲基转移酶抑制剂（如5-氮杂胞苷）已被用于癌症治疗。同时，DNA甲基化模式可作为疾病诊断和预后评估的生物标志物，为精准医学提供重要依据。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较分析siRNA和miRNA在基因表达调控中的异同点，并阐述其在生物医学研究中的应用前景。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>结构特征比较</strong>：siRNA为20-25个核苷酸的双链RNA分子，具有完全互补的双链结构和2个核苷酸的3'突出端；miRNA为约22个核苷酸的单链RNA，由较长的前体分子加工而来，具有特征性的茎环结构。两者都需要Dicer酶的加工，但加工过程和前体结构不同。</li>
+                            <li><strong>作用机制差异</strong>：siRNA通过与目标mRNA完全互补结合，引导RISC复合体中的Argonaute蛋白切割mRNA，导致mRNA降解；miRNA通常与目标mRNA的3'UTR区域不完全互补结合，主要抑制翻译起始或促进mRNA去腺苷酸化和降解，调控更加精细。</li>
+                            <li><strong>生物学功能对比</strong>：siRNA主要参与抵御外源核酸（如病毒RNA）和转座子的沉默，是细胞的防御机制；miRNA则是内源性基因表达调控的重要组成部分，参与发育、分化、代谢等多种生物学过程的精确调控。</li>
+                            <li><strong>治疗应用潜力</strong>：siRNA技术已被广泛应用于基因功能研究和疾病治疗，多个siRNA药物已进入临床试验或获得批准；miRNA则可作为疾病诊断的生物标志物，异常表达的miRNA与癌症、心血管疾病等密切相关，miRNA模拟物或抑制剂具有重要的治疗价值。</li>
+                            <li><strong>技术发展前景</strong>：随着递送系统的改进和脱靶效应的减少，RNA干扰技术在精准医学中的应用前景广阔。特别是在罕见病治疗、癌症个体化治疗和神经退行性疾病干预方面，siRNA和miRNA技术将发挥越来越重要的作用。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 阐述组蛋白修饰在真核基因表达调控中的"组蛋白密码"假说，并分析其在表观遗传学研究中的意义。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>组蛋白密码假说的核心内容</strong>：该假说认为组蛋白N端尾部的多种翻译后修饰（乙酰化、甲基化、磷酸化、泛素化等）以特定的组合模式出现，形成复杂的"密码"信息。这些修饰组合被特定的"读码器"蛋白识别，从而决定染色质的结构状态和基因的转录活性。</li>
+                            <li><strong>修饰类型与功能关联</strong>：不同的组蛋白修饰具有不同的功能意义：H3K4me3、H3K27ac等与转录激活相关；H3K9me3、H3K27me3等与转录抑制相关；H3S10ph与染色体凝缩相关。这些修饰通过改变染色质结构的紧密程度，调节转录因子和RNA聚合酶对DNA的可及性。</li>
+                            <li><strong>动态调控机制</strong>：组蛋白修饰的建立和维持涉及"写入酶"（如HAT、HMT）、"擦除酶"（如HDAC、HDM）和"读码器"（如含特定结构域的蛋白质）的协调作用。这种动态平衡使得基因表达能够响应内外环境变化，实现精确的时空调控。</li>
+                            <li><strong>表观遗传继承性</strong>：某些组蛋白修饰模式可以在细胞分裂过程中得到维持，通过招募相应的修饰酶和染色质重塑复合体，确保表观遗传信息的稳定传递。这为细胞记忆和分化状态的维持提供了分子基础。</li>
+                            <li><strong>疾病研究意义</strong>：组蛋白修饰异常与多种疾病相关，包括癌症、神经退行性疾病、代谢性疾病等。组蛋白修饰酶已成为重要的药物靶点，如HDAC抑制剂在癌症治疗中显示出良好的效果。同时，组蛋白修饰图谱分析为疾病机制研究和个体化治疗提供了新的思路和方法。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 分析真核基因表达调控的多层次性特点，并探讨其在细胞分化和发育过程中的重要作用。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>多层次调控体系</strong>：真核基因表达调控是一个多层次、多维度的复杂网络系统，包括转录前（染色质重塑、DNA甲基化）、转录中（启动子、增强子、转录因子）、转录后（mRNA剪接、编辑、稳定性）、翻译（翻译起始、核糖体结合）和翻译后（蛋白质修饰、定位、降解）等多个层面的精确调控。</li>
+                            <li><strong>时空特异性调控</strong>：不同的调控层次在时间和空间上具有特异性，转录水平调控主要决定基因是否表达，转录后调控影响mRNA的成熟和稳定性，翻译水平调控决定蛋白质的产生速度和数量，翻译后修饰则精细调节蛋白质的功能和定位。这种分层调控确保了基因表达的精确性和灵活性。</li>
+                            <li><strong>细胞分化中的作用</strong>：在细胞分化过程中，多层次基因表达调控协同作用，逐步建立细胞类型特异性的基因表达模式。转录因子网络决定细胞命运，表观遗传修饰维持分化状态，非编码RNA参与精细调节，蛋白质修饰响应环境信号，共同确保分化过程的有序进行和分化状态的稳定维持。</li>
+                            <li><strong>发育过程的调控机制</strong>：在胚胎发育过程中，基因表达的时空特异性调控至关重要。同源异型基因（Hox基因）的顺序表达决定体轴模式，信号分子梯度建立位置信息，细胞间通讯协调发育进程。多层次调控确保了发育过程中基因表达的精确时序和空间模式。</li>
+                            <li><strong>调控网络的鲁棒性</strong>：多层次调控体系提供了强大的缓冲机制，当某一层次出现异常时，其他层次可以进行补偿，维持基因表达的稳定性。这种鲁棒性对于生物体适应环境变化、抵抗突变影响具有重要意义，同时也为疾病治疗提供了多个潜在的干预靶点。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>5. 论述长链非编码RNA（lncRNA）在真核基因表达调控中的多样化作用机制及其研究前景。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>分子诱饵机制</strong>：lncRNA可以作为分子诱饵，竞争性结合转录因子、转录辅助因子或miRNA，阻止它们与目标基因或mRNA结合。例如，lncRNA HOTAIR通过结合PRC2复合体，调控HOX基因的表达；lncRNA HULC作为miRNA海绵，调节肝癌相关基因的表达。这种机制体现了lncRNA在基因调控网络中的重要节点作用。</li>
+                            <li><strong>分子支架功能</strong>：许多lncRNA具有分子支架功能，能够招募和组织多个蛋白质因子形成功能性复合体。lncRNA通过其特定的二级和三级结构，为蛋白质-蛋白质相互作用提供平台，增强或抑制特定的生物学过程。这种支架功能使得lncRNA能够整合多种调控信号，实现复杂的基因表达调控。</li>
+                            <li><strong>表观遗传调控</strong>：lncRNA在表观遗传调控中发挥关键作用，能够招募染色质修饰酶（如PRC2、LSD1等）到特定的基因位点，建立或维持特定的染色质状态。例如，lncRNA Xist参与X染色体失活，通过招募PRC2复合体建立H3K27me3修饰，形成异染色质结构。</li>
+                            <li><strong>转录调控机制</strong>：lncRNA可以通过多种方式调控转录过程：（1）顺式调控邻近基因的表达；（2）反式调控远距离基因的表达；（3）调节RNA聚合酶II的活性和转录延伸；（4）影响染色质环化和基因组三维结构。这些机制使得lncRNA成为基因转录调控网络的重要组成部分。</li>
+                            <li><strong>研究前景与挑战</strong>：lncRNA研究领域具有巨大的发展潜力，在疾病诊断、治疗靶点发现和生物标志物开发方面前景广阔。然而，lncRNA功能研究仍面临诸多挑战：（1）功能机制的复杂性和多样性；（2）组织和细胞类型特异性；（3）进化保守性较低；（4）技术方法的局限性。未来需要发展更加精确的研究技术和方法，深入解析lncRNA的功能机制及其在人类疾病中的作用。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库：30道选择题
+        const questionBank = [
+            {
+                question: "真核基因表达调控与原核基因表达调控的主要区别不包括：",
+                options: ["A. 真核细胞转录和翻译在时空上分离", "B. 真核DNA与组蛋白结合形成染色质", "C. 真核基因具有内含子和外显子结构", "D. 真核细胞只有一种RNA聚合酶"],
+                correct: 3,
+                explanation: "真核细胞有三种RNA聚合酶（RNA Pol I、II、III），分别转录不同类型的RNA。RNA Pol I转录rRNA，RNA Pol II转录mRNA，RNA Pol III转录tRNA和5S rRNA。"
+            },
+            {
+                question: "下列关于CpG岛的描述，错误的是：",
+                options: ["A. CpG岛是富含CpG二核苷酸的DNA区域", "B. CpG岛通常位于基因的启动子区域", "C. 正常情况下CpG岛处于高甲基化状态", "D. CpG岛的甲基化与基因沉默相关"],
+                correct: 2,
+                explanation: "正常情况下，CpG岛处于非甲基化状态，这有利于基因的正常表达。只有在病理状态下（如癌症），CpG岛才会发生异常甲基化，导致基因沉默。"
+            },
+            {
+                question: "组蛋白乙酰化修饰的主要功能是：",
+                options: ["A. 促进染色质凝缩", "B. 抑制基因转录", "C. 松散染色质结构，激活转录", "D. 标记蛋白质降解"],
+                correct: 2,
+                explanation: "组蛋白乙酰化通过中和组蛋白的正电荷，减弱组蛋白与DNA的结合，使染色质结构松散，有利于转录因子和RNA聚合酶的结合，从而激活基因转录。"
+            },
+            {
+                question: "siRNA和miRNA的共同特点不包括：",
+                options: ["A. 都需要Dicer酶的加工", "B. 都结合RISC复合体发挥功能", "C. 都是双链RNA分子", "D. 都参与转录后基因表达调控"],
+                correct: 2,
+                explanation: "成熟的miRNA是单链RNA分子，而siRNA是双链RNA分子。虽然miRNA的前体（pre-miRNA）是双链结构，但成熟的miRNA是单链的。"
+            },
+            {
+                question: "下列哪种组蛋白修饰通常与基因转录激活相关：",
+                options: ["A. H3K9me3", "B. H3K27me3", "C. H3K4me3", "D. H3K20me3"],
+                correct: 2,
+                explanation: "H3K4me3（组蛋白H3第4位赖氨酸的三甲基化）是转录激活的标志性修饰，通常出现在活跃转录基因的启动子区域。而H3K9me3和H3K27me3通常与基因沉默相关。"
+            },
+            {
+                question: "DNA甲基转移酶DNMT1的主要功能是：",
+                options: ["A. 从头甲基化", "B. 维持性甲基化", "C. DNA去甲基化", "D. RNA甲基化"],
+                correct: 1,
+                explanation: "DNMT1主要负责维持性甲基化，在DNA复制过程中识别半甲基化的CpG位点，在新合成的DNA链上添加甲基基团，维持甲基化模式的遗传。"
+            },
+            {
+                question: "转录因子的DNA结合结构域中，碱性亮氨酸拉链（bZIP）的特点是：",
+                options: ["A. 含有锌离子配位结构", "B. 由碱性DNA结合区和亮氨酸拉链二聚化区组成", "C. 主要识别大沟中的嘌呤碱基", "D. 只能以单体形式结合DNA"],
+                correct: 1,
+                explanation: "bZIP结构域由两部分组成：碱性区域负责与DNA结合，亮氨酸拉链区域负责蛋白质二聚化。亮氨酸拉链是由两个α螺旋组成的疏水性拉链结构。"
+            },
+            {
+                question: "下列关于增强子的描述，正确的是：",
+                options: ["A. 增强子只能位于基因的上游", "B. 增强子的作用具有方向性", "C. 增强子可以远距离调控基因表达", "D. 增强子只在转录起始时发挥作用"],
+                correct: 2,
+                explanation: "增强子可以远距离调控基因表达，不受方向和距离限制。增强子可以位于基因的上游、下游或内含子中，通过DNA环化使远距离的增强子与启动子相互作用。"
+            },
+            {
+                question: "RNA干扰（RNAi）机制中，负责切割mRNA的蛋白质是：",
+                options: ["A. Dicer", "B. Drosha", "C. Argonaute", "D. Exportin-5"],
+                correct: 2,
+                explanation: "Argonaute蛋白是RISC复合体的核心组分，具有核酸内切酶活性，负责在siRNA引导下切割目标mRNA。Dicer负责加工双链RNA，Drosha加工pri-miRNA。"
+            },
+            {
+                question: "表观遗传学的定义是：",
+                options: ["A. 研究DNA序列变化的学科", "B. 研究不改变DNA序列的可遗传基因表达变化", "C. 研究蛋白质结构的学科", "D. 研究RNA剪接的学科"],
+                correct: 1,
+                explanation: "表观遗传学研究在不改变DNA序列的情况下，基因表达发生可遗传改变的现象和机制，主要包括DNA甲基化、组蛋白修饰和非编码RNA调控等。"
+            },
+            {
+                question: "miRNA主要通过结合mRNA的哪个区域发挥调控作用：",
+                options: ["A. 5'UTR", "B. 编码区", "C. 3'UTR", "D. 内含子"],
+                correct: 2,
+                explanation: "miRNA主要通过与目标mRNA的3'非翻译区（3'UTR）结合发挥调控作用。miRNA与3'UTR的结合通常是不完全互补的，主要抑制翻译或促进mRNA降解。"
+            },
+            {
+                question: "下列哪个不是通用转录因子：",
+                options: ["A. TFIIA", "B. TFIIB", "C. TFIID", "D. NF-κB"],
+                correct: 3,
+                explanation: "NF-κB是特异性转录因子，参与免疫反应和炎症反应的调控。TFIIA、TFIIB、TFIID等是通用转录因子，参与RNA聚合酶II转录起始复合体的形成。"
+            },
+            {
+                question: "组蛋白去乙酰化酶（HDAC）的主要功能是：",
+                options: ["A. 激活基因转录", "B. 抑制基因转录", "C. 促进DNA复制", "D. 参与DNA修复"],
+                correct: 1,
+                explanation: "HDAC通过去除组蛋白的乙酰基，增强组蛋白与DNA的结合，使染色质结构紧密，从而抑制基因转录。HDAC抑制剂已被用作抗癌药物。"
+            },
+            {
+                question: "X染色体失活过程中起关键作用的lncRNA是：",
+                options: ["A. HOTAIR", "B. Xist", "C. MALAT1", "D. H19"],
+                correct: 1,
+                explanation: "Xist（X-inactive specific transcript）是参与X染色体失活的关键lncRNA。Xist从X失活中心转录，覆盖整个X染色体，招募PRC2复合体建立抑制性染色质标记。"
+            },
+            {
+                question: "cAMP-PKA信号通路中，PKA的直接磷酸化靶点是：",
+                options: ["A. CREB", "B. c-Fos", "C. c-Jun", "D. NF-κB"],
+                correct: 0,
+                explanation: "在cAMP-PKA信号通路中，PKA直接磷酸化CREB转录因子的Ser133位点。磷酸化的CREB结合CRE（cAMP response element）序列，激活下游基因的转录。"
+            },
+            {
+                question: "下列关于核小体的描述，错误的是：",
+                options: ["A. 核小体是染色质的基本结构单位", "B. 核小体由组蛋白八聚体和DNA组成", "C. 每个核小体包含200bp的DNA", "D. 组蛋白H1参与核小体间的连接"],
+                correct: 2,
+                explanation: "每个核小体核心颗粒包含147bp的DNA，而不是200bp。200bp是指包括连接DNA在内的核小体重复单位的长度。"
+            },
+            {
+                question: "DNA甲基化主要发生在哪种序列上：",
+                options: ["A. AT序列", "B. GC序列", "C. CpG序列", "D. TA序列"],
+                correct: 2,
+                explanation: "在哺乳动物中，DNA甲基化主要发生在CpG二核苷酸序列的胞嘧啶上，形成5-甲基胞嘧啶。CpG序列在基因组中分布不均，主要集中在CpG岛中。"
+            },
+            {
+                question: "转录后基因沉默（PTGS）的主要机制是：",
+                options: ["A. DNA甲基化", "B. 组蛋白修饰", "C. RNA干扰", "D. 转录因子调控"],
+                correct: 2,
+                explanation: "转录后基因沉默（PTGS）主要通过RNA干扰机制实现，包括siRNA和miRNA介导的mRNA降解或翻译抑制。这是一种重要的转录后调控机制。"
+            },
+            {
+                question: "下列哪种修饰不属于组蛋白的翻译后修饰：",
+                options: ["A. 乙酰化", "B. 甲基化", "C. 磷酸化", "D. 糖基化"],
+                correct: 3,
+                explanation: "糖基化不是组蛋白的主要翻译后修饰。组蛋白的主要修饰包括乙酰化、甲基化、磷酸化、泛素化、SUMOylation等，这些修饰主要发生在组蛋白的N端尾部。"
+            },
+            {
+                question: "基因印记现象的分子基础主要是：",
+                options: ["A. DNA序列差异", "B. DNA甲基化差异", "C. 染色体结构差异", "D. 蛋白质修饰差异"],
+                correct: 1,
+                explanation: "基因印记现象的分子基础主要是父源和母源等位基因之间的DNA甲基化差异。这种甲基化差异在配子发生过程中建立，并在胚胎发育过程中维持。"
+            },
+            {
+                question: "RNA聚合酶II转录的基因产物是：",
+                options: ["A. tRNA", "B. rRNA", "C. mRNA", "D. 5S rRNA"],
+                correct: 2,
+                explanation: "RNA聚合酶II主要转录编码蛋白质的基因，产生mRNA前体，经过加工后形成成熟的mRNA。RNA聚合酶I转录大部分rRNA，RNA聚合酶III转录tRNA和5S rRNA。"
+            },
+            {
+                question: "下列关于转录因子的描述，正确的是：",
+                options: ["A. 所有转录因子都直接结合DNA", "B. 转录因子只能激活基因转录", "C. 转录因子具有DNA结合域和转录调节域", "D. 转录因子的活性不受调控"],
+                correct: 2,
+                explanation: "转录因子通常具有DNA结合域（识别特定DNA序列）和转录调节域（激活或抑制转录）。并非所有转录因子都直接结合DNA，有些通过蛋白质-蛋白质相互作用发挥功能。"
+            },
+            {
+                question: "染色质重塑复合体的主要功能是：",
+                options: ["A. 合成DNA", "B. 修复DNA损伤", "C. 改变核小体位置和染色质结构", "D. 降解蛋白质"],
+                correct: 2,
+                explanation: "染色质重塑复合体（如SWI/SNF）利用ATP水解提供的能量，改变核小体的位置和染色质结构，调节DNA的可及性，从而调控基因转录。"
+            },
+            {
+                question: "下列关于lncRNA的描述，错误的是：",
+                options: ["A. lncRNA长度超过200个核苷酸", "B. lncRNA不编码蛋白质", "C. 所有lncRNA都具有相同的作用机制", "D. lncRNA参与基因表达调控"],
+                correct: 2,
+                explanation: "lncRNA具有多样化的作用机制，包括分子诱饵、分子支架、转录调控、表观遗传调控等，不同的lncRNA具有不同的功能和作用机制。"
+            },
+            {
+                question: "热激蛋白（HSP）的主要功能是：",
+                options: ["A. 参与DNA复制", "B. 协助蛋白质折叠", "C. 调控基因转录", "D. 参与细胞分裂"],
+                correct: 1,
+                explanation: "热激蛋白是一类分子伴侣，主要功能是协助蛋白质的正确折叠、防止蛋白质聚集、协助蛋白质转运等，在细胞应激反应中发挥重要作用。"
+            },
+            {
+                question: "p53蛋白被称为'基因组守护者'，其主要功能是：",
+                options: ["A. 促进细胞增殖", "B. 调控细胞周期和凋亡", "C. 参与DNA复制", "D. 调控蛋白质合成"],
+                correct: 1,
+                explanation: "p53是重要的肿瘤抑制蛋白，在DNA损伤时被激活，通过调控细胞周期检查点和细胞凋亡，防止损伤细胞的恶性转化，维护基因组稳定性。"
+            },
+            {
+                question: "RNA剪接的主要场所是：",
+                options: ["A. 细胞质", "B. 细胞核", "C. 线粒体", "D. 内质网"],
+                correct: 1,
+                explanation: "RNA剪接主要在细胞核内进行，由剪接体（spliceosome）催化，去除内含子序列，连接外显子序列，形成成熟的mRNA。"
+            },
+            {
+                question: "下列哪种因子不参与转录起始复合体的形成：",
+                options: ["A. TFIID", "B. TFIIB", "C. RNA聚合酶II", "D. Argonaute"],
+                correct: 3,
+                explanation: "Argonaute蛋白是RISC复合体的核心组分，参与RNA干扰过程，不参与转录起始复合体的形成。TFIID、TFIIB和RNA聚合酶II都是转录起始复合体的重要组分。"
+            },
+            {
+                question: "基因表达调控的最终目的是：",
+                options: ["A. 增加DNA数量", "B. 调节蛋白质的种类、数量和活性", "C. 促进细胞分裂", "D. 维持DNA结构"],
+                correct: 1,
+                explanation: "基因表达调控的最终目的是调节蛋白质的种类、数量和活性，从而实现细胞功能的精确调控，适应内外环境的变化。"
+            }
+        ];
+
+        // 随机选择15道题
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const selectedQuestions = getRandomQuestions();
+            const container = document.getElementById('quiz-questions');
+            
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <label class="option">
+                            <input type="radio" name="q${index}" value="${optIndex}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            // 存储正确答案
+            window.correctAnswers = selectedQuestions.map(q => q.correct);
+            window.explanations = selectedQuestions.map(q => q.explanation);
+        }
+
+        // 提交答案
+        function submitQuiz() {
+            const questions = document.querySelectorAll('.question');
+            let score = 0;
+            let results = [];
+            
+            questions.forEach((question, index) => {
+                const selected = question.querySelector('input[type="radio"]:checked');
+                const userAnswer = selected ? parseInt(selected.value) : -1;
+                const correct = window.correctAnswers[index];
+                
+                if (userAnswer === correct) {
+                    score++;
+                    results.push({
+                        correct: true,
+                        userAnswer,
+                        correctAnswer: correct,
+                        explanation: window.explanations[index]
+                    });
+                } else {
+                    results.push({
+                        correct: false,
+                        userAnswer,
+                        correctAnswer: correct,
+                        explanation: window.explanations[index]
+                    });
+                }
+            });
+            
+            displayResults(score, results);
+        }
+
+        // 显示结果
+        function displayResults(score, results) {
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((score / 15) * 100);
+            
+            let resultHTML = `
+                <div class="score-display ${percentage >= 60 ? 'correct' : 'incorrect'}">
+                    得分：${score}/15 (${percentage}%)
+                </div>
+                <h4>详细解析：</h4>
+            `;
+            
+            results.forEach((result, index) => {
+                const statusClass = result.correct ? 'correct' : 'incorrect';
+                const statusText = result.correct ? '✓ 正确' : '✗ 错误';
+                
+                resultHTML += `
+                    <div class="${statusClass}" style="margin: 10px 0; padding: 10px; border-radius: 5px;">
+                        <strong>第${index + 1}题：${statusText}</strong><br>
+                        ${!result.correct ? `您的答案：选项${String.fromCharCode(65 + result.userAnswer)}<br>` : ''}
+                        正确答案：选项${String.fromCharCode(65 + result.correctAnswer)}<br>
+                        <strong>解析：</strong>${result.explanation}
+                    </div>
+                `;
+            });
+            
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.classList.add('show');
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>

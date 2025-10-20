@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>现代分子生物学绪论 - 考研复习笔记</title>
+    <style>
+        /* 基础样式设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SimSun", "宋体", serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 内容区域样式 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 强调文本样式 */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 名词解释样式 */
+        .term {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .term-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .term-english {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .term-definition {
+            margin-top: 8px;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* 选择题样式 */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        .option.correct {
+            background: #27ae60;
+            color: white;
+            border-color: #229954;
+        }
+
+        .option.incorrect {
+            background: #e74c3c;
+            color: white;
+            border-color: #c0392b;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px 5px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        /* 结果显示样式 */
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .feedback-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .feedback-correct {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+
+        .feedback-incorrect {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        /* 深度思考题样式 */
+        .thinking-question {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .thinking-question h4 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .answer {
+            background: white;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>现代分子生物学绪论</h1>
+            <p>考研专业课复习笔记 | 朱玉贤《现代分子生物学》第五版</p>
+        </div>
+
+        <div class="content">
+            <!-- 核心内容板块 -->
+            <div class="section">
+                <h2 class="section-title">一、分子生物学概述</h2>
+                
+                <p><span class="highlight">分子生物学</span>是从分子水平研究生物结构、组织和功能的一门学科，以<span class="important">核酸、蛋白质等生物大分子</span>的结构、形态及其在遗传信息和细胞信息传递中的作用和功能为研究对象。</p>
+
+                <h3>1. 理论基础的建立</h3>
+                
+                <h4>（1）进化论</h4>
+                <p>1859年，<span class="highlight">达尔文</span>提出"物竞天择，适者生存"的进化论思想，为生物学发展奠定了理论基础。</p>
+
+                <h4>（2）细胞学说</h4>
+                <ul>
+                    <li><strong>细胞的发现：</strong>17世纪末叶，荷兰的Leeuwenhoek(列文虎克)用自制的世界上第一架光学显微镜，首次发现了单细胞生物。</li>
+                    <li><strong>细胞学说的建立：</strong>19世纪德国人Schleiden(施莱登)和Schwann(施旺)提出细胞学说，其基本内容为：
+                        <ol>
+                            <li>细胞是有机体，一切动植物都是由细胞发育而来，并由细胞和细胞产物所构成。</li>
+                            <li>细胞是一个相对独立的单位，既有它"自己"的生命，又对与其他细胞共同组成的整体的生命起作用。</li>
+                            <li>新的细胞可以通过已存在的细胞繁殖产生。</li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <h4>（3）经典遗传学</h4>
+                <ul>
+                    <li><strong>孟德尔遗传学定律：</strong>Mendel(孟德尔)发现并提出<span class="important">分离定律和自由组合定律</span>。</li>
+                    <li><strong>摩尔根遗传学第三定律：</strong>Morgan(摩尔根)提出<span class="important">连锁交换定律</span>。</li>
+                </ul>
+
+                <h4>（4）DNA的发现</h4>
+                <ul>
+                    <li><strong>肺炎链球菌转化实验：</strong>
+                        <ul>
+                            <li>1928年，英国科学家Griffith(格里菲思)等人通过肺炎链球菌转化感染小鼠实验提出"转化因子"。</li>
+                            <li>1944年，<span class="highlight">Avery(艾弗里)证明DNA是遗传物质</span>。</li>
+                        </ul>
+                    </li>
+                    <li><strong>噬菌体侵染实验：</strong>1952年, <span class="highlight">Hershey(赫尔希)和Chase(蔡斯)</span>通过噬菌体侵染细菌实验证明DNA是遗传物质。</li>
+                </ul>
+            </div>
+
+            <!-- 分子生物学发展简史 -->
+            <div class="section">
+                <h2 class="section-title">二、分子生物学发展简史</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>年份</th>
+                            <th>人物</th>
+                            <th>重要事件</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1944年</td>
+                            <td>Avery(艾弗里)</td>
+                            <td>证明DNA是遗传物质</td>
+                        </tr>
+                        <tr>
+                            <td>1950年</td>
+                            <td>Chargaff(查伽夫)</td>
+                            <td>提出Chargaff定律</td>
+                        </tr>
+                        <tr>
+                            <td>1952年</td>
+                            <td>Hershey(赫尔希)和Chase(蔡斯)</td>
+                            <td>通过噬菌体侵染细菌实验证明DNA是遗传物质</td>
+                        </tr>
+                        <tr>
+                            <td>1953年</td>
+                            <td>Watson(沃森)和Crick(克里克)</td>
+                            <td>提出DNA的双螺旋结构模型</td>
+                        </tr>
+                        <tr>
+                            <td>1953年</td>
+                            <td>Sanger(桑格)</td>
+                            <td>胰岛素一级结构氨基酸的序列分析</td>
+                        </tr>
+                        <tr>
+                            <td>1958年</td>
+                            <td>Crick(克里克)</td>
+                            <td>提出中心法则</td>
+                        </tr>
+                        <tr>
+                            <td>1958年</td>
+                            <td>Meselson(梅塞尔森)和Stahl(斯塔尔)</td>
+                            <td>验证DNA的半保留复制</td>
+                        </tr>
+                        <tr>
+                            <td>1965年</td>
+                            <td>Jacob(雅各布)和Monod(莫诺)</td>
+                            <td>因提出并证实操纵子模型而获得诺贝尔生理学或医学奖</td>
+                        </tr>
+                        <tr>
+                            <td>1968年</td>
+                            <td>Nirenberg(尼伦伯格)</td>
+                            <td>因破译DNA遗传密码而获得诺贝尔生理学或医学奖</td>
+                        </tr>
+                        <tr>
+                            <td>1975年</td>
+                            <td>Temin(特明)、Dulbecco(杜尔贝科)和Baltimore(巴尔的摩)</td>
+                            <td>因发现逆转录酶而获得诺贝尔生理学或医学奖</td>
+                        </tr>
+                        <tr>
+                            <td>1975年</td>
+                            <td>Southern(索瑟恩)</td>
+                            <td>DNA印迹法</td>
+                        </tr>
+                        <tr>
+                            <td>1977年</td>
+                            <td>Sanger(桑格)、Maxam(马克萨姆)和Gilbert(吉尔伯特)</td>
+                            <td>DNA测序技术</td>
+                        </tr>
+                        <tr>
+                            <td>1977年</td>
+                            <td>Robert(罗伯茨)和Sharp(夏普)</td>
+                            <td>发现断裂基因</td>
+                        </tr>
+                        <tr>
+                            <td>2001年</td>
+                            <td>国际人类基因组计划(HGP)研究小组</td>
+                            <td>人类基因组测序完成</td>
+                        </tr>
+                        <tr>
+                            <td>2006年</td>
+                            <td>Fire(法尔)和Mello(梅洛)</td>
+                            <td>因发现RNA干扰机制而获得诺贝尔生理学或医学奖</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分子生物学主要研究内容 -->
+            <div class="section">
+                <h2 class="section-title">三、分子生物学主要研究内容</h2>
+                
+                <p>现代分子生物学研究内容主要包括：<span class="important">DNA重组技术；基因表达调控研究；结构分子生物学；基因组、功能基因组与生物信息学</span>。</p>
+
+                <h3>1. DNA重组技术</h3>
+                <p>DNA重组技术又称<span class="highlight">基因工程</span>，是将外源基因通过载体进行体外重组后导入受体细胞内，使这个基因能在受体细胞内复制、转录、翻译表达的操作。用途包括生产多肽，定向改造某些生物基因组结构，进行基础研究。</p>
+
+                <h3>2. 基因表达调控研究</h3>
+                <p>基因表达调控是生物体内基因表达的调节控制，使细胞中基因表达的过程在时间、空间上处于有序状态，并对环境条件的变化作出反应的复杂过程。</p>
+                <ul>
+                    <li><strong>原核生物：</strong>基因表达调控比真核生物简单，转录与翻译相偶联，基因表达调控主要发生在转录水平。</li>
+                    <li><strong>真核生物：</strong>基因表达在空间和时间上具有特异性，基因表达调控可以发生在DNA水平、转录水平、转录后水平、翻译水平和翻译后水平等多种不同层次。</li>
+                </ul>
+
+                <h3>3. 结构分子生物学</h3>
+                <p>结构分子生物学是研究<span class="highlight">生物大分子特定的三维结构及其变化规律与其生物学功能之间关系</span>的科学。</p>
+
+                <h3>4. 基因组、功能基因组与生物信息学研究</h3>
+                <ul>
+                    <li><strong>基因组计划：</strong>确定生物物种基因组所携带的全部遗传信息，并确定、阐明和记录组成生物物种基因组的全部DNA序列。</li>
+                    <li><strong>功能基因组学：</strong>研究基因的表达、调控与功能，以及基因间、基因与蛋白质之间和蛋白质与底物、蛋白质与蛋白质之间的相互作用和生物的生长发育等规律。</li>
+                    <li><strong>生物信息学：</strong>以核酸、蛋白质等生物大分子数据为主要对象，以数理科学、信息科学和计算机科学为主要手段，构建各种类型的专用数据库，研究开发面向生物学家的新一代计算机软件。</li>
+                </ul>
+            </div>
+
+            <!-- 名词解释库 -->
+            <div class="section">
+                <h2 class="section-title">四、名词解释库</h2>
+                
+                <div class="term">
+                    <div class="term-name">分子生物学</div>
+                    <div class="term-english">Molecular Biology</div>
+                    <div class="term-definition">从分子水平研究生物结构、组织和功能的一门学科，以核酸、蛋白质等生物大分子的结构、形态及其在遗传信息和细胞信息传递中的作用和功能为研究对象。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">DNA</div>
+                    <div class="term-english">Deoxyribonucleic Acid, 脱氧核糖核酸</div>
+                    <div class="term-definition">携带遗传信息的生物大分子，由脱氧核糖、磷酸和四种碱基（A、T、G、C）组成的双螺旋结构。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">RNA</div>
+                    <div class="term-english">Ribonucleic Acid, 核糖核酸</div>
+                    <div class="term-definition">由核糖、磷酸和四种碱基（A、U、G、C）组成的单链核酸分子，参与蛋白质合成和基因调控。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">mRNA</div>
+                    <div class="term-english">Messenger RNA, 信使RNA</div>
+                    <div class="term-definition">携带遗传信息从DNA到蛋白质合成机器的RNA分子，是蛋白质合成的模板。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">siRNA</div>
+                    <div class="term-english">Small Interfering RNA, 小干扰RNA</div>
+                    <div class="term-definition">长度为20-25个核苷酸的双链RNA分子，能够特异性地沉默目标基因的表达。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">基因工程</div>
+                    <div class="term-english">Genetic Engineering</div>
+                    <div class="term-definition">又称重组DNA技术，是指将一种生物体的基因与载体在体外进行拼接重组，然后转入另一种受体生物内，使之按照人们的意愿产生稳定遗传并表达出新产物或新性状的DNA体外操作程序。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">中心法则</div>
+                    <div class="term-english">Central Dogma</div>
+                    <div class="term-definition">由Crick(克里克)提出，描述遗传信息从DNA到RNA再到蛋白质的流动方向：DNA→RNA→蛋白质。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">操纵子</div>
+                    <div class="term-english">Operon</div>
+                    <div class="term-definition">由Jacob(雅各布)和Monod(莫诺)提出的基因调控模型，包括启动子、操纵基因和结构基因，是原核生物基因表达调控的基本单位。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">转化因子</div>
+                    <div class="term-english">Transforming Factor</div>
+                    <div class="term-definition">Griffith(格里菲思)在肺炎链球菌转化实验中提出的概念，后被证明是DNA，能够改变细菌的遗传性状。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">Chargaff(查伽夫)定律</div>
+                    <div class="term-english">Chargaff's Rule</div>
+                    <div class="term-definition">DNA中腺嘌呤（A）的数量等于胸腺嘧啶（T）的数量，鸟嘌呤（G）的数量等于胞嘧啶（C）的数量。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">半保留复制</div>
+                    <div class="term-english">Semi-conservative Replication</div>
+                    <div class="term-definition">DNA复制方式，每个新合成的DNA分子都含有一条原来的链和一条新合成的链，由Meselson(梅塞尔森)和Stahl(斯塔尔)实验证实。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">功能基因组学</div>
+                    <div class="term-english">Functional Genomics</div>
+                    <div class="term-definition">研究基因的表达、调控与功能，以及基因间、基因与蛋白质之间相互作用的学科。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">生物信息学</div>
+                    <div class="term-english">Bioinformatics</div>
+                    <div class="term-definition">以核酸、蛋白质等生物大分子数据为主要对象，以数理科学、信息科学和计算机科学为主要手段的交叉学科。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">结构分子生物学</div>
+                    <div class="term-english">Structural Molecular Biology</div>
+                    <div class="term-definition">研究生物大分子特定的三维结构及其变化规律与其生物学功能之间关系的科学。</div>
+                </div>
+
+                <div class="term">
+                    <div class="term-name">RNA干扰</div>
+                    <div class="term-english">RNA Interference, RNAi</div>
+                    <div class="term-definition">由Fire(法尔)和Mello(梅洛)发现的基因沉默机制，通过小RNA分子特异性地抑制目标基因的表达。</div>
+                </div>
+            </div>
+
+            <!-- 选择题测试 -->
+            <div class="section">
+                <h2 class="section-title">五、选择题测试</h2>
+                <div class="quiz-container">
+                    <p><strong>说明：</strong>本测试从30道题库中随机抽取15道题，每题4个选项，请选择最佳答案。</p>
+                    <div id="quiz-questions"></div>
+                    <button class="btn" id="submit-quiz" onclick="submitQuiz()" disabled>提交答案</button>
+                    <button class="btn" id="restart-quiz" onclick="restartQuiz()" style="display:none;">重新开始</button>
+                    <div id="quiz-result"></div>
+                    <div id="quiz-feedback"></div>
+                </div>
+            </div>
+
+            <!-- 深度思考题 -->
+            <div class="section">
+                <h2 class="section-title">六、深度思考题</h2>
+                
+                <div class="thinking-question">
+                    <h4>1. 试述分子生物学的发展对现代生物学研究产生了哪些重要影响？</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>研究方法的革新：</strong>分子生物学引入了从分子水平研究生命现象的方法，使生物学研究从宏观描述转向微观机制解析，大大提高了研究的精确性和深度。</li>
+                            <li><strong>遗传学理论的完善：</strong>通过DNA双螺旋结构的发现、遗传密码的破译和基因表达调控机制的阐明，使经典遗传学理论得到了分子水平的解释和验证。</li>
+                            <li><strong>生物技术的发展：</strong>基因工程、PCR技术、DNA测序技术等分子生物学技术的发展，为生物技术产业的兴起奠定了基础，推动了医药、农业、环保等领域的技术革新。</li>
+                            <li><strong>医学研究的突破：</strong>分子生物学为疾病的分子机制研究提供了强有力的工具，推动了基因治疗、个性化医疗、分子诊断等新兴医学领域的发展。</li>
+                            <li><strong>跨学科融合：</strong>分子生物学促进了生物学与化学、物理学、数学、计算机科学等学科的深度融合，催生了生物信息学、系统生物学等新兴交叉学科。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>2. 比较分析Avery(艾弗里)的肺炎链球菌转化实验和Hershey-Chase(赫尔希-蔡斯)的噬菌体侵染实验在证明DNA是遗传物质方面的异同点。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>相同点：</strong>
+                                <ul>
+                                    <li>实验目的相同：都是为了证明DNA是遗传物质</li>
+                                    <li>实验策略相似：都采用了排除法，通过消除其他可能的遗传物质来证明DNA的作用</li>
+                                    <li>实验结果一致：都成功证明了DNA是携带遗传信息的物质</li>
+                                </ul>
+                            </li>
+                            <li><strong>不同点：</strong>
+                                <ul>
+                                    <li>实验材料不同：Avery(艾弗里)使用肺炎链球菌，Hershey-Chase(赫尔希-蔡斯)使用T2噬菌体和大肠杆菌</li>
+                        <li>实验方法不同：Avery(艾弗里)采用酶降解法分别处理DNA、RNA和蛋白质；Hershey-Chase(赫尔希-蔡斯)采用放射性同位素标记法分别标记DNA和蛋白质</li>
+                        <li>检测指标不同：Avery(艾弗里)观察细菌转化能力的变化；Hershey-Chase(赫尔希-蔡斯)检测放射性在亲代和子代中的分布</li>
+                        <li>实验精确度不同：Hershey-Chase(赫尔希-蔡斯)实验使用放射性标记技术，结果更加精确和直观</li>
+                                </ul>
+                            </li>
+                            <li><strong>历史意义：</strong>两个实验相互补充，共同确立了DNA作为遗传物质的地位，为分子生物学的发展奠定了重要基础。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>3. 分析现代分子生物学四大研究内容之间的相互关系及其在生命科学发展中的作用。</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>DNA重组技术的基础作用：</strong>作为分子生物学的核心技术，为其他三个研究领域提供了重要的实验工具和技术支撑，使得基因的克隆、表达和功能研究成为可能。</li>
+                            <li><strong>基因表达调控研究的核心地位：</strong>揭示了生命活动的调控机制，为理解细胞分化、发育、疾病发生等复杂生物学过程提供了理论基础，同时指导DNA重组技术的改进和应用。</li>
+                            <li><strong>结构分子生物学的支撑作用：</strong>通过解析生物大分子的三维结构，为基因表达调控机制的阐明提供了结构基础，同时为基因工程中载体和工具酶的设计提供了理论指导。</li>
+                            <li><strong>基因组学和生物信息学的整合功能：</strong>为前三个领域提供了大数据支撑和系统性分析工具，使得从单个基因研究转向全基因组水平的系统研究成为可能。</li>
+                            <li><strong>协同发展的趋势：</strong>四个研究领域相互促进、协同发展，共同推动了系统生物学、合成生物学等新兴学科的产生，为精准医学、个性化治疗等应用领域的发展提供了强有力的技术支撑。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="thinking-question">
+                    <h4>4. 从分子生物学发展历程看，科学发现的规律性特点有哪些？对当代科研工作有何启示？</h4>
+                    <div class="answer">
+                        <ol>
+                            <li><strong>理论与实验相互促进：</strong>分子生物学的发展体现了理论假设与实验验证的良性循环，如DNA双螺旋模型的提出基于Chargaff(查伽夫)定律和X射线衍射数据，而模型的建立又指导了后续的实验设计。</li>
+                            <li><strong>技术突破推动学科发展：</strong>每一次重大技术突破都带来了学科的飞跃发展，如DNA测序技术的发明推动了基因组计划的实施，PCR技术的发明使基因克隆变得简单高效。</li>
+                            <li><strong>跨学科合作的重要性：</strong>分子生物学的发展离不开化学、物理学、数学等学科的支撑，体现了现代科学研究跨学科合作的必要性。</li>
+                            <li><strong>基础研究与应用研究并重：</strong>分子生物学既注重基础理论的建立，又重视技术应用的开发，基础研究为应用提供理论支撑，应用研究促进基础理论的完善。</li>
+                            <li><strong>对当代科研的启示：</strong>
+                                <ul>
+                                    <li>重视基础理论研究，为技术创新提供源动力</li>
+                                    <li>加强跨学科合作，整合不同领域的优势资源</li>
+                                    <li>注重技术创新，以技术突破推动学科发展</li>
+                                    <li>坚持长期积累，科学发现往往需要几代人的努力</li>
+                                    <li>保持开放心态，勇于挑战传统观念和理论</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 选择题题库（30道题）
+        const questionBank = [
+            {
+                question: "1953年Watson(沃森)和Crick(克里克)提出了什么重要理论？",
+                options: ["A. DNA是双螺旋结构", "B. DNA复制是半保留的", "C. 三个连续的核苷酸代表一个遗传密码", "D. 遗传物质通常是DNA而非RNA"],
+                correct: 0,
+                explanation: "Watson(沃森)和Crick(克里克)根据Chargaff(查伽夫)规则和DNA衍射结果提出了DNA的双螺旋结构模型，这是分子生物学发展史上的重要里程碑。"
+            },
+            {
+                question: "下列有关基因的叙述，错误的是？",
+                options: ["A. 蛋白质是基因表达的唯一产物", "B. 基因是DNA链上具有编码功能的片段", "C. 基因也可以是RNA", "D. 基因突变不一定导致其表达产物改变结构"],
+                correct: 0,
+                explanation: "基因表达的产物包括多肽链和功能性RNA分子，蛋白质不是基因表达的唯一产物。许多基因编码功能性RNA，如tRNA、rRNA等。"
+            },
+            {
+                question: "证明DNA是遗传物质的两个关键性实验的主要论点证据是？",
+                options: ["A. 从被感染的生物体内重新分离得到DNA", "B. DNA突变导致毒性丧失", "C. 生物体吸收的外源DNA改变了其遗传潜能", "D. DNA是不能在生物体间转移的分子"],
+                correct: 2,
+                explanation: "Avery(艾弗里)的肺炎链球菌转化实验和Hershey-Chase(赫尔希-蔡斯)的噬菌体侵染实验都证明了生物体是由于吸收了DNA，而非其他物质，改变了其遗传潜能。"
+            },
+            {
+                question: "发现乳糖操纵子而获得诺贝尔奖的两位科学家是？",
+                options: ["A. Watson(沃森)和Crick(克里克)", "B. Jacob(雅各布)和Monod(莫诺)", "C. Hershey(赫尔希)和Chase(蔡斯)", "D. Meselson(梅塞尔森)和Stahl(斯塔尔)"],
+                correct: 1,
+                explanation: "1965年，法国科学家Jacob(雅各布)和Monod(莫诺)由于提出并证实了操纵子作为调节细菌细胞代谢的分子机制而获得诺贝尔生理学或医学奖。"
+            },
+            {
+                question: "在分子生物学发展史上，两次获得诺贝尔奖的科学家是？",
+                options: ["A. Watson(沃森)", "B. Crick(克里克)", "C. Sanger(桑格)", "D. Avery(艾弗里)"],
+                correct: 2,
+                explanation: "Sanger(桑格)因测定了牛胰岛素的一级结构而获得1958年诺贝尔化学奖，又因设计出DNA分子内核苷酸序列测定方法而获得1980年诺贝尔化学奖。"
+            },
+            {
+                question: "基因的分子生物学定义是？",
+                options: ["A. 控制性状的遗传单位", "B. 产生一条多肽链或功能性RNA分子所必需的全部核苷酸序列", "C. DNA上的一个片段", "D. 编码蛋白质的DNA序列"],
+                correct: 1,
+                explanation: "基因的现代分子生物学定义是产生一条多肽链或功能性RNA分子所必需的全部核苷酸序列，这个定义更加准确和全面。"
+            },
+            {
+                question: "Chargaff(查伽夫)定律的内容是？",
+                options: ["A. DNA中A=T，G=C", "B. DNA是双螺旋结构", "C. DNA复制是半保留的", "D. 基因位于染色体上"],
+                correct: 0,
+                explanation: "Chargaff(查伽夫)定律指出DNA中腺嘌呤（A）的数量等于胸腺嘧啶（T）的数量，鸟嘌呤（G）的数量等于胞嘧啶（C）的数量。"
+            },
+            {
+                question: "中心法则是由谁提出的？",
+                options: ["A. Watson(沃森)", "B. Crick(克里克)", "C. Sanger(桑格)", "D. Nirenberg(尼伦伯格)"],
+                correct: 1,
+                explanation: "中心法则是由Crick(克里克)在1958年提出的，描述了遗传信息从DNA到RNA再到蛋白质的流动方向。"
+            },
+            {
+                question: "DNA的半保留复制是由哪个实验证实的？",
+                options: ["A. Griffith(格里菲思)的转化实验", "B. Hershey-Chase(赫尔希-蔡斯)实验", "C. Meselson-Stahl(梅塞尔森-斯塔尔)实验", "D. Avery(艾弗里)实验"],
+                correct: 2,
+                explanation: "Meselson(梅塞尔森)和Stahl(斯塔尔)在1958年通过同位素标记实验证实了DNA的半保留复制方式。"
+            },
+            {
+                question: "RNA干扰技术的发现者是？",
+                options: ["A. Fire(法尔)和Mello(梅洛)", "B. Watson(沃森)和Crick(克里克)", "C. Jacob(雅各布)和Monod(莫诺)", "D. Temin(特明)和Baltimore(巴尔的摩)"],
+                correct: 0,
+                explanation: "2006年，美国科学家Fire(法尔)和Mello(梅洛)因发现RNA干扰机制而获得诺贝尔生理学或医学奖。"
+            },
+            {
+                question: "人类基因组计划完成于哪一年？",
+                options: ["A. 1999年", "B. 2000年", "C. 2001年", "D. 2003年"],
+                correct: 2,
+                explanation: "国际人类基因组计划(HGP)研究小组在2001年完成了人类基因组测序工作。"
+            },
+            {
+                question: "下列哪项不属于分子生物学的主要研究内容？",
+                options: ["A. DNA重组技术", "B. 基因表达调控研究", "C. 结构分子生物学", "D. 细胞形态学研究"],
+                correct: 3,
+                explanation: "分子生物学的主要研究内容包括DNA重组技术、基因表达调控研究、结构分子生物学、基因组与功能基因组学研究，细胞形态学属于细胞生物学范畴。"
+            },
+            {
+                question: "逆转录酶的发现者包括？",
+                options: ["A. Temin(特明)", "B. Baltimore(巴尔的摩)", "C. Dulbecco(杜尔贝科)", "D. 以上都是"],
+                correct: 3,
+                explanation: "1975年，Temin(特明)、Dulbecco(杜尔贝科)和Baltimore(巴尔的摩)因发现逆转录酶而共同获得诺贝尔生理学或医学奖。"
+            },
+            {
+                question: "DNA印迹法是由谁发明的？",
+                options: ["A. Southern(索瑟恩)", "B. Northern", "C. Western", "D. Eastern"],
+                correct: 0,
+                explanation: "DNA印迹法（Southern blot）是由Southern(索瑟恩)在1975年发明的，用于检测特定DNA序列。"
+            },
+            {
+                question: "断裂基因的发现者是？",
+                options: ["A. Watson(沃森)和Crick(克里克)", "B. Robert(罗伯茨)和Sharp(夏普)", "C. Jacob(雅各布)和Monod(莫诺)", "D. Fire(法尔)和Mello(梅洛)"],
+                correct: 1,
+                explanation: "1977年，Robert(罗伯茨)和Sharp(夏普)发现了断裂基因（内含子和外显子结构），这一发现改变了人们对基因结构的认识。"
+            },
+            {
+                question: "下列关于原核生物基因表达调控的描述，正确的是？",
+                options: ["A. 主要发生在转录后水平", "B. 主要发生在转录水平", "C. 主要发生在翻译后水平", "D. 各个水平调控同等重要"],
+                correct: 1,
+                explanation: "原核生物的基因表达调控比真核生物简单，转录与翻译相偶联，基因表达调控主要发生在转录水平。"
+            },
+            {
+                question: "真核生物基因表达调控的特点是？",
+                options: ["A. 只发生在转录水平", "B. 只发生在翻译水平", "C. 可发生在多个水平", "D. 不存在调控机制"],
+                correct: 2,
+                explanation: "真核生物基因表达在空间和时间上具有特异性，基因表达调控可以发生在DNA水平、转录水平、转录后水平、翻译水平和翻译后水平等多种不同层次。"
+            },
+            {
+                question: "结构分子生物学主要研究什么？",
+                options: ["A. 基因序列", "B. 生物大分子的三维结构与功能关系", "C. 细胞分裂", "D. 生物进化"],
+                correct: 1,
+                explanation: "结构分子生物学是研究生物大分子特定的三维结构及其变化规律与其生物学功能之间关系的科学。"
+            },
+            {
+                question: "功能基因组学的研究目标是？",
+                options: ["A. 测定DNA序列", "B. 研究基因的表达、调控与功能", "C. 观察细胞形态", "D. 分析蛋白质结构"],
+                correct: 1,
+                explanation: "功能基因组学研究基因的表达、调控与功能，以及基因间、基因与蛋白质之间的相互作用和生物的生长发育等规律。"
+            },
+            {
+                question: "生物信息学的主要研究对象是？",
+                options: ["A. 细胞", "B. 组织", "C. 核酸、蛋白质等生物大分子数据", "D. 器官"],
+                correct: 2,
+                explanation: "生物信息学以核酸、蛋白质等生物大分子数据为主要对象，以数理科学、信息科学和计算机科学为主要手段。"
+            },
+            {
+                question: "孟德尔提出的遗传学定律包括？",
+                options: ["A. 分离定律", "B. 自由组合定律", "C. 连锁交换定律", "D. A和B"],
+                correct: 3,
+                explanation: "孟德尔提出了分离定律和自由组合定律，连锁交换定律是摩尔根提出的遗传学第三定律。"
+            },
+            {
+                question: "摩尔根提出的遗传学第三定律是？",
+                options: ["A. 分离定律", "B. 自由组合定律", "C. 连锁交换定律", "D. 中心法则"],
+                correct: 2,
+                explanation: "摩尔根通过果蝇实验提出了连锁交换定律，这是遗传学的第三定律。"
+            },
+            {
+                question: "细胞学说是由谁提出的？",
+                options: ["A. Darwin", "B. Schleiden和Schwann", "C. Mendel", "D. Morgan"],
+                correct: 1,
+                explanation: "19世纪德国人Schleiden和Schwann提出了细胞学说，奠定了细胞生物学的基础。"
+            },
+            {
+                question: "第一架光学显微镜是由谁制造的？",
+                options: ["A. Hooke", "B. Leeuwenhoek", "C. Schleiden", "D. Schwann"],
+                correct: 1,
+                explanation: "17世纪末叶，荷兰的Leeuwenhoek用自制的世界上第一架光学显微镜，首次发现了单细胞生物。"
+            },
+            {
+                question: "达尔文进化论的核心思想是？",
+                options: ["A. 用进废退", "B. 物竞天择，适者生存", "C. 获得性遗传", "D. 基因突变"],
+                correct: 1,
+                explanation: "1859年，达尔文提出\"物竞天择，适者生存\"的进化论思想，这是进化论的核心观点。"
+            },
+            {
+                question: "Griffith实验中的\"转化因子\"后来被证明是？",
+                options: ["A. 蛋白质", "B. RNA", "C. DNA", "D. 多糖"],
+                correct: 2,
+                explanation: "Griffith在1928年提出的\"转化因子\"概念，后来被Avery在1944年证明是DNA。"
+            },
+            {
+                question: "基因工程的另一个名称是？",
+                options: ["A. 蛋白质工程", "B. DNA重组技术", "C. 细胞工程", "D. 发酵工程"],
+                correct: 1,
+                explanation: "基因工程又称DNA重组技术，是将外源基因通过载体进行体外重组后导入受体细胞内的技术。"
+            },
+            {
+                question: "DNA测序技术的发明者包括？",
+                options: ["A. Sanger", "B. Maxam和Gilbert", "C. Watson和Crick", "D. A和B"],
+                correct: 3,
+                explanation: "1977年，Sanger、Maxam和Gilbert发明了DNA测序技术，为基因组学研究奠定了技术基础。"
+            },
+            {
+                question: "破译DNA遗传密码而获得诺贝尔奖的科学家是？",
+                options: ["A. Crick", "B. Nirenberg", "C. Watson", "D. Sanger"],
+                correct: 1,
+                explanation: "1968年，Nirenberg因破译DNA遗传密码而获得诺贝尔生理学或医学奖。"
+            },
+            {
+                question: "分子生物学作为一门学科的研究对象主要是？",
+                options: ["A. 细胞和组织", "B. 核酸和蛋白质等生物大分子", "C. 器官和系统", "D. 个体和群体"],
+                correct: 1,
+                explanation: "分子生物学以核酸、蛋白质等生物大分子的结构、形态及其在遗传信息和细胞信息传递中的作用和功能为研究对象。"
+            }
+        ];
+
+        let currentQuestions = [];
+        let userAnswers = [];
+        let quizSubmitted = false;
+
+        // 页面加载时自动生成测试题
+        window.onload = function() {
+            generateQuiz();
+        };
+
+        // 从题库中随机选择15道题
+        function generateQuiz() {
+            currentQuestions = [];
+            userAnswers = [];
+            quizSubmitted = false;
+            
+            // 随机选择15道题
+            const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 15);
+            
+            // 渲染题目
+            renderQuestions();
+            
+            // 重置按钮状态
+            document.getElementById('submit-quiz').disabled = true;
+            document.getElementById('submit-quiz').style.display = 'inline-block';
+            document.getElementById('restart-quiz').style.display = 'none';
+            document.getElementById('quiz-result').innerHTML = '';
+            document.getElementById('quiz-feedback').innerHTML = '';
+        }
+
+        // 渲染题目
+        function renderQuestions() {
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+            
+            currentQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.question}</div>
+                    ${q.options.map((option, optIndex) => `
+                        <button class="option" onclick="selectAnswer(${index}, ${optIndex})" id="q${index}_opt${optIndex}">
+                            ${option}
+                        </button>
+                    `).join('')}
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // 选择答案
+        function selectAnswer(questionIndex, optionIndex) {
+            if (quizSubmitted) return;
+            
+            // 清除该题的其他选项的选中状态
+            for (let i = 0; i < 4; i++) {
+                const opt = document.getElementById(`q${questionIndex}_opt${i}`);
+                opt.classList.remove('selected');
+            }
+            
+            // 设置当前选项为选中状态
+            document.getElementById(`q${questionIndex}_opt${optionIndex}`).classList.add('selected');
+            
+            // 记录用户答案
+            userAnswers[questionIndex] = optionIndex;
+            
+            // 检查是否所有题目都已回答
+            checkAllAnswered();
+        }
+
+        // 检查是否所有题目都已回答
+        function checkAllAnswered() {
+            const allAnswered = userAnswers.length === 15 && userAnswers.every(answer => answer !== undefined);
+            document.getElementById('submit-quiz').disabled = !allAnswered;
+        }
+
+        // 提交测试
+        function submitQuiz() {
+            if (quizSubmitted) return;
+            
+            quizSubmitted = true;
+            let correctCount = 0;
+            
+            // 计算得分并显示正确答案
+            currentQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                
+                if (isCorrect) {
+                    correctCount++;
+                }
+                
+                // 更新选项样式
+                for (let i = 0; i < 4; i++) {
+                    const opt = document.getElementById(`q${index}_opt${i}`);
+                    opt.style.pointerEvents = 'none';
+                    
+                    if (i === q.correct) {
+                        opt.classList.add('correct');
+                    } else if (i === userAnswer && !isCorrect) {
+                        opt.classList.add('incorrect');
+                    }
+                }
+            });
+            
+            // 显示结果
+            const percentage = Math.round((correctCount / 15) * 100);
+            document.getElementById('quiz-result').innerHTML = `
+                <div class="result">
+                    <h3>测试完成！</h3>
+                    <p>您答对了 <strong>${correctCount}</strong> 道题，共 <strong>15</strong> 道题</p>
+                    <p>正确率：<strong>${percentage}%</strong></p>
+                    ${percentage >= 80 ? '<p style="color: #27ae60;">🎉 优秀！您对分子生物学绪论掌握得很好！</p>' : 
+                      percentage >= 60 ? '<p style="color: #f39c12;">👍 良好！继续加油，还有提升空间！</p>' : 
+                      '<p style="color: #e74c3c;">💪 需要加强！建议重新复习相关知识点！</p>'}
+                </div>
+            `;
+            
+            // 显示详细反馈
+            showDetailedFeedback();
+            
+            // 显示重新开始按钮
+            document.getElementById('submit-quiz').style.display = 'none';
+            document.getElementById('restart-quiz').style.display = 'inline-block';
+        }
+
+        // 显示详细反馈
+        function showDetailedFeedback() {
+            const feedbackContainer = document.getElementById('quiz-feedback');
+            let feedbackHTML = '<h3>详细解析</h3>';
+            
+            currentQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const feedbackClass = isCorrect ? 'feedback-correct' : 'feedback-incorrect';
+                
+                feedbackHTML += `
+                    <div class="feedback-item ${feedbackClass}">
+                        <h4>第${index + 1}题：${q.question}</h4>
+                        <p><strong>您的答案：</strong>${q.options[userAnswer]}</p>
+                        <p><strong>正确答案：</strong>${q.options[q.correct]}</p>
+                        <p><strong>解析：</strong>${q.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            feedbackContainer.innerHTML = feedbackHTML;
+        }
+
+        // 重新开始测试
+        function restartQuiz() {
+            generateQuiz();
+        }
+    </script>
+</body>
+</html>
